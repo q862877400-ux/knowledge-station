@@ -1,0 +1,42 @@
+{
+ "A_考卷": [],
+ "B_补料": [],
+ "C_无依据": [
+  {
+   "source": "gx-igi-267",
+   "id": "157814435657",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814435657",
+   "question": "2024年广西农业国际博览会举办地和时间详情如何",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-267",
+   "id": "157814403701",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814403701",
+   "question": "请问下，百色市假冒伪劣农资产品投诉举报电话是多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-267",
+   "id": "157814201252",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814201252",
+   "question": "禁养区监督举报电话举报电话是多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-267",
+   "id": "157814187061",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814187061",
+   "question": "目前百色市上市的芒果有哪一些？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

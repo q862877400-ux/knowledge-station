@@ -1,0 +1,67 @@
+{
+ "A_考卷": [
+  {
+   "source": "gx-igi-257",
+   "id": "100124348",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=100124348",
+   "question": "现在农村宅基地怎么申请？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国土地管理法",
+     "lib_no": "土地管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "广西壮族自治区土地管理条例",
+    "农村宅基地批准书",
+    "乡村建设规划许可证",
+    "广西壮族自治区农村宅基地审批管理办法",
+    "广西壮族自治区自然资源厅 农业农村厅 住房和城乡建设厅关于修订桂自然资发［2020］70号文件部分内容的通知"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "gx-igi-257",
+   "id": "157814421153",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814421153",
+   "question": "工作人员你好，请问农房出租的最长年限是多少？",
+   "cited_hits": [],
+   "cited_missing": [
+    "中央农村工作领导小组办公室农业农村部关于进一步加强农村宅基地管理的通知"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "gx-igi-257",
+   "id": "157814403857",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814403857",
+   "question": "请问网站是否开设了政策文件相关栏目？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-257",
+   "id": "157814206411",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814206411",
+   "question": "屏幕那头的工作人员，新年好！我是贵港市木格镇良坡村的常驻民，得益于近年来政府大力招商引资和相关基层工作者带领下，以及其他资本参与者、技术人员等等多方合力的参与下，村里受益于富硒茶产业的发展，村里基础设施和环境美化、增产脱贫等方面都有很大的进",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-257",
+   "id": "1578112637",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=1578112637",
+   "question": "请问现在贵港市茶叶种植大概情况如何？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

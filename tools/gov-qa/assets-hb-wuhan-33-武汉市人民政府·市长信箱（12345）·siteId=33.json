@@ -1,0 +1,42 @@
+{
+ "A_考卷": [],
+ "B_补料": [],
+ "C_无依据": [
+  {
+   "source": "hb-wuhan-33",
+   "id": "11803",
+   "url": "https://www.wuhan.gov.cn/?id=11803",
+   "question": "横店新城如今各个小区都陆续交房了，人流也多了起来，但是出行仍然是难题。目前，为了解决这个问题开通了291区间车，但问题是非常难等，常常一个小时都等不到车，这样区间车岂不是失去了意义？此外，对于北辰、天纵城等小区的居民来说，区间车的意义并不大",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-33",
+   "id": "11801",
+   "url": "https://www.wuhan.gov.cn/?id=11801",
+   "question": "我想知道在黄陂开这种乡镇公交车有什么要求",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-33",
+   "id": "11772",
+   "url": "https://www.wuhan.gov.cn/?id=11772",
+   "question": "近期我想购买一套黄陂区前川街东风还建房，想问一下这个能否正常交易？后面能否办证？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-33",
+   "id": "11769",
+   "url": "https://www.wuhan.gov.cn/?id=11769",
+   "question": "盘龙城小孩打疫苗极不方便，每个星期一至星期五每天上午打，而且限号200个号，打疫苗要很早去排队取号，八点才能凭号打",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

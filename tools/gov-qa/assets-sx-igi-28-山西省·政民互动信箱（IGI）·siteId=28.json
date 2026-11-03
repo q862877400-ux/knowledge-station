@@ -1,0 +1,332 @@
+{
+ "A_考卷": [
+  {
+   "source": "sx-igi-28",
+   "id": "2143190",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2143190",
+   "question": "您好：我是国营永明无线电器材厂（4370厂）职工，单位与2010年左右破产了，当时的破产管理人时山西晋通公司，截至2024年12月，破产管理人是否还是山西晋通公司？破产管理人是否已经终止履行管理权利？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国企业破产法",
+     "lib_no": "企业破产法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-28",
+   "id": "2059757",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2059757",
+   "question": "尊敬的领导:我是山西省水务控股集团有限公司下属的万家寨引黄水务集团有限公司的一名退休人员，我于去年十一月份退休至今，我的养老待遇一直未能核算，省社保中心要求单位将职业年金补记后核算待遇，但是引黄集团公司不知何故迟迟不予办理，导致我们近两年的",
+   "cited_hits": [
+    {
+     "name": "信访工作条例",
+     "lib_no": "信访工作条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "sx-igi-28",
+   "id": "2189930",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2189930",
+   "question": "我公司为县国有企业，为发展公司业务计划成立子公司B公司， 现在山西政务网开办企业，企业名称自主申报时，提示我公司股东为国有企业，需对拟成立子公司B公司进场国有资产产权登记 。但是国资系统产权登记时需要提供企业名称自主申报告知书。现山西政务网",
+   "cited_hits": [],
+   "cited_missing": [
+    "防范和查处假冒企业登记违法行为规定",
+    "国家出资企业产权登记管理暂行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-28",
+   "id": "2066720",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2066720",
+   "question": "您好我想落实一下是不是国有资产股权交易价款支付采用分期付款的话，时间不允许超过一年",
+   "cited_hits": [],
+   "cited_missing": [
+    "企业国有资产交易监督管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-28",
+   "id": "1948378",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1948378",
+   "question": "山西省省属企业合规管理办法（试行）原文",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省省属企业合规管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-28",
+   "id": "1923635",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1923635",
+   "question": "1.我公司为国企集团公司持股上市公司A（股份公司）全资子公司，即集团公司控股公司（持股75%）持有该上市公司A最大股份（持股32%），上市公司持有我公司100%股权，另外该上市公司A由各国有企业持股合计大于45%，请问该上市公司是否为国有实",
+   "cited_hits": [],
+   "cited_missing": [
+    "上市公司国有股权监督管理办法",
+    "企业国有资产交易监督管理办法",
+    "关于企业国有资产交易流转有关事项的通知",
+    "企业国有产权无偿划转管理暂行办法",
+    "企业会计准则"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-28",
+   "id": "1909889",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1909889",
+   "question": "领导好: 关于2021年1月1号新退休的企业职教幼教人员补贴政策迟迟不见落实，心中焦虑万分，特想询问一下现在的情况，啥时候能落实？敬请见谅！",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于妥善解决国有企业职教幼教退休教师待遇问题的通知"
+   ],
+   "has_clause_no": true
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "sx-igi-28",
+   "id": "2450229",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2450229",
+   "question": "贵委员会控股的潞安化工集团有限公司旗下山西潞安集团蒲县黑龙关煤业有限公司，高级管理人员违规向他人出具虚假“股东花名册”，记载虚假的股东持股比例，本人欲进行详细的投诉举报，故向贵委员会咨询线上信访投诉方式",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-28",
+   "id": "2312646",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2312646",
+   "question": "晋能控股煤业集团地煤大同有限公司下属企业大同市焦煤矿有限责任公司拖欠大同信泽宏达科技有限公司货款，违反国家《保障中小企业款项支付条例》，对省委、省政府工作部署，对政府维护民营企业、保护中小企业合法权益的政策不执行，造成我公司经营困难等一系列",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-28",
+   "id": "2221451",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2221451",
+   "question": "华阳集团开元公司拖欠工程款，挂了账的不付款，开了票的不给挂账，能不能管管他们，我们每天付利息，贷款还贷款，再这样下去就让托死了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-28",
+   "id": "2210883",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2210883",
+   "question": "2020年5月9日我公司济南济连冶金机械有限公司与太原重工股份有限公司签订《采购合同》，合同履行完毕后太原重工股份有限公司以各种理由不支付我公司款项38万元。该合同约定的质保期为定作物经验收合格后至用户实际使用一年。该批定作物的质保期已于2",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-28",
+   "id": "2202425",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2202425",
+   "question": "领导您好,我司河南军安建工集团有限公司在2011年在霍州煤电集团中标霍州煤电集团下属蒲县新乐煤矿联合建筑工程，并开工建设完工，交工验收合格，通过霍州煤电集团指定审计公司审计通过，后又被山西焦煤集团指定审计公司审计通过,霍州煤电集团蒲县新乐煤",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-28",
+   "id": "2196667",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2196667",
+   "question": "请问潞安化工今年还有社会招聘吗？如果有是否还是以35岁为年龄限制？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-28",
+   "id": "2195062",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2195062",
+   "question": "尊敬的领导：您好！本人为暨南大学经济学院一名博士研究生，正在进行混合所有制改革为题的科研项目。希望能获知截至目前，山西省两类公司即国有资本投资、资本运营、资本投资运营（试点公司及新建公司）的详细名录以及试点时间？另外各地级市情况如何？本人承",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-28",
+   "id": "2154189",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2154189",
+   "question": "想要咨询山西省国资国企在线监管系统的立项时间与首次上线时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-28",
+   "id": "2153810",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2153810",
+   "question": "华阳集团旗下（阳煤丰喜肥业（集团）有限责任公司供销分公司）2023年3月欠货款15万元，至2024年12月不付款，导致个人损失严重，打电话不接，合同发票齐全，请问我们怎么处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-28",
+   "id": "2152263",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2152263",
+   "question": "我们公司属于县属国有企业，目前有部分闲置资金，想盘活这部分资金，想咨询下企业的闲置资金是否可以购买银行的理财产品 。目前的政策依据有哪些？谢谢您的解答。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-28",
+   "id": "2147321",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2147321",
+   "question": "2017年山西西山晋兴能源有限责任公司斜沟煤矿委托山西安龙重工有限公司维修摇臂（委托编号：C*****0706）,JOY采煤机破碎机（委托编号：20170916），左摇臂（委托编号：20171206），总金额：881742.99元。我公司于",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-28",
+   "id": "2143188",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2143188",
+   "question": "有潞安化工集团所属单位太原化工新材料有限公司，恣意考核的问题需要向潞安化工集团纪检部门反映，但是苦无反映渠道，希望能有纪检部门的电子邮箱，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-28",
+   "id": "2113889",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2113889",
+   "question": "湖南赋能乡村发展集团有限公司于2023年12月5日登记为太原市国资企业太原西山生态文旅投资建设有限公司的全资子公司，这个公司之前就曾因假冒国家开发银行的子公司而被国家国资委清理过。现在又在利用太原市国资的名义发展了数十家子、孙公司用于违法行",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-28",
+   "id": "2079715",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2079715",
+   "question": "请问，截至目前，山西省省属国有资本投资、运营公司试点的开展情况是什么样子的呢？具体包括公司名称及开展试点的时间哈。谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-28",
+   "id": "2067232",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2067232",
+   "question": "在线服务平台在哪里能够找到",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-28",
+   "id": "1948621",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1948621",
+   "question": "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;华阳集团（山西）纤维新材料有限责任公司，2023年工资一直未发放，马上9月份了，7个月没有开工资了！！各种社保自2022年7月份开始就一直未交，生病都没有医保",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-28",
+   "id": "1947189",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1947189",
+   "question": "请问，截至目前，山西省有哪些国有资本投资、运营公司（试点）？分别是什么时候开始试点的呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-28",
+   "id": "1924013",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1924013",
+   "question": "尊敬的国资监督管理委员会 我是一家招商引资来山西投资的民营企业，在太重机械做了部分的业务，有质保金欠款，一直收不回，因人事变化，找不到管事的人员，请问该如何办理欠款事宜，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-28",
+   "id": "1919054",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1919054",
+   "question": "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 阳煤化工的管理权已经移交给潞安集团2年多了，为什么股权一直没有变更过去？&nbsp;",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-28",
+   "id": "1918063",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1918063",
+   "question": "尊敬的各位领导，我想咨询一下“山西能源总公司，山西中控能源有限公司，山西中威能源集团有限公司”是否属于国有企业？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-28",
+   "id": "1850283",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1850283",
+   "question": "4月没有政务建议咨询类信息 &nbsp;",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-28",
+   "id": "1487872",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1487872",
+   "question": "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;11月内没有政务建议咨询类信息",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-28",
+   "id": "936231",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=936231",
+   "question": "新网站上线啦",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-28",
+   "id": "1539834",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1539834",
+   "question": "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 二月内没有政务建议咨询类信息。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-28",
+   "id": "936055",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=936055",
+   "question": "三月内没有政务建议咨询类信息。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-28",
+   "id": "936049",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=936049",
+   "question": "四月内没有政务建议咨询类信息。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

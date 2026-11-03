@@ -1,0 +1,163 @@
+{
+ "A_考卷": [
+  {
+   "source": "gx-igi-106",
+   "id": "93261",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=93261",
+   "question": "尊敬的领导您好！请问一下？入职来宾东糖桂宝有限公司6年多了，单位一直以试用期工资为公积金缴纳基数缴纳公积金违法吗？公积金缴纳基数不应该为当年月平均工资吗？每年调整一次。我年工资总额比同事高，公基金缴纳基数却比同事低很多。单位很多人都一样。不",
+   "cited_hits": [
+    {
+     "name": "住房公积金管理条例",
+     "lib_no": "住房公积金管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "gx-igi-106",
+   "id": "100117414",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=100117414",
+   "question": "我在来宾全款买了一套商品房，多长时间之内能取公积金？最多能提多少钱？",
+   "cited_hits": [],
+   "cited_missing": [
+    "来宾市住房公积金提取（购买、建造、翻建、大修住房）办事指南"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-106",
+   "id": "157814421206",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814421206",
+   "question": "不动产权证还没下来但是有不动产登记电子证明预售登记是否可以办理商转公",
+   "cited_hits": [],
+   "cited_missing": [
+    "住房公积金个人住房贷款业务规范",
+    "广西住房公积金业务管理规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-106",
+   "id": "157814396276",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814396276",
+   "question": "领导：据悉来宾市已恢复执行异地公积金贷款政策，来件咨询异动公积金是否也可以参照执行商业贷款转公积金贷款顺位贷款政策。期盼答疑！",
+   "cited_hits": [],
+   "cited_missing": [
+    "住房公积金贷款（商业贷款转公积金贷款顺位贷款）申请办事指南"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gx-igi-106",
+   "id": "157814361705",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814361705",
+   "question": "想给在家的父母改善一下住房，期望能尽快开放异地公积金贷款政策。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于暂停办理住房公积金异地贷款业务的通知",
+    "关于征求&lt;来宾市住房公积金个人住房贷款管理办法（征求意见稿）&gt;意见的公告&gt;"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-106",
+   "id": "157814188791",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814188791",
+   "question": "请问购房提取都需要什么材料。",
+   "cited_hits": [],
+   "cited_missing": [
+    "提取授权委托书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-106",
+   "id": "93257",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=93257",
+   "question": "尊敬的来宾公积金中心领导，你们好! 本人在来宾市市区泰和华府楼盘购买了一套商品房（期房），2019年6月份签订的购房合同（公积金贷款35万），因房开公司失误搞错合同需要撤销，等撤销原合同备案后直到2019年9月11日才得重新签购房合同（公积",
+   "cited_hits": [],
+   "cited_missing": [
+    "来宾市职工住房公积金贷款管理办法"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "gx-igi-106",
+   "id": "157830366960",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157830366960",
+   "question": "登陆手机公积金APP，查不到我的信息，显示查询无信息。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-106",
+   "id": "157830019278",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157830019278",
+   "question": "我的公积金缴存地为来宾市，通过手机公积金APP以及来宾市住房公积金管理中心微信公众号均无法正常登录账号，错误提示为“查询不到缴存信息”，希望相关部门核实公积金账户信息异常的原因。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-106",
+   "id": "157814415727",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814415727",
+   "question": "想要办理购房提取，请问哪里可以线下提取公积金？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-106",
+   "id": "157814216439",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814216439",
+   "question": "你好，请问租房提取一年可以提取多少次呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-106",
+   "id": "157814202376",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814202376",
+   "question": "1、请问公积金贷款购房政策有计划、或者有打算跨市开放吗？2、为更好的提高公积金贷款购房使用率，增加国家税收收入，拉近我省、市之间的消费水平，个人建议应开放省内跨市公积金贷款政策，相信领导亦懂得历史上“闭关锁国”这个道理吧，表面上是促进了我市",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-106",
+   "id": "157814197316",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814197316",
+   "question": "请问现在来宾市可以异地公积金贷款吗？如果不可以什么时候有政策？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-106",
+   "id": "157814196050",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814196050",
+   "question": "想问一下首次以商业贷款条件提取需要提供什么材料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-106",
+   "id": "157814195505",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814195505",
+   "question": "依据来宾市兴宾区住房公积金管理中心最新发布的有关商业贷款转公积金贷款的相关规定，就商业贷款转公积金贷款需提供的材料中要求有不动产权证书（原件），现不动产权证书还没办理得，但有购房合同，能否申请商转公积金贷款呢？如不能，是由于什么原因呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

@@ -1,0 +1,42 @@
+{
+ "A_考卷": [
+  {
+   "source": "rd-ln",
+   "id": "d_gov_cn_lnrd_yw_2026100811024686752_index_shtml",
+   "url": "http://www.lnrd.gov.cn/lnrd/yw/2026100811024686752/index.shtml",
+   "question": "《辽宁省地下水管理条例》2027年1月1日起施行 节约与保护并重 促进地下水资源可持续利用",
+   "cited_hits": [
+    {
+     "name": "辽宁省地下水管理条例",
+     "lib_no": "地下水管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "文化遗产保护传承“十五五”规划",
+    "辽宁省科技创新条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "rd-ln",
+   "id": "d_gov_cn_lnrd_yw_2026093010125974431_index_shtml",
+   "url": "http://www.lnrd.gov.cn/lnrd/yw/2026093010125974431/index.shtml",
+   "question": "新修改的《辽宁省科技创新条例》施行 补齐制度短板 为科技创新清障护航",
+   "cited_hits": [
+    {
+     "name": "辽宁省地下水管理条例",
+     "lib_no": "地下水管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "文化遗产保护传承“十五五”规划",
+    "辽宁省科技创新条例"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [],
+ "C_无依据": []
+}

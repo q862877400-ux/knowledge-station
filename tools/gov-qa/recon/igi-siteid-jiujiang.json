@@ -1,0 +1,14 @@
+{
+  "tag": "jiujiang",
+  "base": "https://www.jiujiang.gov.cn",
+  "referer": "https://www.jiujiang.gov.cn/",
+  "range": [
+    1,
+    300
+  ],
+  "appId": "",
+  "sites": {
+    "72": 1509
+  },
+  "total": 1509
+}

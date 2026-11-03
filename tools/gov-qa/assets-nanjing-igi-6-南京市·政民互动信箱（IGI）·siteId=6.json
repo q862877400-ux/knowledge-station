@@ -1,0 +1,781 @@
+{
+ "A_考卷": [
+  {
+   "source": "nanjing-igi-6",
+   "id": "406796",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=406796",
+   "question": "本小区是交付未满5年的商品房，交付使用的建筑面积和入住户数比例均未达50%以上，就当前小区现状，现向房产局前期物业科咨询以下问题，烦请给予详细的文字形式答复：1. 小区是否可以成立业主大会，如果不可以的话，需要通过什么方式或者组织来代行业委",
+   "cited_hits": [
+    {
+     "name": "江苏省物业管理条例",
+     "lib_no": "物业管理条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "建设工程质量管理条例",
+     "lib_no": "建设工程质量管理条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国民法典",
+     "lib_no": "中华人民共和国民法典",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国民法典",
+     "lib_no": "中华人民共和国民法典",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "398037",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=398037",
+   "question": "本人于2024年6月3日前往浦口区象山路4号B座11楼1102社保稽查办公室，投诉本人上家任职企业南京智数云信息科技有限公司，在本人任职期间2023年5月到2024年2月，没有按照实际薪资缴纳社保，诉求是要求企业按实际薪资补缴，当天本人按照",
+   "cited_hits": [
+    {
+     "name": "关于工资总额组成的规定",
+     "lib_no": "关于工资总额组成的规定(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "工资支付暂行规定",
+     "lib_no": "工资支付暂行规定(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "劳动和社会保障部社会保险事业管理中心关于规范社会保险缴费基数有关问题的通知",
+    "省人力资源社会保障厅 省财政厅 省医疗保障局 省税局关于 2023 年度社会保险缴费工资基数上下限暂行标准的通知",
+    "江苏省工资支付条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "397531",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=397531",
+   "question": "请问订立无固定期限劳动合同的条件是什么？能否提供相关政策条文？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国劳动合同法",
+     "lib_no": "劳动合同法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "全国人民 代表大会常务委员会关于修改 <中华人民共和国劳动合同法>的决定 ",
+     "lib_no": "劳动合同法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "393942",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=393942",
+   "question": "尊敬的浦口区领导：我所购买的保利云禧小区室内墙面鼓包严重，开发商保利地产从2022年拖延至今一直未做处理。我们多次向保利物业及保利地产反应，催促其维修，一直无回应。现在迫不得已请求政府相关部门帮忙，监管、督促保利地产履行保修义务，尽快维修，",
+   "cited_hits": [
+    {
+     "name": "江苏省物业管理条例",
+     "lib_no": "物业管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "建筑工程质量管理条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "368340",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=368340",
+   "question": "尊敬的领导，您好！我是来自南京邮电大学的一名学生。我在进行南京市街道级人口格网化相关的研究，由于需要用到浦口区的街道人口数据（七普数据），现向贵区政府申请该数据。如果方便的话可以把数据发到我的邮箱：b20080102@njupt.edu.c",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "nanjing-igi-6",
+   "id": "415147",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=415147",
+   "question": "在2025年7月16日至8月8日期间多次给电瓶车充电，在充电服务商软件中发现服务费由0.7元每度，调整至0.12元每度，再次又调整至0.48元每度至今。一个月期间多次调整有没有响应政府要求体现集中充电公益属性原则呢？充电服务商及中交物业也没",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于规范电动自行车充电收费行为的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "412467",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=412467",
+   "question": "书记您好: 我想咨询下2023年浦口共有产权房（语山棠花园）8年内回购事宜。2023年购买这套竞配建房时签的合同是3年后可以上市交易，8年内须一次性按原价回购政府的30%产权，但是目前房子房价已从购买时均价2.4w跌到1.7w以下，下跌近3",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于开展第三批次浦口区竞配建房（产权共有）销售的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "411281",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=411281",
+   "question": "永宁街道集体土地房屋征收，要求每户最多只能领取不超过70平的货币补偿，其余面积需要都拿安置房。与 关于印发《南京市浦口区征收集体土地涉及房屋补偿安置办法》的通知 浦政规〔2017〕2号 文件中第15条要求不符，请问是否拆迁办的要求是否合规？",
+   "cited_hits": [],
+   "cited_missing": [
+    "南京市浦口区征收集体土地涉及房屋补偿标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "405589",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=405589",
+   "question": "领导你们好，滨江榴园，滨江桃园，靠近五桥，噪音有点大，请问下何时安装隔音护栏？",
+   "cited_hits": [],
+   "cited_missing": [
+    "南京长江第五大桥（梅子洲过江通道）环境影响报告书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "402362",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=402362",
+   "question": "根据南京市城乡居民基本养老保险相关规定，具有本市户籍、未满60周岁、未参加其他养老保险的人员，可以参加南京市城乡居民基本养老保险，待参保缴费至60周岁时，至少向前补缴至2015年方可办理退休手续。问题：1.请问至少补缴至2015年，至多补缴",
+   "cited_hits": [],
+   "cited_missing": [
+    "市政府关于印发 < 南京市城乡居民基本养老保险办法 > 的通知",
+    "关于印发 < 《南京市城乡居民基本养老保险办法",
+    "省人力资源社会保障厅关于印发江苏省城乡居民基本养老保险经办规程的通知",
+    "市政府关于印发 < 南京市城乡居民基本养老保险办法 > 的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "391371",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=391371",
+   "question": "您好，请问岳父母患病需要手术和陪护，可以请独生子女护理假吗？请假需要什么材料？",
+   "cited_hits": [],
+   "cited_missing": [
+    "南京市人口与生育服务规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "388158",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=388158",
+   "question": "尊敬的浦口教育局领导：中华中学浦口教育集团辖的巩固7号地配建学校至今迟迟没有动静，该学校已建成并空置很久，周边安置房小区榴园桃园均已大量入住，很多居民房产证已办好。由于该学校迟迟未启用，导致去年附近居民小孩学区划归行知小学，且附近各学校均生",
+   "cited_hits": [],
+   "cited_missing": [
+    " 浦口区2024年义务教育学校招生工作实施方案 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "382074",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=382074",
+   "question": "本人坚决反对2023年7月27日浦口政府官网发布的《城南河北岸浦滨路以西康平路以南片区用地可行性研究方案（公众意见征询）》中对滨江嘉品东侧030-03地块的调整。理由如下：1，根据南京市政府2023/5/26印发的《南京市公共设施配套标准》",
+   "cited_hits": [],
+   "cited_missing": [
+    "城南河北岸浦滨路以西、康平路以南片区用地可行性研究方案（公众意见征询）"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "nanjing-igi-6",
+   "id": "419213",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=419213",
+   "question": "关于珠泉花园内违建，电话联系过江浦街道物业科，城管局，一直没有结果，小区内违建越来越多，脏乱差，请上级领导关注",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "418376",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=418376",
+   "question": "您好！我现咨询南京专业技术资格申报和人才安居 E 类人才认定相关政策适配问题。本人此前在济南某公司南京分公司（非独立法人）工作，已在南京连续缴纳社保 4 年，今年取得副高级职称（在南京评审通过）。现计划跳槽至一家南京本地、已在南京人社备案的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "417134",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=417134",
+   "question": "江浦街道亚青路的违停问题，从亚青路1号桥往白马路方向，违停屡禁不止，如果单单靠群众举报，已经不能解决根本问题，因为违法成本太低，需要多部门共同协作去解决这个老大难问题，不能多装探头？不能加装护栏？你让我们老百姓怎么从非机动车道走，我们作为遵",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "417015",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=417015",
+   "question": "本人自入住融侨观邸小区以来，通过长时间的观察，发现融侨观邸小区物业存在严重问题，例如：经常性有车辆占用消防通道，灭火器箱没有灭火器，灭火器箱破损等消防问题小区物业不闻不问、小区大门门禁常年处于打开状态，外来人员随意出入，物业保安对此不闻不问",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "416582",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=416582",
+   "question": "我是居住在周边的居民，长期以来一直密切关注浦口高新区文体中心的建设进展。文体中心作为区域重要的公共服务配套设施，承载着周边群众对于文化活动、体育锻炼等精神文化需求的迫切期待，其建成投用将极大丰富我们的日常生活，提升居住幸福感，因此我们对该项",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "416248",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=416248",
+   "question": "为满足星甸街道及周边老百姓出行需求，更好的衔接星甸及其周边去高铁南站的线路。建议将星甸开往高旺方向、星甸街道开往桥林方向的公交线路延伸至兰花塘地铁站（地铁S3号线），这样一方面可大大缩短星甸及其周边人民前往南京南站的路程时间，也可加大桥林、",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "415310",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=415310",
+   "question": "关于浦口区荣悦路栖樾府附近宜老宜少运动休闲公园的建议目前栖樾府附近没有成片的宜老宜少运动休闲场地，一老一小是目前社会关注的焦点之一，建议增设1-2片篮球场地，条件许可的话可设简易足球草坪，单双杠等等及适合儿童活动的相关运动活动器材，以及城市",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "414027",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=414027",
+   "question": "光明路上多个公交线路从语山棠花园北到雨山路地铁站东，两站之间有多个红绿灯，而且感觉不联动，刚过一个绿灯，马上就遇到下一个红灯了。每天上班路上，如果运气不好，这两站之间等红绿灯的时间一般要7,8分钟。建议交通部门对这一段路的红绿灯进行优化，减",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "414018",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=414018",
+   "question": "卓溪路海峡两岸科工园文化，体育中心已建设数年时间，外立面也已完工较长时间，请问何时可以对外开放，以及内部具体功能。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "412680",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=412680",
+   "question": "南京市浦口区人民政府：您好！一、区域现状与民生需求概述浦口区滨江榴园、滨江桃园等 6 个安置房小区及江山大境、世茂江山府等 3 个商品房小区，连同浦口人才公寓，形成高密度居住片区。区域内常住人口规模庞大，居民对体育健身设施的需求与日俱增。以",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "411269",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=411269",
+   "question": "钱塘望景花园颐景苑9栋从1单元至3单元，颐景苑8栋1单元至3单元，7栋1单元至3单元，该3三栋连在一条路上，该条路靠近单元门一侧，绿植树木枝干下垂严重，开车会刮蹭汽车车顶，与该小区物业公司银城物业反馈半年之久，一直没有结果。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "410868",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=410868",
+   "question": "尊敬的领导:您好!我是南京农业大学的学生，正在做一项关于垃圾分类的社会实践调查，想向您咨询一些问题，可能会占用您较长的时间，提前说声抱歉，以下是我想咨询的几个问题: 1垃圾分类政策在实施过程具体有什么困难之处吗? 2.对于垃圾分类的前后在哪",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "410394",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=410394",
+   "question": "领导好：我是江山大境小区居民，日常出行主要依托于浦云路。浦云路作为浦口区东西向城市主干道之一，政府投入了大量精力优化了设施，整体环境也比较好。但是作为浦口封面，非常可气的是道路两侧人行道，绿化带，常年有大量违规车辆违规停放，严重影响了早晚出",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "408271",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=408271",
+   "question": "我想咨询下，桥林柏子居大门前方、桥林政府对面空地正在施工的建设什么项目，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "407280",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=407280",
+   "question": "请问江浦街道浦口高新区科创广场附近的园特路幼儿园，2024年已经建好，2025年能开园招生吗。如果园特路幼儿园不招生，需要到行知幼儿园，离家远，老人小孩上下学很不方便。请政府相关部门领导评估，2025年能否实现开园招生，方便附近几个小区的适",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "406755",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=406755",
+   "question": "尊敬区长您好：首先祝你新年快乐，万事如意！康华新村后门保安室，违规经营快递站，占道经营。己经严重影响响交通进出安全。我己经相关部门投诉很多次，一直没有解决。望区长百忙之中关注一下此事！尽快还小区一个良好，安全的秩序。万分感谢！首先康华新村后",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "405309",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=405309",
+   "question": "2025年浦口马拉松的举办时间？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "404524",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=404524",
+   "question": "明发新城中心2栋4单元5号梯（消防电梯兼货梯）频繁故障，目前已知的是：2024年11月23日，该电梯故障。2024年12月9日晚10点电梯故障，业主困于电梯10分钟。2024年12月11日晚8点44分，电梯故障，业主再次被困于电梯，业主自述",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "403795",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=403795",
+   "question": "尊敬的区长： 您好，感谢您百忙之中查看我的信件。以下是我的建议内容： 在上下班高峰时间段，建议加长浦口区光明路与建设路交叉口从光明路开往响堂水库方向的直行与左转交通灯，因为：随着浦乌路高速入口的开放、五桥的投入使用、桥北住户人员的增多等，该",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "402024",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=402024",
+   "question": "虎桥路（浦滨路-横江大道）什么时候可以开工并建设完成。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "400595",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=400595",
+   "question": "一件很小的事，实属无奈才来麻烦领导。8月28日，物业在小区内增设了几处横幅。这些横幅的内容和悬挂位置没有经过业主的同意，也没有经过有关行政主管部门的同意或审批，属于物业私自随意悬挂。其中，有两处横幅看上去实在是不妥：1）每栋楼的二层消防连廊",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "400377",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=400377",
+   "question": "书记您好，我是金隅紫京叠苑的业主，在该小区已居住一年有余，所在楼栋隔壁为浦口实验幼儿园第二分园，这一年来，该幼儿园多次扰民，例如施工噪音，经常在周末和节假日等禁止施工时段施工，我们许多业主多次投诉无果，最近又在园内养鸡，公鸡每天早上5点多就",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "399139",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=399139",
+   "question": "尊敬的区长您好！ 暑期是青少年身心成长的关键期，然而很多青少年在暑期期间苦于找不到场地开展跑步、篮球等运动。建议能否将有条件的公办学校操场，在特定时段内向辖区青少年免费开放？特此建议，不值当否，顺祝夏安！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "398403",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=398403",
+   "question": "江浦街道亚青路，工业大学西门到九月森林这条路，违停一直解决不了，举报了不低于三次，还是老样子，这条路只有双向两车道加两条非机动车道，车辆一违停在非机动车道，严重影响非机动车行车安全。如果因为违停导致交通事故，那违停机动车是否要承担责任。是不",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "397041",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=397041",
+   "question": "建设路与江新大道辅路建成后，本可以直接从建设路直接通行左转上江新大道辅路，但目前又重新建设绿化带封闭，车辆只能从浦云路绕行，严重影响了通行效率。希望有关部门能够考察实情，重新规划。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "396194",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=396194",
+   "question": "我在上封信中反应江星桥线星桥路口指示灯有问题，有关部门回复没有问题，这里提供一张在交警部门电脑屏上拍摄的照片，请判断一下右转指示箭头有没有问题（请放大一下看看，在手机屏幕上，由于屏幕小确实不太明显）。另外右转设置箭头是为了安全，我感觉理由不",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "395307",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=395307",
+   "question": "江星桥线星桥路口右转指示灯为箭头，如违反，要罚款200元，扣6分。这里是丁字路口，南京一般路口右转都是圆灯指示了，这里还是箭头指示，并且这里车辆不是太多，没必要箭头指示，许多人疏忽违反了，处罚很重，有刻意罚款嫌疑。江浦环境优美，景点众多，是",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "395171",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=395171",
+   "question": "尊敬的领导： 您好！ 浦云路与江淼路交叉口（西南角）排污 下水道刺激性异味散出已有一个月左右（尤其傍晚较严重），已严重影响行人和附近居民散步和日常出行。 希望相关部门能够排查原因，并给予解决。希望能够早日得到答复！谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "392908",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=392908",
+   "question": "你好，想问下城南中心的大悦城出现建设停滞的几个问题：何时能复工政府能否介入推进复工是否能如期开业感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "392593",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=392593",
+   "question": "南京宁翔防雷工程科技有限公司，在小区公共楼道搭违建，占用消防通道，堆放杂物。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "391865",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=391865",
+   "question": "尊敬的领导您好！我是南京市建邺区钓鱼协会秘书长鲁正金，我们计划在浦口区汤泉街道龙山社区租赁合适鱼塘水面作为我协会钓鱼比赛基地，请问，可否有相关联系人及联系方式。谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "391727",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=391727",
+   "question": "【玫瑰】【爱心】【握手】【抱拳】 尊敬的吴勇强书记：您好！ 我们是南京市浦口区喜欢游山玩水的普通民众！ 特向您求助：并通过您帮助解决！以下问题：改善琥珀泉的生态环境！杜绝一切！天然的或人为的！向琥珀泉排污的现状况！清除长期累积在琥珀泉中的淤",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "390892",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=390892",
+   "question": "尊敬的吴勇强书记您好： 目前在全国范围内餐厨垃圾完全资源化处理是个技术难题，各级政府需要拿出很大的财政收入来补贴餐厨垃圾处理。浦口区的垃圾分类工作也需要进一步完善。众所周知我国是蛋白需求最大国，每年豆粕和鱼粉蛋白80%依赖进口，国家一直在推",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "389481",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=389481",
+   "question": "浦口高新区荣庄路幼儿园原定于2023年6月建成，但是项目自2022年11月主体封顶后，至今未有任何进展。2023年6月我在12345上咨询该项目建设问题，浦口高新区明确回复我项目计划在2023年12月全部完工，计划2024年9月办学。202",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "389480",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=389480",
+   "question": "浦口高新区荣庄路幼儿园原定于2023年6月建成，但是项目自2022年11月主体封顶后，至今未有任何进展。2023年6月我在12345上咨询该项目建设问题，浦口高新区明确回复我项目计划在2023年12月全部完工，计划2024年9月办学。202",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "388818",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=388818",
+   "question": "2023年12月15日，幸福家园小区右舍业主发现13栋二单元的电梯年检标识已经严重过期，当时就向业主群里的管家汇报此事，没有得到任何回应，该电梯也一直没有停止运行。2023年12月17日业主再次追问此事，而后物业队长在群里告知电梯维保公司已",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "388559",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=388559",
+   "question": "2023年12月2日，我按照相关部门的通知，来到浦口区同心佳园物业领取拆迁安置房的钥匙，被告知需要缴纳928元的物业费和1000元的装修垃圾清运费，起初我是不认可这两笔费用的（不缴纳就不给拿钥匙，为了不影响后面的程序，我先缴清了这两笔费用）",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "388122",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=388122",
+   "question": "我单位想申请内部资料准印证，请问到哪个有关单位部门申请？具体地址在哪里？有没有联系方式？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "387207",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=387207",
+   "question": "随着科工园片区发展日益成熟，颐和九里、江山荟等小区交付后入住率逐渐提高，小区对附近教育配套落成愈加渴望，荣庄路幼儿园自封顶后建设速度几乎停滞，周边居民日夜期盼荣庄路幼儿园能够尽快建成交付，咨询区相关部门，荣庄路幼儿园何时能够建成交付，另海桥",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "386664",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=386664",
+   "question": "您好！我是南京林业大学的一名学生，最近在做一项关于城乡公交的课题，想咨询一下贵区城乡公交具体的线路和站点。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "385981",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=385981",
+   "question": "尊敬的领导您好！我想咨询一下关于桥林地铁小镇签约引进南师大教育学校（杜英路幼儿园、小学、秋韵路中学）的事情，目前是进展到什么阶段了，计划什么时间开工和投入使用，因为随着近两年我们浦口区域的快速发展，桥林那边的几个楼盘已经陆续交付入住了，所以",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "385712",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=385712",
+   "question": "想咨询一下，我所在小区是金隅紫京熙院，请问一下该小区现在的小学和中学，学区是南审附小嘛？还有现在南审附小是待招嘛？？什么时候待招结束，如果是待招那后面的学区是哪所学校？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "384823",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=384823",
+   "question": "请问现在浦口区海峡两岸科工园片区是如何规划的，都会引入哪些企业，目前我们居住在周边的小区，居住人口也不少，很担心科工园里的工厂对周边环境造成污染。请问都会引入哪些类型的企业，有化工厂之类的吗？会不会对环境造成污染，表示担忧。我们本来选择居住",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "384662",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=384662",
+   "question": "尊敬的区长您好！孝祥路-海象路修好，大大缓解了周边的交通压力，我路过这里，发现孝祥路-白马路这一小段还是一条断头路，不知道这一小段，什么时候能通人通车?是不是已经在规划中了？、谢谢！崔婷",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "382602",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=382602",
+   "question": "尊敬的浦口区督办领导： 您好！2023年7月28日至30日期间，于江浦街道同心社区康安路大润发旁边空地处，某商家组织为期三天的同心夜市演出活动，每日自下午17：00点至21：00点（有时21：30点）老百姓居家过周末期间，不断通过巨大噪音及",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "379786",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=379786",
+   "question": "各位领导好，我是龙湖天曜府业主，我已经两次在12345平台反应过此问题，但是一直没有得到解决！城管部门给我的回复是“龙湖天曜府住宅没有提交垃圾房验收手续，什么报备验收也不知道，目前来看位置确实不对，龙湖说有变更过，但是变更资料也拿不出来”。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "379447",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=379447",
+   "question": "尊敬的开发区领导，请问龙湖三千庭周围断头路何时能贯通？千辛万苦买了房现在却连出行都困难。政府规划地块05-09,05-01，05-03绿地公园何时建成？05-02水域何时清理？水杉路，石西路，新柳路路边路灯何时能不出各种状况、提供夜间照明？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "378525",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=378525",
+   "question": "区长，你好： 我是居住在江浦街道的外来务工人员，子女在江浦街道上学，暑期临近，偶然看到群里发了暑期公益辅导班的信息，但是当我点进去的时候，早就报名满了。甚至最后一人的报名时间早于我们群里发布通知的时间，由于这其中的时间差，导致小孩暑期无处可",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "376908",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=376908",
+   "question": "你好，我想咨询一下桥林兰花塘地铁站丰子河路北延至浦滨路和横江大道南延至桥林新城。这两条道路啥时候开始施工啊",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "376168",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=376168",
+   "question": "目前浦口经开区第一个开发小区水沐云筑已经交付，时代意境也快交付，附近居民不断入住，但是双峰路与丹桂路交叉口及丹桂路上红绿灯路口均未安装交通违法摄像探头，车辆闯红灯，不按车道行驶现象比较严重，有很大安全隐患，小区交付以来入住居民较多，而且有很",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "372391",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=372391",
+   "question": "江新大道-浦云路 路口 沿江新大道方向 直行 绿灯时间太短 10秒左右，行人无法穿过马路，很危险",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "371354",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=371354",
+   "question": "请问南京市浦口区上河街135号，南京优外里美诊所是否有打九价HPV疫苗的资质？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "371339",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=371339",
+   "question": "提供今天我去永宁金花节制作的短视频，可以作为宣传资料。请问如何提供我的视频？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "368998",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=368998",
+   "question": "街道的同志：您好！来信为针对烈士塔社区武家巷快递堆放问题的投诉。目前武家巷中，周边住宅快递不上门投递，快件日常堆放在中国银行侧门对面的巷口，花店对面 （参考附件照片）。快件堆放散乱，且没有遮挡，雨天会有快递浸泡问题，而且旁边就是垃圾箱，看起",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "368600",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=368600",
+   "question": "尊敬的书记您好！我是一名普通的私营业主，2018年5月在可成科技园租了一栋厂房，建了一个保健食品生产工厂（江苏葆鉴生物工程有限公司）在经历一年多的时间装修、领证，在2020年可以投产时疫情爆发了（由于是新厂总投资在一千五百万左右）从2020",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "364621",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=364621",
+   "question": "尊敬的领导： 您好！最近两天我接到自称社区工作人员打来的电话，问我家小孩的现住址和身份证号码，说是因为疫情需要监控0-6岁幼儿的情况，我都给了，但是不太放心，想问下这是社区安排的吗?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "319295",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=319295",
+   "question": "区长您好！ 我们迫切希望中海万锦熙岸小区孩子也能有好的教育平台，大家都不用背井离乡，安心在求雨山一片安家，一起变得越来越好，一切为了孩子，孩子们也是未来的希望。希望中海万锦熙岸能在新学校招生范围内，小区适龄儿童很多，大家的孩子上学问题都迫在",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "320457",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=320457",
+   "question": "区长您好！ 我们迫切希望中海万锦熙岸小区孩子也能有好的教育平台，大家都不用背井离乡，安心在求雨山一片安家，一起变得越来越好，一切为了孩子，孩子们也是未来的希望。希望中海万锦熙岸能在新学校招生范围内，小区适龄儿童很多，大家的孩子上学问题都迫在",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "320537",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=320537",
+   "question": "领导好！ 首先感谢您在这次疫情期间，为了控制疫情所做的工作。 根据中央指示，现在多数企业也已复工，为什么各小区还不让装修？家里装修应该风险很低的呀，真的快扛不住了，贷款压力太大了，望能早日允许装修，感谢🙏！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "319375",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=319375",
+   "question": "领导好！ 首先感谢您在这次疫情期间，为了控制疫情所做的工作。 根据中央指示，现在多数企业也已复工，为什么各小区还不让装修？家里装修应该风险很低的呀，真的快扛不住了，贷款压力太大了，望能早日允许装修，感谢🙏！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "319286",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=319286",
+   "question": "各位领导好、我想咨询桥林街道2019年有无村庄搬迁计划？请问具体哪几个社区？哪几个组🈶️搬迁计划？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "320844",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=320844",
+   "question": "各位领导好、我想咨询桥林街道2019年有无村庄搬迁计划？请问具体哪几个社区？哪几个组🈶️搬迁计划？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "320448",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=320448",
+   "question": "各位领导好、我想咨询桥林街道2019年有无村庄搬迁计划？请问具体哪几个社区？哪几个组🈶️搬迁计划？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-6",
+   "id": "319682",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=319682",
+   "question": "各位领导好、我想咨询桥林街道2019年有无村庄搬迁计划？请问具体哪几个社区？哪几个组🈶️搬迁计划？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

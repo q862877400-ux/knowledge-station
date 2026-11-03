@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<meta http-equiv="X-UA-Compatible" content="ie=1123">
+        <!--站点类-->
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" >
+<meta name="renderer" content="webkit"> 
+<meta name="author" content="云南省信访局" >
+<meta name="Copyright" content="云南省信访局" >
+<meta name="keywords" content="云南省信访局">
+<meta name="description" content="云南省信访局">
+<meta name="SiteName" content="云南省信访局">
+<meta name="SiteDomain" content="">
+<meta name="SiteIDCode" content="">
+
+<!--栏目类-->
+<meta name="ColumnName" content="案例选登">
+<meta name="ColumnDescription" content="案例选登">
+
+<meta name="ColumnKeywords" content="案例选登">
+<meta name="ColumnType" content="案例选登">
+        <title>案例选登_云南省信访局</title>
+		<link rel="stylesheet" type="text/css" href="../images/common.css">
+		<link rel="stylesheet" type="text/css" href="../images/swiper.min.css">
+		<link rel="stylesheet" type="text/css" href="../images/main.css">
+		<link rel="stylesheet" type="text/css" href="../images/components.css">
+		<script type="text/javascript" src="../images/jquery.min.js">
+		</script>
+		<script type="text/javascript" src="../images/common.js">
+		</script>
+		<script type="text/javascript" src="../images/swiper.min.js">
+		</script>
+		<script type="text/javascript" src="../images/flexible.js">
+		</script>
+		<script type="text/javascript" src="../images/echarts.min.js">
+		</script>
+	</head>
+	<body>
+
+        <style>
+            .xq_anli{
+                position:absolute;
+                left:0px;
+                top:0px;
+                background:#4686e8;
+                height:52px;
+                line-height:52px;
+                font-weight:bold;
+                color:#fff;
+                font-size:20px;
+                padding:0px 27px;
+            }
+            .xwxq-detail{  position: relative;}
+            @media screen and (max-width: 768px) {.xwxq-detail .title{margin-top:0.6rem}}
+        </style>
+        <script src='https://auth.mangren.com/boots/xfservice.yn.gov.cn/esdToolsInit.js' charset='UTF-8'></script>
+        <script src="https://xfservice.yn.gov.cn/images/header.js" charset='UTF-8'></script>
+		<div class="header">
+			<div class="top">
+				<div class="m-auto g-box clearfix">
+					<ul class="related-links lf clearfix">
+						<li class="lf">
+							<a href="http://www.gov.cn">
+								中国政府网
+							</a>
+						</li>
+						<li class="lf">
+							<a href="http://www.yn.gov.cn/">
+								云南省政府
+							</a>
+						</li>
+						<li class="lf">
+							<a href="http://www.gjxfj.gov.cn/">
+								国家信访局
+							</a>
+						</li>
+					</ul>
+					<ul class="related-links rt clearfix">
+						<li class="rt mobile-type">
+							<a href="javascript:;">
+								手机版
+								<span class="d-project-erwei">
+									<img src="https://xfservice.yn.gov.cn/ggbf/sjbewm/202509/W020250924589347768600_ORIGIN.jpg" />
+								</span>
+							</a>
+						</li>
+						<li class="rt">
+							<a id="StranLink" href="javascript:StranBody()" title="點擊以繁體中文方式浏覽">繁體</a>
+						</li>
+						<li class="rt phone">
+							<a href="javascript:zzms();">
+								进入适老模式
+							</a>
+						</li>
+						<li class="rt phone">
+							<a href="javascript:void(0);" id="toolbarSwitch" onclick="EsdInit.openClickFunc();" onkeydown="EsdInit.openKeydownFunc(event);">
+								无障碍浏览
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+            <script>
+                function zzms() {
+                    var h = window.location.href;
+                    window.location.href = "https://xfservice.yn.gov.cn/old.html?u=" + h
+                }
+            </script>
+			<div class="nav-container">
+				<div class="m-auto g-box clearfix nav-box">
+					<div class="logo">
+						<a href="https://xfservice.yn.gov.cn/">
+							<img src="https://xfservice.yn.gov.cn/images/logo.jpg" alt="" />
+						</a>
+					</div>
+					<ul class="nav">
+						<li>
+							<a class="on" href="https://xfservice.yn.gov.cn/">
+								首页
+							</a>
+						</li>
+						<li>
+							<a href="/wsxf/appointment">
+								接访预约
+							</a>
+						</li>
+						<li>
+							<a href="/wsxf/index">
+								网上信访
+							</a>
+						</li>
+						<li>
+							<a href="https://xfservice.yn.gov.cn/zfxxgk/" target="_blank">政府信息公开</a>
+						</li>
+						<li>
+							<a href="https://xfservice.yn.gov.cn/xwdt/" target="_blank">新闻动态</a>
+						</li>
+						<li>
+							<a href="https://xfservice.yn.gov.cn/flfg/flfg/" target="_blank">法律法规</a>
+						</li>
+						<li>
+							<a href="https://xfservice.yn.gov.cn/alxd/" target="_blank">案例选登</a>
+						</li>
+						<li>
+							<a href="https://xfservice.yn.gov.cn/hdjl/" target="_blank">互动交流</a>
+						</li>
+						
+					</ul>
+					<div class="tob_r">
+						<div class="headlink">
+							<a class="icon-search" href="javascript:;">
+								<div class="header-search">
+									<div id="topsech">
+									</div>
+									<form method="get" name="frm" target="_blank" onkeydown="if(event.keyCode==13) submitsearch();" class="sitesearch clearfix">
+										<input type="text" placeholder="请输入关键词" class="hs-input" size="12" name="q" value="" tabindex="4" id="q" />
+										<button title="全文检索" class="retrieval_button" type="submit" onclick="submitsearch();return false;" tabindex="5"></button>
+									</form>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<script>
+				
+				function submitsearch(){
+									var result = $("#q").val();
+									result = $.trim(result); 
+									var reg = /[`~!@#$%^&*_<>{}\/'[\]]/im;
+				
+									var url = window.location.href;
+									var arrUrl = url.split("//");
+									var arrUrl1 = arrUrl[1].split("/");
+									var para = arrUrl1[0];
+				
+									if (reg.test(result)) {
+										alert("您输入的信息包含非法字符!");
+										return false;
+									}
+									if (result == "请输入关键字" || result == "" || result == null) {
+										alert("请输入关键字");
+										return false;
+									} else {
+										result = result.replace("-", "\-");
+										result = result.replace("(", "\(");
+										result = result.replace(")", "\)");
+									}
+									window.open("/irs-c-web/search.shtml?code=198dfc6457c&dataTypeId=303&searchWord=" + encodeURI(result));
+								}
+				</script>
+			<div class="mobile_btn">
+				<span class="line1">
+				</span>
+				<span class="line2">
+				</span>
+				<span class="line3">
+				</span>
+			</div>
+			<div class="navmobile">
+				<ul class="clearfix">
+					<li>
+						<a class="titnopic" href="https://xfservice.yn.gov.cn/">
+							首页
+						</a>
+					</li>
+					<li>
+						<a class="titnopic" href="/wsxf/mailbox?type=01">
+							省委书记信箱
+						</a>
+					</li>
+					<li>
+						<a class="titnopic" href="/wsxf/mailbox?type=02">
+							省长信箱
+						</a>
+					</li>
+					<li>
+						<a class="titnopic" href="/wsxf/index">
+							网上信访
+						</a>
+					</li>
+					<li>
+						<a class="tit" href="https://xfservice.yn.gov.cn/xwdt/">
+							新闻动态
+						</a>
+						<div class="box">
+							<a class="tit" href="https://xfservice.yn.gov.cn/xwdt/szyw/">
+								时政要闻
+							</a>
+							<a class="tit" href="https://xfservice.yn.gov.cn/xwdt/xfdt/">
+								信访动态
+							</a>
+						</div>
+					</li>
+					<li>
+						<a class="tit" href="https://xfservice.yn.gov.cn/flfg/flfg/">
+							法律法规
+						</a>
+						<div class="box">
+							<a class="tit" href="https://xfservice.yn.gov.cn/flfg/flfg/">
+								法律法规
+							</a>
+							<a class="tit" href="https://xfservice.yn.gov.cn/flfg/zcjd/">
+								政策解读
+							</a>
+						</div>
+					</li>
+					<li>
+						<a class="titnopic" href="https://xfservice.yn.gov.cn/alxd/">
+							案例选登
+						</a>
+					</li>
+					<li>
+						<a class="titnopic" href="">
+							
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+        <script src="https://xfservice.yn.gov.cn/images/stran.js" charset='UTF-8'></script>
+		<div class="xwxq-wrapper cm-wrapper">
+			<div class="g-box m-auto">
+				<div class="xwxq-container">
+                    <div class="cm-location">
+    <span>当前位置：</span><a href="../" target="_slef" title="首页">首页</a><span class="arrow">&gt;&gt;</span><span class="cur" >案例选登</span>
+</div>
+					<div class="xwxq-detail">
+                        <div class="xq_anli" >案例选登详情</div>
+						<div class="title" id="anli_title">
+							  
+						</div>
+						<div class="ct-detail" id="sq_content">
+						
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="lxz-floaty m_shake_img">
+	<a class="axfj" href="javascript:;">
+		<span class="d-project-erwei">
+			<img src="https://xfservice.yn.gov.cn/ggbf/gfwx/202510/W020251006537587760446.png" />
+		</span>
+	</a>
+</div>
+<div class="lxz-float m_shake_img">
+	<a class="axfj" href="javascript:;">
+		<span class="d-project-erwei">
+			<img src="https://xfservice.yn.gov.cn/ggbf/xcx/202510/W020251006537885143615.png" />
+		</span>
+	</a>
+</div>
+<div id="myBtn">
+	<a class="axfjtop" href="javascript:;">
+		<span class="d-erwei">
+			返回顶部
+		</span>
+	</a>
+</div>
+<div class="foot m-auto g-box">
+	<div class="foot_l lf">
+		<div class="footmenu clearfix">
+			<a href="https://xfservice.yn.gov.cn/" target="_blank">
+				网站首页
+			</a>
+			<span>
+				|
+			</span>
+			<a href="https://xfservice.yn.gov.cn/ggbf/wzdt/"  target="_blank">
+				网站地图		
+			</a>
+			<span>
+				|
+			</span>
+			<a href="https://xfservice.yn.gov.cn/ggbf/lxwm/"  target="_blank">
+				关于我们
+			</a>
+			<span>
+				|
+			</span>
+			<a href="https://xfservice.yn.gov.cn/ggbf/bqsm/"  target="_blank">
+				网站声明
+			</a>
+		</div>
+		<div class="foot_l-bottom clearfix">
+			<p>
+				<span>
+					主办单位：云南省信访局
+				</span>
+				<span>
+					承办单位：云南省信访局
+				</span>
+			</p>
+			<p>
+				<span>
+					政务热线：0871-63624517
+				</span>
+				<a href="https://beian.miit.gov.cn/#/Integrated/index"  target="_blank">
+					滇ICP备19003964号
+				</a>
+			</p>
+			<p>
+				<span>
+					政府网站标识码：5300000071
+				</span>
+				<img src="https://xfservice.yn.gov.cn/images/beian.png" alt="" />
+				<a href="https://beian.mps.gov.cn/#/query/webSearch"  target="_blank">
+					滇公网安备 53010202000641号
+				</a>
+			</p>
+		</div>
+	</div>
+	<div class="foot_r rt">
+		<a href="//bszs.conac.cn/sitename?method=show&id=8588C0AA87FD107AE05310291AACD9AA"  target="_blank">
+			<img src="https://xfservice.yn.gov.cn/images/red.png" alt="" />
+		</a>
+		<!--<a href="javascript:;">
+			<img src="https://xfservice.yn.gov.cn/images/jiucuo.png" alt="" />
+		</a>-->
+<script id="_jiucuo_" sitecode="5300000071" src="https://zfwzgl.www.gov.cn/exposure/jiucuo.js"></script>
+		<a href="https://xfservice.yn.gov.cn/ggbf/ynszfwzpgt/">
+			<img src="https://xfservice.yn.gov.cn/images/xfjpgt.png" alt="" />
+		</a>
+		<a href="https://zwfw.yn.gov.cn/portal/#/home"  target="_blank">
+			<img class="img4" src="https://xfservice.yn.gov.cn/images/zhengwu.png" alt="" />
+		</a>
+		<a href="http://wza.isc.org.cn/rzpt/bsgl/dt/20241211/3718.html"  target="_blank">
+			<img class="img5" src="https://xfservice.yn.gov.cn/images/wza.png" alt="" />
+		</a>
+	</div>
+</div>
+        <script>
+            function searchalxd(){
+            var d_url=document.location.href;
+            var infoid=d_url.split("id=")[1];
+            $.ajax({
+                type:"GET",
+                url:"/api/website/v1/newsRends/query/"+infoid,
+                dataType:"json",
+                success:function(data){
+                    
+                var obj = data;
+                var code = obj.success;
+                if(code){
+                    var html = "";
+                    var data = obj.data;
+                    var title= data.title;
+                    var content= data.content;
+            
+                            $("#anli_title").html(title);
+                            $("#sq_content").html(content);
+            
+            
+                    }
+                }
+            });
+            }
+            function formatDate(date) {
+              var date = new Date(date);
+              var YY = date.getFullYear() + '-';
+              var MM = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
+              var DD = (date.getDate() < 10 ? '0' + (date.getDate()) : date.getDate());
+              var hh = (date.getHours() < 10 ? '0' + date.getHours() : date.getHours()) + ':';
+              var mm = (date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()) + ':';
+              var ss = (date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds());
+              return YY + MM + DD +" "+hh + mm + ss;
+            }
+            searchalxd();
+            </script>
+<div class="dqwz" style="display:none"><a href="../" title="首页" class="CurrChnlCls">首页</a>&nbsp;&gt;&nbsp;<a href="./" title="案例选登" class="CurrChnlCls">案例选登</a></div>
+<script>
+           var text = $('.dqwz a').eq(1).text();
+       $('.nav li').each(function () {
+if ($(this).children("a").text().trim() === text) {
+    $('.nav li a').removeClass('on')
+                $(this).children("a").addClass('on');
+            }
+
+        });
+    //左侧
+    var text1 = $('.dqwz a').eq(2).text();
+       $('.one-left-tab a').each(function () {
+if ($(this).text().trim() === text1) {
+                $(this).addClass('cur');
+            }
+
+        });
+</script>
+	</body>
+
+</html>

@@ -1,0 +1,4073 @@
+{
+ "A_考卷": [
+  {
+   "source": "baotou-igi-15",
+   "id": "131885",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131885",
+   "question": "内蒙古自治区第十六届运动会是否有大学高校组别",
+   "cited_hits": [
+    {
+     "name": "内蒙古自治区第十六届运动会竞赛规程总则",
+     "lib_no": "总则(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130513",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130513",
+   "question": "练田径的，河北省的户口。可以参加这次全运会比赛吗。07年出生的",
+   "cited_hits": [
+    {
+     "name": "内蒙古自治区第十五届运动会竞赛规程总则",
+     "lib_no": "总则(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "内蒙古自治区第十五届运动会竞赛规程总则补充通知",
+     "lib_no": "总则(OCR采集)",
+     "weak": true
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130469",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130469",
+   "question": "我们是长跑俱乐部，需要活动场所证明，可是每次我们都在奥体外场和赛罕塔拉公园活动，人家肯定不会给我们出具活动场所使用证明的。这样的情况怎么办？难道俱乐部就不能办了吗？",
+   "cited_hits": [
+    {
+     "name": "民办非企业单位登记管理暂行条例",
+     "lib_no": "民办非企业单位登记管理暂行条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "baotou-igi-15",
+   "id": "131681",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131681",
+   "question": "我想要转会但是我丢失了包头市体校空手道周教练的联系方式我现在鄂尔多斯市念书如何转会到鄂尔多斯市教育体育局，该怎么办",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于开展2025年全区青少年运动员注册工作的补充通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131653",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131653",
+   "question": "我想问一下去年在包头科大举办的2024年大学生羽毛球锦标赛获得了高职高专组单项混双第三名，今年才知道能评定这个事情，我奖状都在，你看今年还能延期评定吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "运动员技术等级标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131649",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131649",
+   "question": "本人参加了2024年科大举办的大学生羽毛球锦标赛，在单项比赛中，双打第六名，混双第三名，能否评定等级",
+   "cited_hits": [],
+   "cited_missing": [
+    "运动员技术等级标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131797",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131797",
+   "question": "您好，我想问一下考游泳教练证的条件",
+   "cited_hits": [],
+   "cited_missing": [
+    "体育总局办公厅关于做好2025年全国体育教练员岗位培训工作有关事宜的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131793",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131793",
+   "question": "领导您好我家孩子注册全国拳击运动员证，就不能在注册武术全国运动员证了是吗？孩子在武校学了五年的武术，回到包头体校学的散打，后来散打解散了，转的拳击，可是我们一直都在学武术没有停，孩子拿了很多武术，大赛的金牌，和银牌，如果不能注册武术全国运动",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于组织开展2025年度包头市青少年运动员注册工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131789",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131789",
+   "question": "想了解如下内容：申办乒乓球俱乐部资质需要提供什么资料？能否提供办事指南？乒乓球二级裁判员证需要什么条件？乒乓球教练员证需要什么条件？",
+   "cited_hits": [],
+   "cited_missing": [
+    "体育竞赛裁判员管理办法",
+    "体育总局办公厅关于做好2025年全国体育教练员岗位培训工作有关事宜的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131781",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131781",
+   "question": "我想问一下注册运动员可以自己去注册吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于组织开展2025年度包头市青少年运动员注册工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131725",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131725",
+   "question": "包头市体育局的相关同志，您好！我是孩子的家长，孩子是体育特长生，明年参加高考，体育单招。截止今年10月1日已经参加完两场中国田联四级赛事，并达到二级运动员水平，接下来10月中旬还要再参加一场中国田联三级赛事。现在要咨询一下三级赛事达到二级运",
+   "cited_hits": [],
+   "cited_missing": [
+    "运动员技术等级标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131721",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131721",
+   "question": "小学生怎么申请国家田径二级运动员证书",
+   "cited_hits": [],
+   "cited_missing": [
+    "运动员技术等级标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131553",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131553",
+   "question": "申请体育类民办非企业团体",
+   "cited_hits": [],
+   "cited_missing": [
+    "内蒙古自治区人民政府办公厅 的通知",
+    "内蒙古自治区党委编办、司法厅、政务服务局关于进一步扩大相对集中行政许可权改革试点范围的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131549",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131549",
+   "question": "二级运动员证多会儿开始考。",
+   "cited_hits": [],
+   "cited_missing": [
+    "运动员技术等级标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131709",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131709",
+   "question": "十五运的奖金什么时候可以落实",
+   "cited_hits": [],
+   "cited_missing": [
+    "包头市参加内蒙古自治区第十五届运动会运动员、教练员奖励方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131485",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131485",
+   "question": "取得围棋业余五段，想办理运动员证",
+   "cited_hits": [],
+   "cited_missing": [
+    "运动员技术等级标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131509",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131509",
+   "question": "怎么注册",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于组织开展2024年全区青少年运动员注册的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130789",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130789",
+   "question": "请问怎样注册运动员呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于组织开展2024年全区青少年运动员注册的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131505",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131505",
+   "question": "孩子们的全永辉比赛的奖金不给",
+   "cited_hits": [],
+   "cited_missing": [
+    "包头市参加内蒙古自治区第十五届运动会运动员、教练员奖励方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130785",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130785",
+   "question": "现在不能办理运动员注册手续吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于组织开展2024年全区青少年运动员注册的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131501",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131501",
+   "question": "关于在内蒙古自治区大中小学校 设置体育教练员专业技术岗位什么时候开始施行",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于在内蒙古自治区大中小学校设置体育教练员专业技术岗位的实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131497",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131497",
+   "question": "15运奖金预计什么时候发？",
+   "cited_hits": [],
+   "cited_missing": [
+    "包头市参加内蒙古自治区第十五届运动会运动员、教练员奖励方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130761",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130761",
+   "question": "15运奖金预计什么时候发？",
+   "cited_hits": [],
+   "cited_missing": [
+    "包头市参加内蒙古自治区第十五届运动会运动员、教练员奖励方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130745",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130745",
+   "question": "今年什么时候还能进行青少年运动员注册？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于组织开展2024年全区青少年运动员注册的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131453",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131453",
+   "question": "十五运的奖金什么时候落实",
+   "cited_hits": [],
+   "cited_missing": [
+    "包头市参加内蒙古自治区第十五届运动会运动员、教练员奖励方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130753",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130753",
+   "question": "十五运的奖金什么时候落实",
+   "cited_hits": [],
+   "cited_missing": [
+    "包头市参加内蒙古自治区第十五届运动会运动员、教练员奖励方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130737",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130737",
+   "question": "十五运奖金是得审核多长时间？那会说预计二月下来，快四月也没下来",
+   "cited_hits": [],
+   "cited_missing": [
+    "包头市参加内蒙古自治区第十五届运动会运动员、教练员奖励方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131449",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131449",
+   "question": "您好，我是十五运的运动员，请问十五运的奖金什么时候发下来呢",
+   "cited_hits": [],
+   "cited_missing": [
+    "包头市参加内蒙古自治区第十五届运动会运动员、教练员奖励方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131445",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131445",
+   "question": "十五运的奖金什么时候落实",
+   "cited_hits": [],
+   "cited_missing": [
+    "包头市参加内蒙古自治区第十五届运动会运动员、教练员奖励方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131409",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131409",
+   "question": "十五运的奖金什么时候落实",
+   "cited_hits": [],
+   "cited_missing": [
+    "包头市参加内蒙古自治区第十五届运动会运动员、教练员奖励方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131425",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131425",
+   "question": "十五运奖金发放具体时间",
+   "cited_hits": [],
+   "cited_missing": [
+    "包头市参加内蒙古自治区第十五届运动会运动员、教练员奖励方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131405",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131405",
+   "question": "十五运的奖金什么时候落实",
+   "cited_hits": [],
+   "cited_missing": [
+    "包头市参加内蒙古自治区第十五届运动会运动员、教练员奖励方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131393",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131393",
+   "question": "十五运的奖金什么时候落实",
+   "cited_hits": [],
+   "cited_missing": [
+    "包头市参加内蒙古自治区第十五届运动会运动员、教练员奖励方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131389",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131389",
+   "question": "内蒙古自治区第十五届运动会的奖金什么时候落实",
+   "cited_hits": [],
+   "cited_missing": [
+    "包头市参加内蒙古自治区第十五届运动会运动员、教练员奖励方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130709",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130709",
+   "question": "十五运的奖金什么时候落实",
+   "cited_hits": [],
+   "cited_missing": [
+    "包头市参加内蒙古自治区第十五届运动会运动员、教练员奖励方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131421",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131421",
+   "question": "全运会的奖金需要缴税吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "包头市参加内蒙古自治区第十五届运动会运动员、教练员奖励方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131417",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131417",
+   "question": "十五运的奖金发放具体什么流程，教练员和运动员分开进行吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "包头市参加内蒙古自治区第十五届运动会运动员、教练员奖励方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131357",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131357",
+   "question": "请问贵单位包头市体育局对自治区退役运动员就业这方面有什么政策吗 或者其他的意见",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于自治区应安置未安置退役运动员有关事宜建议的报告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130633",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130633",
+   "question": "马拉松达级后是自己带成绩证书去包头市体育局自己申请证书嘛",
+   "cited_hits": [],
+   "cited_missing": [
+    "运动员技术等级标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131313",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131313",
+   "question": "十五运田径比赛的成绩册出来了吗？别的地方（巴彦淖尔）好像通过其他成绩证明也可以当作办证的手续。",
+   "cited_hits": [],
+   "cited_missing": [
+    "运动员技术等级管理办法",
+    "运动员技术等级称号申请表"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130621",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130621",
+   "question": "十五运的比赛费用和奖金啥时候发，奖金是一分一千吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "包头市参加内蒙古自治区第十五届运动会奖励方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131177",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131177",
+   "question": "全运会的运动员奖金发放方法是什么，打到银行卡还是给到教练员，具体方法有吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "包头市参加自治区第十五届运动会运动员、教练员奖励方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130561",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130561",
+   "question": "全运会拿了前八是给奖金吗，啥时候发",
+   "cited_hits": [],
+   "cited_missing": [
+    "包头市参加自治区第十五届运动会运动员、教练员奖励方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131217",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131217",
+   "question": "半程马拉松有国家等级证书吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "体育总局关于印发 的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131157",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131157",
+   "question": "普通马拉松，达标了可以申请国家等级证书吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "体育总局关于印发 的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130473",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130473",
+   "question": "想问一下如何考社会体育指导员证或者羽毛球教练证",
+   "cited_hits": [],
+   "cited_missing": [
+    "社会体育指导员管理办法",
+    "社会体育指导员管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131077",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131077",
+   "question": "内蒙古15运会群众组羽毛球报名名单在哪可以看见？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于组织开展自治区第十五届运动会群众组比赛报名工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131073",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131073",
+   "question": "包头奥林匹克中心有没有打算和薛之谦洽谈演唱会事宜",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于统筹整合全市可经营文旅资源资产的实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130425",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130425",
+   "question": "注册的地点，还有哪些时间段可以去啊？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于组织开展2023年包头市青少年运动员注册工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130421",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130421",
+   "question": "2023年4月伤有百米达级比赛吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "运动员技术等级标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130413",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130413",
+   "question": "每年举报的包头市青少年锦标赛，达级给运动员证吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "运动员技术等级管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130409",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130409",
+   "question": "在哪可以乒乓球市注册",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于组织开展2023年包头市青少年运动员注册工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130365",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130365",
+   "question": "包头的课外兴趣班能开了吗为什么教育局还没有发通知",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好校外培训机构恢复线下教学培训相关工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131033",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131033",
+   "question": "包头市课外兴趣班开课了吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好校外培训机构恢复线下教学培训相关工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131029",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131029",
+   "question": "包头市课外兴趣班多会能开",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好校外培训机构恢复线下教学培训相关工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130353",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130353",
+   "question": "包头市课外兴趣班多会能开",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好校外培训机构恢复线下教学培训相关工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130333",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130333",
+   "question": "2023年运动员注册什么时候开始，需要什么东西，自己可以办理吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于组织开展2023年全区青少年运动员注册的通知",
+    "关于组织开展2023年包头市青少年运动员注册工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131021",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131021",
+   "question": "包头市的课外兴趣班多会儿能开",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好校外培训机构恢复线下教学培训相关工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130349",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130349",
+   "question": "包头市课外兴趣班多会儿能开课比如跆拳道什么的",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好校外培训机构恢复线下教学培训相关工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130989",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130989",
+   "question": "怎样参加社会体育指导员培训。怎样报名？获得社会体育指导员培训证书。",
+   "cited_hits": [],
+   "cited_missing": [
+    "社会体育指导员管理办法",
+    "社会体育指导员管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130973",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130973",
+   "question": "搬家遗失一级证，可以补办吗？需要提供什么材料？",
+   "cited_hits": [],
+   "cited_missing": [
+    "运动员技术等级管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130281",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130281",
+   "question": "但是没参加校足球队 没有参加自治区比赛的资格 有没有考试什么的",
+   "cited_hits": [],
+   "cited_missing": [
+    "运动员技术等级管理办法",
+    "运动员技术等级标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130961",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130961",
+   "question": "中职运动员能考二级证吗？怎么考？",
+   "cited_hits": [],
+   "cited_missing": [
+    "运动员技术等级标准",
+    "包头市体育局运动员技术等级管理制度（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130905",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130905",
+   "question": "十四运达级给发证吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "运动员技术等级管理办法",
+    "运动员技术等级标准"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130893",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130893",
+   "question": "您好，想咨询关于青少年考核国家二级运动员的情况有没有，有没有可咨询部门的联系方式？",
+   "cited_hits": [],
+   "cited_missing": [
+    "运动员技术等级标准",
+    "包头市体育局运动员技术等级管理制度（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130889",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130889",
+   "question": "您好，想咨询下青少年考核国家二级运动员都有什么流程，都有什么项目。小学生",
+   "cited_hits": [],
+   "cited_missing": [
+    "运动员技术等级标准",
+    "包头市体育局运动员技术等级管理制度（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130241",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130241",
+   "question": "请问包头籍运动员奖励办法相关文件还在吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "包头市优秀运动员教练员奖励暂行办法",
+    "包头市参加内蒙古自治区第十四届运动会优秀运动员教练员奖励方案（包体发〔2019〕8号）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130877",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130877",
+   "question": "领导你好，此轮疫情前体育消费券是满20减20、满40减30、满60减50和满100减80；现在疫情过去了，成了满5减5满10减10满20减20和满40减30。力度下降太多了吧，这个消费券还会回归以前的力度吗？还是说就是这样了呢？现在打羽毛球",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发 的通知",
+    "关于调整包头市体育惠民活动消费券类型的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130869",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130869",
+   "question": "武术考二级运动员报名在那报名？",
+   "cited_hits": [],
+   "cited_missing": [
+    "运动员技术等级标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130209",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130209",
+   "question": "国家二级运动员怎么考，体育局技术考核时间是多会儿下次时间多会儿",
+   "cited_hits": [],
+   "cited_missing": [
+    "运动员技术等级标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130205",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130205",
+   "question": "我想考国家二级运动员证书，请问该怎么考，去哪考，时间是多会儿",
+   "cited_hits": [],
+   "cited_missing": [
+    "运动员技术等级标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130841",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130841",
+   "question": "个人诉求 尊敬的局领导： 您好，我叫关欣，是体校一名工作在教育一线的文化课教师兼班主任，2009年我到体校任教，已为体校兢兢业业，教书育人服务近十二年。 我本人是经过局党组谨慎考核通过的，有全日制本科学历，内蒙古师范大学毕业，有国家承认的教",
+   "cited_hits": [],
+   "cited_missing": [
+    "事业单位公开招聘人员暂行规定",
+    "关于进一步规范事业单位公开招聘工作的通知",
+    "关于印发 （内人社发〔2012〕166号）",
+    "以政府购买服务方式补贴直属中等职业学校外聘教师经费实施意见"
+   ],
+   "has_clause_no": true
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "baotou-igi-15",
+   "id": "211872",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=211872",
+   "question": "请问你们单位微信公众号是什么",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "208098",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=208098",
+   "question": "中国田协发布的《2026年全国马拉松赛事目录》显示包头马拉松举办时间为2026年6月 ，至今未见公告。请问具体什么时间举办？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "161009",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=161009",
+   "question": "包头市体育局领导： 您好！ 我是由包头市体校培养的运动员贾槐宇。在体校打下扎实的运动基础后，我曾入选内蒙古马术中心，退役后投身残疾人体育事业。我于2025年全国残疾人运动会上获得羽毛球项目金牌，实现了内蒙古自治区在该项目上金牌“零的突破”。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "154372",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=154372",
+   "question": "家里孩子现在就读于包头师范学院实验中学的七年级，在小学阶段就很喜欢足球运动，可惜一直没找到报名渠道。孩子身体条件很优秀，不管是打篮球还是踢足球都符合培养条件，最主要的是孩子很坚定的选择足球。我在网上和昆区少年宫都找老师多方打听，也没有找到门",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "153666",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=153666",
+   "question": "征集活动公告明显告知“采用现代AI技术生成的作品不予采纳。”选出来投票的作品80%都是AI生成的作品，最后评选结果也没有公开",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "150413",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=150413",
+   "question": "中日韩青少年运动会翻译志愿者补贴什么时候发",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131893",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131893",
+   "question": "请问中日韩青少年运动会的足球项目比赛观众可以直接免费入场观看吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131889",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131889",
+   "question": "你好，咨询一下蒙超联赛23号19点在内蒙古科技大学包头vs赤峰那场比赛什么时间能购票？购票渠道从哪里获得？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131705",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131705",
+   "question": "需要买票吗 啥时候放票",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131881",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131881",
+   "question": "请问中日韩青少年运动会的足球项目对群众公开售票吗，具体的售票渠道是什么，是线上还是线下购票？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131877",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131877",
+   "question": "请问一下第三站直播回放哪里可以看",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131873",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131873",
+   "question": "中日韩青少年运动会招志愿者吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131869",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131869",
+   "question": "高度赞扬东河文体局一位工作人员！负责体育类培育机构的，帮助我退掉了未上的课程费用，已经和机构拉扯一个月了，但是她知道情况后，效率超高的解决了问题，期间态度特别好，只知道她是一位女士，姓甄，希望领导看到一定要狠狠夸奖她！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131865",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131865",
+   "question": "怎样参与8月8白的免费游泳活动。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131861",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131861",
+   "question": "您好，想请问一下咱们内蒙古自治区第十六届省运会网络信息技术这方面什么时候开始招标，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131857",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131857",
+   "question": "想在包头考体育总局发的国家职业健身教练，请问有哪几个考点，怎么联系",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131701",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131701",
+   "question": "包头半马第三场啥时候举办",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131853",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131853",
+   "question": "第三站半马啥时候",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131849",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131849",
+   "question": "请问一下第三场半程马拉松什么时候举办",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131845",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131845",
+   "question": "请问25年石拐喜桂图是不是有一场公路车比赛",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131697",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131697",
+   "question": "在包头市想参加救生员，游泳教练员可以参加什么考试，在哪报名，联系电话是多少",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131693",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131693",
+   "question": "想报考游泳救生衣教练员应该联系哪个部门，具体负责人和电话是多少，每年几次什么时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131689",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131689",
+   "question": "尊敬的领导你好，我自2011来包头工作，职业幼师，去年开始热爱跑步，次次马拉松报名，今年第一，第二站都没中签，请问选择标准是什么？好难过",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131685",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131685",
+   "question": "做为体育部门宣传的高标准赛事乔氏大师赛赛事信号是举办者向某些直播台球的账号部分授权直播的信号源，这使得需要网络观看赛事的普通观众根本无法观看到想要看到的直播，只能是看那些授权直播信号源的账号他们想给我们看的那些直播，为什么乔氏的比赛就不能像",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131841",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131841",
+   "question": "比赛时间是周六几点开始呀？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131677",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131677",
+   "question": "内蒙古田径锦标赛举办时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131673",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131673",
+   "question": "请问2025年包头马拉松参赛包能邮寄吗？可以的话，需要什么途径可以联系！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131837",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131837",
+   "question": "请问包头今年一共计划办几场马拉松？ 518马拉松刚结束，但到目前为止都没查询到成绩证书，请问何时、什么渠道可以查询到成绩证书？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131669",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131669",
+   "question": "5月18日从高新区方向到包头市图书馆上班，经过富林路阿尔丁大街交叉口，步行或者骑自行车7点30之前能过去吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131665",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131665",
+   "question": "请问能否在昆区海威小区周边建设一个能健身跑步的公园？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131833",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131833",
+   "question": "包头市举报的U系列赛事能否开放观赛",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131661",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131661",
+   "question": "20025年包头市青少年田径标赛4月19日上午跳远比赛，监督起跳板踩线裁判三次违规操作，孩子没踩线的情况下举了三次红旗，严重影响了孩子的发挥，对孩子的心理有了阴影，我们有视频证据，也希望体育提供监控和我比对视频给孩子一个结果，作为体育生的家",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131829",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131829",
+   "question": "我2009年6月23号出生，你们规定是5月11号之前才能报。我想跑包头但是我小程序上报不了，有直通成绩（2025雄安马拉松1小时23分钟27秒），您看看能给搞一个名额吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131825",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131825",
+   "question": "我和我儿子同时报名了欢乐跑，后续存在摇号，万一我儿子被摇号选中，而我没有被选中，这种情况怎么办？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131657",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131657",
+   "question": "请问近期是否会有乒乓球裁判员的培训工作",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131821",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131821",
+   "question": "4月份预计举办的游泳比赛还办么？规程出来了么",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131817",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131817",
+   "question": "今天市长杯足球赛，三十五中学与青山一中在松石国际学校上午8：30比赛中，裁判众目葵葵，在三十五中领先2球情况下，裁判无视足球出界与故意犯规不予举牌，明显偏袒青山一中，引起在场家长和球员不满，有视频情况下还不予纠正自己错误判罚，故意给35中教",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131645",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131645",
+   "question": "25年田径赛几月份举办，什么时候开始能报名",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131641",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131641",
+   "question": "2025包头马拉松比赛大概在什么时间举办，赛事的等级是什么级呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131813",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131813",
+   "question": "能否改进包头市U系列乒乓球赛事报名规则，改成和羽毛球一样的报名规则 放宽报名限制及人数要求 ，改为单打、双打、及混双报名，并依据年龄段进行分组",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131809",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131809",
+   "question": "羽毛球全运会选拔，为什么呼和浩特，羽毛球有选拔赛，包头都需要内定。康文革，何春雷两个人唯我独尊，和家长们说只有他们训练队才有资格参赛！横行霸道，我要不停的检举！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131637",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131637",
+   "question": "领导您好，请问内蒙古自治区第十六届冬季运动会举办的时间地点 冰球项目参赛组别，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131805",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131805",
+   "question": "去年12月，考试通过国家乒乓球初级教练员证，怎么申请教练员初级职称",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131801",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131801",
+   "question": "请问现在包头市哪里还可以参与体质监测活动，如何预约？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131633",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131633",
+   "question": "领导25年3月份羽毛球锦标赛什么时间开赛，怎么报名",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131629",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131629",
+   "question": "3月份青少年羽毛球锦标赛，什么时间比 ，怎么报名",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131625",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131625",
+   "question": "希望组织一场乒乓球裁判证考试。谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131785",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131785",
+   "question": "想了解一下台球裁判考证怎么报名，什么时候，什么地方，具体需要什么",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131621",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131621",
+   "question": "内蒙古没有自己的cba男篮队伍，包头篮球运动赛事少，希望多一些赛事，包头的体育健儿都去呼市或者其他城市了。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131617",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131617",
+   "question": "我想给我女儿变更注册权，了解一下需要提供什么文件",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131613",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131613",
+   "question": "想问一下领导高一体育生注册信息多会能查询，通过什么方式查询。谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131777",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131777",
+   "question": "您好，请问高一学生的运动员注册结果哪里可以查",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131609",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131609",
+   "question": "您好 询问一下七月份的乌兰察布市第十六届中学生运动会的运动员报销什么时候",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131773",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131773",
+   "question": "包头二级证预估多久才能出来？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131769",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131769",
+   "question": "包头二级啥时候才能出来啊",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131605",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131605",
+   "question": "田径的二级运动证什么时候能下来啊",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131601",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131601",
+   "question": "十五运奖金半年了啥时候能发下来到底",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131765",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131765",
+   "question": "公示期也结束了，可以抓紧时间发放奖金吗，什么时候可以发呢？？，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131761",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131761",
+   "question": "十五运奖金公示完了为什么还不发呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131757",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131757",
+   "question": "羽毛球裁判员取证啥时候举办",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131597",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131597",
+   "question": "十五运奖金，统计信息，审核信息需要多久，具体什么时候会公示发放，快过年了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131753",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131753",
+   "question": "您好！我想咨询一下今年内蒙古自治区还有没有青少年乒乓球的比赛。如果有怎么参加报名。有没有相关的资料。谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131749",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131749",
+   "question": "15 运奖金签完字 什么时候下发",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131593",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131593",
+   "question": "您好，我想请问一下2024年羽毛球裁判员培训几月开始报名。具体收费是多少。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131589",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131589",
+   "question": "冠军赛的奖牌什么时候能发下来？跑步的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131585",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131585",
+   "question": "内蒙古第十五届运动会鄂尔多斯举办的，田径项目的奖金什么时候发放？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131745",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131745",
+   "question": "刘科长你好，包头市网球冠军赛，我个人建议代表包头市参加过比赛的运动员应该放宽参赛条件。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131741",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131741",
+   "question": "包头市体育局举办的各类比赛，从哪里报名参加？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131737",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131737",
+   "question": "包头市什么时候能举办大众田径比赛，U8，U10各年龄段小朋友也能参加的比赛？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131733",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131733",
+   "question": "内蒙古第十五届运动会鄂尔多斯举办的，曲棍球项目的奖金什么时候发放",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131729",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131729",
+   "question": "10月20号今天恶劣天气，您能把纪念奖牌发给我吗，我们四个人（李全，靳晓霞，郝利星，董国华），我们去了现场，没法跑",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131581",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131581",
+   "question": "内蒙古自治区第十六届中学生运动会 在乌兰察布举行的 询问一下车票钱还有报名比赛的费用什么时候报销下来",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131577",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131577",
+   "question": "您好 2024年七月份乌兰察布16届运动会的运动员报销什么时候下来啊",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131573",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131573",
+   "question": "我想报考跳绳裁判证，怎么报考呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131569",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131569",
+   "question": "我想考取羽毛球社会体育指导员证书，从哪里可以报考，可以提供联系方式吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131565",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131565",
+   "question": "近期在公园游逛，心情大好，发现我们附近公园里的体育设施有新增的，还有原来一些破损的旧设备也维修好了。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131561",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131561",
+   "question": "本人为规划设计院设计师，现为受包头政府委托，为包头市做城市体检工作，涉及需要统计现有各街道内的开放的非盈利运动场地数据，希望可以提供。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131717",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131717",
+   "question": "9月22日的包头马拉松与呼和浩特马拉松时间重合，两场都想参加。包马可以考虑稍微调整一下日期么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131557",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131557",
+   "question": "您好，我在东河的拳馆上课，自由搏击李通宇教练上课违规操作，在无其他护具，让我们带儿童跆拳道头盔的前提下，进行实战训练，导致教学事故，我下巴严重受伤。并且天天对我进行辱骂，我在南方上学，说我是南蛮子，辱骂我在学校的教练。 后续处理时候，并未道",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131713",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131713",
+   "question": "为什么东河的篮球场那么少",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131545",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131545",
+   "question": "如何考篮球二级证如何报名",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131541",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131541",
+   "question": "孩子在赤峰注册了篮球运动员，现已转入包头就学训练，如何申请包头运动员代表资格",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131533",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131533",
+   "question": "如何可以成为包头马拉松志愿者？？？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130813",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130813",
+   "question": "请问，奔跑吧少年2024年包头市青少年游泳U系列比赛的证书和奖牌何时发放。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130809",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130809",
+   "question": "友谊大街十九号街坊三区小广场乒乓球场地，在老旧街改造当中，没有认真做好场地地面铺装和防风围栏建设，在后期居民的活动当中，有好几位老人摔伤，体验太差劲，我们也给政府12345热线打过电话，但是都推到社取居委会，整的各方面都不妤快。肯请政府能否",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131529",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131529",
+   "question": "羽毛球裁判员证怎么报考和需要什么条件",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131525",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131525",
+   "question": "该广场的乒乓球运动区建设不达标，地面砖铺。卡脚，四面无挡风栏。好多老年人在这打球都摔过。请政府给好好回应一哈哈。提交给政府热线都是又返回社区，没啥用。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130773",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130773",
+   "question": "您好，马拉松工作我想去帮忙可以嘛？去年参加过四场马拉松的志愿者，今年想多为比赛尽些力，我也有志愿者的经验，可以更快的解决事情，所以想着今年可以提前去帮忙嘛？我对马拉松非常感兴趣，今年的赛事章程已经基本了解了，所以想尽自己的一份力量",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130805",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130805",
+   "question": "您好，备受瞩目和期待的盛大活动2024包头马拉松即将到来，在报名首日通过各大平台看到了广大市民和参赛者的积极参与，与此同时，也看到一些人有很多的疑问，比如欢乐跑为什么不给发完赛奖牌？欢乐跑的纪念徽章是什么样子？等等，一些备受关注的问题还希望",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130801",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130801",
+   "question": "本人于5月15日看到2024包头马拉松开始报名了，是真的吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131521",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131521",
+   "question": "想咨询一下，U系列游泳比赛，U11以上的项目为什么不设置50米的项目。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131517",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131517",
+   "question": "24年马拉松什么时候",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130797",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130797",
+   "question": "去年这个时候不是已经开始报名了吗，今年会推迟吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130793",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130793",
+   "question": "怎么匿名聊天",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131513",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131513",
+   "question": "咨询一下2024年包头市乒乓球裁判员培训何时开始",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131481",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131481",
+   "question": "乒乓球裁判员证怎么考呢？什么时间呢？具体流程是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130769",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130769",
+   "question": "5.1 市乒乓球锦标赛主办方赛场内肆意妄为，红衣男子恶意中断比赛，中途停赛一小时，还在场内辱骂运动员不要脸，殴打运动员家长，导致大量运动员退赛，望体育局领导引起重视，公布此人信息，严打严判，不要让一块臭肉坏了一锅汤",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130765",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130765",
+   "question": "想咨询一下今年包头全马取消没有，比赛大概时间是多会？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131477",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131477",
+   "question": "你好体育局领导，我是一名孩子家长，咱们包头市五一举办乒乓球比赛，本来是好事，检验孩子们平常训练水平，可是昨天接到通知还要体检证明，节前都在上学哪有时间体检？孩子去外地打过多次比赛也没要求体检，怎么在自己家门口事怎么多？与其这么麻烦还举办的有",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131473",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131473",
+   "question": "怎么能获得足球裁判员证 怎么联系训练",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130781",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130781",
+   "question": "今年包头有没有新建篮球场的计划",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131493",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131493",
+   "question": "我们友谊大街十九号街坊三区友谊小广场这里的乒乓球运动场地非常不规整，防风围挡没有，地面是小砖铺地。好几个老年人在运动过程中摔过。我本人也在这里摔过三次。请问是否有整改计划。建立防风围挡，地面整改等。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131469",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131469",
+   "question": "尊敬的领导您好，我是一名东河区足球运动爱好者，在东河区主城区还没有一处适合踢球的场地，近日看到东大桥西侧路边原壹品府售楼部及建筑工棚正在拆除，拆除地空地面积足够修建一座笼式足球场，或者将东边保利百合小区西墙那个闲置的网球场改建为笼式足球场。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130777",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130777",
+   "question": "尊敬的领导您好，作为一名马拉松爱好者，并在包头市求学的学生，在这里诚恳的希望尽量可以把2024年包头马拉松的赛事规格提高到有田协认证的A1类赛事，让我在大学最后一年的时候，可以在田协赛事的成绩中留下包头的名字，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131465",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131465",
+   "question": "包头市少儿乒乓球锦标赛今年还打不打。大概什么时间？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131461",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131461",
+   "question": "目前各个旗县区的文体局，几乎只搞文化事业，青少年体育几乎处于放弃状态，一问就说是市里没有要求，恳请市体育局的领导督促各个旗县区积极组织开展青少年乒乓球赛事",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131457",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131457",
+   "question": "体育公共服务信息基本情况从哪里可以得到详细数据啊",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130757",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130757",
+   "question": "开发区总部经济园售楼部附近体育公园内安装的健身器，双杠安装不合理，根本无法使用。是否可以调整安装？如不明确，不知道具体情况，请发给我电话。本人电话18547297778。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130741",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130741",
+   "question": "今年有没有马拉松？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130749",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130749",
+   "question": "根据经营高危险性体育项目许可管理办法经营游泳类的项目必须经过许可，包头市许可经营的机构名单在哪里可以查询到？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130733",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130733",
+   "question": "包头师范学院毕业，在毕业前拥有包头市体育局颁发的篮球和裁判员证书，在哪里可以查到我的裁判员信息",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131429",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131429",
+   "question": "您好，请问2024年排球裁判培训班什么时候报名？如何报名？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130729",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130729",
+   "question": "我在友谊大街十九号街坊三区，这里有个友谊小广场乒乓球角，但是场地建设不足，地面，防风围挡跟本没有，好多打球老人非常不变。请领导给归化修理一下。。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130725",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130725",
+   "question": "因为孩子羽毛球事业在内蒙能排上名次，我希望包头市体育局可以向上申请搭建内蒙古羽毛球队，带着这群优秀的孩子出省打比赛",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130721",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130721",
+   "question": "麻烦看一看，2024年包头青少年乒乓球比赛几月进行？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130717",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130717",
+   "question": "请给一份详细的计划",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131441",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131441",
+   "question": "转学",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131437",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131437",
+   "question": "希望包头承办2024年全国热气球锦标赛",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130713",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130713",
+   "question": "2024年有马拉松吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131433",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131433",
+   "question": "今年青少年乒乓球锦标赛什么时间办？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131401",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131401",
+   "question": "从哪看十五运田径回放",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130701",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130701",
+   "question": "怎么样考体育进高中",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131397",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131397",
+   "question": "请问2024年篮球裁判考证如何考证及培训",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130693",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130693",
+   "question": "如题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131385",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131385",
+   "question": "在友谊大街十九号街坊三区小广场这里有个乒乓球场地，但是根本没有较好的设备，就在砖地上摆俩案子。现在打球的人多了。场地建设跟不上。地面不灵光，防风围挡啥也没有。跟一二三四五反应了。也没个动静了。都有老人摔好几次了。要搞就好好弄。不搞就拆了。省",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130705",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130705",
+   "question": "十五运的奖金什么时候落实",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131381",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131381",
+   "question": "十五运的奖金什么时候能发",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130689",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130689",
+   "question": "从哪看十五运第一天竞赛的回放",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131413",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131413",
+   "question": "体育局领导您好:我孩子在2023年7月底参加内蒙古第十五届运动会17至18年龄组足球比赛，比赛过程中头球射门，守门员出击用拳头把孩子的门牙打伤，牙齿掉了一个角，牙釉质整片脱落，牙神经裸露，经一机口腔医院根管治疗和牙冠修复，保险公司只报销治疗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131377",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131377",
+   "question": "运动鹿城小程序的代金券投放了吗？为什么数量一直显示为0",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131373",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131373",
+   "question": "如何报名成为包头市体育局主办运动大会的志愿者",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130685",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130685",
+   "question": "运动员注册几号可以到满洲里来注册",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130681",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130681",
+   "question": "如何才能免中考体育 两个内蒙古第十五届全运会冠军可以吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131369",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131369",
+   "question": "内蒙古自治区第十五届运动会冠军的奖金什么事后发",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130677",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130677",
+   "question": "内蒙古自治区第十五届运动会的奖金什么时候能落实",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131361",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131361",
+   "question": "如标题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131365",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131365",
+   "question": "包头篮球，排球目前都已经举办了u系列赛事，什么时间单独举办乒乓球u系列赛事？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130673",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130673",
+   "question": "还没审核下来吗，银行卡号多会儿上报？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131353",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131353",
+   "question": "我们可以免费提供比赛现场直播拍摄和选手奖品 18871989090",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131349",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131349",
+   "question": "请问下一次青少年滑雪冬令营活动会是什么时候？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131345",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131345",
+   "question": "奔跑吧，少年 2023年青少年田径锦标赛优秀教练员证书什么时候下发？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131341",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131341",
+   "question": "如何查运动员是否在包头已注册？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130657",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130657",
+   "question": "内蒙全运会田径金啥时候下来",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130653",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130653",
+   "question": "去年领孩子参加了一次包头市体育局组织的少儿滑雪 收获颇丰 也感谢包头市体育局有这样丰富的活动 想问下今年雪季今年还有吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131337",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131337",
+   "question": "2024年内蒙古举行跆拳道锦标赛吗？或者是包头有跆拳道比赛吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130649",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130649",
+   "question": "2023包头马拉松系列赛圆满落幕，2024年包头市的马拉松赛事有什么计划吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130669",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130669",
+   "question": "请问你单位办公地址在哪儿",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131333",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131333",
+   "question": "青山区森林公园现在是水泥地面，今年摔坏好几个人了，希望铺设塑胶场地",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131329",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131329",
+   "question": "你好领导，我是青山区森林公园北园附近居民，公园内有水泥地篮球场，今年摔坏还几个人了，能不能铺设塑胶场地，减少受伤几率，谢谢了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130665",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130665",
+   "question": "明年还有马拉松吗，我明年过年就成年了，特别想跑",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130661",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130661",
+   "question": "如果想办公益健步走活动怎么过体育局审批呀",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131325",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131325",
+   "question": "想咨询一下 想为社区申请一套健身器材 高低杠，申请条件是什么 怎样才可以申请到",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131321",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131321",
+   "question": "居住在西脑包这边，不知道附近有没有门球场地",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130645",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130645",
+   "question": "家住在东河区西脑包街道，请问下附近哪里有门球场？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130641",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130641",
+   "question": "体育类教培，合规手续怎么办理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131317",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131317",
+   "question": "青少年乒乓球比赛多会儿有",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130637",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130637",
+   "question": "二级证书怎么查",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131301",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131301",
+   "question": "明年乒乓球比赛安排了哪些项目",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131309",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131309",
+   "question": "请问如何考取羽毛球教练员证书？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131305",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131305",
+   "question": "如何联系报考篮球三级裁判员",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131297",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131297",
+   "question": "请问一下等级证书的材料何时下发，秩序册以及成绩册的封面名单页，办证需要用的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130629",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130629",
+   "question": "现在各个旗县区，就完全没有任何性质的青少年乒乓球比赛，不论是u系列锦标赛还是中小学生比赛，甚至昆区体育局在根本没给报名渠道的情况，说是以报名人数太少为由，取消举办赛事，望领导们多多关心青少年，切勿好大喜功",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131293",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131293",
+   "question": "初二中考体育，有自治区第十五届运动会前三的成绩可以免试吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131289",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131289",
+   "question": "初二中考体育参加过内蒙古自治区第15届运动会的，并且拿到了前三，可以免试吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130625",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130625",
+   "question": "请问包头办理网球俱乐部怎么办理？告知一下地址和电话，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131269",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131269",
+   "question": "你好，我家孩子2019年注册了包头市游泳运动员，并且每年都参加了包头市的游泳比赛，今年还参加了省运会，拿到了蛙泳全能第四的成绩，2021年享受了满都拉的门票补贴，之后再没有享受过，想问问为什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131285",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131285",
+   "question": "内蒙十五运田径比赛的食宿费押金多会儿退，一开始让自己垫付的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130617",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130617",
+   "question": "半程马拉松还举办吗？今年要办几场",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131281",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131281",
+   "question": "第三场马拉松10月几号开赛？什么时候开始报名？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131277",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131277",
+   "question": "2021年我参加了包头市举办的足球夏令营活动并担任裁判，裁判工作顺利完成但是一直到现在2023年裁判费还没有发下来，直到2023年6月份裁判群里有了消息让补充或修改银行卡等信息说是不要影响发裁判费，我以为裁判费会在接下来的一俩个星期会到账，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131273",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131273",
+   "question": "2023包头市下半厂马拉松怎么报名",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131265",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131265",
+   "question": "您好，今年的全民健身游泳比赛还是10月份吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130613",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130613",
+   "question": "比赛的食宿费押金多会儿退，一开始让自己垫付的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131261",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131261",
+   "question": "全民健身免费活动月还搞吗？场馆怎么参与？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131257",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131257",
+   "question": "包头和内蒙古今年多会还有乒乓球青少年比赛 从哪能看到有比赛？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131253",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131253",
+   "question": "请问第二场半马比赛是否确定在9月3日举办？到时候建华路封路吗？可以的话介绍一下具体的封路情况，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130557",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130557",
+   "question": "那周围的公园有没有盖篮球场的计划 比如说莫尼公园 啤酒公园",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130609",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130609",
+   "question": "什么时候举报中国田径协会的马拉松比赛",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130553",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130553",
+   "question": "想问补给，香蕉是哪家供应商提供，很好吃，想要知道那个牌子的香蕉，自己想购买",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130549",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130549",
+   "question": "我想知道补给的香蕉是那个牌子的，很好吃，想自己批发购买",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130545",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130545",
+   "question": "包头2023年9月以后还有马拉松吗？期待啊",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130541",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130541",
+   "question": "9月份的半马什么时候可以报名？很期待，非常期待，特别特期待",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130537",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130537",
+   "question": "志愿者证书什么时候发放？如何领取？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131173",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131173",
+   "question": "包头市森林公园北侧篮球场整个球架已坏导致球框掰弯，却只更换球框，使球框多次损坏导致无法在此场活动，望尽快更换维护此场",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131249",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131249",
+   "question": "马拉松系列赛后面还要举办3场奖牌是不是还是那个样子，这样4场系列赛完赛后，4个奖牌可以拼成一个大奖牌！我要继续参赛",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131245",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131245",
+   "question": "健康跑没有参赛证书嘛",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131169",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131169",
+   "question": "而且很多旧的篮球场都得到了升级 请求有关部门帮忙在东植物园盖个球场 就连人烟荒凉的河西公园都是新场球 植物园满足盖球场的硬件条件",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131241",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131241",
+   "question": "2023.8.6日跑过半马，感觉非常棒！今年后面还有马拉松赛事吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131237",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131237",
+   "question": "请问8月份黄河几字湾马术赛事，具体举办时间？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131233",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131233",
+   "question": "马拉松要举办几次",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130533",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130533",
+   "question": "8月6号马拉松参赛乘车点在哪",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131229",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131229",
+   "question": "我想再问一下关于植物园盖篮球场的进度 植物园有空地可以满足",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131225",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131225",
+   "question": "将在榆林市世纪广场鸣枪开跑",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131221",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131221",
+   "question": "何时领取赛服及号码",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130529",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130529",
+   "question": "十五运田径开幕式什么时候",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130525",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130525",
+   "question": "请问还在招马拉松的志愿者吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131213",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131213",
+   "question": "希望回答的不要那么官方",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131165",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131165",
+   "question": "怎么报名半马志愿者！13604722136",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130605",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130605",
+   "question": "如上",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131161",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131161",
+   "question": "在新星壹品住 想在附近打球锻炼 一直没有球场",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130521",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130521",
+   "question": "2023包头马拉松通过团报说要给退的钱什么时候给退，别退给运营单位坤宝公司，你们跟坤宝公司是一起的，很多人通过我们报名等着退费用，坤宝还让我们再统计一次，我们报名的时候备注都有写跑团，你们后台数据导出完全可以统计出来，再让我们统计一次？！官",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130517",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130517",
+   "question": "包头市近期有羽毛球比赛安排吗？业余能不能报名参加",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131209",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131209",
+   "question": "航海模型运动在我国开展历史比较悠久，包头市和模型运动渊源颇深，2009年包头市承办了全国航空航天模型、航海模型、车辆模型锦标赛。我作为一名航海模型专业教师非常希望包头市能够鼓励开展模型运动，但是孩子们现在没有一片适合航海模型训练的水域，每次",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130601",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130601",
+   "question": "配速员评选什么时候开始",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130597",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130597",
+   "question": "7月15日赛汗塔拉马术比赛从哪儿购票？以及之后举办的马术比赛是否需要买票？从哪儿购票？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130593",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130593",
+   "question": "业余的可以参加田径比赛吗，比如市运会",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130509",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130509",
+   "question": "包头市田径代表队运动员名单会官网公示吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130505",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130505",
+   "question": "7月到10什么时候举办半程马拉松",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131205",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131205",
+   "question": "参赛人员名单出来没",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130501",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130501",
+   "question": "2019年11月由包头市体育局推荐参加内蒙古自治区田径裁判培训，考完试后，一直没有成绩通知，咨询当年考试是否通过？张雪琴包头回中13848633110",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130497",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130497",
+   "question": "为什么迟迟不公布参赛人员名单，这和补充通知没有任何关系啊，是先出名单，报上去再下补充文件",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130493",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130493",
+   "question": "具体比赛时间和文件有无发放",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131153",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131153",
+   "question": "包头市有举办铁人三项比赛的计划吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131201",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131201",
+   "question": "没领到马拉松奖牌，18648263924我电话",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131197",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131197",
+   "question": "孩子在中体购买了网球课程，最近告知课时即将到期，到期后剩余课时费不予退还，在到期日前退费要扣除720元（不管剩余多少节课时）手续费。购买课时时没有任何告知及书面协议。想问一下领导中体这个机构体育局监管吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131193",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131193",
+   "question": "孩子在中体学习网球，购买课时没有签过任何文字性文件，现在告知孩子购买课时即将到期，到期后剩余课时作废，在期限内退费要扣720元手续费，也不说明原因",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130589",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130589",
+   "question": "奖牌和证书多会儿发，发不了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130585",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130585",
+   "question": "田径比赛的奖金多少，名单是不今日出来，代表队的衣服什么时候发，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130489",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130489",
+   "question": "田径全运会有选拔赛吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130581",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130581",
+   "question": "目前三楼是由哪里托管，可以租赁做办公室用吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130577",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130577",
+   "question": "今年内蒙全运会开吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131149",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131149",
+   "question": "内蒙古自治区第十五届运动会的参赛人员名单以及竞赛规程什么时间下发",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130573",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130573",
+   "question": "包头市体育局的领导您好，我是2023年包头马拉松的参赛者，今天查询到我的参赛号码后3位是438，谐音不太好，我已与包头马拉松客服进行沟通，说是不允许更换号码！首先，我诚恳的致歉，这是我本人问题，过不去438谐音这个坎，如果身着438号，我都",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131145",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131145",
+   "question": "内蒙十五运的具体参赛名单多会儿发放，赛事文件出来没",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130485",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130485",
+   "question": "你好，我已在包马上报名，但现在没有配号，系统查不到我的名字。什么原因，13709562127刘晓杰",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131189",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131189",
+   "question": "怎么参加志愿者活动",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131141",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131141",
+   "question": "怎么参加志愿者",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131137",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131137",
+   "question": "请问今年是否有中小学健身操舞的比赛",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130481",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130481",
+   "question": "包头马拉松已经报名！半马！多会，去哪领取参赛包？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131185",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131185",
+   "question": "目前咱们市游泳加入中考体考项目了吗，还是算特长",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131133",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131133",
+   "question": "2023年四月份的跆拳道品势锦标赛的获奖名单出来了吗，什么时候公布和发奖",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130569",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130569",
+   "question": "内蒙古十五运田径项目的远动员代表名单何时公布，衣服多会儿发，具体文件多会儿发放，比赛时间是多会儿",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130477",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130477",
+   "question": "如果是，那是哪一类别的赛事呢？恳请如实告知。 谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131129",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131129",
+   "question": "我们是包头0472铁骑军团俱乐部。马拉松比赛需要开道摩托车的话，我们义务出动",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130565",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130565",
+   "question": "我们是包头0472铁骑军团俱乐部。马拉松比赛需要开道摩托车的话，我们义务出动",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131181",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131181",
+   "question": "包马兔子什么时间报名",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131125",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131125",
+   "question": "您好，孩子想考没有游泳救护证可以老教练证吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131121",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131121",
+   "question": "怎么申请三级运动员",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130465",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130465",
+   "question": "内蒙古15运动会乒乓球运动员包头何时选拔运动员？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131113",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131113",
+   "question": "包头市锦标赛网球项目已经打完好久了，什么时候公布成绩",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131109",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131109",
+   "question": "参赛物品包括什么，参跑衣服是组委会准备吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131105",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131105",
+   "question": "2023年包头市网球锦标赛是省运会的选拔赛吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130461",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130461",
+   "question": "最近有没有业余乒乓球比赛",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131101",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131101",
+   "question": "之前的包头市锦标赛前八有奖状吗？如果有，什么时候可以发",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130449",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130449",
+   "question": "在哪里报名2023年包头马拉松",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130453",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130453",
+   "question": "在哪报名考取篮球裁判证呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130445",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130445",
+   "question": "为什么足球比赛不允许家长进入？足球是过程大于结果的体育项目，没有观众是对足球的发展不利的，希望有关部门尽快解决或给予解释",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130441",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130441",
+   "question": "我想咨询青少年乒乓球比赛",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130437",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130437",
+   "question": "包头市多会再有乒乓球比赛",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131117",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131117",
+   "question": "包头什么时候在举办一次马拉松",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131097",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131097",
+   "question": "2019年举办了第一届包头马拉松，氛围很好，我也参加了，但是有一点我感觉不舒服，就是设置的奖项有一个是专门针对包头户口的，我是一个外地人，但我在包头上班，社保也在包头上的，纳税也是包头，就因为户口不在包头就把我拒之门外吗？我建议如果第二届马",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131093",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131093",
+   "question": "关于小篮球运动员注册的相关学籍等事项在哪里填报，找不到相关路径，求解 谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131081",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131081",
+   "question": "新都市九外高中招收乒乓球特长，学校有专业教练吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130429",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130429",
+   "question": "包头市网球锦标赛丙组比赛2011年1月1日以后出生的孩子不能参加2009年1月至2010年12月31号出生的孩子的比赛。只能参加下一个组别的比赛。留言人，魏增君，电话:15335525291",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131089",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131089",
+   "question": "体育局领导好:内蒙古十五运网球丙组参赛队员能否公开选拔。因为内蒙古体育局十五运文件上明确注明，丙组的年龄是2009年1月1日以后出生的孩子可以参赛。因为包头市2011年1月1日以后出生的孩子的水平有高于2009至2010年出生的孩子。代表包",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130433",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130433",
+   "question": "如果可以希望您也能告知我2016、2017、2021年我市注册登记社会体育指导员人数 感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131085",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131085",
+   "question": "请问2014、2016、2017、2019年我市的体育场地数量的数据在哪里可以查询到？或者您是否可以提供上述数据？感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131065",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131065",
+   "question": "请问下体育局机关事务中心 与全民健身中心、体彩销售管理中心是什么样的关系呢，是平行单位还是机关事务中心是这两个单位的上级单位",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130417",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130417",
+   "question": "从体教联盟考取的相关成人教练员的资质官方认可吗，例如二级运动员，散打教练员等等",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131069",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131069",
+   "question": "2023年3月举办的包头市羽毛球锦标赛，在2023年还有后续的比赛吗？2023年羽毛球的比赛计划怎么制定的呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131061",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131061",
+   "question": "少儿体适能证书在哪儿考",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131057",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131057",
+   "question": "包头市乒乓球最近还有乒乓球比赛吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131053",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131053",
+   "question": "包头市最近还有啥比赛？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130405",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130405",
+   "question": "小孩学游泳，溺水8分钟后，才被周围人发现，游泳馆无安全人员，构成安全事故吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130401",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130401",
+   "question": "市运动会什么时候举办，如果我是没有俱乐部不是学校组织的能报名吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130397",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130397",
+   "question": "开办网球俱乐部需要哪些流程？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130393",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130393",
+   "question": "那么大的游泳馆营业不强，改变思维！加大优惠力度增加人数就是收益。不要局限于一个价格上，那么大的场地空置期，看着急。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131045",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131045",
+   "question": "三月份的篮球比赛还比吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131049",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131049",
+   "question": "十三届全国人大常委会第三十五次会议6月24日表决通过新修订的体育法，将于2023年1月1日起施行。 其中新修订的体育法之第三章第三十一条 ： 学校应当按照国家有关规定，配足合格的体育教师，保障体育教师享受与其他学科教师同等待遇。 学校可以设",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131041",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131041",
+   "question": "今年会不会组织田径类比赛？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130381",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130381",
+   "question": "固阳县体育馆私自闭馆，对外宣称有维修情况，但并没有维修",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131037",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131037",
+   "question": "固阳县体育馆私自关闭，拒不开放，找理由说维修，但并不维修，这种情况已经持续1年",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130389",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130389",
+   "question": "全民健身中，昆仑国际滑雪场恶意不接电话，打半小时电话正在通话中，打通之后没有人接，要不然就是打通之后挂电话！如果想让消费者参加这个活动，希望可以好好搞，如果不愿意参加就不要参加，不要这样子！希望领导可以看到，并且解决，过几天活动就结束了！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130385",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130385",
+   "question": "如何查找运动员注册信息？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130377",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130377",
+   "question": "去奥体中心打球用劵的时候，要留身份证信息，我觉得这样不妥，有电话，姓名登记就可以了吧",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130373",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130373",
+   "question": "领码页面打不开",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130369",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130369",
+   "question": "体育局近几日有领导在嘛？需要盖章请问开门的嘛",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130361",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130361",
+   "question": "活动码领取方式不合理。不应该是场馆附近才释放活动码，这样对场馆附近以外的人不公平。建议改为：线上抢码后到馆核销，这样大家才有时间准备。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130357",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130357",
+   "question": "今年比内蒙十五届全运会吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131025",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131025",
+   "question": "包头市那家跆拳道好",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131017",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131017",
+   "question": "2008年内蒙古自治区青少年跆拳道锦标赛是在巴彦淖尔市举办还是在包头市举办？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130345",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130345",
+   "question": "请问2008年内蒙古自治区青少年跆拳道锦标赛是否在包头市举行？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130341",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130341",
+   "question": "请问2008年全区青少年跆拳道男子55kg比赛第一名获得者是谁？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130337",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130337",
+   "question": "田径单招，体育成绩明年啥时候考",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131001",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131001",
+   "question": "你好，请问游泳教练证怎么考取，在哪可以参加培训获得",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130329",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130329",
+   "question": "请问什么时候体培机构可以复课，现在政策全部放开了，还是不能复课对我们影响真的太大了。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131013",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131013",
+   "question": "冰雪节活动哪报名",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130997",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130997",
+   "question": "昆区的健身房啥时候能开门",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130313",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130313",
+   "question": "微信小程序鹿城健康里全民健身免费活动月什么时候开始，一直领取不了，一开始写的11月16日然后一直不能领取",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131009",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131009",
+   "question": "请问运动员注册变更什么时间开始办理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130309",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130309",
+   "question": "您好，运动员注册变更什么时候开始？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "131005",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131005",
+   "question": "需要啥手续，找哪个部门谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130325",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130325",
+   "question": "男子U20组400米比赛的二级证多会儿下来",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130993",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130993",
+   "question": "材料审核何时通过，证多会儿下来",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130305",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130305",
+   "question": "体育局的领导们:你们好。我们是青山区劳动公园一群爱好气排球者。希望体育局能给我们把场地铺成塑胶的，并竖起杆和架上球网。万分感谢！（我的电话:15504725097）",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130321",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130321",
+   "question": "疫情逐渐得到控制，滑雪场是户外运动场地，可以开放吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130317",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130317",
+   "question": "疫情至今，逐步放开，健身房，运动场关，减肥训练营，有具体开放时间吗？ 请告知 谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130301",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130301",
+   "question": "您好，我想考篮球裁判证，在哪里报名啊",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130985",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130985",
+   "question": "2022年1月份的呼市室内赛还有吗。青少年参加的！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130297",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130297",
+   "question": "运动员注册变更什么时候开始？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130981",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130981",
+   "question": "2022年1月份，青少年的呼市田径室内赛还会举办吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130977",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130977",
+   "question": "2022年1月份呼市的室内赛还有吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130293",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130293",
+   "question": "比赛还举行吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130289",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130289",
+   "question": "9月份内蒙田径比赛成绩册一般多长时间下来",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130969",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130969",
+   "question": "9月份比的内蒙赛，成绩册啥时候能下来?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130285",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130285",
+   "question": "疫情期间可申请办理运动员等级证书吗！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130965",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130965",
+   "question": "冰场本来是大众娱乐的地方，有手牌可以和孩子一起进入，换鞋后在到等候区，今天下午的保安态度嚣张，极不礼貌，用手指点顾客，体验感极差，请有关部门反馈到冰场，不合格的保安给予处理，否则不能保证安全，反而是安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130277",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130277",
+   "question": "裁判组不负责任，学生指出参赛人员出错，裁判不仅不管还反相威胁我班同学，说再多管闲事扣除我班总成绩。同时我年级3班，多次让一位同学代替项目所属人员参赛，违反规则（有视频证据和人证），其班在初二男子4x200接力比赛时，有一位女生跟跑拍视频，期",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130957",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130957",
+   "question": "2022年会有青少年乒乓球比赛吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130949",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130949",
+   "question": "包头市体育领导你们好，我想问问咱们包头的游泳队，你们怎么培养的 ，成绩都不如俱乐部的成绩，你们花钱培养的运动员，不如家长们培养的学生出成绩。你们能整改一下现在的包头游泳队吗？能请有实力、有水平的教练吗？给我们孩子点希望。为老百姓办点实事。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130953",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130953",
+   "question": "内蒙古游泳锦标赛的成绩多会上网，二级运动员多会申请，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130941",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130941",
+   "question": "田径比赛又推迟是吧?每次练给一个月，眼看去比呀，又推迟，其他项目说比就比。就田径每次提前一个月通知，你能知道一个月以后没疫情吗，就不能说比就比吗?再推迟到冬天了还比什么，冬天气膜馆里能和夏天一样吗?真服了，疫情啥时候都有完不了了，你好好推吧",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130945",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130945",
+   "question": "9月17号的田径比赛是不是又取消了?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130937",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130937",
+   "question": "高风险地区不参加比赛不可以吗，为啥老是推迟！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130273",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130273",
+   "question": "十四运甲组第五名获奖证书漏印怎么办",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130933",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130933",
+   "question": "企业怎么入住小程序运动鹿城",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130929",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130929",
+   "question": "想请问一下今年会有青少年儿童的乒乓球比赛吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130925",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130925",
+   "question": "全运会其他省都能举办，内蒙的推迟到明年，然后连前一个月的内蒙田径赛也推迟，要推迟到什么时候，其他项目都能比就田径比不了吗?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130921",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130921",
+   "question": "已经过了8月中旬，奖牌和证书还不给发吗，奖励的原则是什么，前几名有？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130917",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130917",
+   "question": "奖牌和证书还不发吗，已经过了八月中旬了！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130913",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130913",
+   "question": "麻烦问一下。今年包钢集团公司职工运动会举办吗？2018年以后就再没举办了，今年还有吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130269",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130269",
+   "question": "内蒙古自治区教育厅体卫艺处的电话是多少",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130265",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130265",
+   "question": "周边城市都可以举办各种比赛，包头市什么比赛也举办不了？青少年的乒乓球比赛2年了都没有？包头不举办，然后去外地参加比赛就能控制疫情了？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130909",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130909",
+   "question": "青少年的各种比赛几乎没有，都得去参加周边城市举办的乒乓球比赛",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130261",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130261",
+   "question": "申请考试田径裁判证员证书",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130257",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130257",
+   "question": "鄂尔多斯内蒙古锦标赛会恢复吗，拿证很急的，跪求恢复比赛",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130901",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130901",
+   "question": "门球是一项老少皆宜，动脑，动手及达到全身运动的室内外开展的非常好的健康运动。全国各地发展迅速，室内门球馆及半封闭室外草坪场地到处可见，少儿门球发展的也特别好，作为一名鹿城门球爱好者，文明城市的建设者和见证者，希望领导们多建门球场和门球馆，让",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130897",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130897",
+   "question": "包头奥体中心作为我市重点体育形象代表，通往游泳、网球等场馆的道路，长期停车不规范导致堵车问题严重，这么简单的问题存在了很多年未解决！ 希望市体育局能够重视、督办！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130253",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130253",
+   "question": "请问一下，包头市第十四届运动会的获奖证书和奖牌什么时候发呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130249",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130249",
+   "question": "公告没有明确说明消费券如何使用。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130245",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130245",
+   "question": "九原区富力文体中心将于5月31日闭店（后续不再经营），会员办理的健身卡未与会员沟通协商，健身卡，健身课，直接转到恒大健身俱乐部，不给退卡，涉及会员人数众多（百人至千人），请予以重视和受理，谢谢 诉求：要求折算退款",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130885",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130885",
+   "question": "请问十四届运动会青少年乒乓球比赛结束了吗有视频吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130881",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130881",
+   "question": "成立登记申请书（体育局模板）找不到",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130237",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130237",
+   "question": "羽毛球二级裁判怎么申请",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130873",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130873",
+   "question": "三级足球裁判去哪里考核",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130233",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130233",
+   "question": "包四十九中连个足球队也没，每回区级，市级比赛都是临时组的队，踢完就解散，去年11人制九原区的比赛最后一场都没踢完就结束了，说没必要",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130865",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130865",
+   "question": "2021年青少年乒乓球锦标赛延期到什么时间举行了？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130229",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130229",
+   "question": "1.入冬以来九原区奥体中心冰雪奇缘旅游项目发生多起场地内游客身体伤害事件，轻者摔伤、撞伤，重者骨折错位，运营商未采取有效整改措施。春节将至预计大量游客慕名而来，为避免更多人身伤害事件发生，建议主管部门督促企业制定有效安全保障措施，保障游客人",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130861",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130861",
+   "question": "尊敬领导好！我市作为文明城市，能否为市民增加免费冬季滑冰场地，加强冬季体育运动文明活动。呼和浩特市已开放18处公益场地。我市劳动公园湖面，是市民公共场所，自去年至今一直是对外承包经营占用。作为牵头对口单位，体育局能否建设新增冬季滑冰场地？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130225",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130225",
+   "question": "呼和浩特市开放18处冰雪活动场地，目前我市没有公益滑冰场地，劳动公园湖面数社会公众资源，但目前缴费才能自己带鞋滑冰。希望能够在市区增设公益滑冰场地。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130221",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130221",
+   "question": "草坪都废成那样了？体育局没人管么？ 差钱吗？差钱老百姓捐款啊",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130217",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130217",
+   "question": "武术套路运动员注册后 再去外地注册 内蒙古注册的还在嘛",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130857",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130857",
+   "question": "2022年篮球裁判员培训班开班时间是多会呀",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130213",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130213",
+   "question": "孩子今年五岁，想让孩子参加一些冰雪项目训练，请问包头有这样的培训机构吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130853",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130853",
+   "question": "救援证什么时候办费用是多少只能办理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130201",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130201",
+   "question": "请问昆都仑区健身房什么时候正常营业。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130197",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130197",
+   "question": "难道就是糊弄领导的面子工程吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130849",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130849",
+   "question": "尊敬的领导您好，感谢您在百忙之中阅读此来信。 我是阿里体育有限公司 数字化服务中心，阿里体育有限公司隶属阿里巴巴集团大文娱板块。 数字化服务中心有一些场馆数字化的解决方案，不知道是否有合作的机会，阿里体育数字化服务中心提供数字化能力，为政府",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130189",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130189",
+   "question": "包头市全运会乒乓球比赛如何报名？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130193",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130193",
+   "question": "包头市或自治区有年度的麻将比赛吗？如何报名参加？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130185",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130185",
+   "question": "2021年自治区乒乓球比赛究竟何时举办？为何一拖再拖",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130181",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130181",
+   "question": "2021年自治区乒乓球比赛何时举办，一开始4.5月，现在在为何一拖再拖？？？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130845",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130845",
+   "question": "您好，请问游泳救生员证书和指导员证书需要怎么报考？是否有指定的培训机构。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130177",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130177",
+   "question": "请问2021包头马拉松举办吗？何时举办，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130173",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130173",
+   "question": "想咨询一下，在东河区有哪些免费的室内羽毛球馆？开放时间和具体位置。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130837",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130837",
+   "question": "申请成立羽毛球俱乐部（民非）有前置条件吗？ 申请成立羽毛球俱乐部的前置条件是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130169",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130169",
+   "question": "81公园东侧乒乓球羽毛球馆长期存在收费现象，并且取消了之前散客制度，只允许三十每小时的包场。请问收费是否合理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130833",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130833",
+   "question": "本人是内蒙古科技大学的一名大一学生，自幼热爱篮球，篮球生涯已有10年，打过各种比赛也拿了好名次。现想考取篮球教练证，追随自己的热爱，特地询问篮球教练证的相关事宜，如何考取篮球教练证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130829",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130829",
+   "question": "2020年夏季对友谊广场设施设备改造后发现健身器材区有很多器材不符合标准或者没有起到健身的作用还有一些器材只能当个摆设，单杠安装位置错误安装在大树底下被树干遮挡容易发生危险，单杠略低起不到健身效果，双杠两杆之间距离太宽起不到健身效果",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-15",
+   "id": "130825",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=130825",
+   "question": "注册运动员什么时候开始啊，需要准备什么东西？流程是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

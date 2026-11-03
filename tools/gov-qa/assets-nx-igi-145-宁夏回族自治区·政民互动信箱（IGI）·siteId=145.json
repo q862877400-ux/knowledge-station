@@ -1,0 +1,81 @@
+{
+ "A_考卷": [],
+ "B_补料": [
+  {
+   "source": "nx-igi-145",
+   "id": "10144209",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10144209",
+   "question": "我因病上学期请了一学期假，这学期要评副高级职称，单位给我填了推荐表，但是有部分老师说我请假过多没有资格，我想咨询下我究竟能不能评职称？",
+   "cited_hits": [],
+   "cited_missing": [
+    " 关于印发 &lt; 宁夏回族自治区事业单位工作人员考核暂行办法 &gt; 的通知",
+    "关于印发 &lt; 宁夏回族自治区中小学（幼儿园）教师系列专业技术职称评审条件（试行） &gt; 的通知 "
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nx-igi-145",
+   "id": "10144156",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10144156",
+   "question": "麻烦咨询一下市教育局教研室每年的五个百和杏坛杯在几月份交作品，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "固原市开展教育教学“四评一赛”活动组织实施办"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-145",
+   "id": "10144106",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10144106",
+   "question": "疫情期间，可以通过网上直播或者微信群授课么 ？",
+   "cited_hits": [],
+   "cited_missing": [
+    "自治区教育厅关于在疫情防控期间开展空中课堂的通知",
+    "自治区教育厅办公室关于在疫情防控期间做好空中课堂相关工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-145",
+   "id": "10144104",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10144104",
+   "question": "教育局的工作人员： 您好！ 最近做的这个空中课堂，固原市有学校要求在学习强国上收看网课。而且还是不同APP上的网课。学校老师通知的极其不清楚，难道要把所有网课看一遍吗？这难道不是增加学习负担吗？教育厅不是不让提前上课吗？难道自治区教育厅的文",
+   "cited_hits": [],
+   "cited_missing": [
+    "自治区教育厅关于在疫情防控期间开展空中课堂的通知",
+    "自治区教育厅关于在疫情防控期间开展空中课堂的通知"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "nx-igi-145",
+   "id": "10144175",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10144175",
+   "question": "你好 我想咨询一下官网发布的固原市2020年“四评一赛”案例获奖名单为什么打不开了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-145",
+   "id": "10144159",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10144159",
+   "question": "请问固原市“四评一赛”的评选结果什么时候公布？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-145",
+   "id": "10144108",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10144108",
+   "question": "您好，受疫情影响我现在在银川市，如3月2日能开学，我才能返回固原，是否要接受隔离",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

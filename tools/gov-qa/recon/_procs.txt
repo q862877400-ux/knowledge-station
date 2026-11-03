@@ -1,0 +1,6 @@
+36748 :: "D:\AI\work space\zcode\.venv\Scripts\python.exe" tools/gov-qa/recon/liuyan-fid-dense-scan.py 675 4600 liuyan-fid-dense-scan.jsonl 2.5 120
+38932 :: "C:\Users\Zegel\AppData\Roaming\uv\python\cpython-3.12-windows-x86_64-none\python.exe"  tools/gov-qa/recon/liuyan-fid-dense-scan.py 675 4600 liuyan-fid-dense-scan.jsonl 2.5 120
+39376 :: "D:\AI\work space\zcode\.venv\Scripts\python.exe" tools/gov-qa/harvest.py --site xj-dchs --limit 400
+15236 :: "C:\Users\Zegel\AppData\Roaming\uv\python\cpython-3.12-windows-x86_64-none\python.exe"  tools/gov-qa/harvest.py --site xj-dchs --limit 400
+36620 :: "D:\AI\work space\zcode\.venv\Scripts\python.exe" tools/gov-qa/harvest.py --site heb-szj --limit 1200
+38352 :: "C:\Users\Zegel\AppData\Roaming\uv\python\cpython-3.12-windows-x86_64-none\python.exe"  tools/gov-qa/harvest.py --site heb-szj --limit 1200

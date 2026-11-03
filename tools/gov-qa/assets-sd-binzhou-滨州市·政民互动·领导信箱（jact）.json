@@ -1,0 +1,222 @@
+{
+ "A_考卷": [
+  {
+   "source": "sd-binzhou",
+   "id": "754444",
+   "url": "http://www.binzhou.gov.cn/jact/front/mailpubdetail.do?transactId=754444&sysid=1206",
+   "question": "知识产权保护办理\n我在线上办理的知识产权保护，想问一下，办理的时限是多久啊？什么时间能办好？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国仲裁法",
+     "lib_no": "仲裁法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-binzhou",
+   "id": "752636",
+   "url": "http://www.binzhou.gov.cn/jact/front/mailpubdetail.do?transactId=752636&sysid=1206",
+   "question": "公积金基数调整\n我在滨城区缴纳的公积金，想问一下2026年公积金缴存基数是否有调整。",
+   "cited_hits": [
+    {
+     "name": "住房公积金管理条例",
+     "lib_no": "住房公积金管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "住建部 财政部 中国人民银行关于住房公积金管理若干具体问题的指导意见",
+    "山东省人民政府关于调整全省最低工资标准的通知"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "sd-binzhou",
+   "id": "758948",
+   "url": "http://www.binzhou.gov.cn/jact/front/mailpubdetail.do?transactId=758948&sysid=1206",
+   "question": "老年人福利补贴\n我是滨城区居民，今年80周岁，想问一下老年人福利补贴申领办理条件有什么？",
+   "cited_hits": [],
+   "cited_missing": [
+    "GB/T42195—2022"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-binzhou",
+   "id": "757454",
+   "url": "http://www.binzhou.gov.cn/jact/front/mailpubdetail.do?transactId=757454&sysid=1206",
+   "question": "教育资助申请\n我是一名滨州残疾学生，想问一下如何申请学生教育资助呀？？",
+   "cited_hits": [],
+   "cited_missing": [
+    "滨州市残疾学生资助金申请表",
+    "残疾人证",
+    "残疾人证",
+    "残疾人证",
+    "残疾人证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-binzhou",
+   "id": "751654",
+   "url": "http://www.binzhou.gov.cn/jact/front/mailpubdetail.do?transactId=751654&sysid=1206",
+   "question": "工伤康复范围\n我在滨州市缴纳保险，工作期间受伤，且已认定为工伤，想咨询一下具备什么条件，可以被列入为康复对象？",
+   "cited_hits": [],
+   "cited_missing": [
+    "工伤康复服务规范(试行)"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-binzhou",
+   "id": "750589",
+   "url": "http://www.binzhou.gov.cn/jact/front/mailpubdetail.do?transactId=750589&sysid=1206",
+   "question": "军人待遇\n户籍滨州市，享受带病回乡退伍军人待遇需要有哪些条件。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于带病回乡退伍军人认定及待遇问题的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-binzhou",
+   "id": "749107",
+   "url": "http://www.binzhou.gov.cn/jact/front/mailpubdetail.do?transactId=749107&sysid=1206",
+   "question": "医保报销\n我在滨州市缴纳医保，想问一下在门诊怎么报销",
+   "cited_hits": [],
+   "cited_missing": [
+    "滨州市人民人民政府关于关于印发<滨州市城乡居民基本医疗保险办法>的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sd-binzhou",
+   "id": "748895",
+   "url": "http://www.binzhou.gov.cn/jact/front/mailpubdetail.do?transactId=748895&sysid=1206",
+   "question": "生育津贴\n我想问一下，咱们滨州市生育津贴申领有那些流程，能不能网上办理，发放标准是怎样的。",
+   "cited_hits": [],
+   "cited_missing": [
+    "滨州市人民人民政府关于关于印发<滨州市城乡居民基本医疗保险办法>的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sd-binzhou",
+   "id": "743280",
+   "url": "http://www.binzhou.gov.cn/jact/front/mailpubdetail.do?transactId=743280&sysid=1206",
+   "question": "维修资金\n我是滨城区一名业主，想问一下业主缴的维修资金使用范围包括哪些，使用需要具备那些条件。",
+   "cited_hits": [],
+   "cited_missing": [
+    "滨州市住宅专项维修资金管理办法",
+    "滨州市住宅专项维修资金管理办法"
+   ],
+   "has_clause_no": true
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "sd-binzhou",
+   "id": "761806",
+   "url": "http://www.binzhou.gov.cn/jact/front/mailpubdetail.do?transactId=761806&sysid=1206",
+   "question": "公积金提取\n我在滨州经济技术开发区缴纳公积金，并购买房屋正常装修，想问一下，能否申请提取公积金用于装修房屋？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-binzhou",
+   "id": "761804",
+   "url": "http://www.binzhou.gov.cn/jact/front/mailpubdetail.do?transactId=761804&sysid=1206",
+   "question": "孕检免费政策\n其为滨州市户籍，对于孕期检查有没有免费政策。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-binzhou",
+   "id": "760037",
+   "url": "http://www.binzhou.gov.cn/jact/front/mailpubdetail.do?transactId=760037&sysid=1206",
+   "question": "咨询生育津贴\n我想咨询一下，根据医保新规，灵活就业身份缴纳医保是否和职工医保一致，能否领取生育津贴？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-binzhou",
+   "id": "758630",
+   "url": "http://www.binzhou.gov.cn/jact/front/mailpubdetail.do?transactId=758630&sysid=1206",
+   "question": "公积金断缴\n您好，我是滨城区居民，想问问缴纳的灵活就业公积金如何断缴啊？后期是否可以补缴？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-binzhou",
+   "id": "758627",
+   "url": "http://www.binzhou.gov.cn/jact/front/mailpubdetail.do?transactId=758627&sysid=1206",
+   "question": "没法使用电子医保码\n请问正常交社保，但是电子医保码没法使用怎么解决",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-binzhou",
+   "id": "754441",
+   "url": "http://www.binzhou.gov.cn/jact/front/mailpubdetail.do?transactId=754441&sysid=1206",
+   "question": "献血后能免费用血吗\n我献过血，自己和家人住院用血能免费吗？具体怎么执行？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-binzhou",
+   "id": "748054",
+   "url": "http://www.binzhou.gov.cn/jact/front/mailpubdetail.do?transactId=748054&sysid=1206",
+   "question": "专业技术人员职业资格考试\n专业技术人员职业资格考试从哪里报名？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-binzhou",
+   "id": "746428",
+   "url": "http://www.binzhou.gov.cn/jact/front/mailpubdetail.do?transactId=746428&sysid=1206",
+   "question": "提高发票额度\n我想问问能不能通过网络渠道提高发票额度。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-binzhou",
+   "id": "745420",
+   "url": "http://www.binzhou.gov.cn/jact/front/mailpubdetail.do?transactId=745420&sysid=1206",
+   "question": "机动车维修\n我是滨城区居民，想问问机动车维修技术人员需要具备那些条件呀。。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-binzhou",
+   "id": "745302",
+   "url": "http://www.binzhou.gov.cn/jact/front/mailpubdetail.do?transactId=745302&sysid=1206",
+   "question": "提取住房公积金支付物业费\n支付物业费可以提取住房公积金吗？需要什么材料",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-binzhou",
+   "id": "743281",
+   "url": "http://www.binzhou.gov.cn/jact/front/mailpubdetail.do?transactId=743281&sysid=1206",
+   "question": "医保钱包\n现在听说有种叫医保钱包的软件，想问问如何开通包含哪些使用。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

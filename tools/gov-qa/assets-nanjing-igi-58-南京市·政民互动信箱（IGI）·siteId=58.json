@@ -1,0 +1,1256 @@
+{
+ "A_考卷": [
+  {
+   "source": "nanjing-igi-58",
+   "id": "430610",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=430610",
+   "question": "对于企业租赁居民屋顶投资建设的经营性租赁模式户用分布式光伏项目，在南京市范围内，光伏距离屋面的安装高度是否存在明确标准？如存在，标准是什么？若光伏支架最高点距离屋面高度约为3.7米，项目仅架设光伏组件及钢支架，不围合封闭、不建设阳光房、亦不",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国城乡规划法",
+     "lib_no": "城乡规划法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "南京市第一批设计方案审查核建设单位规划许可证 “豁免”项目清单",
+    "关于规范我区分布式光伏发电项目开发建设管理的通知（试行）",
+    "关于规范我区分布式光伏发电项目开发建设管理的通知（试行）",
+    "南京市第一批设计方案审查和建设工程规划许可证 \" 豁免 \" 项目清单"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "427860",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=427860",
+   "question": "局长您好： 本人于2026年购买玄武区小卫街东元山庄1幢一处住宅，经原房东处了解到，1幢住宅为钢筋混凝土框架结构住宅，与本小区其他楼栋有所区别，但本小区不动产权证统一标注房屋结构形式均为“混合结构”。本人实地查看，本住宅确属钢筋混凝土框架结",
+   "cited_hits": [
+    {
+     "name": "不动产登记暂行条例实施细则",
+     "lib_no": "不动产登记暂行条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "江苏省不动产登记条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "408790",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=408790",
+   "question": "尊敬领导您好： 我是南京市九九公寓住宅小区业主委员会的成员，我想查询小区的1号楼和7号楼当时在建设规划时，是否是小区全体业主的公共用房。",
+   "cited_hits": [
+    {
+     "name": "不动产登记暂行条例",
+     "lib_no": "不动产登记暂行条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "不动产登记暂行条例",
+     "lib_no": "不动产登记暂行条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "不动产登记资料查询暂行办法",
+    "不动产登记资料查询暂行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "407761",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=407761",
+   "question": "您好我是东南大学建筑学院研究生，因学术研究需要，想咨询以下问题：1. 秦淮区彩霞街东侧废品回收点和旁边工厂（弓箭坊高层住宅47号北侧）地块当前规划情况、房屋产权归属；2. 能否提供当前玉带园社区居委会、弓箭坊社区居委会管辖地块在1949-1",
+   "cited_hits": [
+    {
+     "name": "不动产登记暂行条例",
+     "lib_no": "不动产登记暂行条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "不动产登记资料查询暂行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "403525",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=403525",
+   "question": "你好，开发商有一套商品房，共两层，开发商将其中一层分割卖给我，请问我是否可以办理不动产权证？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国民法典",
+     "lib_no": "中华人民共和国民法典",
+     "weak": false
+    },
+    {
+     "name": "不动产登记暂行条例实施细则",
+     "lib_no": "不动产登记暂行条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "商品房销售管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "403474",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=403474",
+   "question": "请问一栋三层独立别墅，是开发商自管房，开发商将第二层出售给我，我是否可以办理不动产权证？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国民法典",
+     "lib_no": "中华人民共和国民法典",
+     "weak": false
+    },
+    {
+     "name": "不动产登记暂行条例实施细则",
+     "lib_no": "不动产登记暂行条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "商品房销售管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "398120",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=398120",
+   "question": "本人接受单位委托，代表抵押权人在南京市不同区办理不动产抵押登记业务，在实际工作中遇到不同区的登记机关要求不同，甚至同一登记机关不同时候的要求也不同的问题，感到困惑和不便，特此进行咨询并提出相关建议。关于申请书中“被担保主债权数额”的理解，有",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国民法典",
+     "lib_no": "中华人民共和国民法典",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "396954",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=396954",
+   "question": "所谓的保交楼，仅仅是以交楼，但是没有保质保量，更没有保证房产证的落实，房产证才是对于普通人的重中之重。目前为止，中骏东原璟阅三期业主皆因房产证无法办理而闹的很不愉快，政府部门对此事毫无动静，不干实事就是不干实事，还在不断地找借口，一个劲的说",
+   "cited_hits": [
+    {
+     "name": "不动产登记暂行条例",
+     "lib_no": "不动产登记暂行条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "不动产登记暂行条例实施细则",
+     "lib_no": "不动产登记暂行条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "395330",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=395330",
+   "question": "04年首次登记的房改房办理个人抵押登记需要那些资料，是否需要购买直管公房协议，房屋价值评估由什么机构评估？",
+   "cited_hits": [
+    {
+     "name": "不动产登记暂行条例",
+     "lib_no": "不动产登记暂行条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "不动产登记暂行条例实施细则",
+     "lib_no": "不动产登记暂行条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "393217",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=393217",
+   "question": "你好，本人是户主。寻求栖霞区金马路16号紫金上林苑2-1-202，81.2平米的房屋户型图、建筑平面图纸，有准确数据。方便装修用。十分感谢！",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国档案法",
+     "lib_no": "档案法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "江苏省档案管理条例",
+    "南京市档案条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "388040",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=388040",
+   "question": "南京市规划和自然资源局 领导，您好! 我单位（中国人寿保险股份有限公司南京市分公司）在鼓楼区和燕路168号红山公园综合楼一层B座（建筑面积313.71平方米）的房产项目，在2023年8月-10月进行了内部装修出新，工程竣工后即报请 鼓楼区建",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "政府信息公开申请表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "383683",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=383683",
+   "question": "请问南京市江宁区城市绿地绿线上方可以建建筑吗，有关规范哪里可以搜到",
+   "cited_hits": [
+    {
+     "name": "南京市城市绿化条例",
+     "lib_no": "城市绿化条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "南京市城市绿线管理暂行办法",
+    "公园设计规范",
+    "GB51192-2016"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "382802",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=382802",
+   "question": "鼓楼区洪庙巷3号原工业用地土地证上丘号是什么？跟不动产登记无关。谢谢！",
+   "cited_hits": [
+    {
+     "name": "不动产登记暂行条例",
+     "lib_no": "不动产登记暂行条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "不动产登记资料查询暂行办法"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "nanjing-igi-58",
+   "id": "429277",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=429277",
+   "question": "具体位置：栖霞区迈皋桥幼儿园门口向外通往迈皋桥老街的一段巷道。（附件图）请明确回复：迈皋桥幼儿园门前巷道及现有道闸所在位置是否位于幼儿园用地红线范围内；如不在，请明确该处土地的规划用途及权属/管理性质，并说明该巷道是否属于规划道路或公共通行",
+   "cited_hits": [],
+   "cited_missing": [
+    "南京黑墨营单元控制性详细规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "428311",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=428311",
+   "question": "经前期贵局向业主公开的信息获知《南京市工程建设项目规划条件》-证件编号：宁规条件（2019）00530号（项目名称：南部新城九龙新寓以东居住混合地块项目）中明确该项目B分区性质为Rc基层社区中心（100%），且该部分建设方案应符合《南京市公",
+   "cited_hits": [],
+   "cited_missing": [
+    "既有建筑改变使用功能规划建设联合审查办法",
+    "关于进一步优化公共配套养老服务设施规划建设管理的意见"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "426570",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=426570",
+   "question": "您好，我是岱山片区居民，我们马路周边的居民每天晚上都要忍受大货车噪音困扰，每天都睡不好。发现韩府大街以南，双合路以北这个区域目前停放了很多大卡车。请问这片地区可以停放大卡车吗？这片地区后期有何规划？预计什么时候落地？",
+   "cited_hits": [],
+   "cited_missing": [
+    "铁心桥-西善桥片区控制性详细规划（修编）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "425712",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=425712",
+   "question": "我是南京市鼓楼区龙江片区常住居民，本片区属于成熟高密度居住区，适龄儿童、幼儿家庭数量庞大，亲子户外游玩需求十分旺盛。目前整个龙江核心片区没有一处标准化、规模化的免费户外无动力儿童乐园，仅有部分小区内部老旧简易游乐设施，品类单一、设施老化，缺",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省自然资源厅关于进一步强化自然资源要素保障持续推动全省经济回升向好的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "424798",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=424798",
+   "question": "原由：计划向物业申请在露天停车场安装私家车充电桩区域基本情况：1、紧邻绕城公路油坊桥段（详见附件）；2、清荷园北园小区露天停车场（收费）；过程： 物业同意配合本人开局相关证明文件，同时也告知本人，有同样需求的业主申请过，被供电局勘察人员告知",
+   "cited_hits": [],
+   "cited_missing": [
+    "南京市建筑物配建停车设施设置标准与准则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "411917",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=411917",
+   "question": "您好： 《不动产登记暂行条例 》第八条 不动产以不动产单元为基本单位进行登记。不动产单元具有唯一编码。不动产登记簿应当记载以下事项：（一）不动产的坐落、界址、空间界限、面积、用途等自然状况； 本人为南京市一商品房的权利人，该商品房已在贵局不",
+   "cited_hits": [],
+   "cited_missing": [
+    "房产测量规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "410291",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=410291",
+   "question": "近期，我司在建邺区开展了网球培训相关业务工作，听说贵局出台了方案审查与规划许可豁免清单，在自有用地范围内建设体育设施，可以豁免。我们就想与雨润集团合作，在建邺区雨润大街17号新建带遮阳顶棚与围栏的网球场地，我们也咨询了区规资局，区规资局表明",
+   "cited_hits": [],
+   "cited_missing": [
+    "南京市第二批设计方案审查和建设工程规划许可证“豁免”项目清单"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "407402",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=407402",
+   "question": "南京市建筑工程规划核实管理规定第十四条第二款规定：“……或虽超出合理误差但符合土地出让合同允许建设面积，无其他违法建设情形，且已按规定补缴城市基础设施配套费和土地出让金等费用的；”《南京市工程建设项目规划审批管理办法》第二十二条第四款规定：",
+   "cited_hits": [],
+   "cited_missing": [
+    "南京市建筑工程规划核实管理规定",
+    "南京市工程建设项目规划审批管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "405937",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=405937",
+   "question": "你好，我是评估公司的工作人员，受委托评估一宗土地的地下及地上空间使用权的价值。请问南京市是否有相关文件证明地下或地上空间使用权的价值占土地使用权价值的比例；或者南京市是否有单独出售过的地下或地上空间使用权的案例。",
+   "cited_hits": [],
+   "cited_missing": [
+    "南京市城市地下空间开发利用管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "402315",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=402315",
+   "question": "您好！就2019年前通过招拍挂方式取得的商业用地，贵局是否向土地使用权人核发用地预审手续文件的相关问题，特此咨询如下：（1）南京市国土资源局于2012年7月23日下发的《关于进一步规范建设项目用地预审的通知（试行）》（“《通知》”）规定“在",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步规范建设项目用地预审的通知 ( 试行 ) ",
+    "国务院关于深化改革严格土地管理的决定",
+    "建设项目用地预审管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "400463",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=400463",
+   "question": "尊敬的局长：你好！在一个事情想向你咨询一下：1、规划局如何下达建设工程规划许可证？2、对于大面积的建设项目（比如建筑规划面积在4、50万方左右），怎么下发建设工程规划许可证。3、大面积的建设项目有没有可能只下发一个建设工程规划许可证？",
+   "cited_hits": [],
+   "cited_missing": [
+    "南京市工程建设项目规划审批管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "397460",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=397460",
+   "question": "我是南京市建邺区一栋写字楼的业主，为了方便员工锻炼身体，我想利用大楼楼顶建设篮球场网球场等运动场地，会做遮阳顶棚和围栏，不知道有哪些具体的要求以及需要在哪些部门办理哪些手续",
+   "cited_hits": [],
+   "cited_missing": [
+    "南京市方案审查和建设工程规划许可证“豁免”项目清单"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "397144",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=397144",
+   "question": "您好，我是南京林业大学一名在读研究生，因为科研需要，现向您请求一份南京老城范围的文件，还烦请发至邮箱：1578317488@qq.com，感谢您对科研的支持，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步加强老城风貌管控严格控制老城建筑高度规划管理的规定的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "396842",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=396842",
+   "question": "您好，想咨询一下如果集团A拍了一块土地，后集团A和集团C共同出资成立了项目公司B，项目公司B的初始股权结构为集团A持股51%，C集团持股49%，在这种情况下，项目公司B受让了这块土地。其后集团A将B公司6%的股权转让给了集团C（即B公司的实",
+   "cited_hits": [],
+   "cited_missing": [
+    "国有土地使用权出让合同",
+    "国有土地使用权出让合同变更协议",
+    "国有土地使用权出让合同"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "394958",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=394958",
+   "question": "迈皋桥街南汽铸造厂地块荒了十几年了，目前有没有新规划，在哪个平台可以查看到相关规划？",
+   "cited_hits": [],
+   "cited_missing": [
+    "南京黑墨营单元控制性详细规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "389978",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=389978",
+   "question": "您好，我想获取南京市雨花台区雨花南路以北地区（NJZCf010）控制性详细规划的最新规划，另外还想知道规划会有变更吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "南京市国土空间规划条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "389937",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=389937",
+   "question": "您好，浦口“三区三线”划定图有公示版本的吗，在官网搜索不到！ 。",
+   "cited_hits": [],
+   "cited_missing": [
+    "浦口区国土空间总体规划（ 2021-2035 年）",
+    "浦口区国土空间总体规划（ 2021-2035 年）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "389924",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=389924",
+   "question": "您好， 近期注意到市规划局发布的 2021-2035商业网点规划文件（详细列表的序号7） 中提到江苏软件园山语春风小区附近缺少农贸市场及商业配套，文件的回复是在东吉湖小学以北地块规划社区商业和农贸市场，且已落实。 但是，2023年8月17日",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏软件园控制性详细规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "389220",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=389220",
+   "question": "请问：当《农村集体土地使用权证》登记的宅基地使用面积和附在内页上的宗地图所标注的面积不一致时，应当以登记栏登记的宅基地使用面积为准还是以宗地图标注的面积为准？",
+   "cited_hits": [],
+   "cited_missing": [
+    "农村集体土地使用权证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "388616",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=388616",
+   "question": "请问，因抵押他项权证现大多为电子版，如何能校验电子版不动产登记证明的真实性？",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省不动产登记条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "383828",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=383828",
+   "question": "南京市规划和自然资源局局领导： 秦淮区马道街5号正在进行房屋翻新施工，将屋顶和外墙拆除后重新翻建，此外还在屋顶加盖老虎窗，改变原建筑外观。进调查，5号住户施工是在没有取得建筑许可证的情况下进行的施工的。希望有关部门制止这种违规行为。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于加强违法建设治理若干问题的实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "383682",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=383682",
+   "question": "您好，请问南京市地铁上盖建筑有关规范哪里可以查到",
+   "cited_hits": [],
+   "cited_missing": [
+    "南京市轨道交通车辆基地上盖合开发利用规划管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "375875",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=375875",
+   "question": "领导好，近期我们在研究南京溧水区住宅连续面宽的问题，咨询以下两个问题： 1.南京市和溧水区关于多层，小高层和高层单栋住宅楼连续面宽不能超过多少米？ 2.住宅连续面宽限制中，关于多层，小高层，高层的定义，是按《江苏省城市技术管理规定2011版",
+   "cited_hits": [],
+   "cited_missing": [
+    "南京市建筑设计导则",
+    "江苏省城市规划管理技术规定（ 2011 年版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "374735",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=374735",
+   "question": "栖霞区内附近都为栖霞山风景名胜区的风景景点，很多地方都拆了改成风景文化建设，但是栖霞区九乡河小区一直属于老小区，一直没有被开发动用，想请问未来什么时候会拆迁？或者会改造吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "南京市栖霞山片区（ NJDBa030 、 NJDBb011 ）控制性详细规划"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "nanjing-igi-58",
+   "id": "430195",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=430195",
+   "question": "你好，请问一下，建邺区中和路、水灵街、雨顺路以及南京市环境监测中心围起来的这块用地准备建设什么？我看每天都有动工？是要建设停车场吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "430180",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=430180",
+   "question": "公开信息显示贵单位自2021年10月起至今，以每三个月更新一次的频率，发布了约20条左右的存量住宅用地信息，内容包括存量住宅用地信息表格和分布图。可是最近一次2026年7月，本应该更新的时间，至今已有将近两个月没有更新，我想请问一下是为什么",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "429049",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=429049",
+   "question": "《南京市建筑物配建停车设施设置标准与准则 （2026版）》附表1：机动车标准车位配建指标住宅——144㎡＜S建≤200㎡——机动车位指标——二类区——下限，为两个数据1.5（1.3），表注未解释括号内数据含义。咨询指标按哪个数据进行计算。另",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "426848",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=426848",
+   "question": "栖霞区迈皋桥街道兴卫路数十年未通车，周边居民将此路当成公园以及停车场，影响周边居民日常生活，存在噪音卫生问题以及安全隐患，遂咨询栖霞区迈皋桥街道兴卫路（断头路）通路规划；另外旁边合作村88号片区以有施工告知书，遂咨询此片区施工建设未来规划。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "426063",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=426063",
+   "question": "有一块土地自招拍挂出让后一直闲置未开发也未办证，后来该土地所在区域规划调整为有条件建设区，请问该土地还能办理建设用地规划许可证吗？另外，请问有条件建设区是否属于城乡规划确定的建设用地范围内的土地？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "424360",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=424360",
+   "question": "尊敬各位领导好： 我是南京市栖霞经开区兴智西区的业主，家里小孩已经达到适龄幼儿园阶段，近期了解到东区幼儿园的人数基本已经饱和，一个班级有30多个小孩。当下小区的适龄儿童也越来越多，想咨询一下接下来西区的幼儿园当初的规划什么时候能落实，保障群",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "424131",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=424131",
+   "question": "您好，我是家住雨花台区民和路6号九都荟E区的一名普通南京市民。我家去年年底刚生了宝宝，现在宝宝稍微大一点了，每天都需要带宝宝出门晒太阳。我发现我们附近几个小区，包括九都荟A-G区，尚都荟，大都荟，有学龄前宝宝的家庭还是挺多的，从刚出生的到开",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "422891",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=422891",
+   "question": "浦口城南中心四号地为法定居住及教育配套用地，规划配建公办幼儿园，现已建成两年、设施齐全，但长期闲置、不办学、不招生，教育配套规划未落地。周边七个新建小区已大量交付入住，适龄幼儿入园需求迫切，规划配套未兑现，严重影响民生。请核查该地块教育配套",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "422721",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=422721",
+   "question": "南京市秦淮区中和桥2-4号之间，这个红色剪头这个路归属哪里？在哪里能查询到相关的资料。谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "421579",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=421579",
+   "question": "和燕路小区325号，脏乱差，停车位乱规划，电瓶车乱停，无人管理，小区主要道路被电瓶车堵路无法出行，汽车停车位乱规划，严重影响小区居民生活，请相关部门解决，投诉多次社区和街道都不作为，任由物业乱弄。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "418920",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=418920",
+   "question": "你好局长我是外地人，想咨询一下南京现在对法拍房，法拍商铺及新房，二手房的最新限购政策。谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "417921",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=417921",
+   "question": "据传，南京秦淮区秦虹街道康馨花园1栋因宁芜铁路改道会被拆迁，这事情是真的吗？麻烦百忙之中回复一下，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "417062",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=417062",
+   "question": "我是南京信息工程大学艺术学院的一名研三学生，我的毕设需要了解到玄武区梅园新村街道内各个社区的具体边界（官方版），但是我在网上搜寻许久没有找到，想问问您这边有没有具体的边界图，以便于我的毕业设计中涉及到各个社区的边界更加严谨。谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "416963",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=416963",
+   "question": "我是一名工程师，有职称评审需要。2020年我获得过两项南京市优秀城乡规划设计奖，在职称评审时，除了需要个人获奖证书，还要求授奖单位的公示。但我现在没法在网上找到2020年的获奖公示，不知是否官方删除了相关记录？这对我们这一批的技术人员很重要",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "416233",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=416233",
+   "question": "请问，如何调取现住房屋的结构图，便于后续装修参考",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "415741",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=415741",
+   "question": "关于文旭路的东侧城市支路（红色箭头所指的东西方向市政道路，具体位置详附件图示）的问题：1、路名叫什么？2、什么时候开建？3、是否为行人可以通行的开放式道路（方便将来到达地铁8号线康安里站）？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "415306",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=415306",
+   "question": "该地是否有小田并大田的规划？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "413938",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=413938",
+   "question": "南京市各大小区的宗地代码如何查询。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "413866",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=413866",
+   "question": "尊敬的南部新城管委会、秦淮区市政工程主管部门领导：您好！我是南部新城一名普通业主，怀着对未来美好生活的殷切期盼，我们即将迎来小区交付的重要时刻。然而，当前小区东侧特色街巷尚未动工的现状，土地裸露、仅用绿色土工布掩饰，梅雨天气泥土伴随雨水流至",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "412790",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=412790",
+   "question": "请问目前秦淮区怡文（居）路和龙堤路的道路性质是属于小区内部道路还是市政道路？如果是市政道理，是几级？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "412704",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=412704",
+   "question": "局长，您好。我想咨询关于南京市栖霞区华电一宿舍陡坡上的老三栋近期有无拆迁计划？房子的情况有点糟糕，本身就是板式结构的楼房，总高四层，房龄大概已经50年了。房子近年已经用钢筋拉伸加固过最少两次，钢筋贯穿步式楼梯以及房屋之内。一到下雨房顶还容易",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "412235",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=412235",
+   "question": "请问我市基准地价信息在哪里能查询到？能否提供相关网址？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "411222",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=411222",
+   "question": "请求查询玄武区2023G78地块规划用途。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "409837",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=409837",
+   "question": "您好，我想咨询如果查询到南京市土地地价修正系数表，是否有在线网站可以查询到",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "409726",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=409726",
+   "question": "在以往文件中，经常出现的“改变用地性质”（宁振发（2002）01号二○○二年六月六日）；“改变土地用途”（ 宁政发〔2006〕72号 ）；“改变用地条件”宁国土资〔2006〕420号 ；其本意是改变了原土地用途，由于用词不一，理解上就容易产",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "409658",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=409658",
+   "question": "请问中山北路片区城市更新事宜进展如何，具体咨询哪个部门以及联系方式？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "409452",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=409452",
+   "question": "你好，咨询一下：光华路以南，宁芜铁路以北，钟山峰景以东，金盾指挥中心以西 地块的规划。想咨询一下该地块的是按照原规划继续建设公园吗。谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "408753",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=408753",
+   "question": "咨询大壮观路以北，言和路以西，中电颐和家园一期西区合围区域规划用途，建筑高度是否会对后面小区有影响",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "407591",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=407591",
+   "question": "请问九家圩路与梅家塘路会互通吗？中间是建宁西路过江隧道出口快速路，没有隧道和高架的规划，那是否会有设置斑马线和红绿灯的可能？让九家圩路与梅家塘路互通？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "407504",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=407504",
+   "question": "您好：我是六合区龙池街道居民，我想了解龙池街道的基本农田分布图，在贵局网站没有查询到，还请贵局能把图发至我邮箱，万分感谢！2802393165@qq.com",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "406463",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=406463",
+   "question": "尊敬的政府领导，您好： 我是江北新区盘城街道板桥三组的居民，家庭住址就在新建南京北站的附近（朱家山河以北片区），在北站枢纽宜居社区范围。自北站建设以来，每晚都饱受建设响声困扰，近期看到 《浦口区2025-01号土地征收成片开发方案》，说20",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "405253",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=405253",
+   "question": "咨询：请问玄武区言和路以东，中电颐和家园尚玄以南，恒嘉路以西，大壮观路以北地块的未来的规划的商办混合用地具体情况？从东至西有几栋楼？楼高多少？从哪里可以了解到更多细节？谢谢！盼答复。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "405018",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=405018",
+   "question": "你好，我是雨花台区云隐路2号绿城云栖玫瑰园的业主。我想知道我们小区具体的物业管理区域应该在哪里看呢？根据南京市住宅物业管理条例 第二十八条 物业管理区域应当根据建设用地规划许可证确定的红线范围，综合考虑物业共用设施设备、社区建设等因素划分。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "404845",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=404845",
+   "question": "尊敬的局长您好： 我想了解南京市浦口区永宁街道张云小区安置房的土地性质是属于国有土地还是集体土地？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "404794",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=404794",
+   "question": "怎样查询建设工程项目有没有工程建设规划许可证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "404553",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=404553",
+   "question": "咨询：请问玄武区恒嘉路以西，大壮观路以北，言和路以东（中电颐和家园尚玄南侧地块）未来的城市规划情况？谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "404290",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=404290",
+   "question": "想咨询一下关于南京市玄武区黄家圩城中村规划。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "403859",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=403859",
+   "question": "有关部门领导您好， 想咨询一下南京市秦淮区饮马巷的后续规划，之前有上门调查过动迁后并无消息，因房屋老旧，安全隐患较为堪忧，想了解以下问题： 是否有改造/拆迁计划 十分感谢您的回复",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "403650",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=403650",
+   "question": "咨询建邺区紫辉时代广场1幢右侧（江东中路和梦都大街西北角）荒地规划问题。目前荒地一片，建筑垃圾和黄土裸露，严重影响河西CBD和奥体中心周边的市容和形象。看了紫辉时代广场用地红线图，这块是属于红线外边，应该非开发商所管。因此咨询下规划部门这块",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "402449",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=402449",
+   "question": "您好，作为一个华侨城业主，非常关心地铁4号线北延线的建设和完工。当初买华侨城就是因为当初欢乐谷、邮轮和地铁的规划。现在住了4年了，S5都动工了，4号线的北延线什么时候能动工呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "402334",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=402334",
+   "question": "在近期公布的《南京市国土空间总体规划（2021-2035年）.pfd 的第129页，市域综合交通规划图中。注意到在上元门附近，除了有已经披露规划的上元门铁路过江隧道外，还有一条公路过江快速通道连接长江南北。请问可以对这条过江通道做一些说明吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "402208",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=402208",
+   "question": "领导，您好，贵局《关于加强工程建设项目和整体修复项目 施工采挖砂石管理的通知》宁规划资源〔2021〕385号，对南京市工程建设项目施工采挖中的砂石资源合法处置，做出了很好的规定。即：“普通建筑用砂石属于国家所有，不因其所依附土地的所有权或者",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "401928",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=401928",
+   "question": "局长您好，我家房子在省中医后面陶李王巷，是很旧的三层老房子，房龄30年以上了，最近会动迁这里吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "400943",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=400943",
+   "question": "南京作为全国第一个获批国土空间总体规划的省会城市，想咨询一下《总规》是什么时候送审的，在送审以后到正式批复前经历了多少修改，用了多少时间获批。请贵局回答一下这三个问题，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "400765",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=400765",
+   "question": "您好，我是南京信息工程大学艺术设计专业环境设计方向的研三学生，目前正在调研南京市玄武区梅园新村街道的人居环境与社区游憩空间，请问可以获取到梅园新村街道的场地CAD以及玄武区的规划图原件吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "400646",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=400646",
+   "question": "尊敬的领导： 您好，为了改善建邺区居民生活环境，市规划局曾在2022年曾发布关于建邺区南湖迎宾菜市场地块再开发的设想，旨在打造集商业、酒店式公寓、社区服务、党群服务等为一体的商业综合体。请问目前该项目还处在规划论证阶段吗？还是将紧随地铁7号",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "400361",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=400361",
+   "question": "门西整体建筑密度较大、安全隐患较多、使用功能不完善、配套设施不齐全等，多年来尚未进行出新、改造，是否对此地域有未来相应规划？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "400081",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=400081",
+   "question": "局长您好！江苏软件园中航污染问题是否已经解决 在这边居住是否有健康问题 中航是否有搬迁的计划",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "399870",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=399870",
+   "question": "咨询下南京市江宁区江宁街道盛江社区福来路南侧公厕旁的空地，权属、性质及规划用途，该空地的管理单位是哪个单位？哪个单位有权利对外出租？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "399554",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=399554",
+   "question": "你好，因工作需求，需要南京市基准地价和修正体系，基准地价信息应定期更新并公开，在贵单位政府公开网站只找到08年基准地价，麻烦发最新版南京市基准地价和修正体系到我邮箱452120461@qq.com，非常谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "399367",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=399367",
+   "question": "南京市规划和自然资源局领导/同仁： 您好！ 我是一名第三方服务测评及调研咨询公司（广州市豪森威有限公司）的职员，因为工作的原因我需要用到《南京市15分钟社区生活圈规划导则》文件内容作为参考，最近一直在寻求文件的下载。请问是否可以通过邮箱把文",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "398769",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=398769",
+   "question": "您好，我是南京农业大学的学生，请问可以麻烦您将《南京市栖霞区西岗街道桦墅村周冲传统村落保护发展规划（批后公布）》中的彩平原图图件（放在附件里了）发一下吗？公示中PPT里的图片不太清楚，我们调研地是桦墅村周冲自然村，需要贵方的图作为参考资料，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "397706",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=397706",
+   "question": "您好，请问栖霞区兴智中心西片区地块五、七属于哪个街道？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "395955",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=395955",
+   "question": "您好，我是南京林业大学一名在读研究生，因为科研需要，现向您请求一份《南京市15分钟社区生活圈规划导则》的pdf文件，还烦请发至邮箱：1578317488@qq.com，感谢您对科研的支持，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "395873",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=395873",
+   "question": "你好，咨询一下：光华路以南，宁芜铁路以北，钟山峰景以东，金盾指挥中心以西 地块的规划。土地现状是大片围挡工棚，近期在陆续拆除。想咨询一下该地块的土地规划。谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "395841",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=395841",
+   "question": "您好，我想咨询下浦口城南中心的2021G53地块相关的几个问题：金陵星图地块小学学区是什么，目前好像是其他学校代招，边上是否会有新建小学的规划；原本2021G53项目的CE地块规划建设文化中心等配套，但据说地已经收回，原有规划是否有变更，如",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "395554",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=395554",
+   "question": "您好，贵单位能否公布最新的（2020年）南京市市区土地级别与基准地价数据与图纸？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "392889",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=392889",
+   "question": "想咨询市规划资源局规委办的职能，及关于什么样子的规划项目或者事宜需要上市规委办会或者必须上规委办会？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "392744",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=392744",
+   "question": "你好，现中和桥30院增加了500多户人家，同时也增加了几百辆车，因大院门口离宁芜线铁路闸口很近，当火车挡道时，造成早高峰时这一段道路基本停滞，因此，强烈建议长乐东路路面铺设延长到东边的铁路闸口（目前长乐东路路面只到内河派出所附近），界时，中",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "392580",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=392580",
+   "question": "江宁区淳化街道新华社区为方便人民生活于高旺路与福英路交界处设置有简易棚舍搭建的农贸市场一处，内设有餐饮、果蔬、肉制品、杂货商铺。随着附近建设小区逐渐增多，社区人员逐渐增加，该处农贸市场所在地理位置对附近卫生及交通造成一定影响。主要如下：1、",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "392257",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=392257",
+   "question": "本人为鼓楼滨江地区锦绣天玺小区居民，由于本地区的道路基本为全新规划，不知道未来将是什么样子，特来信咨询，问题1：郑和中路（隧道）改造完成以后本地区会有几个出入口，能否实现快速出入郑和中路隧道？问题2：未来建宁路自过江隧道口到中央门立交是否也",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "391493",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=391493",
+   "question": "你好，经常遇到被围挡了很多年的地块，还有一些空地被平整之后一直没有开发。就会好奇他们都有哪些什么规划，为什么一直没有顺利开展建设工作。了解到南京市国土空间规划建设了“一张图”信息系统，来实现国土空间规划实施的监督工作。请问这个系统，还有规划",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "391442",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=391442",
+   "question": "我没有在南京市自然资源局信息公开网上找到贵市2020年度农用地基准地价成果，不知是否尚未公开，想了解一下相关情况并获取贵市2020年度农用地基准地价成果。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "391235",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=391235",
+   "question": "你好，因工作需求 需要南京市基准地价和修正体系，在贵单位政府公开网站只找到08年基准地价，麻烦贵单位发最新版 整个南京市基准地价和修正体系到我邮箱763966265@qq.com。谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "390332",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=390332",
+   "question": "金陵船厂及周边地区城市设计（公众意见征询）目前已经公示结束，请问是否有最终结果。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "390235",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=390235",
+   "question": "咨询公示图中的220KV秦梅线规划下地目前是什么计划？何时开工？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "389927",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=389927",
+   "question": "想咨询一下:1.南京市基准地价是否有更新？如有更新，公开渠道是否能查询到基准地价成果及更新体系？;2.到2024年1月15日为止，南京最新的基准地价是否为2020年1月1日基准日的江南六区基准地价？；3.南京市的基准地价多久更新一次？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "389868",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=389868",
+   "question": "请问南京市既有住宅增设电梯的批前公示，是否除了设计方案变更和征求意见业主发生变化以外，其他情况均不需要重新履行公示程序？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "389614",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=389614",
+   "question": "南京市游府西街小学浦口分校周边有许多住宅小区，已入住居民的小区相对集中在花莲路，但步行10—15分钟半径内缺乏公共休闲散步场所，最近的兰溪公园D区（迟迟未开建）距离也超2公里，海桥路、五华路、台南路合围的三角区地块（面积目测约50亩）在居民",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "388469",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=388469",
+   "question": "小区院落围墙是否可以增加10-20公分高瓦片？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "388021",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=388021",
+   "question": "是否有准确时间，何时才能拿房产证?今年8月份的时候说是已经在办理手续了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "387964",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=387964",
+   "question": "您好，在8月份的时候有看到MCb020-18、20地块的规划管理单元图，现在看不到了 想请问一下现在吉祥庵，化纤新村等地块还有修改或者拆迁意向吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "387792",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=387792",
+   "question": "你好， 南京市秦淮区养虎仓名符其实的城中村，早在90年时就说要拆，至今未拆，网络线乱飞，道路狭窄，最窄巷道3.5米，自建房屋老旧。加上片区没有进行“瓶改管”，绝大多数居民使用液化石油气瓶，消防隐患突出。诉求如下： 1、不知政府有无改造计划，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "386699",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=386699",
+   "question": "你好，想咨询新城快速通道数字大道（安德门---机场高速段）以及龙西互通立交规划图，数字大道东延上跨机场高速主线高架桥落地点位于？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "382533",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=382533",
+   "question": "这么多年了一点动静没有，能否了解下江宁谷里泉塘公寓的房产证何时才能办理给老百姓？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "381602",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=381602",
+   "question": "玉带园小区目前私搭乱建比较严重，小区外部环境也比较恶劣。请问最近是否有小区出新计划？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "380471",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=380471",
+   "question": "你好！请帮助从规划上界定，栖霞寺“涵田栖云山房”酒店是否属于栖霞山风景区范围？感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "379949",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=379949",
+   "question": "我想写一封表扬信给溧水区不动产登记中心的一位姓王的女士，很遗憾不知道她的全名。 我在12345提交了一份投诉，关于法院出具调解书中确定房屋归我所有，但是我之前没领房产证，现在想领证被告知，必须两个人的一起去办理。我很不理解，法院的结果都有了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "378873",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=378873",
+   "question": "当前，各地都出台了相关政策促进房地产稳步交易，尤其是重视教育的家长在市场下行的情况下坚持通过买房来获取优质教育资源，纵观南京市，鼓楼区与玄武区属于教育资源最雄厚的区域，作为各个行业发展领头羊的南京市，希望尽快落实鼓楼区、玄武区契税减免和补贴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "377443",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=377443",
+   "question": "您好！由于最近买房问题，想询问一下南京市住宅用地是否有限高60米的政策，另外，关于南京市浦口区天悦路、康健路、康盛路路段即天悦麒麟板块政府是否有限高政策（地块位置详见附件图示），以上盼复为感！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-58",
+   "id": "377078",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=377078",
+   "question": "想咨询下，兴智西片区都会紫京（NO.2021G79）、龙湖翡翠尚城(NO.2021G78)的道路（恒思路）规划海拔高度是多少？在G78的批前公示显示的是26.08。G79的批前公示显示是26.50。是否有关于本路的规划图。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

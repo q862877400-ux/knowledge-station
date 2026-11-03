@@ -1,0 +1,5621 @@
+{
+ "A_考卷": [
+  {
+   "source": "sc-bazhong",
+   "id": "13450435",
+   "url": "https://www.cnbz.gov.cn/content/article/13450435",
+   "question": "交通混乱\n浅水湾广场公交站旁的路口交通混乱，这么大的路口没有红绿灯，图片传不上来",
+   "cited_hits": [
+    {
+     "name": "道路交通信号灯设置与安装规范",
+     "lib_no": "GB 14886-2016",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13449139",
+   "url": "https://www.cnbz.gov.cn/content/article/13449139",
+   "question": "关于体育馆十字路口红绿灯事宜\n位于巴中市体育馆十字路口存在的安全隐患，此处右转车辆往兴文方向，在右转时，会遇到一个问题，就是无法明确知道此处的人行横道是否为绿灯，当人行横道绿灯时，行人开始过马路，但右转车辆此时并不知道人行横道为绿灯，会以正",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国道路交通安全法",
+     "lib_no": "道路交通安全法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国道路交通安全法",
+     "lib_no": "道路交通安全法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "城市道路交通标志和标线设置规范",
+     "lib_no": "GB 51038-2015",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13445313",
+   "url": "https://www.cnbz.gov.cn/content/article/13445313",
+   "question": "关于河道清淤相关问题\n根据《四川省进一步规范河道砂石管理的意见》“二、加强河道采砂管理”之“ （四）规范年度实施方案”：根据批准的河道采砂规划和当年水情、工情、汛情、航道变迁、砂石资源分布、补给实际情况，由县级以上水行政主管部门组织编制河道",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国政府采购法",
+     "lib_no": "政府采购法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国招标投标法",
+     "lib_no": "招标投标法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "四川省进一步规范河道砂石管理的意见",
+    "四川省水利厅关于贯彻实施〈四川省进一步规范河道砂石管理的意见〉的通知",
+    "四川省水利厅关于加强河道管理范围内有关活动管理的通知",
+    "四川省水利厅关于加强河道管理范围内有关活动管理的通知",
+    "四川省进一步规范河道砂石管理的意见",
+    "四川省进一步规范河道砂石管理的意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13443825",
+   "url": "https://www.cnbz.gov.cn/content/article/13443825",
+   "question": "关于回风西华山隧道口到费尔顿公交站台之间的减速带设置合理性的问题\n尊敬的市长：\r\n         我是居住在回风龙腾苑翰墨轩靠费尔顿酒店侧的普通居民。目前回风西华山隧道口到费尔顿公交站台之间的减速带，对街道两侧的居民造成巨大的噪声影响！减",
+   "cited_hits": [
+    {
+     "name": "城市道路交通设施设计规范",
+     "lib_no": "GB 50688-2011",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "GB 50688-2011"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13439657",
+   "url": "https://www.cnbz.gov.cn/content/article/13439657",
+   "question": "关于对巴中市空置商品房物业费实施减免的建议\n尊敬的巴中市市长：\r\n\r\n您好！我是一名普通的巴中市民，长期关注我市的经济社会发展，特别是与千家万户息息相关的住房问题。近年来，在市委、市政府的领导下，我市城市建设日新月异，人居环境不断改善。但与",
+   "cited_hits": [
+    {
+     "name": "四川省物业管理条例",
+     "lib_no": "物业管理条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "对地方物业管理条例有关移交专业经营设施设备所有权等规定的审查研究案例",
+     "lib_no": "物业管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "巴中市物业服务管理若干规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13434072",
+   "url": "https://www.cnbz.gov.cn/content/article/13434072",
+   "question": "关于巴中路边路边停车问题建议\n尊敬的政府领导你好：\n我是巴中一名普通市民，日常出行中，深切的感受路边停车给交通及居民生活带来的诸多不便，在此，我就路边停车相关问题进行投诉及建议，希望得到解决。\n一、投诉内容\n（一）巴中市气象局至巴中市中心医",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国道路交通安全法",
+     "lib_no": "道路交通安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "巴中市城市道路交通秩序管理条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13433814",
+   "url": "https://www.cnbz.gov.cn/content/article/13433814",
+   "question": "产假时间及生育经贴核算天数\n领导你好：我是巴中市内的一名在职的女性职工，想咨询一下关于生育假和产检假的一些问题。 根据《劳动法》确定。女职工在《劳动法》中第六十二条：女职工生育享受不少于九十天的产假。同时四川新计生条例第二十四条规定：\r\n1",
+   "cited_hits": [
+    {
+     "name": "女职工劳动保护特别规定",
+     "lib_no": "女职工劳动保护特别规定(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于优化生育政策促进人口长期均衡发展的实施方案",
+    "四川省人口与计划生育条例",
+    "四川省人口与计划生育条例",
+    "四川省人口与计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13432512",
+   "url": "https://www.cnbz.gov.cn/content/article/13432512",
+   "question": "孔子广场路口右转被交警罚款\n本人于2025年11月13日16点15分从孔子广场十字路口右转被交警拦住说我违反交通罚款30，这样的处罚是否合理合法合规。\n首先我不是平昌本地人，对于平昌某些特殊交通规则不熟悉，是否可以适用于首次免罚的政策\n其次",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国道路交通安全法",
+     "lib_no": "道路交通安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13430865",
+   "url": "https://www.cnbz.gov.cn/content/article/13430865",
+   "question": "关于巴中交通问题建议\n尊敬的领导您好，建议我们巴中以后也可以整治一下城区汽车乱鸣笛问题，另外也可以整治一下大货车右转弯不停车让行问题以及私家车占用公交站台和出租车停车位，顺便以后建议我们巴中也可以在城区施划大货车右转危险区，以及待转区和直行",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国道路交通安全法",
+     "lib_no": "道路交通安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于开展两、三轮车及低速电动四轮车交通安全集中整治的通告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13413438",
+   "url": "https://www.cnbz.gov.cn/content/article/13413438",
+   "question": "4米2轻型货车上户问题\n你好市长，请问目前4米2轻型型货车货车还可以上户吗？具体的执行标准内容在哪里查看？请回复谢谢！",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国道路交通安全法",
+     "lib_no": "道路交通安全法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国道路交通安全法实施条例",
+     "lib_no": "道路交通安全法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "机动车登记规定",
+     "lib_no": "机动车登记规定(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "机动车运行安全技术条件",
+     "lib_no": "GB 7258-2017",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "道路车辆外廓尺寸、轴荷及质量限值",
+    "轻型汽车污染物排放限值及测量方法",
+    "GB7258-2017",
+    "GB1589-2016",
+    "GB18352.6-2016"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13402168",
+   "url": "https://www.cnbz.gov.cn/content/article/13402168",
+   "question": "养老保险\n请问居民养老保险女职工现在的法定退休年龄是50岁，我母亲现在年龄56岁了，但缴费未满15年，可以提前一次性补齐所有费用吗？",
+   "cited_hits": [
+    {
+     "name": "实施<中华人民共和国社会保险法>若干规定",
+     "lib_no": "保险法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13398661",
+   "url": "https://www.cnbz.gov.cn/content/article/13398661",
+   "question": "关于盘兴物流园区各驾校路训整顿建议\n盘兴物流园作为西部的物流枢纽节点式综合性重点园区，期间物流运输车辆、各大厂商配送车辆、各项目建设工程车辆以及社会车辆交汇点，更是南北环线，巴恩快速通道等道路的重要交通枢纽，交通特点错综复杂；现被各驾校车辆",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国道路交通安全法实施条例",
+     "lib_no": "道路交通安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13392467",
+   "url": "https://www.cnbz.gov.cn/content/article/13392467",
+   "question": "生育假与产检假\n市长\r\n  你好：我是巴中市内的一名在职的女性职工，想咨询一下关于生育假和产检假的一些问题。\r\n  1.  根据《劳动法》中产前检查假：女职工妊娠期间在医疗保健机构约定的工作时间内进行产前检查(包括妊娠12周的初查)应算作劳",
+   "cited_hits": [
+    {
+     "name": "女职工劳动保护特别规定",
+     "lib_no": "女职工劳动保护特别规定(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "四川省人口与计划生育条例",
+    "四川省人事厅印发省卫生厅等部门关于确保实行纯母乳喂养的女职工增加一个月产假的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13386365",
+   "url": "https://www.cnbz.gov.cn/content/article/13386365",
+   "question": "跨省异地医保报销咨询\n您好，我了解到巴中市参保人在省外产生的住院医疗费用，拿回参保地医保经办机构申请报销时，以下情形不予报销。\r\n（1）应当从工伤保险基金中支付的； \r\n（2）应当由第三人负担的；\r\n          现对其中第二条有些许",
+   "cited_hits": [
+    {
+     "name": "社会保险法",
+     "lib_no": "社会保险法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "社会保险基金先行支付暂行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13384151",
+   "url": "https://www.cnbz.gov.cn/content/article/13384151",
+   "question": "关于如何设立个人公益账户的求助咨询\n尊敬的市局领导：\r\n        您好！我是巴中某单位工作人员，现打算自愿拿出若干资金用于设立个人公益账户，用于公益慈善事业，了解到例如广州市有类似相关政策，因此想咨询如何以个人名义去申请此类账户呢（包",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国公益事业捐赠法",
+     "lib_no": "公益事业捐赠法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国慈善法",
+     "lib_no": "慈善法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13376976",
+   "url": "https://www.cnbz.gov.cn/content/article/13376976",
+   "question": "三胎\n尊敬的市长.\n你好.我是农村户口.生三胎有什么优待政策吗",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国人口与计划生育法",
+     "lib_no": "人口与计划生育法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "四川省人口与计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13370054",
+   "url": "https://www.cnbz.gov.cn/content/article/13370054",
+   "question": "关于交警对民众行政处罚\n尊敬的市长：\r\n      您好！8月12日，上午11：40左右，当时气温约35度。我骑行非机动车路过政府广场下面商店广场，由西向东行驶，当时一交警招拦，进行违反道路行驶规则行政处罚，针对这一处罚决定和后期行政复议表",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国道路交通安全法",
+     "lib_no": "道路交通安全法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国道路交通安全法",
+     "lib_no": "道路交通安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13366090",
+   "url": "https://www.cnbz.gov.cn/content/article/13366090",
+   "question": "咨询轻便电动摩托车上牌事宜\n1、2020年上牌的黄色牌（带备案号三个字）的电动车牌是否由交警部门发放？若不是相关交警等部门发放为何交警要求上类似牌照方能上路？\r\n2、轻便电动摩托车备案号车牌被盗是否可以补办？若原车牌被他人利用造成不良后果怎",
+   "cited_hits": [
+    {
+     "name": "机动车登记规定",
+     "lib_no": "机动车登记规定(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13362648",
+   "url": "https://www.cnbz.gov.cn/content/article/13362648",
+   "question": "事业单位招聘应该公开透明\n尊敬的领导，您好。最近无意中看到浏览器推送的“恩阳区关于2023年公开考核招聘体育教师（教练员）和音乐教师的公告”（2023-5-26）。随后我查看“恩阳区人民政府”官网确实可以查到该公告，但是在“巴中市人力资源和",
+   "cited_hits": [
+    {
+     "name": "事业单位人事管理条例",
+     "lib_no": "事业单位人事管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13361771",
+   "url": "https://www.cnbz.gov.cn/content/article/13361771",
+   "question": "街上面馆的食品安全是如何管理的？\n早上在街上面馆吃面，不知道面条是否会违禁添加，如：面条在加工过程中添加硼砂等，想知道主管部门是如何管理的？",
+   "cited_hits": [
+    {
+     "name": "食品生产经营监督检查管理办法",
+     "lib_no": "食品生产经营监督检查管理办法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "巴中市巴州区食品安全常态化监管实施意见",
+    "四川省食品小作坊、小经营店及摊贩管理条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13356336",
+   "url": "https://www.cnbz.gov.cn/content/article/13356336",
+   "question": "民生问题\n我予2013年在巴中市南江县观澜国际购买商品房，后因烂尾一直未达到交房条件，本人于2021年被迫接房，但是开放商未按合同天然气入户，导致我们自己超额交费，才开通天然气入户，现在小区消防设施没有完善，有很大的安全隐患，房产证也办不下",
+   "cited_hits": [
+    {
+     "name": "四川省物业管理条例",
+     "lib_no": "物业管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13346718",
+   "url": "https://www.cnbz.gov.cn/content/article/13346718",
+   "question": "公交线路问题，火车站问题，小区问题\n市长您好：\r\n公交线路问题：兴文到巴中的公交21和25路公交车每次去巴中和回兴文都会往乐湾悦府和秦巴尚府酒店里面绕半圈，请问能否开通一个公交走秦巴大道中段直接进城不往秦巴酒店里面绕半圈的线路呢，这样会大大",
+   "cited_hits": [
+    {
+     "name": "不动产登记暂行条例",
+     "lib_no": "不动产登记暂行条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13442704",
+   "url": "https://www.cnbz.gov.cn/content/article/13442704",
+   "question": "城市道路设置减速标线噪音扰民\n近期，兴合阳光酒店会议中心至白云台街市政府段下坡道路（约200米）连续新增横向减速标线12处，每处5-10条不等，由于大量车辆连续不停经过，每天从早到晚噪音不断、震耳欲聋。特别是夜间10点至早上8点期间，本是夜",
+   "cited_hits": [
+    {
+     "name": "道路交通标志和标线 第3部分：道路交通标线",
+     "lib_no": "GB 5768.3-2009",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "GB 5768.3-2025",
+    "GB5768.3-2025"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13441134",
+   "url": "https://www.cnbz.gov.cn/content/article/13441134",
+   "question": "减速带噪音扰民\n近期，市政府前往半山逸城道路新增减速带10处之多，夜间车辆经过产生噪音较大，影响附近城市印象小区居民休息，请交警、执法等相关部门按实际情况进行调整。一是该路段虽多次发生交通事故，但所见的均集中在电瓶车、摩托车、三轮车等安全性",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国道路交通安全法",
+     "lib_no": "道路交通安全法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "城市道路交通标志和标线设置规范",
+     "lib_no": "GB 51038-2015",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13439157",
+   "url": "https://www.cnbz.gov.cn/content/article/13439157",
+   "question": "产假\n尊敬的领导，您好，我是一名在职已孕女性职工。关于生育生产假，我主要想咨询3个问题。 1.四川省2026年产假规定遵何执行，是否按照2025年12月5日发布的《四川省人口与计划生育条例》进行执行，其中第24条中“符合本条例规定生育子女的",
+   "cited_hits": [
+    {
+     "name": "女职工劳动保护特别规定",
+     "lib_no": "女职工劳动保护特别规定(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "四川省〈中华人民共和国母婴保健法〉实施办法",
+     "lib_no": "母婴保健法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "四川省〈中华人民共和国母婴保健法〉实施办法",
+     "lib_no": "母婴保健法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "女职工劳动保护特别规定",
+     "lib_no": "女职工劳动保护特别规定(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "四川省〈中华人民共和国母婴保健法〉实施办法",
+     "lib_no": "母婴保健法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "四川省人口与计划生育条例",
+    "四川省人口与计划生育条例",
+    "四川省人口与计划生育条例",
+    "四川省人口与计划生育条例",
+    "四川省人口与计划生育条例",
+    "四川省人口与计划生育条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13435891",
+   "url": "https://www.cnbz.gov.cn/content/article/13435891",
+   "question": "农民工欠薪异地协调处理\n你好，我是巴中通江人，是精准脱贫户，父母常年西安工地上绑钢筋，工地项目是在西安市雁塔区万科的，我的父母从2025年4月到现在一直在工地上上班，活在12月份已经完工，有3个月没有发放生活费，但是到现在工地一直不支付工资",
+   "cited_hits": [
+    {
+     "name": "劳动保障监察条例",
+     "lib_no": "劳动保障监察条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "保障农民工工资支付条例",
+     "lib_no": "保障农民工工资支付条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13429400",
+   "url": "https://www.cnbz.gov.cn/content/article/13429400",
+   "question": "关于优化巴中城区主干道交通管理缓解高峰拥堵的建议\n尊敬的荣生书记：\r\n      您好！\r\n      我是一名近期来到巴中工作的新就业人员。初到巴中，我便被光雾山的秀美风光和诺水河溶洞的壮丽奇观所深深吸引，由衷喜爱这座城市的自然与人文环境",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国道路交通安全法",
+     "lib_no": "道路交通安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13426019",
+   "url": "https://www.cnbz.gov.cn/content/article/13426019",
+   "question": "乡下电瓶车强制收费办证\n根据平昌县佛楼镇三官寨村老家老人反映现就本地电瓶车上牌管理及道路执法问题提出咨询与反映，恳请相关部门予以核查澄清。\r\n一、政策咨询事项\r\n1.上牌政策依据\r\n根据《四川省公安厅交通管理局关于进一步加强电动自行车管理的",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国道路交通安全法",
+     "lib_no": "道路交通安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "四川省公安机关非机动车登记工作规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13414181",
+   "url": "https://www.cnbz.gov.cn/content/article/13414181",
+   "question": "关于巴中市2025年上半年教师招聘南江县年龄限制的问题咨询\n尊敬的鲜书记：\r\n       您好！巴中市2025年上半年教师招聘已发布公告。其中南江县除了一个定向招聘的岗位之外，其余岗位都限定报名年龄为30周岁以下，而相同情况下，另外几个区",
+   "cited_hits": [
+    {
+     "name": "事业单位人事管理条例",
+     "lib_no": "事业单位人事管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "事业单位公开招聘人员暂行规定",
+    "四川省事业单位公开招聘工作人员实施办法",
+    "关于加强基层专业技术人才队伍建设的实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13407824",
+   "url": "https://www.cnbz.gov.cn/content/article/13407824",
+   "question": "巴中不支持大病提取公积金\n各位领导好，我是兴文户口，今年妻子母亲有过一次重大病，对家庭生活影响巨大。经查询四川省公积金政策有重大疾病提取，成都、达州、乐山等等都有该政策，而询问巴中公积金中心，巴中不支持职工疾病公积金提取，希望巴中公积金提取",
+   "cited_hits": [
+    {
+     "name": "住房公积金管理条例",
+     "lib_no": "住房公积金管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "住房公积金提取业务标准",
+    "巴中市住房公积金提取管理办法",
+    "GB/T51353-2019"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13396068",
+   "url": "https://www.cnbz.gov.cn/content/article/13396068",
+   "question": "之前买了城乡居民养老保险，还可以买灵活就业保险，补缴之前的年份吗？\n母亲50岁，在外地打工，之前买了低档次的城乡居民养老保险。现在可以买灵活就业保险，一次性补缴之前的年份吗？",
+   "cited_hits": [
+    {
+     "name": "社会保险法",
+     "lib_no": "社会保险法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13387339",
+   "url": "https://www.cnbz.gov.cn/content/article/13387339",
+   "question": "二次过街\n您好，我想咨询以下问题，1.摩托车作为机动车，二次过街通过路口有什么法律依据。2.道路右侧的非机动车道（二轮三轮车道）或辅道被汽车肆意侵占是否会受到相应的处罚。3.辅道是属于非机动车道还是机动车辅道，倘若摩托车在辅道内与非机动车发",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国道路交通安全法",
+     "lib_no": "道路交通安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13384662",
+   "url": "https://www.cnbz.gov.cn/content/article/13384662",
+   "question": "部分药店，特别是中药店违规收费问题\n春节期间，发现部分中药店对于本店自销中药收取打粉费用。个人觉得无收费依据，请相关部门查实并解答。患者购药本质是看病治病而不是购药，如果药材本身需要打粉才能起到治疗效果，则打粉费用应包含在中药材本身价格中，",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国价格法",
+     "lib_no": "价格法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13366057",
+   "url": "https://www.cnbz.gov.cn/content/article/13366057",
+   "question": "咨询\n尊敬的领导：\r\n您好！我是一名在职工作者，2019年8月1日—2022年7月31日我是一名西部计划志愿者，2022年8月1日—2023年2月14日属劳务派遣至机关单位工作，2023年2月14日至今因考上事业单位，一直在新单位工作。\r\n",
+   "cited_hits": [
+    {
+     "name": "职工带薪年休假条例",
+     "lib_no": "职工带薪年休假条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "机关事业单位工作人员带薪年休假实施办法"
+   ],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "sc-bazhong",
+   "id": "13450094",
+   "url": "https://www.cnbz.gov.cn/content/article/13450094",
+   "question": "关于优化购房补贴申请流程、统一政策执行标准的求助信\n尊敬的市长：\r\n       您好！首先，谨向您及市政府全体工作人员致以崇高的敬意和衷心的感谢！近年来，在市委、市政府的统筹部署下，我市城市建设持续提质、民生保障不断完善，市民居住环境与生",
+   "cited_hits": [],
+   "cited_missing": [
+    "〈进一步促进市中心城区房地产市场平稳健康发展十二条措施〉补贴实施细则"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13448885",
+   "url": "https://www.cnbz.gov.cn/content/article/13448885",
+   "question": "生育津贴\n尊敬的领导你好，我想咨询一下如果在孕期离职，离职后将职工医保转为灵活就业医保期间不断缴，后续可以领取生育津贴吗？有哪些补贴费用可以领取呢？灵活就业医保缴纳时间上面有什么要求吗？必须灵活就业医保生育险满12个月，还是说前面缴纳的职工",
+   "cited_hits": [],
+   "cited_missing": [
+    "四川省医疗保障局等四部门关于将灵活就业人员、领取失业金期间的人员纳入生育保险保障范围的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13448584",
+   "url": "https://www.cnbz.gov.cn/content/article/13448584",
+   "question": "米仓古道开发宣传\n尊敬的市领导同志，您好！古蜀道的ip目前在互联网逐渐传播越来越热。目前巴中市的宣传以光雾山，恩阳古镇宣传为主，点状有余，系统不足。建议重点打造古蜀道文化，经济和旅游IP，地理上串起来光雾山，恩阳古镇和古巴州，基于米仓道和荔",
+   "cited_hits": [],
+   "cited_missing": [
+    "蜀道——巴中段（米仓道）文物保护总体规划纲要"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13447178",
+   "url": "https://www.cnbz.gov.cn/content/article/13447178",
+   "question": "咨询生育政策\n尊敬的市长信箱工作人员：\r\n \r\n您好！我是平昌县常住居民，目前妻子处于头胎孕晚期，即将待产。我们都是事业单位在编职工，为提前做好生育相关费用筹备、规范办理报销手续，全面了解本地惠民生育政策，避免错过相关报销及补助福利，现特地",
+   "cited_hits": [],
+   "cited_missing": [
+    "巴中市医疗保障局等五部门关于优化调整职工生育医疗保障待遇有关事项的通知",
+    "巴中市促进人口发展六条措施实施细则",
+    "育儿补贴制度实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13444841",
+   "url": "https://www.cnbz.gov.cn/content/article/13444841",
+   "question": "关于巴中市丽阳名居B区福源街路段交通噪音严重扰民的恳请整改邮件\n尊敬的市长：\r\n       您好！\r\n       我是巴中市丽阳名居B区业主，特此反映小区旁新通车的福源街路段交通噪音扰民问题，恳请相关部门实地勘测、推进整改。 \r\n   ",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于优化调整巴中主城区（含经开区）货运车辆限制通行管理措施的通告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13444648",
+   "url": "https://www.cnbz.gov.cn/content/article/13444648",
+   "question": "关于四川省延长生育假90天及哺乳假工资发放口径的咨询\n尊敬的领导：\r\n您好！\r\n我是一名在职企业职工，正常参加职工生育保险。现就2025年11月28日起施行的《四川省人口与计划生育条例》中，延长生育假90天、纯母乳喂养30天哺乳假的工资发放",
+   "cited_hits": [],
+   "cited_missing": [
+    "四川省人口与计划生育条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13444240",
+   "url": "https://www.cnbz.gov.cn/content/article/13444240",
+   "question": "公共场合禁止吸烟吗\n现在公共场合真的禁止吸烟吗？吸烟要罚款吗,硬性规定吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "四川省公共场所卫生管理办法",
+    "巴中市文明行为促进条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13443581",
+   "url": "https://www.cnbz.gov.cn/content/article/13443581",
+   "question": "巴中市养老服务保障领域\n您好，请问本地在养老服务保障领域有哪些具体落实举措？",
+   "cited_hits": [],
+   "cited_missing": [
+    "民政部 财政部关于实施向中度以上失能老年人发放养老服务消费补贴项目的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13442528",
+   "url": "https://www.cnbz.gov.cn/content/article/13442528",
+   "question": "农村客运班线车辆能否办理定制客运？\n你好领导，为了方便农村人们出行，我问问大寨至平昌的农村客运班线车辆能否办理定制客运？谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "道路旅客运输及客运站管理规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13440761",
+   "url": "https://www.cnbz.gov.cn/content/article/13440761",
+   "question": "提升巴中城市文明形象的建议\n尊敬的巴中市人民政府\r\n我是巴中的一名市民，在日常出行中发现咱们巴中公共厕所数量太少、分布不合理，给大家生活带来很多不便，特此提出多修建公厕的建议。\r\n \r\n平时在城区逛街、逛公园、去菜市场和公交站时，经常找不到",
+   "cited_hits": [],
+   "cited_missing": [
+    "巴中市巴州区中心城区环卫规划（2021—2030年）",
+    "城市环境卫生设施规划规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13440438",
+   "url": "https://www.cnbz.gov.cn/content/article/13440438",
+   "question": "关于生育假\n尊敬的领导，你好。根据2025年11月28日起施行的《四川省人口与计划生育条例》，四川产假天数规定如下：一胎、二胎产假：女职工在享受国家规定的98天产假基础上，延长生育假90天，总计188天。所以我在2025年6月10日开始休生",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于<四川省人口与计划生育条例>实施中有关假期规定适用问题的指导意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13440312",
+   "url": "https://www.cnbz.gov.cn/content/article/13440312",
+   "question": "询问春假放假时间\n尊敬的市长：\r\n  您好！\r\n  请问巴中2026年上半年的春假会放假吗，放假时间是多久呢？放与不放能给一个具体回复吗，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "2025—2026学年巴中市中小学（幼儿园）春秋假实施方案（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13438933",
+   "url": "https://www.cnbz.gov.cn/content/article/13438933",
+   "question": "关于优化住房公积金贷款缴存条件认定标准的建议\n尊敬的市长：\r\n        您好！我是一名本地职工，近期在办理住房商业贷款转公积金贷款业务时，了解到本地公积金贷款条件中要求“按时逐月足额缴存住房公积金6个月（含）以上，且个人缴存状态正常”",
+   "cited_hits": [],
+   "cited_missing": [
+    "巴中市商业银行购房按揭贷款转公积金贷款业务管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13438873",
+   "url": "https://www.cnbz.gov.cn/content/article/13438873",
+   "question": "关于巴中“十五五”规划\n尊敬的领导您好！\n请问《巴中市国民经济和社会发展第十五个五年规划纲要》何时才能公布？",
+   "cited_hits": [],
+   "cited_missing": [
+    "巴中市国民经济和社会发展第十五个五年规划纲要"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13438821",
+   "url": "https://www.cnbz.gov.cn/content/article/13438821",
+   "question": "关于巴中“登高节”建议\n关于将巴中登高节打造为“全国知名节庆IP”的建议信\r\n\r\n尊敬的巴中市委、市政府领导：\r\n\r\n您好！\r\n\r\n作为一名热爱巴中、关注家乡发展的市民，我怀着激动的心情写下这封信。每年正月十六，当整个城市和农村居民涌上山顶",
+   "cited_hits": [],
+   "cited_missing": [
+    "2026年巴中市登高民俗活动服务保障实施方案",
+    "2026年巴中市登高民俗活动服务保障实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13438804",
+   "url": "https://www.cnbz.gov.cn/content/article/13438804",
+   "question": "关于暂缓广巴改造、优先建设汉巴达200km/h客货共线快速通道的建议\n尊敬的高市长：\r\n \r\n当前广巴铁路扩能改造即将启动，汉巴南高铁汉中—巴中段仍在前期，成巴安高铁短期难以落地，巴中铁路正处于断头路多、标准偏低、通道不畅的关键节点。为避免",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步做好铁路规划建设工作意见的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13437596",
+   "url": "https://www.cnbz.gov.cn/content/article/13437596",
+   "question": "建议我们巴中也应该加强控烟管理\n尊敬的巴中市政府： 吸烟有害健康，不仅严重威胁吸烟者自身的生命安全，二手烟还会对非吸烟者的身体健康造成极大危害，同时也影响着城市的形象和环境。当前，巴中公共场所控烟不力、市民控烟意识有待提高等，非烟民每天都被",
+   "cited_hits": [],
+   "cited_missing": [
+    "巴中市公共场所禁止吸烟的公告",
+    "巴中市文明行为促进条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13435052",
+   "url": "https://www.cnbz.gov.cn/content/article/13435052",
+   "question": "南江县大河乡北极乌龙垭旅游开发方案建议\n尊敬的巴中市旅游规划部门领导，本人一些启发，不成熟的一点建议供参考，具体内容见附件。",
+   "cited_hits": [],
+   "cited_missing": [
+    "南江县“十五五”文化广播电视体育和旅游发展规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13430862",
+   "url": "https://www.cnbz.gov.cn/content/article/13430862",
+   "question": "建议我们巴中的学校也可以安装空调\n尊敬的领导您好，就是现在夏天天气炎热，建议我们巴中也可以考虑给部分还没有安装空调的学校安装空调；另外建议我们巴中以后条件成熟时也可以考虑在部分学校先试点这个可躺式桌椅，因为我看其他有些城市包括有些省份已经在",
+   "cited_hits": [],
+   "cited_missing": [
+    "中小学生午休课桌椅通用技术要求",
+    "GB/T 46016-2025"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13430860",
+   "url": "https://www.cnbz.gov.cn/content/article/13430860",
+   "question": "巴中学习遂宁引客入遂吸引全国游客旅游消费\n尊敬的领导: 您好！遂宁提出实业强市兴根基，引客入遂添活力的超前思维理念，短短一年多时间，遂宁举办了很多省内全国大型演艺赛事，比如中国观音湖自行车比赛，中国观音湖马拉松赛，中国汽车登山拉力赛，中国休",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于深入贯彻省委十二届七次全会精神推进文化和旅游深度融合发展的实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13430198",
+   "url": "https://www.cnbz.gov.cn/content/article/13430198",
+   "question": "关于二孩育儿补贴金\n尊敬的领导：\r\n                  您好！\r\n        我们夫妻于2025年1月26日生育了第二个孩子。根据《巴中市促进人口发展六条措施》的相关规定，我们符合二孩育儿补贴金的申领条件。\r\n此前，我们",
+   "cited_hits": [],
+   "cited_missing": [
+    "巴中市人民政府办公室关于印发巴中市促进人口发展六条措施的通知",
+    "中共中央办公厅 国务院办公厅关于印发《育儿补贴制度实施方案",
+    "巴中市卫生健康委员会关于落实国家育儿补贴实施方案相关事项的通知",
+    "巴中市促进人口发展六条措施"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13430117",
+   "url": "https://www.cnbz.gov.cn/content/article/13430117",
+   "question": "回家之路为何如此艰难险阻\n尊敬的市领导们：我是巴中市和平镇油榨坪一名在外工作的群众，一年大概要回三次老家，每次回家从正直镇到和平镇的路，再从和平到油榨坪的路真的是又烂又窄，前几年只是以为这就是大巴山道路的常态与不可改变的现状，但是看到临近地",
+   "cited_hits": [],
+   "cited_missing": [
+    "南江县人民政府办公室关于下达2023年第一批农村公路建设项目计划的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13429499",
+   "url": "https://www.cnbz.gov.cn/content/article/13429499",
+   "question": "巴中市智慧城市建设\n您好，请问本地在智慧城市建设和社会治理创新方面有哪些举措？",
+   "cited_hits": [],
+   "cited_missing": [
+    "巴中市社区工作者管理办法实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13426929",
+   "url": "https://www.cnbz.gov.cn/content/article/13426929",
+   "question": "巴中人才引进\n领导您好，我想咨询一下，巴中市人才引进中的中级职称，这个中级职称必须是对应学段吗？比如高中教师必须有高中中级职称，初中中级职称与高中能通用吗？比如有初中政治中级职称能报名高中政治岗位吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "巴中市事业单位人才引进管理服务办法（试行）",
+    "关于印发〈四川省中小学教师职称申报评审基本条件〉的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13425970",
+   "url": "https://www.cnbz.gov.cn/content/article/13425970",
+   "question": "大学生创业就业\nQ1：大学生创业有哪些补贴，应该如何办理？\r\nQ2：灵活就业大学生如何自行购买社保/公积金？",
+   "cited_hits": [],
+   "cited_missing": [
+    "巴中市灵活就业人员参加住房公积金制度管理办法（试行）",
+    "巴中市灵活就业人员参加住房公积金制度管理实施细则（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13423454",
+   "url": "https://www.cnbz.gov.cn/content/article/13423454",
+   "question": "杨坝小学何时动工修建\n杨坝小学去年设计招标后一直没有消息，请问什么时候正式施工招标修建，准备买这边的房子，但是没有学校不敢买，麻烦回复一下。",
+   "cited_hits": [],
+   "cited_missing": [
+    "2022年巴州城区义务教育学校校点布局调整方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13421761",
+   "url": "https://www.cnbz.gov.cn/content/article/13421761",
+   "question": "关于开发挖掘农村原有水井作为抗旱应急水源，保障留守老人等群众饮水安全的建议\n尊敬的市长：\r\n      您好！我是来自巴中市在外务工的一名普通市民，怀着对家乡的深厚感情和对当前旱情下父老乡亲，尤其是农村留守老人生活困境的深切忧虑，特向您反映",
+   "cited_hits": [],
+   "cited_missing": [
+    "四川省取水许可和水资源费征收管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13420397",
+   "url": "https://www.cnbz.gov.cn/content/article/13420397",
+   "question": "关于2025届毕业生档案接收问题\n领导，你好 \r\n       我是2025届的毕业生。关于我在网上查询巴中市档案接收地址和联系人，答案各有不同，所以想要咨询一下2025届毕业生档案的接收单位、联系人和地址。",
+   "cited_hits": [],
+   "cited_missing": [
+    "流动人员人事档案管理服务规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13420155",
+   "url": "https://www.cnbz.gov.cn/content/article/13420155",
+   "question": "请问本地退役军人的优抚补助政策有哪些\n您好，请问本地退役军人的优抚补助政策有哪些？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于调整分散安置一级至四级残疾军人和因患精神病被评定为五级至六级残疾军人护理费标准的通知",
+    "巴中市残疾退役军人医疗保障实施办法",
+    "巴中市优抚对象医疗保障实施办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13417023",
+   "url": "https://www.cnbz.gov.cn/content/article/13417023",
+   "question": "商品从业人员健康证\n外卖员办健康证也是收费吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步做好从业人员预防性体检工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13414576",
+   "url": "https://www.cnbz.gov.cn/content/article/13414576",
+   "question": "女员工，购买了生育及医疗险，在产检时可以享受哪些优惠补贴政策？\n您好，来信想咨询一下，女员工，购买了生育及医疗险，在产检时，有哪些补贴报销政策可以享受？\r\n   比如，1.是否可以申请产检补贴，如可以申请，具体程序及所需资料是什么？2.孕期",
+   "cited_hits": [],
+   "cited_missing": [
+    "巴中市医疗保障局等五部门关于优化调整职工生育医疗保障待遇有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13412857",
+   "url": "https://www.cnbz.gov.cn/content/article/13412857",
+   "question": "咨询\n请问市长，退休军官证在巴中范围内可免费乘车吗?驾驶员说只有现役才行，请答复!",
+   "cited_hits": [],
+   "cited_missing": [
+    "巴中市物价局关于巴中城区空调公交车正式票价的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13407884",
+   "url": "https://www.cnbz.gov.cn/content/article/13407884",
+   "question": "关于南江县11路公交车（断渠-东榆）发车时间以及趟次咨询\n您好！由于本人住在城内，上班地点在东榆。所以每天需乘坐11路公交车去上班，在2024年10月份之前11路公交车还相对准时，基本到站点只有10分钟左右的误差，最近11路公交车乘车基本需",
+   "cited_hits": [],
+   "cited_missing": [
+    "南江县特殊人群免费乘坐城市公交暂行办法",
+    "错峰出行倡议书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13403014",
+   "url": "https://www.cnbz.gov.cn/content/article/13403014",
+   "question": "产业发展扶持\n您好，请问本地在产业发展扶持激励方面有哪些政策举措？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于加快推进实施种养业优势大品种计划的意见",
+    "巴中市支持肉牛产业发展十条措施",
+    "巴中市支持南江黄羊产业发展十条措施",
+    "关于促进经济持续回升向好的若干政策措施",
+    "促进制造业项目投资建设七条措施",
+    "金融服务实体经济发展十条措施"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13403013",
+   "url": "https://www.cnbz.gov.cn/content/article/13403013",
+   "question": "优化营商环境\n您好，请问本地在优化营商环境方面有哪些具体举措？",
+   "cited_hits": [],
+   "cited_missing": [
+    "巴中市营商环境建设三年攻坚行动计划（2024—2026年）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13403009",
+   "url": "https://www.cnbz.gov.cn/content/article/13403009",
+   "question": "咨询商贷转公积金贷款业务\n领导您好：\r\n1：我想咨询一下巴中市巴州区商贷转公积金贷款为啥不支出农商银行？是一直都不支持用农商银行转公积金贷？还是暂时不支持农商银行转？\r\n2：商转公的业务程序以及需要哪些资料？",
+   "cited_hits": [],
+   "cited_missing": [
+    "巴中市商业银行购房按揭贷款转公积金贷款业务管理办法",
+    "同意提前还款确认函"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13402628",
+   "url": "https://www.cnbz.gov.cn/content/article/13402628",
+   "question": "教育费用减免中，3胎4孩，算几孩？\n根据巴中市7部门联合发布的《关于印发巴中市促进人口发展六条措施实施细则的通知》中，关于我家三胎四孩，到底是按照几孩获得教育费用减免？我在街道办申请时候，街道办只同意按照3孩进行减免\r\n第一胎：2012年\r",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发巴中市促进人口发展六条措施实施细则的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13402476",
+   "url": "https://www.cnbz.gov.cn/content/article/13402476",
+   "question": "咨询住房公积金提取及贷款问题\n1.2021年与巴中华盛房地产开发公司签订了购房合同，缴纳了首付款15万余元，并于当年在房管局进行了备案；根据成都最新的公积金提取政策，网签备案合同5年内可以提取公积金用于首付款；\r\n请问一下巴中是否有相应的政",
+   "cited_hits": [],
+   "cited_missing": [
+    "巴中市住房公积金个人住房贷款实施细则",
+    "关于调整住房公积金使用政策的批复"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13398630",
+   "url": "https://www.cnbz.gov.cn/content/article/13398630",
+   "question": "人口发展六条措施政策咨询\n1.第一胎是双胞胎属不属于二孩，能否享受“巴中市促进人口发展六条措施”政策。\r\n2.孕产检费补助、分娩补助、育儿补贴金在哪申请办理。",
+   "cited_hits": [],
+   "cited_missing": [
+    "生育服务证",
+    "孕产期保健门诊病历"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13393811",
+   "url": "https://www.cnbz.gov.cn/content/article/13393811",
+   "question": "白酒食品小作坊生产许可证\n请问白酒食品小作坊生产许可证办理需要什么条件呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "四川省食品小作坊管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13392417",
+   "url": "https://www.cnbz.gov.cn/content/article/13392417",
+   "question": "咨询关于三支一扶的事宜\n本人是临床医学本科的大学生，想了解关于三支一扶助学贷款代偿的政策以及报考的相关事宜是否需要执业医师证",
+   "cited_hits": [],
+   "cited_missing": [
+    "四川省2024年高校毕业生“三支一扶”计划招募公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13392400",
+   "url": "https://www.cnbz.gov.cn/content/article/13392400",
+   "question": "全国文明城市\n您好，请问本地在创建全国文明城市方面有哪些具体举措？",
+   "cited_hits": [],
+   "cited_missing": [
+    "文明行为促进条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13392122",
+   "url": "https://www.cnbz.gov.cn/content/article/13392122",
+   "question": "省道S204道路交通安全问题\n尊敬的高市长：\r\n      省道S204道路通江县铁佛镇铁佛大桥两头违规设置混凝土限宽墩，存在道路交通安全问题，影响过往车辆的行车安全，并且不符合《公路安全保护条例》（国务院令第593号）、《交通运输部 公安",
+   "cited_hits": [],
+   "cited_missing": [
+    "公路桥梁技术状况评定标准",
+    "桥梁养护管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13390474",
+   "url": "https://www.cnbz.gov.cn/content/article/13390474",
+   "question": "关于城区出租车和共享单车\n市长您好，请问汉巴南铁路巴中东站通车以后，城区出租车是否能够打表运行，巴中出租车问题已经在巴中市存在了许多年，拼车问题，经开区和恩阳区的乘客不拉问题，一口价问题，现在仍然存在许多许多，以后巴中东站开通了可以根治一下",
+   "cited_hits": [],
+   "cited_missing": [
+    "巴中市中心城区巡游出租汽车融合发展的实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13388921",
+   "url": "https://www.cnbz.gov.cn/content/article/13388921",
+   "question": "关于杨家坝片区小学建设进度\n市长： 您好，我是杨家坝片区居民，目前该片区从王府景三四期/天下城/江湾城/杨坝小院/印江洲几个大型小区，入住居民近2万户、6万人，目前片区适龄小孩无法就近入学，现有黄家沟小学、中坝小学距离远，且公交车无法直接到",
+   "cited_hits": [],
+   "cited_missing": [
+    "2022年巴州城区义务教育学校校点布局调整方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13387963",
+   "url": "https://www.cnbz.gov.cn/content/article/13387963",
+   "question": "村里野猪肆虐该怎么处理？\n尊敬的领导：\r\n     我老家在巴中市巴州区回风街道办事处大柏林村，今年春节回家时候。家中老人表示，现在随着生态环境恢复，村子里野猪逐渐增多，自己种的庄稼地被野猪糟蹋。  \r\n     就是请问面对野猪肆虐，政府",
+   "cited_hits": [],
+   "cited_missing": [
+    "四川省林业和草原局关于切实做好野猪等陆生野生动物致害防控工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13387873",
+   "url": "https://www.cnbz.gov.cn/content/article/13387873",
+   "question": "教师公招相关问题\n你好，请问教师公招已经报名缴费成功，但因为有其他的考试通知后续才出发现撞在一起，在斟酌以后选择放弃教师公招考试，可以退费吗？如果不能退费，未参加此次考试是否会有一定影响？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于巴中市市直属学校2024年上半年公开考试招聘中小学教师的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13386565",
+   "url": "https://www.cnbz.gov.cn/content/article/13386565",
+   "question": "关于兴文棠湖中学前后门交通拥堵的问题\n棠湖中学前后门一遇上学放学期间都会造成交通特别拥堵。后门是南环到兴文的主要通道，一遇上学放学时间，园柏路（圆柏寺至变电站）那段堵得水泄不通，学生在路中间就下车，及其不安全；前门在红绿灯路口上，上学放学期",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于在上放学时段对巴中棠湖外语实验学校和巴中中学兴文校区周边部分道路实施交通临时交通管制的通告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13385699",
+   "url": "https://www.cnbz.gov.cn/content/article/13385699",
+   "question": "投诉巴州区就业服务管理局让群众多跑路、办事效率低。\n你好，我在四川e就业平台协助妈妈办理失业登记，按要求提交了材料。想投诉2点，一是办理效率慢，逾期办理！按照办事指南的要求，失业登记的办理时限为3个工作日，22日提交申请，28日才给回复，除",
+   "cited_hits": [],
+   "cited_missing": [
+    "四川省就业创业证管理办法",
+    "就业创业证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13383781",
+   "url": "https://www.cnbz.gov.cn/content/article/13383781",
+   "question": "关于燃气取暖燃气费是否有补助\n巴中燃气是否是阶梯费用，家有老弱，巴中天气阴冷，需要燃气取暖，燃气费用是否有补助",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于建立巴中市城镇（乡）居民生活用气阶梯价格制度的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13381566",
+   "url": "https://www.cnbz.gov.cn/content/article/13381566",
+   "question": "禁止燃放烟花\n我想请问一下是有规定不让销售烟花爆竹吗？目前听老家的人说到处都买不到烟花爆竹，如果不让私自售卖是不可以由政府指定专门安全的经销商去卖这个烟花爆竹。中国人对过年放烟花是为了迎接我们自己的新年，俗话说爆竹声中一岁除，如果不让燃放和",
+   "cited_hits": [],
+   "cited_missing": [
+    "巴中市烟花爆竹燃放管理条例",
+    "关于禁止燃放烟花爆竹的通告"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13378546",
+   "url": "https://www.cnbz.gov.cn/content/article/13378546",
+   "question": "公积金提取方式\n我原来的公积金提取方式是：按年提取，现在可否转换成：按月提取。",
+   "cited_hits": [],
+   "cited_missing": [
+    "巴中市住房公积金提取管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13378542",
+   "url": "https://www.cnbz.gov.cn/content/article/13378542",
+   "question": "公积金\n使用公积金贷款买房后，可否在提取上一年还款额同时，提取夫妻双方的公积金余额用于一次性还清贷款。望告知。",
+   "cited_hits": [],
+   "cited_missing": [
+    "巴中市住房公积金提取管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13376156",
+   "url": "https://www.cnbz.gov.cn/content/article/13376156",
+   "question": "公交乘坐咨询\n尊敬的领导：\r\n        您好！\r\n         我是一名退役军人。    近些年来，随着退役军人优待证的发放。全国一些城市，对持优待证的退役军人，给予免费或者优惠乘坐公共交通工具等一系列相关政策陆续出台。就拿江苏为",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于巴中城区空调公交车正式票价的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13372213",
+   "url": "https://www.cnbz.gov.cn/content/article/13372213",
+   "question": "巴中公积金提取第三房认定的依据是否可以修改\n巴中公积金提取管理办法第十二条中：第三套及以上的购房不予提取（含提取偿还购房贷款，以巴中市住房公积金业务系统中提取信息为准）。现住房城乡建设部 中国人民银行 金融监管总局下发关于优化个人住房贷款中",
+   "cited_hits": [],
+   "cited_missing": [
+    "巴中市住房公积金提取管理办法",
+    "关于优化个人住房贷款中住房套数认定标准的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13370943",
+   "url": "https://www.cnbz.gov.cn/content/article/13370943",
+   "question": "咨询居民购买2024年城乡医疗保险政策\n您好，我想咨询一下巴中现在缴2024年城乡居民医疗保险费用是每人380元，请问这个380元是否包括城乡居民大病补充保险，还是这个380元仅仅只是城乡居民基本医疗保险。望有关部门解答一下政策！",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发〈巴中市城乡居民大病保险实施办法〉的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13370030",
+   "url": "https://www.cnbz.gov.cn/content/article/13370030",
+   "question": "请教毕业生团组织关系接受问题\n尊敬的市长：\r\n  您好！我是一名今年6月份毕业的大学生，目前处于未就业状态，按学校要求团组织关系应转回居住地，但是所在居住地智慧团建管理员迟迟不审批通过，根据智慧团建上所显示团组织直属上级联系方式拨打电话想询",
+   "cited_hits": [],
+   "cited_missing": [
+    "团中央关于“智慧团建”系统毕业学生团员团组织关系转接工作指引"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13368296",
+   "url": "https://www.cnbz.gov.cn/content/article/13368296",
+   "question": "公积金提取漏洞及政策建议\n尊敬的领导： \r\n   您好！\r\n   本人于2023年7月14日，在巴州区管理中心办理上一年度住房公积金提取业务，因政策原因被拒绝（现场解释及电话沟通结果：上一年度公积金还款不足12个月，不能提取），通过了解相关",
+   "cited_hits": [],
+   "cited_missing": [
+    "巴中市住房公积金提取管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13367432",
+   "url": "https://www.cnbz.gov.cn/content/article/13367432",
+   "question": "关于乡村振兴工作的建议\n2023年是全面贯彻落实党的二十大精神的开局之年，是实施“十四五”规划承上启下的关键之年。如何在2035年基本实现农业农村现代化，必须巩固脱贫攻坚战成果，落实全面推进振兴乡村，整体发展村集体经济，保障村民多渠道增收，",
+   "cited_hits": [],
+   "cited_missing": [
+    "巴中市支持发展新型农村集体经济十五条措施",
+    "巴中市乡村建设行动实施方案（2023—2025）",
+    "巴中市统筹使用财政涉农资金管理办法（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13366148",
+   "url": "https://www.cnbz.gov.cn/content/article/13366148",
+   "question": "租房提取公积金巴中公积金中心拒绝提取\n巴中公积金中心的霸王条款，当你提取过公积金以后，就不能以租房名义提取公积金，我现在名下无任何房产，无房证明等资料提供完全，你们以我提取过公积金理由拒绝提取，请问我名下有没有房产？租房提取公积金的意义何在",
+   "cited_hits": [],
+   "cited_missing": [
+    "巴中市住房公积金提取管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13361396",
+   "url": "https://www.cnbz.gov.cn/content/article/13361396",
+   "question": "关于2023年巴中市属、各县区事业单位考试时间\n市长，您好！我是今年准备参加事业单位考试的考生，想咨询一下2023年巴中市属事业单位、各县区事业单位是否有招录计划呢？谢谢！祝您工作顺利！",
+   "cited_hits": [],
+   "cited_missing": [
+    "2023年巴中市市本级事业单位公开招聘、选聘计划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13360049",
+   "url": "https://www.cnbz.gov.cn/content/article/13360049",
+   "question": "肌炎病能申请慢特病吗？异地门诊如何报销？\n2022年2月，我母亲(56岁，巴中通江县人，农民)在四川省人民医院诊断为肌炎病（多发性肌炎），经紧急治疗，初步稳定病情，但导致母亲瘫痪，丧失自主生活能力，还引发肺、肝、肾多脏器并发症，且暂时无特效",
+   "cited_hits": [],
+   "cited_missing": [
+    "巴中市城乡居民基本医疗保险实施办法",
+    "巴中市医疗保险门诊慢特病管理办法",
+    "巴中市城乡居民大病保险实施办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13359513",
+   "url": "https://www.cnbz.gov.cn/content/article/13359513",
+   "question": "旅游资料查询\n各位领导好，我是巴中在外的一名学子，为研究巴中市全域旅游发展，需要统计相关数据： 1.2016-2022全市接待游客人数统计情况？2016-2022全市旅游收入？ 2016-2022景区：南龛山、恩阳古镇、光雾山、诺水河分别全",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于突破发展文旅康养首位产业的实施意见",
+    "关于加快全域旅游发展的意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13356047",
+   "url": "https://www.cnbz.gov.cn/content/article/13356047",
+   "question": "教书育人，弘扬社会主义，核心价值观\n尊敬的市长先生，各位领导，希望你们能看到这封信\r\n在今天偶然刷抖音刷到宁夏固原坚持28年年年组织学生徒步百里缅怀先烈，这样的作为可以让学生用心灵感受新中国的不易，少年强则国强，传承革命精神，这样可以宣传红",
+   "cited_hits": [],
+   "cited_missing": [
+    "大爱巴中",
+    "川陕苏区红色歌谣选编",
+    "红色传承",
+    "红色传颂",
+    "小军号",
+    "红星闪闪"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13351540",
+   "url": "https://www.cnbz.gov.cn/content/article/13351540",
+   "question": "供水所不作为\n环境：只有2个冲水厕所\r\n11月之前新还水表，去年11-12月，2个月用水196吨，觉得用水有问题，找供水所处理，他们什么都没做，认定给我他们答复：是因为我们漏水引起的。他们没有去看，也没有给我们说具体情况，电话上就直接答复说",
+   "cited_hits": [],
+   "cited_missing": [
+    "四川省村镇供水条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13351131",
+   "url": "https://www.cnbz.gov.cn/content/article/13351131",
+   "question": "癫痫慢性病患者医保咨询\n我家人是未成年癫痫病患者，购买的是新农合医保，从初次患病到出院复诊都在巴中市人民医院看病；具今已有三年，每月定期药费需要600多并且在医院买不到此药，每次复诊都需要做脑电图等，对于农村家庭来说负担较重；故想咨询一下问",
+   "cited_hits": [],
+   "cited_missing": [
+    "巴中市医疗保障局关于印发〈巴中市医疗保险门诊慢特病管理办法〉的通知",
+    "巴中市城乡居民基本医疗保险实施办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13351001",
+   "url": "https://www.cnbz.gov.cn/content/article/13351001",
+   "question": "农村房建问题\n1.国家给扶贫户建的房子可不可以进行商业交易。\r\n2.户口不在本村的人员可不可以建私人住房。",
+   "cited_hits": [],
+   "cited_missing": [
+    "四川省发展和改革委员会关于进一步细化完善<新时期易地扶贫搬迁工作百问百答>相关政策措施的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13350671",
+   "url": "https://www.cnbz.gov.cn/content/article/13350671",
+   "question": "关于参加全国两会巴中代表、委员提交加快汉巴南高铁汉巴段建设联名议案等建议\n尊敬的领导及即将参加全国两会的巴中代表、委员：\r\n      近日，欣闻巴中将有至少3名代表、委员参加全国2023年两会，可喜可贺！全国两会无疑是代表们倾情反映革命老",
+   "cited_hits": [],
+   "cited_missing": [
+    "四川省渠江流域防洪规划",
+    "四川省“十四五”水安全保障规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13349801",
+   "url": "https://www.cnbz.gov.cn/content/article/13349801",
+   "question": "一网通办上没有《出生医学证明》补发办事指南，求助如何申请补发遗失的《出生医学证明》。\n我小孩《出生医学证明》不小心遗失，现在办理户口迁移业务时需要该证件，我在四川政务服务网上未找到该证补发申请入口；现求助《出生医学证明》补办流程及相关材料说",
+   "cited_hits": [],
+   "cited_missing": [
+    "出生医学证明",
+    "出生医学证明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13349574",
+   "url": "https://www.cnbz.gov.cn/content/article/13349574",
+   "question": "黄埔明珠不动产证办理\n市委市政府的各位领导，我是平昌县黄埔明珠的住户，自2012年购房并入住至快10年了，至今我们的不动产证都没给我们办下来到底是什么原因？我们什么时候才能拿到我们的不动产证？今拖明缓的难道需要等到不动产本上的有效期过了才给",
+   "cited_hits": [],
+   "cited_missing": [
+    "不动产权证书",
+    "不动产权证书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13347830",
+   "url": "https://www.cnbz.gov.cn/content/article/13347830",
+   "question": "现役军人优待\n现役军人公交到底免不免费，昨天免费，今天就说你这个不行，军人只优待不免费，连证件都没看，难道政策一天就变了还是政策宣讲不到位？",
+   "cited_hits": [],
+   "cited_missing": [
+    "巴中市物价局关于巴中城区空调公交车正式票价的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13447278",
+   "url": "https://www.cnbz.gov.cn/content/article/13447278",
+   "question": "《关于积极推动巴中参与2026年重庆城市足球联赛的建议》\n一、顶层宏观背景与政策依据\r\n（一）国家战略层面：落实成渝双城经济圈建设核心要求\r\n成渝地区双城经济圈建设的决定，为重庆四川两省市体育产业高质量协同发展带来了新机遇。依据《成渝地区双",
+   "cited_hits": [],
+   "cited_missing": [
+    "2026重庆城市足球超级联赛竞赛规程"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13445969",
+   "url": "https://www.cnbz.gov.cn/content/article/13445969",
+   "question": "巴中市山地农业绿色转型可行性\n一、巴中农业产业竞争环境分析\r\n（一）地理与资源禀赋：优势与约束并存\r\n  巴中地处四川东北部大巴山系米仓山南麓，属典型盆周山区，幅员1.23万平方公里，呈现“八山一水一分田”的地貌特征。这一地形格局决定了巴中",
+   "cited_hits": [],
+   "cited_missing": [
+    "巴中市山地农业绿色转型可行性报告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13443817",
+   "url": "https://www.cnbz.gov.cn/content/article/13443817",
+   "question": "关于望王山至南龛坡观光索道安全规划建设的建议\n尊敬的市委书记：\r\n您好！\r\n        我是一名普通巴中市民。近期在抖音关注巴城城市发展话题时，看到广大市民和网友热议集中、多数人纷纷建言，希望规划修建望王山至南龛坡观光索道，呼声很高、民",
+   "cited_hits": [],
+   "cited_missing": [
+    "巴中市中心城区综合交通规划（2026-2035年）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13442016",
+   "url": "https://www.cnbz.gov.cn/content/article/13442016",
+   "question": "“四龛护城”文旅宣传建议\n我是一名来巴10余年的青年，见证了巴中城市的飞速发展期，感叹巴中位于老少边穷地区，取得如今的发展来之不易，感谢所有为巴中发展付出心血的人。近年，巴中市提出“四龛护城”文旅新IP，这是之前没有听过的，我个人觉得这个很",
+   "cited_hits": [],
+   "cited_missing": [
+    "巴中石窟研究",
+    "考古学集刊",
+    "南方民族考古",
+    "“四龛福城”文旅品牌三年行动计划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13436920",
+   "url": "https://www.cnbz.gov.cn/content/article/13436920",
+   "question": "如何当村支书\n如果想当村支书，有哪些途径，具体有哪些程序、哪些要求？需要详细具体的",
+   "cited_hits": [],
+   "cited_missing": [
+    "中国共产党章程",
+    "中国共产党农村基层组织工作条例",
+    "中国共产党基层组织选举工作条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13434763",
+   "url": "https://www.cnbz.gov.cn/content/article/13434763",
+   "question": "关于创新实行采暖用气阶梯降价 吸引越冬人群扭转人口流失的建议信\n尊敬的市委书记：您好！\r\n \r\n11月18日我市成功入选“全国最佳宜居城市”，坐拥天然气与生态优势，本可吸引北方人群越冬、扭转人口流失。成都等地早已出台冬季采暖用气惠民政策，反",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于建立健全居民生活用气阶梯价格制度的指导意见",
+    "关于建立健全居民生活用气阶梯价格制度的意见",
+    "关于调整独立采暖居民生活用气阶梯气量标准及有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13433668",
+   "url": "https://www.cnbz.gov.cn/content/article/13433668",
+   "question": "关于外省自考本科档案归档事项\n书记您好！\r\n     本人之前一直在外地求学，在专科毕业后我的档案一直存放在巴中人力中。在前几年在深圳大学考取了自考本科后，但是该院校毕业的档案都是由学生自行拿取，然后自行联系归档。之前咨询过巴中人才中心说需",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步加强流动人员人事档案管理服务工作的通知",
+    "流动人员人事档案管理服务规定的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13433554",
+   "url": "https://www.cnbz.gov.cn/content/article/13433554",
+   "question": "关于加快建设我市乡镇新能源充电桩的建议\n尊敬的市委市政府领导：​\r\n      你们好！​我是一名土生土长的巴中市市民。近期，我在使用导航地图规划出行路线时发现，与我市毗邻的广元、达州两市，已完成各乡镇公用充电桩的布局建设。对比之下，我市目",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好中央节能减排补助资金（充电基础设施建设奖励资金）管理工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13433069",
+   "url": "https://www.cnbz.gov.cn/content/article/13433069",
+   "question": "建议巴中建设一所与产业相结合的公办本科高校\n一、建设背景与战略价值\r\n巴中地处川东北天然气资源富集区，正加速推进国家天然气（页岩气）千亿立方米级产能基地建设。当前面临的核心矛盾是：\r\n资源开发与人才断层：全市天然气年产量突破50亿方，但本地",
+   "cited_hits": [],
+   "cited_missing": [
+    "巴中市国民经济和社会发展第十四个五年规划和二〇三五年远景目标纲要",
+    "巴中教育现代化2035",
+    "巴中市“十四五”教育事业发展规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13431783",
+   "url": "https://www.cnbz.gov.cn/content/article/13431783",
+   "question": "关于咨询自学考试档案寄送问题\n书记你好： 本人目前在成都工作，于2018年12月30日取得自学考试本科文凭，目前相关档案、资料均由本人保存，如学籍表、成绩单、个人其他自考资料等。\r\n\r\n想具体咨询一下，类似本人这种情况，在外地工作，对于自学",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步加强流动人员人事档案管理服务工作的通知",
+    "流动人员人事档案管理服务规定的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13425907",
+   "url": "https://www.cnbz.gov.cn/content/article/13425907",
+   "question": "二胎补贴政策\n尊敬的领导，您好！ 我们夫妻于2022年7月生育二胎，现在网上其他地方包括四川其他市也有相应二胎三胎育儿补贴政策，请问巴中市是否已颁布或计划颁布二胎育儿补贴相关政策？感谢！还有类似这类的补贴政策我们平时怎么去查看呢，很多时候这",
+   "cited_hits": [],
+   "cited_missing": [
+    "巴中市促进人口发展六条措施",
+    "育儿补贴制度实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13423256",
+   "url": "https://www.cnbz.gov.cn/content/article/13423256",
+   "question": "户口转移\n根据《中华人民共和国农村集体经济组织法》相关规定和要求，符合什么条件可以把非农户转入到原籍（农村户口）？何时可以转入？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于规范农村地区户籍登记管理工作的通知",
+    "四川省人民政府办公厅关于积极稳妥推进户籍管理制度改革的通知",
+    "四川省人民政府关于印发四川省进一步推进户籍制度改革实施方案的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13422144",
+   "url": "https://www.cnbz.gov.cn/content/article/13422144",
+   "question": "家庭分户\n家中有弟兄两人，现都已成家立业，但因生活、工作地点不同，经家人商量及个人生活需要，需要把个人的户口单独分开，不知如何办理，咨询过当地派出所也各种理由推脱不予办理，忘理解一个普通老百姓的简单诉求。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于规范农村地区户籍登记管理工作的通知",
+    "宅基地使用权证",
+    "不动产登记证",
+    "建房许可证",
+    "村镇房屋所有权证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13420867",
+   "url": "https://www.cnbz.gov.cn/content/article/13420867",
+   "question": "请问巴中市2025年的中考加分政策？\n请问巴中市2025年的中考加分政策有哪些？请列明所有的加分项目，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "四川省2024年中等职业学校录取新生办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13420797",
+   "url": "https://www.cnbz.gov.cn/content/article/13420797",
+   "question": "关于在市中心医院（市人民医院）增设就诊二次签到优化就医秩序的建议\n尊敬的荣生书记：\r\n      近期，在市中心医院就诊（市人民医院）有很不好的体验（挂号后无二次就诊签到，让一些过号就诊群众无序候诊，导致诊室拥挤、秩序混乱、个人隐私泄露、就",
+   "cited_hits": [],
+   "cited_missing": [
+    "巴中市“满意度提升年”行动实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13415530",
+   "url": "https://www.cnbz.gov.cn/content/article/13415530",
+   "question": "建议将佛爷湾背后的西龛山区域规划打造为城市山地公园\n‌尊敬的市长：您好！‌\r\n\r\n我是一名居住在巴中的南充近年来巴中的发展突飞猛进和以往刚来时的巴中大变样，我也持续在关注巴中城市发展的。近年来，我市生态建设成效显著，连山湖公园等项目的落成极",
+   "cited_hits": [],
+   "cited_missing": [
+    "巴中市打造\"四龛福城\"文旅品牌三年行动计划",
+    "莲山湖片区功能布局研究",
+    "生态修复治理专项规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13410560",
+   "url": "https://www.cnbz.gov.cn/content/article/13410560",
+   "question": "关于加快巴中发展的建议\n尊敬的鲜书记，您好！\n今年回家过年，我欣喜地看到巴中东站已正式运营，成万高速正在加快建设，广巴铁路升级改造已纳入日程，成巴安、汉巴铁路也已被纳入远期规划。这些成就令人高兴和自豪，它们的取得离不开各级领导干部的辛勤努力",
+   "cited_hits": [],
+   "cited_missing": [
+    "四川省“十四五”规划和2035年远景目标纲要",
+    "四川省十四五特殊类型地区振兴发展规划",
+    "四川省川陕革命老区发展规划",
+    "中长期铁路网规划",
+    "中长期铁路网规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13410141",
+   "url": "https://www.cnbz.gov.cn/content/article/13410141",
+   "question": "农转非政策咨询\n你好。我家住在恩阳区下辖镇，户口类型为农村户口，目前在内江市某事业单位工作。上周接单位通知，财政供养人员中农村户口必须转为城镇户口。我想咨询一下，我将农村户口转为城镇户口后，是否仍享有宅基地权益与承包地权益？",
+   "cited_hits": [],
+   "cited_missing": [
+    "土地承包法",
+    "农村宅基地管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13408040",
+   "url": "https://www.cnbz.gov.cn/content/article/13408040",
+   "question": "公积金提取还房贷为啥被拒绝\n我多次打电话给恩阳区房管局咨询提取公积金，每次都是以我有贷款不能作为提取理由。我想知道这是哪条法律法规规定的？",
+   "cited_hits": [],
+   "cited_missing": [
+    "巴中市住房公积金提取管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13407269",
+   "url": "https://www.cnbz.gov.cn/content/article/13407269",
+   "question": "关于巴中乡镇安装新能源汽车充电桩的建议\n新能源汽车发展：全球汽车未来发展的方向是新能源化，或者说是电动化，中小城市与农村将成为新的市场增长点。未来3~5年，继大型城市之后，中小城市和农村地区将成为中国新能源汽车市场的爆发点，并成为市场增量的",
+   "cited_hits": [],
+   "cited_missing": [
+    "巴中市新能源汽车充电基础设施“十四五”规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13404623",
+   "url": "https://www.cnbz.gov.cn/content/article/13404623",
+   "question": "增值税专用发票抵扣联丢失了怎么办",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家税务总局关于增值税发票综合服务平台等事项的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13404532",
+   "url": "https://www.cnbz.gov.cn/content/article/13404532",
+   "question": "生育补贴有哪些？\n一胎生宝宝有产检补贴或其他政策吗？领取需要什么资料？",
+   "cited_hits": [],
+   "cited_missing": [
+    "巴中市促进人口发展六条措施"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13399545",
+   "url": "https://www.cnbz.gov.cn/content/article/13399545",
+   "question": "2024年下半年卫生事业编制什么时候发布信息？\n2024下半年事业编制出来，没有卫生编制，请问卫生事业编制什么时候发布信息？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于巴中市2024年事业单位公开招聘工作人员的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13397942",
+   "url": "https://www.cnbz.gov.cn/content/article/13397942",
+   "question": "建设恩阳机场至达州西绕城高速公路\n将恩阳机场至达州西绕城高速公路纳入“十五五”规划。\n具体路线如下：起点在苍巴高速恩阳区明扬何家湾互通，经恩阳区兴隆、玉山，巴州区鼎山，平昌县大罗、青云、大寨、岳家、白衣，达川区虎让、滴河、赵固、大堰，接达州",
+   "cited_hits": [],
+   "cited_missing": [
+    "四川省高速公路网布局规划（2022—2035年）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13390586",
+   "url": "https://www.cnbz.gov.cn/content/article/13390586",
+   "question": "关于杨家坝片区小学建设\n书记、市长： 您好，我是杨家坝片区居民，目前该片区从王府景三四期/天下城/江湾城/杨坝小院/印江洲几个大型小区，入住居民近2万多户、6-7万人，目前片区适龄小孩无法就近入学，现有黄家沟小学、区十一小学距离远，且公交车",
+   "cited_hits": [],
+   "cited_missing": [
+    "2022年巴州城区义务教育学校校点布局调整方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13389581",
+   "url": "https://www.cnbz.gov.cn/content/article/13389581",
+   "question": "巴中火车站二楼超市未明码标价\n根据2022年4月14日国家市场监督管理总局令第56号公布　自2022年7月1日起施行）第五条 经营者销售、收购商品和提供服务时，应当按照市场监督管理部门的规定明码标价。巴中市火车站作为旅游集散重地，二楼超市未",
+   "cited_hits": [],
+   "cited_missing": [
+    "责令改正通知书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13384986",
+   "url": "https://www.cnbz.gov.cn/content/article/13384986",
+   "question": "治理大操大办，助力家乡发展\n近年来，我市持续开展了“治理大操大办，推进移风易俗”工作。\r\n通过不断地广泛宣传，让广大群众沐浴时代新风，充分认识到大操大办的危害。各级部门纷纷响应，形成上下联动、全面治理的良好氛围，让治理工作更加深入人心。及时",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于深化整治大操大办推进移风易俗的十条措施",
+    "巴中市党员干部和公职人员操办婚丧喜庆事宜的具体规定",
+    "巴中市村（社区）红白理事会制度参考指南",
+    "关于做好2024年春季期间农村移风易俗工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13384680",
+   "url": "https://www.cnbz.gov.cn/content/article/13384680",
+   "question": "希望政府尽快在杨坝片区修建学校\n随着杨坝片区的小区（王府井三期、天下城、江湾城、杨坝小院、印江州）入住率升高，越来越多的适龄儿童也在不断增加。作为小区居民，我们意识到目前小区附近没有学校会对孩子教育带来很大的不便和困扰，并且我们深知一个学校",
+   "cited_hits": [],
+   "cited_missing": [
+    "2022年巴州城区义务教育学校校点布局调整方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13379009",
+   "url": "https://www.cnbz.gov.cn/content/article/13379009",
+   "question": "咨询补缴社保享受待遇相关政策\n近期听到父母在说：未到退休年龄的老年人，一次性补缴约9万元社保资金，可在退休后享受相应社保待遇。现咨询以下问题：1.这种说法是否属实？2.有无文件具体来说明政策？3.如果属实，如何办理？盼复。\r\n参考链接：ht",
+   "cited_hits": [],
+   "cited_missing": [
+    "四川省人力资源和社会保障厅关于印发<四川省完善城乡居民基本养老保险制度的实施方案>的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13376789",
+   "url": "https://www.cnbz.gov.cn/content/article/13376789",
+   "question": "站台设置\n尊敬的领导你们好，由恩阳马鞍铺往白云台方向的32路公交车，其中文昌宫站点位置前期有所调整，但现在站台位置空间小，又存在共享单车停车位，且乘车的老人偏多，上下车的空间狭小，可能会存在安全隐患，希望领导们可以酌情考虑站点位置是否合理，",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于优化恩阳城区公交站台设置的报告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13376197",
+   "url": "https://www.cnbz.gov.cn/content/article/13376197",
+   "question": "关于临时身份证法律效力问题\n尊敬的各位领导: 你们好!\n我是一名普通考生，就关于《临时居民身份证管理办法》进行咨询，望有关领导解惑。\n我是2023年10月29日参加巴中市下半年事业单位招聘考试的一名考生，因为在考试前一天身份证不慎遗失，随即",
+   "cited_hits": [],
+   "cited_missing": [
+    "2023年事业单位公开招聘工作人员笔试考试规则"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13375497",
+   "url": "https://www.cnbz.gov.cn/content/article/13375497",
+   "question": "交通\n尊敬的何书记：想问哈巴中到汉中高铁好久修?广巴铁路扩能何时改造？希望早日打通巴中到北方城市的交通，方便老百姓的出行。作为巴中的一员，真心希望巴中的交通越来越好。",
+   "cited_hits": [],
+   "cited_missing": [
+    "中长期铁路网规划",
+    "川陕革命老区振兴发展规划",
+    "四川省“十四五”规划和2035年远景目标纲要"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13374875",
+   "url": "https://www.cnbz.gov.cn/content/article/13374875",
+   "question": "巴中下一个5A级景区创办\n巴中光雾山5A景区，名声在外。巴中下一个5A景区的创办应当提上日程。尊敬的市长同志，巴中下一个5A级景区是。",
+   "cited_hits": [],
+   "cited_missing": [
+    "旅游景区质量等级的划分与评定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13369583",
+   "url": "https://www.cnbz.gov.cn/content/article/13369583",
+   "question": "关于 玉山、关公、天官国道（245）什么时候开始施工恢复正常出行\n尊敬的领导：\r\n          您好!\r\n    玉山、关公、天官国道（245）20多年就修成沥青道路，在当时算是非常好的一条道路。如今道路坑坑洼洼，冲散的石子散落满地，",
+   "cited_hits": [],
+   "cited_missing": [
+    "占用生态保护红线不可避让性专题论证",
+    "占用生态保护红线不可避让性专题论证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13368914",
+   "url": "https://www.cnbz.gov.cn/content/article/13368914",
+   "question": "关于巴中铁路建设及规划\n尊敬的领导您好！在各级部门推进之下，巴中第一条高铁建设快速推进，即将建设通车巴中人民欢欣鼓舞，巴中第一座高铁枢纽站也完成封顶，请问巴中东站是否考虑了巴达铁路运营，从目前东站建设情况看，好像东站高架候车厅没有覆盖巴达铁",
+   "cited_hits": [],
+   "cited_missing": [
+    "中长期铁路网规划",
+    "川陕革命老区振兴发展规划",
+    "四川省“十四五”规划和2035年远景目标纲要",
+    "关于加快推进革命老区脱贫地区民族地区盆周山区振兴发展的意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13368394",
+   "url": "https://www.cnbz.gov.cn/content/article/13368394",
+   "question": "巴中市事业单位能否定向招录招聘大学生退役士兵？\n领导您好！我市每年无数学子携笔从戎，参军入伍。我市能否学习南充市、达州市等区县每年招录事业单位时，设置退役军人定向岗位，这样既可以推动大学生应征入伍的积极性，也可以拓宽退役军人就业渠道？谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "巴中市退役军人事务局等十四部门关于印发<巴中市促进新时代退役军人就业创业工作二十五条措施>的通知",
+    "关于促进优秀退役军人到中小学任教的实施意见（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13367808",
+   "url": "https://www.cnbz.gov.cn/content/article/13367808",
+   "question": "巴中市教育发展\n尊敬的领导您好，教育事业关系到一个地区的未来发展，作为一名教育工作者，我时刻关注着巴中市的教育发展情况，现想咨询一下部分学校的进展状况\n一、巴中市第一中学（暂用名）的进展情况\n二、四川（巴中）航空旅游职业学院的进展情况。\n三",
+   "cited_hits": [],
+   "cited_missing": [
+    "巴中市“十四五”教育事业发展规划",
+    "巴中市推动职业教育高质量发展实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13365113",
+   "url": "https://www.cnbz.gov.cn/content/article/13365113",
+   "question": "关于市外推广《退役军人家庭全年医疗费用报销卡》及《配套公益医疗救助金》的问题\n关于我市未发布《退役军人家庭全年医疗费用报销卡》及《配套公益医疗救助金》的事宜， 居民需要直属部门核实《退役军人家庭全年医疗费用报销卡》及《配套公益医疗救助金》真",
+   "cited_hits": [],
+   "cited_missing": [
+    "退役军人家庭-全年医疗费用保险卡"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13362671",
+   "url": "https://www.cnbz.gov.cn/content/article/13362671",
+   "question": "关于巴中市人才引进与当地交通基础设施建设的建议\n尊敬的何书记，您好！\n近年来，在您的带领下巴中市发生了巨大的变化，巴中市委、市政府及其各区县政府均出台了相关“人才引进”计划，在破解巴中“区位偏远、人才难引难留”问题上做出了卓越的成就，引才工",
+   "cited_hits": [],
+   "cited_missing": [
+    "南江县“十四五”综合交通发展规划",
+    "南江县综合交通规划",
+    "国家中长期铁路网规划",
+    "川陕革命老区振兴发展规划",
+    "四川省“十四五”规划和2035年远景目标纲要"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13362425",
+   "url": "https://www.cnbz.gov.cn/content/article/13362425",
+   "question": "咨询房贷商转公问题\n5月30日，我到中国建行巴中巴州支行（巴人广场旁）去办理商贷转公积金，工作人员叫我在建行APP申请全额提前还清房贷，我点击后发现要我在8月中旬存款30多万到我的银行卡上，并且提前还清比原来本金多了4000多的利息，想咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "巴中市商业银行购房按揭贷款转公积金贷款业务管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13361999",
+   "url": "https://www.cnbz.gov.cn/content/article/13361999",
+   "question": "关于期房商转公和巴中市恩阳区人才安居工程实施意见是否利民\n尊敬的书记，您好\n本人于2019年在恩阳阳光中央公园购买住房一套，贷款30万元，利率6.02%，每月还款2200元，2021年依据国家大政策方针转换为浮动利率LPR，目前利率为5.5",
+   "cited_hits": [],
+   "cited_missing": [
+    "巴中市商业银行购房按揭贷款转公积金贷款业务管理办法",
+    "巴中市恩阳区人才安居工程实施意见",
+    "实施意见",
+    "实施意见",
+    "实施意见",
+    "实施意见"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13360048",
+   "url": "https://www.cnbz.gov.cn/content/article/13360048",
+   "question": "咨询巴中市每年的社保、医保缴费基数的官方公开途径，及缴纳的具体比例\n领导，您好，最近准备给职工购买5险，想要知道每一年的社保、医保缴费基数是多少，企业和职工各自承担的比例是多少？但是网上各种查询都找不到一个官方的正式的相关文件。请问\n【1】",
+   "cited_hits": [],
+   "cited_missing": [
+    "巴中市职工基本医疗保险实施办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13354231",
+   "url": "https://www.cnbz.gov.cn/content/article/13354231",
+   "question": "关于巴中全面推进乡村振兴和建设农业现代化的建议\n尊敬的巴中市委、市政府领导：\r\n\r\n随着国家推进乡村振兴战略的深入，巴中市正面临着建设农业现代化、全面推进乡村振兴的历史性机遇。然而，巴中市面临着许多困难和挑战，如荒田多、农民素质不高等问题，",
+   "cited_hits": [],
+   "cited_missing": [
+    "巴中市治理撂荒耕地七条措施",
+    "巴中市高标准农田建设十年规划",
+    "巴中市农民合作社市级示范社评定及监测办法",
+    "农业战略合作框架协议"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13354227",
+   "url": "https://www.cnbz.gov.cn/content/article/13354227",
+   "question": "关于依托发展数字经济促进巴中经济发展的建议\n尊敬的领导：\r\n\r\n近年来，随着数字化、信息化和智能化技术的飞速发展，数字经济已经成为推动经济发展和创新发展的新引擎。在这个背景下，巴中市要积极拥抱数字经济，深入推进数字化转型，以数字经济为支撑，",
+   "cited_hits": [],
+   "cited_missing": [
+    "巴中市“十四五”信息化建设和数字经济发展规划",
+    "加快推进“智慧巴中”建设和数字经济发展实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13354218",
+   "url": "https://www.cnbz.gov.cn/content/article/13354218",
+   "question": "事业编人才引进\n尊敬的市委书记及各位领导:\r\n    您好！我是一名巴中的土木工程专硕应届毕业的硕士研究生，看到之前何书记写的号召广大毕业巴中学子回家乡发展慷慨激昂，动之以情的书信，毕业想回家为家乡发展添一砖瓦，献一份力的种子在心中埋下了根",
+   "cited_hits": [],
+   "cited_missing": [
+    "巴中市2023年统筹引才公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13353578",
+   "url": "https://www.cnbz.gov.cn/content/article/13353578",
+   "question": "复员军人\n为什么军人优待证在巴中巴州区不能免费乘坐公交车  难道巴中不是共产党领导的？",
+   "cited_hits": [],
+   "cited_missing": [
+    "巴中市物价局关于巴中城区空调公交车正式票价的通知",
+    "巴中市物价局关于巴中城区空调公交车正式票价的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13353425",
+   "url": "https://www.cnbz.gov.cn/content/article/13353425",
+   "question": "巴中平昌中公教育拖违背培训协议，拖欠巨额培训款\n尊敬的市领导：\r\n       您好！\r\n       实在很抱歉在您百忙之中还耽误您的时间，可是目前我已经找不到办法了，而且感觉此事特别严重，因此特来向您求助。我去年十月份东拼西凑了2880",
+   "cited_hits": [],
+   "cited_missing": [
+    "培训协议",
+    "培训定金收据",
+    "培训尾款收据"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13351968",
+   "url": "https://www.cnbz.gov.cn/content/article/13351968",
+   "question": "将老百姓吱转转为哪般\n尊敬的市委何书记，我想向您反应区政府部门拒绝跟老百姓打交通，无故取缔服务网点，造成老百姓跑东跑西无法办事。我是恩阳区一位退休职工，家住巴州区后坝置信。年龄大了，体弱多病，时常买药看病，因为记忆大不如从前，前两次都在劳动",
+   "cited_hits": [],
+   "cited_missing": [
+    "四川省人力资源和社会保障厅关于印发<四川省社会保障卡经办服务规程（试行）>的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13350573",
+   "url": "https://www.cnbz.gov.cn/content/article/13350573",
+   "question": "关于咨询全日制大学生返乡兼职相关政策的一封信\n各位领导们好！我是一名目前就读于985211、双一流高校的研究生。我校在组织学生返乡入基层服务方面，进行了大量的宣传和政策解读，目前从学校处了解到：为深入学习贯彻党的二十大精神，落实教育部、共青",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步加大“统选兼用”基层团干部工作力度的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13348856",
+   "url": "https://www.cnbz.gov.cn/content/article/13348856",
+   "question": "农村\n贵部门：\r\n       我是四川省巴中市平昌县某镇某村的居民，农村的土墙房子（宅基地），因年久失修漏雨，于2022年陆续部分垮塌，已无法居住，目前父母及家庭户口均在农村。现咨询以下三个问题：一、若对现有房屋进行维修改造（危房改造），",
+   "cited_hits": [],
+   "cited_missing": [
+    "平昌县规范农村宅基地审批和住房建设监督管理办法（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13348438",
+   "url": "https://www.cnbz.gov.cn/content/article/13348438",
+   "question": "普遍滥办酒席不良风气\n近几年来、巴中市区内、尤其通江县。酒席之风尤为盛行。很多人利用亲戚朋友关系疯狂滥办酒席、除开红白喜事的正事外、还有很多人为了谋取利益、举办房子酒、生日宴、满月酒、碑酒、升学宴等。碍于亲戚朋友关系、不得不赶礼、原本值得庆",
+   "cited_hits": [],
+   "cited_missing": [
+    "通江县治理农村大操大办推进移风易俗大宣传大调查大治理工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13348324",
+   "url": "https://www.cnbz.gov.cn/content/article/13348324",
+   "question": "发展民宿经济\n巴中是全域旅游示范市，除了开发特色旅游项目之外，也要加大对吃住配套的整合，建议将乡村闲置住房以合伙制形式入股民宿经济，对其留守老人推广集中养老看护医疗，吃采取火食团方式，住采取单间双床方式（便于留守学生周末团聚），费用从民宿金",
+   "cited_hits": [],
+   "cited_missing": [
+    "巴州区全域文化旅游发展规划",
+    "巴中市巴州区“十四五”文化和旅游发展规划",
+    "乡村旅游发展专项规划",
+    "关于加快发展文旅康养首位产业的实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13346868",
+   "url": "https://www.cnbz.gov.cn/content/article/13346868",
+   "question": "关于巴中主城区 春节期间 道路湿淋情况\n巴城主城区 洒水车过于频繁 天天道路都是湿淋路    给市民出行带来不便   天天都要洗车  一个月洗车费都要大几百  能不能洒水车洒水过后   由清扫车冲洗一次？  让巴城春节期间有个新气象！",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于启动重污染天气橙色预警的通知"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "sc-bazhong",
+   "id": "13450796",
+   "url": "https://www.cnbz.gov.cn/content/article/13450796",
+   "question": "巴中西站夜间乘车难\n尊敬的市长：\r\n\r\n晚上从巴中西站下车后，公交18:30就收班了，滴滴也打不到，经常回不了家，实在很不方便。恳请领导关注，帮我们解决夜间到站后的乘车问题。\r\n\r\n谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13450341",
+   "url": "https://www.cnbz.gov.cn/content/article/13450341",
+   "question": "咨询米仓道国际公路自行车赛举办相关事宜\n尊敬的领导：\r\n  您好！\r\n我是巴中市的一名自行车运动爱好者。米仓道国际公路自行车赛是我们巴中一张响亮的城市名片，可以很好宣传米仓古道、光雾山，带动旅游，很多市民和车友都十分期待。\r\n \r\n最近车友",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13448262",
+   "url": "https://www.cnbz.gov.cn/content/article/13448262",
+   "question": "“三属”人员政策咨询\n您好，我想咨询下第一：病故军人直系亲属怎么办理“三属”证件，办理时需要哪些证件，在哪里办理。第二：“三属”人员在政策方面有何扶持，尤其是其父母老年生活方面。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13447670",
+   "url": "https://www.cnbz.gov.cn/content/article/13447670",
+   "question": "南池东路商圈交通执法管理优化建议\n巴州区南池东路，临街商铺多，靠近巴中市中心医院南池院区，日常临时停车需求大，而附近缺少公共停车场，导致前往巴中市中心医院就医人群大多在该路段临时停靠。巴中市交警长期在此驻点开展违停处罚，且未经电话了解具体情",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13447218",
+   "url": "https://www.cnbz.gov.cn/content/article/13447218",
+   "question": "团员档案流转\n尊敬的领导： 您好 我是一名在吉林省长春市就读的应届生，于2026年6月底毕业，现需将团员组织关系转回户籍地。本人户籍地是巴中市南江县下两镇，请问转入地的团组织是哪一个呢？（我在智慧团建上申请了下两镇下两社区团支部3团支部，一",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13446443",
+   "url": "https://www.cnbz.gov.cn/content/article/13446443",
+   "question": "关于回风巴人飞天运动公园安装路灯的请求\n尊敬的市长：\r\n您好！我是回风片区居民，反映巴人飞天运动公园无路灯问题。白日气温酷热，市民难以出门开展篮球、足球、羽毛球等运动，大家只能选择夜间锻炼。但园区球场全无照明，天黑后场地漆黑，既没法正常健身",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13445354",
+   "url": "https://www.cnbz.gov.cn/content/article/13445354",
+   "question": "关于河道的划分\n巴中市平昌县境内的澌滩河、蹬子河、涵水溪、岳家河、龙潭河、桥河、洞滩河、简河、新桥河等河道哪些属于“市管河道”。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13445178",
+   "url": "https://www.cnbz.gov.cn/content/article/13445178",
+   "question": "恩阳一小、三小校门口增设红绿灯及调整义阳大道道路栅栏的建议\r\n事实和理由：\r\n一、恩阳一小（Y字叉路口）、三小（十字路口）校门外的车流量非常大，上学放学的学生、接送学生的家长，以及家长接送学生的车辆特别多。一是导致交通堵塞，二是容易引发交通",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13445014",
+   "url": "https://www.cnbz.gov.cn/content/article/13445014",
+   "question": "关于灾害防治工程中砂石处置\n请问在灾害防治工程中产生的非自用砂石的处置需要经过哪些部门审批，是否需要在自然资源处置平台进行销售。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13444550",
+   "url": "https://www.cnbz.gov.cn/content/article/13444550",
+   "question": "汉巴南和广达铁路的建议\n尊敬的市领导：汉巴南高铁目前巴中到南充段已经通车，极大的方便了市民的出行，让这座红色之都从此告别交通束缚的历史！但汉中到巴中这一段多方面的原因始终没有进展。为此我想从另外一个角度来讨论一下汉巴南和广达（广元-巴中-达",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13444400",
+   "url": "https://www.cnbz.gov.cn/content/article/13444400",
+   "question": "关于提升晏阳初大道（杨家坝往中坝方向）王府井路口车辆通行效率的建议\n晏阳初大道是杨家坝片区连接主城区、经开区的重要道路。然而晏阳初大道王府井路口近年来拥堵不堪，通行效率低下，严重影响了周边居民的幸福感和获得感。通过我的分析该路口拥堵主要有四",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13443582",
+   "url": "https://www.cnbz.gov.cn/content/article/13443582",
+   "question": "食品药品监管领域工作举措\n您好，请问本地在食品药品监管领域有哪些具体工作举措？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13441646",
+   "url": "https://www.cnbz.gov.cn/content/article/13441646",
+   "question": "巴州区莲山湖新区环湖路通车时间？\n高市长您好，作为在巴工作人员，经常往返于回风西至杨坝社区，当前可选二环路以及巴中西至南高速，但由于二环路上班高峰常常堵车以及出租车、电瓶车行驶不规范，造成很大安全隐患，走高速路段需多绕行5公里，莲山湖新区环",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13441380",
+   "url": "https://www.cnbz.gov.cn/content/article/13441380",
+   "question": "关于天星桥水库附近增设基础公共设施的建议\n天星桥水库距离巴中近，也被称为“巴中的后花园”，是广大巴城市民休闲、娱乐、健身、康养的良好去处，但是现在天星桥水库附近的基础设施破坏陈旧，不利于市民的游玩体验以及环境保护，因此个人有如下几点建议，一",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13440882",
+   "url": "https://www.cnbz.gov.cn/content/article/13440882",
+   "question": "农村修建水泥路需要村民筹资吗？\n尊敬的市长您好？\r\n我想咨询农村修建水泥路，听闻政府已经规划拨款，但是村上还让村民筹资，试问这个钱该不该出？还是说政府只出资一部分，让村民自筹一部分？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13440764",
+   "url": "https://www.cnbz.gov.cn/content/article/13440764",
+   "question": "咨询赛事\n我在中国自行车运动协会上面看的，今年4月份要在巴中市平昌县举办骑行比赛，是否属实啊，这都马上4月份了公告啊，报名那些什么都没有，全名叫“中国文旅骑游大会\"四川平昌",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13440309",
+   "url": "https://www.cnbz.gov.cn/content/article/13440309",
+   "question": "状元桥市场没有摆放公平秤，问管理方，说今天没有放，不能搞个摆设，希望监管部门加强管理！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13439976",
+   "url": "https://www.cnbz.gov.cn/content/article/13439976",
+   "question": "开放巴中经开区湿地公园公厕的建议\n近年，巴中经开区大力建设品质生活宜居地取得重大进展，特别是湿地公园环境优美，是市民休闲康养的重要目的地。市体育中心举办赛事期间，也是远近宾客游览观光的重要聚集地，较好展示了巴中良好形象。但湿地公园内公厕配套",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13439709",
+   "url": "https://www.cnbz.gov.cn/content/article/13439709",
+   "question": "农村自来水管应该安表到户\n自来水管不按表入户（水表），最近几户都是水表安装在20—百米的距离没有安表到户，我希望可以咨询相关部门处理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13438731",
+   "url": "https://www.cnbz.gov.cn/content/article/13438731",
+   "question": "外出务工路费补贴\n各位领导，从2025年10月份开始老家政府就各种收集务工人员的信息，什么劳动合同，社保缴费截图，工资单，工作照，说给路费补贴。反反复复要了不下10次。为了提供这些，还专门请了假去提供这些材料。还影响了当月的满勤奖，结果从去",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13438718",
+   "url": "https://www.cnbz.gov.cn/content/article/13438718",
+   "question": "浅水湾1期到莲花街到底有没有管理 24小时都有违停\n尊敬的领导  请问浅水湾1期到莲花街有没有管理 24 小时随时都有违章停车 出现很不方便 困难 本来几分钟的时间 现在要走半小时 管理力度有待提高、莲花街本来道路就窄路边划了排停车位 划了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13438530",
+   "url": "https://www.cnbz.gov.cn/content/article/13438530",
+   "question": "关于恩阳区登科社区医院挂号看病难\n尊敬的市长：\r\n您好！\r\n我是恩阳区一名普通市民，家中老人长期在登科社区医院就诊。该院有口碑好、医术受群众认可的医师，老年患者居多，医院出于贴心考虑，未设公众号、小程序等线上预约，全部采用现场排队取号，初衷",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13438380",
+   "url": "https://www.cnbz.gov.cn/content/article/13438380",
+   "question": "关于抢抓抖音语音功能上线契机推动巴中方言活态传承与创新传播的建议\n近期，抖音平台全新上线评论区语音功能，凭借其传播便捷、互动性强、受众覆盖面广的特点，为地方方言活态传承与地域文化创新传播搭建了优质数字化载体，也为小众特色方言“破圈传播”提供",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13437593",
+   "url": "https://www.cnbz.gov.cn/content/article/13437593",
+   "question": "建议我们巴中也可以安装非机动车电子抓拍\n尊敬的领导您好，就是建议我们巴中以后也可以考虑利用电子监控来抓拍非机动车交通违法以及机动车不礼让行人；以后条件成熟也可以利用无人机来抓拍交通违法行为；还有建议我们巴中交警以后也可以在警用摩托车安装车载",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13437592",
+   "url": "https://www.cnbz.gov.cn/content/article/13437592",
+   "question": "巴中公交车，可以接亲吗\n尊敬的领导您好，就是我看到网上，公交车接亲氛围蛮好的，也很有创意，简约，浪漫；我们巴中公交车是否可以接亲？另外我们巴中公交允不允许盲人带导盲犬上车；另外建议我们巴中的公交也可以适老化改造，方便部分行动不便的老年人残障",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13437543",
+   "url": "https://www.cnbz.gov.cn/content/article/13437543",
+   "question": "请问恩阳至长赤至赤溪快速公路为什么停止招标建设，什么时候恢复启动\n请问恩阳主长赤至赤溪快速公路为什么停止了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13436647",
+   "url": "https://www.cnbz.gov.cn/content/article/13436647",
+   "question": "希望将百次献血者或“巴中市无偿献血终身荣誉奖”纳入“巴中好人”表扬范围\n希望巴中市政府联合市委宣传部与市文明办，修改“巴中好人”评选规则，将“百次献血者”或“巴中市获得国家无偿献血奉献奖终身荣誉奖”纳入“巴中好人-助人为乐类”表扬范围。理由",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13436611",
+   "url": "https://www.cnbz.gov.cn/content/article/13436611",
+   "question": "交通建议\n交通管理部门领导: \r\n      王府井商场往万达商场方向，红绿灯路口左转车道车流较大，高峰时更是排长队。据观察在此处掉头的车辆还是不少。因王府景背后滨河路较窄是一条单行道，从东方鑫村方向，东门大桥方向，天下城方向前往王府景二期",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13436558",
+   "url": "https://www.cnbz.gov.cn/content/article/13436558",
+   "question": "数据申请\n尊敬的巴中市市长： \r\n您好！\r\n我是一名川籍西华师范大学的硕士研究生，因学位论文研究为四川省县域，加之在市统计年鉴未能找到相关数据，特向您申请贵市各县（市、区）的统计数据（县级行政单位的数据）。\r\n1.2023年，2018自贡市",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13436386",
+   "url": "https://www.cnbz.gov.cn/content/article/13436386",
+   "question": "关于巴中市南江县东西沟学府路尽头小路安全隐患亟待市级统筹整改的申请\n尊敬的巴中市人民政府领导：\r\n   您好！我们是南江县文星村二社、三社村民，现就本村日常通行的核心道路 —— 南江县东西沟学府路尽头小路的重大安全隐患问题，向市政府申请统筹",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13436036",
+   "url": "https://www.cnbz.gov.cn/content/article/13436036",
+   "question": "请求解决王府景三期44栋顶楼市政工程光带电流噪音很大影响居民休息的诉求\n市长你好！我是王府景三期44栋居民，从25年11月份起，王府景44栋顶楼市政工程光带每晚18：00—22：00输入电流噪音很大，严重影响了我们居民楼下休息，我们之前给王",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13434252",
+   "url": "https://www.cnbz.gov.cn/content/article/13434252",
+   "question": "事业单位\n您好！请问下巴中2026年上半年事业单位大概多久报考？是否参与省属联考？有没有综合岗？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13433884",
+   "url": "https://www.cnbz.gov.cn/content/article/13433884",
+   "question": "农业生产投入数据求助\n尊敬的巴中市人民政府工作人员：\r\n    您好！我是华中农业大学经济管理学院农业经济管理专业的一名研究生，现因学位论文以及课题研究需要，特向您求助巴中市2005-2023年的农用塑料薄膜使用量、农用柴油使用量、农药使用",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13433810",
+   "url": "https://www.cnbz.gov.cn/content/article/13433810",
+   "question": "居民用水问题\n请相关部门解决下农村用水问题，由于当地的水库进行补漏情况，导致居民没水可用，这快到年底了返乡的人更多，用水量也相应的加大了。不管是井水、山泉水几乎都没有了，一直靠着水库自来水生活（这会水库进行补漏）这样一来 农村用水情况真的很",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13433636",
+   "url": "https://www.cnbz.gov.cn/content/article/13433636",
+   "question": "土地承包名被更改\n尊敬的市长，您好！关于土地承包合同名字变更的问题，当地政府谢站长已经和我沟通协商过了，他们承诺会在明年把名字改回来。我非常感谢您和相关部门的关心与帮助，既然问题已经得到妥善解决，那我就撤回之前的信件啦。再次感谢！\r\n   ",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13433628",
+   "url": "https://www.cnbz.gov.cn/content/article/13433628",
+   "question": "关于恳请协调开通巴中市至福州市直达航线建议\n尊敬的市长：\r\n您好！\r\n冒昧致信，是希望能为推动巴中市对外交通网络的完善、促进经济社会发展建言献策。我谨以一名关心家乡发展的市民身份，恳切建议市政府能够协调各方力量，推动开通从巴中恩阳机场至福州",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13433343",
+   "url": "https://www.cnbz.gov.cn/content/article/13433343",
+   "question": "巴中兴文枢纽道路坑洼\n巴中恩广高速兴文枢纽转前往南江的银昆高速段及接近银昆高速的枣林枢纽并线段道路坑洼不平，严重影响行车安全，请市长重视！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13432866",
+   "url": "https://www.cnbz.gov.cn/content/article/13432866",
+   "question": "二胎补贴育儿补贴冲突\n尊敬的领导您好！为什么既然有2孩补贴2000元补助，为什么国家一出补贴3600元又说冲突了？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13432381",
+   "url": "https://www.cnbz.gov.cn/content/article/13432381",
+   "question": "关于回风大桥下面两个公园夜间无路灯以及现有灯光亮度不够问题\n最近几个月一直在回风大桥下面进行夜跑，发现公园建的很好，就是晚上夜跑的时候，很黑，路上一个小石子没看见就得滚到河边去，并且靠近回风这边公园连个像样的护栏都没有，再加可视度小，危险性",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13432370",
+   "url": "https://www.cnbz.gov.cn/content/article/13432370",
+   "question": "市气象局与大东门公交站之间到维也纳酒店入口处存巨大安全隐患\n高市长及有关领导：\r\n        耽误你们宝贵的时间，特向你们反映一个问题：市气象局与大东门公交站之间到维也纳酒店入口处陡坡两边长期停有各种车辆。此处车辆及行人多又处于陡坡，两",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13430140",
+   "url": "https://www.cnbz.gov.cn/content/article/13430140",
+   "question": "关于粮食直补政策\n领导你好！\r\n本人是恩阳区下八庙镇良产村的村民，每一年的粮食直补是按照什么标准发放的啊",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13429495",
+   "url": "https://www.cnbz.gov.cn/content/article/13429495",
+   "question": "巴中市改造计划\n您好，请问本地有没有出台城市更新和老旧小区改造计划？哪里可以查询到？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13428201",
+   "url": "https://www.cnbz.gov.cn/content/article/13428201",
+   "question": "关于参观北龛石窟发现的一处问题\n相关工作人员：\r\n      您好，我在雨后参观时北龛石窟，发现其寺庙内，石窟外表有一处被雨水淋湿的痕迹，进一步观察发现，虽然该寺盖有挡雨的屋顶，但是主要材料应该是瓦片，因此推断有可能是屋顶与山体墙面接触存在",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13427994",
+   "url": "https://www.cnbz.gov.cn/content/article/13427994",
+   "question": "公交车33路黄家沟总站的建议。\n高市长：\n你好百忙之中给你发了这封建议信，我家住在黄家沟崇景苑，今年娃娃刚好读初中，在巴州区第六中学读书，早上娃娃上学坐33路公交车的时候要到公交公司斜对面的站台上坐车，我送了四天娃娃，看到33路公交车出站后",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13427907",
+   "url": "https://www.cnbz.gov.cn/content/article/13427907",
+   "question": "市图书馆插座未通电\n您好！\r\n\r\n我是一名本市市民，平时经常前往市图书馆学习。近日在使用过程中，发现图书馆右侧房间的所有插座均无法使用，仅左侧房间部分插座有电。由于我和许多读者需要使用电脑进行学习和资料查阅，但却无法正常连接电源，严重影响了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13427865",
+   "url": "https://www.cnbz.gov.cn/content/article/13427865",
+   "question": "建议开行固定（临时）公交快线（巴州区至恩阳古镇）\n尊敬的巴中市人民政府领导：\r\n\r\n您好！\r\n\r\n  我是一名关注巴中城市发展的市民，此次来信主要是关于优化巴州区至恩阳区公交服务的建议，希望能借鉴现有K23路快速公交运营的成功经验，开通一条",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13427648",
+   "url": "https://www.cnbz.gov.cn/content/article/13427648",
+   "question": "何时何地发布巴中市艺术系列中级职称评审通知\n根据巴中市人力资源和社会保障局发布的《巴中市 2025 年度职称评审工作计划》，其中巴中市艺术系列中级职称评审委员会发布评审通知和职称评审时间为待定，请问何时何地发布评审通知，何时开展职称评审？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13427388",
+   "url": "https://www.cnbz.gov.cn/content/article/13427388",
+   "question": "关于后续教育档案公对公转移的问题\n本人第一学历为教育类大专，大专档案由巴中市教育局接收。现经过数年学习考试获得本科学历，已致电咨询过教育局工作人员，工作人员回复可接收公对公档案投递。一，想咨询一下具体的本科学历档案公对公投递接收地点和接收电",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13426088",
+   "url": "https://www.cnbz.gov.cn/content/article/13426088",
+   "question": "噪声扰民\n巴州区白云台试验小学背后的施工项目，总共就这么一点地，从去年就在修建，旁边的建筑物已建好，另一边却又在开始施工，去年没有同时施工就算了，最近早上五点多就开始动用机械器材，产生的施工噪音已经严重扰民，本来有时加班就睡得晚，现在五点多",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13425751",
+   "url": "https://www.cnbz.gov.cn/content/article/13425751",
+   "question": "交通安全治理\n市长您好，我是北京来的游客，来到咱们美丽的巴中市响滩镇竹山村（因有亲戚在这里生活）。这里的路修的越来越好，给大家的出行带来很多方便。但是也面临一些问题。因为竹山村道路很窄，而且弯道很多，加之当地人由于路线熟悉，开车都比较快，可",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13425438",
+   "url": "https://www.cnbz.gov.cn/content/article/13425438",
+   "question": "增加巴中东站公交班次\n自巴中东站运营以来，巴中东站夏季晚7:10分后就不在有公交车回巴中城区，对巴中东站晚7点后到达的旅客极度不友好，到巴中城区，出租车太贵、黑车不安全，对有回主城区需求的旅客造成极大不便，望主管部门充分研判，尽快解决回城不",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13425164",
+   "url": "https://www.cnbz.gov.cn/content/article/13425164",
+   "question": "关于育儿补贴咨询\n领导咨询一下最发布的 中办国办6月19日印发《育儿补贴制度实施方案》（厅字〔2025〕15号）此文件中说三岁以内幼儿育儿补贴我们巴中市是否有具体实施方案，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13423631",
+   "url": "https://www.cnbz.gov.cn/content/article/13423631",
+   "question": "关于苍巴高速明阳枢纽以及机场互通开通时间\n你好领导，苍巴高速已与2025年4月1日通车，至今已三个多月，由于明阳枢纽以及机场互通未开通，现在巴中回风片区及恩阳市民上高速，需9走347国道渔溪上高速，大大的不便捷，据了解，以及现场视察，明阳枢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13421847",
+   "url": "https://www.cnbz.gov.cn/content/article/13421847",
+   "question": "完善公共设施建设\n1、完善江北体育馆广场出入口建设。天气炎热，江北体育馆市民众多，但是体育馆外围广场一直有20cm的围栏，阻挡电瓶车等进入，同时也阻碍了婴儿车、轮椅的进入，带来诸多不便。前几天看到一位坐轮椅的老人想去体育馆广场玩，身边的家人",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13421410",
+   "url": "https://www.cnbz.gov.cn/content/article/13421410",
+   "question": "在经开区东片区增加公共图书馆自修室的建议\n巴中经开区东片区至今缺少一座能全天候开放的公共图书馆供辖区市民借阅、阅读、自修的公共图书馆，与其他县区相比，经开区在这方面短板突出，经开市民不得不去市图书馆或者巴州区图书馆。为满足辖区市民精神文化需",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13421387",
+   "url": "https://www.cnbz.gov.cn/content/article/13421387",
+   "question": "回乡创业文旅营销人的求助\n尊敬的文旅局领导，您好！\r\n\r\n作为一名回乡创业的青年，我深知家乡文化和旅游资源的独特魅力，也深感在数字化时代背景下，如何更好地将家乡的美景和深厚的文化推向更广阔的市场是我们每个家乡人心中的梦想。\r\n\r\n为了能够真",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13420152",
+   "url": "https://www.cnbz.gov.cn/content/article/13420152",
+   "question": "请问本地有没有出台惠企政策？哪里可以查询到\n您好，请问本地有没有出台惠企政策？哪里可以查询到？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13419798",
+   "url": "https://www.cnbz.gov.cn/content/article/13419798",
+   "question": "请求巴中市图书馆能多多更新书\n您好，我想建议巴中市图书馆能多多更新书籍。\r\n巴中市图书馆平时只能在二楼两间图书室借书，书籍类型少，很多都比较旧，最新的书不上架，只在一楼进门处售卖。我觉得可以多学习一下南江县图书馆，他们会让市民留言想看的书，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13419525",
+   "url": "https://www.cnbz.gov.cn/content/article/13419525",
+   "question": "道路扩建\n鼎山镇到凤溪镇的道路，要什么时候才能修好呢，现在都已经几年了，说的通车也一直没有通的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13417269",
+   "url": "https://www.cnbz.gov.cn/content/article/13417269",
+   "question": "缺水情况反馈\n之前反馈的老家缺水情况，现经过进一步了解，此问题已得到解决，相关单位采取了相应的措施，居民用水已经得到有效解决，特写此感谢信，谢谢各领导的重视。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13417022",
+   "url": "https://www.cnbz.gov.cn/content/article/13417022",
+   "question": "线路下坠，存在安全隐患\n领导好，我是居住在巴中市林海居一期一栋二单元的居民，我们楼下不知道是一捆电线还是网线，下坠很严重，都挨着人的头顶了，这样存在极大的安全隐患，大家都很害怕触电，现在这既不安全也不美观，希望相关部门能来帮我们处理一下",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13416074",
+   "url": "https://www.cnbz.gov.cn/content/article/13416074",
+   "question": "建议巴中市图书馆借鉴四川省图书馆开通网上借书还书\n为方便全市百姓读书，盘活巴中市图书馆图书资源，建议巴中市图书馆借鉴四川省图书馆面向全省开通网上借书还书，使全省百姓不到省图书馆也能看到省图书馆的书。请巴中市图书馆面向全市开通网上借书和网上还",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13416017",
+   "url": "https://www.cnbz.gov.cn/content/article/13416017",
+   "question": "自建房补贴\n领导你好，咨询一下以前的建档立卡家庭享受了C级改造，现在房屋不能住了需要从新建房能享受建房补贴吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13415695",
+   "url": "https://www.cnbz.gov.cn/content/article/13415695",
+   "question": "灵活就业人员购买生育险后的津贴补贴天数如何计算\n尊敬的领导，您好！\r\n我在恩阳以灵活就业人员身份购买了生育险，想咨询一下生育津贴具体的核算方式。我在网上查询得知，依据《女职工劳动保护特别规定》，女职工生育可享受 98 天产假；同时《四川省人",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13414083",
+   "url": "https://www.cnbz.gov.cn/content/article/13414083",
+   "question": "小车摩托车电瓶车不遵守交通规则闯红灯\n领导您好 位于巴中市巴州区晏阳初大道坝中名园与德馨苑之间的丁字路口红绿灯处 经常有从王府井方向到后河桥方向行驶的车辆不遵守交通规则为了不等红绿灯右转绕行给本该从王府井方向右转向德馨苑里面正常行驶和从后河",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13414066",
+   "url": "https://www.cnbz.gov.cn/content/article/13414066",
+   "question": "四川省巴中市2025年上半年公开考试招聘中小学教师学历问题\n我拥有岗位要求的教师资格证，但是由于我是成人本科。学信网上的预计毕业时间是2025年6月30日。请问我能报考平昌县的教师招聘岗位吗？在资格审查的时候会不会有问题？还是说我在2025",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13413992",
+   "url": "https://www.cnbz.gov.cn/content/article/13413992",
+   "question": "建议增加“兴合学校后门站”\n尊敬的市长：  \r\n您好！  \r\n感谢您在百忙之中阅读这封信。我是本市一名普通市民，现就兴合学校周边公共交通问题提出建议，希望能为市民出行便利和学生的安全尽一份力。  \r\n现状与问题：\r\n兴合学校现有师生及家长和",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13413636",
+   "url": "https://www.cnbz.gov.cn/content/article/13413636",
+   "question": "巴中鼎山到大罗的路非常烂，请问要修吗？多久修",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13411988",
+   "url": "https://www.cnbz.gov.cn/content/article/13411988",
+   "question": "咨询国补范围\n目前在巴中市区购买二轮电动自行车或以旧换新购买二轮电动自行车的情况下，是否有国补。望告知。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13411773",
+   "url": "https://www.cnbz.gov.cn/content/article/13411773",
+   "question": "恩阳区202路公交车是不是取消了\n2月15号早晨7:48在202路义阳府第站等车，等待一个小时至8:45，没有看见一辆202路，站台上显示202路是7:30开始运营，所以202路是不是取消了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13411670",
+   "url": "https://www.cnbz.gov.cn/content/article/13411670",
+   "question": "关于公交卡充值方式的建议\n目前公交卡充值只能现场充值，十分不便，建议补充完善公交卡充值方式，可以线上充值。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13411158",
+   "url": "https://www.cnbz.gov.cn/content/article/13411158",
+   "question": "建议在南江县北极村乌龙垭修一个自驾停车场\n尊敬的市长\r\n          北极村原来是北极乡，地理条件优越，旅游资源丰富，通江南江平昌三县交接处，有石鹅寺的红色历史，有七星包美丽风景，有沐涪路的交通，独特的气候，加上现在新修了防火隔离带，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13410861",
+   "url": "https://www.cnbz.gov.cn/content/article/13410861",
+   "question": "请相关政府部门拨款清运农村生活垃圾\n四川省巴中市通江县民胜镇方山村许多农村的垃圾箱已经堆满了垃圾，几个月都没有清运过了。\r\n问了当地村委，答复说没钱了，让自行处理垃圾。\r\n绿水青山不是金山银山了？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13409073",
+   "url": "https://www.cnbz.gov.cn/content/article/13409073",
+   "question": "笔山镇辖区天然气安装\n您好：我老家平昌县笔山镇栀子村在前几年就有天然气管道路过村内，但是几年前还没有意识去安装，现在想要安装天然气需要些什么资料，还有大致价格在什么区间呢？谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13408699",
+   "url": "https://www.cnbz.gov.cn/content/article/13408699",
+   "question": "关于2025年度巴中市事业单位综合岗招聘的咨询\n您好，作为一名参加事业单位综合岗位招聘的考生，对于2025年度巴中市事业单位招聘有几点疑问：2025上半年会出事业单位综合岗招聘的公告吗？巴中市事业单位综合岗招聘是否进行自主命题？还是参加20",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13408614",
+   "url": "https://www.cnbz.gov.cn/content/article/13408614",
+   "question": "中央城邦商业街中心街道车辆违规乱停\n你好，我是中央城邦业主，每次回家外围商业街的街道两侧都违规停了好几排车，经常容易发生剐蹭，且交通拥堵很严重，马上过年了，应该会更难通行，希望交警可以按照规章制度梳通一下。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13408019",
+   "url": "https://www.cnbz.gov.cn/content/article/13408019",
+   "question": "北环线天星桥路口红绿灯，绿灯直接跳红灯\n北环线天星桥路口西向东直行红绿灯，没有读秒或者黄灯提醒，直行绿灯直接跳转红灯，该路段货运大车较多，交通隐患大，要求整改该红绿灯。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13407295",
+   "url": "https://www.cnbz.gov.cn/content/article/13407295",
+   "question": "【咨询】关于异地医保报销问题\n你好，我想咨询下异地医保报销比例以及流程，我老婆的社保医保参保地是达州，下个月要回巴中找医院生孩子，所以想了解下，这种情况我老婆的医保报销比例是多少？以及生育能报销的费用 有哪些？以及是否需要额外的流程报备。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13407188",
+   "url": "https://www.cnbz.gov.cn/content/article/13407188",
+   "question": "咨询城乡居民医保\n尊敬的医保局、人社局领导：\r\n我父亲户籍地为巴中市恩阳区群乐镇，其城乡居民医保参保地为恩阳区，由于其长期居住于南充市营山县，2025年度在营山县参保告知要回巴中注销参保.请问具体需要什么证件？什么流程？可以亲属代办吗？可以",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13406993",
+   "url": "https://www.cnbz.gov.cn/content/article/13406993",
+   "question": "关于巴中东站自动售票机点位设计的建议\n出站口将自动售票机全部设置在站内，对已出站的乘客带来不便。建议在出站口外的大厅也设置一台，或将站内两台移动一台到站外大厅。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13406627",
+   "url": "https://www.cnbz.gov.cn/content/article/13406627",
+   "question": "关于巴中市智慧物业管理服务平台的推动进展\n通过巴中市住建局官方网站通知公告栏中发文查询到，市住建局于2022年7月21日发布“关于公开征求《关于推动城乡建设绿色发展的实施方案（征求意见稿）》意见的通知”，可是意见征求结束后，却并未发布实施方",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13405906",
+   "url": "https://www.cnbz.gov.cn/content/article/13405906",
+   "question": "关于南江县普船至郑家洞公路改建现状的疑问与咨询\n南江县普船至郑家洞公路改建工程自2022年年初动工，计划该段路面整体加宽与部分路段铺设油路。于2022年底完成大部分路基旁山体挖掘，路面加宽部分大体已完成挖掘工程，遗留问题为老路基被部分破坏及",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13405590",
+   "url": "https://www.cnbz.gov.cn/content/article/13405590",
+   "question": "红四门菜市场3至4楼卫生脏臭\n南江县红四门3至4楼卫生无人打扫。楼道无垃圾桶，居民丢垃圾不方便，公共楼道垃圾遍地，臭，脏水等",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13405340",
+   "url": "https://www.cnbz.gov.cn/content/article/13405340",
+   "question": "巴州区X066清白路（清江至白庙段）建设进展情况\n巴州区X066清白路（清江至白庙段）什么时候可以完工交付呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13403977",
+   "url": "https://www.cnbz.gov.cn/content/article/13403977",
+   "question": "关于在巴中市三个高铁站增加晚间公交趟次的建议\n尊敬的市委、市政府领导：\r\n\r\n您好！随着我市经济社会的快速发展和交通基础设施的不断完善，巴中市的交通枢纽地位日益凸显。特别是近年来，我市相继建成了多个高铁站，极大地便利了市民的出行，也为我市的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13403924",
+   "url": "https://www.cnbz.gov.cn/content/article/13403924",
+   "question": "关于通江县城乡居民养老保险政策的咨询件\n50余岁农村村民想购买（接受到龄一次性补缴）养老保险，请问具体政策。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13403296",
+   "url": "https://www.cnbz.gov.cn/content/article/13403296",
+   "question": "关于回风丽阳广场道路积水问题的建议\n你好，我是回风丽阳广场的居民，雨天时候丽阳广场邮政银行那一侧，公路有坑，雨天容易积水，坑里有积水时，经常有骑车的市民被旁边经过的汽车溅水，希望可以修缮。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13403290",
+   "url": "https://www.cnbz.gov.cn/content/article/13403290",
+   "question": "高铁运行线路规划\n你好！渝昆高铁重庆至宜宾段已于9月底建成通车，请问巴中有没有开通至泸州宜宾方向车次的计划？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13402723",
+   "url": "https://www.cnbz.gov.cn/content/article/13402723",
+   "question": "关于广场安装路灯\n平昌县老街通河大桥的广场，每天晚上骑单车的小朋友居多，散步老人也较多，但是有一侧直接连接到公里。但是广场漆黑，没有路灯，并且广场上还有非常多的楼梯，存在很大的安全隐患，小朋友在广场上面玩耍时大多都是自己带一个小电筒。非常的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13402630",
+   "url": "https://www.cnbz.gov.cn/content/article/13402630",
+   "question": "房产证、车位发票丢失如何？\n买房后房产证和车库发票在物管处未领取，物管丢失了如何处理？\r\n1、房产证、国土使用证是否可以补办，在什么地方补办，补办需要什么资料？\r\n2、车位发票丢失，现在办证需要，如何处理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13402404",
+   "url": "https://www.cnbz.gov.cn/content/article/13402404",
+   "question": "巴中市农民满60岁办理退休的流程及资料\n尊敬的领导，大家好。 我是金龙社区的刘玉梅，我妈妈今年8月满60周岁，去年已经在柳林政府不交了新农保，当时说的后面在手机上认证就可以了，但是我前几天打恩阳城乡居民合作保险电话说还需要办理退休，她们说可",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13401890",
+   "url": "https://www.cnbz.gov.cn/content/article/13401890",
+   "question": "表扬巴中市通江县永安镇派出所\n《表扬信》为人民服务\r\n \r\n\r\n 尊敬领导，你好！\r\n我想对通江县永安镇派出所表达我最诚挚的敬意与表扬。\r\n \r\n在 2024 年的农忙时节，永安镇派出所的民警们展现出了令人钦佩的举动。他们深入到缺少劳动力的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13401761",
+   "url": "https://www.cnbz.gov.cn/content/article/13401761",
+   "question": "关于请求彻底根本解决南江县城红帆广场拦河闸“跌水噪声”扰民问题的报告\n南江县城宏帆广场拦河闸工程本是一件亲民惠民的大好事，但自建成竣工后，由于拦河闸泄流产生的“跌水”噪声太大，严重影响沿河两岸群众的正常生活。尤其是，在红鱼洞水库水资源调度泄",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13401757",
+   "url": "https://www.cnbz.gov.cn/content/article/13401757",
+   "question": "关于学生上学问题\n市长您好！我是平昌县同昌名邸小区的一名住户，家中有两岁多的孩子，明年将面临读书的问题，可是周边没有一所公立小学、幼儿园，这边还有好几个小区，这些小区家中孩子以后读书不管去对面的六小，还是这边的七小，都需要步行四十多分钟的路",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13401264",
+   "url": "https://www.cnbz.gov.cn/content/article/13401264",
+   "question": "开通巴中恩阳机场直飞常州奔牛机场的航班\n在常州工作的巴中人很多，每天都有大巴往返。建议早日开通两市的航班。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13401254",
+   "url": "https://www.cnbz.gov.cn/content/article/13401254",
+   "question": "请管管步行道沿线农户敞放的野狗\n尊敬的领导，向您反应一件牵涉群众生命安全的事，希望得到解决。\r\n望王山二期步行道路（望王楼到江北李家扁）村和天星桥水库这一段的步行道政府花巨资打造得很好，天天早上和晚上去跑步，步行健身的人很多。但是，本人和其",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13401251",
+   "url": "https://www.cnbz.gov.cn/content/article/13401251",
+   "question": "道路行驶安全问题\nG347国道烟溪至碧溪有一处区间测速40KM/H，在行驶过程中经常会遇见大货车在区间内速度很快，然后停在区间测速终点前等待防止区间超速，导致小轿车在行驶过程中驾驶风险大，视野受阻，严重影响行车安全。针对此问题，是否可以取消",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13400002",
+   "url": "https://www.cnbz.gov.cn/content/article/13400002",
+   "question": "关于增加、修缮望王山运动公园篮球场照明灯的建议\n尊敬的高市长：\r\n 您好，巴中市望王山运动公园在我市“全民健身”运功中发挥了重要支撑作用，为全市公民的运动健身提供了坚固的场所保障，作为一名篮球爱好者，现就巴中市望王山运动公园篮球场的照明设施",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13398532",
+   "url": "https://www.cnbz.gov.cn/content/article/13398532",
+   "question": "关于教师招聘\n请问2024年下半年巴中还有教师招聘考试吗？就是类似于2024年上半年巴中市中小学教师招聘考试那种，由省上统一组织，全省同一时间的考试。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13396682",
+   "url": "https://www.cnbz.gov.cn/content/article/13396682",
+   "question": "请换老百姓一个正常的广场\n平昌县刘伯坚广场，已经被各种商贩，政府支持的商业活动占领，老百姓不能正常休闲娱乐锻炼身体，现在的刘伯坚广场已经成为了一个批发流动商业市场，且存在严重安全隐患。商业活动一场接着一场，严重影响百姓生活，噪音巨大困扰周边",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13396319",
+   "url": "https://www.cnbz.gov.cn/content/article/13396319",
+   "question": "关于在回风中泉路口加装固定红绿灯的建议\n回风中泉路口车流量较大，周边小区较多，学生多，路况复杂，部分车辆开的很快，较易发生事故。之前安装了临时红绿灯，效果不佳，比如往洞子方向，人行红灯车辆左转时还未亮起，行人就在通行了。建议加装固定红绿灯，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13396001",
+   "url": "https://www.cnbz.gov.cn/content/article/13396001",
+   "question": "关于江湾城环山公路公交车开行问题。\n此次来信是咨询巴中市江湾城环山公路目前为何还不开设公交车的运行，因为目前公交车站台在江湾城小区广场下面步行较远，而公交调度站就在小区附近，为何不规划路线走环山公路，如果在环山路规划公交车路线，将会对江湾城",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13394580",
+   "url": "https://www.cnbz.gov.cn/content/article/13394580",
+   "question": "巴州区凤凰国际城2幢5楼地下车库\n巴中市巴州区凤凰国际城2幢5楼地下车库消防疏散通道及避难层违规建房，影响2幢全体业主生活出行及消防疏散等",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13393875",
+   "url": "https://www.cnbz.gov.cn/content/article/13393875",
+   "question": "关于福锦苑北区（靠九寨山一侧）通行问题\n领导好，关于福锦苑北区（靠九寨山一侧）的跨马路通行问题，我想咨询一下，可否恢复人行横道（之前有）。\r\n理由如下：1、福锦苑北区、南区作为安置居住区，小区内居住了大量的老人及行动缓慢的人员，每次需要过马",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13393699",
+   "url": "https://www.cnbz.gov.cn/content/article/13393699",
+   "question": "便捷性购买处方药\n尊敬的领导，你好，本人患有高血压和支气管炎，每个月都需要持续吃药，之前买药我都是在家附近的药店通过远程问诊使用自己医保的个人账户来购药，非常方便，现在医保政策变革以后，个人账户金额大幅减少，药店现在也是用不了门诊统筹，药房",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13393247",
+   "url": "https://www.cnbz.gov.cn/content/article/13393247",
+   "question": "档案组织接收地\n您好!本人是巴州区平梁街道的一名大学生，于本月毕业，因此需要将团组织关系转回居住地平梁镇团支部。但由于网上没有找到相关的信息，学校的团组织也只能看到名称，导致团组织关系的转接无法办理，且学校要求尽快转接工作，希望可以得到求助",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13392877",
+   "url": "https://www.cnbz.gov.cn/content/article/13392877",
+   "question": "咨询毕业生档案转接事宜\n尊敬的领导：\n您好，本人为2024届应届毕业生，现即将于2024年6月底毕业，学校方要求本人将档案转接至原户籍，因读大学一直是在四川省外，未能关注四川省人力资源和社会保障厅关于毕业生档案接收有关事宜的通知。本人户籍地",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13392402",
+   "url": "https://www.cnbz.gov.cn/content/article/13392402",
+   "question": "重点项目\n您好，请问哪里可以查询到本地重点项目的实施情况信息？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13391071",
+   "url": "https://www.cnbz.gov.cn/content/article/13391071",
+   "question": "关于龙湖中学至巴州区四小津湖路路段请求增设减速带\n目前，龙湖中学至巴州区四小津湖路路段津湖路路段虽设限速30km/h标示牌，但过往车辆依旧车速过快，就在前不久，津湖壹号一期小区车库门口发生一起车祸。5月10日中午，我驾驶一辆二轮摩托车，行驶",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13390421",
+   "url": "https://www.cnbz.gov.cn/content/article/13390421",
+   "question": "关于巴中市巴州区电商发展的咨询\n市长：您好！我是一名大四的学生，目前正在写一片有关巴州区农村电商的毕业论文，想咨询一下是否有本市或者巴州区电子商务发展指数的相关数据或是报告呢？如果有，相关文件或者数据在哪里查询？期待回信，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13389813",
+   "url": "https://www.cnbz.gov.cn/content/article/13389813",
+   "question": "婚迁户籍不能办理问题\n市长您好！\r\n咨询一个户籍问题，目前已去过平昌金宝派出所，但是办理不下来。\r\n情况如下:\r\n我是平昌县青云镇青林社区（原大青村）户口，我老婆是平昌县江家口镇界牌社区（原界牌乡前进村）户口。\r\n前不久回去办理婚迁户籍（界",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13389587",
+   "url": "https://www.cnbz.gov.cn/content/article/13389587",
+   "question": "建议延长高铁检票时间\n请问巴中站“开车前5分钟停止检票”这个时间是如何确定下来的呢？是参照的成都东站设置的吗？有进行过科学评估吗？检票口距离站台实际有多远呢？在我看来，巴中站属于小站，高铁车次较稀疏，且检票口距离站台非常的近，完全可以缩短停",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13389167",
+   "url": "https://www.cnbz.gov.cn/content/article/13389167",
+   "question": "关于409巴州区曾口长达几公里长路段限速40的不合理规定修改建议\n巴州区曾口路段：409省道（巴中-坦溪）17公里720米-409省道（巴中-坦溪）22公里950米-409省道（巴中-坦溪）21公里950米。近期，本人及朋友圈众多朋友，以及",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13388796",
+   "url": "https://www.cnbz.gov.cn/content/article/13388796",
+   "question": "住宅楼内制作卤菜，存在安全隐患\n尊敬的领导，您好！本人居住在宕梁街道七里香溪小区。楼下一位住户在家中制作卤菜，（无营业执照和食品安全许可证）然后在小区内售卖。她晚上11点后制作卤菜，产生大量油烟，很刺鼻，严重影响邻居正常生活；有一晚差点发生",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13388766",
+   "url": "https://www.cnbz.gov.cn/content/article/13388766",
+   "question": "房产加名相关咨询\n名下有一套商品房在兴文，购买于2016年，面积约90平米，想加上我爱人的名字，想咨询：1.加名需要缴纳哪些税，金额约多少，2.加名办理的具体流程及所需资料，望答复。（工作原因可能有时候接不到电话，如未接听，信件回复即可，谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13388276",
+   "url": "https://www.cnbz.gov.cn/content/article/13388276",
+   "question": "环境污染\n四川省巴中市恩阳区（老大桥）下面的恩阳河的河水上面有一层不明漂浮物，希望整治一下",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13386792",
+   "url": "https://www.cnbz.gov.cn/content/article/13386792",
+   "question": "交通问题反馈\n巴中市经开区树人街和中角街周围有很多大型小区、学校及商业中心车流和人流很多，本来就只有两车道但是每天都停满了车特别容易拥堵剐蹭以及影响行车视线造成安全隐患，希望交通部门能实地调研一下合理管理。 \r\n              ",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13385262",
+   "url": "https://www.cnbz.gov.cn/content/article/13385262",
+   "question": "关于汉巴南铁路南巴段通车后，重庆到巴中的城际快车是否改道行驶？\n根据最新的消息，汉巴南铁路南巴段目前铺轨已全面完成，根据官方通报的数据看，铁路建成后会大大缩短巴中到重庆的时间，大概耗时100多分钟，届时是否是全面改道不走达州这个方向了？预计",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13385079",
+   "url": "https://www.cnbz.gov.cn/content/article/13385079",
+   "question": "信息公开\n近期在查询恩阳区政府部门及街道、乡镇的领导信息时，发现恩阳区各个政府组成部门和街道、乡镇并没有按要求公开领导信息。市委市政府、市级各部门及其他各县区都按要求公开了各单位的领导信息，为什么就恩阳没有公开呢？还是请恩阳区公开一下各单位",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13384265",
+   "url": "https://www.cnbz.gov.cn/content/article/13384265",
+   "question": "购房办证\n您好市长，我是在2013年在巴中市平昌县县城天福小区买了房，因为开发商是个人挂靠在平昌县泰兴房地产开发有限责任公司，一直由于一些证件不完善，使得我们一直没有办法办理房产证，我们自己去平昌县房管局也因为我们没有资料没法办理，几年前个",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13384257",
+   "url": "https://www.cnbz.gov.cn/content/article/13384257",
+   "question": "投诉南溪区交通执法部门\n宜宾市南溪区交通执法部门，在宜泸快速路G353国道实施临时移动测速。该道路尚未完全投入使用，且导航软件商业没有速度提醒，整条道路现在已经有20多km可以行车，但是没有任何限速标志，但是交通部门在此实施移动测速，属于违",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13384173",
+   "url": "https://www.cnbz.gov.cn/content/article/13384173",
+   "question": "农村通天然气\n近年来，我市城乡建设力度强，家乡风貌变化很大，回家的路通畅了，网络通了，也通了自来水，但是水价价格比较高，比城里的都贵，很多时候都不敢用，只敢用来应急使用。但是家乡人民期盼的天然气不知道什么时候能够开通？一是有利于减少砍树烧柴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13382868",
+   "url": "https://www.cnbz.gov.cn/content/article/13382868",
+   "question": "关于长寿路紫金映像、龙湖上城道路乱停车现象\n尊敬的领导你好，巴州区长寿路段紫金映像、龙湖上城外面道路乱停车现象特别严重，严重影响小区人员车辆出入及城市面貌，噪音也大，特别是晚上，紫金映像、龙湖上城外面道路停满车辆，造成道路堵塞，小区内车辆无",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13382388",
+   "url": "https://www.cnbz.gov.cn/content/article/13382388",
+   "question": "开展教老人识字的公益课堂项目\n工作人员您好！我是寒假返乡的大一学子，前天偶然听到外婆提及她因为识字过少而有的种种不便，联想到因为时代原因，当地可能有较多老人有识字上的困难，但因个人能力有限且寒假结束后便需要返校，所以希望能够借助政府的力量开",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13382197",
+   "url": "https://www.cnbz.gov.cn/content/article/13382197",
+   "question": "道路损坏严重且长期没有维护\n通江县诺水河镇金溪寺村南通路到铁厂河村的县道路面特别烂，有很多坑，道路沿途有很多石料厂，石料厂的货车经常超载、超速，因路面很多坑，容易掉下石头砸到小车，存在安全隐患，群众多次投诉得到的结果均是\"当地政府以米仓大道",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13381868",
+   "url": "https://www.cnbz.gov.cn/content/article/13381868",
+   "question": "关于小学生 生活餐费的咨询\n小孩就读于西溪室验小学，学校提供15块一餐的午餐，据了解巴中市部分小学的就餐费用低于15块[说是政府有补贴，如巴师附小]，而且部分学校会发牛奶等饮品，从菜品质量和当地物价看，每餐收费15块较高，想咨询关于学校的餐",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13381499",
+   "url": "https://www.cnbz.gov.cn/content/article/13381499",
+   "question": "建议丽景酒店路口红绿灯增设电子抓拍设备\n江南二环路丽景酒店左侧红绿灯路口（回风至南坝方向），随时都有机动车占据非机动车道等直行绿灯，又莫得交警指挥，借道右转的机动车、非机动车无路可走，造成交通堵塞十分严重。此路规划设计两条机动车道，一条非机",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13381236",
+   "url": "https://www.cnbz.gov.cn/content/article/13381236",
+   "question": "兴文小学和秦巴大道之间人行道露头的钢筋需要处理\n兴文兴文小学旁边，秦巴大道侧人行道上面以前栽树固定树木留下很多露出来的钢筋，我看不少大人和娃娃都会踢到上面，放学娃娃多，还是比较危险，希望处理一下露出的钢筋头子，排除安全隐患。我担心那个娃娃要",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13379998",
+   "url": "https://www.cnbz.gov.cn/content/article/13379998",
+   "question": "关于政务中心门外街道路面失修的问题反映\n前段时间，地处巴人广场政务中心门外进行管道作业，但作业结束以后一直未进行路面还原修复，现路面呈现凹凸不平，该地段人流、车流量大，可能造成诸多影响。具体如下：\r\n      一、可能造成安全隐患。该地段",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13378687",
+   "url": "https://www.cnbz.gov.cn/content/article/13378687",
+   "question": "关于报考条件界定的咨询\n市长： \r\n您好！我是今年的毕业生，欲报考本市相关事业单位，有以下问题： \r\n要求的专业，第二学位专业是否可作为报考专业？ 应届身份是按照第一学位还是第二学位毕业时间算呢？ 以及相关文件在哪里查询，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13378232",
+   "url": "https://www.cnbz.gov.cn/content/article/13378232",
+   "question": "回风北路增开公交路线请求\n尊敬的何书记您好:\n我是回风街道大溪村的一位村民，自2006年公交路线开通以来，我们已乘坐2路公交车近20年，也见证了回风北路的飞速发展，看着家乡越来越好，新建小区越来越多，心里非常高兴。奈何美中不足的便是2路公交",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13377159",
+   "url": "https://www.cnbz.gov.cn/content/article/13377159",
+   "question": "上班及作息时间\n尊敬的领导，请问巴中市及各县区今年冬季上班作息时间是否会调整？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13376249",
+   "url": "https://www.cnbz.gov.cn/content/article/13376249",
+   "question": "厦门直飞巴中的航线什么时候才能再次启动？\n2022年5月宣传的将启动厦门经巴中至兰州航线，后续因为疫情原因取消了，之后又开通了巴中至泉州的航线，开通没几天又取消了，现在什么时候能再次启动厦门直飞巴中的航线呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13375739",
+   "url": "https://www.cnbz.gov.cn/content/article/13375739",
+   "question": "请求在市区每处斑马线安装交通违法摄像头，并严肃处理交通违法行为。\n在市区，斑马线不礼让行人问题十分严峻，严重危害行人人身安全，很多司机视人命如草芥，毫不敬畏生命，请交通部门严肃处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13375691",
+   "url": "https://www.cnbz.gov.cn/content/article/13375691",
+   "question": "关于光雾山旅游景区服务提升的建议\n尊敬的领导：\r\n近日光雾山层林尽染，不少海内外游客慕名而来，只为一睹风采。但是由于游客的蜂拥而至，而景区服务却没有跟上，比如观光车不足，接待人员不足，现场秩序较差，导致很多游客不满意，建议提升管理服务水平，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13375675",
+   "url": "https://www.cnbz.gov.cn/content/article/13375675",
+   "question": "数据咨询\n您好，我是来自吉首大学的一名学生，因学术研究需要，正在收集四川省各市州（巴中市）的2011-2020财政总收入数据，目前在四川省统计年鉴和巴中市统计年鉴都只能找到巴中市地方财政一般预算内收入数据，请问这些年份的财政总收入数据和贵单",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13375672",
+   "url": "https://www.cnbz.gov.cn/content/article/13375672",
+   "question": "医保咨询\n您好，我母亲是巴中市平昌县新农合医保参保人员，长期在成都居住，现在一直在成都医院住院治疗，想咨询省内异地医保报销的相关问题，麻烦帮忙解答一下哦：1、长居成都的怎么申请长期异地就医备案？长期异地就医备案申请成功以后是否可享受参保地报",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13375559",
+   "url": "https://www.cnbz.gov.cn/content/article/13375559",
+   "question": "团关系转户籍地失败\n我是今年刚毕业的，先前团关系转户籍地失败，说要工作或生活在辖区的可以转团关系，但是我从小没有在户籍地生活过，我现在在重庆这边工作，我工作的公司没有团支部，公司所在地址的团支部要我转回户籍地，现在我是往哪转？哪里可以查到户",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13375259",
+   "url": "https://www.cnbz.gov.cn/content/article/13375259",
+   "question": "关于增加33路公交早高峰发车频次的建议\n33路作为连接巴中主城区与恩阳区的主要公共交通，周一到周五早高峰竟17分钟一趟，首趟从黄家沟发车时间为7点14与7点31分两趟公交车，许多在恩阳上班的都在赶这两趟车，到达六小站已经站满了，到达龙舌坝已",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13374730",
+   "url": "https://www.cnbz.gov.cn/content/article/13374730",
+   "question": "南江县新闻中心小区改造工程停摆几个月给群众带来不便\n新闻中心小区改造工程8月份开始，施工一半就停摆了，目前停了一个多月了，院内迟迟不硬化，一下雨到处都是稀泥巴，坑坑洼洼，下水道盖子一碰就移位，有安全隐患，原本院子门口的拦车杆也因为施工拆了，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13371672",
+   "url": "https://www.cnbz.gov.cn/content/article/13371672",
+   "question": "建议增加违停违规记录拍摄，提高出警率\n市公安局领导：\r\n您好，本人就柳津桥至红十字医院(区人民医院)滨河路方向交通状况进行反映并提出建议，望考察调研，结合实际现状决策。\r\n柳津桥至四中方向，红十字医院与滨河路交叉路口每日交通状况极其拥堵，人",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13371459",
+   "url": "https://www.cnbz.gov.cn/content/article/13371459",
+   "question": "关于江湾城塔子山下空地焚烧秸秆烟雾污染空气问题的举报信\n塔子山下江湾城空地，每天凌晨、傍晚偷偷焚烧秸秆，烟雾严重污染环境，王府井四期住户室内能闻到严重烟味，焚烧秸秆时室内机器显示pm2.5严重超标，望有关部门重视、处理，谢谢！附傍晚拍摄焚烧",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13370772",
+   "url": "https://www.cnbz.gov.cn/content/article/13370772",
+   "question": "2023年下半年省考\n市长大大，您好！\r\n我想要报考2023年下半年省考，网传今年下半年省考已取消，合并至2024年1月的省考，我想咨询一下该消息是否属实？2023年10月是否仍然会举行全省公检法司系统考录公务员的笔试？感谢您的回答！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13370279",
+   "url": "https://www.cnbz.gov.cn/content/article/13370279",
+   "question": "巴中市车管所电话无论工作日还是休息日一直打不通\n尊敬的市领导：\r\n       我是来自巴中的一名在蓉就业的年轻人，因为2009年在巴中老家缴费学习驾校，中途因上学及参军入伍，驾校学习搁置，后续家人也进行了退费，但是因为不知道程序，所以未注",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13370179",
+   "url": "https://www.cnbz.gov.cn/content/article/13370179",
+   "question": "巴州区回风津桥湖人行桥路灯故障（闪烁）\n巴州区回风街道津桥湖人行桥处路灯故障，一直闪烁。过路行人经过时眼睛都要闪瞎了！已经出现此情况数个月之久了，望相关部门尽快整改。\r\n具体位置见截图",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13369293",
+   "url": "https://www.cnbz.gov.cn/content/article/13369293",
+   "question": "关于面向退役军人招录教师\n请问巴中关于面向优秀退役军人招录教师的有关公告什么时候出？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13369026",
+   "url": "https://www.cnbz.gov.cn/content/article/13369026",
+   "question": "装路灯就是摆设\n通江县广纳镇，亮化工程，  所有的大街小巷都亮了，就我们高坑坝街亮了一晚上，就给我们停了，不亮的不到十盏灯，难道我们不是街道居民蛮，我觉得这是浪费公共资源，找居委会的找理由搪塞我们，这条街虽然住户不是很多一百多户，但是既然装",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13368389",
+   "url": "https://www.cnbz.gov.cn/content/article/13368389",
+   "question": "2023年下半年巴中市属、各区（县）事业单位公招\n尊敬的领导：您好！我是拟参加2023年下半年事业单位公招考生，咨询贵市2023下半年市属、各区（县）事业单位公招是否有安排呢？具体什么时候发布公告？谢谢！祝工作顺利、身体健康。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13367981",
+   "url": "https://www.cnbz.gov.cn/content/article/13367981",
+   "question": "个人档案\n个人考上了个备案制单位，单位要求调档（出了调档函，可自行领取档案上交相关单位，同事相关档案就是领取上交），同时打电话问调档需要什么，他们回答说只要有调档函和身份证复印件就行，回到平昌县人才交流中心说不允许自行调档，要求必须他们进行",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13367052",
+   "url": "https://www.cnbz.gov.cn/content/article/13367052",
+   "question": "就业见习岗位咨询\n尊敬的市长，您好！请问巴州区在本月月底之前是否还会为高校毕业生提供就业见习岗位？2023年度下半年的巴中市事业单位招聘公告会在何时发布？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13366634",
+   "url": "https://www.cnbz.gov.cn/content/article/13366634",
+   "question": "建议增加巴城公共交通\n尊敬的领导：您好：我是居住在王府景三期附近一名市民，平时外出时间比较多，由于夏天炎热，有时很长时间在路上都拦不到出租汽车，在公交站等待公交车时间也比较长，目前街上也很少见到“黑车了”，出行非常不方便。现希望增加巴城的出",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13366094",
+   "url": "https://www.cnbz.gov.cn/content/article/13366094",
+   "question": "巴中平昌医保局电话联系不上，无法解决个人业务\n本人在成都工作，但是之前购买过城镇医疗保险，这个就导致我无法成功缴纳企业购买的社保（医保部分），需要平昌的医保局进行关闭原来城镇医疗保险才可以，但是巴中 平昌的社保局都无法联系上，希望解决一下",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13365920",
+   "url": "https://www.cnbz.gov.cn/content/article/13365920",
+   "question": "道路损毁问题，影响出行和车辆财产安全\n尊敬的各位市长领导，你好！我是曾口公民，巴中市巴州区南环线至排哑口，通木哑路段路因为修南环线损坏已经快三年时间，过个车子是晴天满天灰，雨天满身泥，道路坑洼不平，小轿车严重擦刮底盘，车辆难以出行。严重影响",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13365875",
+   "url": "https://www.cnbz.gov.cn/content/article/13365875",
+   "question": "蜀景首席小区长期噪音扰民\n高市长您好！首先我感谢您为巴中市人民做出的巨大贡献，能成为您领导下，感到非常荣幸！但是我却在这里不得不麻烦您。因为我们所在蜀景首席小区噪音扰民现象十分严重：白天是不是有商业活动，尤其是演出之类的，尤其是最近一周，先",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13365861",
+   "url": "https://www.cnbz.gov.cn/content/article/13365861",
+   "question": "红绿灯通行问题\n市长你好！每天早上由巴中老城去往兴文的车辆越来越多，在转向光正学校的红绿灯路口，由于红绿灯的设置通行问题导致巴中去往兴文这边的车子堵得很长，很耽误通过时间，建议转向光正学校的绿灯和直行绿灯为同一个绿灯，让更多的车子能走左侧车",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13365595",
+   "url": "https://www.cnbz.gov.cn/content/article/13365595",
+   "question": "凌云白岩河聚居点至蔡家河聚居点危桥改造\n该桥自2023年4月10日开始改造，计划于2023年8月10日建设完工，7月1日汛期没有做好相关桥墩保护，大雨过后桥墩不够结实将其冲走，本就一个小河沟没有做好清河道处理导致洪水来了没能泄洪及时，原来计",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13365026",
+   "url": "https://www.cnbz.gov.cn/content/article/13365026",
+   "question": "噪音扰民、气味熏天\n巴州区回风桂花街宏荣名著楼下两处卖鸡鸭的摊位臭气熏天，根本无法开窗透气；每天早上五、六点就开始宰的震天响，严重扰民，家里还有孕妇，造成居民长期睡眠不足。并且每天不分时间不分昼夜的宰，完全不顾居民生活。现要求搬到其余摊位或",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13364642",
+   "url": "https://www.cnbz.gov.cn/content/article/13364642",
+   "question": "龙城寨村经大垭豁到兴文的乡村公路大垭豁至兴文的第一个U型弯道扩宽的建议\n龙城寨村经大垭豁到兴文的乡村公路通车以来，大大方便了龙城寨村居民进城。大垭豁至兴文下山的第一个U型弯道（如图所标的位置）有点窄，经过该处时大一点的私家车都要倒一把才能过",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13364621",
+   "url": "https://www.cnbz.gov.cn/content/article/13364621",
+   "question": "巴中到成都的火车何时提速？\n从我小的时候到现在30岁，巴中的交通就是全国最落后的，现在省内到省会我们的火车竟然还要4-5个小时，而且开通的车次极少。黑车众多，超载都是普遍现象，什么时候才能开通高铁，我说的是高铁，能够一个多小时到成都的这种，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13364375",
+   "url": "https://www.cnbz.gov.cn/content/article/13364375",
+   "question": "安装燃气管道时间节点建议\n改气波纹管部分花销342元，改天然气支管部分545元，后期开通气时候还有保险。\r\n建议在天然气入户时仅通主管和气表，装修后再进行支管安装和通气。\r\n如果在装修前就安装支管，浪费人工、浪费材料、浪费金钱。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13363969",
+   "url": "https://www.cnbz.gov.cn/content/article/13363969",
+   "question": "关于经开区棠湖十里书香一期清理垃圾造成巨大噪音影响居民休息的问题\n市长您好，我是经开区棠湖十里书香一期的业主，我们小区每天早上5点多都会有垃圾车进小区收垃圾，机械臂运行和放置垃圾箱的声音非常大，基本上整个小区的住户都能听到，家中孩子每天早上",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13363696",
+   "url": "https://www.cnbz.gov.cn/content/article/13363696",
+   "question": "教招\n尊敬相关的领导\n您好！\n我想咨询一下巴中市今年的教招和下半年的人才引进计划什么时候开始。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13363588",
+   "url": "https://www.cnbz.gov.cn/content/article/13363588",
+   "question": "南江县木柳路提升改造何时动工\n尊敬的领导：南江县木柳路提升改造工程何时动工？和平镇到正直镇的路是单车道且路况不佳，到正直上高速不方便，如果提升改造会极大改善和平交通通行现状，为此和平人民翘首以盼！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13363312",
+   "url": "https://www.cnbz.gov.cn/content/article/13363312",
+   "question": "巴中市第一中学（暂定名）进展\n请问前期市政府规划的巴中市第一中学（暂命名）选址兴文后，一直没有动静了，是不建设了吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13362892",
+   "url": "https://www.cnbz.gov.cn/content/article/13362892",
+   "question": "请取消城市内的减速震荡线\n我住在巴州大道中段，自从今年该路段设置减速震荡线，人为制造的噪音打破宁静夜晚，使附近的居民睡不着觉， 半夜睡着又被减速震荡线产生的噪音吵醒，强烈请求交通部门领导换位思考， 别打着为降低各类交通事故的发生，保障行人、",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13362254",
+   "url": "https://www.cnbz.gov.cn/content/article/13362254",
+   "question": "关于巴中市通江县诺水河镇楼子片区移动网络信号改善的建议\n尊敬的市长你好：\n我是四川省巴中市通江县诺水河镇玉皇坝村二社的居民，因近期楼子片区的移动信号塔进行了搬迁，导致楼子小学周围一大片居住区没有了移动信号，使得平时生活联系极为不方便，期望领",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13361776",
+   "url": "https://www.cnbz.gov.cn/content/article/13361776",
+   "question": "关于优化兴文经开区25路公交线路的建议\n尊敬的领导：\n您好！我是建议优化兴文经开区公交线路。\n经开区东片区交通现状：\n1、公交车线路21路25路线路均走秦巴大道（五金机电段）至乐湾片区再绕至巴中主城区，线路重合度高，运行时间长，不利于兴文东",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13361035",
+   "url": "https://www.cnbz.gov.cn/content/article/13361035",
+   "question": "表扬巴中市不动产登记中心办事效率快，服务好！\n尊敬的领导：\n您们好！首先我给领导做个自我检讨，前几天因为办理不动产登记证书的事情，我差点听信谣言，差点误信什么办事要找关系之类的话，现在回想，这些话就是在破坏群众和政府部门的感情，破坏我对政府",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13359851",
+   "url": "https://www.cnbz.gov.cn/content/article/13359851",
+   "question": "关于兴文乐湾首府乐湾御府小区门口交通通行问题\n兴文乐湾首府、乐湾御府小区门口（红星街北段）近期公路中间加装了护栏，个人认为是比较好的。两个车库出口相对，每天都有大量的车和行人进出，这样有利于引导行人走斑马线，进出地下车库的车辆有序通行。但对",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13359701",
+   "url": "https://www.cnbz.gov.cn/content/article/13359701",
+   "question": "咨询巴中市老年人福利政策\n您好，请问哪里可以查询到巴中市老年人福利政策？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13359699",
+   "url": "https://www.cnbz.gov.cn/content/article/13359699",
+   "question": "咨询巴中市农村危房改造补偿标准\n您好，请问巴中市农村危房改造补偿标准是多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13359123",
+   "url": "https://www.cnbz.gov.cn/content/article/13359123",
+   "question": "建议巴州区人民法院规范化办公\n尊敬的市长，巴州区领导，尊敬的法院领导：\n我写这封信是关于接待窗口规范化办公室的建议。首先，我认为接待窗口工作人员的状态需要转变。在过去的经历中，我遇到了一些工作人员，他们对当事人的态度相当敷衍，甚至表现的极不",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13359076",
+   "url": "https://www.cnbz.gov.cn/content/article/13359076",
+   "question": "省内异地就医和大病保险医保报销咨询\n您好，我母亲是巴中市平昌县新农合医保参保人员，现在需要在成都华西医院住院做手术，想咨询省内异地医保报销的相关问题，麻烦帮忙解答一下哦： 1.巴中参保，成都住院，是否需要办理异地医保备案？如果需要备案，具体",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13358921",
+   "url": "https://www.cnbz.gov.cn/content/article/13358921",
+   "question": "国道断道施工\n4月26日上午八点左右，244国道上两到桥亭段高峰时段断道施工，现场无任何断道施工公告，施工现场不规范。为何不选择半幅施工，为何不选择夜间施工，客运车辆也无法通行",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13358664",
+   "url": "https://www.cnbz.gov.cn/content/article/13358664",
+   "question": "医疗废物收集点\n你好，我想知道巴中全市有多少医疗废物收集点？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13358303",
+   "url": "https://www.cnbz.gov.cn/content/article/13358303",
+   "question": "建议我们巴中以后可以每一年举办一次马拉松\n市长您好，就是2019年我们巴中举办了马拉松以后，就没有再举办了，现在疫情已经优化；今年全国各地都在相继举办马拉松；希望我们巴中以后也还是能每一年举办一次马拉松，提高全民健身，也提升我们巴中的知名度",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13357076",
+   "url": "https://www.cnbz.gov.cn/content/article/13357076",
+   "question": "关于江南福地顶楼违规搭建\n尊敬的市/区领导：\r\n本人居住于巴中市巴州区江南福地一期，近期发现小区较多楼栋顶楼存在私人使用建材违规封闭公共区域的情况，此违规搭建行为存在安全与质量风险。请相关部门核实后督促整改。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13354522",
+   "url": "https://www.cnbz.gov.cn/content/article/13354522",
+   "question": "酒吧街常年扰民\n滨河路酒吧街，位置位于市中心步行街旁，距离学校，巴人广场(市人民文化主要活动中心)附近，整条街的酒吧完全在住宅区楼下。个人认为一个市中心这样的城市规划极不太合理。\r\n\r\n酒吧隔音设备老久，不完备；无视规定营业时间(营业时间会",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13354434",
+   "url": "https://www.cnbz.gov.cn/content/article/13354434",
+   "question": "学生回家没公交车\n尊敬的市长父母官，我家住在火车站，家里每天的几个学生每天必须要车费几十元。学生在二中上学，每天晚上8.30放学就没有公交车，只能打车回家。8.30点就没有公交车到火车站了。对于一个经济比较困难的家庭，每天晚上都要打出租车回",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13353586",
+   "url": "https://www.cnbz.gov.cn/content/article/13353586",
+   "question": "新农村自来水问题\n尊敬的领导！\r\n           您好\r\n           我实名投诉，巴中市恩阳区下八庙镇普济宫村6村2社，新农村自来水饮水问题。已听村民讲述说自来水民生问题国家已拨款建设，而现在实际情况还不如未拨款时好，自来水",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13353091",
+   "url": "https://www.cnbz.gov.cn/content/article/13353091",
+   "question": "关于优化25、26路公交车开行线路的建议\n1.建议25路公交车在经开区境内绕行西溪小学、市自然资源和规划局、逸境新城，然后经安康路开行至市民中心。\r\n2.建议26路公交车的终点站（市民中心站）延长至巴中中学兴文校区（走通巴路）。\r\n3.理由",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13352986",
+   "url": "https://www.cnbz.gov.cn/content/article/13352986",
+   "question": "建议我们巴中以后也可以有响应式停靠公交\n尊敬的市长您好，就是现目前我发现部分城市的公交车线路已经有了响应式停靠服务；包括最近成都，绵阳也有了响应式停靠公交；建议以后我们巴中也可以在部分线路试点响应式停靠；提升公交车运行效率；给乘客比较快捷的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13351816",
+   "url": "https://www.cnbz.gov.cn/content/article/13351816",
+   "question": "提交了劳动仲裁申请书，多久办理\n我想请问下：我是2023年2月2日去南江县提交了劳动仲裁申请书，当时相关领导说，前面有5人排队，但是截止到2023年2月26日，我未收到任何是否受理的电话和通知，（同样的，我在南充市西充县提交的劳动仲裁书，对",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13351320",
+   "url": "https://www.cnbz.gov.cn/content/article/13351320",
+   "question": "求助恩阳职工公交怎么坐\n领导你好，我住在巴中东方鑫村、去恩阳上班\r\n请问一下到恩阳的职工公交早上是几点、在哪里坐车。\r\n听说在街心花园跟江北农行有直达的职工公交、7.30就去了，结果没找到公交车。\r\n网上也没找到具体坐公交的地点，\r\n打巴山",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13350984",
+   "url": "https://www.cnbz.gov.cn/content/article/13350984",
+   "question": "老房子补助款\n市政府领导同志你们好，我们是恩阳区尹家镇大木山村村民，我们老房子补助金迟迟没有到账，原来说的3年付清到现在3年已过完，只付了百分之三十，还有百分之七十没有付，给农民，有的说付给了政府但是迟迟没有到账，由于家里困难孩子们上学急耏",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13350720",
+   "url": "https://www.cnbz.gov.cn/content/article/13350720",
+   "question": "关于早上坐公交不顾安全去抢位置\n我是两个娃娃的父亲，每天早上为了减少交通堵塞坐公交送两个娃娃上学，长期以来发现一个怪像，9路和33路居然坐公交有人抢位置，霸占位置现象特别严重，经常出现有位置不能坐或者抢位置而摔倒，而公交司机只在专注谁上车给",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13350577",
+   "url": "https://www.cnbz.gov.cn/content/article/13350577",
+   "question": "农村土坯房改砖墙\n领导您好，我想咨询一下万安这边的农村土坯房由于长时间漏雨，部分地方已经出现垮塌的痕迹，能否在原有的地基上将土坯结构换成砖墙？因为家里奶奶在家就怕下大雨。，所以这边想咨询一下能不能重建(不扩大面积)，有没有什么政策文件支持。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13349783",
+   "url": "https://www.cnbz.gov.cn/content/article/13349783",
+   "question": "租车位 不让录两个车牌号。\n我是紫金时代的业主，家里两个人各有一台车，近期想在紫金时代小区租一个车位，我要求物业把我的两台车的车牌都录进去，但我不会同时停两台车进小区，只是为了方便我的两台车不同时间段轮流停车，不至于资源浪费，但是物业确要求",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13349523",
+   "url": "https://www.cnbz.gov.cn/content/article/13349523",
+   "question": "关于博济医院噪音扰民投诉无果\n市长，您好！\r\n  我是兴文优筑城的居民，很抱歉来信打扰到您，实在是在给12345、派出所、环保部门、管委会、城管执法大队、社会事务局等反应无果之后，才来向您反应这个事情。\r\n  我是去2021年搬来这里住的，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13348760",
+   "url": "https://www.cnbz.gov.cn/content/article/13348760",
+   "question": "关于平昌县坦溪镇仁和燃气多次无故停气的投诉\n本人居住在坦溪镇新溪街，关于坦溪镇仁和燃气平时无故停气已是常态，隔几天就停而且还经常在做饭时间段停，联系燃气公司工作人员也置之不理，有居民将燃气公司营业厅门店锁了几次也无济于事；此次春节期间我初三",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13348757",
+   "url": "https://www.cnbz.gov.cn/content/article/13348757",
+   "question": "关于：西湖名都小区占用堵塞消防安全通道相关事宜\n尊敬的市长，您好！\n我是巴中市西湖名都小区一名普通业主，在此很抱歉打扰到你！\n来信目地主要是想投诉西湖名都小区物业公司（四川省华美居物业管理有限公司）对于业主反馈事宜，不处理，不解决，相互推脱",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13348749",
+   "url": "https://www.cnbz.gov.cn/content/article/13348749",
+   "question": "巴中恩阳机场办事效率低、不负责任\n在恩阳机场办理宠物托运，没有专门的超重行李通道，将宠物打包后直接跟托运行李一起运输下去，最重要的是，没有在宠物托运的航空箱上贴任何“易碎”“优先行李”的标签，我甚至提醒工作人员“不需要贴标签吗”，他犹豫一下",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13348614",
+   "url": "https://www.cnbz.gov.cn/content/article/13348614",
+   "question": "向住建局了解南江县长赤镇污水处理厂竣工验收情况\n住建局：\r\n请问长赤镇污水处理厂什么时候进行的项目竣工验收？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13348275",
+   "url": "https://www.cnbz.gov.cn/content/article/13348275",
+   "question": "老房危房改造补贴款\n尊敬的高市长：\r\n   你好\r\n   想咨询一下关于四川省南江县正直镇土房危房改造补偿款事宜。当年村领导让积极参与土房改造，并有20000元的补贴款，时至今日已过去4年之久，现今没有了任何下文，补偿款也没有拿到一分钱，我",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13348145",
+   "url": "https://www.cnbz.gov.cn/content/article/13348145",
+   "question": "关于解决合一瑜伽（江北广场店）退费问题\n尊敬的领导：本人于2021年10月份在巴州区合一瑜伽（位于巴州区九州商业城四楼）办理了100节课，共计1万9千多元，在之前我还在合一瑜伽买的30节课一直在上课中，所以100节课一直未开卡。后来因为疫情",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13347869",
+   "url": "https://www.cnbz.gov.cn/content/article/13347869",
+   "question": "关于村道路硬化的问题\n尊敬的市长：\r\n       南江县红卫村三社村道路数十年未硬化，村民多次向村干部反映无果。村民出门天晴一身灰，下雨一身泥，老年人多次摔倒摔伤，恳请您爱民如子，为村民谋幸福！静待回复！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13346782",
+   "url": "https://www.cnbz.gov.cn/content/article/13346782",
+   "question": "关于解决金色摇篮幼儿园退费问题\n尊敬的高市长：\r\n       我是巴州区金色摇篮幼儿园一家长。我家孩子于2022年秋季在该园报名读书，因2022年疫情影响，导致该园不能正常开展入园服务，现该园在退费问题上处理极不合法合理，经12345投诉",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13345667",
+   "url": "https://www.cnbz.gov.cn/content/article/13345667",
+   "question": "天然气问题\n尊敬的领导：\r\n       你好，我是恩阳区关公镇十大队社员，向您反映四川广夏利民天然气公司相关问题。\r\n       之前在乡村内推广天然气安装，我们在缴费之后接通了天然气，往年过年的时候只是气不足，火比较小。但是在去年12",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13450529",
+   "url": "https://www.cnbz.gov.cn/content/article/13450529",
+   "question": "关于重拳整治全市黑车非法营运乱象 构建长效规范监管机制的请示建议信\n尊敬的市长：\r\n您好！我们是巴中市持证合规巡游出租车、网约车从业人员。当前我市黑车呈现有组织、规模化、全域化非法营运态势，严重扰乱客运市场秩序、滋生交通安全隐患、损害城市文",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13450427",
+   "url": "https://www.cnbz.gov.cn/content/article/13450427",
+   "question": "关于王府景小区临河楼栋景观灯光秀引发蚊虫泛滥、外墙污染的求助信\n尊敬的荣生书记、许磊市长：你们好！\n我是巴中市王府景小区临河楼栋的一名普通居民，现就小区外墙政府统一安装的景观灯光秀，夏季夜间大量招引蚊虫、造成外墙与防护栏严重污染、影响居民正",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13450237",
+   "url": "https://www.cnbz.gov.cn/content/article/13450237",
+   "question": "巴中各区县2026年3季度分布式光伏可开放容量什么时候公示",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13449358",
+   "url": "https://www.cnbz.gov.cn/content/article/13449358",
+   "question": "关于成巴安高铁的部分建议\n关于成巴安高铁的建议\r\n关于线路优化与人口分析\r\n成巴安高铁线路存在人口覆盖弱短期收益存在不确定性，我的个人看法是从成都天府站西侧引出，经过新津北测（新津北站）新津36万人口目前仅有新津站配套有成贵客专因此可以接",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13448261",
+   "url": "https://www.cnbz.gov.cn/content/article/13448261",
+   "question": "表扬恩阳区城乡居民社会养老保险事业服务中心\n尊敬的恩阳区城乡居民社会养老保险事业服务中心领导：\r\n您好！\r\n     我老家恩阳区，现居成都。2026年7月22日下午，因我父亲（恩阳区花丛镇农民）城乡居民养老保险断缴，需办理一次性补缴、提档",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13447515",
+   "url": "https://www.cnbz.gov.cn/content/article/13447515",
+   "question": "巴恩南环线交通事故频发，建议沿线所有红绿灯加装扣分抓拍电子眼。\n尊敬的鲜书记，您好，本人上下班途径南环线，发现大多数车主无视沿线红绿灯，以极快车速通过斑马线，又有部分车主遵守交规，红灯亮时减速停车，两部分人群同时存在，极易发生追尾事故，7月",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13447267",
+   "url": "https://www.cnbz.gov.cn/content/article/13447267",
+   "question": "巴中市通江县空山镇发现世界级自然奇观：雌雄睡佛！\n2024年本人在空山镇发现空山雌雄睡佛自然奇观，经过三年的跟踪拍摄和实地考察，确认空山睡佛有三绝：一、形象逼真；二、雌雄异体，即异地雌雄变换；三、雌雄同体，即同一地点雌雄变换。可以说在国内、",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13444846",
+   "url": "https://www.cnbz.gov.cn/content/article/13444846",
+   "question": "丰乐山黄精多病死，农业局防止正当时\n我是巴中市恩阳区渔溪镇丰乐山定的农户朱仕连，马上八十岁了。渔溪片区特别是我们丰乐山上一直是药材种植基地，我们社种植黄精应该也有上百亩。我家在这里种植了六十年各种药材，二十多年前也是我第一家开始种植黄精的，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13444844",
+   "url": "https://www.cnbz.gov.cn/content/article/13444844",
+   "question": "关于定点设置垃圾箱及安装自来水建议\n尊敬的领导：\r\n      我家住在巴中市恩阳区柳林镇人和寨村3社；目前存在以下问题希望能够得到解决：\r\n      1、随着社会发展及生活水平提高，现每个家庭均会产生一定的生活垃圾（白色垃圾），但现在无",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13444158",
+   "url": "https://www.cnbz.gov.cn/content/article/13444158",
+   "question": "应届生毕业团组织关系转接\n尊敬的领导： 您好 我是一名在绵阳就读的应届生，将于2026年6月底毕业，现需将团员组织关系转回户籍地。本人户籍地是南江县桥亭镇落垭村的，学校给了一个介绍信模板，需要清楚的知道接收单位，请问转入地的团组织是哪一个呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13442942",
+   "url": "https://www.cnbz.gov.cn/content/article/13442942",
+   "question": "建议调整巴中至成都东C779次列车，成都东至巴中C780次列车经停达州站\n鲜书记：\r\n       您好！\r\n       首先。感谢你您在百忙之中阅读我的来信。我想向您反映巴中往返达州的列车班次相关问题；目前两地间每日有4趟往返列车，但早",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13442849",
+   "url": "https://www.cnbz.gov.cn/content/article/13442849",
+   "question": "行人无法通过该立交桥\n盘兴物流园往巴中城区方向，燕飞互通设有的人行横道及其涵洞均出现了地砖开裂、积水、大量垃圾以及大量植被繁密挡住了前行的道路，导致行人无法在设有的人行横道上正常通行。现行人欲想步行通过该立交仅能横穿马路后走在机动车道内后沿",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13442446",
+   "url": "https://www.cnbz.gov.cn/content/article/13442446",
+   "question": "新能源汽车个人充电桩安装事宜\n尊敬的书记：您好，本人在北龛大道东段丰泽北岸小区自有住房且已购置地下车库停车位，想安装电动汽车个人家充桩，物业以本小区未通过房屋竣工验收（消防验收）为由拒绝。烦请帮忙解决，万分感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13442422",
+   "url": "https://www.cnbz.gov.cn/content/article/13442422",
+   "question": "辅警招聘\n今年巴中各个片区还有辅警招聘吗，最近几次都是30岁以下的了。还有35岁以下的招聘吗，名额有比去年增加吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13441831",
+   "url": "https://www.cnbz.gov.cn/content/article/13441831",
+   "question": "建议\n再次投诉。经开区崇景苑三栋一单元后山小区内转运生活垃圾。每天凌晨4.00，三四个垃圾箱转运，车辆、机械设备发出噪声极大(机械撞击)严重扰民。垃圾转运后小区物业又开始倾倒垃圾，每次倾倒完毕后敲打空桶，清除残余垃圾，严重影响居民生活。建议",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13441042",
+   "url": "https://www.cnbz.gov.cn/content/article/13441042",
+   "question": "四川省巴中市地面与低空交通分析与规划\n尊敬的书记您好：\r\n您好！我是一名巴中市民，目前就读于北京理工大学大一，长期关注区域发展与交通规划问题。基于对四川省巴中市交通体系的系统研究，我围绕“地面交通优化与低空交通融合发展”这一主题，形成了一份",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13440425",
+   "url": "https://www.cnbz.gov.cn/content/article/13440425",
+   "question": "道路安全问题\n东门大桥到凤凰国际城这一段路，是否有限速？我注意到来往车辆行驶速度非常快，此路段有两个斑马线未设置红绿灯，车辆不礼让行人、发生交通事故时有发生，3月22日还发生了在斑马线上车辆撞人事件。再加之旁边建筑工地施工，未设置人行通道，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13440052",
+   "url": "https://www.cnbz.gov.cn/content/article/13440052",
+   "question": "建设宅基地政策、办理手续\n书记您好，我是巴中市南江县赤溪镇居民（本人及家人户口均在本村）。我家原宅基地为瓦房因年久失修已多处垮塌无法居住，多年以来均为租住在周边乡镇，考虑长期租住不是办法，特咨询宅基地建设相关政策、办理手续。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13439949",
+   "url": "https://www.cnbz.gov.cn/content/article/13439949",
+   "question": "有关国道G244（巴中市巴州区至南江县段）道路安全风险问题\n书记您好，国道G244（巴中市巴州区至南江县段）是四川北上出川重要过境通道，同时也是沿线乡镇到发交通必经之路。但该条道路沿线存在多处大坑、沟，常年有车辆（主要是轿车）因绕行不及时造",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13439662",
+   "url": "https://www.cnbz.gov.cn/content/article/13439662",
+   "question": "《关于优化城镇留守儿童心理健康与学业辅导支持机制的建议书》\n尊敬的巴中市委书记： 您好！ 我们是西安交通大学励志书院“育光童行”团队的大学生。近年来，我们一直关注城镇留守儿童这一群体的成长与发展。在城乡结构持续调整的背景下，留守儿童虽然数量",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13439439",
+   "url": "https://www.cnbz.gov.cn/content/article/13439439",
+   "question": "关于农村宅基地重建补助咨询\n尊敬的各位领导：我是四川省巴中市南江县某镇某村的居民（本人及家人户口均在本村）。我家原有的一处瓦房因年久失修已垮塌多年，现因家庭需要并响应国家宅基地确权政策，计划在原有宅基地上进行房屋重建。\r\n为更好地了解和享受",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13439274",
+   "url": "https://www.cnbz.gov.cn/content/article/13439274",
+   "question": "南江县实验小学午餐问题\n尊敬的鲜书记：\r\n       您好！感谢您在百忙之中抽出时间看到我的诉求建议。感谢学校领导和老师们对孩子们的辛勤付出，也感谢食堂工作人员每天为准备午餐所付出的劳动。作为学生家长，我们一直对学校的后勤保障工作充满信任",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13439176",
+   "url": "https://www.cnbz.gov.cn/content/article/13439176",
+   "question": "咨询天然气安装事宜\n领导好！\r\n      我是恩阳区群乐乡土城村3靠近仪陇福临乡的农民，因离公路主干道比较远，之前生产队安装天然气没有安装，现家里老年人年事已高，我们有几户人家计划安装天然气，之前咨询过生产队长，说和土城78社一起安装，时",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13438977",
+   "url": "https://www.cnbz.gov.cn/content/article/13438977",
+   "question": "感谢信\n感 谢 信\n尊敬的巴中市委、巴中市人民政府：\n骏马飞腾，福满人间。在这喜庆祥和的春节，我满怀感恩与激动之情，提笔写下这封感谢信。\n我是一名在外创业的游子，为了梦想背井离乡，在异乡拼搏闯荡。每逢佳节倍思亲，今年春节回到家乡巴中，眼前的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13438515",
+   "url": "https://www.cnbz.gov.cn/content/article/13438515",
+   "question": "关于245国道玉山段线路规划问题\n尊敬的领导，您好\r\n关于245国道玉山段出口规划问题，现阶段规划路线从品字型居民楼中间穿行，如按现在规划道路修建，建成后道路两边楼体承重墙有较大安全隐患，建成后对形成的路口对面楼体也有冲击风险，请领导考虑更",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13437598",
+   "url": "https://www.cnbz.gov.cn/content/article/13437598",
+   "question": "违法停车长期无人管理\n尊敬的各位领导 请问浅水湾一期 归那里管 、长期无人管理导致 汽车违法占道乱停 ，毫无素质 导致进出很不方便 可能是长期无人管理 导致乱停成了理所当然。社会发展可素质没在进步 管理力度不够 莲花街马路窄更不用说 老是经",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13437597",
+   "url": "https://www.cnbz.gov.cn/content/article/13437597",
+   "question": "我们巴中是否有春秋假\n尊敬的领导您好，就是我们巴中的学校从今年起以后每一年是否会试行春秋假制度（不用电话回访，谢谢）",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13436395",
+   "url": "https://www.cnbz.gov.cn/content/article/13436395",
+   "question": "这二天看合川文旅火爆有感-换个思路巴中酒席是否也能给巴中文旅助力\n11-13号，合川因为刨猪汤饭火了，合川文旅稳稳接住了这泼天的流量。巴中的酒席更好吃，能吸引这么多人来巴中吃酒席该有多好。在我印象中，巴州区(以前是巴中县从柳新桥到-回风亭)",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13434250",
+   "url": "https://www.cnbz.gov.cn/content/article/13434250",
+   "question": "我父住院能否按大病比例报销\n我父亲巴中户籍，79岁，2024年4月髋骨骨折且确诊患有严重的肺间质疾病和肺纤维化，还有慢性阻塞性肺病、恶病质等，于2025年10月5日急诊入院深圳南方医科大学，10月15日出院，26日凌晨去世。 我父亲是居民医",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13433815",
+   "url": "https://www.cnbz.gov.cn/content/article/13433815",
+   "question": "建议增加巴达线停靠巴中东站的次数。\n巴中东站的开通方便市民出行，但是巴达方向依旧不方便，原第三季度巴中始发8.00停靠巴中东站，第四季度直接取消，不方便经开区、东门大桥附近市民的出行，建议增加巴达线停靠巴中东站次数，特别是早上和晚上。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13433362",
+   "url": "https://www.cnbz.gov.cn/content/article/13433362",
+   "question": "G245\n我提早提醒你这些不干正事的人，没得几个月要过年了，国道G245该整了，免得你屋祖先又要遭决了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13432402",
+   "url": "https://www.cnbz.gov.cn/content/article/13432402",
+   "question": "关于交通安全的建议\n尊敬的领导您好！\r\n       巴中市巴州区天下城小区门口道路限速为70公里/小时，该地段位于小区门口，同时设有人行斑马线，这个时速对于过斑马线的行人来说具有严重的安全隐患，而此处也多次发生了行人被撞的交通事故。为保障",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13430725",
+   "url": "https://www.cnbz.gov.cn/content/article/13430725",
+   "question": "新生儿医保等级咨询\n我是一名新生儿父亲，老家是在巴中，孩子在成都出生，目前再给孩子做新生儿城乡居民登记的时候，登记地址填再了巴中，也无法在修改，现在无法在成都给新生儿医保缴费，咨询了成都医保这边，告知现在需要把在巴中的登记停了，从新在登记为",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13430477",
+   "url": "https://www.cnbz.gov.cn/content/article/13430477",
+   "question": "（关于巴中市体育中心更改名称为巴中奥体中心的建议）\n致巴中市人民政府的建议信\r\n（关于巴中市体育中心更改名称为巴中奥体中心的建议）\r\n\r\n尊敬的巴中市人民政府领导：  \r\n您好！\r\n我是一名在沪工作的巴中游子，虽身在他乡，但始终心系家乡发展",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13428994",
+   "url": "https://www.cnbz.gov.cn/content/article/13428994",
+   "question": "建议回风江南尚城路口设红绿灯优化交通\n尊敬的领导：\r\n       回风巴州大道是巴城的西入口和名片，然而却存在较多交通安全隐患。\r\n       西华山进城方向出口道路与隧道呈弧线、非直线，且出口前方有绿化隔离带（花台），车辆出隧道后是下",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13428378",
+   "url": "https://www.cnbz.gov.cn/content/article/13428378",
+   "question": "建议K31路公交车在市民政局公交站停靠\nK31路公交从巴中市农行起始站出发到巴中西站，在江北仅停靠回风大桥江北这头的移动公司，这两站距离太远。如果说是快速公交不要求每站都停靠，但在回风几乎每个站都停靠。建议K31路公交车在巴中市民政局公交站",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13427199",
+   "url": "https://www.cnbz.gov.cn/content/article/13427199",
+   "question": "公路加装测速设备\n川G1298路段属于陡坡急弯路段，此路每年都会出现多起人员伤亡惨案，每逢下雨都会出现不同程度的交通事故。请求相关部门加装测速减速及监控设施。希望能早日解决，以确保当地人民的生命财产安全。\r\n前段时间反馈，现有改装护栏，但加",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13427027",
+   "url": "https://www.cnbz.gov.cn/content/article/13427027",
+   "question": "巴中市中心医院经开区院区科室设置问题\n领导，你们好，巴中市中心医院经开区院区开设也快一年了，里面很多科室都没有设置，经开区作为重要的居民聚居地，很多病症还得去市里面，很是麻烦，也不利于经开区发展。比如妇产科好久能开设？生孩子还要跑老远。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13426864",
+   "url": "https://www.cnbz.gov.cn/content/article/13426864",
+   "question": "有关巴中2025年下半年事业单位公开招聘的咨询\n您好！我想咨询一下2025年下半年巴中还有事业单位公开招聘工作人员的计划吗？如果有，大概在什么时候呢？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13426000",
+   "url": "https://www.cnbz.gov.cn/content/article/13426000",
+   "question": "巴中白云台实验学校\n领导您好；\r\n     从网上查询到白云台实验学校幼儿园改建工程于2024年10月启动，施工工期90天。想了解下是否已经改造完成？多久时间能开园招生。谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13425088",
+   "url": "https://www.cnbz.gov.cn/content/article/13425088",
+   "question": "请问巴中市是否有育儿补贴政策？\n尊敬的领导，您好！\r\n    我们夫妻于2024年11月生育第一子，现在网上很多都是二胎三胎育儿补贴政策，我们没有找到有关于一胎的育儿补贴政策，请问巴中市是否已颁布或计划颁布一胎育儿补贴相关政策？感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13424820",
+   "url": "https://www.cnbz.gov.cn/content/article/13424820",
+   "question": "强光污染严重影响居民休息的问题\n关于后河桥宴喜天地附近路口强光污染严重影响居民休息的紧急反映\r\n 尊敬的书记：\r\n        您好！向您反映后河桥宴喜天地楼下路口（即万达靠近王府景一侧的对面路口）的强光污染问题，该问题已严重干扰周边居民",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13424229",
+   "url": "https://www.cnbz.gov.cn/content/article/13424229",
+   "question": "农村宅基地确权\n尊敬的市长：\r\n      您好！\r\n      我是巴中区农村里的一名普通居民，长期关注农村发展相关政策。近期有了解到，中央一号文件关于农村宅基地确权登记工作需在2027年前完成这件事情。\r\n       我十分关心巴中市",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13422563",
+   "url": "https://www.cnbz.gov.cn/content/article/13422563",
+   "question": "停车难\n川剧团斜对门文庙街附近是否有停车场？周末白天文泉巷又不准停车！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13422302",
+   "url": "https://www.cnbz.gov.cn/content/article/13422302",
+   "question": "转团组织关系\n尊敬的领导：\r\n       您好\r\n       我是一名绵阳的应届生，将于2025年6月底毕业，现需将团员组织关系转回户籍地。本人户籍地是通江县烟溪镇白雪垭村的，请问转入地的团组织按哪个来呢？以及需要转入地团组织的联系人和",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13421867",
+   "url": "https://www.cnbz.gov.cn/content/article/13421867",
+   "question": "饮用水安全与供水稳定\n本人住在巴州区苏山坪离市中心4公里称巴中城市后花园，但生活供水质量一直令人头疼和无语。本片区域属于城乡供水-巴中源通水务集团有限公司管理运营，供水质量严重不达标特别是夏天不是限时供水就是放出的水浑浊有泥沙小虫异味等异常",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13420169",
+   "url": "https://www.cnbz.gov.cn/content/article/13420169",
+   "question": "建议将巴中西站改名恩阳站同时增加车辆停靠班次\n尊敬的领导好！\r\n      我是在成都生活了30多年的巴中人，看到巴中这些年的发展变化感到非常高兴，特别是恩阳最近几年在文旅方面的发展。为了更好宣传恩阳、为更多人到恩阳旅游观光提供方便，建议政",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13419701",
+   "url": "https://www.cnbz.gov.cn/content/article/13419701",
+   "question": "川G1298+800路段加装测速设备\n川G1298+800路段属于陡坡急弯路段，此路每年都会出现多起人员伤亡惨案，每逢下雨都会出现不同程度的交通事故。请求相关部门加装测速减速及监控设施。希望能早日解决，以确保当地人民的生命财产安全。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13418470",
+   "url": "https://www.cnbz.gov.cn/content/article/13418470",
+   "question": "低频噪音影响生命安全\n易科航都苑一起10单元楼下二次增压泵噪音过大，严重影响睡眠质量，有一种慢性毒药杀人的感觉，给相关部门反应过，但是没有得到根治，噪音始终很大，本人本就精神压力大，晚上更是吵的心情烦躁，希望书记大人督促相关部门解决下老百姓",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13415907",
+   "url": "https://www.cnbz.gov.cn/content/article/13415907",
+   "question": "交通规划咨询\n云台镇、笔山镇、望京镇、镇龙镇，相对来说很偏远且没有高速公路，请问近期规划或者远期规划会有高速公路吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13415247",
+   "url": "https://www.cnbz.gov.cn/content/article/13415247",
+   "question": "关于巴中动车停靠乐山夹江站的建议\n犹豫我爱人是夹江的，每次来回返回巴中很不方便，可否将C60次列车取消峨眉停靠改为夹江停靠呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13414788",
+   "url": "https://www.cnbz.gov.cn/content/article/13414788",
+   "question": "噪音扰民\n我是经开区棠湖十里书香一期的业主，每天早上5点多都会有垃圾清运车进小区收垃圾，机械臂运行和放置垃圾箱的声音非常大，导致我及家人长时间睡眠不足。之前本人及小区其他住户通过各种方式投诉过，回复可以延后收垃圾的时间和避免造成过大噪音扰民",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13414396",
+   "url": "https://www.cnbz.gov.cn/content/article/13414396",
+   "question": "在花海森林小区周边道路实施夜间货车限行\n市领导您好：\r\n我是花海森林一名业主，就花海森林4栋和5栋靠山侧的爬山公路夜间货车通行问题想提出以下建议：\r\n\r\n一、现状问题\r\n夜间至清晨（22:00-7:00）经常有货车经过，因为是爬坡路段，大型",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13414319",
+   "url": "https://www.cnbz.gov.cn/content/article/13414319",
+   "question": "关于农村危房改造和重建的咨询\n贵部门： 我是四川省巴中市恩阳区某镇某村的居民，农村的土墙房子，因年久失修漏雨，墙体开裂严重影响居住，目前父母及家庭户口均在农村。现咨询以下三个问题：一、若对现有房屋进行维修改造（危房改造），请问国家及县、乡（",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13414024",
+   "url": "https://www.cnbz.gov.cn/content/article/13414024",
+   "question": "关于苏三坪村交通出行方面\n苏山坪去年政府新修建了公路，加宽了路面，上面聚集点居住点人口也很多，加上乡瓣童年，桃源，各个农家乐，还有本地居民等，出行，游玩还是很不方面，是否考虑开通一班公交定点定时发车满足出行需求。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13413199",
+   "url": "https://www.cnbz.gov.cn/content/article/13413199",
+   "question": "关于延长成都至巴中动车发车时间的建议\n市长您好！我在网上查询到，巴中至成都的动车每日最晚一趟是19：26分发车，但成都至巴中的动车每日最晚一趟是18：20发车，足足早了一个小时，这对于很多家在巴中，但需要常年来往成巴的旅客来说，收车时间有些",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13412976",
+   "url": "https://www.cnbz.gov.cn/content/article/13412976",
+   "question": "请交警部门加强对逸境新城占道停车的管理力度\n经开区逸境新城B区大门口，天天被车辆占道停车，而且就停在地下车库车辆出入口两侧，严重阻挡进出车辆的视线。安康路作为经开区与主城区的交通要道，车辆多、尤其大货车多，车速也较快，这样的占道停车，导致逸",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13412939",
+   "url": "https://www.cnbz.gov.cn/content/article/13412939",
+   "question": "关于停车位收费问题\n你好，我想咨询一下这个情况：在小区购买了产权车位，且已经录入物业停车系统。物业说如果不交车位管理费，在小区停车就按临时车计算停车费，每天25块钱，否则不准停车。\r\n请问这种方式是否合理。\r\n谢谢回复。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13412786",
+   "url": "https://www.cnbz.gov.cn/content/article/13412786",
+   "question": "关于新增巴中往返恩阳南环线公交。\n尊敬的各位领导：\r\n      巴中往返恩阳南环线已通车，直接通过巴中南环线往返恩阳的车辆及人员增加。现有33路以经开区为七点，通过回风往返巴中和恩阳。故建议在现有33路的基础上增加班次（比如命名33H，以",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13412586",
+   "url": "https://www.cnbz.gov.cn/content/article/13412586",
+   "question": "蓝湾国际小区D区7 栋，电梯主机故障，需动用维修基金进行维修，恳请书记协调巴州区房管局，全额拨付电梯维修所需维修基金。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13411893",
+   "url": "https://www.cnbz.gov.cn/content/article/13411893",
+   "question": "小车乱停乱放现象严重\n丽景天城红绿灯往西龛山走的路口两边长期停放车辆，本来就是一个大陡坡，还弯多，大人小孩都只能走路中间，天气不好的时候还要让车，下雨天就更滑，对向来个车都过不了，紧急刹车多次出事故，出行很不方便，现在年也过完了，望有关部门",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13411589",
+   "url": "https://www.cnbz.gov.cn/content/article/13411589",
+   "question": "关于教师归雁计划\n尊敬的鲜书记您好！\r\n         我是在万源工作的一名巴中游子，每当周五坐着火车披星戴月的回到巴中，我心里莫名的激动，当周天离开巴中时，我心里惆怅无比，这样的生活已经不知持续多久，巴中在外上班的教师很多，请问巴中是否",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13411469",
+   "url": "https://www.cnbz.gov.cn/content/article/13411469",
+   "question": "加快交通发展，时不我待\n2024年，巴南高铁开通，让全市人民都振奋不已让每一位巴中儿女都备受鼓舞，这么多年巴中人民从未停止睁眼看世界；经过多年的努力，我们终于坐上了通往巴中的高铁，心里别提有多高兴、、、、、、、\r\n    但是我们不能仅限于",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13409714",
+   "url": "https://www.cnbz.gov.cn/content/article/13409714",
+   "question": "汽车乱停乱放违法占道出行困难\n尊敬的领导：请问浅水湾1期道路归哪里管，长期无人管理导致违法乱停乱放汽车占道行为疯狂。经常拥堵出行都困难存在安全隐患 建议 加强管理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13409532",
+   "url": "https://www.cnbz.gov.cn/content/article/13409532",
+   "question": "政策补贴\n考虑到春节来临、很多在外的工作者都回到了我们美丽的巴中家乡，看到咱们整个市都在为春节紧张的忙碌、我们的城市增添了许多生机，前段时间国家对2025的汽车补贴 都出台了，很多省市也出台了置换补贴。但是我们巴中市、区的汽车置换补贴还没有",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13409512",
+   "url": "https://www.cnbz.gov.cn/content/article/13409512",
+   "question": "请问区十二小，宝龙名邸上面是在建设商业综合体还是什么项目？什么时候能够完工？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13409433",
+   "url": "https://www.cnbz.gov.cn/content/article/13409433",
+   "question": "请求增加靠停巴中西站的列车。\n领导，您好！我是在外工作的游子，巴中动车直达的城市较少，外地游子回家大多需要经成都转车，但目前只有极少趟列车停靠巴中西站。如下午成都上车到站到巴中站或者巴中东站转车回恩阳，至少1个小时，如再住农村，还得转车，回",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13407876",
+   "url": "https://www.cnbz.gov.cn/content/article/13407876",
+   "question": "致通江县人民医院急诊科全体医护人员的感谢信\n感谢信\r\n\r\n尊敬的通江县人民医院急诊科全体医护人员：\r\n你们好！\r\n\r\n我怀着无比感激的心情，写下这封感谢信，以表达我对你们在我父亲突发疾病时给予的及时、专业且充满人情的救助的深深谢意。\r\n20",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13407100",
+   "url": "https://www.cnbz.gov.cn/content/article/13407100",
+   "question": "建议2025年农历新年前苍巴高速已建成部分开通运行。\n尊敬的领导：目前看来年底前建成苍巴高速巴中段有压力，可以借鉴成绵段，建成一部分通车一部分。比如确保龙山互通至恩阳与成巴互通建成，这样广大市民出行多一份选择，也可以缓解成巴高速的堵车压力。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13407039",
+   "url": "https://www.cnbz.gov.cn/content/article/13407039",
+   "question": "希望早日开通巴中至郑州航班\n您好，现在很多人都在郑州打工，去旅游等等，来回要转很多躺交通工具，很折腾，也为了能宣传咱们家乡，有更多外地人来了解咱们巴中，希望早日开通航班，方便大家出行，感谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13405885",
+   "url": "https://www.cnbz.gov.cn/content/article/13405885",
+   "question": "学籍档案咨询\n因在网上查询不到本人的学籍档案，给市教育局人事科打了电话但无人接听，所以在这里向市教育局人事科申请查询一下档案在何处（师范类）。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13405722",
+   "url": "https://www.cnbz.gov.cn/content/article/13405722",
+   "question": "宅基地申请咨询\n尊敬的领导：\r\n       您好，我是通江县广纳镇某村的村民，因家庭成员增多，需要申请宅基地，但无法确认是否在红线内，请问如何查询哪些位置可以申请宅基地???  以及申请宅基地的政策和手续流程。\r\n\r\n          ",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13405627",
+   "url": "https://www.cnbz.gov.cn/content/article/13405627",
+   "question": "南池艺术广场长期夜间扰民严重\n巴中市巴州区南池南路南池艺术广场 周边居民楼密集且直线距离不足百米，广场上除了广场舞和直播团队外还有一群在广场开展“收费点歌唱歌”的团伙，这群人不仅唱的难听还每天晚上风雨无阻在广场进行从事该项经营活动，此举已严",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13403898",
+   "url": "https://www.cnbz.gov.cn/content/article/13403898",
+   "question": "K23路建议\n尊敬的领导你好!\r\n        本人住乐湾悦府二期在黄家沟美食城上班，25路和21路要绕很大一圈，K23路能否开通快慢车把整条线拉通满足这一条线的居民，K23路可以和巴中东站一起开通夜班车吗？晚上可以像德阳那样可以收4块的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13402765",
+   "url": "https://www.cnbz.gov.cn/content/article/13402765",
+   "question": "恩阳到巴中公交\n目前33、32路公交车早班车(恩阳到巴中）早上7点半才发车，导致很多跨区的人想坐公交车成了问题。就目前我而言，居住在恩阳区，每天早上上班如果搭乘最早的一班车，就会赶不上上班。恩阳区和巴州区跨区的人很多，相信都会遇到这种问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13402152",
+   "url": "https://www.cnbz.gov.cn/content/article/13402152",
+   "question": "关于成立巴中人才集团和创建创业基地的建议\n市委、市政府领导：\n巴中经济要实现跨越式和突破发展，必须打破常规产业和招商思路，破除旧观念、旧思维，依托巴中优势，立意高远，抓长效机制，创造出经济发展的新动能和新引擎。建议成立巴中人才集团和创建创业",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13401817",
+   "url": "https://www.cnbz.gov.cn/content/article/13401817",
+   "question": "关于智慧城市垃圾分类项目\n尊敬的书记阁下：\r\n您好！\r\n首先，请允许我代表四川奇石缘科技股份有限公司，向您致以最诚挚的问候与崇高的敬意。我司自2003年成立以来，始终深耕于物联网、大数据、人工智能及智能传感器技术的研发与应用，致力于以科技创",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13401479",
+   "url": "https://www.cnbz.gov.cn/content/article/13401479",
+   "question": "长期扰民\n坝中名院和德馨苑小区道路的环卫汽车长期在居民区域发出超出正常范围内的噪音，严重影响到正常的睡眠和休息(本人一周有较长时间夜班，白天需要休息;同时小区为城市1类噪音标准，昼间噪音阈值为55分贝，我用多台设备检测环卫车发出的噪音平均值",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13401383",
+   "url": "https://www.cnbz.gov.cn/content/article/13401383",
+   "question": "请求在巴河大桥下滨河路增设垃圾桶\n本人下午做志愿者服务的时候发现：巴河大桥下滨河路有非常多的垃圾。在晚上滨河路会有很多人散步歇凉，还有很多摊贩售卖食物，但是整个步道没有一个垃圾桶，我们下午捡了很久的垃圾根本捡不完，很多垃圾都是扔在草丛里的，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13400939",
+   "url": "https://www.cnbz.gov.cn/content/article/13400939",
+   "question": "恩阳高铁站\n最近恩阳进入了高铁时代，对恩阳的交通带来了巨大的改变，但巴中高铁分巴中西巴中东两个车站，两个车站的距离开车时间约1个小时，目前巴中到成都只有两班动车，分别为：D5121,D5123，但两班列车起始点都位于巴中东站，巴中西站只有3",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13400221",
+   "url": "https://www.cnbz.gov.cn/content/article/13400221",
+   "question": "关于巴中市是否招聘员额制教师\n看到其他很多市州都有招聘员额制教师的计划并且实施，想知道巴中市是否有此计划，也可以给教师专业毕业的学生一个走上讲台实践的机会？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13399206",
+   "url": "https://www.cnbz.gov.cn/content/article/13399206",
+   "question": "关于增设垃圾桶解决丝厂居民附近生活垃圾的请求\n尊敬的荣生书记:\r\n       在市委市政府的领导与部署下，巴城记忆文化产业园（原南坝丝厂）于2024新年之际就先行开放，一时间车水马龙，带来了不小的人流量，作为周边的住户看到家乡有这样的发展",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13399121",
+   "url": "https://www.cnbz.gov.cn/content/article/13399121",
+   "question": "垃圾中转站恶臭长达4年之久严重影响周围群众正常生活\n尊敬的书记：\r\n    您好！我是巴中市南江县下两镇群众，您百忙之中给您反映问题，望理解为感！\r\n    我反映的是环境污染问题。位于南江县下两镇两河村3社垃圾中转站，是2018年南江县城",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13399012",
+   "url": "https://www.cnbz.gov.cn/content/article/13399012",
+   "question": "咨询教师归雁计划\n尊敬的书记您好，\r\n        我是一名在通江县城工作8年的思政教师，因家在巴中市区，小孩3岁，家庭和工作两边跑，实属艰难；想咨询一下，我们巴中市有没有类似教师归雁计划？恳请领导体恤！！！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13399005",
+   "url": "https://www.cnbz.gov.cn/content/article/13399005",
+   "question": "关于南坝小区外工地噪音过大影响居民正常生活的投诉\n南坝小区外(依山郡和凯邦名门中间)工地噪音过大影响居民正常生活，每次听到工地的噪音我浑身上下每个细胞都在抗拒，现在已经严重影响本人正常生活，造成焦虑失眠，恳请处理信箱的同志转住建、环保等相关",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13398100",
+   "url": "https://www.cnbz.gov.cn/content/article/13398100",
+   "question": "建议\n尊敬的领导您好，有以下几点建议望采纳。\r\n第一，江北大道中段从中国银行到工商银行的人行道一直有汽车停放，望有关部门加强监管。\r\n第二，津湖壹号小区（英伦庄园）车库入口处经常停放车辆，严重影响出来车辆驾驶员视线，望加强管理，劝导车辆往前",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13397823",
+   "url": "https://www.cnbz.gov.cn/content/article/13397823",
+   "question": "建议开行巴中经王府井、江湾城、南环线至恩阳城区公交车\n现南环线道路条件好，在恩阳区上班的职工众多，建议开行巴中经王府井、江湾城、南环线至恩阳城区公交车，方便恩阳区上班职工。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13396789",
+   "url": "https://www.cnbz.gov.cn/content/article/13396789",
+   "question": "提取党员档案相关问题\n尊敬的领导，您好，我是今年刚毕业的大学生，因工作还未落实，故将档案转寄回巴中市人才交流中心，党员档案转寄回生源地，咨询了当地的镇政府书记，党员档案接收需要查看党员纸质档案，请问如需提取党员档案需要什么资料，提出后是否还",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13396659",
+   "url": "https://www.cnbz.gov.cn/content/article/13396659",
+   "question": "农村农民上街卖菜无地摆摊\n巴中市回风社区桂花街市场，既是农贸市场，却卖菜无门，市场外临街城管要求不能占道摆摊，市场内各类门市摊贩早已长久买卖/占用摊位，我们农民刚在摊贩旁边摆下，却遭到摊主的驱赶，以影响他人经营为由，如此农民进市场无地落脚，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13396235",
+   "url": "https://www.cnbz.gov.cn/content/article/13396235",
+   "question": "巴中东站  存在的问题 反馈\n巴中通了高铁是全市人民非常高兴的事情，但是往往个别人，素质令人上头。\r\n问题1：巴中东站 站内，公共场所当成自己的客厅，卧室，太自我放纵，随意躺卧、甚至还拖了鞋子（如附件图片），车站工作人员应该加强管理，劝导，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13395896",
+   "url": "https://www.cnbz.gov.cn/content/article/13395896",
+   "question": "关于巴州区至恩阳区高铁站公交运行的意见建议\n书记您好，巴南高铁已于6月27日正式开通运营，巴山公交开通了江北农业银行至恩阳（巴中西站）的G31路公交车。发车间隔时间为一个小时，停车站点较少，很难等到公交，目前巴中市区前往恩阳的32、33路公",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13395871",
+   "url": "https://www.cnbz.gov.cn/content/article/13395871",
+   "question": "巴中2024事业单位招聘公告\n领导您好！目前巴中事业单位公告已出了巴州区的，想请问一下本月还会出巴中其他地区的事业单位公告吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13395582",
+   "url": "https://www.cnbz.gov.cn/content/article/13395582",
+   "question": "巴中到兴文共享单车互通\n市长您好，鉴于巴中东站位于兴文经开区，而兴文的共享单车与巴州城的并不互通，如果将两地的共享单车互通，将极大提高人们出行的效率，望考虑！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13395298",
+   "url": "https://www.cnbz.gov.cn/content/article/13395298",
+   "question": "就业见习\n请问一下，巴中市第九批就业见习岗位什么时候出来啊？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13394661",
+   "url": "https://www.cnbz.gov.cn/content/article/13394661",
+   "question": "今年上半年还招聘事业编制人员吗？如果招聘综合知识大纲是不是新大纲呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13394646",
+   "url": "https://www.cnbz.gov.cn/content/article/13394646",
+   "question": "请问一下今年7月份巴中是否会招考事业编\n很多机构在传巴中在七月份将出事业单位招考公告，想确认一下是否将在7月份出公告。（作为考生很焦急，同时确认一下也方便自己做好今年的就业规划）",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13394405",
+   "url": "https://www.cnbz.gov.cn/content/article/13394405",
+   "question": "2024暑假大学生“返家乡”项目\n尊敬的负责人：\r\n      您好！\r\n      请问巴中市2024暑假大学生“返家乡”项目目前是否有公开的实践名额？是否已发送相关通知？若有，应该在哪个平台查看呢？若没有，暑假期间是否考虑增设项目以及大",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13394242",
+   "url": "https://www.cnbz.gov.cn/content/article/13394242",
+   "question": "2024年农村定单定向医学免费培养报考前是否需要马上向巴中卫健局填写申请表和相关的承诺书，以取得考生的报名资格？还是等高考分数下来后，直接进行提前批网上志愿填报？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13391661",
+   "url": "https://www.cnbz.gov.cn/content/article/13391661",
+   "question": "关于优化城市公交站站名的建议\n尊敬的鲜书记：\r\n       您好！\r\n      现就优化巴中城市公交站站名，向您提出一点粗浅的建议。请斟酌！\r\n      一个城市的公交站站名是城市的名片，也是城市重要的路标和指示，更是城镇化建设的形象",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13391441",
+   "url": "https://www.cnbz.gov.cn/content/article/13391441",
+   "question": "成都到巴中的高铁好久通车运行啊，现在听说在试运行了。\r\n具体好久能通车啊 经常回巴中 成巴高速太堵车了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13391438",
+   "url": "https://www.cnbz.gov.cn/content/article/13391438",
+   "question": "上学升学问题咨询\n尊敬的领导：\r\n       您好，目前小孩3周岁满，秋季即将上幼儿园。因常年在外务工，且不想孩子留守，故意向孩子在外省求学。但因不能准确了解咱们升学/学籍等政策，格外担忧焦虑，生怕一个失误耽误孩子，故来求助。\r\n1.巴中",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13391171",
+   "url": "https://www.cnbz.gov.cn/content/article/13391171",
+   "question": "公交车站台“有去无回”\n我是家住兴文的一名普通市民，在老城上班，每天都要往返巴中和兴文，但是我发现一个问题：26路公交车从兴文到巴中有“职业技术学院站”，而从巴中到兴文却没有设置该站台，每次下车都要坐到“安康北路”站，然后反向步行800米到",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13390607",
+   "url": "https://www.cnbz.gov.cn/content/article/13390607",
+   "question": "关于报销生育保险资料\n尊敬的领导：\r\n      我目前所在工作地在万源市，因目前妻子即将生育，现想咨询一下关于我报销生育险种需要哪些资料，我社保缴纳所在地在巴中兴文，到时候妻子生育在万源市中心医院，妻子没有生育险，只有我有，我这边如果要保",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13390456",
+   "url": "https://www.cnbz.gov.cn/content/article/13390456",
+   "question": "宅基地退出政策？\n尊敬的鲜书记：\r\n       问下，农村宅基地退出政策现行下有哪些？流程、手续、标准等麻烦告知下，谢谢！  本人巴州区清江镇人。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13389669",
+   "url": "https://www.cnbz.gov.cn/content/article/13389669",
+   "question": "汉巴南铁路通行后续\n尊敬的书记，你好！巴南铁路通车后，路过达州的车次变化是如何，巴中站的停靠车次呢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13389548",
+   "url": "https://www.cnbz.gov.cn/content/article/13389548",
+   "question": "党组织名称咨询\n尊敬的领导：\r\n您好！\r\n我是一名来自巴中市巴州区大罗镇二郎村的学生，目前在成都读研究生，因政审需要知道我户口所在地以及其上级单位的组织名称，学校告知组织名称格式为：中共+单位+xx委员会，经过询问村委会，告知我组织名称为：",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13389040",
+   "url": "https://www.cnbz.gov.cn/content/article/13389040",
+   "question": "关于解决中交王府景八匹马广场烧烤店夜间噪音的问题\n尊敬的领导：您好，我是中交王府景一、二期小区的一名业主，自楼下停车场烧烤店开业后，顾客夜间22:00后长时间持续低频噪音，其基本影响到20栋住户正常生活作息，本栋业主一直与物业公司反映其双双",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13388943",
+   "url": "https://www.cnbz.gov.cn/content/article/13388943",
+   "question": "【长期重复问题】南龛坡练嗓影响正常休息\n春天来了，万物复苏，又到了大练嗓门的季节，每天早上5点-7点闲来无事的晨练者人员大开嗓门，吆喝声此起彼伏，源源不断的犹如苍蝇蚊声在耳边来回游走，让人苦不可言。此情况长期扰民，请问到底能不能解决，能不能",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13388638",
+   "url": "https://www.cnbz.gov.cn/content/article/13388638",
+   "question": "隆重感谢关门镇党委书记廖蓉、镇长赵阳先两位领导依法办事、为群众办好事办实事、快速办事！\n尊敬的书记您好，此前我反应的问题已经于今日得到关门镇党委书记廖蓉、镇长赵阳先两位领导的妥善解决，特此来信说明。\r\n\r\n很开心看到在我的家乡关门镇，还有如",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13388100",
+   "url": "https://www.cnbz.gov.cn/content/article/13388100",
+   "question": "请求开通盘兴汽贸园沿线公交车\n盘兴汽贸园沿线公交车有待开通，提升园区建设，稳住园区业态，方便群众出行。特以下建议：\r\n一：盘兴汽贸园现在入住商家11家4S店、驾校科目三考试场、蜀道物流园、东风货车服务站、盘兴还房户安置房。预计人流量达到近2",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13386937",
+   "url": "https://www.cnbz.gov.cn/content/article/13386937",
+   "question": "优化33路公交运行频次的建议\n尊敬的书记您好：\r\n    我是在恩阳区工作的一名职工，家住巴州区，上下班基本乘坐公交，但在乘车的过程中发现在上下班高峰期偶尔会出现33路严重拥挤和无车可坐的情况，后面通过了解主要原因有两点，一是部分恩阳区农户",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13386785",
+   "url": "https://www.cnbz.gov.cn/content/article/13386785",
+   "question": "关于智力残疾人争取最底生活保障金的咨询\n尊敬的领导；您好！\r\n       我是巴中市南江县元潭镇康家岭村人，想咨询一下关于评选最低生活保障金的几个问题；\r\n        1、评选时间大约是什么时候？\r\n        2、我们村干部领导",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13386622",
+   "url": "https://www.cnbz.gov.cn/content/article/13386622",
+   "question": "建议优化调整15路公交线路或增设回风北路至江北线路公交车\n看到贵局拟将15路白云台公交站首末站调整至大佛寺公交站，与2路公交车统一地点发车，感到欣慰。看到了党委政府对回风北路群众的关心和厚爱，极大的解决了沿线群众的出行问题，体现了贵单位的担",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13386294",
+   "url": "https://www.cnbz.gov.cn/content/article/13386294",
+   "question": "请加强巴州区津湖路全路段车辆行驶速度管控\n2023年11月15日，市公安局网站发布《关于调整巴州区津湖路限速值的通告》要求“自2023年11月20日起，将巴州区津湖路全路段＜巴中中学（龙湖校区）路口至壹品广场路口＞限速值由原70公里/小时降",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13386128",
+   "url": "https://www.cnbz.gov.cn/content/article/13386128",
+   "question": "关于巴州区15路公交车经大佛寺绕行的建议\n尊敬的各位领导： 你们好。现建议15路公交车起终点站不变，15路经大佛寺、天誉绕行至广电中心后沿原线路运行。建议调整原因如下：\n1.回风北路滨江一号、天誉、北城天骄等各小区入住人口快速增加，回风北路",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13385904",
+   "url": "https://www.cnbz.gov.cn/content/article/13385904",
+   "question": "巴中站进站电梯\n巴中站进站口为什么没有安装扶梯和电梯啊，每次进站都要拎着行李箱走楼梯；进站以后去往二号站台也没有扶梯或直梯，箱子全靠拎。是否考虑安装电梯方便一下行动不便、老弱病残和行李箱很重的大学生们呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13385554",
+   "url": "https://www.cnbz.gov.cn/content/article/13385554",
+   "question": "关于经开区工业园区增设公交车的建议\n尊敬的市领导，你们好，我想就经开区工业园区公交车通行情况进行一些咨询建议。现阶段巴中城区到经开区公交车基本都要1个小时以上，20到30多个站台不等。这对于市区去工业园区的上班族特别不便，也对经开区的住户去",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13385207",
+   "url": "https://www.cnbz.gov.cn/content/article/13385207",
+   "question": "关于巴中一个特色民俗\n我建议，把巴中的一个特色民俗兴起来————农历正月十四过小年。我记得以前正月十四这天，农村人都会举行一些仪式，巴中城里会举行活动。有关小年的谚语也有一些。一个地方要更吸引游客，需要的是地方特色。游客想看到的是不同的习俗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13384606",
+   "url": "https://www.cnbz.gov.cn/content/article/13384606",
+   "question": "莲花街   、油坊街  汽车乱停严重拥堵\n尊敬的各位领导 莲花街、油坊街车流量大 原本狭窄的道路经常有汽车违法乱停乱放 毫无素质、图自己方便 无人管理 导致经常拥堵 还有商户占道经营 油坊街 危桥 通往玉堂毕竟之路 危桥两端 放了石墩 老是",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13384245",
+   "url": "https://www.cnbz.gov.cn/content/article/13384245",
+   "question": "关于15路公交车发车间隔时间长问题\n书记你好！\r\n        关于15路公交车发车间隔时间长问题，可以解决一下吗？大多数情况我都是坐15路公交车，但是15路公交车发车间隔特别时间长，基本上间隔20分钟到30分钟一趟，15路公交车乘客乘坐",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13384158",
+   "url": "https://www.cnbz.gov.cn/content/article/13384158",
+   "question": "自来水公司不作为，生活用水缺失要人命\n尊敬的鲜书记，我于近日通过12345平台和书记信箱编号为BZSJ20240203103521821反馈生活用水缺失的问题，圣泉水务2月4日来电联系处理时，才惊悉我们目前的水竟然不是队长所说的圣泉水务公司",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13383178",
+   "url": "https://www.cnbz.gov.cn/content/article/13383178",
+   "question": "关于解决江南尚城、江南尚城二期、凯莱国际、今日田园居民回家难的建议\n现在江南尚城、江南尚城二期、凯莱国际、今日田园及附近小区居民入住率逐渐增高，购买该地段的居民大多工作、生活在恩阳、成都等地，之前回家车辆可以在凯莱国际和江南尚城之间的十字路",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13383064",
+   "url": "https://www.cnbz.gov.cn/content/article/13383064",
+   "question": "关于申请廉租房事宜\n本人系平昌县得胜镇户籍，现在巴中市工作7年多，目前租房居住，想咨询申请廉租房相关事宜：\r\n1、目前巴中市申请廉租房这个政策还有没有?\r\n2、如果能申请，具体在哪个单位哪个部门办理，相关咨询电话有没有?\r\n3、需要准备哪些",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13382816",
+   "url": "https://www.cnbz.gov.cn/content/article/13382816",
+   "question": "出租车到插旗山五中是否打表？\n出租车到巴中五中后校门不打表计费，说是超出里程范围，直接收取费用10元、12元不等。汽配街到学校后校门打表仅6元却也收取10元。想请问这个范围是否在打表范围内？为什么不同出租车司机说法不一致？如果在打表范围内，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13382646",
+   "url": "https://www.cnbz.gov.cn/content/article/13382646",
+   "question": "巴中罐头厂球场坝外江南二环路形象墙背后垃圾乱扔问题\n罐头厂球场坝外江南二环路形象墙背后垃圾堆积过多，没有人负责处理。下雨天污水横流，希望社区或者环卫能及时清理。谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13382383",
+   "url": "https://www.cnbz.gov.cn/content/article/13382383",
+   "question": "巴州区江南二环路中间隔离栏缺了一小段，许多车辆违法转弯掉头，影响车辆正常行驶，导致堵车\n巴州区宏地壹品广场与泽尧懿府小区中间那段江南二环路的中间隔离栏杆缺了一段，缺的那一段隔离处没有任何依法设置的转弯掉头标志，许多行人、二轮车、三轮车、四轮",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13380356",
+   "url": "https://www.cnbz.gov.cn/content/article/13380356",
+   "question": "感谢通江县农业农村局\n尊敬的领导，何书记您好！\r\n     我们是来自通江县铁佛镇清溪村二社秦家塬的村民。感谢政府一直以来对农村建设的关心和支持！特别是对水利工程建设的大力支持和投入。使农业生产得到了极大的改善和便利。   \r\n     这",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13378665",
+   "url": "https://www.cnbz.gov.cn/content/article/13378665",
+   "question": "巴中市图书馆官方网站网址\n请问巴中市图书馆的官方网站网址是什么，想使用图书馆数据库资源。另外麻烦确保下能够在网络上正常访问图书馆，并在常用的搜索引擎上前几页能够展现出来。谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13378228",
+   "url": "https://www.cnbz.gov.cn/content/article/13378228",
+   "question": "关于优化经开区公交布局\n尊敬的领导你好！希望公共交通管理部门能加强经开区公交车的优化布局，开通至经开区奇章街道办事处公交车，应充分利用现有21路公交车延长至奇章街道办事处始发终到，让奇章街道办事处居民真正融入经开区 便利人民出行 谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13378146",
+   "url": "https://www.cnbz.gov.cn/content/article/13378146",
+   "question": "了解巴中市 中水（再生水）价格\n请问巴中市或者巴州区的中水（再生水）的售价是多少？在网上无法查询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13377983",
+   "url": "https://www.cnbz.gov.cn/content/article/13377983",
+   "question": "关于自行车上公交\n尊敬的领导：\r\n       你好！\r\n       本次写信是希望提出一个关于城市交通的建议，我相信这个建议不仅对我个人的通勤有重大影响，也对城市的环境和公共交通系统有积极的影响。\r\n       我是一名普通的市民，每",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13377762",
+   "url": "https://www.cnbz.gov.cn/content/article/13377762",
+   "question": "建议增加回风大溪口至江北广场附近公交线路车\n尊敬的何书记：建议增加回风大溪口至江北广场附近公交线路车，原因如下：1、目前，回风大溪口方向北城天骄、天誉等小区入住居民日渐增加，进城方向的公交线路车有且只有2号线路一条，并只到巴城江南方向。沿途",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13377674",
+   "url": "https://www.cnbz.gov.cn/content/article/13377674",
+   "question": "关于招聘社会工作者的相关工作岗位咨询\n您好，领导！本人于2023年6月参加了2023年社会工作者职业水平考试，并于本月取得助理社会工作师证。请问，在巴中市范围内，有没有关于社会工作者的相关工作岗位，可以在哪里去关注这方面的招聘公告？想要在巴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13376180",
+   "url": "https://www.cnbz.gov.cn/content/article/13376180",
+   "question": "关于巴州区清江镇开设公交车的问题\n尊敬的何书记您好：\r\n                    巴州区清江镇历来是巴中东部的重要中心场镇，如今巴城“一城两翼”呼之欲出，巴中东环线也如愿建设，请问后期东环线联通后能否开设到清江镇的公交车呢，现",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13376051",
+   "url": "https://www.cnbz.gov.cn/content/article/13376051",
+   "question": "关于增开江湾城、天下城至江北方向公交车的建议\n尊敬的何书记：\r\n      目前中坝江湾城、天下城方向小区入住居民日渐增加，进城方向的公交线路均为到老城方向，小区居民有一些在江北方向工作及小孩在中坝小学就读的往往乘车不便，进城方向出租车的车",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13375819",
+   "url": "https://www.cnbz.gov.cn/content/article/13375819",
+   "question": "龙舌坝龙腾街右侧树木茂密\n尊敬的领导：\r\n    我是巴州区龙舌坝今日田园小区居民，日常出入经过龙腾街左侧人行道（粮库旁），但人行道树木过于茂密，路灯照射不到人行道路面，我们小区有好几个小朋友晚上回家的时候因为看不清路面，导致摔跤。\r\n  ",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13375480",
+   "url": "https://www.cnbz.gov.cn/content/article/13375480",
+   "question": "关于南龛坡清晨练嗓噪音影响休息的问题\n每天早上天未亮（聚焦时间点为：夏天6点-6点半，冬天6点半-7点），南龛坡山顶总有一些人练嗓，犹如苍蝇蚊子声音在耳边嗡嗡作响，此起彼伏，影响正常休息，让人苦不堪言。\r\n以上此情况已多次通过12345热线",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13375298",
+   "url": "https://www.cnbz.gov.cn/content/article/13375298",
+   "question": "关于南江县乡村旅游景点的情况咨询\n领导您好！我是一名在校研究生，我的毕业论文想写家乡巴中，论文方向是乡村旅游的营销策略。需要一些关于南江县乡村旅游景点如;最美玉湖-七彩长滩、云顶茶乡、植梦西厢这三个景点近5年的旅游数据，如客流量，收入，景区",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13373111",
+   "url": "https://www.cnbz.gov.cn/content/article/13373111",
+   "question": "关于2023届下半年事业单位招聘的咨询\n麻烦问下2024届毕业生能报考参加2023年下半年巴中事业单位招聘考试嘛",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13372736",
+   "url": "https://www.cnbz.gov.cn/content/article/13372736",
+   "question": "南龛坡飞霞阁对外开放建议\n南龛坡飞霞阁建成已经有10年了，我就是搞不懂，为什么不对外开放，我的意思就是，也不是要求免费，收费对放开放也好啊，开放的好外也就太多了，我就不一一列举了，是个人就明白。坏处的话，目前我没想到。\n所以我强烈建议将南龛",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13371758",
+   "url": "https://www.cnbz.gov.cn/content/article/13371758",
+   "question": "诺水大道通江至涪阳段到底什么时候能通车额，年初的时候已经有很多车在走了，昨年就发布消息说能通车额，今年都9月份了，还没动静。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13371726",
+   "url": "https://www.cnbz.gov.cn/content/article/13371726",
+   "question": "文凭学历学位分类\n大学 法学学士学位 是否属于 法学类？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13371253",
+   "url": "https://www.cnbz.gov.cn/content/article/13371253",
+   "question": "2023年事业单位考试科目\n领导，您好，请问2023年事业单位考试科目是什么，什么时候出公告？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13371068",
+   "url": "https://www.cnbz.gov.cn/content/article/13371068",
+   "question": "川渝二级造价是否能跨省注册\n尊敬的领导：您好！请问在重庆通过二级造价师考试并取得资格证书后能否在川内进行初次注册？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13370932",
+   "url": "https://www.cnbz.gov.cn/content/article/13370932",
+   "question": "建议恢复或开通成都至巴中夕发朝至的普通列车\n市发改委：\r\n      领导，你好。以前成都至巴中有夕发朝至的列车，后因开通了动车后，就被停了。众所周知，市发改委领导肯定更清楚，想必管这块工作的您也很少或没有乘坐过成都往返巴中的动车吧？！当前",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13370582",
+   "url": "https://www.cnbz.gov.cn/content/article/13370582",
+   "question": "关于玉堂街道北龛社区  北辰阳光小区和丰泽北岸小区对面开人行通道的问题\n尊敬的何书记您好:\r\n        我是玉堂街道北龛社区北辰阳光小区的住户，目前北辰阳光小区1800余户，旁边丰泽北岸小区1600余户，两个小区的人较多，尤其老人出行",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13369939",
+   "url": "https://www.cnbz.gov.cn/content/article/13369939",
+   "question": "赴高校人才引进\n您好！我想咨询一下2023年下半年巴中还有事业单位赴高校人才引进的计划吗？如果有，大概在什么时候呢？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13369618",
+   "url": "https://www.cnbz.gov.cn/content/article/13369618",
+   "question": "房贷降息事宜\n2023年8月2日新闻联播中的，联播快讯中有一条新闻，说的是中国人民银行指导商业银行，依法有序调整存量个人住房贷款利率，之后我拨打工行服务电话95588，工行让我联系当地银行咨询，而后我多次拨打江北工行电话，电话始终处于无人接",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13368596",
+   "url": "https://www.cnbz.gov.cn/content/article/13368596",
+   "question": "21路公交车过站不停 违反《道路旅客运输企业安全管理规范》\n于2023年8月3日18:25-18:30 21路公交车过兴文镇西部云谷站时 过站不停 违反《道路旅客运输企业安全管理规范》请求整改",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13367711",
+   "url": "https://www.cnbz.gov.cn/content/article/13367711",
+   "question": "巴中市经济开发区花海森林公共厕所未使用\n本人居住在四川省巴中市经济开发区花海森林楼盘，该项目在前些年的公共厕所是可以使用的，但是近些年一直无法使用，让市民和游客非常不方便。想问一下，该项目公共厕所是否有移交相关部门，未投入使用的原因是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13367639",
+   "url": "https://www.cnbz.gov.cn/content/article/13367639",
+   "question": "关于恩阳32路33路公交线路的意见建议\n书记您好，巴州区至恩阳区先后开通32路公交路线和33路公交路线。\r\n32路公交运行区间为（巴州区白云台——回风亭——费尔顿 ——恩阳区），\r\n33路公交运行区间为（巴州区黄家沟——南坝——费尔顿——恩",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13367514",
+   "url": "https://www.cnbz.gov.cn/content/article/13367514",
+   "question": "就业补贴\n巴中市户籍的高校毕业生有就业补贴m",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13367117",
+   "url": "https://www.cnbz.gov.cn/content/article/13367117",
+   "question": "回风亭路口道路标志线有歧义，诱发违章。\n回风亭路口道路标志线，中间车道有左拐弯和直行，前方只有斜的箭头，右边车道有三轮车需要避让，外地车迟疑了一下就违章了。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13366948",
+   "url": "https://www.cnbz.gov.cn/content/article/13366948",
+   "question": "就业\n尊敬的领导您好，请问巴州区是否还会发布就业见习岗位？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13366569",
+   "url": "https://www.cnbz.gov.cn/content/article/13366569",
+   "question": "居民用水脏\n居民吃水用水杂质严重，影响生活健康安全",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13366035",
+   "url": "https://www.cnbz.gov.cn/content/article/13366035",
+   "question": "2023届毕业生党组织关系转接\n尊敬的领导您好，您好，我是一名巴中市通江籍的2023届应届毕业生，现在学校要求我们进行相应的党组织关系转接，想咨询一下关于介绍信的相关问题。 1.介绍信的抬头:学校文件要求是省委、市委、县委等县级以上党委的组",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13365988",
+   "url": "https://www.cnbz.gov.cn/content/article/13365988",
+   "question": "团组织关系转接\n尊敬的书记您好！本人是巴州区桂花街道的一名大学生，于本月初毕业，因此需要将团组织关系转回居住地回风亭社区团支部。但由于网上没有找到相关的信息，学校的团组织也只能看到名称，导致团组织关系的转接无法办理，且学校要求尽快转接工作，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13365838",
+   "url": "https://www.cnbz.gov.cn/content/article/13365838",
+   "question": "巴中市第一中学\n书记您好，我想咨询一下，之前看规划有在兴文规划建设巴中市第一中学，请问现在有在建设吗？何时能招生呢？老师的来源是哪里啊？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13365669",
+   "url": "https://www.cnbz.gov.cn/content/article/13365669",
+   "question": "红色巴中联系不上红色基地\n领导您好！我是成都这边一家做亲子研学公司的小职员，负责整理四川省内可以做研学基地的信息，巴中是红色教育基地，对小朋友有着非常深刻教育意义的地方，但是我没有想到，网上各个平台都找不到景区和基地的联系方式，我目前已查询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13365603",
+   "url": "https://www.cnbz.gov.cn/content/article/13365603",
+   "question": "关于争取央企国家铁路成都局集团在巴中设立相关直属机构\n尊敬的领导您好！今年以来市委、市政府提出争取“国省重大生产力布局巴中”，也相继发布了《巴中市人民政府关于印发〈巴中市高水平扩大开放促进投资若干政策措施〉的通知》(巴府发〔2022〕2 号",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13365268",
+   "url": "https://www.cnbz.gov.cn/content/article/13365268",
+   "question": "装修咨询\n我在欧洲城购房一套，位于3楼，房屋朝向小区内，阳台之外有一小型露台，露台几乎与阳台等长等宽，但露台边缘墙体高度较高，严重影响室内采光。该露台墙体非承重墙，是唯一影响采光因素存在。请问我想拆除降低一部分露台墙体，确保室内采光，是否合",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13364974",
+   "url": "https://www.cnbz.gov.cn/content/article/13364974",
+   "question": "巴中市体育中心羽毛球场\n请问巴中市体育中心有室内羽毛球场吗？对民众开放吗？可以对民众开放吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13363958",
+   "url": "https://www.cnbz.gov.cn/content/article/13363958",
+   "question": "关于在北宸天骄小区外主干道加装隔离栏、限速监控的建议\n回风北路北宸天骄小区外主干道，经典幼稚园与粮库交叉路口，自2019年该小区交房以来，此路口已发生多起交通事故。今天（6月13日）下午再次发生一起交通事故，造成一名老人重伤，目前生死不明！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13363731",
+   "url": "https://www.cnbz.gov.cn/content/article/13363731",
+   "question": "通平宣开高速走向和进度\n书记及各相关人员你们好，\r\n\r\n咨询下通平宣开高速线路走向，出入口设置，和目前的进展情况。\r\n\r\n谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13363713",
+   "url": "https://www.cnbz.gov.cn/content/article/13363713",
+   "question": "郑州巴中往返航班何时复航？\n郑州和巴中都属于市级行政区，经查询以前是有直飞航班的，巴中自然资源优越，巴蜀福地；郑州商贸氛围浓厚人口众多，建议复飞两城市之间的航班。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13361882",
+   "url": "https://www.cnbz.gov.cn/content/article/13361882",
+   "question": "关于西华山隧道回风出口减速带噪音问题的反应\n尊敬的高市长：\n我是住在回风大道龙兴佳苑附近的居民。目前回风大道西华山隧道口，就是费尔顿酒店附近交通减速带，存在严重噪音问题，特别是夜晚车流量大的时候，吵得道路两旁的居民直接睡不着。减速带附近也并",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13360880",
+   "url": "https://www.cnbz.gov.cn/content/article/13360880",
+   "question": "2023巴中市三支一扶\n领导您好，本人籍贯为巴中市恩阳区，户籍在成都市郫都区，本人希望回到恩阳建设家乡，参加巴中市恩阳区三支一扶项目，请问恩阳区今年有没有不限户籍的三支一扶岗位？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13359697",
+   "url": "https://www.cnbz.gov.cn/content/article/13359697",
+   "question": "巴中市第六届运动会\n咨询一下:按惯例，今年该举办巴中市第六届运动会了，政府今年有这个计划吗？大概什么时候呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13358300",
+   "url": "https://www.cnbz.gov.cn/content/article/13358300",
+   "question": "公交车\n恩阳至下八庙镇的公交车传了几年，道路及硬件早就具备开行条件。沿途十几万百姓的短途出行都等着它。希望领导再百忙之中关注一下，让利国利民的实事早日落地。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13358200",
+   "url": "https://www.cnbz.gov.cn/content/article/13358200",
+   "question": "平昌县信义大道黄滩坝大桥与邦泰中心白鹤路交叉口增加人行通道\n本人是四川省平昌县得胜人，现居住在平昌县信义大道黄滩坝社区邦泰中心，现在2个小孩在信义小学读书，现邦泰中心住宅小区、城市体育公园已建成，人口越来越多，但在黄滩坝大桥与邦泰中心白鹤路",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13358057",
+   "url": "https://www.cnbz.gov.cn/content/article/13358057",
+   "question": "关于巴州区回风北路公交路线单一的问题\n尊敬的各位领导：\r\n         我是即将入住回风北路天誉小区的一名市民。随着巴州城区的逐步发展，回风北路北城天骄、天誉、滨江一号、荣邦四季城等住宅小区陆续交房入住，入住人口将很快迅猛增长，同时该区",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13357968",
+   "url": "https://www.cnbz.gov.cn/content/article/13357968",
+   "question": "建议给巴中市中心医院产科增加叫号设备\n产科门口经常排长队，一堆孕妇就在门口等叫号，经常等一两个小时叫不了10个号。建议参照儿科，到了才重新排号。问了下护士，她们也很无奈，说没有跟儿科一样的叫号电脑和系统，所以只能人工调节。这样矛盾很大。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13357247",
+   "url": "https://www.cnbz.gov.cn/content/article/13357247",
+   "question": "关于吴家河街滨河路的意见建议\n尊敬的高市长，您好！我是七里香溪的住户，首先感谢市委市政府对我们小区居民的关心关爱，修建完善了从丰泽园到七里香溪的道路，解决了我们小区居民出行难的问题，对你们的付出表示衷心的感谢。修建的滨河路给我们小区居民提供",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13356482",
+   "url": "https://www.cnbz.gov.cn/content/article/13356482",
+   "question": "巴中市A级景区有多少，其中恩阳古镇的旅游发展状况\n领导您好！我是在外求学的大四毕业生，我现在在完成我的毕业论文：“巴中市恩阳古镇旅游品牌传播策略研究”，需要一些关于巴中市总体旅游景区数量的数据，和恩阳古镇的客流量，发展现状等信息。非常感谢领",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13355204",
+   "url": "https://www.cnbz.gov.cn/content/article/13355204",
+   "question": "建议在北龛大道御景湾小区两边增设行人斑马线和车辆掉头区域\n尊敬的书记：\r\n您好，我是北龛大道御景湾小区居民，最近创文，每天观察御景湾两边道路出行问题，御景湾小区位于北龛大道体育馆旁，往东走是进城和去经开区方向，往西走是通往盘兴和恩阳的北环路",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13354910",
+   "url": "https://www.cnbz.gov.cn/content/article/13354910",
+   "question": "关于主城区公交车更新的疑惑\n尊敬的各级领导，\r\n        你们好！首先十分感谢与感动我们巴中市主城区自2022年6月中旬以来逐步更换了主城区的200余辆传统公交车为新能源公交车，强有力地推动了我们巴中市的生态文明建设与新旧动能转换发展",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13354238",
+   "url": "https://www.cnbz.gov.cn/content/article/13354238",
+   "question": "关于巴师附小巴中师范校区校门口恢复设置人行道的建议\n巴师附小在巴中师范校区设置教学班以后，巴师附小巴中师范校区（巴中市巴州区红军路70号所在）路段人流车流都相对以前办设中学阶段较多，交通部门为减少安全隐患，从三号桥头到西华路段在道路中间设置",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13353406",
+   "url": "https://www.cnbz.gov.cn/content/article/13353406",
+   "question": "巴中市人才引进建议\n尊敬的熊部长，您好！ 本人系巴中籍在外求学的研究生一名，时常关注巴中的人才引进发展工作，也殷切希望回到家乡贡献自己的微博之力。 近几年来，巴中市人才引进工作如火如荼，引进到了许多的杰出的医学类和教育类人才，这对巴中的发展",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13352766",
+   "url": "https://www.cnbz.gov.cn/content/article/13352766",
+   "question": "我们巴中市\n尊敬的何书记、高市长：\r\n         我是一名在通江县工作已经8年的中学政治学科教师（其中乡镇工作5年，现在通江县职业高级中学任教），工作勤勤恳恳。今年已经37岁了，由于我户籍巴州区，妻子在巴中市高级中学任教(户籍也是巴州",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13352748",
+   "url": "https://www.cnbz.gov.cn/content/article/13352748",
+   "question": "特岗招聘\n请问一下今年巴中市有特岗招聘计划嘛?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13352149",
+   "url": "https://www.cnbz.gov.cn/content/article/13352149",
+   "question": "关于解决巴中公交车屡次占用右转车道占道等灯的行为\n领导你好：\r\n      关于解决巴中公交车屡次占用右转车道占道等灯的行为想想你反应一下，希望能得到响应的回应和有效的解决办法。\r\n      位置：巴州区回风亭红绿灯路口。\r\n      ",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13351801",
+   "url": "https://www.cnbz.gov.cn/content/article/13351801",
+   "question": "争取C751次达州–攀枝花城际列车延伸至巴中始发\n近期开行的C751次城际列车拉近了川东北与攀枝花等地的距离，方便了沿线城市的往来交流，希望我市努力争取将该车次从达州始发延伸至巴中始发，方便两地人员往来 对巴中发展文旅产业也将起到积极作用。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13351197",
+   "url": "https://www.cnbz.gov.cn/content/article/13351197",
+   "question": "关于2023年教师职称中增加书法证书事宜\n尊敬的领导:\n之前有出文件关于2023年教师职称评定增加书法等级证书.前期受疫情影响无法按时参加四川省组织的书法考试(且一年只有一次参加考试的机会),故有参加教育部组织的书法等级考试(https:/",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13350991",
+   "url": "https://www.cnbz.gov.cn/content/article/13350991",
+   "question": "关于“S404平昌县龙岗至佛楼段改建工程”与“佛楼镇集镇扩容及改造提升工程”项目进展情况\n尊敬的何书记\n您好\n作为一名在外工作的游子，时刻关注着家乡一点一滴的变化，从网上渠道了解到“S404平昌县龙岗至佛楼段改建工程”与“佛楼镇集镇扩容及改",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13350938",
+   "url": "https://www.cnbz.gov.cn/content/article/13350938",
+   "question": "关于春节巴中火车站\n尊敬的巴中市领导：您好！我是众多在外工作的巴山游子们中的其中一名，虽然常年在外工作生活，但是故乡情结却无法割舍，常常在众多新媒体里看到家乡动态，欣喜之情溢于言表，巴中，这几年的发展有目共睹，发展之迅速，虽比不上北、上、广",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13350913",
+   "url": "https://www.cnbz.gov.cn/content/article/13350913",
+   "question": "还我血汗钱\n本人2021年1月25日在成都爱贝斯教育集团巴中校区交培训学费9800.00元，共计160课程，2021年8月，四川爱贝斯负责人谢龙跑路，本人孩子已学课程35节，剩余125节，共计人民币7656.25元，望领导和相关部门高度重视",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13350692",
+   "url": "https://www.cnbz.gov.cn/content/article/13350692",
+   "question": "人才引进\n请问，2023年人才引进公告是好久出来？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13350222",
+   "url": "https://www.cnbz.gov.cn/content/article/13350222",
+   "question": "关于天星路与安康路交接处，檬子河大桥红绿灯的一点建议\n尊敬的领导您好：\r\n    我是一名每天早上7点半左右途径檬子河大桥的一名上班族，因今年春节后檬子河大桥十字路口开通，因此红绿灯也有所变化。但是每天早上我过路的时候，已经是上午7:30左",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13347881",
+   "url": "https://www.cnbz.gov.cn/content/article/13347881",
+   "question": "莲花街马路小车子乱停\n尊敬的各位领导  莲花街整改后 马路窄 汽车乱停乱放 原本的马路 两边都停满汽车 就只有一车道行驶 。加上 非机动 行人 都走一个道 严重 拥堵  存在安全隐患 。建议马路边不要停车  保证马路行驶 畅通  莲花街 严",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13347540",
+   "url": "https://www.cnbz.gov.cn/content/article/13347540",
+   "question": "全镇无设立垃圾桶\n关于平昌县响滩镇全镇无垃圾桶，全镇流通人员普通垃圾无处安放，导致街道随处可见垃圾，虽然现在都倡导降塑，但是日常的生活垃圾确实不方便携带。\n此外，关于镇上居民生活垃圾处理，现阶段是每天早上或晚上来收集，但是垃圾收集车来的提醒",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13347024",
+   "url": "https://www.cnbz.gov.cn/content/article/13347024",
+   "question": "实习咨询\n各位领导好！我是一名就读于山西大同大学的2019级学生。我所学专业为新闻学，目前面临实习问题。我前几日咨询过市广播电视局、恩阳区融媒、市政协等得到答复为目前不接受实习生。因我毕业作品选题为巴中市的文旅传播，所以实习地点需要在巴中市",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-bazhong",
+   "id": "13345323",
+   "url": "https://www.cnbz.gov.cn/content/article/13345323",
+   "question": "兴圣天然气公司客服态度极其恶劣，望相关部门予以解决\n这几日因新房入住，天然气径路需进行改移，我家人联系该公司开气电话为3333918的客服进行改气业务办理，电话联系期间该客服不顾我们不了解他们公司内部的工作分配，对我们大吼大叫，说话声音极其",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

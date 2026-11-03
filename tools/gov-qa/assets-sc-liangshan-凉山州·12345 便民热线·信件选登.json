@@ -1,0 +1,1125 @@
+{
+ "A_考卷": [
+  {
+   "source": "sc-liangshan",
+   "id": "202608865733",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "咨询更改房产户主问题\n我是西昌市的居民，我想咨询一下房子是我和我老公两个人的名字，现在要改成一个人的，请问需要什么资料？",
+   "cited_hits": [
+    {
+     "name": "不动产登记暂行条例实施细则",
+     "lib_no": "不动产登记暂行条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "202608844622",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "咨询办理保安证问题\n在德昌县应该在哪个部门办理保安证，费用多少？故来电，望相关部门予以回复。",
+   "cited_hits": [
+    {
+     "name": "保安服务管理条例",
+     "lib_no": "保安服务管理条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "公安机关实施保安服务管理条例办法",
+     "lib_no": "保安服务管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "四川省保安员资格考试实施办法（试行）的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "202608845988",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "咨询办理房产证问题\n我是甘洛县苏雄镇的居民，我们家的老房重建后要办理房产证需要一些什么手续、资料？",
+   "cited_hits": [
+    {
+     "name": "不动产登记暂行条例实施细则",
+     "lib_no": "不动产登记暂行条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "202607758541",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "咨询劳动权益相关问题\n我想咨询一下德昌县在公司受工伤之后休养期间是否有工资？",
+   "cited_hits": [
+    {
+     "name": "工伤保险条例",
+     "lib_no": "工伤保险条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "cf1d136c0ba4eb0a8239c958f745e056",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "医保报销\n请问一下哪些医疗费用不纳入医保报销呢？",
+   "cited_hits": [
+    {
+     "name": "国家安全法",
+     "lib_no": "国家安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "202603404066",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "咨询申请宅基地问题\n我是喜德县光明镇甘哈觉莫村二组的村民，我家房子属于土坯房，我想咨询能不能申请宅基地，故通过热线咨询，希望相关部门尽快帮助处理。",
+   "cited_hits": [
+    {
+     "name": "土地管理法",
+     "lib_no": "土地管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "202602348644",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "咨询停车收费相关问题\n冕宁县泸沽镇路边的公共停车位都安装了锁，停车时锁就会抬起，停车会进行收费，我想咨询公共停车位收费是国家收取还是私人收取，这一行为是否合法合规？故来电，请相关部门调查处理。",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国道路交通安全法",
+     "lib_no": "道路交通安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于冕宁县城区公共停车位收费标准 的批复",
+    "冕宁县城市管理局 冕宁县财政局关于将智慧停车项目交由冕宁交投公司作为业主实施的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "0797cc31b5a70a9cdee2ca441aa6352d",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "【政民互动直派】办理个体工商户营业执照\n诉求内容办理个体工商户营业执照，网上经营",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国市场主体登记管理条例实施办法",
+     "lib_no": "市场主体登记管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "202602346062",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "反映产假问题\n雷波县2026年的产假是什么政策？我去医院产检单位要求我请事假是否是违法的？希望相关部门告知我。故来电，望相关部门核实处理。",
+   "cited_hits": [
+    {
+     "name": "女职工劳动保护特别规定",
+     "lib_no": "女职工劳动保护特别规定(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "女职工劳动保护特别规定",
+     "lib_no": "女职工劳动保护特别规定(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "女职工劳动保护特别规定",
+     "lib_no": "女职工劳动保护特别规定(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "四川省人口与计划生育条例",
+    "四川省人口与计划生育条例",
+    "四川省人口与计划生育条例",
+    "四川省人口与计划生育条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "202601269228",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "咨询驾驶证违章扣分问题\n我想咨询在昭觉县驾驶证违章扣分是否可以用直系亲属的驾驶证代扣？",
+   "cited_hits": [
+    {
+     "name": "道路交通安全违法行为记分管理办法",
+     "lib_no": "道路交通安全违法行为记分管理办法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "sc-liangshan",
+   "id": "202609906100",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "咨询独生子女补贴问题\n我是冕宁县居民，是一名教职工，已经退休两年了，退休后就没有领到过独生子女补贴，请上级部门介入处理。故来电，望相关部门及时处理。",
+   "cited_hits": [],
+   "cited_missing": [
+    "独生子女父母光荣证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "568726d36ad5a8f7382d6b6a5a34a801",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "【政民互动直派】独生子女补贴\n请问宁南县是否有独生子女补贴",
+   "cited_hits": [],
+   "cited_missing": [
+    "独生子女证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "202608829099",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "咨询开办养殖场问题\n我是喜德县且拖乡的村民，准备办个养猪场，请问需办理哪些资质以及可不可以办理和具体办理流程？其次养殖200头猪国家也没有相应补助？",
+   "cited_hits": [],
+   "cited_missing": [
+    "动物防疫条件合格证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "592d951cdcb80dc36187874022dd53ff",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "4050补贴\n我妈妈今年49岁，94年到02年一共买了5年零一个月的社保，明年50岁后社保年限不够，需要往后买5年再一次性补缴，如果今年申请4050社保补贴能补贴多久呢?",
+   "cited_hits": [],
+   "cited_missing": [
+    "四川省财政厅四川省人力资源和社会保障厅关于印发的通知",
+    "残疾人证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "202607745953",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "咨询禁钓问题\n我想咨询一下冕宁县冶勒湖是否禁止钓鱼？",
+   "cited_hits": [],
+   "cited_missing": [
+    "冕宁县养殖水域滩涂发展规划",
+    "冕宁县人民政府关于天然水域实施全面禁捕的通告",
+    "冕宁县天然水域休闲垂钓管理办法 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "202607716742",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "咨询高温补贴\n我是宁南县石梨镇大田村三组的村民，在家务农，想咨询高温补贴怎么申请？需要哪些手续？",
+   "cited_hits": [],
+   "cited_missing": [
+    "防暑降温措施管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "62ca3446eb37486056ac674a3e94cc38",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "【政民互动直派】教资认定\n我是一名应届毕业生，教资认定时我还未取得毕业证和学位证，请问现在是否还可以认定呢？如果可以具体要怎么操作呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "凉山州教育和体育局关于2026年上半年教师资格认定工作的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "202606633297",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "咨询创业补贴政策\n我想咨询冕宁县是否有政府扶持创业补贴呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "四川省人力资源和社会保障厅关于进一步规范创业补贴政策经办流程的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "ab7551fa56ad804c4879e233c43fae79",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "【政民互动直派】教师资格认定\n户口木里县，在成都上班，无成都居住证，本人是否需要到木里县交材料？",
+   "cited_hits": [],
+   "cited_missing": [
+    "木里县教育体育和科学技术局关于2026年上半年教师资格认定工作的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "202606656904",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "咨询报考保安证\n我想咨询一下越西县报考保安证需要什么材料？",
+   "cited_hits": [],
+   "cited_missing": [
+    "保安员证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "ce7c987ae5c434e34f0bf9f0d6bddb70",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "【政民互动直派】小孩出生证明\n小孩出生证明遗失，如何补出生医学证明？",
+   "cited_hits": [],
+   "cited_missing": [
+    "出生医学证明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "202606664874",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "咨询西昌市月最低工资\n我想咨询一下西昌市月最低工资是多少。",
+   "cited_hits": [],
+   "cited_missing": [
+    "凉山州人民政府关于调整全州最低工资标准的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "029fb1e4eb1c97c8b5a6e0952b796cd0",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "贵县畜禽养殖禁养区政策咨询\n请问贵县首次划定畜禽养殖禁养区（三区）的时间是什么时候？自首次划定后，后续哪几年进行了调整？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于划定畜禽养殖禁养区的通告",
+    "畜禽养殖禁养区划定技术指南"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "202606636194",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "咨询免费坐公交问题\n我是上海户籍，目前已经79岁，申请了西昌市长期居住证，请问是否可以在西昌免费坐公交？麻烦部门给我一个回复。",
+   "cited_hits": [],
+   "cited_missing": [
+    "咨询免费坐公交车问题"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "202606611400",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "咨询办理独生子女证问题\n我想咨询冕宁县现在还能不能办理独生子女证？",
+   "cited_hits": [],
+   "cited_missing": [
+    "独生子女父母光荣证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "202605594078",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "咨询高温补贴问题\n我想咨询西昌市在工地上班的员工是否有高温补贴呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "四川省人力资源和社会保障厅等4部门关于调整四川省高温津贴标准的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "202605578732",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "咨询迁户问题\n我从美姑县搬到雷波县生活了18年，现在想迁户至雷波县黄琅镇。",
+   "cited_hits": [],
+   "cited_missing": [
+    "准予落户通知书",
+    "准予落户通知书",
+    "迁移入户申请表",
+    "准予落户通知书",
+    "村民民主议事同意证明",
+    "居民身份证",
+    "居民户口簿",
+    "迁移入户申请表",
+    "准予落户通知书",
+    "居民身份证",
+    "居民户口簿"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "4c890e44caee670b713fcc1326aa22ff",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "摆摊卖小饰品可以选哪些位置\n在县城摆一平方米的小摊可以选哪些位置？需要什么手续吗？需要交摊位费吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "冕宁县城市管理局关于临时夜市摊区规范经营的通告",
+    "夜市摊点规范经营承诺书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "202605526870",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "咨询分户政相关政策\n我是甘洛县苏雄镇的居民，我想咨询分户必须要持有两个房产证才能分户吗？故来电，望相关部门及时处理。",
+   "cited_hits": [],
+   "cited_missing": [
+    "不动产登记证",
+    "结婚证",
+    "居民户口簿",
+    "居民身份证",
+    "出生医学证明 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "c3ebbb0b5afd3996d8d24c250a47de86",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "生态环境保护领域工作举措\n您好，请问本地在生态环境保护领域有哪些具体工作举措？",
+   "cited_hits": [],
+   "cited_missing": [
+    "美丽凉山建设规划（2024—2035年）",
+    "凉山州目标绩效管理办法",
+    "生态环境促进稳增长服务高质量发展二十条措施",
+    "致全州建设单位负责人的一封信",
+    "凉山州大气环境质量持续改善规划",
+    "凉山州土壤污染分区管控方案",
+    "凉山彝族自治州邛海保护条例",
+    "凉山彝族自治州泸沽湖保护条例",
+    "安宁河流域保护条例",
+    "凉山州重点流域水生态环境保护规划",
+    "凉山州生态环境损害赔偿和生态环境保护民事公益诉讼中开展劳务代偿的暂行办法（试行）",
+    "凉山州突发生态环境事件应急预案",
+    "凉山州安宁河流域“一河一策一图”环境应急响应方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "82f96f89ee68875be55d3e369bc7d262",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "【政民互动直派】咨询农村养老保险补缴相关问题\n我想咨询一下，农村养老保险补缴有哪些档位可选，补缴的具体流程是什么？政策性文件是什么？",
+   "cited_hits": [],
+   "cited_missing": [
+    "四川省人力资源和社会保障厅关于印发的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "ce693e146e12c630e7db3f600d74683e",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "咨询宁南县大病医疗临时救助申请\n我想为我爸申请一下临时救助，请问需要一些什么手续和证明，在县上还是村上哪里去办理？还有像老人家这样又没有买社保，又不能打工了的，可以申请农村低保吗？申请又需要什么条件，如何申请呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "临时救助申请书",
+    "家庭（个人）经济状况核查授权承诺书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "86847bd3ec6d6569a0ffd9e5a2981047",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "结婚证\n请问不是本地户口可以在甘洛县领取结婚证吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "婚姻登记工作规范"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "16b1dbb03164e05331acf333c72b6028",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "【政民互动直派】同址分户\n诉求内容同址分户需要什么条件，以及相关文件要求和需要准备的材料",
+   "cited_hits": [],
+   "cited_missing": [
+    "全省公安机关户政管理工作规程",
+    "关于规范农村地区户籍登记管理工作的通知",
+    "居民户口簿",
+    "居民身份证",
+    "房屋产权证",
+    "不动产登记证",
+    "公有房屋租赁使用证明",
+    "结婚证",
+    "离婚证",
+    "宅基地使用权证",
+    "不动产登记证",
+    "建房许可证",
+    "村镇房屋所有权证",
+    "离婚证",
+    "居民户口簿",
+    "居民身份证",
+    "关于农村户籍居民申请使用宅基地分户的函",
+    "离婚证",
+    "居民户口簿",
+    "居民身份证",
+    "XX乡镇（以上政府）关于同意XX分户的函",
+    "居民户口簿",
+    "居民身份证",
+    "离婚证",
+    "居民户口簿",
+    "居民身份证",
+    "全省公安机关户政管理工作规程",
+    "关于规范农村地区户籍登记管理工作的通知",
+    "居民户口簿",
+    "居民身份证",
+    "房屋产权证",
+    "不动产登记证",
+    "公有房屋租赁使用证明",
+    "结婚证",
+    "离婚证",
+    "宅基地使用权证",
+    "不动产登记证",
+    "建房许可证",
+    "村镇房屋所有权证",
+    "离婚证",
+    "居民户口簿",
+    "居民身份证",
+    "关于农村户籍居民申请使用宅基地分户的函",
+    "离婚证",
+    "居民户口簿",
+    "居民身份证",
+    "XX乡镇（以上政府）关于同意XX分户的函",
+    "居民户口簿",
+    "居民身份证",
+    "离婚证",
+    "居民户口簿",
+    "居民身份证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "202601278507",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "咨询宅基地审批问题\n我叔叔是从会理市搬到德昌县永郎镇永定社区已经三十多年了，我们的户籍在会理市益门镇齐合村，他家人口比较多，想在德昌县新建房屋，村委会说他们户口不在德昌县，不能在这里审批宅基地，想咨询怎样才能在德昌县审批宅基地建房？故来电，",
+   "cited_hits": [],
+   "cited_missing": [
+    "德昌县农村宅基地和住房建设管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "202602338219",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "咨询分户问题\n我是冕宁县泸沽镇瓦勒拉达村的村民，我要办理分户，我想咨询需要什么材料要去哪里办理，故通过热线咨询，希望相关部门尽快帮助处理。",
+   "cited_hits": [],
+   "cited_missing": [
+    "居民户口簿",
+    "居民身份证",
+    "房屋产权证",
+    "不动产登记证",
+    "公有房屋租赁使用证明",
+    "结婚证",
+    "离婚证",
+    "宅基地使用权证",
+    "不动产登记证",
+    "建房许可证",
+    "村镇房屋所有权证",
+    "离婚证",
+    "居民户口簿",
+    "居民身份证",
+    "关于农村户籍居民申请使用宅基地分户的函",
+    "关于农村户籍居民申请使用宅基地分户的函",
+    "离婚证",
+    "居民户口簿",
+    "居民身份证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "202602294463",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "咨询房屋修建相关问题\n我是甘洛县新市坝镇岩润阿发村2组周照英，我家房屋现在是2层，家里人口多现在想扩建到4层，想咨询下需要什么手续，在哪里审批，故通过热线，请相关部门核实处理。",
+   "cited_hits": [],
+   "cited_missing": [
+    "四川省农村住房建设管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "202602305738",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "咨询陪护假期问题\n我是木里县的职工，我的父母也是年满60周岁的退休职工。我想问我父母现在生病住院，我们退休职工的家属有没有陪护假期去照顾父母？故来电，望相关部门核实回复。",
+   "cited_hits": [],
+   "cited_missing": [
+    "四川省老年人权益保障条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "202601266057",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "咨询居住证办理的问题（加急）\n我在西昌市宁远桥老达达超市背后租房居住，但是我们租的房子是自建房，没有房产证，现在孩子读书急需居住证，但是因为没有房产证，无法办理，我想咨询一下这种情况应该怎么办理居住证？故通过热线咨询，望相关部门及时处理。",
+   "cited_hits": [],
+   "cited_missing": [
+    "西昌市居住证管理实施细则",
+    "房屋所有权证",
+    "不动产权证",
+    "商品房买卖合同",
+    "按揭合同",
+    "房屋所有权证",
+    "房屋所有权证",
+    "不动产权证",
+    "公共租赁住房租用证",
+    "房屋所有权证"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "sc-liangshan",
+   "id": "202608848656",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "咨询办理厨师证问题\n我是越西县的居民，我想办理厨师证请问我要去哪里办理，需要什么相关资料。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "202608857704",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "咨询停车收费问题\n冕宁县彝海收费站旁边有一个司机之家停车场，请问停车要收费吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "202608840932",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "咨询养殖相关问题\n我在木里县进行养殖，属于牧场放牧，不属于家庭养殖，是否需要办理养殖相关手续，如果需要的话具体需要哪些材料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "202608818789",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "咨询非婚非婚生子女户口申报\n我是昭觉县谷曲镇河西村的村民，我想咨询非婚生子女如何上户口？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "202608829446",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "咨询病人转运车辆（加急）\n我想咨询普格县是否有专业拉病人的车辆，需要出省份到贵州省，救护车无法出省，想咨询是否还有其他途径？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "202608793232",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "咨询路线公里数\n本人想要咨询从盐源县政府前往洼里乡的实际公里距离以及详细出行路线，导航软件显示路程为三百多公里，本人怀疑该距离并不准确故来电，恳请相关管理部门予以答复。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "202608780180",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "咨询改名字相关问题\n我想咨询一下西昌市已经成年了，要改姓名的话需不需要父母到场，要带什么资料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "202608772738",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "咨询申请个人低保\n我是雷波县永盛镇高峰村的村民，想咨询申请个人低保需具体哪些条件以及需提供哪些资料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "8b677b54eb954a7afe151ef9c65d9213",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "关于最低工资标准\n请问喜德县最新的最低工资标准是多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "202607715086",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "咨询换证问题\n我是布拖县的，我拖拉机驾驶证过期了需要换证，要去哪里换证？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "202607693497",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "咨询种植受损的补偿政策\n喜德县冕山镇近期下起暴风雨和冰雹导致本地烤烟种植地毁坏严重，我想咨询这类情况的补偿政策该到当地哪个部门进行报备。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "202607678903",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "咨询办理营业执照问题\n我在昭觉县三岔河镇三河村申请办理营业执照，自家房屋无不动产权证，但已取得村委会、三岔河镇共同出具并盖章的《住所（经营场所信息核查情况说明》。是否必须提供房产证才能办理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "202606663099",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "咨询种植补助政策\n本人是甘洛县乌史大桥镇娃洛普村村民，一共种植庄稼60亩，品种为玉米、土豆等。现咨询大规模种植粮食是否有对应的涉农补助政策。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "87a14e43985b9df5419f7890e8ef2cfd",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "沿江高速通车时间\n请问一下沿江高速新市到雷波段什么时候通车，看到网上有人说是8月底，但是有些地方还没有完工，比如雷波出口附近那座拱桥，以及这座桥两边都没有架梁，所以想问一下具体的通车时间。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "bd3e3cae72a35cccc723cd0f771dc1d3",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "未满60岁人员城乡居民养老保险补缴政策\n我想咨询未满60岁人员城乡居民养老保险相关问题。1.补缴中断的年份只能按照最低档（200元/年）进行核定补缴吗？2.已缴年份能否进行提档补缴？3.是否有子女资助政策？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "064d07e98e559e23e84772de593fc6db",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "盐源县人民政府截至2025年底人口总数\n请问盐源县截至2025年底人口总数是多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "5de19825013599ac3ab8ff4ab0d44af6",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "【政民互动直派】个体户营业执照注销\n如何注销名下营业执照",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "202605583352",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "咨询办理消防安全检查问题\n我已经在德昌县办理了个体工商户营业执照，我想咨询公共聚集场所投入使用营业前的消防安全检查是在哪里办理？办理的图纸是否需要设计院盖章?故来电，望相关部门告知。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "b7093ec76a3bad47587e33028acffef4",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "木里直达九龙或者冕宁的公路\n请问从木里到九龙或者冕宁的公路现在可以通行吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "202604515439",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "咨询宅基地原址重建手续\n本人户籍为普格县荞窝镇，现计划在该宅基地原址重新修建房屋，请相关部门告知宅基地原址重建的具体申请条件、所需材料、审批流程及办理部门，以便依法依规办理手续、启动建设。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "202605539081",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "咨询申请临时救助和医疗救助问题（加急）\n我是越西县板桥镇板桥村的村民，我想申请临时救助和重病医疗救助，请问向哪个部门申请需提供哪些资料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "202605520759",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "咨询驾驶证补贴问题\n我是昭觉县的居民，我想咨询C2驾驶证补贴怎么申请？以及要准备什么资料？故来电，望相关部门核实处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "1d9a2389e278a95a6fcac495e8124b35",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "【政民互动直派】创业补贴\n诉求内容2022年6月大专毕业2026年3月创业可以申请毕业补贴吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "35423de6631bc9ed385498bef6c99725",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "凉山州德昌县\n您好，请问哪里可以查询到本地区招考录用信息？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "d3a133d8547d43bb19cab1e791eda856",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "凉山彝族自治州德昌县政府工作报告信息\n您好，请问哪里可以查询到本地区政府工作报告信息？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "c0d6096181c13c56045d83dfe90fcef4",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "凉山州美姑县招考录用\n您好，请问哪里可以查询到本地区招考录用信息？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "98db5e9ba523764c9590f7faea28ab12",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "凉山州宁南县招考录用\n您好，请问哪里可以查询到本地区招考录用信息？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "abf946cb5020753313dc33d6e3bddb1d",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "凉山州养老服务保障领域\n您好，请问本地在养老服务保障领域有哪些具体落实举措？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "80801c57cb0666f370fe967c705e327c",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "凉山彝族自治州美姑县政府工作报告信息\n您好，请问哪里可以查询到本地区政府工作报告信息？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "c9dbc324809909490522c3617b675a99",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "凉山彝族自治州宁南县政府工作报告信息\n您好，请问哪里可以查询到本地区政府工作报告信息？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "202604480728",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "咨询居住证明相关问题\n我在布拖县已居住近一年，近期首次申领居住证。请问申领后是否需等待半年才能拿到证件？特此来电咨询，恳请相关部门核实并予以处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "202604461742",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "咨询驾驶证更换\n我想咨询一下德昌县车管所能否办理境外驾驶证换国内驾驶证？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "c756b21af7c9d19ea101b61663c0308d",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "户口迁移事项\n本人原户籍在冕宁县复兴镇，后因外出读书和工作原因，最后户口迁出落到了成都市温江区，现在老家户口只有父母亲两人了，我想把我户口迁回父母亲户口本上，需要怎么办理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "202604504124",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "咨询研究生补助问题\n我是盐源县的居民，请问盐源县考上研究生有没有补助。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "202604493340",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "咨询领取创业补贴相关问题\n我的户籍在喜德县，大学毕业以后我自己创业开了一个台球室，今年我自己找了一份购买五险的工作，但是店还是一直开着，我想咨询上班有五险是否影响我领取创业补贴？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "202604475753",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "咨询名下登记的车牌号码\n我购买了一辆两轮的金箭电瓶车，并在雷波县上牌，但是我现在我的牌照遗失了，我自己也忘记了牌照号码，交警那边需要我提供车牌号才能为我处理，我想咨询一下相关职能部门是否能通过我的姓名和身份证号码查询到我名下登记的车辆？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "18e919a627ddd2a07456644020084a1f",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "【政民互动直派】咨询职业技能鉴定补贴\n护士资格证书可以申领职业技能鉴定补贴吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "202604458857",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "咨询摩托车销户问题\n我是金阳县的居民，我的摩托车已经达到报废了，但是现在车找不到了，只有车牌号了，请问现在可以销户吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "f52fe20ba4d456bba4ffe2a8706bae1b",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "【政民互动直派】注销营业执照\n咨询如何注销营业执照？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "202604477550",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "咨询电费问题\n我想咨询一下西昌市居民用电国家规定收费是多少钱一度？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "6ec9defd02b794d360d4e06f66685dd4",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "【政民互动直派】新生儿名字的字数\n听说现在因为名字重复率较高，所以新生儿取名两个字的不好上户口，不知道这个消息的真假，所以来咨询一下。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "202604443995",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "咨询农民工最低工资\n我想请问一下相关职能部门凉山州木里县农民工工资最低标准是每天多少元？烦请职能部门告知我，非常感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "202603385325",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "咨询异地车辆销户问题\n我想要咨询异地车辆在普格县能不能销户，请相关部门核实处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "fd51fb7c173e6fab4ee2f3aa5c784ba6",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "【政民互动直派】卫生经营许可证\n我现居住在昭觉县，想咨询线上怎么办理卫生经营许可证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "caefa552ff3d42229881321f77c36887",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "关于泸沽湖景区无人机禁飞与限飞问题的咨询\n四川省境内的泸沽湖景区全域是否属于无人机禁飞区域？景区四川片区是否划分了明确的限飞区、禁飞区与可飞区？若游客个人想在四川境内泸沽湖景区使用无人机拍摄，是否需要提前向景区或相关部门报备？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "202603400012",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "咨询更改姓名\n我想去喜德县红莫镇派出所更改姓名，请问需要什么条件？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "202602296448",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "咨询开具无犯罪证明\n我是雷波县汶水镇的村民，需要申请无犯罪记录证明，请问可以到当地派出所办理吗？故来电，请相关部门及时处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "085cf4844ee8e2aa5347248862832bfd",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "【政民互动直派】雷波县公租房的申请\n外省务工人员在雷波县是否能够申请公租房以及公租房的申请所需要的详细流程。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "202603394332",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "咨询买房问题\n我是外省的，我想在冕宁县彝海镇上购买别人的房子，我可以购买吗？请相关部门给我一个回复。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "4f715573c3a37f5b5c2c2b7f39d4cab8",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "今年下半年三中四中开始招生了吗？\n我想问一下昭觉县三中、四中修好了吗？今年下半年会不会招生？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "202603413600",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "咨询新生儿上户问题\n我是会东县铅锌镇的居民，我想咨询一下新生儿上户需要什么相关材料。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "8dab35af439918fc77d990e6162b3fb2",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "旅游景点\n您好，请问喜德县有那些免费的旅游景点可供游玩？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "90a79187972da1b96f0eb5a2d3a0b79d",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "游玩路线和攻略\n您好，计划最近到木里藏族自治县，请问是否有官方推荐路线和游玩攻略？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "202603400328",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "咨询婚姻登记问题\n我到民政局办理结婚证，由于之前我自己在西昌康立医院做了婚检，就直接把婚检的资料交给了工作人员，想着不用在做婚检了，结果工作人员告诉我在他们规定的医院婚检才可以，康立医院的婚检结果真的不能用吗，请部门回复。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "202601234250",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "咨询城乡小学招生范围\n我要咨询一下冕宁县城乡小学招生范围是哪里，请相关部门给我一个回复。故来电，望相关部门及时处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "124b96457b41650da9eed426b754b11c",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "请问四川省现在的产假是多少天？\n想问一下四川省目前具体的产假是多少天？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan",
+   "id": "202602305168",
+   "url": "http://12345.lsz.gov.cn/notice/xjxd/index.html",
+   "question": "反映雨露计划补\n我是布拖县拖觉镇美撒村5组60号的村民，之前我们家是有雨露计划补助，今年的补助没有发请问为什么。故来电，请相关部门及时处理。\n姓名：乃古有日，身份证：513429200704073237",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

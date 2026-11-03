@@ -1,0 +1,519 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>
+
+</title><link rel="icon" href="../favicon.ico" /><link href="../Styles/style.css" rel="stylesheet" type="text/css" />
+    <script src="/12345/Scripts/jquery-1.10.2.min.js" type="text/javascript"></script>
+    
+    <link href="Scripts/layui/css/layui.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="styles/style.css" type="text/css" />
+    <style type="text/css">
+        html, body
+        {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        body, table
+        {
+            font-size: 12px;
+            margin: 0;
+        }
+        table.t1
+        {
+            border: 1px solid #BEBEBE;
+            border-collapse: collapse;
+        }
+        table.t1 td
+        {
+            background-color: #ffffff;
+            border: 1px solid #BEBEBE;
+        }
+        .treven td
+        {
+            background: #0066CC;
+        }
+        .su
+        {
+            margin: 10px auto;
+            width: 1140px;
+            padding: 10px 0;
+            border: 1px solid #B3C4D3;
+            background: #f3f6fb;
+            border-radius: 5px;
+        }
+        .suosuoleft
+        {
+            height: 30px;
+            width: 250px;
+            background-color: #fff;
+            border: 1px solid #cdcdcd;
+            margin-left: 10px;
+        }
+        .suosuoleft1
+        {
+            height: 30px;
+            width: 100px;
+            background-color: #fff;
+            border: 1px solid #cdcdcd;
+            margin-left: 10px;
+        }
+        .SearchInput
+        {
+            padding-left: 15px;
+            line-height: 28px;
+            color: #949494;
+            font-size: 16px;
+        }
+        .searchR
+        {
+            background: #4180bd;
+            cursor: pointer;
+            height: 30px;
+            width: 125px;
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            line-height: 30px;
+            text-align: center;
+            margin-left: 30px;
+        }
+    </style>
+    <script src="scripts/layui/layui.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            submitInfo();
+            //initDounit();
+
+            initCity();
+            $("#unitDiv").keyup(function (event) {
+                if (event.keyCode == 13) {
+                    setCookie("zsk_list_curr", curr, 1);
+                    submitInfo();
+                }
+            });
+        });
+        //初始化单位
+        function initDounit() {
+            $("#dounit").empty();
+            var option = $("<option>").val("").text("");
+            $("#dounit").append(option);
+            $.ajax({
+                type: "GET",
+                url: "CommonHandler.ashx/ashx?opreate=szf_wz_get_unit",
+                success: function (data) {
+                    var json = eval('(' + data + ')');
+                    var jsontest = [
+                        { name: "单位1", value: "1", issz: "1" }
+                    ];
+                    for (var i = 0; i < json.length; i++) {
+                        var option = $("<option>").val(json[i].value).text(json[i].name);
+                        $("#dounit").append(option);
+                    }
+                    //$('#dounit').comboSelect();
+                },
+                error: function (jqXHR) {
+                    console.log("Error: " + jqXHR.status);
+                }
+            });
+        }
+
+        //初始化地市
+        function initCity() {
+            $("#city").empty();
+            var option = $("<option>").val("").text("");
+            $("#city").append(option);
+            $.ajax({
+                type: "GET",
+                url: "CommonHandler.ashx/ashx?opreate=szf_wz_get_city",
+                success: function (data) {
+                    var json = eval('(' + data + ')');
+                    var jsontest = [
+                        { name: "地市1", value: "1", issz: "1" }
+                    ];
+                    for (var i = 0; i < json.length; i++) {
+                        var option = $("<option>").val(json[i].value).text(json[i].name);
+                        $("#city").append(option);
+                    }
+                    //$('#dounit').comboSelect();
+                },
+                error: function (jqXHR) {
+                    console.log("Error: " + jqXHR.status);
+                }
+            });
+        }
+
+        function submitInfo() {
+            var currPage = getCookie("zsk_list_curr") || 1;
+
+            // XSS防护：输入校验和编码
+            var likeinfo = $('#likeinfo').val() || '';
+            var dounit = $('#dounit').val() || '';
+            var city = $('#city').val() || '';
+
+            // 前端白名单校验
+            if (likeinfo && !isValidInput(likeinfo)) {
+                layer.msg('搜索关键词包含非法字符，请重新输入', { icon: 2 });
+                return;
+            }
+            if (dounit && !isValidInput(dounit)) {
+                layer.msg('提供单位包含非法字符，请重新输入', { icon: 2 });
+                return;
+            }
+
+            //alert(currPage);
+            layui.use('table', function () {
+                var table = layui.table;
+                var tableWidth = $('#form1').width();
+                table.render({
+                    elem: '#test'
+                    , url: 'CommonHandler.ashx'
+                    , height: 430
+                    , response: {
+                        statusName: 'code' //规定数据状态的字段名称，默认：code
+                        , statusCode: 200 //规定成功的状态码，默认：0
+                        , msgName: 'msg' //规定状态信息的字段名称，默认：msg
+                        , countName: 'count' //规定数据总数的字段名称，默认：count
+                        , dataName: 'data' //规定数据列表的字段名称，默认：data
+                        //, curr: currPage                        //起始页
+                    }
+                    , page: { //支持传入 laypage 组件的所有参数（某些参数除外，如：jump/elem） - 详见文档
+                        layout: ['limit', 'count', 'prev', 'pawge', 'next', 'skip'] //自定义分页布局
+                        , curr: currPage //设定初始在第 5 页
+                        , limit: 20
+                        , limits: [20, 30, 40, 50]
+                        , groups: 5
+
+                    }
+                    , where: {
+                        opreate: "szf_wz_base_zsk",
+                        likeinfo: likeinfo ? encodeURI(likeinfo) : '',
+                        dounit: dounit || '',
+                        city: city || ''
+                    }
+                    , cellMinWidth: 80 //全局定义常规单元格的最小宽度，layui 2.2.1 新增
+                    , cols: [[ //表头
+                          {field: 'id', title: '业务单号', sort: true, fixed: 'left', hide: true }
+                          , { field: 'title', title: '问题', width: '65%' }
+                          , { field: 'content', title: '提供单位', width: '25%', sort: true }
+                          , { field: 'sendtime', title: '提供时间', width: '10%' }
+                        ]]
+                    , even: true //开启隔行背景
+                    , done: function (res, curr, count) {
+                        //如果是异步请求数据方式，res即为你接口返回的信息。
+                        //如果是直接赋值的方式，res即为：{data: [], count: 99} data为当前页数据、count为数据总长度
+                        console.log(res);
+
+                        // 检查返回状态
+                        if (res.code === 400) {
+                            layer.msg(res.msg || '输入内容包含非法字符，请重新填写', { icon: 2 });
+                            return;
+                        }
+
+                        if (res.code === 500) {
+                            layer.msg('系统错误，请稍后重试', { icon: 2 });
+                            return;
+                        }
+
+                        //得到当前页码
+                        setCookie("zsk_list_curr", curr, 1);
+                        console.log(curr);
+                        var that = this.elem.next();
+                        res.data.forEach(function (item, index) {
+                            if (index % 2 == 0) {
+                                var tr = that.find(".layui-table-box tbody tr[data-index='" + index + "']").css("background-color", "#ffffff");
+                            } else {
+                                var tr = that.find(".layui-table-box tbody tr[data-index='" + index + "']").css("background-color", "#f4f9fd");
+                            }
+                        })
+
+                        //$(".layui-table th").css("font-weight", "bold"); // 设定表格标题字体加粗
+                        $('th').css({ 'background-color': '#5792c6', 'color': '#fff', 'font-weight': 'bold' });
+                        //得到数据总量
+                        console.log(count);
+                        //$('td').css({ 'color': '#fff' })
+                        //Layui_SetDataTableRowColor('test', 0, '#2c08b1');
+                    }
+                    ,error: function (xhr, status, error) {
+                        // 统一错误处理
+                        if (xhr.status === 403) {
+                            layer.msg('输入包含不安全内容，请重新填写', { icon: 2 });
+                        } else {
+                            layer.msg('请求失败，请检查网络连接', { icon: 2 });
+                        }
+                    }
+                });
+                //监听行单击事件（单击事件为：rowDouble）
+                table.on('row(test)', function (obj) {
+                    //console.log(obj.tr) //得到当前行元素对象
+                    //console.log(obj.data) //得到当前行数据
+                    var data = obj.data;
+                    //window.location.assign("ZskView.aspx?id=" + data.id + "");
+                    if (data.id) {
+                        // 对id进行编码，防止XSS
+                        window.location.href = "ZskView.aspx?id=" + data.id;
+                    }
+                    //layer.alert(JSON.stringify(data), {
+                    //    title: '当前行数据：'
+                    //});
+                    //标注选中样式
+                    //obj.tr.addClass('layui-table-click').siblings().removeClass('layui-table-click');
+                });
+            });
+
+        }
+
+        // 前端输入白名单校验
+        function isValidInput(input) {
+            // 允许中文、英文、数字、常见标点符号
+            var pattern = /^[\u4e00-\u9fa5a-zA-Z0-9\s\-_.,，。、；;：:！!？?()（）]+$/;
+
+            // 检查是否包含HTML标签或脚本
+            var dangerousPattern = /<[^>]*>|javascript:|on\w+\s*=|&#|\\x|\\u/i;
+
+            return pattern.test(input) && !dangerousPattern.test(input);
+        }
+
+        // HTML转义函数（用于渲染时）
+        function escapeHtml(text) {
+            var map = {
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#039;'
+            };
+
+            if (text === null || text === undefined) {
+                return '';
+            }
+
+            return String(text).replace(/[&<>"']/g, function (m) {
+                return map[m];
+            });
+        }
+
+        function setCookie(cname, cvalue, exdays) {
+            var d = new Date();
+            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+            var expires = "expires=" + d.toGMTString();
+            document.cookie = cname + "=" + cvalue + "; " + expires;
+        }
+        function getCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i].trim();
+                if (c.indexOf(name) == 0) { return c.substring(name.length, c.length); }
+            }
+            return "";
+        }
+        //模拟渲染
+        var render = function (data, curr) {
+            var arr = [], thisData = data.concat().splice(curr * nums - nums, nums);
+            layui.each(thisData, function (index, item) {
+                arr.push('<li>' + item + '</li>');
+            });
+            return arr.join('');
+        };
+
+        //设置layui datatable的某一行的颜色
+        //TabDivId:tab父div id;RowIndex:行序列号，从0开始；ColorString：颜色字符串，如'#123456'
+        function Layui_SetDataTableRowColor(TabDivId, RowIndex, ColorString) {
+            try {
+                var div = document.getElementById(TabDivId);
+                if (div != null) //找到对象了
+                {
+                    var table_main = div.getElementsByClassName('layui-table-main');   //通过class获取table_main
+                    if (table_main != null && table_main.length > 0) {
+                        var table = table_main[0].getElementsByClassName('layui-table');   //通过class获取table
+                        if (table != null && table.length > 0) {
+                            var trs = table[0].querySelectorAll("tr");
+                            if (trs != null && trs.length > 0) {
+                                trs[RowIndex].style.color = ColorString;
+                            }
+                        }
+                    }
+                }
+            }
+            catch (e) {
+                console.log(e.message);
+            }
+        }
+
+        function rightToggle() {
+            var t = $('#xfc').css("display") == "none" ? "点击收起" : "点击展开";
+            $("#toggleA").text(t);
+            $('#xfc').toggle();
+        }
+
+        function gotoTop() {
+            document.body.scrollTop = document.documentElement.scrollTop = 0;
+        }		
+    </script>
+</head>
+<body style=" overflow:auto;">
+    <form method="post" action="./listworkloadzsk.aspx" id="ctl01">
+<div class="aspNetHidden">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTY1NDU2MTA1MmRkFQx72iF5ldu8LmhM+m0IX8KZfxgtMx8HCaOB6ShHYwk=" />
+</div>
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="2862E719" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAAMBePpNkNhNEdSBBXlf7eGii47B4izSu7jdmYdlNxW15kwrczlsnHXOxn18+sECDKj2RUCfgG+NMluC5sw6YLlSWCUueA9rV05ugeCHRqghKw==" />
+</div>
+<div class="norshow">
+  <div class="top"ergodic="serve">
+    <div class="wip_header_bg"> </div>
+    <div class="wip_banner_bg">
+      <div class="wip_banner">
+        <div class="floatleft fhsy"> <a href="http://www.shandong.gov.cn">返回首页</a> </div>
+        <div class="wip_header_right">
+          <div class="floatright"style="margin-top:10px;">
+            <div class="wip_header_li" id='curDate'></div>
+            <div class="wip_header_li" id="userNameDiv" style=" display:none;"> <a href="#"></a> </div>
+            <div class="wip_header_li" id="logoutDiv" style=" display:none;"> <a href="/12345/getTicket.aspx?type=0">退出</a> </div>
+            <div class="wip_header_li" id="loginDiv"> <a href="/12345/getTicket.aspx?type=1">登录</a> </div>
+            <div class="wip_header_li" id="registerDiv"> <a href="/12345/getTicket.aspx?type=2">注册</a> </div>
+            <div class="wip_header_li" id="historySqDiv" style=" display:none;"> <a href="/12345/getTicket.aspx?type=3">历史诉求</a> </div>
+          </div>
+        </div>
+      </div>
+      <div class="wip_nav">
+        <div class="wip_nav_li t1"> <a href="http://www.shandong.gov.cn">首页</a> </div>
+        <div class="wip_nav_li t2"> <a href="http://www.shandong.gov.cn/col/col94090/index.html">要闻动态</a> </div>
+        <div class="wip_nav_li t3"> <a href="http://www.shandong.gov.cn/col/col92383/index.html">政务公开</a> </div>
+        <div class="wip_nav_li t4"> <a href="http://www.shandong.gov.cn/col/col94091/index.html">政务服务</a> </div>
+        <div class="wip_nav_li t5"> <a href="http://www.shandong.gov.cn/col/col94092/index.html">政民互动</a> </div>
+        <div class="wip_nav_li t6"> <a href="http://www.shandong.gov.cn/col/col94094/index.html">走进山东</a> </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="header"> </div>
+<div style=" position: fixed; right:0px; top:350px;width:124px; z-index:9999; ">
+    <a target="_blank" title="问卷调查" style=" width:124px; height:126px;"
+        href="http://221.214.14.42:10081/rxdc/website/ResearchView.aspx?guid=20230517-2220-2248-3784-FA163E82836E&viewType=pc&pageId=3">
+        <img alt="问卷调查" style="width:124px; height:126px;" src="/12345/images/wjdc.png" />
+    </a>
+</div>
+            
+    <div class="index">
+        <img alt="" src="images/back.png" width="98px" onclick="window.history.go(-1)" />
+        <div class="content bg">
+            <h1 class="rd">
+                热线常见问题列表</h1>
+            <div class="su">
+                <div class=" floatleft">
+                    <span style="line-height: 28px; font-size: 16px; margin-left: 30px;" class="floatleft">
+                        关键字:</span>
+                    <input id="likeinfo" class="SearchInput suosuoleft" placeholder="请输入关键字"
+                        maxlength="100" type="text" />
+                </div>
+                <div class=" floatleft" id='unitDiv'>
+                    <span style="line-height: 28px; font-size: 16px; margin-left: 30px;" class="floatleft">
+                        提供单位:</span>
+                    
+                    <input id="dounit" class="SearchInput suosuoleft" pattern="^[\u4e00-\u9fa5a-zA-Z0-9\s\-_.,，。、；;：:！!？?()（）]+$" placeholder="请输入单位名" maxlength="100" type="text" />
+                </div>
+                <div class=" floatleft" id='cityDiv'>
+                    <span style="line-height: 28px; font-size: 16px; margin-left: 30px;" class="floatleft">地市:</span>
+                    <select id="city" class="SearchInput suosuoleft1" style="width: 200px; line-height:32px; height:32px;">
+                    </select>
+                </div>
+                <div class="searchR floatleft" onclick="submitInfo()">
+                    搜索</div>
+                <div class="clear">
+                </div>
+            </div>
+            <div id="cmenuDiv" style="position: absolute; z-index: 9002; display: none; overflow: auto"
+                onclick="closeMenu()">
+                <div id="c_menu" class="menu" style="position: absolute; display: none">
+                </div>
+            </div>
+            <div id="m_menu" style="position: absolute; z-index: 9001; top: 0px; left: 0px; background-color: #ffffff;
+                filter: alpha(opacity=0); opacity: 0; display: none" onclick="closeMenu()">
+            </div>
+            <table class="layui-hide" id="test" lay-filter="test">
+            </table>
+            <div id="page">
+            </div>
+        </div>
+    </div>
+   
+            <input name="ctl00$loginUser" type="hidden" id="loginUser" />       
+            <input name="ctl00$loginUserHid" type="hidden" id="loginUserHid" />       
+    </form>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //获取当前时间
+            var date = new Date();
+            var year = date.getFullYear();    //  返回的是年份
+            var month = date.getMonth() + 1;  //  返回的月份上个月的月份，记得+1才是当月
+            var dates = date.getDate();       //  返回的是几号
+            var day = date.getDay();          //  周一返回的是1，周六是6，但是周日是0
+            var arr = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六", ];
+            //2022年5月27日 星期五
+            $("#curDate").html(year + "年" + month + "月" + dates + "日 " + arr[day]);
+
+            var userName = $("#loginUser").val();
+            if (userName != "") {
+                $("#userNameDiv").show().find("a").text(userName);
+                $("#logoutDiv").show();
+                $("#historySqDiv").show();
+                $("#loginDiv").hide();
+                $("#registerDiv").hide();
+            } else {
+                $("#userNameDiv").hide().find("a").text("");
+                $("#logoutDiv").hide();
+                $("#historySqDiv").hide();
+                $("#loginDiv").show();
+                $("#registerDiv").show();
+                checkLogin();
+            }
+        });
+        //获取
+        function getQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]);
+            return null;
+        }
+
+        //验证登录，如果有token=XXXXXXXX&proxyapp=XXXXXXXX 且没有登录信息，则调取接口获取用户信息
+        function checkLogin() {
+            var token = getQueryString("token");
+            var proxyapp = getQueryString("proxyapp");
+            if (token != null && proxyapp != null
+               && token != '' && proxyapp != '') {
+                //从后台直接调用接口获取用户信息
+
+                //获取数据
+                $.post("szfwz/CommonHandler.ashx",
+			        { opreate: 'szf_wz_getUserInfo',
+			            token: token,
+			            proxyapp: proxyapp
+			        },
+                    function (ret) {
+                        var data = eval('(' + ret + ')');
+                        if (data.success) {
+                            $("#userNameDiv").show().find("a").text(data.name);
+                            $("#logoutDiv").show();
+                            $("#historySqDiv").show();
+                            $("#loginDiv").hide();
+                            $("#registerDiv").hide();
+                        } else {
+                            alert(data.msg);
+                        }
+                    }
+                );
+            }
+        }
+    </script>
+<script type="text/javascript" src="http://www.shandong.gov.cn/script/1962/2109261148083525.js"></script>  
+</body>
+</html>

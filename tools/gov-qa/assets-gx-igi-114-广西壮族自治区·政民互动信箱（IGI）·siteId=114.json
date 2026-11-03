@@ -1,0 +1,266 @@
+{
+ "A_考卷": [
+  {
+   "source": "gx-igi-114",
+   "id": "157814334978",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814334978",
+   "question": "禁烧秸秆，禁止露天焚烧秸秆是指？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国大气污染防治法",
+     "lib_no": "大气污染防治法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "gx-igi-114",
+   "id": "100084757",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=100084757",
+   "question": "污水处理厂主要接收纺织染整企业废水进行处理，产生污泥属于SW07 170-001-S07 纺织污泥。此类污泥的处置单位资质是否需要明确到二级分类代码170-001-S07。如生活污水处理厂污泥、印染污泥、造纸污泥均属于一般固废SW07污泥。",
+   "cited_hits": [],
+   "cited_missing": [
+    "固体废物分类与代码目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-114",
+   "id": "157830227676",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157830227676",
+   "question": "请问我市秸秆露天禁烧区有哪些调整？",
+   "cited_hits": [],
+   "cited_missing": [
+    "贺州市秸秆露天禁烧区划定调整方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-114",
+   "id": "157830101326",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157830101326",
+   "question": "请问今年以来贺州市采取了哪些措施提升水质？成效如何？",
+   "cited_hits": [],
+   "cited_missing": [
+    "贺州市2025年地表水环境质量提升攻坚行动方案",
+    "2025年贺州市主要干支流及工业固定源入河排污口整治方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-114",
+   "id": "157814421707",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814421707",
+   "question": "怎么进入贺州市环境影响评价审查专家库？有哪些条件？",
+   "cited_hits": [],
+   "cited_missing": [
+    "贺州市环境影响评价审查专家库管理办法（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-114",
+   "id": "157814413825",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814413825",
+   "question": "今年春节到底能不能放鞭炮？有人说贺州放开了管制，是不是真的？",
+   "cited_hits": [],
+   "cited_missing": [
+    "贺州市销售燃放烟花爆竹管理条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-114",
+   "id": "157814343950",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814343950",
+   "question": "您好！ 我想请问关于项目建设，环保验收批复的流程和需要的材料是什么？能否提供相关网站进行参考呢？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于发布&lt;建设项目竣工环境保护验收暂行办法&gt;的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-114",
+   "id": "157814194245",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814194245",
+   "question": "请问过年可以集中放烟花爆竹的地点范围是哪些呀？",
+   "cited_hits": [],
+   "cited_missing": [
+    "2021年春节等重大节日期间城区烟花爆竹禁燃限放专项行动方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-114",
+   "id": "157814187337",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814187337",
+   "question": "领导您好；感谢您抽空看我的信件，我是金旗小区四栋一单元203户二楼的业主，7月29日时我家卫生间厕所发生返水，楼上用厕时粪水，纸巾等杂物全从厕所口渗出，当时找物业解决无果，我请外面专业通管道的师傅暂时解决了，但是由于金旗小区有长时间未清理化",
+   "cited_hits": [],
+   "cited_missing": [
+    " 城市市容环境卫生管理条例 ",
+    "环境保护厅关于印发广西壮族自治区环境保护厅依照法定途径分类处理信访问题暂行办法（试行）的通知"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "gx-igi-114",
+   "id": "157830321205",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157830321205",
+   "question": "今年春节贺州城东街道这边可以放烟花爆竹吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-114",
+   "id": "157814446910",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814446910",
+   "question": "请问贺州市历年主要污染物（废气：二氧化硫、氮氧化物、颗粒物、挥发性有机物；废水：化学需氧量、氨氮；工业固废、危废等）排放情况及相关数据在哪里查询？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-114",
+   "id": "157814444056",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814444056",
+   "question": "请问具体办理咨询环境影响评价业务在哪里？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-114",
+   "id": "157814441281",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814441281",
+   "question": "在网站上怎么对环境污染的企业进行举报或提供线索？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-114",
+   "id": "157814432537",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814432537",
+   "question": "贺州市生态环境局2021年至今的人大建议、政协提案答复处理情况",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-114",
+   "id": "157814429786",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814429786",
+   "question": "请问广西贺州市生态环境局网站是否开设政策解读类栏目，如果有，如何进入？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-114",
+   "id": "157814422207",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814422207",
+   "question": "今年六五环境日有什么活动吗？在哪里？如何参加？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-114",
+   "id": "157814403324",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814403324",
+   "question": "你好，我是河北地质大学2022级经济学院应用统计硕士研究生，导师让我做一个资源型城市减污降碳的研究，需要用到2010年到2021年空气质量优良天数或空气质量优良率的数据。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-114",
+   "id": "157814398043",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814398043",
+   "question": "请问第二轮自治区生态环境保护督察到贺州了吗？如何联系？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-114",
+   "id": "157814334937",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814334937",
+   "question": "您好，贺州市的10月份空气质量如何？谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-114",
+   "id": "157814335032",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814335032",
+   "question": "贺州市城区哪里可以放烟花？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-114",
+   "id": "157814334940",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814334940",
+   "question": "您好，想了解如何参加公众开放活动？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-114",
+   "id": "157814199413",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814199413",
+   "question": "因科研需要，希望贵单位告知：1、贵行政单位及下属单位生态环境分局挂牌/成立的时间（具体到天）；2、贵行政单位及下属单位生态环境综合执法大队挂牌/成立的时间（具体到天）。具体行政单位如下：（1）贺州市；（2）八步区&nbsp; &nbsp;；",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-114",
+   "id": "157814194397",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814194397",
+   "question": "请问贺州市生态环境局办事地点在哪里？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-114",
+   "id": "157814188827",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814188827",
+   "question": "现广西的生态现状是怎么样的？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-114",
+   "id": "157814188757",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814188757",
+   "question": "我是住在贺江岸上的，关于贺江的生态给我的感觉，因贺江水质变差的原因导致水生生物的数量聚减，没有10多年前那么丰富了。每到连下几场大雨贺江的水面上都是垃圾，水也是浑浊不堪的。对于这方面我想询问能有什么方法可以改善贺江的水质和水产资源吗？（不是",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-114",
+   "id": "157814187407",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814187407",
+   "question": "&nbsp;我是贺州市平桂管理区沙田镇大坪的居民，我们这里有一养猪场时不时排粪水到路上，经过多次协商无效，附件居民被熏得苦不堪言，恳请领导们派工作人员过来处理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

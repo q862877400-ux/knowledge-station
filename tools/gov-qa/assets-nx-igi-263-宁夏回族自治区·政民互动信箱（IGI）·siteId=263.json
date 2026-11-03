@@ -1,0 +1,15 @@
+{
+ "A_考卷": [],
+ "B_补料": [],
+ "C_无依据": [
+  {
+   "source": "nx-igi-263",
+   "id": "10071981",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10071981",
+   "question": "请问贵单位目前有没有招聘计划？catti证书在技术职务评审中有用吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

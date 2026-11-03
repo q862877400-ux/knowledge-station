@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>投诉请求</title>
+    <link href="../css/normalize.css" rel="stylesheet"/>
+    <!-- zui -->
+    <link href="../../plugins/nicebutton.css" rel="stylesheet"/>
+    <link href="../../plugins/zui-1.10.0-dist/dist/css/zui.min.css" rel="stylesheet"/>
+    <link href="../../plugins/zui-1.10.0-dist/dist/lib/chosen/chosen.min.css" rel="stylesheet"/>
+    <link href="../../plugins/zui-1.10.0-dist/dist/lib/uploader/zui.uploader.min.css" rel="stylesheet"/>
+    <link href="../../plugins/zui-1.10.0-dist/dist/lib/datetimepicker/datetimepicker.min.css" rel="stylesheet"/>
+    <link href="../css/common.css" rel="stylesheet"/>
+    <!-- <link rel="stylesheet" href="../css/tsqqPage.css" /> -->
+    <link rel="stylesheet" href="../css/menuAll.css"/>
+    <link rel="stylesheet" href="../css/wyxx.css"/>
+    <!--[if lt IE 9]>
+    <script src="../plugins/zui-1.10.0-dist/dist/lib/ieonly/html5shiv.js"></script>
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="../plugins/zui-1.10.0-dist/dist/lib/ieonly/respond.js"></script>
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="../plugins/zui-1.10.0-dist/dist/lib/ieonly/excanvas.js"></script>
+    <![endif]-->
+    <!-- jQuery (ZUI中的Javascript组件依赖于jQuery) -->
+    <script src="../../plugins/zui-1.10.0-dist/dist/lib/jquery/jquery-3.6.0.min.js"></script>
+    <!-- ZUI Javascript组件 -->
+    <script src="../../plugins/zui-1.10.0-dist/dist/js/zui.min.js"></script>
+    <script src="../../plugins/zui-1.10.0-dist/dist/lib/datetimepicker/datetimepicker.min.js"></script>
+    <script type="text/javascript" src="../../plugins/zui-1.10.0-dist/dist/lib/uploader/zui.uploader.js"></script>
+    <script src="../js/md5.pro.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/jquery.base64.js"></script>
+</head>
+
+<body>
+<div class="head" style="width:100%;">
+    <div class="content"><span id="ldxxtent">领导信箱</span></div>
+    <div class="content-tab">
+			<span>
+				<div class="wyxx"></div><a>我要写信</a>
+			</span>
+        <span>
+				<div class="wycx"></div><a>来信查询</a>
+			</span>
+    </div>
+</div>
+
+<!-- 中部 -->
+<!-- <div class="index-middle-panel" style="height: calc(100% - 96px);"> -->
+<div>
+    <div class="container">
+        <!-- 我要写信 -->
+        <div class="content-wyxx">
+            <div class="content-title">
+                <span>来信须知</span>
+            </div>
+            <div class="process">
+                <div class="step step-1">来信须知</div>
+                <div class="step-split">>></div>
+                <div class="step step-2-disable">确认个人信息</div>
+                <div class="step-split">>></div>
+                <div class="step step-3-disable">写信</div>
+            </div>
+            <!-- 来信须知 -->
+            <div class="content-border content-yhxz">
+                <img class="border-arrow" src="../imgs/border-arrow.png" alt="">
+                <div class="yhxz" style="overflow-y: auto">
+                    <p>为了便于我们为您提供更加完善的服务，更好地保障您的权益，请您先阅读本协议，如同意，请进行写信。</p>
+                    <p>
+                        （1）个人信息必须真实有效。<br>
+                        （2）本网站受理的信件为向政府领导反映的情况、提出的意见建议或投诉请求。对依法应当通过诉讼、仲裁、行政复议等法定途径解决的投诉请求，信访人应当依照有关法律、行政法规规定的程序向有关机关提出。<br>
+                        （3）对您来信提出的意见或诉求，我们将交有关部门及时处理，尽快予以答复。 <br>
+                        （4）查询码是您查询相关办理信息的重要凭证，请妥善保管。<br>
+                        （5）请您在投诉事项办理完毕后及时做出评价，以便我们更好的改进工作。<br>
+                    </p>
+                </div>
+                <div class="content-bottom">
+                    <input id="agreement" type="checkbox" checked/> <label
+                        for="agreement">我已认真阅读并同意协议</label>
+                    <span class="btn" onclick="next()">下一步</span>
+                </div>
+            </div>
+            <!-- 个人信息 -->
+            <div class="content-border content-qrxx">
+                <img class="border-arrow" src="../imgs/border-arrow.png" alt="">
+                <div class="qrxx">
+                    <div class="tips">
+                        <span class="image-tips">温馨提示</span>
+                        <span>每个身份证每天只能提交一封信件</span>
+                    </div>
+                    <div class="form-input form-horizontal" id="userInfo">
+                        <div class="form-group">
+                            <label for="zsxm" class="col-sm-2 col-md-2 required">姓名</label>
+                            <div class="col-sm-4 col-md-4">
+                                <input type="text" class="form-control" id="zsxm" placeholder="请输入身份证上的姓名"
+                                       name="zsxm" data-required="true" data-tip="请输入身份证上的姓名">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="zjhm" class="col-sm-2 col-md-2 required">身份证号</label>
+                            <div class="col-sm-4 col-md-4">
+                                <input type="text" class="form-control" id="zjhm" placeholder="请输入身份证号"
+                                       name="zjhm"
+                                       data-required="true" data-format="5" data-tip="请输入身份证号">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 col-md-2 required">政治面貌</label>
+                            <div class="col-sm-4 col-md-4">
+                                <select name="zzmmdm" class="form-control required" data-required="true"
+                                        data-tip="请选择政治面貌">
+                                    <option value="">请选择</option>
+                                    <option value="1">中共党员</option>
+                                    <option value="2">民主党派成员</option>
+                                    <option value="3">共青团员</option>
+                                    <option value="4">无党派人士</option>
+                                    <option value="5">群众</option>
+                                    <option value="99">不详</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" class="col-sm-2 col-md-2 required ">手机号码</label>
+                            <div class="col-sm-4 col-md-4 yddsjh">
+                                <input type="text" class="form-control" id="sjhm" placeholder="请输入手机号码"
+                                       name="sjhm"
+                                       data-required="true" data-format="2" data-tip="请输入手机号码">
+                            </div>
+                            <div id="yzmCodebtn" class="yzmbtn" onclick="modifYzm()">发送验证码</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="sjyzm" class="col-sm-2 col-md-2 required">手机验证码</label>
+                            <div class="col-sm-4 col-md-4">
+                                <input type="text" class="form-control" id="sjyzm" placeholder="请输入手机验证码"
+                                       name="sjyzm" data-required="true" data-format="5"
+                                       data-tip="请输入手机验证码">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="zz" class="col-sm-2 col-md-2 required">住址</label>
+                            <div class="yddregion">
+                                <div class="col-sm-2">
+                                    <select class="form-control regionSelect" data-index="1" id="region1"
+                                            name="province" data-required="true" data-tip="请选择省" disabled>
+                                        <option value="">请选择省</option>
+                                        <option value="130000000000" selected="selected">河北省</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-2">
+                                    <select class="form-control regionSelect" data-index="2" id="region2"
+                                            name="city">
+                                        <option value="0">请选择市/州</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-2">
+                                    <select class="form-control regionSelect" data-index="3" id="region3"
+                                            name="town">
+                                        <option value="0">请选择区/县</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-2">
+                                    <select class="form-control regionSelect" data-index="4" id="region4"
+                                            name="country">
+                                        <option value="0">请选择乡/镇</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-2">
+                                    <select class="form-control regionSelect" data-index="5" id="region5"
+                                            name="stree">
+                                        <option value="0">请选择社区/街道</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <label for="xxzz" class="col-sm-2 col-md-2 required">详细地址</label>
+                            <div class="col-sm-4 col-md-4">
+                                <input type="text" class="form-control" id="xxzz" placeholder="如道路、门牌号、小区等"
+                                       name="xxzz" data-required="true" data-tip="请输入详细地址">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-bottom">
+                    <span class="btn btn-disable" onclick="forward()">上一步</span>
+                    <span class="btn btn-disable" onclick="checkBasicInfo()">下一步</span>
+                </div>
+            </div>
+            <!-- 我要写信 -->
+            <div class="content-border content-xx">
+                <img class="border-arrow" src="../imgs/border-arrow.png" alt="">
+                <div class="xx">
+                    <div class="tips">
+                        <span class="image-tips">请您简明扼要填写信件内容，写清事情发生的时间、地点、简要经过、需要解决的问题和诉求；</span>
+                        <span>请您客观真实反映情况和问题，对所反映内容的真实性负责，不得捏造歪曲事实，不得诬告、陷害他人。</span>
+                    </div>
+                    <div class="form-input form-horizontal" id="tsxxInfo">
+                        <div class="form-group isyjjy">
+                            <label for="wdbt" class="col-sm-2 col-md-2 required">信件标题</label>
+                            <div class="col-sm-4 col-md-4">
+                                <input type="text" class="form-control" id="wdbt" name="wdbt"
+                                       placeholder="请输入信件标题"
+                                       data-required="true" data-tip="请输入信件标题" maxlength="50">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="xfmd" class="col-sm-2 col-md-2">信访目的</label>
+                            <div class="col-sm-4 col-md-4">
+                                <select class="form-control" id="xfmd" selectedname="xfmd" name="xfmddm">
+                                    <option value="">请选择信访目的</option>
+                                    <option value="01">建议意见</option>
+                                    <option value="02">申诉求决_申诉</option>
+                                    <option value="03">申诉求决_求决</option>
+                                    <option value="04">检举控告</option>
+                                    <option value="99">其他</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group isyjjy">
+                            <label for="wtfssj" class="col-sm-2 col-md-2 required">问题发生时间</label>
+                            <div class="col-sm-4 col-md-4">
+                                <input readonly="readonly" autocomplete="off" type="text"
+                                       class="form-control form-date" id="wtfssj" placeholder="请选择问题发生时间"
+                                       name="wtfssj"
+                                       data-required="true" data-tip="请选择问题发生时间" min="2005-01-01">
+                            </div>
+                        </div>
+                        <div class="form-group bfyr yddbfy">
+                            <div class="yddbfyr">
+                                <label for="bfyrhwd" class="col-sm-2 col-md-2 required">被反映人或单位</label>
+                                <div class="col-sm-4 col-md-4">
+                                    <input type="text" class="form-control" id="bfyrhdw" name="bfyrhdw"
+                                           placeholder="请输入被反映人或单位" data-required="true"
+                                           data-tip="请输入被反映人或单位"
+                                           maxlength="50">
+                                </div>
+                            </div>
+                            <div class="yddbfyr">
+                                <label for="bfyrzw" class="col-sm-2 col-md-2 required">被反映人职务</label>
+                                <div class="col-sm-4 col-md-4">
+                                    <input type="text" class="form-control" id="bfyrzw" placeholder="请输入被反映人职务"
+                                           name="bfyrzw" data-required="true" data-tip="请输入被反映人职务">
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="form-group bfyr">
+                            <label for="bfyrjbmc" class="col-sm-2 col-md-2 required">被反映人级别</label>
+                            <div class="col-sm-4 col-md-4">
+                                <select class="form-control" id="bfyrjbmc" data-required="true"
+                                        selectedname="bfyrjbmc" name="bfyrjbdm" data-tip="请选择被反映人级别">
+                                    <option value="">请选择被反映人级别</option>
+                                    <option value="3">厅局级</option>
+                                    <option value="4">县_处级</option>
+                                    <option value="5">科级</option>
+                                    <option value="6">科级以下</option>
+                                    <option value="7">村_居两委干部</option>
+                                    <option value="8">企业法人</option>
+                                    <option value="99">其他</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="nrfl" class="col-sm-2 required">问题类别</label>
+                            <div class="yddwtlb">
+                                <div class="col-sm-2">
+                                    <select class="form-control nrflSelect" data-index="1" id="nrfl1" name="nrfl1"
+                                            data-required="true" data-tip="请选择一级内容分类">
+                                        <option value="">请选择一级问题类别</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-2">
+                                    <select class="form-control nrflSelect" data-index="2" id="nrfl2" name="nrfl2"
+                                            data-required="true" data-tip="请选择二级内容分类">
+                                        <option value="">请选择二级问题类别</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-2">
+                                    <select class="form-control nrflSelect" data-index="3" id="nrfl3" name="nrfl3"
+                                            data-required="true" data-tip="请选择三级内容分类">
+                                        <option value="">请选择三级问题类别</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="form-group isyjjy">
+                            <label for="sfd" class="col-sm-2 required">问题发生地</label>
+                            <div class="yddwtsd">
+                                <div class="col-sm-2">
+                                    <select class="form-control wtfsdregionSelect" data-index="1" id="wtfsdregion1"
+                                            name="wtfsdprovince" data-required="true" data-tip="请选择省" disabled>
+                                        <option value="">请选择省</option>
+                                        <option value="130000000000" selected="selected">河北省</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-2">
+                                    <select class="form-control wtfsdregionSelect" data-index="2"
+                                            data-required="true" id="wtfsdregion2" name="wtfsdcity"
+                                            data-tip="请选择市/州">
+                                        <option value="">请选择市/州</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-2">
+                                    <select class="form-control wtfsdregionSelect" data-index="3" id="wtfsdregion3"
+                                            name="wtfsdtown" data-tip="请选择区/县">
+                                        <option value="">请选择区/县</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-2">
+                                    <select class="form-control wtfsdregionSelect" data-index="4" id="wtfsdregion4">
+                                        <option value="">请选择乡/镇</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-2">
+                                    <select class="form-control wtfsdregionSelect" data-index="5" id="wtfsdregion5">
+                                        <option value="">请选择社区/街道</option>
+                                    </select>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="form-group isyjjy">
+                            <label for="sfdxq" class="col-sm-2 col-md-2">发生地详情</label>
+                            <div class="col-sm-10 col-md-10">
+                                <input type="text" class="form-control" id="sfdxq" name="sfdxq"
+                                       placeholder="请输入问题发生地详细地址，如xx街道，楼栋等" maxlength="100">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="nr" class="col-sm-2 col-md-2 required">投诉内容</label>
+                            <div class="col-sm-10 col-md-10">
+									<textarea class="form-control new-comment-text" rows="10"
+                                              placeholder="请输入投诉的主要事实、主要诉求、主要理由" id="nr" name="nr"
+                                              data-required="true"
+                                              data-tip="请输入投诉的主要事实、主要诉求、主要理由"
+                                              maxlength="2000"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 col-md-2 ">附件上传</label>
+                            <div class="col-sm-10 col-md-10">
+                                <div id='tableUploader' class="uploader">
+                                    <div class="uploader-message text-center">
+                                        <div class="content"></div>
+                                        <button type="button" class="close">×</button>
+                                    </div>
+                                    <div class="uploader-files file-list file-list-lg"
+                                         data-drag-placeholder="请拖拽附件到此处"></div>
+                                    <div class="uploader-actions">
+                                        <div class="uploader-status pull-right text-muted"></div>
+                                        <button type="button" class="btn-link uploader-btn-browse"><i
+                                                class="icon icon-plus"></i>
+                                            选择附件
+                                        </button>
+                                    </div>
+                                    <div slot="tip" class="el-upload__tip"
+                                         style="color:red;font-size: 12px;padding-left: 10px;display: inline-block;"
+                                         title="附件上传类型为：jpg,jpeg,png,bmp,doc,docx,txt,pdf单个附件不超过10MB;附件总数不超过5个">
+                                        附件上传类型为：<br/>jpg,jpeg,png,bmp,doc,docx,txt,pdf<br/>单个附件不超过10MB;附件总数不超过5个
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <table>
+                        <tr class="sfd-tr">
+                            <td><small>*</small>信件标题</td>
+                            <td colspan="5">
+                                <input type="text" placeholder="填写信件标题" id="wdbt" name="wdbt">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><small>*</small>目的分类</td>
+                            <td colspan="5">
+                                <select class="xfmd-select">
+                                    <option selected="selected" value="03">求决具体问题</option>
+                                    <option value="02">不服处理决定</option>
+                                    <option value="04">举报违纪行为</option>
+                                    <option value="01">提出意见建议</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr class="wtfssj-tr">
+                            <td><small>*</small>问题发生时间</td>
+                            <td colspan="5">
+                                <input type="text" placeholder="请选择问题发生时间" id="wtfssj" name="wtfssj" readonly>
+                            </td>
+                        </tr>
+                        <tr class="sfd-tr">
+                            <td><small>*</small>问题发生地</td>
+                            <td colspan="5">
+                                <select name="wtsd-province" disabled>
+                                    <option selected="selected" th:value="${TPL_CONST_PROVINCE_XZQH}"
+                                        th:text="${TPL_CONST_PROVINCE}">河北省</option>
+                                </select>
+                                <select class="link-select" name="wtsd-city" data-trigger-name="wtsd-town">
+                                </select>
+                                <select class="link-select" name="wtsd-town" data-trigger-name="wtsd-street">
+                                </select>
+                                <select class="link-select" name="wtsd-street" data-trigger-name="wtsd-club">
+                                </select>
+                                <select class="link-select" name="wtsd-club">
+                                </select>
+                            </td>
+                        </tr>
+                        <tr class="sfd-tr">
+                            <td><small>*</small>发生地详址</td>
+                            <td colspan="5">
+                                <input type="text" placeholder="填写详细住址，如小区、楼号等" id="sfdxq" name="sfdxq">
+                            </td>
+                        </tr>
+                        <tr class="bfyrhdw-tr" style="display: none;">
+                            <td><small>*</small>被反映人(单位)</td>
+                            <td colspan="5">
+                                <input type="text" placeholder="请填写被反映人(单位)" id="bfyrhdw" name="bfyrhdw">
+                            </td>
+                        </tr>
+                        <tr class="bfyrzw-tr" style="display: none;">
+                            <td>被反映人职位</td>
+                            <td colspan="5">
+                                <input type="text" placeholder="请填写被反映人职务" id="bfyrzw" name="bfyrzw"
+                                    maxlength="200">
+                            </td>
+                        </tr>
+                        <tr class="bfyrjb-tr" style="display: none;">
+                            <td>被反映人级别</td>
+                            <td colspan="5">
+                                <select class="bfyrjb-select">
+                                    <option selected="selected" value="-1">请选择</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><small>*</small>问题类别</td>
+                            <td colspan="5">
+                                <select class="nrfl-select" id="nrfl-1" name="nrfl-1"></select>
+                                <select class="nrfl-select" id="nrfl-2" name="nrfl-2"></select>
+                                <select class="nrfl-select" id="nrfl-3" name="nrfl-3"></select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><small>*</small>信件内容</td>
+                            <td colspan="5">
+                                <textarea cols="" rows="" id="nr" name="nr"
+                                    placeholder="请输入内容,最多输入1000个汉字"></textarea>
+                                <div id="text-limit"
+                                    style="text-align:right;width: 60px;position: relative;left: 620px;top: -25px; color: silver;margin-left: 8px;-webkit-touch-callout: none;-webkit-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;">
+                                    0/1000</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>添加附件</td>
+                            <td colspan="1" class="upload-plugin">
+                                <div class="btn upload-btn">
+                                    选择附件
+                                </div>
+                            </td>
+                            <td colspan="4" class="upload-notice">
+                                <p>请在上传前关闭要上传的附件；最多可上传5个文件，每个文件不大于10M，仅支持doc;docx;jpg;jpeg;png;bmp;txt;pdf。</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>当前附件</td>
+                            <td colspan="5">
+                                <ul class="ul-file">
+
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr class="sfss-radio-group">
+                            <td>是否有复核意见</td>
+                            <td>
+                                <label for="sffhy"><input type="radio" value="1" name="sffh" id="sffhy">是</label>
+                                <label for="sffhn"><input type="radio" value="0" name="sffh" id="sffhn">否</label>
+                            </td>
+                        </tr>
+                        <tr class="sfss-radio-group">
+                            <td>是否有仲裁裁决</td>
+                            <td>
+                                <label for="sfzcy"><input type="radio" value="1" name="sfzc" id="sfzcy">是</label>
+                                <label for="sfzcn"><input type="radio" value="0" name="sfzc" id="sfzcn">否</label>
+                            </td>
+                        </tr>
+                        <tr class="sfss-radio-group">
+                            <td>是否已经行政复议</td>
+                            <td>
+                                <label for="sffyy"><input type="radio" value="1" name="sffy" id="sffyy">是</label>
+                                <label for="sffyn"><input type="radio" value="0" name="sffy" id="sffyn">否</label>
+                            </td>
+                        </tr>
+                        <tr class="sfss-radio-group">
+                            <td>是否法院已经受理</td>
+                            <td>
+                                <label for="sfsly"><input type="radio" value="1" name="sfsl" id="sfsly">是</label>
+                                <label for="sfsln"><input type="radio" value="0" name="sfsl" id="sfsln">否</label>
+                            </td>
+                        </tr>
+                    </table> -->
+                </div>
+                <div class="content-bottom">
+                    <span class="btn btn-disable" onclick="forward()">上一步</span>
+                    <span class="btn btn-disable" onclick="finish()">提交</span>
+                </div>
+            </div>
+            <!-- 输入验证码 -->
+            <div class="modal fade" id="sendMsgModal">
+                <div class="modal-dialog" style="width: 430px;">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <span class="modal-close-btn" data-dismiss="modal">×</span>
+                            <h4 class="modal-title" style="font-size:16px">请输入验证码</h4>
+                        </div>
+                        <div class="modal-body" style="display: inline-block;width: 100%">
+
+                            <div class="form-group">
+                                <label style="float: left;margin-top: 5px;">图形验证码:</label>
+                                <div class="col-sm-4 col-md-4">
+                                    <input placeholder="图形验证码" id="codeImg" name="codeImg" class="pin form-control"
+                                           data-required="true" data-tip="请输入图形验证码" maxlength="4">
+                                </div>
+                                <img id="canvas" src=""/>
+                            </div>
+                            <div class="form-footer">
+                                <div class="btn submit-btn" type="button" onclick="submityzm()">提交</div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 显示查询码 -->
+            <div class="modal fade" id="cxmModal">
+                <div class="modal-dialog" style="width: 430px;">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <span class="modal-close-btn" data-dismiss="modal">×</span>
+                            <h4 class="modal-title" style="font-size:16px">发送成功</h4>
+                        </div>
+                        <div class="modal-body" style="display: inline-block;width: 100%">
+
+                            <div class="modal-dialog-content">
+                                <div style="width: 100%;height: 30px;text-align: left;line-height: 30px;">您的查询码是：
+                                </div>
+                                <div style="width: 100%;height: 60px;font-size: 36px;text-align: center;line-height: 60px;color: orange;font-weight: bold;"
+                                     id="searchCode">code
+                                </div>
+                                <div style="width: 100%;height: 30px;text-align: center;line-height: 30px;">
+                                    请复制妥善保管，以便查询结果。
+                                </div>
+                            </div>
+                            <div class="form-footer">
+                                <div class="cxmbtn submit-btn" style="width: 90%;" type="button">
+                                    我已记住查询码，关闭页面
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="modal-dialog send-success-dialog">
+                <h4>发送成功</h4>
+                <div class="modal-dialog-content">
+                    <div style="width: 100%;height: 30px;text-align: left;line-height: 30px;">您的查询码是：</div>
+                    <div style="width: 100%;height: 60px;font-size: 36px;line-height: 60px;color: orange;font-weight: bold;"
+                        id="searchCode">code</div>
+                    <div style="width: 100%;height: 30px;text-align: right;line-height: 30px;">请妥善保管，以便查询结果。</div>
+                </div>
+                <div class="modal-dialog-bottom">
+                    <span class="btn cancel" onclick="closeDialog();">我已记住查询码，关闭页面</span>
+                </div>
+            </div> -->
+            <!-- <div class="modal-dialog confirm-dialog">
+                <h4>确认</h4>
+                <div class="modal-dialog-content">
+                    <div style="width: 100%;height: 60px;text-align: left;line-height: 30px;">
+                        请确认提交的信息是否无误，提交后信息将无法修改</div>
+                </div>
+                <div class="modal-dialog-bottom">
+                    <span class="btn confirm" onclick="$.unblockUI();">返回检查</span>
+                    <span class="btn cancel" onclick="saveLdxx();">我已确认</span>
+                </div>
+            </div> -->
+        </div>
+        <!-- 信访件查询 -->
+        <div class="content-wycx">
+            <div class="contentwycx-title">
+                <span>信件查询</span>
+            </div>
+            <div class="form-input form-horizontal" id="xjcxform">
+                <div class="serch-panel">
+                    <div class="form-group">
+                        <label for="cxxm" class="col-sm-2 col-md-2 required">姓名</label>
+                        <div class="col-sm-5 col-md-5">
+                            <input type="text" class="form-control" id="cxxm" name="cxxm" placeholder="请输入姓名"
+                                   data-required="true" data-tip="请输入姓名" minlength="1" maxlength="20">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="cxm" class="col-sm-2 col-md-2 required">查询码</label>
+                        <div class="col-sm-5 col-md-5">
+                            <input type="text" class="form-control" id="cxm" name="cxm" placeholder="请输入查询码"
+                                   data-required="true" data-tip="请输入查询码">
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="cxcodeImg" class="col-sm-2 col-md-2 required">图形验证码</label>
+                        <div class="col-sm-5 col-md-5 yddyzm">
+                            <input placeholder="图形验证码" id="cxcodeImg" name="cxcodeImg" class="pin form-control"
+                                   data-required="true" data-tip="请输入图形验证码" minlength="4" maxlength="4">
+                        </div>
+                        <img id="cxCanvas" src=""/>
+                    </div>
+                    <div class="form-group" style="justify-content: space-around;">
+                        <button class="btn btn-primary btn-block" type="button" onclick="submitCXM()">提交</button>
+                        <button class="btn btn-block" type="button"
+                                onclick="resetForm('.serch-panel .form-control')">重置
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 查询结果 -->
+        <div class="content-cxjg">
+            <div class="contentcxjg-title">
+                <span>信件详情</span>
+            </div>
+            <div class="main-content">
+                <div class="bjqk-panel">
+                    <div class="sub-title"><i></i>最新办理状态：</div>
+                    <div class="bjqk-bar"><span class="tsjStr"></span><span class="blqkStr"></span></div>
+                </div>
+                <!-- 办理进度 -->
+                <div class="blqk-panel">
+                    <div class="sub-title"><i></i>办理进度：</div>
+                    <ul class="blqk-bar-list">
+
+                    </ul>
+                </div>
+                <div class="mydpj-panel" id="blpjMydpj">
+                    <div class="sub-title">
+                        <div class="sub-title-block"><i></i>评价情况：</div>
+                    </div>
+                    <div class="myd-bar xfbm-bar">
+                        <span class="title">1.对信访部门的评价：</span><br>
+                        <span class="tip">工作人员的服务态度和工作效率等方面</span><br>
+                        <span class="xfbmpj">服务评价：
+									<label class="radio-inline"><input class="xfbmpj" type="radio" name="xfbmpj"
+                                                                       value="0">满意</label>
+									<label class="radio-inline"><input class="xfbmpj" type="radio" name="xfbmpj"
+                                                                       value="1">基本满意</label>
+									<label class="radio-inline"><input class="xfbmpj" type="radio" name="xfbmpj"
+                                                                       value="3">不满意</label>
+								</span>
+                        <textarea class="form-control" rows="5" placeholder="请输入内容，最多输入500个汉字"
+                                  name="xfbmpjnr" maxlength="500"
+                                  data-tip="请输入信访部门满意度评价内容"></textarea>
+                        <div class="ypjmyz"></div>
+                        <div class="ypjnr"></div>
+                    </div>
+                    <div class="myd-bar zrdw-bar">
+                        <span class="title">2.对责任单位的评价：</span><br>
+                        <span class="tip">工作人员的服务态度和工作效率，在规定的时间内做出告知，依法按政策解决信访问题，按期出具答复意见书并送达等方面</span><br>
+                        <span class="zrdwmpj">服务评价：
+									<label class="radio-inline"><input class="zrdwmpj" type="radio" name="zrdwmpj"
+                                                                       value="0">满意</label>
+									<label class="radio-inline"><input class="zrdwmpj" type="radio" name="zrdwmpj"
+                                                                       value="1">基本满意</label>
+									<label class="radio-inline"><input class="zrdwmpj" type="radio" name="zrdwmpj"
+                                                                       value="3">不满意</label>
+								</span>
+                        <textarea class="form-control" rows="5" placeholder="请输入内容，最多输入500个汉字"
+                                  name="zrdwpjnr" maxlength="500"
+                                  data-tip="请输入责任单位满意度评价内容"></textarea>
+                        <div class="ypjmyz"></div>
+                        <div class="ypjnr"></div>
+                    </div>
+                    <div class="submit-btn" style="text-align: center;">
+                        <button class="btn btn-primary submitPj" type="button"
+                                onclick="submitMydpj()">提交
+                        </button>
+                    </div>
+                </div>
+                <!-- 信访件详情 -->
+                <div class="xfjxx-panel">
+                    <div class="sub-title"><i></i>信访件详情：</div>
+                    <div class="xfjxx-bar">
+                        信访日期:2021-10-31<br>
+                        信访目的：求决<br>
+                        问题发生时间：2021-09-30<br>
+                        问题发生地：湖北武汉<br>
+                        联名人数：0<br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 底部 -->
+<div class="footer">
+    <a href="https://bszs.conac.cn/sitename?method=show&id=07B44A30BF801B14E053012819AC6EA9" target="_blank">
+        <img src="../imgs/dzjg.png" class=""/>
+    </a>
+    <p>版权所有：河北省信访局</p>
+    <p>石家庄市桥西区友谊南大街185号 邮编：050051</p>
+    <p>冀ICP备050051号</p>
+</div>
+
+
+</body>
+<script type="text/javascript" src="../js/wyxx.js"></script>
+<!-- <script type="text/javascript" src="../js/djjg-data.js"></script> -->
+
+</html>

@@ -1,0 +1,1054 @@
+{
+ "A_考卷": [
+  {
+   "source": "nx-igi-156",
+   "id": "10126189",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10126189",
+   "question": "%E9%A2%86%E5%AF%BC%E4%BD%A0%E5%A5%BD%EF%BC%8C%E7%8E%B0%E5%9C%A8%E9%9D%92%E9%93%9C%E5%B3%A1%E5%B8%82%E9%93%9D%E5%8E%82%E5",
+   "cited_hits": [
+    {
+     "name": "不动产登记暂行条例",
+     "lib_no": "不动产登记暂行条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "不动产登记暂行条例实施细则",
+     "lib_no": "不动产登记暂行条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "国有土地使用证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10114717",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10114717",
+   "question": "领导好，首先感谢吴忠市图书馆为市民提供良好的学习环境。但是有两个疑问：一、吴忠市图书馆早晨开放时间为什么不是固定时间？按图书馆大门张贴的开放时间，只有夏季8点和冬季8：30，打12345，回复是8:15开馆，那么现在执行的是哪个作息时间？既",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国公共图书馆法",
+     "lib_no": "公共图书馆法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10109943",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10109943",
+   "question": "求助类信件内容 关于对杨林安置问题进行复核的申请 吴忠市人民政府： 本人杨林（642101197902193513），于1997年12月1日应征入伍，在陕西铜川耀县84860部队81分队服役，1998年8月因部队整编到甘肃永登县84504部",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国兵役法",
+     "lib_no": "兵役法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "退役士兵安置条例",
+     "lib_no": "退役士兵安置条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于进一步加强由政府安排工作退役士兵就业安置工作的意见",
+    "关于做好退役士兵安置和权益保障工作的指导意见（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10109907",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10109907",
+   "question": "交警在批发市场里店门口拍摄违章停车，在店门口划非机动车停车区域，批发商户装卸货不允许停车，那五十斤一袋的货用非机动车要拉多少趟？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国道路交通安全法实施条例",
+     "lib_no": "道路交通安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10109535",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10109535",
+   "question": "2019年6月，我向吴忠市利通区公安局分局经侦大队报案，录完笔录后是否立案一直不给答复，我去问每次工作人员就说要开会，然后就没有然后了。我被宁夏鑫润农牧业开发有限公司及其法人曹乐骗套路贷。2017年曹乐说自己在合拍在线有授信额度，但不能用曹",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国刑事诉讼法",
+     "lib_no": "刑事诉讼法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10109015",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10109015",
+   "question": "您好，我是一名普通的吴忠市民。我们吴忠自来水管道的水质有问题，即使用烧水壶烧开后，水中也可以明显看到很多杂质，只能静置一段时间后小心翼翼地倒出来喝。我想向政府相关部门咨询下，这是什么情况，这种烧开后还存在的杂质究竟是什么，是否会对人体造成危",
+   "cited_hits": [
+    {
+     "name": "国家生活饮用水卫生标准",
+     "lib_no": "GB 5749-2006",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "GB5749-2006"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "nx-igi-156",
+   "id": "10119235",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10119235",
+   "question": "市领导：你们好。我代表恒昌幸福城小区业主，就小区地下停车位出售及地上公共停车位安装收费杆反映情况如下：恒昌幸福城小区地下车位（不是车库）是按照140元/月（卫生费20元/月）收费标准出租给业主使用，近期接到通知，车位租赁期到期后，不再续租，",
+   "cited_hits": [],
+   "cited_missing": [
+    "吴忠市区临时占用许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10117744",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10117744",
+   "question": "市里的领导：你们好，本人是吴忠市利通区上桥镇吴南华庭小区的一位业主，我仅代表小区内的各位业主向市里各位领导反应一下本小区的相关问题，希望能派有关部门能出面协调解决。问题一：该小区一期、二期陆续建成并投入使用已有两年之久，入住率至少已达到百分",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设工程规划许可证",
+    "建设工程规划许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10112857",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10112857",
+   "question": "尊敬的政府部门领导 您好，我是宏泰清水湾小区业主，我们小区位于吴忠城西边，再高速路再靠西，全是建个郊区小区，，关于停车问题通过政府网平台向部门领导求助，作为一名普通市民，怎么也想不到关于停车位问题，牵动这么多部门，但是问题还是没有解决。 每",
+   "cited_hits": [],
+   "cited_missing": [
+    "城市道路路内停车泊位设置规范（GA/T 850-2009）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10116102",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10116102",
+   "question": "胜利镇西湖宾馆对面胜利小区小区大门口卖花，胜利小区只有一个大门，没有物业，门口里面就摆花，人来人往很杂，每天大门口堵的严严严的，买花的人摩托车小孩扎堆，影响出入，希望有关领导重视，到底谁给的权利在大门口营业！",
+   "cited_hits": [],
+   "cited_missing": [
+    "宁夏回族自治区市容环境卫生管理条例",
+    "宁夏回族自治区市容环境卫生管理条例",
+    "宁夏回族自治区市容环境卫生管理条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10112284",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10112284",
+   "question": "阳光娇子物业公司长期存在小区停车乱，不画线乱停车，收费不合理，不透明，治理不合理，对于有关系的业主私自给予车位，没关系业主无车位停车卡，未做到合理公平公正的原则，并且占用原有绿化地面做硬化停车问题严重。近期反应问题，物业管理人员说明有某银行",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步加强市区住宅小区前期物业管理工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10112256",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10112256",
+   "question": "青铜峡市青铜峡镇三趟墩村一队村民多次恶意挖断农田灌溉水渠水利设施，扰乱村民农田灌溉事宜，这个事情已经持续一年多时间，期间我家人不少于50多次找青铜峡镇政府处理此事。在2019年11月镇政府书记、镇长、司法局领导一起到现场处理此事，安排挖机、",
+   "cited_hits": [],
+   "cited_missing": [
+    "人民调解协议书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10115776",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10115776",
+   "question": "自创城开始以来，规划市区停车位置。很多路边停车位都是免费停放或者停一次收费2元，居住小区紧靠街面且划有停车位置的几乎都是免费停放。可在百货大楼家属院（御卿火锅南门面街处）巷子里，停车不仅收费，且收费夸张，按小时收费，一小时2元，停2天要18",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于对吴忠市区公共停车场收费标准的批复"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10111128",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10111128",
+   "question": "我在2019年7月10日购买了鹏胜公司建的书香雅苑小区的房子，再买房时首付了95000元，向销售员提供了身份证、个人征信等资料，有这个公司（鹏胜公司）办理房屋贷款手续，他们当时说他们银行有人，房屋的贷款没问题，肯定能办下来，在后面办理的过程",
+   "cited_hits": [],
+   "cited_missing": [
+    "商品房买卖合同",
+    "商品房买卖合同",
+    " 宁夏回族自治区房屋建筑 工 程质量投诉管理办法 "
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10110102",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10110102",
+   "question": "异地户口在上海办理加快身份证说两个星期，结果等了三个星期没拿到，也没有收到任何联系，上海川沙派出所身份证窗口还没有电话，为了查询身份证进展每次都要亲自跑到派出所去，我已经跑了3回了！每次都让回去等，结果等了三个星期再去问，让我再回去等10天",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于建立居民身份证异地受理挂失申报和丢失招领制度的意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10109819",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10109819",
+   "question": "吴政发2019，32号要求，注册营业执照时注册地址如果是住宅必须要到辖区居委会开具住宅变为经营性用房的证明，我到了金星镇富平社区，社区告知我开不了，只能开具公示出来了，请问是刻意不给我看，还是社区有社区的政务文件不让开，这样的文件一个让开，",
+   "cited_hits": [],
+   "cited_missing": [
+    "吴 忠 市 人 民 政 府 关于公布保留和取消证明事项清单的决定 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10109801",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10109801",
+   "question": "作为郭桥乡清水沟村7队土生土长村民，父母都是靠农田种植生活几十年，高铁吴忠站征地拆迁时乡里、村里都告知村民先征基本农田再征房屋，农民喜闻乐道、爽快答应，现在村子变得面貌全非，7队剩余几十户房屋到现在却未拆迁，反而农民却已无地可种，乡里亲邻关",
+   "cited_hits": [],
+   "cited_missing": [
+    "吴忠市人民政府关于银西高铁片区拆迁的通告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10112902",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10112902",
+   "question": "我是吴忠市利通区一名专业技术人员。2017年12月，我的专业技术等级已经符合晋级条件，但是一直没有办理。等到2018年3月全国两会后，开始机构改革，编制冻结，所有的职称晋级全部中止，因此就一直没有晋级。等到2019年3月的时候，利通区机构改",
+   "cited_hits": [],
+   "cited_missing": [
+    "宁夏回族自治区事业单位岗位设置管理暂行办法",
+    "关于加强和规范事业单位岗位设置及聘用管理工作的通知",
+    "关于全区机构编制和人员有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10112871",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10112871",
+   "question": "尊敬的领导，您好，我是吴忠市利通区的一名特岗教师，作为一名特岗教师，深深地感受到特待遇的不同，工资不仅低，而且最起码得保障都没有，政府购买的公益性岗位，三支一扶都会交五险，为什么我们特岗教师只交养老险与失业险",
+   "cited_hits": [],
+   "cited_missing": [
+    "吴忠市乡村教师支持计划实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10107112",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107112",
+   "question": "市民温先生反映：文化宫南面的秦韵广场上每天清晨灯开的比较迟，给到此公园锻炼身体的市民带来不便。市民建议此公园从早晨5:30开灯，为市民营造良好的休闲场所，方便市民锻炼。",
+   "cited_hits": [],
+   "cited_missing": [
+    "吴忠市市区灯光亮化管理办法",
+    "关于印发 < 吴忠市区城市亮化实施方案 > 的通知 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10107100",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107100",
+   "question": "市民反映：文化宫南面秦韵广场上每天早上灯开的比较迟，黑漆漆的，给在公园锻炼身体的市民带来不便。建议每天早上5点半开始开灯，方便市民锻炼身体。",
+   "cited_hits": [],
+   "cited_missing": [
+    "吴忠市市区灯光亮化管理办法",
+    "关于印发 < 吴忠市区城市亮化实施方案 > 的通知 "
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "nx-igi-156",
+   "id": "10151512",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10151512",
+   "question": "您好，我想咨询一下，因为我们家对门主人家好像不在（这个不确定），但是每次来住的都是陌生面孔，临走之前每次都会拉我家电闸，让我误以为家中停电。这种事情次数太多，非常让人困扰，我想咨询一下，我应该联系哪方面，能够解决这方面的困扰，或者谁能够帮我",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10151231",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10151231",
+   "question": "您好，我是一名随军家属，孩子今年入幼儿园，爱人单位也给退役军人事务局和教育局发了函，但孩子入园问题一拖再拖，从八月拖到中秋又要拖到国庆，同事的小孩在银川早就入学了。打电话问教育局，工作人员已经很不耐烦了，这服务态度就是一直推。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10151100",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10151100",
+   "question": "宁夏积利通公路养护工程股份有限公司拖欠员工工资（7月、8月）及工地伙食补助，与本公司领导沟通未果，望相关部门介入调查。公司董事长电话：13895435660",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10150955",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10150955",
+   "question": "今年九中开学了，建议考虑在利通区九中增加公交线路，就是如意人家站，现在经过如意人家的公交车，间隔时间太长了，而且少，希望考虑5路公交等附近的公交能增加如意人家站点，缓解孩子们上下学交通高峰压力，非常感谢～",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10150058",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10150058",
+   "question": "公元世家小区西门商业用楼南端，与六号住宅楼之间有一过道，长期被小区捡破烂人员堆放大量废纸塑料瓶等垃圾，随意大小便，散发臭味，滋生大量虫蚁蟑螂，且在高温天气有自燃的风险。原商业门面为餐馆，现已倒闭，但天然气管道等仍暴露在外，之前消防部门检查，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10147298",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10147298",
+   "question": "青铜峡市人民政府： 我是青铜峡市小坝镇新林村的村民贾自瑞，我怀着无比沉重的心情向政府反映我家在房屋改造过程中所遭受到的不公平待遇，真诚地请求政府给予监督解决为盼。 上访事由：根据青铜峡市政府下发乡村振兴计划相关文件要求，对青铜峡市小坝镇新林",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10143309",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10143309",
+   "question": "%E5%B0%8A%E6%95%AC%E7%9A%84%E4%BA%A4%E7%AE%A1%E5%8F%8A%E7%9B%B8%E5%85%B3%E9%83%A8%E9%97%A8%E9%A2%86%E5%AF%BC%EF%BC%8C%E6",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10119399",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10119399",
+   "question": "你好.凤凰水城南门口至德路这一块，由于原李闸渠小学一直没有拆迁，至德路到了凤凰水城南门口这一块就缩小了，由于师范和回中很多学生上学和放学必经之路，现在车和人越来越多，两边人行道也没有硬化，包括那个李闸渠小学那个围墙墙根土坡也没有硬化，灰尘很",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10119157",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10119157",
+   "question": "宁夏盈新新能源有限公司给工人不按时发放工资，没有签定劳动合同，也没有工服，只是按天算工资，干一天有一天，不干没有的，考勤啥的都在老板那里呢，我们只有自己记得考勤，现在一要工资就说贷款呢干啥呢已经推了一个月了还不给发，还叫我们想到那告就到哪里",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10118946",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10118946",
+   "question": "尊敬的领导您好！现在是半夜3点，旁边中房的施工地正在轰隆隆的施工，像这样不分白天黑夜施工的事情已经长达2个月，周围的居民根本没法好好休息，长期下来，严重影响到人们白天上班，孩子上学，甚至造成有些人晚上睡不好，白天开车打盹的危险情况。建议相关",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10118366",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10118366",
+   "question": "吴忠市车管所大车业务办理每天只有20个名额，网上还预约不上打电话咨询说必须预约，来车管所排队办理业务说提前预约才行不给办理！办事效率低不作为，车管所大院车辆堵塞进不来出不去。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10114087",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10114087",
+   "question": "我本人为一名大车司机，持A2驾照。于2013年3月份因吸毒品被盐池县公安局缉毒队强制隔离两年，期间得知驾照被注销（补证时得知的）。2015年8月27日因复吸被盐池高沙窝派出所强隔两年，2017年8月26日解除。2018年我去盐池车管所申请恢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10117342",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10117342",
+   "question": "市领导你们好： 我是利通区星河锦城小区的一名住户。 星河锦城小区广场上每天早七点至八点，玩七点至八点的广场舞活动音量巨大，已经严重超出法律规定的住宅区噪音扰民标准（一般在55—70分贝,有时声音关小又突然放大，越接近八点声音越大）。小区内许",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10117288",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10117288",
+   "question": "尊敬的领导您好!我是上桥人家小区业主，厨房下水管线有问题，污水从下水管口外溢，家里被淹无处下脚，担心楼下被淹，请求物业帮助，物业经理推诿扯皮，官架子大的人都请不来，多次打电话说好话随便支个保安来，让用布子把管线堵上，说只负责传达经理指示。再",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10113420",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10113420",
+   "question": "地点：黎明路与利宁路交叉口时间：20200722 19：20左右事件问题：由于近期的创城的交通管制问题，非机动车行驶规则不同路口都有所不同，在当时本人驾驶电动车由于交通规则不熟悉，转向过街问题，当时非常配合该路口的交通协管员，这位交通协管员",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10116693",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10116693",
+   "question": "尊敬的领导： 近日，我们盐池学校的学生家长收到消息通知，请家长为孩子在宁夏学生饮用奶交费系统平台上订购“学生饮用奶”，该平台引用的是农业部、教育部、财政部、卫生部、国家发展计划委员会、国家质量技术监督局、国家轻工业局联合下发的《关于实施国家",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10116413",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10116413",
+   "question": "尊敬的领导您好，我是吴忠市利通区吴忠市朝阳小学二年级的一名家长，自疫情发生以来，党中央国务院、省以及各级部门为抗击疫情做着不懈的努力，我们家长每天也是向学校汇报学生的情况。一直通过钉钉汇报健康信息，可最近学校又要求通过企业微信群向学校重复汇",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10114445",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10114445",
+   "question": "领导您好，请问2月2日那天上班嘛？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10111011",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10111011",
+   "question": "每逢周末，阳光娇子C区北入口一奇卡搞音乐培训的机构，从早到晚严重扰民，架子鼓声音巨大且从早9点能持续到晚8点不带停的。首先离居民楼如此近距离就不应该开办如此高分贝的课程 其次一点点隔噪音等人为措施都没有。上班族周末急需休息，这种噪音让人心烦",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10110975",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10110975",
+   "question": "尊敬的领导您好，我是吴忠市以为普通市民，近年来随着人民生活水平的逐步提高，买私家车的人越来越多，但是停车矛盾日益增大，为了减少停车矛盾，方便市民，我建议能不能向市民公开一些政府部门，各单位以及体育馆之类闲置的停车场以方便市民出行？这样既缓解",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10110903",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10110903",
+   "question": "因在吴忠小坝两地居住和工作，每天早晨要赶6:30-7:30之间的21路公交车回小坝上班，早上车上很冷，特别是座椅尤其冰冷（也可能司机师傅忘记打开车载供暖系统，想提醒又怕影响司机师傅开车）。希望公交公司提醒一下各位公交车师傅，温暖的清早，我们",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10110426",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10110426",
+   "question": "自一号通暖至今暖气回水冰凉，供暖公司与开发商互相推诿扯皮，都不管希望政府职能部门管一管这些光收钱不服务的黑心商家，让广大群众们不在受冻。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10110208",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10110208",
+   "question": "胜利路早市至开元小学段马路隔离栏行人通道间距过长，严重影响行人便捷出行。西湖路口位于西湖市场附近，周边市场小区人员非机动车流动量极大，在西湖宾馆南侧路口旁胜利西路的隔离栏没有行人非机动车通道，致使行人绕行距离过长，非机动车逆行。造成行人不便",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10110137",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10110137",
+   "question": "吴忠市社保可以网上申报吗？ 我们公司需要在吴忠社保开户、公积金开户，打了社保局0953-2024922的电话，一直打不通，从上周四到这周一直打不通，动不动就被挂断，不知是什么情况，如果没人解决，是不是只有投诉之后才有人受理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10110031",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10110031",
+   "question": "我向12345反应的事项其短信回复结果为详见附表，但却不出具电子版或纸质材料，再打电话让向市场监管局咨询，市场监管局答复为只能看，不能带走，答复意见投诉人不能存留吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10110014",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10110014",
+   "question": "我是一位双胞胎妈妈，9月30号下午因放假回老家探望80岁的奶奶，和85岁的爷爷，我和婆婆带的我的两个孩子前往吴忠汽车站乘坐吴忠-下马关的大巴车宁C.13669车回家，买了两张加班车票一张30块，说是快客，上车时被司机拦下说我带的东西多，（奶",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10109924",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10109924",
+   "question": "关于李桥村十一队居民区建大猪场臭气难闻的问题！怎么才能解？几个月过去了猪场虽整改但是还是很臭，你们说咋办呢？政府不能一直这么托这吧，手续你们批了，臭气我们闻，天天告也不是办法，这事给解决一下吧",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10109854",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10109854",
+   "question": "————郭家桥乡山水沟村，自从有了村民代表这个名称开始至今，10余年时间居然未进行过一次正规化的民选推荐，投票产生等方式进行过村民代表选举…………村民代表，作为村委会的重要组成部分，代表着广大人民群众的期望信任……然后一些不合格的村民代表，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10109836",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10109836",
+   "question": "关于我妈妈的社保5年零1个月未计入档案的事情已经解决，可是无法找到撤销之前信件的设置，只能再写一封信希望撤销，不在为难工作人员，对方已经积极帮忙解决问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10113298",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10113298",
+   "question": "我妈妈2019年9月退休，现在发现有5年零1个月工龄未计入档案，1986年12月到1991年12月我妈妈在灵武绒线厂工作，后与1992年1月调入吴忠市配件厂，现在社保档案中未将这五年一个月时间计算进去，社保中心让我妈妈回灵武社保局找到这五年",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10113288",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10113288",
+   "question": "安置房可以办理房产证吗？如果可以需要什么手续？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10109784",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10109784",
+   "question": "一、存在违约行为，损害消费者利益。2019年8月13日，在吴忠市新南天然气有限责任公司办理开户，当时前台说15天之内会有人员上门安装，15天后未有人员联系，至此之后多次打电话与天然气公司联系，推诿说安装时限为15天至1个月，至今1月期限已满",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10113247",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10113247",
+   "question": "吴忠市领导：我是内蒙古满洲里市生产石膏线业内人员，燕池县顺宁石膏粉厂位于G244冯青线附近，该厂生产的石膏粉排出的粉尘严重影响了周围群众的身体健康，发展当地的经济，不能影响到老百姓的身心健康，这严重违背人民对美好生活的向往中央精神，应该给吴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10109766",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10109766",
+   "question": "尊敬的各位领导，您好，我是高闸镇李桥村十一队村民，因2018年有人在我们队上上建大猪场，臭气难闻，我们找了环保，信仿，镇政府，开始推来推去，最后告诉我们手续齐全没办法，只能整改，后因我们质疑手续批的有问题，国家法规，规定居民区不能建大养殖场",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10109732",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10109732",
+   "question": "[cp]@最高人民法院@最高人民检察院 @国务院办公厅 @国家信访局@人民日报 @人民网 @CCTV焦点访谈 @央视新闻@中国新闻网@中国政府网@环球网@新京报@正义网 @紫光阁 @光明网@光明日报 @新华网 @法制网 @中国长安网 @法制",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10113127",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10113127",
+   "question": "中国法规有双重标准吗，我看到的，和相关领导说的为啥不一样呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10112963",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10112963",
+   "question": "尊敬的领导你好，我是河北省任丘市人，近2个月来我的手机工作日期间经常收到你们当地吴忠市组织部党员手机报。希望领导在百忙之中协调一下。对我的手机停发信息，在此万分感谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10112892",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10112892",
+   "question": "吴忠市市场监督管理局胜利市场监管所张子玉长期在职不在岗，吃空饷： 张子玉，男，1984年7月29日生；经过向09532015016胜利市场监管所办公室长时间了解，张子玉长期处于不在岗状态，吃空饷！ 并且2017年5月；张子玉伪造吴忠市市场监",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10109389",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10109389",
+   "question": "从今年年初开始，手机自动识别的署名为吴忠市委组织部，号码为12371，每天给我本人发送彩信，且彩信无法下载，本人投诉至中国移动，号码无法屏蔽，彩信无法单一点对点屏蔽。此种情况已持续几个月了，对本人生活造成困扰，希望能解决。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10109374",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10109374",
+   "question": "请问吴忠市红寺堡区二学位发工资所需要的资料有哪些？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10109208",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10109208",
+   "question": "中涛新材料有限公司位于吴忠市青铜峡市新材料基地：1.该公司未完成安评环评手续，非法生产化工品“金刚烷”2.未办理“三同时”3.非法使用危险化学品“三氯化铝”，非法排放三氯化铝废水溶液4.违反安全生产法，在乙类工作车间生产需要溶剂油和丙酮的的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10109080",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10109080",
+   "question": "行 政 诉 讼申诉人根据国家《法律、法规、条例》依法“对吴忠市公安局及其政治部法制处“公务员”在行使“职责义务”行政行为过程中违反“失职失责”等行政行为的，申诉人有权向“监察机关”提起“控告检举”行政诉讼：根据《中华人民共和国宪法》第5条规",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10112210",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10112210",
+   "question": "自去年新21路公交车开通后，吴忠市区到青铜峡市小坝的公共交通有了很大改善，新21路车辆整洁美观，运行准时平稳，成为普通市民往返利通区与小坝的首选。但还是不能满足两地居民出行的需求。因为路线设置因素，许多家住小坝城市东区如黄河外滩，大成·欧景",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10108914",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10108914",
+   "question": "我司在青铜峡法院的执行案件，一拖再拖，始终视法律为儿戏，合法权益得不到法律保障。2015年结案的案号为（2015）青民初字第16号在2016年申请执行，中途多次督促无任何结果，一拖再拖严重损害司法部门形象，损害人民群众的合法权益。希望通过给",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10108770",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10108770",
+   "question": "本人于从2016年3月至2016年12月31日期间一直在宁夏通信建设公司工作。工作期间公司每月从工资中扣去社保，医保个人应缴部分但是社保，医保一直未给我缴纳。在2017年中央巡视组再宁夏期间督办此事。。未曾宁夏通建公司只缴纳我们30个同事的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10108676",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10108676",
+   "question": "您好，2019年1月份，我参加了青铜峡市市委宣传部举办的“移风易俗宣传标语征集”评选活动，投票及入围后有话费奖励，前20名每条100元，后50名每条50元；在1月31日公布的投票名单里，我有幸多条标语入围，一共是话费950元。然而从1月31",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10108619",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10108619",
+   "question": "保障民警依法履职 维护国家法律尊严(诉求书)尊敬的领导您好：首先，感谢您在百忙之中抽空阅读此诉求书。 我叫丁建军，男，现年47岁，回族，法律大专学历，二级技师职称，1991年参加工作，原吴忠市公安局交警支队辅警（事业编制），现吴忠市机动车辆",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10108508",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10108508",
+   "question": "本人于2018年12月18日在中介公司（吴忠市信德利房产有限公司）与房主马磊签订了一份吴南华庭顶账房购房协议，后于1月9日将首付款14万余元打入开发商宁夏润翔房地产开发有限公司的账户内，并未办理购房手续，后期被房主告知由于各种问题，此套房屋",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10110694",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10110694",
+   "question": "希望把富平小区和同心苑中间的道路与六中北路接通，方便百姓群众和学校学生，感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10110434",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10110434",
+   "question": "我这次要举报的是吴忠市市场监管局古城所所长马江等人。 在2018年12月5日上午，该单位就我在利通区魅之语美容养生会所毁容赔偿一事进行调解，在没有调解完的情况下，该单位的李晓文等人就骗我在空白调解书上签字，下午我拿着美容产品去举报产品是假的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10107293",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107293",
+   "question": "1.星河韵城8号居民楼前的车库被门面房商户私自改成厨房，并且房顶架设的烟囱产生的噪音和油烟严重影响居民的正常生活。 2.8号楼前的门面房本是2层建筑，门面房商户私自在楼顶加盖库房，严重影响小区环境，居民曾在去年夏天多次向城管举报，没有得到解",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10106769",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106769",
+   "question": "请问一下，二学位在吴忠有没有加工资的政策？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10107227",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107227",
+   "question": "宁夏联通手机营业厅公布用户的账单不够详细，话费的具体用途不清楚，账单公布也不够及时，需要将话费具体的使用方面详细列出来",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10107205",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107205",
+   "question": "市民王先生来电表扬：吴忠市明珠公园、兴隆公园建设的非常好，卫生好、绿化好、服务好、设施好。对园林局工作进行表扬以及认可。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10107186",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107186",
+   "question": "市民来信反映：兴隆公园的公共设施建设的非常完善，但近期公园内的公共设施被学生损坏，建议相关部门加强对公园的管理，倡导文明行为，杜绝损坏公共设施。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10107166",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107166",
+   "question": "市民马先生网络求助：黄河水韵北门口有三棵松树（北门口西侧，马路和人行道之间的绿化带上），小区居民从北门开车出门，特别是在左转弯的情况下，三棵松树挡住司机的视线，容易发生交通事故，给市民的出行带来不便。建议相关部门将这三棵松树挪到其他地方，方",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10107150",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107150",
+   "question": "市民王先生来信反映：于2017年3月7日反映的文卫路两旁绿化树树枝较长，影响行人通行，至今未修剪，希望相关部门予以处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10107132",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107132",
+   "question": "市民反映：开元广场（国贸北边的广场）每天晚上八点之后会有“付费唱歌”的流动摊点在此营业，音响放出的声音又大又难听，一直营业到晚上12点，非常影响周围居民的正常休息。建议相关部门将这个摊点音响的分贝放小，控制在不影响周围居民生活的范围内，并且",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10107087",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107087",
+   "question": "市民反映：经常有人在街心公园长廊下随地大小便、吐痰，导致此处卫生脏、乱、差，打扫卫生的工作人员每天都只打扫，不清洗，地面留有很多印记。希望相关部门予以处理，要求每天工作人员打扫卫生时，将此处清扫干净，并用水冲洗。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10107075",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107075",
+   "question": "市民反映：吴忠市开源广场经常搭建舞台进行演出，演出的电子屏声音太大，从下午7点一直播放到晚上10点多，持续有一周的时间了，严重影响周围居民的正常休息。希望相关部门予以处理，调小电子屏的播放声音以便居民正常的生活。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10107059",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107059",
+   "question": "市民反映：秦渠公园标有禁止车辆通行的标志，但是每天还是有大量的电动车和摩托车从此处过往，秦渠公园每天早晨都有晨练的老年人，车辆从此处通过存在很大的安全隐患。希望相关部门予以处理，禁止电动车和摩托车通过。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10107048",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107048",
+   "question": "市民来电反映：金星街整条街树木生长茂密，过长的树枝总会刮到来往的车辆，并且影响市民出行。建议相关部门能够对该路段的树木进行修剪。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10107012",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107012",
+   "question": "市民高先生反映：东方秦韵南门口树木生长茂密，影响市民的正常出行，建议相关部门能够对该路段的树木进行修剪。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10106787",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106787",
+   "question": "尊敬的市委书记您好，我是一名常年在吴忠市外工作的事业干部，在某市国库支付中心工作，因两地分居多年，两头跑早已身心疲惫，加之孩子越来越大需要母亲照顾辅导功课等，想调回吴忠附近就近工作，家里人也很希望尽早调回吴忠周边工作。想咨询吴忠市有没有这方",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10106788",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106788",
+   "question": "母亲年龄47岁，没有缴纳过养老保险，农村户口，咨询养老保险的相关政策。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10106808",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106808",
+   "question": "孩子出生42天了，户口已经上好可以办社会保障卡了吗？办理社会保障卡都需要哪些材料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10107165",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107165",
+   "question": "办理CA证书需要什么资料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10106859",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106859",
+   "question": "办理CA证书需要什么资料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10106825",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106825",
+   "question": "今年10月1号搬入李闸渠（清河苑二期）公租房小区入住，现如今天气逐渐变冷，早晚洗漱需要用热水，可家里的太阳能迟迟不能安装，其他住户安装好了，给物业反映了好多次，物业说他们没办法，要找太阳能公司，可太阳能公司的电话一直打不通。希望得到平台帮助",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10106897",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106897",
+   "question": "于2005年下岗后至今，每年都是自己缴纳养老保险，离休时是干部编制，现在想退休，请问能否以普通身份退休？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10106878",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106878",
+   "question": "想咨询一下分娩证具体到哪里办理，都需要什么手续，丈夫户口是吴忠市利通区金积镇的，妻子的户口是银川的，现孩子已出生了，分娩证还可以补办吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10106934",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106934",
+   "question": "今年的城镇居民养老保险是什么时间开始缴费的呢？截止日期是什么时候呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10106914",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106914",
+   "question": "感谢51890服务中心，真是我一拨就灵，及时快捷方便的为民服务。利通区机关事务管理局的领导和同志们在百忙中抽出时间来家里和沟通，详细解释了机关食堂的环保设计，保证不会对环境造成污染。51890工作人员多次进行了回访，谢谢你们的关心。谢谢利通",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10106952",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106952",
+   "question": "我是在吴忠长期务工的同心人，居住在利通区朝阳东街朝阳教师楼（房屋已购买，但已划进拆迁房，无法办理过户，任属于租房）。家中已有两个孩子（十岁）在朝阳小学上四年级，现有6岁半儿子要入学，去朝阳小学报名被拒，教师答复居住地不属于该片区。请问我们这",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10106972",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106972",
+   "question": "峡口镇拆迁谭桥村五队六队四队后至今拆迁费没有到位，请问属于哪个政府部门主管？请答复。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10106991",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106991",
+   "question": "原复兴巷棚户区改造搬迁户，2016年8月房屋置换于吴忠新区禧瑞华府三期29号楼一单元五楼，并一次性缴清房款。开发商说年底能办理房产证，现在已是2017年7月了，还是不能办理房产证，为什么？原住房是80.03平米，置换为120.03平米，办理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10107009",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107009",
+   "question": "你好，我代表村民想问一问我们这里近几个月空气质量太差，特别是早上和晚上。经过探寻没有找到排放源，我们该怎么办？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10107025",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107025",
+   "question": "之前在房管局申请了一套公租房，吴忠日报上公示期也已经过了，房管局让等通知，时间也比较久了，所以想问一下具体什么时候房子能下来？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10107040",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107040",
+   "question": "申请大学生助学贷款（大学生贷款）的条件及所需材料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10107072",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107072",
+   "question": "单身公积金贷款买房，必须要担保人吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10107084",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107084",
+   "question": "办理房产证，交的契税是按总价的百分比，还是面积的？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10107096",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107096",
+   "question": "外省农村户口在吴忠高速公路以西买房有政府补贴没？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10107108",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107108",
+   "question": "公安出入境124号窗口电话？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10107127",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107127",
+   "question": "2016年执业医师资格证书可以领取了吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-156",
+   "id": "10107146",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107146",
+   "question": "利宁南街秦渠桥头北面（铁市场东门水晶宫向南20米）有一辆装有油水分离器的小货车违章停车有十几天，并且占用两个停车位停车，希望相关部门能协调处理此事。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

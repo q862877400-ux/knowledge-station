@@ -1,0 +1,24 @@
+{
+ "A_考卷": [],
+ "B_补料": [],
+ "C_无依据": [
+  {
+   "source": "gx-igi-174",
+   "id": "157814410679",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814410679",
+   "question": "请问到玉林市公积金中心办事，汽车停放到何处？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-174",
+   "id": "157814400914",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814400914",
+   "question": "市政府办公大楼的停车位市民是否可以停车？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

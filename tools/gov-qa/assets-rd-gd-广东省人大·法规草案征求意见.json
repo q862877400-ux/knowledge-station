@@ -1,0 +1,491 @@
+{
+ "A_考卷": [
+  {
+   "source": "rd-gd",
+   "id": "ov_cn_gdrdw_zyfb_fgyjzj_content_post_243120_html",
+   "url": "https://www.gdpc.gov.cn/gdrdw/zyfb/fgyjzj/content/post_243120.html",
+   "question": "《广东省国防教育条例（修订草案征求意见稿）》向社会各界公开征求意见",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国国防教育法",
+     "lib_no": "国防教育法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "广东省国防教育条例（修订草案征求意见稿）",
+    "广东省国防教育条例（修订草案征求意见稿）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "rd-gd",
+   "id": "ov_cn_gdrdw_zyfb_fgyjzj_content_post_242162_html",
+   "url": "https://www.gdpc.gov.cn/gdrdw/zyfb/fgyjzj/content/post_242162.html",
+   "question": "《广东省促进粤港澳大湾区消费者权益保护协作规定（草案稿征求意见稿）》向社会各界公开征求意见",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国消费者权益保护法",
+     "lib_no": "消费者权益保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "广东省促进粤港澳大湾区消费者权益保护协作规定（草案稿征求意见稿）",
+    "广东省促进粤港澳大湾区消费者权益保护协作规定（草案稿征求意见稿）",
+    "粤港澳大湾区发展规划纲要"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "rd-gd",
+   "id": "ov_cn_gdrdw_zyfb_fgyjzj_content_post_242152_html",
+   "url": "https://www.gdpc.gov.cn/gdrdw/zyfb/fgyjzj/content/post_242152.html",
+   "question": "《广东省消费者权益保护条例（草案修改二稿征求意见稿）》向社会各界公开征求意见",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国消费者权益保护法",
+     "lib_no": "消费者权益保护法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国消费者权益保护法实施条例",
+     "lib_no": "消费者权益保护法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国消费者权益保护法",
+     "lib_no": "消费者权益保护法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国消费者权益保护法实施条例",
+     "lib_no": "消费者权益保护法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国消费者权益保护法",
+     "lib_no": "消费者权益保护法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "广东省实施〈中华人民共和国消费者权益保护法〉办法",
+     "lib_no": "消费者权益保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "广东省消费者权益保护条例（草案修改二稿征求意见稿）",
+    "广东省消费者权益保护条例（草案修改二稿征求意见稿）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "rd-gd",
+   "id": "ov_cn_gdrdw_zyfb_fgyjzj_content_post_242040_html",
+   "url": "https://www.gdpc.gov.cn/gdrdw/zyfb/fgyjzj/content/post_242040.html",
+   "question": "《广东省规范性文件制定和管理监督条例（草案修改征求意见稿）》向社会各界公开征求意见",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国地方各级人民代表大会和地方各级人民政府组织法",
+     "lib_no": "地方各级人民代表大会和地方各级人民政府组织法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国立法法",
+     "lib_no": "立法法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "规章制定程序条例",
+     "lib_no": "规章制定程序条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国监察法",
+     "lib_no": "监察法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "广东省规范性文件制定和管理监督条例（草案修改征求意见稿）",
+    "广东省规范性文件制定和管理监督条例（草案修改征求意见稿）",
+    "广东省各级人民代表大会常务委员会规范性文件备案审查条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "rd-gd",
+   "id": "ov_cn_gdrdw_zyfb_fgyjzj_content_post_241525_html",
+   "url": "https://www.gdpc.gov.cn/gdrdw/zyfb/fgyjzj/content/post_241525.html",
+   "question": "《广东省促进粤港澳大湾区海上搜寻救助合作条例（草案修改二稿征求意见稿）》向社会各界公开征求意见",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国海上交通安全法",
+     "lib_no": "海上交通安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "广东省促进粤港澳大湾区海上搜寻救助合作条例（草案修改二稿征求意见稿）",
+    "广东省促进粤港澳大湾区海上搜寻救助合作条例（草案修改二稿征求意见稿）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "rd-gd",
+   "id": "ov_cn_gdrdw_zyfb_fgyjzj_content_post_241094_html",
+   "url": "https://www.gdpc.gov.cn/gdrdw/zyfb/fgyjzj/content/post_241094.html",
+   "question": "《广东省征兵工作规定（修订草案修改稿征求意见稿）》向社会各界公开征求意见",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国兵役法",
+     "lib_no": "兵役法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "征兵工作条例",
+     "lib_no": "征兵工作条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国公务员法",
+     "lib_no": "公务员法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国公务员法",
+     "lib_no": "公务员法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "广东省征兵工作规定（修订草案修改稿征求意见稿）",
+    "广东省征兵工作规定（修订草案修改稿征求意见稿）",
+    "广东省征兵工作规定（修订草案修改稿征求意见稿）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "rd-gd",
+   "id": "ov_cn_gdrdw_zyfb_fgyjzj_content_post_240817_html",
+   "url": "https://www.gdpc.gov.cn/gdrdw/zyfb/fgyjzj/content/post_240817.html",
+   "question": "《广东省消费者权益保护条例（草案修改稿征求意见稿）》向社会各界公开征求意见",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国消费者权益保护法",
+     "lib_no": "消费者权益保护法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国消费者权益保护法实施条例",
+     "lib_no": "消费者权益保护法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国消费者权益保护法",
+     "lib_no": "消费者权益保护法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国消费者权益保护法实施条例",
+     "lib_no": "消费者权益保护法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国消费者权益保护法",
+     "lib_no": "消费者权益保护法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "广东省实施〈中华人民共和国消费者权益保护法〉办法",
+     "lib_no": "消费者权益保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "广东省消费者权益保护条例（草案修改稿征求意见稿）",
+    "广东省消费者权益保护条例（草案修改稿征求意见稿）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "rd-gd",
+   "id": "ov_cn_gdrdw_zyfb_fgyjzj_content_post_240806_html",
+   "url": "https://www.gdpc.gov.cn/gdrdw/zyfb/fgyjzj/content/post_240806.html",
+   "question": "《广东省快递条例（草案修改二稿征求意见稿）》向社会各界公开征求意见",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国邮政法",
+     "lib_no": "邮政法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "快递暂行条例",
+     "lib_no": "快递暂行条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国统计法",
+     "lib_no": "统计法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "广东省快递条例（草案修改二稿征求意见稿）",
+    "广东省快递条例（草案修改二稿征求意见稿）",
+    "广东省快递市场管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "rd-gd",
+   "id": "ov_cn_gdrdw_zyfb_fgyjzj_content_post_240785_html",
+   "url": "https://www.gdpc.gov.cn/gdrdw/zyfb/fgyjzj/content/post_240785.html",
+   "question": "《广东省促进粤港澳大湾区海上搜寻救助合作条例（草案修改稿征求意见稿）》向社会各界公开征求意见",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国海上交通安全法",
+     "lib_no": "海上交通安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "广东省促进粤港澳大湾区海上搜寻救助合作条例（草案修改稿征求意见稿）",
+    "广东省促进粤港澳大湾区海上搜寻救助合作条例（草案修改稿征求意见稿）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "rd-gd",
+   "id": "ov_cn_gdrdw_zyfb_fgyjzj_content_post_239654_html",
+   "url": "https://www.gdpc.gov.cn/gdrdw/zyfb/fgyjzj/content/post_239654.html",
+   "question": "《广东省快递条例（草案修改稿征求意见稿）》向社会公开征求意见",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国邮政法",
+     "lib_no": "邮政法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "快递暂行条例",
+     "lib_no": "快递暂行条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国统计法",
+     "lib_no": "统计法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "广东省快递条例（草案修改稿征求意见稿）",
+    "广东省快递条例（草案修改稿征求意见稿）",
+    "广东省快递市场管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "rd-gd",
+   "id": "ov_cn_gdrdw_zyfb_fgyjzj_content_post_239447_html",
+   "url": "https://www.gdpc.gov.cn/gdrdw/zyfb/fgyjzj/content/post_239447.html",
+   "question": "《广东省实施〈中华人民共和国全国人民代表大会和地方各级人民代表大会代表法〉办法（修订草案修改稿征求意见稿）》向社会各界公开征求意见",
+   "cited_hits": [
+    {
+     "name": "广东省实施〈中华人民共和国全国人民代表大会和地方各级人民代表大会代表法〉办法（修订草案修改稿征求意见稿）",
+     "lib_no": "全国人民代表大会和地方各级人民代表大会代表法(OCR采集)",
+     "weak": true
+    },
+    {
+     "name": "广东省实施〈中华人民共和国全国人民代表大会和地方各级人民代表大会代表法〉办法（修订草案修改稿征求意见稿）",
+     "lib_no": "全国人民代表大会和地方各级人民代表大会代表法(OCR采集)",
+     "weak": true
+    },
+    {
+     "name": "广东省实施〈中华人民共和国全国人民代表大会和地方各级人民代表大会代表法〉办法（修订草案修改稿征求意见稿）",
+     "lib_no": "全国人民代表大会和地方各级人民代表大会代表法(OCR采集)",
+     "weak": true
+    },
+    {
+     "name": "中华人民共和国全国人民代表大会和地方各级人民代表大会代表法",
+     "lib_no": "全国人民代表大会和地方各级人民代表大会代表法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国全国人民代表大会和地方各级人民代表大会代表法",
+     "lib_no": "全国人民代表大会和地方各级人民代表大会代表法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国全国人民代表大会和地方各级人民代表大会代表法",
+     "lib_no": "全国人民代表大会和地方各级人民代表大会代表法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国全国人民代表大会和地方各级人民代表大会代表法",
+     "lib_no": "全国人民代表大会和地方各级人民代表大会代表法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "广东省各级人民代表大会代表建议、批评和意见办理规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "rd-gd",
+   "id": "ov_cn_gdrdw_zyfb_fgyjzj_content_post_239258_html",
+   "url": "https://www.gdpc.gov.cn/gdrdw/zyfb/fgyjzj/content/post_239258.html",
+   "question": "《广东省突发事件应对条例（修订草案修改征求意见稿）》向社会各界公开征求意见",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国突发事件应对法",
+     "lib_no": "应急管理部关于学习宣传贯彻新修订的《中华人民共和国突发事件应对法》的通知",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "广东省突发事件应对条例（修订草案修改征求意见稿）",
+    "广东省突发事件应对条例（修订草案修改征求意见稿）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "rd-gd",
+   "id": "ov_cn_gdrdw_zyfb_fgyjzj_content_post_238278_html",
+   "url": "https://www.gdpc.gov.cn/gdrdw/zyfb/fgyjzj/content/post_238278.html",
+   "question": "《广东省租赁房屋治安管理规定（修订草案修改稿征求意见稿）》向社会各界公开征求意见",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国治安管理处罚法",
+     "lib_no": "治安管理处罚法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国个人信息保护法",
+     "lib_no": "个人信息保护法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国治安管理处罚法",
+     "lib_no": "治安管理处罚法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "广东省租赁房屋治安管理规定（修订草案修改稿征求意见稿）",
+    "广东省租赁房屋治安管理规定（修订草案修改稿征求意见稿）",
+    "住房租赁条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "rd-gd",
+   "id": "ov_cn_gdrdw_zyfb_fgyjzj_content_post_237995_html",
+   "url": "https://www.gdpc.gov.cn/gdrdw/zyfb/fgyjzj/content/post_237995.html",
+   "question": "《广东省实施&lt;中华人民共和国妇女权益保障法&gt;办法（修订草案修改征求意见稿）》向社会各界公开征求意见",
+   "cited_hits": [
+    {
+     "name": "广东省实施<中华人民共和国妇女权益保障法>办法（修订草案修改征求意见稿）",
+     "lib_no": "妇女权益保障法(OCR采集)",
+     "weak": true
+    },
+    {
+     "name": "广东省实施<中华人民共和国妇女权益保障法>办法（修订草案修改征求意见稿）",
+     "lib_no": "妇女权益保障法(OCR采集)",
+     "weak": true
+    },
+    {
+     "name": "中华人民共和国妇女权益保障法",
+     "lib_no": "妇女权益保障法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国妇女权益保障法",
+     "lib_no": "妇女权益保障法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国妇女权益保障法",
+     "lib_no": "妇女权益保障法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "rd-gd",
+   "id": "ov_cn_gdrdw_zyfb_fgyjzj_content_post_237932_html",
+   "url": "https://www.gdpc.gov.cn/gdrdw/zyfb/fgyjzj/content/post_237932.html",
+   "question": "《广东省促进粤港澳气象合作发展条例（草案修改稿征求意见稿）》向社会各界公开征求意见",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国气象法",
+     "lib_no": "气象法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "广东省促进粤港澳气象合作发展条例（草案修改稿征求意见稿）",
+    "广东省促进粤港澳气象合作发展条例（草案修改稿征求意见稿）",
+    "粤港澳大湾区发展规划纲要"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "rd-gd",
+   "id": "ov_cn_gdrdw_zyfb_fgyjzj_content_post_237891_html",
+   "url": "https://www.gdpc.gov.cn/gdrdw/zyfb/fgyjzj/content/post_237891.html",
+   "question": "《广东省粮食安全保障条例（修订草案修改稿征求意见稿）》 向社会各界公开征求意见",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国粮食安全保障法",
+     "lib_no": "粮食安全保障法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "广东省粮食安全保障条例（修订草案修改稿征求意见稿）",
+    "广东省粮食安全保障条例（修订草案修改稿征求意见稿）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "rd-gd",
+   "id": "ov_cn_gdrdw_zyfb_fgyjzj_content_post_237888_html",
+   "url": "https://www.gdpc.gov.cn/gdrdw/zyfb/fgyjzj/content/post_237888.html",
+   "question": "《广东省促进粤港澳大湾区轨道交通发展条例（草案修改二稿征求意见稿）》向社会各界公开征求意见",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国铁路法",
+     "lib_no": "铁路法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "铁路安全管理条例",
+     "lib_no": "铁路安全管理条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "城市公共交通条例",
+     "lib_no": "城市公共交通条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国安全生产法",
+     "lib_no": "安全生产法(2021修正)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "广东省促进粤港澳大湾区轨道交通发展条例（草案修改二稿征求意见稿）",
+    "广东省促进粤港澳大湾区轨道交通发展条例（草案修改二稿征求意见稿）",
+    "粤港澳大湾区发展规划纲要"
+   ],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [],
+ "C_无依据": []
+}

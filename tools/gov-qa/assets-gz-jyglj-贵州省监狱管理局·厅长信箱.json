@@ -1,0 +1,412 @@
+{
+ "A_考卷": [
+  {
+   "source": "gz-jyglj",
+   "id": "27772019",
+   "url": "https://jyglj.guizhou.gov.cn/?id=27772019",
+   "question": "下判后已经两个月时间，家属未收到入监通知书，请问可以通过什么方式查询服刑人员在哪一所监狱等信息？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国监狱法",
+     "lib_no": "监狱法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-jyglj",
+   "id": "27753619",
+   "url": "https://jyglj.guizhou.gov.cn/?id=27753619",
+   "question": "我记得以前在官网看一看到减刑假释的公示信息,但是现在翻遍了都找不到了",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-jyglj",
+   "id": "27553597",
+   "url": "https://jyglj.guizhou.gov.cn/?id=27553597",
+   "question": "您好，想咨询一下哪些情形可以认定为立功表现和重大立功表现？谢谢！",
+   "cited_hits": [
+    {
+     "name": "关于办理减刑、假释案件具体应用法律的规定",
+     "lib_no": "最高人民法院关于办理减刑、假释案件具体应用法律的规定(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-jyglj",
+   "id": "27288520",
+   "url": "https://jyglj.guizhou.gov.cn/?id=27288520",
+   "question": "服刑人员进入监狱，家里会收到通知吗？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国监狱法",
+     "lib_no": "监狱法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "gz-jyglj",
+   "id": "27568375",
+   "url": "https://jyglj.guizhou.gov.cn/?id=27568375",
+   "question": "请问报考2024年贵州省考监狱宣传教育岗位，体检对视力的具体要求是裸眼视力还是矫正视力？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "公务员录用体检特殊标准（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-jyglj",
+   "id": "27550488",
+   "url": "https://jyglj.guizhou.gov.cn/?id=27550488",
+   "question": "服刑人员年龄75岁，患有高血压，风湿性关节炎，白内障，2023年10家属了解到服刑人员患有白内障导致双目几乎无视力，行动不便，生活自理艰难；问题1:请问一下这个情况是否可以申请监外执行或者保外就医？问题2：家属可以通过什么渠道了解服刑人员健",
+   "cited_hits": [],
+   "cited_missing": [
+    "最高人民法院 最高人民检察院 公安部 司法部 国家卫生计生委 关于印发〈暂予监外执行规定〉的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-jyglj",
+   "id": "27277520",
+   "url": "https://jyglj.guizhou.gov.cn/?id=27277520",
+   "question": "请问报考监狱宣传教育岗位需要体能测试吗？该岗位要求矫正视力还是裸眼视力？",
+   "cited_hits": [],
+   "cited_missing": [
+    "公务员录用体检通用标准（试行）",
+    "关于修订〈公务员录用体检通用标准（试行）〉及〈公务员录用体检操作手册〉（试行）有关内容的通知",
+    "关于印发公务员录用体检特殊标准（试行）的通知",
+    "关于公安机关网络安全与执法等职位录用体检视力项目适用标准的复函"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-jyglj",
+   "id": "27277513",
+   "url": "https://jyglj.guizhou.gov.cn/?id=27277513",
+   "question": "请问报考监狱宣传教育岗需要体能测试吗？该岗位对视力的要求是裸眼视力还是矫正视力？",
+   "cited_hits": [],
+   "cited_missing": [
+    "公务员录用体检通用标准（试行）",
+    "关于修订〈公务员录用体检通用标准（试行）〉及〈公务员录用体检操作手册〉（试行）有关内容的通知",
+    "关于印发公务员录用体检特殊标准（试行）的通知",
+    "关于公安机关网络安全与执法等职位录用体检视力项目适用标准的复函"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-jyglj",
+   "id": "27259494",
+   "url": "https://jyglj.guizhou.gov.cn/?id=27259494",
+   "question": "你好，我想问下我的家人刚到金西监狱，我现在可以去监狱会见吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "罪犯会见通信规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-jyglj",
+   "id": "27250448",
+   "url": "https://jyglj.guizhou.gov.cn/?id=27250448",
+   "question": "2号的时候我妈妈打电话过来说15号左右出来请问可以查么准确时时间有么",
+   "cited_hits": [],
+   "cited_missing": [
+    "贵州省监狱管理局非公开信息目录"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-jyglj",
+   "id": "27238350",
+   "url": "https://jyglj.guizhou.gov.cn/?id=27238350",
+   "question": "您好，想要咨询一下，非亲属可否探监，我是探监对象的姐夫，但是目前还未领取结婚证，因此想要咨询，非亲属的是否可以探监",
+   "cited_hits": [],
+   "cited_missing": [
+    "罪犯会见通信规定"
+   ],
+   "has_clause_no": true
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "gz-jyglj",
+   "id": "27706804",
+   "url": "https://jyglj.guizhou.gov.cn/?id=27706804",
+   "question": "您好！我是26年报考狱医公务员的考生，我的想报考的是贵州遵义监狱的要求是医学检验技术专业的公务员岗位，但是我的检验技师资格证书不慎丢失，贵州人事考试网文件规定21年之后颁发的纸质证书不再补办，电子证书具有同等效力，我想问一下使用电子证书会不",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-jyglj",
+   "id": "27608823",
+   "url": "https://jyglj.guizhou.gov.cn/?id=27608823",
+   "question": "请问下，亲属到王武监狱探监需要带什么证件，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-jyglj",
+   "id": "27593663",
+   "url": "https://jyglj.guizhou.gov.cn/?id=27593663",
+   "question": "在查阅贵单位公开招聘公告时，我发现我的专业——职业技术教育（专业名称：职业技术教育，专业代码：045120，门类/类别：教育学，学科/类别：教育）——并没有明确的规定。我想咨询一下，在报考时，该教育专硕是否属于教育学类？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-jyglj",
+   "id": "27582134",
+   "url": "https://jyglj.guizhou.gov.cn/?id=27582134",
+   "question": "您好，我是今年报考贵州省司法警察医院狱医岗位的考生，请问后续体检中关于视力标准的相关要求是裸眼视力4.8，还是矫正视力5.0？烦请回复，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-jyglj",
+   "id": "27556945",
+   "url": "https://jyglj.guizhou.gov.cn/?id=27556945",
+   "question": "您好，请问省监狱管理局2022年信息公开年报如何查阅？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-jyglj",
+   "id": "27555971",
+   "url": "https://jyglj.guizhou.gov.cn/?id=27555971",
+   "question": "贵州省第一女子监狱监区民警算不算基层工作经历，有没有相关文件支持。谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-jyglj",
+   "id": "27550721",
+   "url": "https://jyglj.guizhou.gov.cn/?id=27550721",
+   "question": "您好！警官，我想咨询一下，家属如何知道服刑人员有没有收到信？如果信件中有违规会被退回还是直接被扔了？信件内容写的太多会不会扔掉？是否会限制信件次数？蟹蟹警官，麻烦您了！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-jyglj",
+   "id": "27548926",
+   "url": "https://jyglj.guizhou.gov.cn/?id=27548926",
+   "question": "给家人汇款，我怎么知道他有没有收到，我在外省又不能回去看问他有没有收到钱，也没电话",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-jyglj",
+   "id": "27544712",
+   "url": "https://jyglj.guizhou.gov.cn/?id=27544712",
+   "question": "贵州省第二女子监狱服刑人员宋飞给家属回信，现在过去一个月了，家里还没收到回信，能查询下什么原因吗？因为我们是山东省的距离太远会见一次很不容易，靠写信比较省事一点。这是她入监后第一次给家里写信，家里很想快点收到。谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-jyglj",
+   "id": "27429081",
+   "url": "https://jyglj.guizhou.gov.cn/?id=27429081",
+   "question": "您好，我妹妹在贵州省女子第一监狱服刑，昨天给我母亲打电话给了一张建设银行卡号，说用户名是他自己的名字，但是汇款一直不成功，手机银行提示“账号、户名不符”。由于是我母亲接的电话母亲年纪较大可能记差，对汇款不成功原因不知。请监狱民警及时给予回复",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-jyglj",
+   "id": "27422636",
+   "url": "https://jyglj.guizhou.gov.cn/?id=27422636",
+   "question": "父亲在凯里监狱服刑，给了一张建设银行卡号，说用户名是他自己的名字，但是汇款一直不成功，手机银行提示“账号、户名不符”。由于父亲年纪较大，对汇款不成功原因不知。请监狱民警及时给予回复，告知给服刑人员汇款的方式。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-jyglj",
+   "id": "27395128",
+   "url": "https://jyglj.guizhou.gov.cn/?id=27395128",
+   "question": "外省籍人员被关押如何申请探监，胡南籍人被关押在平坝监狱，直系亲属希望探视，请问怎么申请？目前了解公式的是本省籍关押人员的视频探视流程，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-jyglj",
+   "id": "27336153",
+   "url": "https://jyglj.guizhou.gov.cn/?id=27336153",
+   "question": "请问如何获取贵单位的权利与责任相关信息？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-jyglj",
+   "id": "27333435",
+   "url": "https://jyglj.guizhou.gov.cn/?id=27333435",
+   "question": "在职五年监狱警察，如果取得法律C证可以申请成为公职律师吗？我们监狱局是否有这方面政策呢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-jyglj",
+   "id": "27328147",
+   "url": "https://jyglj.guizhou.gov.cn/?id=27328147",
+   "question": "你好！大概两周前我在这里写了一封信，选择不公开，提交的时候忘记保存查询码了，现在不知道这封信的回复结果，有什么办法可以查询吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-jyglj",
+   "id": "27327066",
+   "url": "https://jyglj.guizhou.gov.cn/?id=27327066",
+   "question": "咨询白云监狱狱政科电话，联系调证事宜",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-jyglj",
+   "id": "27289778",
+   "url": "https://jyglj.guizhou.gov.cn/?id=27289778",
+   "question": "建议离退休干部管理处把本局系统退休干警的政治思想教育工作放在离退休干部管理工作的首位，尤其是把发扬人民警察的优良作风放在重要位置上，把开展健康有益的业余文化体育活动作为政治思想工作的切入点，比如力所能及的体育比赛，红色经典歌咏比赛，书画摄影",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-jyglj",
+   "id": "27288303",
+   "url": "https://jyglj.guizhou.gov.cn/?id=27288303",
+   "question": "咨询一下:张金辉三个月没有给家里打电话，咨询一下他有无异常情况？出狱日期是七月几日？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-jyglj",
+   "id": "27284274",
+   "url": "https://jyglj.guizhou.gov.cn/?id=27284274",
+   "question": "请问凯里监狱律师会见何时恢复？省内对律师会见的恢复时间有统一规定吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-jyglj",
+   "id": "27253637",
+   "url": "https://jyglj.guizhou.gov.cn/?id=27253637",
+   "question": "我方于2018年在遵义监狱施工，并验收审计结算完，于2020年11月付完款，但一直不给我方结算结果，我方多次催要都不给。造成我方不能正常销案，并且结算金额与合同金额不符我方又不能正常退回建筑预征税款。望解决。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-jyglj",
+   "id": "27251332",
+   "url": "https://jyglj.guizhou.gov.cn/?id=27251332",
+   "question": "尊敬的监狱长&nbsp; &nbsp; &nbsp; 您好！感谢百忙之中查阅我的来信，关于服刑人员家属来探监需要准备什么材料？需要做核酸检测吗？希望给予解答非常感谢！&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nb",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-jyglj",
+   "id": "27251319",
+   "url": "https://jyglj.guizhou.gov.cn/?id=27251319",
+   "question": "尊敬的监狱长&nbsp; &nbsp; &nbsp; 您好！非常感谢百忙之中查阅我的来信，请问来贵单位探监需要准备什么材料？是否需要做核酸检测？希望给以解答！谢谢！&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nb",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-jyglj",
+   "id": "27248952",
+   "url": "https://jyglj.guizhou.gov.cn/?id=27248952",
+   "question": "您好，请问如何获取贵单位2019年的政府网站工作年度报表？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-jyglj",
+   "id": "27248372",
+   "url": "https://jyglj.guizhou.gov.cn/?id=27248372",
+   "question": "您好，请问如何查阅哪位部门领导分管政务公开工作的信息？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-jyglj",
+   "id": "27197520",
+   "url": "https://jyglj.guizhou.gov.cn/?id=27197520",
+   "question": "请问一下狱内领导，服刑人员的刑满释放日期和法院的判决书日期是否是同一时间？家属是否会接到监狱的通知去接人呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-jyglj",
+   "id": "27194145",
+   "url": "https://jyglj.guizhou.gov.cn/?id=27194145",
+   "question": "你好，我想咨询一下每个月给监狱里的服刑人员打生活费，里面的人收到的是全款吗？还是会被扣费",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-jyglj",
+   "id": "27193774",
+   "url": "https://jyglj.guizhou.gov.cn/?id=27193774",
+   "question": "您好，请问现在可以探监吗？疫情期间探监需要什么材料吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-jyglj",
+   "id": "27184644",
+   "url": "https://jyglj.guizhou.gov.cn/?id=27184644",
+   "question": "尊敬的监狱局党委、领导，您们好。我是一名普通的公务人员。已经递交了调动申请多时。心想即将成为一名监狱警察倍感荣幸。但现在正在疫情期间，多少监狱警察舍小家顾大家的精神鼓舞了我。每当看见贵单位微信公众号的信息时都是那么多人的奉献。真希望能尽快成",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-jyglj",
+   "id": "27153664",
+   "url": "https://jyglj.guizhou.gov.cn/?id=27153664",
+   "question": "我想咨询一下微信平台的亲情汇款功能是否完善？上次探监看到宣传，但是监狱工作人员让通过银行汇款，最近没有买到口罩，不敢出门，就通过了微信平台汇了款，但又有点担心里面的妈妈收不到。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

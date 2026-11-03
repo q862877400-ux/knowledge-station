@@ -1,0 +1,14 @@
+{
+  "tag": "nanning",
+  "base": "https://www.nanning.gov.cn",
+  "referer": "https://www.nanning.gov.cn/",
+  "range": [
+    1,
+    300
+  ],
+  "appId": "",
+  "sites": {
+    "8": 18977
+  },
+  "total": 18977
+}

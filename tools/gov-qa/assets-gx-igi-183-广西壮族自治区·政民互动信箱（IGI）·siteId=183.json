@@ -1,0 +1,45 @@
+{
+ "A_考卷": [],
+ "B_补料": [
+  {
+   "source": "gx-igi-183",
+   "id": "157814407679",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814407679",
+   "question": "请问健康产业园主导产业有什么，有什么招商引资优惠政策",
+   "cited_hits": [],
+   "cited_missing": [
+    "玉林中医药健康产业园入园企业优惠政策"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "gx-igi-183",
+   "id": "157814443626",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814443626",
+   "question": "请问玉林中医药健康产业园办公地址在哪里？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-183",
+   "id": "157814409161",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814409161",
+   "question": "请问玉林中医药健康产业园网站是否公开玉林中医药健康产业园2022年政府信息公开工作年度报告？在哪里可以查看？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-183",
+   "id": "157814220767",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814220767",
+   "question": "请问健康产业园区的发展定位是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

@@ -1,0 +1,103 @@
+{
+ "A_考卷": [
+  {
+   "source": "gx-igi-268",
+   "id": "157814334296",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814334296",
+   "question": "尊敬的领导您好，我是一名研究生，因论文研究我需要贵市2011-2021的一般公共预算收入决算收入表，包括非税收入、专项收入、行政事业性收费、罚没收入、国有资本经营收入、国有资产有偿使用权、其他收入，保证数据仅用于科研用途绝不外泄露，若方便希",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gx-igi-268",
+   "id": "157814213094",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814213094",
+   "question": "您好，我是山东大学的一名博士研究生，因毕业论文研究需要，现向贵单位申请依法公开百色市2014-2017年年全市财政预算支出分项支出数据（具体指节能环保支出、农林水支出、城乡社区支出等分项支出数据）。不知可否可以将相关数据以电子邮件的形式发送",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gx-igi-268",
+   "id": "157814207102",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814207102",
+   "question": "2016年取得了会计从业资格考试通过，2017年参加了继续教育，后面一直到今年忘记了继续教育，我想问下那个会计从业资格证书还有效吗？有没有说几年不继续教育，证书就失效的说法呢？",
+   "cited_hits": [
+    {
+     "name": "会计法",
+     "lib_no": "会计法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "gx-igi-268",
+   "id": "157814419514",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814419514",
+   "question": "尊敬的领导您好，我还是那一位广西财经学院的学生，首先非常感谢领导对我上一封信件的回复，因上一封信件本人没写清楚，导致得到的数据不完整，现再次申请2018-2023年的一般公共预算收入决算收入表，包括税收收入的全部明细。因论文截止时间快到了，",
+   "cited_hits": [],
+   "cited_missing": [
+    "2018-2023年百色市一般公共预算收入决算表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-268",
+   "id": "157814204929",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814204929",
+   "question": "2021年初级会计职称证书是否可以认领",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于领取2021年度初级会计专业技术资格证书有关事项的通知",
+    "关于领取2021年度初级会计专业技术资格证书有关事项的通知"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "gx-igi-268",
+   "id": "157830252810",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157830252810",
+   "question": "尊敬的百色市财政局局长，您好，因科研需要向贵单位申请公开百色年2022市预算报告/预算表，本人保证贵单位提供的资料仅用于科研用途，希望贵单位予以支持！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-268",
+   "id": "157814421327",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814421327",
+   "question": "2024年一季度百色市财政收支数据公布了吗？查询路径是怎样的？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-268",
+   "id": "157814187007",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814187007",
+   "question": "市财政局各位领导好，请问2019年考试通过的初级会计职称证书可以领导了吗？到哪里领呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

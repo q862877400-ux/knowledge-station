@@ -1,0 +1,28 @@
+{
+ "A_考卷": [],
+ "B_补料": [
+  {
+   "source": "gx-igi-167",
+   "id": "157814334966",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814334966",
+   "question": "玉林市烟花爆竹禁放区域，那些地域可以燃放烟花爆竹。",
+   "cited_hits": [],
+   "cited_missing": [
+    "玉林市销售燃放烟花爆竹管理条例",
+    "玉林市玉州区人民政府关于禁止销售、燃放烟花爆竹的公告"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "gx-igi-167",
+   "id": "157814407694",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814407694",
+   "question": "建议在非上下学时间开通玉东小学路口横向机动车过道。每次从想从文体北路那边回玉华苑都要往前走很长一段路，到了奥园广场的红绿灯那里才能掉头。可以理解在学生在上下学的时间把十字路口的封住以保障学生交通安全，但是既然都已经在那里设置了十字路口，也有",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

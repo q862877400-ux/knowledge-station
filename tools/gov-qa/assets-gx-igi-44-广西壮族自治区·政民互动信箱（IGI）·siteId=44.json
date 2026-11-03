@@ -1,0 +1,26 @@
+{
+ "A_考卷": [
+  {
+   "source": "gx-igi-44",
+   "id": "157830250533",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157830250533",
+   "question": "您好！&nbsp;&nbsp;&nbsp;&nbsp; 网购生鲜食品（熟粽子），11月19夜收到卖家【店铺名：戚小贝智选店；平南顶好食品有限公司 信用代码：91450821MABRULB530地址广西壮族自治区贵港市平南县官成镇官成村巷口屯",
+   "cited_hits": [
+    {
+     "name": "市场监督管理投诉举报处理暂行办法",
+     "lib_no": "市场监督管理投诉举报处理暂行办法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "市场监督管理投诉举报处理暂行办法",
+     "lib_no": "市场监督管理投诉举报处理暂行办法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [],
+ "C_无依据": []
+}

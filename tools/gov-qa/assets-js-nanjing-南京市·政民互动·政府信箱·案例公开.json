@@ -1,0 +1,500 @@
+{
+ "A_考卷": [
+  {
+   "source": "js-nanjing",
+   "id": "SZ3201202411071386503",
+   "url": "https://szxx.nanjing.gov.cn:32767/zhengfuxinxiang/huifuxuandeng?orgid=320113&type=sszxx",
+   "question": "咨询与反馈住宅周边道路以及工厂排放问题。\n请问一下有关栖霞区恒竞路往春树街方向的隧道以及路面大概什么时候能够通车？以及向您反馈一下都会紫京小区周边（恒发路）厂区的班车在路边随意停放，阻碍相关道路的问题，从尧新大道左转至恒发路，恒发路的右转车",
+   "cited_hits": [
+    {
+     "name": "信访工作条例",
+     "lib_no": "信访工作条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-nanjing",
+   "id": "32012020111803113746838",
+   "url": "https://szxx.nanjing.gov.cn:32767/zhengfuxinxiang/huifuxuandeng?orgid=320113&type=sszxx",
+   "question": "来宁创业人员子女上学问题请教\n本来是外地来宁创业人员，目前公司注册地址在江宁科学园。为了能更好的响应国家“万众创新，大众创业”的号召，建设美丽南京，也为了能让创业人员子女受到良好的义务教育，本人有以下的问题想咨询胡市长：现在两个孩子，一个是",
+   "cited_hits": [
+    {
+     "name": "信访条例",
+     "lib_no": "信访条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-nanjing",
+   "id": "32012020090908093447287",
+   "url": "https://szxx.nanjing.gov.cn:32767/zhengfuxinxiang/huifuxuandeng?orgid=320113&type=sszxx",
+   "question": "血友病人的求助！\n尊敬的胡市长，您好！我是一名血友病人的家长，主要是向您反映一下血友病人的医保问题。       血友病是一种缺乏凝血因子的疾病，它可导致病人出血不止而致死致残。我们国家已经把这个病列入罕见病而给予更多的关爱。       ",
+   "cited_hits": [
+    {
+     "name": "信访条例",
+     "lib_no": "信访条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于调整血友病基本医疗保险有关政策的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-nanjing",
+   "id": "32012020040210044443763",
+   "url": "https://szxx.nanjing.gov.cn:32767/zhengfuxinxiang/huifuxuandeng?orgid=320113&type=sszxx",
+   "question": "关于南京公积金贷款期限的调整\n主要反映： 从2019年至今，广东的广州、东莞等地，今年的浙江嘉兴等地陆续出台了延长公积金贷款年限的政策，将一手二手房贷款年限最长延长至30年，请问南京核实有相关的政策调整出台？",
+   "cited_hits": [
+    {
+     "name": "住房公积金管理条例",
+     "lib_no": "住房公积金管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "js-nanjing",
+   "id": "SZ3201202605042223165",
+   "url": "https://szxx.nanjing.gov.cn:32767/zhengfuxinxiang/huifuxuandeng?orgid=320113&type=sszxx",
+   "question": "关于明确禁止将起居室（客厅）、餐厅隔断改建为卧室出租，细化《南京市房屋租赁管理办法》执行标准的建议\n主要诉求：关于明确禁止将起居室（客厅）、餐厅隔断改建为卧室出租，细化《南京市房屋租赁管理办法》执行标准的建议 事实和理由：尊敬的李市长，您好",
+   "cited_hits": [],
+   "cited_missing": [
+    "南京市房屋租赁管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-nanjing",
+   "id": "SZ3201202603041643109",
+   "url": "https://szxx.nanjing.gov.cn:32767/zhengfuxinxiang/huifuxuandeng?orgid=320113&type=sszxx",
+   "question": "希望南京出台增加南京市独生子女陪护假的天数的政策\n主要诉求：希望南京出台增加南京市独生子女陪护假的天数的政策 事实和理由：尊敬的市长：\n您好！\n我是南京市的一名普通市民（45岁，独生子）。今天冒昧给您写信，是希望就我市的“独生子女护理假”政",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省关于优化生育政策促进人口长期均衡发展实施方案的通知",
+    "南京市人口与生育服务规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-nanjing",
+   "id": "SZ3201202504121129656",
+   "url": "https://szxx.nanjing.gov.cn:32767/zhengfuxinxiang/huifuxuandeng?orgid=320113&type=sszxx",
+   "question": "百姓健康\n反映：又是一年春暖开花的季节，伴随着梧桐树粉和柳絮的飘飞，原本该美化城市的绿化，现在却成了影响市民们健康的原因，烦请关心影响市民健康的绿化问题。",
+   "cited_hits": [],
+   "cited_missing": [
+    "南京市行道树树种规划（2014-2026年）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-nanjing",
+   "id": "SZ3201202503092213412",
+   "url": "https://szxx.nanjing.gov.cn:32767/zhengfuxinxiang/huifuxuandeng?orgid=320113&type=sszxx",
+   "question": "老山山北片区交通困境及建议\n浦口区老山北麓有汤泉街道、永宁街道两大人口较多的街道，老山林场、汤泉农场等单位及若干驻地部队。片区内有响堂桃源谷、不老村、老山国家森林公园、珍珠泉风景区、佛手湖郊野公园、水墨大埝旅游区、西埂莲乡、楚韵花乡、侯冲景",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步加强城市轨道交通规划建设管理的意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-nanjing",
+   "id": "SZ3201202407211255697",
+   "url": "https://szxx.nanjing.gov.cn:32767/zhengfuxinxiang/huifuxuandeng?orgid=320113&type=sszxx",
+   "question": "公共租赁住房\n咨询：其是今年刚毕业的大学生，目前在本市工作，工作单位不提住宿，需要自己解决。请问是否可以申请本市的公共租赁住房？申请本市公共租赁住房需要满足什么样的申请条件？如可申请，该准备哪些申请材料？（电话最近不方便接听，网页回复即可。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步加强我市公共租赁住房管理工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-nanjing",
+   "id": "SZ3201202406031460369",
+   "url": "https://szxx.nanjing.gov.cn:32767/zhengfuxinxiang/huifuxuandeng?orgid=320113&type=sszxx",
+   "question": "关于《关于印发《汽车以旧换新补贴实施细则》的通知》（商消费函〔2024〕75号）相关问题咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "汽车以旧换新补贴问答手册（第2批）",
+    "报废机动车回收证明",
+    "机动车注销证明",
+    "机动车销售统一发票",
+    "机动车登记证书"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-nanjing",
+   "id": "32012020110508112742516",
+   "url": "https://szxx.nanjing.gov.cn:32767/zhengfuxinxiang/huifuxuandeng?orgid=320113&type=sszxx",
+   "question": "关于垃圾分类房\n您好，我是浦口区威尼斯水城七街区四栋110业主，物业把垃圾分类房放在我家厨房后面，离我家距离不足9米，且物业都没有和有利益关系的业主沟通好，损害了我们的权利，且垃圾房就在七街区主干道上，对居民的出行和安全存在了很多隐患，物业",
+   "cited_hits": [],
+   "cited_missing": [
+    "南京市生活垃圾管理条例",
+    "2020年南京垃圾分类管理工作手册"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-nanjing",
+   "id": "32012020101710102528180",
+   "url": "https://szxx.nanjing.gov.cn:32767/zhengfuxinxiang/huifuxuandeng?orgid=320113&type=sszxx",
+   "question": "修订《南京市养犬管理条例》的建议\n建议：尽快修订《南京市养犬管理条例》，对于重点管理区内个人申请养犬应当具备的条件：增加独户居住的要求，以减少养犬户对邻居和周边居民的生活干扰。",
+   "cited_hits": [],
+   "cited_missing": [
+    "南京市养犬管理条例",
+    "南京市养犬管理条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-nanjing",
+   "id": "32012020070411074579263",
+   "url": "https://szxx.nanjing.gov.cn:32767/zhengfuxinxiang/huifuxuandeng?orgid=320113&type=sszxx",
+   "question": "关于老旧小区加装电梯的建议信\n尊敬的市领导：三年前市政府惠及民生，鼓励推行老旧小区住宅楼加装电梯，但进展不快，还存在改变原有道路和影响一二层楼住户等多种矛盾。我是一名资深电气设计师，持有省科委注册咨询专家证书。经我搜集的有关资料和实际考察：",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于老旧小区加装电梯的建议"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-nanjing",
+   "id": "32012020032712032025480",
+   "url": "https://szxx.nanjing.gov.cn:32767/zhengfuxinxiang/huifuxuandeng?orgid=320113&type=sszxx",
+   "question": "《南京市高校毕业生住房租赁补贴操作办法 》其主体对象有待完善\n反映：在南京市政府2020年3月26日发布的《南京市高校毕业生住房租赁补贴操作办法》第一条“补贴条件”明确对象仅限于“全日制研究生统考方式”进入就读的学校，希望也能关照非全日制硕",
+   "cited_hits": [],
+   "cited_missing": [
+    "南京市高校毕业生住房租赁补贴申请、审核、发放操作办法",
+    "2020年南京市人才购买商品住房办法（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-nanjing",
+   "id": "32012019081608080189629",
+   "url": "https://szxx.nanjing.gov.cn:32767/zhengfuxinxiang/huifuxuandeng?orgid=320113&type=sszxx",
+   "question": "希望南京也有医保个人账户家庭共享\n市长你好    医保个人账户家庭共享，是个利民惠民便民的政策，深圳，广东，广西，重庆，成都，安徽，苏州常熟等地都已经实行了，希望南京也尽快推出。                          为盼",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发城镇职工基本医疗保险个人账户管理等5个意见的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-nanjing",
+   "id": "32012019090503091514666",
+   "url": "https://szxx.nanjing.gov.cn:32767/zhengfuxinxiang/huifuxuandeng?orgid=320113&type=sszxx",
+   "question": "建议长江三座桥拟更名称里不要包含“公路”字样\n建议长江三座桥拟更名称里不要包含“公路”字样",
+   "cited_hits": [],
+   "cited_missing": [
+    "市政府办公厅关于进一步明确地名命名更名审批流程的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-nanjing",
+   "id": "32012019082012085740087",
+   "url": "https://szxx.nanjing.gov.cn:32767/zhengfuxinxiang/huifuxuandeng?orgid=320113&type=sszxx",
+   "question": "建议在市内公众场所尤其综合性医院多建母婴室的诉求\n尊敬的市长先生您好，      展信佳！      作为一位刚做妈妈的母亲，最关心的就是孩子的口粮问题，短短的4个月产假之后又要投入到工作中。工作了也想坚持母乳喂养，所以天天背奶，却发现南京",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于加强母婴设施建设的实施意见"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "js-nanjing",
+   "id": "SZ3201202608131745308",
+   "url": "https://szxx.nanjing.gov.cn:32767/zhengfuxinxiang/huifuxuandeng?orgid=320113&type=sszxx",
+   "question": "建议新区政府，为距离学校较远的初中代招学生增设校车，方便孩子上学！\n我们住中交锦方，因所辖学区南师附中初中部停建缓建，被安排去一中江北上学，但距离较远，每天送完小孩上学后，大人上班就会迟到，建议新区政府为代招初中学生设置校车，让孩子安全便利",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-nanjing",
+   "id": "SZ3201202607291143572",
+   "url": "https://szxx.nanjing.gov.cn:32767/zhengfuxinxiang/huifuxuandeng?orgid=320113&type=sszxx",
+   "question": "关于南京承办国际羽毛球赛事的咨询\n我是一名始终关心南京体育发展的普通市民，之前曾就我市申办羽毛球赛事提过一些建议，也收到了市体育局详尽的回复，让我深受鼓舞。近日，我留意到世界羽联公布了2027-2030赛季全新的赛事体系安排，心中不免又生出",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-nanjing",
+   "id": "SZ3201202607021260984",
+   "url": "https://szxx.nanjing.gov.cn:32767/zhengfuxinxiang/huifuxuandeng?orgid=320113&type=sszxx",
+   "question": "南京市的小区和家庭适老化改造有主管部门或联席机制吗？有具体政策和规范吗？\n主要诉求：南京市的小区和家庭适老化改造有主管部门或联席机制吗？有具体政策和规范吗？ 事实和理由：许市长：您好！感谢您百忙之中能够看我的信。是这样，关于小区和家庭的适老",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-nanjing",
+   "id": "SZ3201202606161290182",
+   "url": "https://szxx.nanjing.gov.cn:32767/zhengfuxinxiang/huifuxuandeng?orgid=320113&type=sszxx",
+   "question": "感谢信（感谢市长信箱指引追回企业拖欠报销款及风险抵押金）\n感谢信\n尊敬的南京市人民政府、市长信箱各位工作人员：\n    您好！我此前通过南京市市长信箱留言求助，反映中建八局装饰工程有限公司南京分公司长期拖欠我的个人报销款项、项目风险抵押金，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-nanjing",
+   "id": "SZ3201202604020841454",
+   "url": "https://szxx.nanjing.gov.cn:32767/zhengfuxinxiang/huifuxuandeng?orgid=320113&type=sszxx",
+   "question": "感谢信（感谢玄武湖景区及景区工作人员在本人全家于景区内游船时突发事件得当的应急处置）\n信访件编号：SZ3201202604020841454\n感谢信：感谢玄武湖景区及景区工作人员在本人全家于景区内游船时突发事件得当的应急处置。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-nanjing",
+   "id": "SZ3201202602091718615",
+   "url": "https://szxx.nanjing.gov.cn:32767/zhengfuxinxiang/huifuxuandeng?orgid=320113&type=sszxx",
+   "question": "请问“南京市南部新城开发建设管理委员会”的咨询？\n请问“南京市南部新城开发建设管理委员会”是什么性质的单位？是否是政府部门？是否可以向其申请政府信息公开？以及如何申请？在政府官网上似乎找不到该单位的官网信息。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-nanjing",
+   "id": "SZ3201202601041671657",
+   "url": "https://szxx.nanjing.gov.cn:32767/zhengfuxinxiang/huifuxuandeng?orgid=320113&type=sszxx",
+   "question": "对南京旅游市场的建议\n主要诉求：对南京旅游市场的建议 事实和理由：尊敬的孙副市长：\n\n      您好！\n      我是一名南京市普通市民，想就南京旅游提点小建议。\n      南京虽然现在一直是国内旅游热门目的地，每年文旅收入也很客观，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-nanjing",
+   "id": "SZ3201202512101022925",
+   "url": "https://szxx.nanjing.gov.cn:32767/zhengfuxinxiang/huifuxuandeng?orgid=320113&type=sszxx",
+   "question": "浦仪公路东段建设时间\n信访件编号：SZ3201202512101022925，证件类型：居民身份证\n咨询：浦仪公路东段建设时间。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-nanjing",
+   "id": "SZ3201202511061824019",
+   "url": "https://szxx.nanjing.gov.cn:32767/zhengfuxinxiang/huifuxuandeng?orgid=320113&type=sszxx",
+   "question": "询问仙新路长江大桥何时能够通车\n信访件编号：SZ3201202511061824019\n咨询：仙新路长江大桥何时能够通车？2025年年内是否能够顺利通车？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-nanjing",
+   "id": "SZ3201202509280953368",
+   "url": "https://szxx.nanjing.gov.cn:32767/zhengfuxinxiang/huifuxuandeng?orgid=320113&type=sszxx",
+   "question": "建议尽快推动南京市区内中小学室外运动场地对周边居民开放\n主要诉求：建议尽快推动南京市区内中小学室外运动场地对周边居民开放 事实和理由：尊敬的南京市及市教育局领导：\n\n您好！\n\n我是玄武区红山路社区居民，现就推动辖区中小学运动场地对外开放提出",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-nanjing",
+   "id": "SZ3201202509031712469",
+   "url": "https://szxx.nanjing.gov.cn:32767/zhengfuxinxiang/huifuxuandeng?orgid=320113&type=sszxx",
+   "question": "高校毕业生住房租赁补贴政策扩大范围\n主要诉求：高校毕业生住房租赁补贴政策扩大范围 事实和理由：领导您好。\n疫情以来，为了减轻学生的经济负担，国家持续延续免除当年助学贷款学生的利息惠民政策。本市推出的高校毕业生住房租赁补贴政策也有力减轻了毕业",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-nanjing",
+   "id": "SZ3201202508061648889",
+   "url": "https://szxx.nanjing.gov.cn:32767/zhengfuxinxiang/huifuxuandeng?orgid=320113&type=sszxx",
+   "question": "关于地铁5号线开通后，江宁岔路口地区改善交通组织、提升地铁站点使用率的建议\n金盛路片区距5号线香樟园站直线距离仅1km，被秦淮河分隔，亟待建设一座跨河桥联接东西两岸，这也符合现行控规要求，在2022年批复的《南京市江宁区岔路口片区（NJNB",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-nanjing",
+   "id": "SZ3201202507072189659",
+   "url": "https://szxx.nanjing.gov.cn:32767/zhengfuxinxiang/huifuxuandeng?orgid=320113&type=sszxx",
+   "question": "咨询电线横穿河道放入水中，是否存在安全隐患？\n主要诉求：咨询电线横穿河道放入水中，是否存在安全隐患？ 事实和理由：后三圩鱼塘由我岳父管理，负责河道日常清理，近日鱼塘对面承包土地人员私拉电线横穿河道，放入水中，总长约两百米，无任何保护措施，该",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-nanjing",
+   "id": "SZ3201202505191519889",
+   "url": "https://szxx.nanjing.gov.cn:32767/zhengfuxinxiang/huifuxuandeng?orgid=320113&type=sszxx",
+   "question": "失业人员可否断缴社保？\n咨询：本人最近因个人原因失业了，我了解到失业人员的养老保险可以通过支付宝个人进行缴纳，但我现在失业的情况，手头比较紧张，如果社保断缴的话，是否会对以后我个人的一些福利待遇的享受，产生什么负面影响？比如养老金的计算和领",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-nanjing",
+   "id": "SZ3201202505071862755",
+   "url": "https://szxx.nanjing.gov.cn:32767/zhengfuxinxiang/huifuxuandeng?orgid=320113&type=sszxx",
+   "question": "希望南京市公积金开通二套利率转首套途径\n主要诉求：希望南京市公积金开通二套利率转首套途径 事实和理由：我是去年4月购买了二套房，当时政策商贷是按首套房利率执行，公积金按照二套房利率执行。今年因为家庭变故，卖出了原首套，目前公积金还是按照二套",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-nanjing",
+   "id": "SZ3201202501180984871",
+   "url": "https://szxx.nanjing.gov.cn:32767/zhengfuxinxiang/huifuxuandeng?orgid=320113&type=sszxx",
+   "question": "希望小学增加体育课程，\n建议：其是江北新区泰山小学的家长，目前学校的文化课程其觉得已经设置的相当好了，但运动方面仍稍显不足。强烈建议增加体育课，在小学要教会学生羽毛球、篮球、足球、排球的基本技能。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-nanjing",
+   "id": "SZ3201202501031797749",
+   "url": "https://szxx.nanjing.gov.cn:32767/zhengfuxinxiang/huifuxuandeng?orgid=320113&type=sszxx",
+   "question": "表扬南京市瑞金北村小学大清河校区门口执勤交警\n主要诉求：表扬南京市瑞金北村小学大清河校区门口执勤交警 事实和理由：本市瑞金北村小学大清河校区门口自2023年11月以来有交警专人早晚执勤，在早高峰上学和下午4～6时放学时段负责维持秩序，疏导交",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-nanjing",
+   "id": "SZ3201202411271668037",
+   "url": "https://szxx.nanjing.gov.cn:32767/zhengfuxinxiang/huifuxuandeng?orgid=320113&type=sszxx",
+   "question": "市长您好，请问南京紫荆花路西延工程何时能通车？\n咨询：请问南京紫荆花路西延工程何时能通车？ 该工程西起安德门大街，东至花神大道，全长约1.24公里，按照城市次干路标准建设，现在已经是2024年11月底，请问今年底是否有望通车？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-nanjing",
+   "id": "SZ3201202410091682936",
+   "url": "https://szxx.nanjing.gov.cn:32767/zhengfuxinxiang/huifuxuandeng?orgid=320113&type=sszxx",
+   "question": "感谢南京水务集团及其相关员工\n主要诉求：感谢南京水务集团及其相关员工 事实和理由：尊敬的陈之常市长您好！\n       此次写信是代表水西门大街179号全体居民对南京丰源水务建设有限公司邵方明同志心系百姓，全心全意为民办实事表达深切感谢。\n",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-nanjing",
+   "id": "SZ3201202409032028059",
+   "url": "https://szxx.nanjing.gov.cn:32767/zhengfuxinxiang/huifuxuandeng?orgid=320113&type=sszxx",
+   "question": "咨询地铁规划\n主要诉求：咨询地铁规划 事实和理由：尊敬的市长 您好！\n咨询：其是雨花台区赛虹桥街道的居民，想咨询南京一中实验学校周边有没有地铁的规划。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-nanjing",
+   "id": "SZ3201202408111712970",
+   "url": "https://szxx.nanjing.gov.cn:32767/zhengfuxinxiang/huifuxuandeng?orgid=320113&type=sszxx",
+   "question": "南京市开展商贷转公积金贷款\n主要诉求：南京市开展商贷转公积金贷款 事实和理由：希望南京市开展商贷转公积金贷款，降低购房者负担。\n增加居民可支配收入",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-nanjing",
+   "id": "32012020082507081632430",
+   "url": "https://szxx.nanjing.gov.cn:32767/zhengfuxinxiang/huifuxuandeng?orgid=320113&type=sszxx",
+   "question": "提高汤山旅游设施建设的水平\n反映：前些天带着熟人玩汤山古猿人溶洞，结果发现溶洞没有介绍古猿人被发现的资料，洞里也没有古猿人被发现位置的展示以及展品。汤山溶洞不大，但这里发现了距今30万年的南京猿人是非常了不起的事，也是汤山旅游的一个很大卖点",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-nanjing",
+   "id": "32012020052801051773907",
+   "url": "https://szxx.nanjing.gov.cn:32767/zhengfuxinxiang/huifuxuandeng?orgid=320113&type=sszxx",
+   "question": "南京地铁车厢的建议\n对南京地铁列车建议：1、所有列车都采用LCD屏，显示车厢所在位置、车厢拥挤程度、站台各设施等信息。2、所有列车的座椅上方都设置贴墙还靠近天花板的行李架。3、所有列车每节车厢都设置8处小型显示屏，显示屏播放各种新闻、娱乐节",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-nanjing",
+   "id": "32012020042905045280039",
+   "url": "https://szxx.nanjing.gov.cn:32767/zhengfuxinxiang/huifuxuandeng?orgid=320113&type=sszxx",
+   "question": "地铁s5\n反映：地铁s5号线这么多年怎么一直都没有建。能不能先建南京的这一段，扬州的一段后面再说呢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-nanjing",
+   "id": "32012020012503011644213",
+   "url": "https://szxx.nanjing.gov.cn:32767/zhengfuxinxiang/huifuxuandeng?orgid=320113&type=sszxx",
+   "question": "新型肺炎的宣传\n建议加强公交司机的防护措施，佩戴简易防护面罩和 N95口罩 。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-nanjing",
+   "id": "32012020012504014690577",
+   "url": "https://szxx.nanjing.gov.cn:32767/zhengfuxinxiang/huifuxuandeng?orgid=320113&type=sszxx",
+   "question": "新型肺炎建议\n各种小区社区麻将馆，无证无消等所有防范措施，可却是老百姓聚集的重要场所。在目前特殊时期希望加强管理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-nanjing",
+   "id": "32012019102811103583943",
+   "url": "https://szxx.nanjing.gov.cn:32767/zhengfuxinxiang/huifuxuandeng?orgid=320113&type=sszxx",
+   "question": "韦博培训机构万达校区跑路，上千家长投诉无门\n反映韦博培训机构万达校区跑路",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-nanjing",
+   "id": "32012019111711111772585",
+   "url": "https://szxx.nanjing.gov.cn:32767/zhengfuxinxiang/huifuxuandeng?orgid=320113&type=sszxx",
+   "question": "希望能够建设一条灵山站到东郊小镇的公交\n反映灵山站是离东郊小镇最近的地铁站，是主要的地铁出行手段，但是现有的绿道过于长远，对于一些没车出行的老人孩子还是不太方便。建议建设一条灵山站到东郊小镇的小型公交路线，方便出行。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-nanjing",
+   "id": "32012019101912105658967",
+   "url": "https://szxx.nanjing.gov.cn:32767/zhengfuxinxiang/huifuxuandeng?orgid=320113&type=sszxx",
+   "question": "真心感谢杨市长和各位领导\n真心感谢杨市长和各位领导帮我要回被扣的工资（信访件编号32012019091612091982374）。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-nanjing",
+   "id": "32012019091209091941302",
+   "url": "https://szxx.nanjing.gov.cn:32767/zhengfuxinxiang/huifuxuandeng?orgid=320113&type=sszxx",
+   "question": "板桥河道健身步道亮化\n雨花开发区，板桥河道龙飞路附近有健身步道，晚上附近居民来跑步散步的人不少，但这一片都没有路灯，晚上很黑，不太安全，希望能加装几个路灯。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-nanjing",
+   "id": "32012019071509074834780",
+   "url": "https://szxx.nanjing.gov.cn:32767/zhengfuxinxiang/huifuxuandeng?orgid=320113&type=sszxx",
+   "question": "礼拜寺巷12-1号历史遗留问题\n希望能将礼拜寺巷12-1号这些零散的棚户区改造项目都纳入到攻坚计划中去。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

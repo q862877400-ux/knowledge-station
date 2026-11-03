@@ -1,0 +1,154 @@
+{
+ "A_考卷": [
+  {
+   "source": "jx-gzw-lyxd",
+   "id": "1850361266866958336",
+   "url": "https://www.jiangxi.gov.cn/jxsgzw/lyxd/content/content_1850361266866958336.html",
+   "question": "国有企业职工董事是否可以兼任总经理？",
+   "cited_hits": [
+    {
+     "name": "公司法",
+     "lib_no": "公司法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "jx-gzw-lyxd",
+   "id": "1850413674498306048",
+   "url": "https://www.jiangxi.gov.cn/jxsgzw/lyxd/content/content_1850413674498306048.html",
+   "question": "您好，我想咨询一下，如果国有企业因党员人数不足3 人，无法成立党组织，可以联合其他党员人数不足3人，且行业 相近的国有企业成立联合党支部吗？如果成立了联合党支部，遇 到某个企业需要通过党委前置研究讨论重大事项时，联合党支部 成员（非此企业职",
+   "cited_hits": [],
+   "cited_missing": [
+    "中国共产党支部工作条例（试行）",
+    "中国共产党国有企业基层组织工作条例（试行）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jx-gzw-lyxd",
+   "id": "1850361197715468288",
+   "url": "https://www.jiangxi.gov.cn/jxsgzw/lyxd/content/content_1850361197715468288.html",
+   "question": "请问国有企业的下级全资子公司想通过无偿划拨的方式划拨一部分资产给上级国有企业，哪些资产是属于可以无偿划拨的范围（如债权、所持有的股权、债券、租赁物的使用权等），另请告知哪一份法律文件会对这一范围有所阐释或规定，感谢解答。",
+   "cited_hits": [],
+   "cited_missing": [
+    "企业国有产权无偿划转管理暂行办法"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "jx-gzw-lyxd",
+   "id": "2105213296723963904",
+   "url": "https://www.jiangxi.gov.cn/jxsgzw/lyxd/content/content_2105213296723963904.html",
+   "question": "尊敬的领导您好，出于科研目的，请问江西省国资国企在线监管系统是否上线，如已上线的话，请问系统首次上线（试运行和正式上线）的具体时间，在线监管系统官方名称是什么。如果分期建设升级，则每期开始建设的具体时间，建设内容。如若不便公开回复，请发邮件",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jx-gzw-lyxd",
+   "id": "2094262512008114176",
+   "url": "https://www.jiangxi.gov.cn/jxsgzw/lyxd/content/content_2094262512008114176.html",
+   "question": "您好，我想咨询一下，国有企业最多可以设置几级法人单位",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jx-gzw-lyxd",
+   "id": "2033815699197517824",
+   "url": "https://www.jiangxi.gov.cn/jxsgzw/lyxd/content/content_2033815699197517824.html",
+   "question": "想向贵单位了解一下截止 2025年底，江西省省属国有企业国有资本投资、运营公司试点的情况，请问试点公司的名称、试点时间或批复时间，试点类型（投资、运营、投资运营）是什么呢？非常感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jx-gzw-lyxd",
+   "id": "1987786446945128448",
+   "url": "https://www.jiangxi.gov.cn/jxsgzw/lyxd/content/content_1987786446945128448.html",
+   "question": "请问江西国际经济技术合作公司的性质是省管重点企业还是省管企业",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jx-gzw-lyxd",
+   "id": "1934810832815378432",
+   "url": "https://www.jiangxi.gov.cn/jxsgzw/lyxd/content/content_1934810832815378432.html",
+   "question": "请问截至2025年6月，江西钨业控股集团有限公司是否仍为省国资委直接监管的企业？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jx-gzw-lyxd",
+   "id": "1865954235757289472",
+   "url": "https://www.jiangxi.gov.cn/jxsgzw/lyxd/content/content_1865954235757289472.html",
+   "question": "您好，请问国有资产监督管理委员会2024年财政预算在哪里查找，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jx-gzw-lyxd",
+   "id": "1850428640206991360",
+   "url": "https://www.jiangxi.gov.cn/jxsgzw/lyxd/content/content_1850428640206991360.html",
+   "question": "请问你们单位有没有官方微信?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jx-gzw-lyxd",
+   "id": "1850417802876235776",
+   "url": "https://www.jiangxi.gov.cn/jxsgzw/lyxd/content/content_1850417802876235776.html",
+   "question": "您好，请问省国资委信息公开目录在哪里查看？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jx-gzw-lyxd",
+   "id": "1850408445669224448",
+   "url": "https://www.jiangxi.gov.cn/jxsgzw/lyxd/content/content_1850408445669224448.html",
+   "question": "请问江西银行股份有限公司是否属于省国资委监管企业？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jx-gzw-lyxd",
+   "id": "1850405617294848000",
+   "url": "https://www.jiangxi.gov.cn/jxsgzw/lyxd/content/content_1850405617294848000.html",
+   "question": "2021年省属国有企业整体运行情况。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jx-gzw-lyxd",
+   "id": "1850395670968479744",
+   "url": "https://www.jiangxi.gov.cn/jxsgzw/lyxd/content/content_1850395670968479744.html",
+   "question": "请问如何获取贵单位2020年度政府信息公开工作年报？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jx-gzw-lyxd",
+   "id": "1850391610064318464",
+   "url": "https://www.jiangxi.gov.cn/jxsgzw/lyxd/content/content_1850391610064318464.html",
+   "question": "《江西省国有资产监督管理委员会2021年部门预算》可在哪查询？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

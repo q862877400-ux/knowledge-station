@@ -1,0 +1,648 @@
+{
+ "A_考卷": [
+  {
+   "source": "sc-leshan-zwfw",
+   "id": "67ac02ab-167e-4dda-ad33-e8b5e559ab22",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=67ac02ab-167e-4dda-ad33-e8b5e559ab22",
+   "question": "关于假期前培养费问题\n我家小孩现在在夹江外国语实验学校上学，目前因为遇到特殊情况不能在学校通知放假前预交明年的培养费，本打算跟学校商量看能不能开学的时候交，学校回复不能，放假之前不能缴费视为放弃继续就读的资格，这个培养费是不是必须按照学校的",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国民办教育促进法",
+     "lib_no": "民办教育促进法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国民办教育促进法实施条例",
+     "lib_no": "民办教育促进法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "民办教育收费管理暂行办法",
+    "夹江县人民政府关于大力促进民办教育发展的实施意见（试行）"
+   ],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "sc-leshan-zwfw",
+   "id": "6abafd76-0e52-4472-8776-99ff3b10301f",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=6abafd76-0e52-4472-8776-99ff3b10301f",
+   "question": "驾驶普通小货车需要从业资格证吗？\n请问现在驾驶普通小货车送货需要办理货运从业资格证吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "交通运输部办公厅关于取消总质量4.5吨及以下普通货运车辆道路运输证和驾驶员从业资格证的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan-zwfw",
+   "id": "e16f7853-14ec-48c1-b2e1-f3759b61a60e",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=e16f7853-14ec-48c1-b2e1-f3759b61a60e",
+   "question": "商贷提前部分还款\n请问向银行申请提前部分还款后，当银行同意并还款后是否就可向公金积申请取款？还是等到一年一次的取款时间才能取？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "商品房买卖合同",
+    "存量房买卖合同",
+    "商品房买卖合同",
+    "存量房买卖合同"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan-zwfw",
+   "id": "601bff46-bf3c-4382-8379-8dff9c936108",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=601bff46-bf3c-4382-8379-8dff9c936108",
+   "question": "灵活就业人员医保缴费查询\n我想查询医保缴费月数及中间有没有断缴，目前可以到政务大厅查询外，还可以使用什么APP可以查询到呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "四川医保公共服务平台",
+    "四川医保公共服务平台"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan-zwfw",
+   "id": "e997a1d2-3295-48ca-b4ba-0393a852124f",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=e997a1d2-3295-48ca-b4ba-0393a852124f",
+   "question": "乐山市三支一扶考试\n你好，我想询问一下参加四川省三支一扶乐山岗位考试的笔试成绩什么时候出？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好2022年高校毕业生“三支一扶”计划招募工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan-zwfw",
+   "id": "8339206e-1f73-4e4b-ad22-a519b6abc6ad",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantproposaldetail.html?cguid=8339206e-1f73-4e4b-ad22-a519b6abc6ad",
+   "question": "交通出行\n群众反映金口河区大渡河大桥是通往西昌、石棉、汉源甘孜 康定必经之路，限定大货车通过的时间为早上10-11点，下午3-4点，星期六和星期天不放行，一旦过了这个时间就要等很久，导致很多大货车排队、拥堵，请相关部门核实调查，希望能不限时",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于G245线金口河大渡河大桥实行交通管制的通告"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "sc-leshan-zwfw",
+   "id": "ff10de99-2a92-49b3-a2ff-09d88f622287",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=ff10de99-2a92-49b3-a2ff-09d88f622287",
+   "question": "关于2025年乐山市购房补贴相关事宜\n1、乐山市2025年1月1日至2025年6月30日购房补贴事宜中购房时间具体是以购房合同签订日期为准还是以房屋买卖合同网签备案日为准？时间是否有具体文件要求？\n2、若符合时间要求，则申领流程怎么操作",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan-zwfw",
+   "id": "7a0a3d24-5779-448f-b0cb-b40eef070776",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=7a0a3d24-5779-448f-b0cb-b40eef070776",
+   "question": "企业开办\n我早上申请了企业开办，为何网页查询不到记录以及进度",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan-zwfw",
+   "id": "971a2af9-03d6-4307-87c7-cfc5bba4213c",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=971a2af9-03d6-4307-87c7-cfc5bba4213c",
+   "question": "公司备案的章程可以线上打印不\n我要打印公司备案的章程，请问线上可以打印不",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan-zwfw",
+   "id": "9b0e1c88-d25b-4615-aff0-cac212e134d0",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=9b0e1c88-d25b-4615-aff0-cac212e134d0",
+   "question": "开具无犯罪记录\n开具无犯罪记录",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan-zwfw",
+   "id": "bc13a775-ab9a-41a4-99a0-55efbe71d895",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=bc13a775-ab9a-41a4-99a0-55efbe71d895",
+   "question": "无犯罪证明\n外省人员刚来当地企上班。入职须要办理无犯罪证明，请问要怎么办理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan-zwfw",
+   "id": "f6bb0ca0-f307-480f-b259-a2e8bf040f99",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=f6bb0ca0-f307-480f-b259-a2e8bf040f99",
+   "question": "技能补贴\n2022年取得会计初级职称，是否有人社局的技能补贴，适用是哪条规定，若有申领，申领程序如何操作",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan-zwfw",
+   "id": "ff944930-ff4f-4d6f-b6ba-7de8eee04550",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=ff944930-ff4f-4d6f-b6ba-7de8eee04550",
+   "question": "助理工程师申报申报详细流程\n助理工程师申报申报详细流程",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan-zwfw",
+   "id": "4f919812-68ef-449d-aee0-a2d2382ea053",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=4f919812-68ef-449d-aee0-a2d2382ea053",
+   "question": "买卖房手续是否可以写委托书请人帮忙办理\n买卖房手续是否可以请委托人办理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan-zwfw",
+   "id": "173e356b-e17a-4618-ad5c-9535e774100f",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=173e356b-e17a-4618-ad5c-9535e774100f",
+   "question": "公司要对外进出口贸易\n办理对外贸易备案需要什么条件，需要什么资料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan-zwfw",
+   "id": "c1d04731-b9c7-44ee-8ce5-67a89d2ff2b5",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=c1d04731-b9c7-44ee-8ce5-67a89d2ff2b5",
+   "question": "户口迁移\n去年毕业，今年考上乐山市本级的事业单位，\n请问：能否把户口从马边县老家迁移到市中区单位来",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan-zwfw",
+   "id": "ff9eaf2b-8063-48a5-aed6-6058b644e0a5",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=ff9eaf2b-8063-48a5-aed6-6058b644e0a5",
+   "question": "生育险如何报销\n生育险能报销的范围，包含产检费用吗？报销标准？如何报销？是先自费再报销还是医院直接报销，报销是在什么地方、需要哪些资料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan-zwfw",
+   "id": "116d02dd-750f-4128-ba43-55ce95b24bb4",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=116d02dd-750f-4128-ba43-55ce95b24bb4",
+   "question": "特许经营许可证\n想咨询一下单位办公地址在乐山市市中区，注册地址在乐山市夹江县，企业需要办理“特许经营许可证”应当去哪个地级哪个部门去办理，需要哪些资料，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan-zwfw",
+   "id": "49a68a5a-a0bb-476c-8b61-8142ce7fe039",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=49a68a5a-a0bb-476c-8b61-8142ce7fe039",
+   "question": "儿童怎样办理身份证？\n请问儿童怎样办理身份证？需要哪些资料和手续？谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan-zwfw",
+   "id": "319b9350-63d1-4c0a-bf4d-5365fe97d09d",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=319b9350-63d1-4c0a-bf4d-5365fe97d09d",
+   "question": "燃气高级工程师评定\n1、请问今年燃气专业高级工程师评审工作什么时候开始？2、在哪里报名？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan-zwfw",
+   "id": "fd245a22-619b-40cb-88f0-caffeb46e011",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=fd245a22-619b-40cb-88f0-caffeb46e011",
+   "question": "营业执照可以网上注销吗？\n营业执照网上能注销吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan-zwfw",
+   "id": "5c2ce066-9f6a-42bc-a5ab-776ec18da3df",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=5c2ce066-9f6a-42bc-a5ab-776ec18da3df",
+   "question": "残疾证到期换证\n残疾证到期，申请线上办理换证事宜，请问如何办理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan-zwfw",
+   "id": "ab9ac94e-08a9-403f-a574-221bb469fc8a",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=ab9ac94e-08a9-403f-a574-221bb469fc8a",
+   "question": "男方职工医保、女方居民医保，异地生产这个产检和生育怎么报销？\n男方目前是成都市简阳市职工医疗险，女方是乐山市犍为县居民医疗险，现在准备在简阳市生育，因女方没有生育险，请问女方的孕期产检费用和后面生产的医疗费用以及生育津贴是否可以用男方的生育",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan-zwfw",
+   "id": "0fd59bd8-c93a-45b3-875c-8ae30a92576c",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=0fd59bd8-c93a-45b3-875c-8ae30a92576c",
+   "question": "社保卡相关问题\n1.拨打12333一直是空号，请问现在的人社服务电话是多少？\n2.社保卡申请换卡是否能更换发卡银行？申请一并更换发卡银行是否需要其他手续？在哪里办理？\n3.社保卡社保账户密码遗忘可以在哪些机构办理重设？乐山市范围内的政务中心",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan-zwfw",
+   "id": "a595011c-f7b8-4876-bc8c-a82b2c308056",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=a595011c-f7b8-4876-bc8c-a82b2c308056",
+   "question": "失地农民享受不了国家医保政策\n说是失地农民每年免交医保，但近两年都是每年到年底了，才能享受门诊医保政策，大半年时间都不能享受门诊购药以及到中小型民营医院住院治疗的医疗补助政策。这对我们农村支援了国家建设的失地农民实在是不公平！\n      ",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan-zwfw",
+   "id": "90f41651-223b-4490-930f-b9c0fdfbdc22",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=90f41651-223b-4490-930f-b9c0fdfbdc22",
+   "question": "咨询乐山市钓鱼政策\n请问在非禁渔期，乐山市岷江、青衣江、大渡河能否使用路亚单钩作钓？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan-zwfw",
+   "id": "c5450873-d9b7-4923-87c9-01d8490ac69f",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=c5450873-d9b7-4923-87c9-01d8490ac69f",
+   "question": "峨眉最低工资标准\n请问峨眉的最低工资标准是多少？\n另外能查到峨眉各行业平均工资水平吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan-zwfw",
+   "id": "e9697f05-9a56-44e6-8500-c99921f5a688",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=e9697f05-9a56-44e6-8500-c99921f5a688",
+   "question": "关于法考报名资格问题\n本人于2017年9月入学全日制专科，专科专业是非法学专业，2020年6月专科毕业。2020年9月参加江苏省专转本考试进入全日制本科学校，就读非法学专业，且同年12月通过自考取得了南京大学的非全日制本科毕业证，因为对法律",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan-zwfw",
+   "id": "f41d414e-530c-4dc4-b1d4-85b2b42a0a31",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=f41d414e-530c-4dc4-b1d4-85b2b42a0a31",
+   "question": "防疫\n现在广州已经没有了中高风险地区。回夹江还需要隔离吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan-zwfw",
+   "id": "308ccc9a-4a5b-46f6-b65d-da222a41a406",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=308ccc9a-4a5b-46f6-b65d-da222a41a406",
+   "question": "请问企业标准文本需在哪个网站进行公示\n请问下公司企业的企业标准文本，是在哪个执法部门的网站进行公示，我们公司想把我们企业的标准文本对外进行公示，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan-zwfw",
+   "id": "0edbddea-cd44-4799-bc65-dc22d5bb053f",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=0edbddea-cd44-4799-bc65-dc22d5bb053f",
+   "question": "我想问一下这个猪瘟来了为什么四川省不发捕杀猪瘟的文件啊\n你好，我想问一下四川省的猪瘟这么严重，为什么不下发猪瘟的文件啊，还让每家每户都自行解决把猪瘟深埋了怎么埋啊，这是大热天的，怎么深埋啊，这猪瘟传染性及强，而且又污染环境了，你们为什么不下",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan-zwfw",
+   "id": "4591bf48-5fd6-473d-961f-4b660e0d779e",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=4591bf48-5fd6-473d-961f-4b660e0d779e",
+   "question": "生育保险\n我是21年4月在乐山产下男婴，21年6月之前的社保都是成都公司购买，5月辞职，6月的社保开始在乐山公司缴纳，期间生育险已经满12月且无中断，请问我现在要报销生育险是找现在的乐山办理，还是成都办理？怎么办理？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan-zwfw",
+   "id": "0ad55904-2f0d-45b6-acd6-19c6f1d2c741",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=0ad55904-2f0d-45b6-acd6-19c6f1d2c741",
+   "question": "计量认证证书\n你好，我是乐山市犍为县疾病预防控制中心余志，想咨询一下我中心实验室计量认证证书是否已经通过？可否前来领取了？谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan-zwfw",
+   "id": "0e5af252-c0b5-47a6-93bb-90e680987b86",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=0e5af252-c0b5-47a6-93bb-90e680987b86",
+   "question": "独生子女费\n请问一下，独生子女费发到哪张卡里的呢？重来没有领过，刚刚查到发过两年，但是孩子已经满8岁了，是否是只发2年？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan-zwfw",
+   "id": "d1488ca3-6a1f-40ba-ba85-d9382a875fb6",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=d1488ca3-6a1f-40ba-ba85-d9382a875fb6",
+   "question": "摩托车登记不能使用原摩托车号牌?\n乐山市五通桥区交警支队办理。根据申请使用原机动车号牌号码之规定：1、在办理转移登记或者注销登记后六个月内提出申请（我6月18日卖出转户原车，6月23日提出申请）2、机动车所有人拥有原机动车三年以上（原车购于",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan-zwfw",
+   "id": "d8e84044-09b2-43ea-95e7-3bc704d21e36",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=d8e84044-09b2-43ea-95e7-3bc704d21e36",
+   "question": "高铁乐山站外的道路是否允许旅游车辆进出\n咨询高铁乐山站外的道路是否允许旅游车辆进出。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan-zwfw",
+   "id": "cb5afbad-56fd-42ee-90ad-48186d6a810f",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantproposaldetail.html?cguid=cb5afbad-56fd-42ee-90ad-48186d6a810f",
+   "question": "关于大学生假期实习的建议\n您好，我是一名在校大学生，临近假期，希望人力资源和社会保障局能够提供大学生实习和社会实践活动的岗位以及渠道信息，或者多多开展例如四川省“逐梦计划”大学生社会实践活动这样类似的活动，也希望能够提供这样的信息。能够让假",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan-zwfw",
+   "id": "7c53b31b-6544-4972-9fa8-06f16b02d472",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantproposaldetail.html?cguid=7c53b31b-6544-4972-9fa8-06f16b02d472",
+   "question": "五通桥区中医医院搬走后群众看病不便\n五通桥区中医医院搬迁后牛华镇群众看病不便，希望解决该问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan-zwfw",
+   "id": "a70ffe58-5f84-4f26-a114-021f8de9b80a",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantproposaldetail.html?cguid=a70ffe58-5f84-4f26-a114-021f8de9b80a",
+   "question": "建议公交5路车尽快恢复原来线路运行\n市民建议乐山城区的公交5路车恢复按原线路运行至关庙",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan-zwfw",
+   "id": "bc036083-97ac-4ff1-87e8-edf9dde9fcc6",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantproposaldetail.html?cguid=bc036083-97ac-4ff1-87e8-edf9dde9fcc6",
+   "question": "建议合并建设乐山市党委和政府官方网站\n目前，乐山市本级党政机构改革基本完成。为进一步推动全市电子政务建设，望市委办公室会同市数字经济局，参考嘉兴市委市政府官方网站建设模式，着手推动合并建设中共乐山市委市人民政府官方网站，推动机构改革后市委工",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan-zwfw",
+   "id": "bebe7006-d855-45ea-a8c0-a522aa5935b10",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantproposaldetail.html?cguid=bebe7006-d855-45ea-a8c0-a522aa5935b10",
+   "question": "望及时处理高铁乐山站周边盲人通行不便问题\n高铁乐山站地下停车场直梯处的坡道坡度太陡，轮椅无法上下；高铁站进站口方向的斑马线有盲道但没有无障碍设施，出站口方向的斑马线未设置专用盲道，也没有无障碍设施，残疾人使用轮椅上下时容易摔倒。建议整改。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan-zwfw",
+   "id": "11534df2-f623-4ea7-95f0-a75d171e2b35",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantproposaldetail.html?cguid=11534df2-f623-4ea7-95f0-a75d171e2b35",
+   "question": "望尽快处理堆放在田坎上的秸秆\n峨眉山市九里镇车箭村7组有大量秸秆堆放在田坎上，一涨水秸秆就被带入沟渠，造成沟渠堵塞。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan-zwfw",
+   "id": "d2d5c5de-2703-4169-9593-509aa15f0da11",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantproposaldetail.html?cguid=d2d5c5de-2703-4169-9593-509aa15f0da11",
+   "question": "建议在S305线甘江镇新民村盘渡河桥处设置减速警示标志\nS305线甘江镇新民村盘渡河桥处于道路拐弯处，经常发生交通事故，建议尽快设置减速警示标志。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan-zwfw",
+   "id": "130866ca-454e-4e80-8ded-cfb59fb06cf9",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantproposaldetail.html?cguid=130866ca-454e-4e80-8ded-cfb59fb06cf9",
+   "question": "峨边至金口河石母河路段经常有石头从山上掉落下来\n峨边到金口河的道路（石母河路段）山上经常有石头掉落，存在安全隐患。原因是山上有村民放羊导致石头坠落，望调查处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan-zwfw",
+   "id": "fe1fe935-6bee-4304-b798-104548a04a0c",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantproposaldetail.html?cguid=fe1fe935-6bee-4304-b798-104548a04a0c",
+   "question": "望处理苏稽镇桂花路垃圾中转站臭气\n市中区苏稽镇桂花路垃圾中转站经常散发出臭味，建议采取措施避免影响周边居民生活。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan-zwfw",
+   "id": "f485c816-4a86-498d-9677-21a221cff53b",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantproposaldetail.html?cguid=f485c816-4a86-498d-9677-21a221cff53b",
+   "question": "建议乐山中心城区绿心环线开通观光车\n目前，政府在绿心环线打造了多处美景，但绿心环线路线较长，多数老人没体力走完全程，市民建议适时开通观光公交车。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan-zwfw",
+   "id": "4a319e14-c0a4-4af0-b445-d96a1b47efde",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantproposaldetail.html?cguid=4a319e14-c0a4-4af0-b445-d96a1b47efde",
+   "question": "望协调供电部门维修世纪城小区故障设备\n2018年6月26日晚，乐山市中区世纪城小区供电设备故障导致停电停水，迟迟未恢复，现天气炎热，严重影响生活，希望协调供电部门解决。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan-zwfw",
+   "id": "46cfdd77-66d1-47c7-8a73-435be9105ba3",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantproposaldetail.html?cguid=46cfdd77-66d1-47c7-8a73-435be9105ba3",
+   "question": "建议整治收运泔水的脏车\n城区许多泔水收运车车身污浊，且未密闭，恶臭难闻，影响旅游城市形象。为此，建议：该类车进城前先处理好表面的污垢，或者相关的部门更换一些新的收集车辆。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan-zwfw",
+   "id": "6ad3f029-ba37-4679-933c-78b493d1275e",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=6ad3f029-ba37-4679-933c-78b493d1275e",
+   "question": "反映快递收费问题\n群众反映镇上的xx网吧和xx快递，每次在这两家快递站点取快递时，都要收取快递的费用，小件2元一个，大件3元一个，希望相关部门核实处理，以后取快递时能不收取费用。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan-zwfw",
+   "id": "891c5c86-8be1-4db7-86db-b0da4adb34be",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=891c5c86-8be1-4db7-86db-b0da4adb34be",
+   "question": "噪音扰民\n群众居住的小区旁边是机械厂，该厂白天噪音很大，由于家里刚添了小宝宝，每天早上不到八点，就要被巨大的噪音吵醒，每天都休息不好，严重影响了群众和宝宝的休息，现投诉机械厂噪音扰民，希望相关部门能协调处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan-zwfw",
+   "id": "902e2c6a-d8f2-4978-8934-e74f6b6b0093",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=902e2c6a-d8f2-4978-8934-e74f6b6b0093",
+   "question": "修建高速公路占用基本良田\n1997年乐山市马边县民建镇张坝社区5组修建高速公路，占用群众的基本良田，当时当地国土局告知会有补助，群众至今没有拿到补助，希望尽快把补助款发放给群众。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan-zwfw",
+   "id": "75d773e5-f029-46e3-8309-f6298e00938a",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=75d773e5-f029-46e3-8309-f6298e00938a",
+   "question": "公司座机无故停机\n群众来电反映本公司两部电话突然被停机，拨打电信客服电话10000号被告知因涉嫌电信诈骗而被停机，群众表示该两部电话只用于给客户做回访时使用，如果电话被停机影响工作。故来电反映，希望相关部门核实告知并恢复。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan-zwfw",
+   "id": "819ded12-d79c-4ce8-884b-621965c50493",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=819ded12-d79c-4ce8-884b-621965c50493",
+   "question": "东方红小学附近区域停电\n沙湾区东方红小学附近区域从昨夜起一直停电，望抓紧处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan-zwfw",
+   "id": "13ccf6b7-5d41-4a44-9dbe-91c8638bc500",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=13ccf6b7-5d41-4a44-9dbe-91c8638bc500",
+   "question": "重庆对外建设公司修路时挖断道路影响通行\n重庆对外建设公司修路时把峨边县毛坪镇恒心村8组村道挖断，现场有倾倒的树木，村民无法出行，已经堵了五六十辆车，望帮助。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan-zwfw",
+   "id": "5a67839d-5243-4736-967a-52defd0a0812",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=5a67839d-5243-4736-967a-52defd0a0812",
+   "question": "白塔街原乐山卫校操场上电线冒火花\n乐山市中区白塔街原乐山卫校操场上电线冒火花，望尽快处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan-zwfw",
+   "id": "af929022-5935-458f-9401-0fbbd2efa710",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=af929022-5935-458f-9401-0fbbd2efa710",
+   "question": "不动产办证问题\n康先生是犍为县清溪镇印象名邸业主，2016年购买住房，至今未拿到不动产证，望帮助处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan-zwfw",
+   "id": "7e340965-556e-4a5d-b8db-27d7ba687dfe",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=7e340965-556e-4a5d-b8db-27d7ba687dfe",
+   "question": "乐都镇停电停水\n峨眉山市乐都镇整个乡镇从昨晚7点开始停电停水到现在，影响市民正常生活。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan-zwfw",
+   "id": "fa56b447-aa58-4881-82f1-a18afd80f4f10",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=fa56b447-aa58-4881-82f1-a18afd80f4f10",
+   "question": "五通桥区金山镇停电\n五通桥金山镇整个乡镇从晚上8点多开始突然停电，天气炎热影响生活，望相关部门协调处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan-zwfw",
+   "id": "f0c0a305-0dc9-40ad-bd0e-10369c98ae3c",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=f0c0a305-0dc9-40ad-bd0e-10369c98ae3c",
+   "question": "犍为县城西门口小摊贩占道经营\n犍为县城西门口红绿灯地段很多小摊贩占据人行道经营，影响市民通行。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan-zwfw",
+   "id": "7e46e1d4-1521-4604-a0d1-fac25ded9e7f",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=7e46e1d4-1521-4604-a0d1-fac25ded9e7f",
+   "question": "禁渔期有人在观音湖捕鱼\n有人在峨眉山市观音湖捕鱼，现在是禁渔期，望严查。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan-zwfw",
+   "id": "bceeb431-a2e0-48bc-be3b-47aad94fea9c",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=bceeb431-a2e0-48bc-be3b-47aad94fea9c",
+   "question": "风貌工程装饰条脱落\n市中区碧山路2714号风貌工程装饰条5月21日脱落，砸坏了雨棚和花盆，有砸到人的风险。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan-zwfw",
+   "id": "c0a5e82a-ce34-4328-816d-6d273478ea9d",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=c0a5e82a-ce34-4328-816d-6d273478ea9d",
+   "question": "村道垮塌影响通行\n沐川县建和乡河口村村民反映当地村道在去年4月修建仁沐新高速时垮塌，至今无法通行，望尽快处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan-zwfw",
+   "id": "78d9e90e-c18b-4173-a4c0-4bbb5c3f284a",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=78d9e90e-c18b-4173-a4c0-4bbb5c3f284a",
+   "question": "沙湾客运中心站没有开往葫芦镇的客车\n沙湾客运中心站没有开往葫芦镇的客车，车站里有许多人滞留。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan-zwfw",
+   "id": "7cb842aa-dda0-4e02-afb2-9ece859400f11",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=7cb842aa-dda0-4e02-afb2-9ece859400f11",
+   "question": "车辆停在停车位划线内却被贴罚单\n建议有关部门规范市中区茶坊街158号门口的停车位A200444到A200448的标号，很多市民以为此地可以停车但被贴罚单，望得到帮助。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan-zwfw",
+   "id": "699919db-ca0a-47a5-ac02-25becfc81b7e",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=699919db-ca0a-47a5-ac02-25becfc81b7e",
+   "question": "遛狗威胁行人安全\n一到晚上，罗浮盛世小区就有很多养狗的业主，在小区里面遛狗，其中有很多大型犬，存在一定的安全隐患，希望相关部门协调处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan-zwfw",
+   "id": "b8a17bbf-da6d-486e-b5f0-0ceb0e12a266",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=b8a17bbf-da6d-486e-b5f0-0ceb0e12a266",
+   "question": "井乐客运专线车停运后群众出行不便\n井研县三教乡村民反映市中区土主镇至井研县的客运专线车（途经三教乡）停运，导致出行不便。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan-zwfw",
+   "id": "262a648f-909f-4aac-af90-27d191d0e712",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=262a648f-909f-4aac-af90-27d191d0e712",
+   "question": "物管擅自改变规划在小区地面建停车位\n领地国际公馆小区业主反映物管擅自改变规划在小区地面建停车位。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan-zwfw",
+   "id": "6b8b5330-ef47-4ddb-a15d-a93bdc5ce3a0",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=6b8b5330-ef47-4ddb-a15d-a93bdc5ce3a0",
+   "question": "烘中药材造成烟雾污染\n夹江县甘霖镇朝阳村5组有人在家里烧煤烘干中药材，产生大量烟雾污染环境，影响周围住户。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

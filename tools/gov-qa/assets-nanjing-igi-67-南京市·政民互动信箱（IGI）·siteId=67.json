@@ -1,0 +1,626 @@
+{
+ "A_考卷": [
+  {
+   "source": "nanjing-igi-67",
+   "id": "239564",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=239564",
+   "question": "本人2019年11月22通过平安普惠手机网络借款50000元(五万），电子合同的乙方(出借人)不是平安普惠， 而是长城华西银行股份有限公司，地址是四川省德阳市蒙山街14号。借款期限是36期，按36期还款，每期还款共2287.21元，分别是月",
+   "cited_hits": [
+    {
+     "name": "融资担保公司监督管理条例",
+     "lib_no": "融资担保公司监督管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "nanjing-igi-67",
+   "id": "395686",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=395686",
+   "question": "南京市委金融工委： 我司是江苏省内一家小额贷款公司，现向贵局咨询小贷公司从事委托贷款业务的最新政策，具体问题如下： 1.小额贷款公司从事股东委托贷款业务是否需要向监管部门备案或审批？ 2.根据苏金监发〔2023〕26号文公布的江苏省小额贷款",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省小额贷款公司设立变更工作指南",
+    "江苏省农村小额贷款公司扶优限劣工作意见（暂行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-67",
+   "id": "389017",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=389017",
+   "question": "您好，想咨询一下南京人才安居政策适用对象有哪些？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "南京市人才安居办法适用对象（目录）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-67",
+   "id": "336380",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=336380",
+   "question": "我公司在江宁区和溧水区，都有经营主体，在疫情期间，受疫情影响较为严重，看到有贷款贴息这方面的政策，特此咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "“同心抗疫 携企同行”助企纾困二十项举措"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-67",
+   "id": "288367",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=288367",
+   "question": "请问南京文交所怎么处理，已经好几年了，还不开盘，里面的钱怎么办，请解决。",
+   "cited_hits": [],
+   "cited_missing": [
+    "邮币卡类交易场所清理整顿工作专题会议纪要"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "nanjing-igi-67",
+   "id": "407867",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=407867",
+   "question": "星图金融管理旗下苏宁任性贷一直违法催收严重影响生活，爆通讯录，短信威胁已经严重属于违法行为，请严肃处理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-67",
+   "id": "405982",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=405982",
+   "question": "本人2024年10月到12月2号在鸿信大厦的中国人民人寿保险公司上班，未签劳务合同，没有缴纳五险一金，本人有每天打卡记录，一开始说底薪加补贴 一个月6900，最后说没有底薪，欺骗劳动者，白白上了两个月班，工号也没有下，请求负责人发放两月工资",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-67",
+   "id": "403293",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=403293",
+   "question": "您好： 最近收到短信，内容为由中共南京市委金融委员会办公室和深交所发送的，于12月4日举办董秘培训班的通知，具体登录南京市资本市场培育系统查看或报名。我查了下，没有找到对应的系统网址和通知，还请告知，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-67",
+   "id": "402845",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=402845",
+   "question": "南京银行北京分行贷款系统被第三人侵入,导致放贷,而南京银行北京分行对此行为置之不理,放任危险结果状态长时间持续,相关负责人玩忽职守严重不作为",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-67",
+   "id": "399694",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=399694",
+   "question": "在2024年8月7日，我遭受到一个不知道委托单位、不知道催收单位的人员的非法催收，通过个人欠款账户的整理及还款，确定了是美团小贷的欠款，然后通过重庆市地方金融管理局进行了投诉，在2024年8月26日经重庆市沙坪坝区金融发展服务中心答复：美团",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-67",
+   "id": "398837",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=398837",
+   "question": "我公司是江苏合众融资租赁有限公司，因要变更法人市监管局要求我司提供市金融监管局的同意批复。请问我司需要提供什么材料进行申请，你们的电话都打了没人接。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-67",
+   "id": "397227",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=397227",
+   "question": "江苏省南京市地方金融监督管理局领导：您好！举报投诉基本情况：2023年9月14日03时，国元农业保险股份有限公司芜湖中心支公司承保的标的车车号为苏DB6E77的路虎揽胜越野车，车主邢玉宝停放在江苏省常州市新北区春江街道港区被胡友志驾驶第三方",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-67",
+   "id": "396439",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=396439",
+   "question": "尊敬的领导您好！我是一名研究生，因毕业论文写作的需要，想咨询2008-2022年南京市金融业增加值、金融业从业人数及其所含从事银行业、保险业和证券业人数、金融业职工总薪酬数据，十分感谢您的帮助。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-67",
+   "id": "395028",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=395028",
+   "question": "请问E类人才认定标准中第6项“获得特许金融分析师（CFA）、中国注册会计师（CPA）、国际注册会计师（ICPA）、英国特许注册会计师（ACCA）、美国注册会计师（USCPA）、美国注册管理会计师（CMA）、国际注册投资分析师（CIIA）、国",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-67",
+   "id": "394179",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=394179",
+   "question": "请问原先的南京市地方金融监管局是并入到党委机构（中共南京市委金融办）管理了吗？现在是一个机构三块牌子设置？ 还有市委金融办与金融监管总局江苏监管局在具体职能监管方面具体分工是怎样划分的？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-67",
+   "id": "393386",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=393386",
+   "question": "贵局2024年2月21日受理韩启焯投诉：遭遇江苏顺丰典当有限公司砍头息和套路贷。想了解进展情况 （电话打不通） 。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-67",
+   "id": "391762",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=391762",
+   "question": "南京苏宁公司的星图金融，泄露个人信息给催收机构，无下限，无限制暴力催收，未经本人允许打电话发短信骚扰家人，朋友，单位。强烈要求严查苏宁任性贷！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-67",
+   "id": "390619",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=390619",
+   "question": "您好，我是广州市花都区的一名普通市民，因为做生意原因收入减少导致在支付宝（中国）网络科技技术有限公司旗下的借呗的贷款平台中江苏银行放款的贷款逾期了，在逾期期间我向平台和放款方江苏银行表明有还款意愿，并尽量选择协商还款，但该平台和放款方江苏银",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-67",
+   "id": "389981",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=389981",
+   "question": "南京市地方金融监督管理局领导们好，本人于2023年12月28日在“我的南京”APP上申请南京市人才安居E类人才认定，12月28日当日下午14:19建邺区人社局已审核通过，并流转至南京市金融办予以平行审核；截止2024年1月16日，南京市金融",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-67",
+   "id": "387652",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=387652",
+   "question": "您好，请问在金融机构做反洗钱岗，属于合规部，考取了CIA证书，是否可以申请E类人才补贴吗？需要必须在审计岗位工作过才可以吗？请问在金融机构工作未满一年，但已在南京缴纳3年社保，可以申请E类人才补贴吗？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-67",
+   "id": "386708",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=386708",
+   "question": "咨询：南京市地方金融监督管理局咨询事宜：我司为某投资合伙企业（有限合伙），于2023年10月18日向雨花台区软件谷提交私募股权投资开办奖励的申请资料。但因补贴申请也需线上提交材料，在慧企通后台并未成功登录申请接口。想咨询：1.目前是否线上也",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-67",
+   "id": "384882",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=384882",
+   "question": "本人在2020年10月16日通过星图金融APP，下单购买了苏享18号第82期0013产品，金额共计490000元。产品预定1年定期，在2021年10月20日返还本机及利息。2021年10月20日到期后，平台未按照合同的预定返回全部本金，要求",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-67",
+   "id": "382565",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=382565",
+   "question": "退还扣除的贷款本金并道歉！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-67",
+   "id": "378986",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=378986",
+   "question": "南京文交所有否整改后重新营业可能，我手中持有票难道就只有领取几张废纸吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-67",
+   "id": "378565",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=378565",
+   "question": "南京民生银行中央支行 阻拦提前还款 。 投诉无门，多次沟通一直在拖延阻拦，不给操作",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-67",
+   "id": "373814",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=373814",
+   "question": "360借条疯狂拨打电话，爆通讯录，拨打非预留联系人电话，调取名下其他电话拨打，威胁恐吓，上门贴条等，家人已经被吓进医院了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-67",
+   "id": "372392",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=372392",
+   "question": "现在需要贷款买房，悦达融资租赁有限公司未经授权上报征信记录，给他们公司联系，根本联系不上，客服电话无人接听，希望给领导给解决。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-67",
+   "id": "369900",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=369900",
+   "question": "尊敬的 领导您好， 我是南京千千万万市民之一。 事情的原由是这个样子的，我的中国银行卡被中国银行给查封了，然后我成为了中国银行的高风险客户，之前我可能无意中涉及到了涉诈资金，导致造成了现在的局面。 但是，我到了我户口所在地的派出所开具了无犯",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-67",
+   "id": "368517",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=368517",
+   "question": "九霄梦天地周义盛2021年就没按合同执行还债。我们债人多次催促维权都没得到解决。希望政府为民做主，偿还老百姓的血汗钱。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-67",
+   "id": "365191",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=365191",
+   "question": "贷款合同6个月之后，可还款。中国建设银行南京中央门支行违约。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-67",
+   "id": "362657",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=362657",
+   "question": "中国银行南京芝兰路方山支行在11.19号周六下午13：30左右未经本人同意私自放贷20万，后又未经本人同意把贷款的20万转到收款人梁华星的账户（6226580067797619），在当天下午4:30点左右报警备案。联系该行客服协助锁定这笔转",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-67",
+   "id": "360440",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=360440",
+   "question": "子雨公司孟雷在2020年就没按合同执行还债，我们债权人多次维权都没得到解决，希望政府为民做主，偿还老百姓的血汗钱，在2021年己经向南京市栖霞区马群派出所报案直到现在还没明确的答复。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-67",
+   "id": "359160",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=359160",
+   "question": "医购贷未履行国家出台对P2P平台提出良性清退政策，医购贷作为第三方平台，没有为广大投资者做到资金保障，与医购贷补签协议三年清退时间已到，医购贷返还的资金未达到本金50%；兑付本金随着时间推移越来越少，甚至延期多个月兑付一次；作为受害者，我希",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-67",
+   "id": "356256",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=356256",
+   "question": "本人2019年向银行申请一笔贷款，还款方式为先息后本，2022年由于疫情因素导致回款缓慢，同时家中老人突发癌症，无法一次性偿还本金，故向银行提出申请延期，银行通过后，将还款方式变更为季度还款，三年还清，同时本人收入情况并无下降。后发现，银行",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-67",
+   "id": "353359",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=353359",
+   "question": "尊敬的领导，您好！我是江苏南京子雨集团的债权人，现在很不理解南京公安经侦所发公告，竟然是将子雨集团互融宝案定性为非法集资，不知这样定性的背后是否有人故意操纵为诈骗者开脱罪责而为。我们认为，互融宝是经银监会工信部公安部国家互联网信息办公室等部",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-67",
+   "id": "348649",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=348649",
+   "question": "2020年3月30日已经和互融宝签署转让协议。同意余下29700元由借款人转给互融宝平台代还出借人出借的本金和利息。请贵局保护投资人合法利益。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-67",
+   "id": "344121",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=344121",
+   "question": "江苏强业金融信息服务有限公司网络借贷信息中介平台----互融宝，从2020年12月宣布所谓的良性退出，实际是导演了一出瞒上欺下的大骗局！ 互融宝为了逃避国家的法律制裁，通过三部曲对上瞒骗国家，对下欺诈出借人，变相跑路，非法大量侵吞集资款额。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-67",
+   "id": "337967",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=337967",
+   "question": "去年我在网上学了南京卓尔龙腾教育科技有限公司的ps课程，该公司老师用各种办法让我办理贷款，现因为自身原因不想继续学习，结果老师不予退费，也不理人，希望金融监管总局可以帮帮我们，给个解决办法，取消贷款，现已经有200多大学生上当受骗，希望总局",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-67",
+   "id": "332005",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=332005",
+   "question": "1、本人2021年12月账户冻结，截止到2022年3月4日，一直不处理，推脱说南京反诈中心说本人账户涉诈骗，本人电话联系，对方说不是他们冻结的，是江西南昌湾里分局行政大队冻结，电话沟通，对方说本人账户没问题，只冻结48小时，现中信银行单方面",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-67",
+   "id": "331060",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=331060",
+   "question": "互融宝孟雷犯罪团伙虽己打掉，但全国各地的受难者欠款损失二年了没还， 孟犯罪团伙，顶着“光环”，披着“红衣”，证照齐全，网络媒体及官员站台诱导下，使全国各地受难者信以为真而上当受骗，这是由于有关职能部门疏于监管和审核不严所之 全国各地受难者钱",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-67",
+   "id": "325900",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=325900",
+   "question": "恳请警察大人们，协助处理网络赌博官网举报，从小我的父亲就是因为网赌而让我的家庭支离破碎 成人后，我不断地参与推广打击网络赌博的行动，就是希望可以为这个社会多尽一分心力 但那天在网络上，想看看NBA的直播，意外的发现，现在的推广手法竟然联合起",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-67",
+   "id": "324499",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=324499",
+   "question": "我现在想出金和提货联系不上交易平台，是否跑路了。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-67",
+   "id": "313711",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=313711",
+   "question": "收到付融宝短期兑付3期3群建群通知（该群不到一天就解散了），问询客服小爱有没有政府组织批准，她出示由贵局印发的《关于付融宝回款审核通过》文件，特向贵局求证其真实性。以免更多的人坠入金融诈骗的陷井。请予以澄清并在官网公示。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-67",
+   "id": "308789",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=308789",
+   "question": "全称 南京易投贷金融信息服务有限公司 简称 旺财谷 统一社会信 息代码 91320100085921318D 注册资本 1000万 实缴资本 1000万 注册地址 中国江苏省南京市秦淮区中山南路230号4118室 经营地址 中国江苏省南京市",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-67",
+   "id": "306478",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=306478",
+   "question": "尊敬的各位领导，见信好，本人于2021年9月17日下午6.24分，使用支付宝过程中，其中蚂蚁花呗强制有弹窗，要求进行服务升级，本人在10-17日多次点击关闭弹窗，但是多次出现无法彻底关闭，17日下午6点24分左右本人因使用支付宝弹窗再次出现",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-67",
+   "id": "298558",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=298558",
+   "question": "苏宁金融高利贷,以低息费骗人借款,实则加上各种费用已超过24%,投诉到黑猫平台,该公司试图已消费券两百元的形式补偿我多付的800多元各项费用,望局长帮忙处理该公司,避免这种高利贷的公司存在.欺骗消费者.本人因疫情失业,还催收恐吓爆通讯录,后",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-67",
+   "id": "297575",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=297575",
+   "question": "银行的利息太高了，都超过了银行规定的利息，投诉了这么长时间也没有人管我，老百姓的维权就这么难吗？请求按国家规定银行利息结清。。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-67",
+   "id": "292537",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=292537",
+   "question": "您好：我公司想取消工商银行的“自助打印回单手续费”，工商银行已扣今年全年的360元。我们不再需要此项服务，想从2021年5月起停止，但银行工作人员说已扣后面8个月的款不能退。特向你们咨询：此款能不能退回我公司。望尽快答复，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-67",
+   "id": "289233",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=289233",
+   "question": "1.苏宁金融的销售工作人员于2020.9.22左右打电话给我，说让使用他们的任性贷，还明确提示让我全额使用，以后会给我提额降息，当时的日率是万分之6.6.然后2021.1.18日又有工作人员打电话说我的额度没有全部使用，让我全额贷款，能够马",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-67",
+   "id": "286474",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=286474",
+   "question": "尊敬的领导你们好：我在2019年12月15日在招联金融APP上贷了一笔钱是21200元，还36期，每期还870.96元，共计要还31354.56元。利息就有10154.56元。这远远高处国家法定利息。今年疫情在即，导致本人收入受限，本人要求",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-67",
+   "id": "285285",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=285285",
+   "question": "请问在哪里可查看南京市地方金融监督管理局的政府网站年度工作报表？能否提供具体链接地址？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-67",
+   "id": "282706",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=282706",
+   "question": "南京九金所金融信息服务有限公司为P2P平台，自从平台退出后，强迫出借人必须签订霸王条款方可给出借人还款（仅出借金额60%的保障），后续采用各种卑劣手段威胁恐吓投资人，且不按规定还款，各种拖欠，扰乱社会秩序，恳请有关部门查处！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-67",
+   "id": "279153",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=279153",
+   "question": "我叫陶国兰，2020.10.19在浦口区德佑房产龙华店（珠江派出所对面）与买房人签订卖房合同，约定买房款270，由德佑的账户监管。合同订立后，买房人夫妻将房款入账。2020年10月22日，我通知中介公司，按合同约定，将监管的买房款转账解押。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-67",
+   "id": "277361",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=277361",
+   "question": "2016年11月左右犯罪嫌疑人通过东方融资网和南京银行内外勾结，南京银行在这件事中提供虚假消费贷款事由合同给受害人签字贷款（南京银行南湖支行），超额放贷，坑害多名女性，贷款金额为犯罪嫌疑人使用。且此金融中介机构和银行之间配合，利用银行系统审",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-67",
+   "id": "237219",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=237219",
+   "question": "事实与理由： 1.本人于2020年1月16日在我爱我家房地产经纪有限公司租赁一套房子，按月支付房租，近日查询到每月房租还款为南京超踔网络科技有限公司。 2.南京超踔网络科技有限公司工商信息显示该公司没有任何金融资质，该家公司却通过我爱我家房",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-67",
+   "id": "234136",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=234136",
+   "question": "在“友信普惠贷”贷款118900元，实际下款80000元，以服务费等名义提前收取了38900元，分36期，每期还款3814.28元，共计还款金额为137314.08元。举报 1、根据最新年利率计算公式得出结论贷款年利率已经超过36%；2、已",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-67",
+   "id": "232896",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=232896",
+   "question": "您好！我通过天津诺信购买了一种众筹项目理财产品，结算平台是江苏艺圈儿网络科技有限公司。现在产品出现兑付问题，按艺圈儿3月27日出具的公告要延迟到十月开始兑付。但这期间4.11我在南京晨报发现艺圈儿发布的减资公告，注册资本金拟从5000万元减",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-67",
+   "id": "229620",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=229620",
+   "question": "19年因为资金周转困难，找宜信业务员办理宜人贷贷款，当时审批金额65000，实际下款也是65000，而现在因为疫情期间无收入无法还款，查询下才得知从宜信的贷款合同约定金额却是10万多，而我要还款的本金和利息都是按照10万算的，希望政府能够帮",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-67",
+   "id": "227774",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=227774",
+   "question": "我本人要求提前结清余下十二期款.但宜信公司给出的还款金额和实际余下的款不符.本人已和宜信公司电话沟通多次.对方要求按原合同余款结清.本人实际还余款金额和宜信公司还款列表不符.里面差了6000多元利息.请问一下提前还款为什么还要多付十二期利息",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-67",
+   "id": "225771",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=225771",
+   "question": "1、购买苏宁理财产品未提前告知2天后有更高的收益率，目前收益率高于当时购买的收益率，造成损失。 2、有调整未告知看客户用户欺骗消费者。 3、苏宁消费金融有限公司 客服电话95177 02558720917 4.诉求：补偿造成利差损失。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-67",
+   "id": "222491",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=222491",
+   "question": "国务院规定，培训机构不允许一次性收费超过3个月。但是中国光大银行与百度有钱花合作，勾结南京韦博国际语言专修学校，欺骗消费者，通过贷款手段一次性缴纳2年半的培训学费。现在韦博单方面违约关门停课，光大银行还在继续收贷款！要求光大银行停止这种无耻",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-67",
+   "id": "220914",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=220914",
+   "question": "平安普惠融资担保公司，不规范经营，其黑龙江分公司员工周博欺骗客户贷款，造成客户巨大损失。客户投诉9次，平安普惠融资担保公司拒不受理贷款人投诉。现向金融监管局投诉，恳请贵局受理，保护公民资产不受损失。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-67",
+   "id": "218381",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=218381",
+   "question": "尊敬的领导:我是365易贷的出借人，其负责人单金显取保侯审以来，催回的款乱花。出借人苦苦盼着回款，那都是我们的买房钱，养老钱，孩子上学钱。现在他把我们搞得每曰寝食难安，生活愁苦不堪。请求政府帮助解封回款。缓解出借人的生活压力。要求单金显前面",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-67",
+   "id": "215016",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=215016",
+   "question": "尊敬的局长，您好！ 南京江心洲升龙桃花源著自今年5月以来，没有取得商品房预售许可证的情况下，就培训销售人员向前来看房的有购房意向的人收取300万的高额认筹金。他们蓄意欺骗顾客，总是说预计周末就开盘，结果这一周拖下一周，一而再再而三，一拖就是",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-67",
+   "id": "209902",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=209902",
+   "question": "我于2019年在苏宁易购借款2万元，当时未分期！后主动跟苏宁易购客服多次协商分期还款，说明自身原因。我因过年家里面出事情负债达40多万，我并不是不想还苏宁的钱只是想协商分期还。而且还是主动，苏宁易购未给答复。近日多次接到苏宁易购暴力催收电话",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-67",
+   "id": "201711",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=201711",
+   "question": "主任，你好，江苏水务投资有限公司为中国水务投资有限公司在华东地区的全资平台公司，上级主管部门为水利部综合事业局，公司成立10年，并且在华东地区10个城市提供供水服务，我公司有一个网站www.hhojs.com，目前处于年审阶段，根据江苏省通",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-67",
+   "id": "198387",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=198387",
+   "question": "我于2018年11月22日在江苏天瑞金融信息服务有限公司购买了理财产品，对方承诺于11月24日返回本金及利息，但至今未返还本金及利息，却再联系不上对方。江苏天瑞金融信息服务有限公司工商注册营业地址：南京市建邺区庐山路188号新地中心4608",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

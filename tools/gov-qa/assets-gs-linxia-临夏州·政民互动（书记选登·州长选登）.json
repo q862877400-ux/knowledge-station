@@ -1,0 +1,823 @@
+{
+ "A_考卷": [
+  {
+   "source": "gs-linxia-书记选登",
+   "id": "0c7a8e5f07554bee9493eed46beea051",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=0c7a8e5f07554bee9493eed46beea051",
+   "question": "应届生身份\n您好，对于应届生的界定是什么?是毕业时间为准还是以有无缴纳社保为准，或者是有其他标准？尤其是公务员考试和事业单位招聘对于应届生的要求。希望可以详细解答一下，谢谢。",
+   "cited_hits": [
+    {
+     "name": "甘肃省2024年度考试录用机关公务员和参照公务员法管理单位工作人员报考指南",
+     "lib_no": "公务员法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-州长选登",
+   "id": "ccb20d584b5f40b4ba912d565864207f",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=ccb20d584b5f40b4ba912d565864207f",
+   "question": "申请扩大临夏州公积金提取政策范围\n甘肃省公积金中心及各市州都已经明确可以将物业费、暖气费等纳入其他住房消费用以提取公积金，但临夏州公积金中心却不支持此类提取，现申请协调州公积金中心，将物业费、暖气费提取列入公积金提取范围。",
+   "cited_hits": [
+    {
+     "name": "住房公积金管理条例",
+     "lib_no": "住房公积金管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "gs-linxia-书记选登",
+   "id": "0f0bfab48a0744c08068552922af6729",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=0f0bfab48a0744c08068552922af6729",
+   "question": "畜禽养殖禁养区政策咨询\n负责人您好，我是南京农业大学的一名研究生，需要咨询东乡族自治县、广河县、和政县、积石山保安族东乡族撒拉族自治县、康乐县、临夏市、永靖县畜禽养殖禁养区划定时间情况。请问首次划定畜禽养殖禁养区（三区）的时间是什么时候？自",
+   "cited_hits": [],
+   "cited_missing": [
+    "畜禽养殖禁养区划定技术指南",
+    "畜禽养殖禁养区划分报告",
+    "关于进一步规范畜禽养殖禁养区划定和管理工作的通知",
+    "畜禽养殖禁养区调整划分报告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-书记选登",
+   "id": "113d985de7da4bf3a903d0b8c9a64e76",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=113d985de7da4bf3a903d0b8c9a64e76",
+   "question": "免费体检\n请问老年人免费体检在哪里报名？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好2025年基本公共卫生服务工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-书记选登",
+   "id": "4a2ffc824b22417e97db8d00c25d3775",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=4a2ffc824b22417e97db8d00c25d3775",
+   "question": "关于临夏事业单位招聘考试\n李书记您好，临夏州事业单位会不会在考试，现在市面好多人在说这个临夏事业单位会考，包括临夏机关单位说已经在批，那到底在会不会举行这次临夏事业单位考试呐。",
+   "cited_hits": [],
+   "cited_missing": [
+    "甘肃省事业单位公开招聘人员暂行办法",
+    "关于进一步规范事业单位公开招聘工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-书记选登",
+   "id": "d68ab71576484f03b4d82092179e141f",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=d68ab71576484f03b4d82092179e141f",
+   "question": "2025年临夏事业单位\n最近一段时间，市面上有很多人机构一直再说、临夏事业单位会招聘12月份发公告、1月份考试、我想问一下相关部门2025年临夏事业单位有没有招聘计划、如果有1月份考试是25年的事业单位还是算26年、如果是2026年的话当年",
+   "cited_hits": [],
+   "cited_missing": [
+    "甘肃省事业单位公开招聘人员暂行办法",
+    "关于进一步规范事业单位公开招聘工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-书记选登",
+   "id": "feff40960e9b45f2896a7bbabeb0d1fe",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=feff40960e9b45f2896a7bbabeb0d1fe",
+   "question": "2025临夏事业单位招聘\n最近一段时间，市面上有很多人机构一直再说、临夏事业单位会招聘12月份发公告、1月份考试、我想问一下相关部门2025年临夏事业单位有没有招聘计划、如果有1月份考试是25年的事业单位还是算26年、如果是2026年的话当",
+   "cited_hits": [],
+   "cited_missing": [
+    "甘肃省事业单位公开招聘人员暂行办法",
+    "关于进一步规范事业单位公开招聘工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-书记选登",
+   "id": "c277588973124349b3d7235d6dd26d4f",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=c277588973124349b3d7235d6dd26d4f",
+   "question": "关于职称评审\n您好书记，我是一名在岗13年教师，本人2020-2023年年度考核三年连续优秀！工作勤勤恳恳，任劳任怨，2022年由于内部晋级，错失22年一级评审 。后来由于22年评审人数超额，导致近三年都没有名额。我觉得这严重挫伤青年专业技",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于重新核定中小学教职工编制的通知",
+    "临夏州2025年度专业技术人员职称申报评审工作方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-书记选登",
+   "id": "9f3f77a861f840148ac2ebc37f05eec8",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=9f3f77a861f840148ac2ebc37f05eec8",
+   "question": "请问本年度政府单位有招聘计划吗？\n请问本年度政府单位有招聘计划吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "甘肃省事业单位公开招聘人员暂行办法",
+    "关于进一步规范事业单位公开招聘工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-书记选登",
+   "id": "d8a77d7a7b844df09c74d683e9164c4a",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=d8a77d7a7b844df09c74d683e9164c4a",
+   "question": "关于老旧小区改造项目具体改造内容的咨询投诉\n领导好：我小区在今年初终于等来了改造的通知，但被告知本次我小区改造内容只包含贴保温层和外墙粉刷，而窗户更换、小区道路硬化等一概不管，居民采取自愿自费形式改造，对此，我深感疑惑，还望相关领导予以关注",
+   "cited_hits": [],
+   "cited_missing": [
+    "甘肃省城镇老旧小区改造工作领导小组办公室关于开展2023年城镇老旧小区考核评价工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-书记选登",
+   "id": "2f6f119b5a334b04aac10251592ccb58",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=2f6f119b5a334b04aac10251592ccb58",
+   "question": "关于暖气不热的问题\n2024年11月供暖开始以来，今年的暖气就没有感觉到有什么温度，往年的暖气管道都是烫手，唯独今年是恒温状态，室内温度始终保持19-20度，一直很稳定，多次向供热公司和临夏 12345反应暖气不热，供热公司的答复是：州委州",
+   "cited_hits": [],
+   "cited_missing": [
+    "临夏回族自治州供热用热条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gs-linxia-书记选登",
+   "id": "fe2be92b234345d79936c794ab2102e2",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=fe2be92b234345d79936c794ab2102e2",
+   "question": "事业单位考试\n尊敬的领导，您好！我是康乐县的一名考生，我想咨询一下我们临夏州的事业单位考试什么时候出公告？",
+   "cited_hits": [],
+   "cited_missing": [
+    "甘肃省事业单位公开招聘人员暂行办法",
+    "关于进一步规范事业单位公开招聘工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-州长选登",
+   "id": "88f96ff963e546a69178967867231f7a",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=88f96ff963e546a69178967867231f7a",
+   "question": "临夏回族自治州大学生村医专项计划\n州长，你好 2026年，临夏回族自治州有没有大学生村医专项招聘计划？如果没有2027年会有吗？2027年会有初步打算吗？麻烦您在百忙之中答复一下，谢谢你",
+   "cited_hits": [],
+   "cited_missing": [
+    "甘肃省事业单位公开招聘人员暂行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-州长选登",
+   "id": "5db620f2dc784599bfbde7470889e7b0",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=5db620f2dc784599bfbde7470889e7b0",
+   "question": "物业没有等级评定收取高额物业费不作为\n领导你好，本人居住在河州学府2024年11月底河州学府物业以领取装修钥匙为由，必须缴纳全年且每平方1.5元的高额物业费，也多次向物业管理局反应费用高服务差问题，物业局与我电话沟通敷衍了事，最终没有解决任",
+   "cited_hits": [],
+   "cited_missing": [
+    "物业服务合同",
+    "市发改局、市市场监管局、市物业指导服务中心",
+    "关于规范河州学府前期物业服务收费的通知",
+    "临夏市物业管理小区星级考核细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-州长选登",
+   "id": "6a635e304ebd414490e858b74a5c3e7d",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=6a635e304ebd414490e858b74a5c3e7d",
+   "question": "事业单位招录\n往年下半年，事业单位公告早已发布，今年公告未发布，是不是不再招录事业单位人员？",
+   "cited_hits": [],
+   "cited_missing": [
+    "临夏双城高级中学2025年公开招聘25名教师的公告"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "gs-linxia-书记选登",
+   "id": "bb62b79934b34d5d8ae64c82fed2c3c3",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=bb62b79934b34d5d8ae64c82fed2c3c3",
+   "question": "花辰国际酒店建设项目占道施工让学生的上学之路存在重大安全隐患\n尊敬的临夏州领导您好！ 感谢您百忙之中抽出时间来看我的信！ 我反映的是临夏市东区前河沿东路，花辰国际酒店建设项目占道施工，把整个人行道和马路的一部分围挡使行人无法正常行走，让学生",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-书记选登",
+   "id": "e8fd9b84438f41dc91e740ba4899efd2",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=e8fd9b84438f41dc91e740ba4899efd2",
+   "question": "市政府办公室的办公地址在哪里？有对外服务窗口可以直接去咨询吗？需要预约吗？\n市政府办公室的办公地址在哪里？有对外服务窗口可以直接去咨询吗？需要预约吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-书记选登",
+   "id": "7623b1293ebf495daaf12c407a4acee5",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=7623b1293ebf495daaf12c407a4acee5",
+   "question": "商贩占道堵路\n您好，我要反映临夏市新西路和木厂街商贩占道经营问题。该街道两侧大量流动摊贩将水果、蔬菜摊位直接摆放到机动车行车道上，占用部分路面，三轮车、货品堆放在道路中间，挤压通行空间，机动车和行人混行，小孩，老人，人流量大，极易引发剐蹭、",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-书记选登",
+   "id": "64bf23277caf42e4a28b6a89e1744b7b",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=64bf23277caf42e4a28b6a89e1744b7b",
+   "question": "机动车占人行道乱停乱放\n尊敬的领导，您好，我要投诉康乐县附城镇 新集街康美路段173号商铺门前人行道车辆违规停放问题，该区域无停车泊位。 违停情况：有机动车长期停放在人行步道上，完全占用整个人行道，行人只能走到机动车道绕行，老人、小孩通行非",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-书记选登",
+   "id": "2d88e1275ce24af8bcb9f044a5aef442",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=2d88e1275ce24af8bcb9f044a5aef442",
+   "question": "关于光华路和自力路停车难的问题\n尊敬的李书记: 我是光华路大河家园的一名住户，因小区停车难等问题，时常将车辆停放在小区周围不影响其他车辆通行的位置，但是，多次收到交警部门的停车罚单（光华路和自力路），欲哭无泪，难道这样的罚款能解决问题吗？现",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-书记选登",
+   "id": "12c0009dcc244cd2b14f5e272203f225",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=12c0009dcc244cd2b14f5e272203f225",
+   "question": "给孩子上户口\n给孩子上户口需要什么手续？父母户口不在一起怎么办？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-书记选登",
+   "id": "a6de4d848dcf48998450f73c154388b4",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=a6de4d848dcf48998450f73c154388b4",
+   "question": "电子营业执照\n请问如何办理电子营业执照?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-书记选登",
+   "id": "6e6af37971e242b494914663df9c13e3",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=6e6af37971e242b494914663df9c13e3",
+   "question": "关于学校操场设施在周末、或节假日对周边居民开放的建议。\n尊敬的书记，临夏老城区尤其是风林社区、庆生社区附近，居民住宅楼密集，公共绿地广场等缺少，附近居民周末或节假日活动、溜娃、锻炼身体都无地可去。建议将风林小学、临夏市一中、附属小学等在学生",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-书记选登",
+   "id": "48335c416a294d1e9b5d666686dd71bd",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=48335c416a294d1e9b5d666686dd71bd",
+   "question": "关于临夏州事业单位\n局长您好，关于临夏州事业单位啥时间笔试，在特岗教师前还是在特岗教师后，还有就是临夏州事业单位教育岗会不会限制非师范专业，感谢您百忙之中回复一下，感谢局长。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-书记选登",
+   "id": "61af5a7e86fd4f9aa5f2e76cf4ae8e93",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=61af5a7e86fd4f9aa5f2e76cf4ae8e93",
+   "question": "关于临夏州2026年特岗考试\n李书记您好，临夏州特岗考试今年有没有非师范生的岗位呢，大家都说非师范生今年不能报考，会限制专业，那到底会不会限制专业呢？有没有非师范非专业能报考的岗位呢？。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-书记选登",
+   "id": "2dfa1698bf4e4b8fabd7eeea59700ab6",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=2dfa1698bf4e4b8fabd7eeea59700ab6",
+   "question": "养老保险\n请问灵活就业人员怎么参加养老保险？缴费多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-书记选登",
+   "id": "97c55b6c6e804018ac4499d8fbaf4b46",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=97c55b6c6e804018ac4499d8fbaf4b46",
+   "question": "工地施工扰民\n临夏市实验小学旁边地块的工地开始动工，土方夜晚施工到凌晨两三点，噪声严重影响附近居民的休息。请政府干预处理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-书记选登",
+   "id": "191e3fa2a32f4f53a656fd83ba18eabf",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=191e3fa2a32f4f53a656fd83ba18eabf",
+   "question": "噪音扰民\n尊敬的李书记您好，这是第二次给你写信了，还是上次写信内容临夏市光明路武装部家属楼下两间馍馍铺，压面机和面机从凌晨4点一直开始运转导致楼上老人小孩无法睡觉，现造成心理疾病，请你安排有关部门给协调处理，上次写信之后，社区来人也只是走走",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-书记选登",
+   "id": "483fad9dac0846a59ae63070684f9ba1",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=483fad9dac0846a59ae63070684f9ba1",
+   "question": "申请加装减速带及凸面镜\n临夏回族自治州永靖县白川村上庄59号白家餐厅路口处。需增加减速带及凸面镜，由于山上有厂区，导致车流量大，并且大车频繁出入村口路段，且车速较快，此处容易引发交通事故，希望政府部门及相关领导能引起重视。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-书记选登",
+   "id": "8540f56c50034a12ac7a1a6a2966c166",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=8540f56c50034a12ac7a1a6a2966c166",
+   "question": "顶楼屋面漏水\n尊敬的李书记你好！我居住的临夏市城南街道凤林社区民俗小区1号楼1单元1280室属于顶楼，在今年7月6日下雨时屋面漏水严重，北面次卧顶棚漏水，严重影响正常的居住。找物业协商处理，物业置若罔闻，不给解决。截止到今日，还未解决屋面漏",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-书记选登",
+   "id": "aea23250c34c4d92b638733ba3fa8711",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=aea23250c34c4d92b638733ba3fa8711",
+   "question": "开通积石山至兰州的定线客运\n尊敬的领导： 本人家住积石山县，目前家中的孩子正在上大学，需频繁乘车前往兰州转乘火车和飞机。然而，目前积石山县至兰州之间基本没有正式的大班车和定线客运，出行主要依赖黑车。这些黑车大多缺乏保险，且安全难以得到保障。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-书记选登",
+   "id": "a91e555d6c69450f87bfcaf3d10da4fe",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=a91e555d6c69450f87bfcaf3d10da4fe",
+   "question": "关于临夏市瑾瑜园一期8号楼频繁停水停电问题\n领导，您好！ 我是临夏市瑾瑜园小区八号楼1单元业主，我反应的问题的该小区八号楼近年频繁停谁停电（基本半月1次），严重影响小区业主的正常日常生活，与该小区物业一直沟通无果，不能彻底解决我小区频繁停水",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-书记选登",
+   "id": "e2f32ed8f6a245f181482d6205f2857e",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=e2f32ed8f6a245f181482d6205f2857e",
+   "question": "道合伊和名苑物业费1.6元/㎡涉嫌违规收费，请彻查定价依据并公开成本\n我是临夏市道合伊和名苑小区业主，现实名投诉本小区物业擅自收取1.6元/㎡物业费，严重违反临夏州物业管理收费政策，具体依据及诉求如下： 一、定价明显超出政府指导价上限 1.",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-书记选登",
+   "id": "87fea7a088114bf0abf650b01efd9787",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=87fea7a088114bf0abf650b01efd9787",
+   "question": "数据咨询（市生态环境局）\n因科研需要，向市生态环境局咨询市级生态环境综合执法支队成立/挂牌时间（具体到天）。期待您的回复，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-书记选登",
+   "id": "d69e933acd1d4ffeb24675e4759811eb",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=d69e933acd1d4ffeb24675e4759811eb",
+   "question": "路灯\n后古城加气站到宝觉寺这条路上的路灯都坏完了，往陈家庄走的道道水沟比路高，水沟是排水的，把水沟修的比路高一下雨路面就积水，小学生上下学很难通行。不知道施工队怎么想的，甲方单位是怎么通过质量验收的。路灯对早上上学的学生和晚上下班出行的老百",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-书记选登",
+   "id": "a9d3fbaba2cf4ff7ad175edff749425c",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=a9d3fbaba2cf4ff7ad175edff749425c",
+   "question": "电梯噪音问题未解决\n领导好！我是临夏市天华苑小区22单元的住户。今年1月份我反映了我们22单元电梯噪音的问题，给我的答复是：市场监管局建议物业公司对电梯机房加装隔音设施。但是到目前为止电梯隔音设施还是未加装，电梯噪音还是很大很大，严重影响我",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-书记选登",
+   "id": "20da8a817df947d0be81557be48c147b",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=20da8a817df947d0be81557be48c147b",
+   "question": "关于2025年度特岗招聘本科阶段是否限制专业\n您好！因为目前在备考临夏州特岗教师，但是在网络上看到一些发帖称内部消息今年特岗教师招聘将对本科阶段考生设置专业要求，因前期对特岗教师备考投入较大，如果此消息属实本人将无法报考，希望可以得到相关部",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-书记选登",
+   "id": "c968d370af5b4382bf82ecd3a1d8f751",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=c968d370af5b4382bf82ecd3a1d8f751",
+   "question": "关于大学生就业问题\n尊敬的政府领导： 您好！ 我是一名关注大学生就业问题的市民，特此致信，反映当前临夏市大学生就业中存在的疑虑，恳请政府予以关注和支持。 近年来，随着高校毕业生人数的增加，就业形势日益严峻。特别是在特岗教师等政策性岗位的招聘",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-书记选登",
+   "id": "1be5688a0c284bba85ed9a8bb183a263",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=1be5688a0c284bba85ed9a8bb183a263",
+   "question": "天华苑小区加装监控\n尊敬的李书记： 您好！我是临夏市团结北路天华苑小区的一名业主，天华苑小区里虽然安装了监控，但数量比较少，电梯内没有监控、小区内道路边、单元门口监控比较少。为了保障人民群众生命、财产安全，建议天华苑小区电梯内加装监控、小区",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-书记选登",
+   "id": "7e1daa4b24194829aa2b4081659d7374",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=7e1daa4b24194829aa2b4081659d7374",
+   "question": "临夏市万寿花园小区停车难问题\n临夏市万寿花园小区人口密度大，没有地下停车场，地上停车场车位十分有限。在环城北路未建设前，可以将车辆停放在路边，但环城北路修通后，车辆多、速度快，路边无法停车，导致现在大量住户停车困难，甘光小学自从交付使用后地",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-书记选登",
+   "id": "a1b272b8b5504a80857767ed2b2067d9",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=a1b272b8b5504a80857767ed2b2067d9",
+   "question": "生态学专业学生就业\n尊敬的领导，您好！我是一名2025年生态学专业的本科应届生，想报考甘肃省公务员考试，我想咨询一下临夏州生态局及其临夏州各县分局是否招收生态学专业学生，往年咱们临夏州生态环境局进行公务员招生时招收环境科学和法学专业，但是没",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-书记选登",
+   "id": "ab2ebcae1dd54d38b34f88333874efba",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=ab2ebcae1dd54d38b34f88333874efba",
+   "question": "引进人才买房\n您好，我想咨询近几年引进的人才在买房方面有没有优惠政策，据我了解2020年引进人才可以在城投幕府以低于市场均价一千的优惠买房，后续还有吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-书记选登",
+   "id": "fa3d5896d1314d18b8f670ef8bda34ae",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=fa3d5896d1314d18b8f670ef8bda34ae",
+   "question": "咨询2024年临夏州特岗教师招聘事宜\n尊敬的领导，您好！我是一名2023年毕业生，我想咨询一下2024年临夏州特岗是否会招聘，会招聘多少人？相较于2023年招聘的条件是否会有变化？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-书记选登",
+   "id": "ee19bfe500d149b6aa35631c774da25c",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=ee19bfe500d149b6aa35631c774da25c",
+   "question": "关于老旧小区改造问题\n领导您好！我现住临夏州气象局家属楼，想咨询一下州气象局家属楼是否纳入了老旧小区改造项目中，因现在家属楼外墙及窗户已经年久失修房屋内部潮湿，墙体发霉严重，冬季直接不保温，对我们生活带来了很大的困扰，我看城区街边的老旧小区",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-书记选登",
+   "id": "4ce9a0a5b1204a6eb1557fb767fc1e86",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=4ce9a0a5b1204a6eb1557fb767fc1e86",
+   "question": "申请统计年鉴\n尊敬的领导，您好！ 本人系南京师范大学一名在读研究生，因科研工作需要，现申请2010-2022年《临夏州统计年鉴》，希望贵单位能提供电子版年鉴至电子邮箱18055416696@163.com。谢谢！此年鉴仅用于科研工作，请贵单",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-书记选登",
+   "id": "7ed0437d3b5546198297ebc68d32c4d7",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=7ed0437d3b5546198297ebc68d32c4d7",
+   "question": "自来水管网破裂，导致住房裂缝\n书记你好，我住广河县齐家镇上马家村刘家28号，今年冬季我家门前自来水管破裂，地下漏水，导致我家房子地基下沉，房屋开裂，现在已成危房，无法住人，向人饮局反映后，人饮局派人将自来水管网已修好，但我家危房问题没人管，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-书记选登",
+   "id": "0575b2a5b5dd42428b92a7422c9ed8a2",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=0575b2a5b5dd42428b92a7422c9ed8a2",
+   "question": "请求公开临夏州各区县乡镇的七普常住人口数据\n因博士毕业论文需要，请求公开临夏州各区县乡镇的七普常住人口数据",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-书记选登",
+   "id": "4872215208744159b3c108b6ed14cb68",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=4872215208744159b3c108b6ed14cb68",
+   "question": "回乡政策询问\n请问6.9日从北京海淀回临夏需要隔离吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-书记选登",
+   "id": "c03cbdbfb97e4f13a92c4d44ee80a514",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=c03cbdbfb97e4f13a92c4d44ee80a514",
+   "question": "关于临夏地区玉米种植统计数据\n您好，我是一名即将毕业的大四学生，在写毕业论文时需要关于2020-2021年临夏地区的玉米的种植面积和玉米病害的数据统计，但在网上搜索无果，想向政府求助，希望的给予回复，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-书记选登",
+   "id": "79c13b4b3e8a40a6bafa674954322260",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=79c13b4b3e8a40a6bafa674954322260",
+   "question": "想要查询一些统计数据\n您好，我是一名大四毕业生，在完成毕业论文的过程中非常非常需要临夏回族自治州的一些统计数据，但在查阅统计年鉴时没找到，请问能否提供2010-2020年的城镇化水平、耕地灌溉面积、新增林地面积、森林覆盖率、化肥使用量（吨）",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-州长选登",
+   "id": "b8066dd2eea94d9cb6de31c010059dbf",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=b8066dd2eea94d9cb6de31c010059dbf",
+   "question": "旁边工地半夜施工，运输土方垃圾，严重扰民\n近期，忠华润泽园旁边盛财地产工地晚上22点到凌晨4点一直施工，运输土方，大车进进出出，严重影响周边居民生活，期间投诉了110,12345，没有多大作用，现恳请领导重视，严格按照《中华人民共和国噪声污",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-州长选登",
+   "id": "ba1f86639edc426688e89fcfa453dd53",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=ba1f86639edc426688e89fcfa453dd53",
+   "question": "进出难的问题\n古河州牡丹花园共有12栋住宅楼设有4个进出门，东门西门北门能正常进出，唯有南门未设门禁进出相当不便，物业反应多次未落实，说是消防通道，消防通道设个门禁方便人进出应该很合理的事情，请领导现场看一下是否合理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-州长选登",
+   "id": "ffafd1a06d4244208df8ee55ea625d7a",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=ffafd1a06d4244208df8ee55ea625d7a",
+   "question": "永靖县植物园广场舞扰民\n尊敬的州长信箱工作人员： 您好！ 我是临夏州永靖县植物园附近的居民，现怀着十分焦虑和无助的心情，向您反映一个困扰我们家庭近一年的噪音扰民问题。 自2025年年底以来，植物园内每天早晨7点左右便开始有广场舞活动，音响音",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-州长选登",
+   "id": "1b6bcc065c9c49f898fab0ada9db2fff",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=1b6bcc065c9c49f898fab0ada9db2fff",
+   "question": "华寺街与新西路加装不礼让行人问题\n你好，前面临夏市公安局回复新西路我市主干道，若在该两处路口安装不礼让行人电子监控抓拍系统，将会加剧新西路道路交通拥堵，严重影响道路通行效率。但是道路通行效率不能凌驾在群众安全之上，我从来只听党委政府宣传说要",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-州长选登",
+   "id": "dff24d197da04075b8e2f2a20f29d96f",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=dff24d197da04075b8e2f2a20f29d96f",
+   "question": "房产证何时能办理？\n马州长您好！本人为昱华河山郡的一名住户，现如今这个小区开盘到现在已有五六年了，周边的小区比它后期开发的小区都已经开始办理房产证了，为何这个小区迟迟不见消息，向不动产房屋办理中心有关人员询问办理情况一直推诿扯皮说去跟开发商",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-州长选登",
+   "id": "d60138385db14fb4bc97b3520a046ede",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=d60138385db14fb4bc97b3520a046ede",
+   "question": "育儿补贴\n请问临夏州的育儿补贴标准是多少，怎么领取？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-州长选登",
+   "id": "59f1ae6ca76842d9a81629042c540bad",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=59f1ae6ca76842d9a81629042c540bad",
+   "question": "社保\n询问一下最低社保基数",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-州长选登",
+   "id": "ea56beedf4734c47874b0ca4e15f3f92",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=ea56beedf4734c47874b0ca4e15f3f92",
+   "question": "大学生创业补贴\n大学生创业有哪些补贴，应该如何办理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-州长选登",
+   "id": "d032b66b57c64f07adeceb4e52b14216",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=d032b66b57c64f07adeceb4e52b14216",
+   "question": "南滨河路道和秦月府工地噪音\n尊敬的领导：您好！ 首先感谢您在百忙之中查阅我的诉求。南滨河路道和秦月府工地噪音太大了，周一到周五上班的上班，上学的上学，也没说什么，周六周天就想着好好休息一下，但是旁边的工地不到七点就把人吵醒了。也不是说直接不",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-州长选登",
+   "id": "a1edf51bafe54da18e7d553a2d2508ce",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=a1edf51bafe54da18e7d553a2d2508ce",
+   "question": "后古城加气站至宝觉寺十字路口路段路灯不能正常照明\n尊敬的领导您好，后古城加气站至宝觉寺十字路口路段路灯共计12盏，其中两盏路灯能够正常照明，但有10盏不能照明，现在已经入秋一段时间了，昼渐短夜渐长，路灯不能正常照明对附近小学生上学以及老百姓",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-州长选登",
+   "id": "0dca8cea0708405ea9a3553cf3c54ccb",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=0dca8cea0708405ea9a3553cf3c54ccb",
+   "question": "自来水长期严重浑浊\n临夏州临夏县黄泥湾镇十五里铺村及红崖村，自来水进半年以来长期浑浊不堪，尤其下雨后甚至会产生污泥沉淀。该地区常驻居民及各种生产企业较多，但水质长期不达标，不仅不能达到饮用标准，而且水质浑浊到无法清洗衣物等。自来水水质浑浊，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-州长选登",
+   "id": "861a3c5dad534ee18384802c216c25be",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=861a3c5dad534ee18384802c216c25be",
+   "question": "小区院子泥泞不堪，出行十分困难\n尊敬的李书记： 您好！首先感谢您在百忙之中查阅我的诉求。我是临夏市城南街道金德小区集资楼1名住户，自6月6日起本小区内工程队进行污水管道改建，院内地坪全部破碎清理完，管沟局部已开挖，但是施工进度十分缓慢，基本",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-州长选登",
+   "id": "acebf0db39874424ae45b9bb4cec7e80",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=acebf0db39874424ae45b9bb4cec7e80",
+   "question": "关于完善临夏州莲花山景区夜间照明设施的建议\n近期，临夏州莲花山因其独特的地理位置和凉爽气候，正成为年轻人避暑、夜爬的热门选择。然而，据实地体验及众多游客反映，目前夜间登山存在一个显著问题：山上照明设施严重不足，游客需完全依赖自备灯具，这不仅",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-州长选登",
+   "id": "1576e9e8c2724a60a09fe3e107d2c556",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=1576e9e8c2724a60a09fe3e107d2c556",
+   "question": "电梯长期故障\n尊敬的州领导：我是和政县城管镇御景园小区4号楼二单元居民。从2023年交付以来，我们单元的A座电梯（消防电梯）经常出现故障，多次向物业公司反映，但一直没有彻底解决故障。从5月24日到今天（5月29日）电梯每天都坏，已经发生多起",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-州长选登",
+   "id": "e34964076b08414da1ec2f9b73ee9f98",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=e34964076b08414da1ec2f9b73ee9f98",
+   "question": "人才引进问题\n人才引进四年了，也到了成家立业的年纪，资金方面有欠缺，要买房要买车，人才引进的费用当初说的三年发清，我们什么时候可以拿到钱，打过电话，所以才来这里，希望能解决",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-州长选登",
+   "id": "4714228395e54289ae929d3103804a39",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=4714228395e54289ae929d3103804a39",
+   "question": "生态环境大数据建设咨询\n尊敬的有关部门领导，您好！请问临夏回族自治州目前是否已建成生态环境大数据平台或智慧环保平台？若已建成，具体是在什么时候？建成的平台是否对社会公众开放？ 以上信息仅用于学术研究，烦请您在方便时予以解答，感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-州长选登",
+   "id": "cab13c9af78248ae8405bed8689d9338",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=cab13c9af78248ae8405bed8689d9338",
+   "question": "小区物业不作为，扰民问题\n尊敬的领导，您好，我是居住在临夏市御景国际小区的一名普通民众，从今年二月份起，临夏市御景国际校区1号楼，每个月都有人在凌晨2-3点之间在楼道放炮竹，声音特别大，已经把楼道的灯都震碎了，恶意扰民，投诉给物业，物业敷衍",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-州长选登",
+   "id": "9ecdad7c82cd403aa93cf097fc7dc705",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=9ecdad7c82cd403aa93cf097fc7dc705",
+   "question": "关于对临夏市区交通状况的一点建议\n尊敬的领导：您好！ 最近十几年，临夏市区机动车保有量暴增，加之市区面积狭小，上下班高峰期必然堵车。我在详细观察过一些路口的通行状况以后，发现有一个很明显的问题，就是“左转车辆抢行”。由于临夏市区很多个路口的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-州长选登",
+   "id": "8ba8778c97a8482a91c35395ddcb254a",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=8ba8778c97a8482a91c35395ddcb254a",
+   "question": "社保卡补办\n您好，社保卡是北京的，丢失了，请问可以在临夏补办社保卡吗，如果可以，需携带哪里证件办理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-州长选登",
+   "id": "db84914194584601a76210785eac84bc",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=db84914194584601a76210785eac84bc",
+   "question": "公众号问题\n您好，平时喜欢看新闻，看政府发文，请问临夏州人民政府的公众号是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-州长选登",
+   "id": "3988b97f64bb434ebc1013270cc2ec53",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=3988b97f64bb434ebc1013270cc2ec53",
+   "question": "噪音扰民\n领导你好，百益C区楼栋里面电梯运行的声音特别大，特别是晚上，只要电梯一上下运行，整个房间里面都是噪音，吵的根本就睡不着觉，麻烦能帮忙协调解决一下，非常感谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-州长选登",
+   "id": "4c50d076d6124f6ba5da6290d3bfebaf",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=4c50d076d6124f6ba5da6290d3bfebaf",
+   "question": "临夏州体育中考历史咨询\n尊敬的临夏州教育局领导：您好！来信想咨询临夏州自哪一年开始正式开始举行体育中考（即将体育成绩纳入中考总分）？另外，如有前期试点，烦请一并告知试点开始年份。期待您的回复，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-州长选登",
+   "id": "56094ad3081640afa67a58037935dab3",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=56094ad3081640afa67a58037935dab3",
+   "question": "关于城市管理建设\n尊敬的领导，您好，我是一名外地人，已经在临夏这座城市生活了有半年多的时间，这座城市给我留下了深刻的印象，非常有意愿继续在这里生活下去。在这里生活期间有新的两点发现，关于城市管理建设提出自己的建议。 一：城市路口没有详细的指",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-州长选登",
+   "id": "33e84aa44e524ad0bc696a48c7438e2e",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=33e84aa44e524ad0bc696a48c7438e2e",
+   "question": "住房公积金\n您好，外省的户籍，外省缴纳的公积金，可以在临夏买房使用吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-州长选登",
+   "id": "69bed6c206034df89851627c312a1369",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=69bed6c206034df89851627c312a1369",
+   "question": "关于市场监督管理\n尊敬的领导，您好 临夏州图书馆门前开设的儿童娱乐设施严重影响到图书馆内的安静学习，其中最严重的是一个儿童小火车，白天音响外放音乐，晚上也音响外放音乐。希望领导让小火车的老板白天别放音乐，让图书馆内的学员提供一个安静的学习环",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-州长选登",
+   "id": "c23dd388122d46a8929e961b52586e2a",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=c23dd388122d46a8929e961b52586e2a",
+   "question": "咨询临夏州文旅相关数据\n尊敬的州长您好，我是兰州大学资源环境学院人文地理学专业的一名学生，目前参与甘肃省全域旅游发展对策的相关课题研究，在撰写支撑论文，研究方向为甘肃省文旅融合成效演变。为了能够更好地完成论文，我诚挚地咨询临夏州2017年至",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-州长选登",
+   "id": "1cbff22d43484a4894e51c3befa9b96e",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=1cbff22d43484a4894e51c3befa9b96e",
+   "question": "统计数据咨询\n本人西安理工大学研究生，因课题需要申请临夏州2006-2023年统计年鉴以及2011-2023年节能环保支出数据，往贵单位予以回复！祝好！ 邮箱838928150@qq.com",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-州长选登",
+   "id": "79bcae3f97d64133b7046bb4b8e3c6ac",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=79bcae3f97d64133b7046bb4b8e3c6ac",
+   "question": "关于2024年临夏回族自治州特岗教师招聘人数\n尊敬的领导 您好，我是一名2023年毕业的待就业大学生，请问2024年临夏州特岗教师招聘具体人数是多少？具体到和政县有无明确的招聘人数指标？有无预估报送省政府招聘人数？ 此致 敬礼",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-州长选登",
+   "id": "3fd90d29a48c435d9e752bd33cc16017",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=3fd90d29a48c435d9e752bd33cc16017",
+   "question": "咨询数据\n临夏回族自治州2007-2021年政府节能环保财政支出 用于科研 广西民族大学旅游管理专业学生 请发邮箱 284399973@qq.com 谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-州长选登",
+   "id": "9c25cc6a4a064c92a0836d5e1c9dc421",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=9c25cc6a4a064c92a0836d5e1c9dc421",
+   "question": "临夏州旅游发展状况相关数据咨询\n您好，我是一名兰州大学的研究生，因研究需要现向贵单位咨询自2022年及2023年前三季度临夏回族自治州的旅游人次、从事旅游业的人数、旅游收入等数据。望予以帮助，万分感谢!",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-州长选登",
+   "id": "291ed94c407648ddb718891b5349c11b",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=291ed94c407648ddb718891b5349c11b",
+   "question": "关于临夏州部分经济数据的咨询\n尊敬的州长： 您好，本人是一名项目研究人员，因课题研究需要，急需以下统计数据： 临夏州临夏市、临夏县、康乐县、永靖县、广河县、和政县、东乡族自治县、积石山保安族东乡族撒拉族自治县2021年人均GDP、2021年",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-州长选登",
+   "id": "c82b3a1bc98b4d2eaae4e3eb2c218eee",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=c82b3a1bc98b4d2eaae4e3eb2c218eee",
+   "question": "2022特岗考试\n领导，您好！ 我是2021届毕业生，想考今年2022年特岗招聘，想咨询一下今年特岗公告发布和考试时间，以及今年对教师资格证要求是必须要吗？非常希望能够解答，谢谢领导。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-州长选登",
+   "id": "e93feaa3fdf64cd6b7df9b5bd8f6cd9f",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=e93feaa3fdf64cd6b7df9b5bd8f6cd9f",
+   "question": "二胎准生证办理\n现在生二胎还需要办准生证吗，在哪里办理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-州长选登",
+   "id": "97ae9679cbd6400fa3dcfb4e7ae78a4b",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=97ae9679cbd6400fa3dcfb4e7ae78a4b",
+   "question": "关于2022年特岗教师招聘问题\n领导您好！ 我是一名往届毕业专科生（非师范生），我想咨询一下，2022年特岗教师招聘会设置专科生就业的岗位吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gs-linxia-州长选登",
+   "id": "7df738f6078842bea6d7008a1f2411fe",
+   "url": "https://www.linxia.gov.cn/api-gateway/jpaas-jact-web-server/interface/transact/find-transact-detail?transactId=7df738f6078842bea6d7008a1f2411fe",
+   "question": "关于省、州疫情防控政策的咨询\n本人于2022年1月11日从甘肃省卫生健康委（电话：0931-621-4366）处咨询甘肃省疫情防控政策，得到回复称：从低风险地区返甘人员持健康码绿码即可通行，无需居家隔离。现特向贵局咨询，临夏州疫情防控政策是",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

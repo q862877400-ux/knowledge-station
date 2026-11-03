@@ -1,0 +1,35 @@
+{
+ "A_考卷": [
+  {
+   "source": "gx-igi-135",
+   "id": "157814436369",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814436369",
+   "question": "关于是否开放竹鼠养殖，之前我曾咨询过区林业局，区林业局领导给我回复的是尚未开放政策。而后我刷抖音的时候，发现广西各地（主要为柳州、桂林、河池、百色等地）均在进行竹鼠规模养殖，而且通过直播间看到厂房里估计也有几百只。后面我就想可能是咨询的单位",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国野生动物保护法",
+     "lib_no": "野生动物保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "国家林业和草原局关于规范禁食野生动物分类管理范围的通知"
+   ],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "gx-igi-135",
+   "id": "157830404656",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157830404656",
+   "question": "请问有凤山县的林业产业第一产业，第二产业，第三产业的产业结构产值数据么?",
+   "cited_hits": [],
+   "cited_missing": [
+    "河池市统计公报"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": []
+}

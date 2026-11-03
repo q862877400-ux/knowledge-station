@@ -1,0 +1,64 @@
+{
+ "A_考卷": [
+  {
+   "source": "rd-js",
+   "id": "_gzcy_fgzqyj_zzjx_202609_t20260930_1362725_shtml",
+   "url": "https://www.jsrd.gov.cn/gzcy/fgzqyj/zzjx/202609/t20260930_1362725.shtml",
+   "question": "江苏省公共场所治安管理条例（修订草案）",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国治安管理处罚法",
+     "lib_no": "治安管理处罚法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国电子商务法",
+     "lib_no": "电子商务法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国治安管理处罚法",
+     "lib_no": "治安管理处罚法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国电子商务法",
+     "lib_no": "电子商务法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "江苏省公共场所治安管理条例（修订草案）",
+    "江苏省公共场所治安管理条例（修订草案）"
+   ],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "rd-js",
+   "id": "_gzcy_fgzqyj_zzjx_202609_t20260930_1362752_shtml",
+   "url": "https://www.jsrd.gov.cn/gzcy/fgzqyj/zzjx/202609/t20260930_1362752.shtml",
+   "question": "江苏省城市更新条例（草案）",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省城市更新条例（草案）",
+    "江苏省城市更新条例（草案）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "rd-js",
+   "id": "_gzcy_fgzqyj_zzjx_202609_t20260930_1362729_shtml",
+   "url": "https://www.jsrd.gov.cn/gzcy/fgzqyj/zzjx/202609/t20260930_1362729.shtml",
+   "question": "南京江北新区条例（草案）",
+   "cited_hits": [],
+   "cited_missing": [
+    "南京江北新区条例（草案）",
+    "南京江北新区条例（草案）"
+   ],
+   "has_clause_no": true
+  }
+ ],
+ "C_无依据": []
+}

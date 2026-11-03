@@ -1,0 +1,1668 @@
+{
+ "A_考卷": [
+  {
+   "source": "nanjing-igi-64",
+   "id": "429517",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=429517",
+   "question": "向各位领导咨询一个问题，关于特殊作业，夜间、周末、法定节假日期间哪些特殊作业需要升级管理？（是只有动火需要升级管理，还有哪些特殊作业需要升级管理），请各位领导帮忙解答一下，谢谢。",
+   "cited_hits": [
+    {
+     "name": "危险化学品企业特殊作业安全规范",
+     "lib_no": "GB 30871-2022",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "GB30871-2022"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "416799",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=416799",
+   "question": "目前在南京市内未找到关于危险化学品柜内危险化学品存储量的要求。仅在《工业企业危险化学品安全管理指南》里有一条描述：危险化学品室内存储柜所在一座厂房或一个防火分区内危险化学品量不得超过GB50016的规定。请问能详细说明下具体什么内容吗？建规",
+   "cited_hits": [
+    {
+     "name": "建筑设计防火规范",
+     "lib_no": "GB 50016-2014",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "GB50016-2014"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "414473",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=414473",
+   "question": "我司拟经营用于治疗肾性囊肿的全国独家新药“无水乙醇注射液20ml每支 国药准字H20220009国药集团国瑞制药”，其成分为96.8%（g/g）的无水乙醇，其说明书只注明了储存在25℃以下即可，高度易燃需远离火源的储存条件，也未注明运输条件",
+   "cited_hits": [
+    {
+     "name": "危险化学品目录（2015版）实施指南",
+     "lib_no": "应急管理部办公厅关于修改《危险化学品目录（2015版）实施指南（试行）》涉及柴油部分内容的通知",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "危化品目录"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "280391",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=280391",
+   "question": "您好，我是外地的电工证，请问能在南京使用吗？",
+   "cited_hits": [
+    {
+     "name": "特种作业人员安全技术培训考核管理规定",
+     "lib_no": "中华人民共和国应急管理部令（第19号）特种作业人员安全技术培训考核管理规定",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "228728",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=228728",
+   "question": "疫情期间应急管理局主要做了哪些工作？投入了多少人力和资金？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "214015",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=214015",
+   "question": "您好，想咨询一下单位做的危险化学品使用、储存安全现状评价报告，单位地址在江宁区，报告完成后需要到安监局备案吗？",
+   "cited_hits": [
+    {
+     "name": "危险化学品安全管理条例",
+     "lib_no": "危险化学品安全管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "nanjing-igi-64",
+   "id": "418834",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=418834",
+   "question": "我司化验室准备购买快速水质检测仪，检测仪耗材需要使用下列标准溶液，具体品类和成分如下：1、1mol/L的硫酸标准溶液：硫酸4.9%、去离子水95.1%；2、1mol/L的盐酸标准溶液：硫酸3.7%、去离子水96.3%；3、0.01mol/L",
+   "cited_hits": [],
+   "cited_missing": [
+    "危险化学品目录",
+    "化学品物理危险性鉴定与分类管理办法",
+    "危险化学品目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "418484",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=418484",
+   "question": "我厂厂区内设置危险化学品存储间，在化验室使用危险化学品。化验室使用的危险化学品包括异丙醇、 乙醚、浓硫酸、三氯甲烷、冰醋酸等，每次在化验室使用量很少，比如浓硫酸，每次使用10毫升，但浓硫酸最小包装500毫升。依据《江苏省冶金等工业企业危险化",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省冶金等工业企业危险化学品使用安全分级管控指南（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "413862",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=413862",
+   "question": "我公司为医药公司，拟经营体外诊断试剂:细胞保存液（国械备20140367），其成分:甲醇（含量35-55%）、水（40-70%）。因其产品标签上注明了危化品的UN和CAS编号，以及“危险”、“骷髅”、“火苗”等标识，另附有“应急概要、预防措",
+   "cited_hits": [],
+   "cited_missing": [
+    "化学品物理危险性鉴定与分类管理办法",
+    "危险化学品登记管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "406883",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=406883",
+   "question": "1. 企业在江苏省应急管理综合应用平台上上报申请资料如：自评报告、定级申请、营业执照等后，是否核实相关内容，如：营业执照上的经营范围是否与安全监管分类标准相匹配？2. 如果不匹配的话，会做出哪些回复？3. 如果不符合安全监管分类标准的话，企",
+   "cited_hits": [],
+   "cited_missing": [
+    "冶金有色建材机械轻工纺织烟草商贸行业安全监管分类标准",
+    "冶金有色建材机械轻工纺织烟草商贸行业安全监管分类标准",
+    "冶金有色建材机械轻工纺织烟草商贸行业安全监管分类标准",
+    "冶金有色建材机械轻工纺织烟草商贸行业安全监管分类标准",
+    "冶金有色建材机械轻工纺织烟草商贸行业安全监管分类标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "387276",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=387276",
+   "question": "你好，请问 如果我有一名作业人员 他持有登高架设作业操作证，能否进行登高的一般作业，比如登高紧固或拆除螺栓，还是说登高架设作业操作证只能从事 架子搭设和拆除的作业",
+   "cited_hits": [],
+   "cited_missing": [
+    "特种作业目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "385045",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=385045",
+   "question": "想了解南京市江安水城开发商设计施工消防水箱和稳压泵，以及二次供水水箱的具体数量和位置，各负责哪个区域，以及对安装位置，安装条件，噪音等的相关规定。因为两年来深受其扰，甚至担心房屋的安全问题，但一直得不到解决。原有35幢的相关设施废弃又是为何",
+   "cited_hits": [],
+   "cited_missing": [
+    "市各级各有关部门和单位安全生产工作职责清单"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "284065",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=284065",
+   "question": "该局的 发布时间：2018-07-10 14:09 的一篇《市安委办关于南京白敬宇制药有限责任公司“5.30” 闪爆事故情况的通报》里面只是描述了闪爆造成的事故，但是未说明闪爆的原因，然后网上有篇文章解释是由于非金属管道未静电接地造成的。由",
+   "cited_hits": [],
+   "cited_missing": [
+    "市安委办关于南京白敬宇制药有限责任公司“5.30” 闪爆事故情况的通报"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "235353",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=235353",
+   "question": "应急管理局： 为解决企业车用柴油加注难、加注路程远、减少路途拥堵、节约社会资源、降低物流企业运营成本、切实保障供应等问题，拟在企业物流园区安放一台阻隔防爆式撬装加油装置，供物流企业内部车辆自用。 1、该装置采用阻隔防爆技术，符合国家及行业标",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于物流运输企业设立内部自用撬装加油装置相关事宜的咨询函",
+    "建设项目安全设施“三同时”监督管理暂行办法",
+    "建设项目安全设施“三同时”监督管理暂行办法"
+   ],
+   "has_clause_no": true
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "nanjing-igi-64",
+   "id": "430283",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=430283",
+   "question": "望山路 51 号珑润华庭小区已经完成交付，几百户居民已正常入住。小区负二层人防车库与旁边停工的宝龙商场待建基坑相互互通。目前宝龙商场项目处于停工状态，待建基坑内部积存大量雨水，基坑内水位持续上涨，积水水位已经接近珑润华庭负二层人防车库地坪水",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "429909",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=429909",
+   "question": "企业已经在24年初公示为三级安全生产标准化企业，今年年底需要再次复审。本企业为机械行业企业，由于今年厂房租赁合同到期后，生产厂房目前已搬迁到马鞍山分公司。当前企业在南京只有办公楼，无任何生产设备设施和厂房。像这种情况按照《南京市企业三级安全",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "427565",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=427565",
+   "question": "尊敬的南京市应急管理局局长： 您好！我是来自南京航空航天大学人文与社会科学学院行政管理专业的大二学生。近期在南京市政府官网了解到贵局应急AI智能“审批官”的创新实践，在人工智能赋能应急政务审批方面成效显著，极具研究学习价值。 目前我与同学正",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "426622",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=426622",
+   "question": "请问，高低压电缆只是敷设的人员，需要取电力电缆作业证吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "426223",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=426223",
+   "question": "目前特种作业目录还未更新，还是沿用2010版的，其中关于4.1制冷与空调设备运行操作 是指对各类生产经营企业和事业等单位的大中型制冷与空调设备运行操作的作业。我们想明确知悉大中型制冷设备的界定标准，以便于符合法规要求，安排人员持证上岗，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "424818",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=424818",
+   "question": "尊敬的应急管理局：您好。 壹城物业公司在消防设施损坏、小区竣工验收图纸丢失的情况下依然坚称强行退出秦淮区金龙花园小区，置小区社会稳定、安全管理、长治久安于不顾。我金龙花园小区业委会对于该公司单方面要求退出的行为表示反对。《关于共同推进金龙花",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "423428",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=423428",
+   "question": "南京市鼓楼区应急管理局： 南京市鼓楼区虎踞北路39号6幢2307室违规在阳台的隔板上安放户式中央空调设备，并在阳台墙壁上违规安装空气源热泵（供热水），将隔板位置作为设备平台违规使用，系擅自改变建筑使用性质与使用功能，该行为不符合江苏省地方标",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "423063",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=423063",
+   "question": "我司生产保障人员已取得高低压电工证、焊工证，他们的日常作业偶尔会在2米作业的设备上方进行。《低压电工作业人员安全技术培训大纲和考核标准》规定的培训考核内容中，已包含了登高安全用具检查及其使用、登高作业等，那么拥有高低压电工证、焊工证的员工，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "421667",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=421667",
+   "question": "我是南京江邦科技发展有限公司的员工，我举报位于南京市玄武区孝陵卫胜利村路100号久悦广场一楼处有部分商户存在私拉乱接电线的行为，存在很大的安全隐患，很有可能会发生火灾或其他安全事故，如果发生火灾了，怎么办？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "421607",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=421607",
+   "question": "我要投诉秦淮区消防大队尊敬的领导，我叫钱巧云，身份证号320882198911075847，位置在南京秦淮区曙光天地二楼开砖井王菜馆饭店，去年五月份开始这边的物业把二楼上把原有厕所拆除，货梯拆除，消防通道封堵，把原有的业态全部破坏，和我同期",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "419915",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=419915",
+   "question": "您好！我单位属于医疗机构，需要采购75%医用消毒酒精。请问75%医用消毒酒精是否属于危化品，生产厂家是否需要取得危化品的生产许可证。谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "419770",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=419770",
+   "question": "你好！我是河海大学的研究生，想问一下截至2023年12月31日的南京市应急避难场所面积，仅用于学术研究，不知是否方便告知",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "411732",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=411732",
+   "question": "您好，请问一下南京市经济开发区的安全生产三级标准化台账评审使用的是8要素还是13要素",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "411211",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=411211",
+   "question": "您好。我公司是一家做安全应急设施的，产品主要是水动力防淹挡板。本次主要想咨询下防汛防洪类，贵局有无演习演练或者有关产品展示宣传类活动。以便我公司向贵局和有关客户群体，展示和汇报我公司的水动力防淹挡板。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "410380",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=410380",
+   "question": "南京市浦口区江苏街道码头酸菜鱼4-14后门处商家摆放很多操作台和冰箱，占据消防通道，多次与店家交涉无果",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "408642",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=408642",
+   "question": "我司拟委托第三方柴油运输公司帮助我司供应柴油，咨询一下第三方柴油运输公司需要具备哪些资质及证件才能合法合规？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "408021",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=408021",
+   "question": "本人从事家电维修行业，主要对居民家电及企业电器进行维修，想咨询下对于此行业需要持证的内容，以及如何取证？需要准备等内容有哪些？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "403459",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=403459",
+   "question": "我司现有4名持高低压证的电工，目前我们工厂有些电工作业的登高超过2m，我们电工需不需要单独再考取高处作业证来确保我们的作业程序正确吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "403093",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=403093",
+   "question": "您好，我是一名南京市大三学生，在撰写论文的时候需要贵市2013年至2023年各年份的火灾发生数。各大官网实在找不到，特向贵单位咨询，数据急用，仅作科研用途，为了数据保密性可发邮箱，非常感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "401982",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=401982",
+   "question": "现在商品住宅楼都配有专用配电房，配电房都是高低压混合式的，包含10kv高压进线柜，计量柜，以及多组高压出线柜。一般都是双路高压进线。这种配电房，持有低压证的电工，可以进入巡视吗。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "401486",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=401486",
+   "question": "您好，我是一名研三学生，在撰写论文的时候需要贵市的数据，具体来说是2013年至2022年各年份的生产安全事故死亡人数，特向贵单位咨询，数据急用，仅作科研用途，为了数据保密性可发邮箱，非常感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "399656",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=399656",
+   "question": "想咨询一下：句容经济开发区汤山鎏园小区，行政区域属于句容市经济开发区（黄梅镇），但小区距离南京市江宁区汤山镇更近。依职责划分，如果小区发生火灾，负责扑救的是哪支消防救援队伍？（南京江宁区的汤山中队？还是句容黄梅镇消防中队？）",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "399193",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=399193",
+   "question": "请问如何开具招投标用企业无安全事故证明",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "397852",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=397852",
+   "question": "所从事的行业要登高作业证，怎么报名去哪里办理，网上找不到",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "396983",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=396983",
+   "question": "南京智慧云平台登录网址忘记了，能否将网址发下",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "395016",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=395016",
+   "question": "我的父亲想要复审电工证书 请问在哪里办理报名",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "395015",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=395015",
+   "question": "我家亲戚要复审电工证，请问怎么报名？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "393250",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=393250",
+   "question": "请问一下我们所属的溧水区管委会安监让我们在南京市应急管理局官网上找第三方做安全三同时，但是我在官网上并没有找到哪里可以有第三方信息，想咨询一下具体在什么页面里面有第三方资讯",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "392555",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=392555",
+   "question": "您好，我个人持有的电工证有效期为：2021.02.07----2027.02.06，应复审日期2024.02.06，复审日期在证书有效期内是否可以申请复审。如不能复审，那证件写明的有效期是否有歧义，引导持证人错误的认为只要在有效期内都可以申",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "392343",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=392343",
+   "question": "请问怎么考取特种作业登高证，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "392342",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=392342",
+   "question": "您好，请问特种作业低压电工证怎么考？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "389462",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=389462",
+   "question": "如何办理一般企业安全管理人员证书？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "389461",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=389461",
+   "question": "危化生产企业怎么办理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "387535",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=387535",
+   "question": "如何报考制冷证书",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "387532",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=387532",
+   "question": "我想考一个焊工证书",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "383233",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=383233",
+   "question": "特种作业证报名流程是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "378915",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=378915",
+   "question": "如何报名低压电工证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "378914",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=378914",
+   "question": "如何报名高压电工证？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "374410",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=374410",
+   "question": "请问低压证怎么办",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "374409",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=374409",
+   "question": "高压电工证怎么办理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "372721",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=372721",
+   "question": "本人2022年1月考的特种设备安全管理A证在http://cx.mem.gov.cn/网上查询不到 但是证书上的二维码可以查到 请问要怎么处理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "370044",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=370044",
+   "question": "请告知如何办理制冷证，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "370043",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=370043",
+   "question": "登高证怎么办，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "365553",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=365553",
+   "question": "特种作业证如何办理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "364622",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=364622",
+   "question": "电梯安全管理员证书在哪里报名考试？可以给个官网链接和地址电话吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "363733",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=363733",
+   "question": "电工证怎么办理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "363732",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=363732",
+   "question": "特种作业证如何办理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "360974",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=360974",
+   "question": "特种作业高压电工证证如何办理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "360972",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=360972",
+   "question": "特种作业证如何办理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "356798",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=356798",
+   "question": "特种作业证如何办理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "356797",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=356797",
+   "question": "特种作业证如何办理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "356791",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=356791",
+   "question": "首先按照《工作场所职业卫生管理规定》单位需配备专职安全生产管理人员，这个专职是专门的一个人从事本岗位，是否可以让相关管理岗位的其他人员任命为专职的职业卫生管理人员。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "355434",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=355434",
+   "question": "1.2021年10月18日市级交叉检查查出南亚火灾隐患，因南亚公司无人重视，至今未整改完成（主要设备柴油泵仍未采购）。视火灾隐患为儿戏，视员工生命为草芥。 2.9月中南京应急局再次来昆山检查前，南亚EPOXY二厂将平时违规储存在生产车间的大",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "349776",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=349776",
+   "question": "焊工证如何办理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "349774",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=349774",
+   "question": "如何办理特种作业证？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "346763",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=346763",
+   "question": "焊工证应该在哪里办？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "346761",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=346761",
+   "question": "如何办理高压电工证？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "340711",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=340711",
+   "question": "请问“全国注册安全工程师”需要复审吗？请问南京哪个部门或机构负责复审？望回复，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "339349",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=339349",
+   "question": "特种作业证如何办理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "333058",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=333058",
+   "question": "如何办理焊工证？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "332265",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=332265",
+   "question": "企业怎么申报安全标准化（三级）",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "330917",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=330917",
+   "question": "查询网上相关资料，在2016年之前有省安全文化建设示范企业申报的工作，不知道现在还有没有开展相关工作？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "324539",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=324539",
+   "question": "您好，请问在哪可以查询到市应急管理局2021年的政府信息公开年报？方便电话提供一下网址，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "323639",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=323639",
+   "question": "1.彻查鼓楼区佳和园小区消防问题； 2.解决电动车进楼梯行为。 前面投诉若干次希望领导解决",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "322812",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=322812",
+   "question": "尊敬的局长，您好！ 临近年底，全国应急系统又开始了新的一轮安全监督检查，为确保人民生命财产安全尽心尽责，功不可没。 但是安全工作仅靠专门机构和企事业单位的组织、响应是远远不够的，必须全民树立安全意识，掌握安全知识和技能，才能确保安全工作落到",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "322803",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=322803",
+   "question": "11月6日我在比栏投诉了浦口区顶山街道山水金盾花园物业擅自使用楼道内的消防设施，不知是否投诉成功？至今没有人联系，如投诉成功该有反馈吧？！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "322062",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=322062",
+   "question": "高层民用建筑是否能够因疫情管理需要进行封锁",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "313570",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=313570",
+   "question": "关于这份文件《市应急管理局转发《省应急管理厅关于进一步做好危险化学品厂库加固工程工作的通知》的通知（宁应急函〔2021〕88号） 两个问题：1、厂库加固是指厂区内部所有建构筑物吗？ 2、企业找具备资质的第三方进行抗争风险评估和鉴定，是企业自",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "313545",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=313545",
+   "question": "我们单位在六合，想在六合应急管理局参加安全员培训，请问六合应急管理局培训的电话及培训地址",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "311779",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=311779",
+   "question": "想办电工证，请问在哪里报名？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "311777",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=311777",
+   "question": "如何办理特种作业证？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "310531",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=310531",
+   "question": "本人低压电工操作证今年11月份到期，8月份收到南京应急管理局短信通知，由于疫情延期，继续有效，后期就没有过多关注，以前本溧水区的会短信通知，但一直未收到本区的短信，最近通过查询到本区的已换地方，查询电话后咨询说是我这个来不及了，现在离我换证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "307920",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=307920",
+   "question": "我公司是一家使用硫酸、盐酸等危险化学品从事生产的化工企业，属于不需要办理危险化学品生产许可证、使用许可证、经营许可证的企业。请问，我公司主要负责人可不可以只考取“一般企业”类别的《安全生产知识和管理能力考试合格证》？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "306978",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=306978",
+   "question": "特种作业证马上到期，疫情未安排考试，可有延期使用政策？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "306402",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=306402",
+   "question": "领导好！上岗证复审7月份已报名，还有几天就到期了，单位不认可就影响工作了，因疫情未能安排复审，可有延期使用的政策？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "304197",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=304197",
+   "question": "我们公司在南京化工园区一家工厂做一般维修工作，疫情期间因为一个项目向工厂提供了一份作业人员名单，其中有一个拟准备临时雇佣的电焊工，并提供了特种操作证图片，第二天及时发现电焊工特种作业操作证书有问题，当天项目部并没有安排他参加厂里安全培训考核",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "299552",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=299552",
+   "question": "您好，关于安全生产责任保险相关问题咨询哪个部门？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "298977",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=298977",
+   "question": "尊敬的市领导您好，我是江宁区一家创新药实验室的安全管理人员，正在进行安全设施竣工验收，出现一个问题。我们是20年做的安全设施设计专篇，21年项目备案进行了变更，进行了项目备案证的一个补充，取得了新的备案证；但是在20年的专篇中已经对21年补",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "298733",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=298733",
+   "question": "在市应急局网站上，找不到南京市安全生产专家库",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "298173",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=298173",
+   "question": "你好，我的是上海的焊工操作证，现在在南京工作，快到期了，请问能在南京审吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "297791",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=297791",
+   "question": "原特种作业操作证是异地办理旧版，复审合格后是否换新版操作证？是否有制证费用？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "297288",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=297288",
+   "question": "您好，我是公司人事，公司属于制造业，之前来公司检查安全记录，要求员工有三级安全试卷。我们车间工人、技术人员是有三级安全教育及安全试卷，但是对于管理人员（人力、财务）仅进行了安全教育也需要配备部门及和班组级安全试卷吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "296725",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=296725",
+   "question": "建邺区佳兆业城市水岸花园三期12栋01、03、04、06户型100多户业主在违法改造厨房的过程中，私自改造预埋燃气表后波纹管，波纹管延长长度10米的，也没有看到专业的施工单位进行施工改造，涉及重大的燃气安全事故隐患，严重危及周边学校和居民的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "295450",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=295450",
+   "question": "企业有员工刚获得特种作业操作证，是否有补贴？如何办理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "294952",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=294952",
+   "question": "您好！我看到贵局在网站上公布的南京市安全培训机构名单（2021年3月） 我想咨询如果我们公司想申请成为安全培训机构应该找贵局哪个处室对接申请，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "294050",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=294050",
+   "question": "局长您好，我是来自南京师范大学仙林校区公共管理学院的大二学生张梦林，我们现在在具体调研志愿组织在应急管理中的联动机制，想对于我们南京市应急管理局现在的情况做一些了解与调研，不知道您是否可拨冗接受我们的访谈，非常期待您的回复。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "293265",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=293265",
+   "question": "如何补办特殊操作证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "293217",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=293217",
+   "question": "我们考一个焊工证，仅仅做手工电弧焊，为什么要考那么多种焊接类型，好多都没有见过，为什么不能像机动车驾驶证一样分好多级别，不能一考就考A1A2A3的，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "292729",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=292729",
+   "question": "根据江苏省质量检测中心有限公司检测报告编号A01720152100016内容，锚杆检测全部为不合格，新兴发展集团南京有限公司仍大面积进行锚杆施工，存在安全隐患，可能导致事故的发生，后期企图收买检测人员蒙混过关，肯请领导重视。项目地址为：南京",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "292639",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=292639",
+   "question": "公司不在生产和经营，涉及重大危险源的物料也全部清理干净，以后也不会再有涉及重大危险源的物料进入公司，公司以后也不在生产和储存性经营，目前需要取消重大危险源的备案，请问，这种情况需要做安全评价或评估报告吗？需要有资质的第三方做吗？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "291410",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=291410",
+   "question": "危险化学品储存和使用单位是否需要配备危化品安全管理人员，或者说需持有危化品安全管理人员证书。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "291288",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=291288",
+   "question": "商户：北欧森林健身会所 地址：南京市六合区新华路218号 我认为该健身房的消防措施不过关，没有充足的消防用品和明确的逃生通道设置，易出现意外。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "290933",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=290933",
+   "question": "在外墙脚手架上从事油漆工作业，需要登高作业证吗，如需要到哪里办理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "290561",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=290561",
+   "question": "领导好，请问特种作业证，如焊工证、电工证、高空作业证等，如何报名考试取证？请详细解答一下，非常感谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "290259",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=290259",
+   "question": "南京奥体中心维修电工有人没有电工证，而且年龄都60多了，电工证都过期几年了，而且还有人袒护他，望有关部门查一下",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "290154",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=290154",
+   "question": "高压电工证国际安监局查不到，南京市安监局可以查到？什么原因？？？？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "289230",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=289230",
+   "question": "您好，我想咨询下南京市的一般性生产经营单位安全生产管理人员的资格考试有没有培训、考试信息",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "288269",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=288269",
+   "question": "我的电工证到期了，现在需要复审，请告知复审渠道。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "288268",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=288268",
+   "question": "我的电工证到期了，现在需要复审，请告知复审渠道。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "287739",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=287739",
+   "question": "应急管理局颁发的电工证（高压电工作业、低压电工作业）在建筑行业是否有效？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "287409",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=287409",
+   "question": "我家在公交一村里，现出现滑坡危险，已经经过6个月安置，但是现在一直没有任何检测报告告知，也没任何规划告知，想问下是不是合理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "287192",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=287192",
+   "question": "请问， 1、低压电工证6年到期后该怎么办？是进行复审还是重新考试办新证？ 2、低压电工证丢失了，是否可以补办？ 3、没有低压电工证原件是否可以进行复审？ 谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "286876",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=286876",
+   "question": "请客年前特种证考试还考试了？我是外地的已经放假，老在着待着也不是个事。希望能有个答复",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "286824",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=286824",
+   "question": "南京市应急管理局： 贵局辖内的南京正跃中医院，消防报警系统及一楼二楼及四楼天花内的各种电器线路杂乱无章，很多电线未按规定设电线套管，火灾隐患极大，火警系统误报频繁。存在严重安全隐患，火灾隐患猛于虎！希望贵局能够依法彻查，不能流于形式，使其为",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "286015",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=286015",
+   "question": "你好，我想咨询下哪里可以办理特种作业低压电工证，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "286014",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=286014",
+   "question": "你好，我想咨询下哪里可以办理特种作业低压电工证，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "285148",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=285148",
+   "question": "请问如何办理电工证，能否提供联系方式，感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "284838",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=284838",
+   "question": "高低压电工证报名流程及在那报名，比如在官网上那个地方能看到信息？邮箱：625127994qq.com",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "284460",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=284460",
+   "question": "根据《生产安全事故应急预案管理办法》以及《江苏省生产安全事故应急预案管理办法实施细则》要求，企业作为普通一般工贸企业，且未达到中规模以上，无需进行备案，为何南京市应急局下文，一般工贸企业也需要备案，重点是去当地应急局备案，备案过程也是层层阻",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "284045",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=284045",
+   "question": "领导好，请问主营项目为混凝土搅拌设备的机械加工企业，其企业负责人和安全员都需要取得安全资格证书吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "283774",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=283774",
+   "question": "目前我们要做自己研发的一款混合液体，成分含有无水乙醇（危险化学品），要做生产和销售。不知道该怎么进行。主要应用在食品速冻保鲜方面，不是添加剂，不与食品直接接触。需不需要办理危险证。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "283624",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=283624",
+   "question": "低压电工作业上岗证如何申请6年复审",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "283220",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=283220",
+   "question": "南京的低压电工证的复审，必须在南京吗，外地有没有复审的地方？还有就是有高压电工证的话 低压电工证还需要复审吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "282867",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=282867",
+   "question": "我公司有压力管道安装资质，在《特种设备生产和充装单位许可规则》TSG07-2019中，资质换证需要管道安装工。已咨询地方特监院，他们不发这类证。请问管道安装工现在是单位所在地安监局发相应的证书吗！如是，请问如何能取得这样的证书。有无相应的取",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "282653",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=282653",
+   "question": "请问各位领导，在贵局在企业做安全生产投入检查时，对企业安全生产投入是否有财务核算科目要求，即企业对安全生产投入的费用是否在财务做账层面有明确科目名称的要求，必须入在“安全生产投入费”之类的科目。如有要求请说明该规定是出自国家哪个法律法规或者",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "279796",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=279796",
+   "question": "我们怎么知道那些人是南京市专家库专家",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "279308",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=279308",
+   "question": "常州市应急管理局对获得低压电工证的人员有相应的补贴，500元/人，南京市是否有这个政策，如果有，申请入口在哪里，怎样的流程呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "279123",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=279123",
+   "question": "请问一下，我企业是浦口的单位，想要进行安全生产知识和管理能力考核合格证（危化品储存）的报名及考试，请问应该在哪里报名及办理啊，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "279033",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=279033",
+   "question": "请问:低压电工操作证在哪里复审。(总工会人数已满了)",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "278678",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=278678",
+   "question": "南京肯定酒店（中央路103号）电热水器漏电。 我于10月12日晚入住酒店818号房，洗澡时拿着花洒的手小拇指被电麻了，漏电的地方在花洒喷淋头与出水管接口处。找店家反应问题然后有人上门了解情况，酒店员工完全不承认会有漏电问题，我让店家找电工过",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "277790",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=277790",
+   "question": "因地铁七号线施工，导致14幢10l室院子地面沉降，墙体开裂将倒塌，情况非常严重，存在较大的安全隐患，请求领导现场查看，给予尽快修复处理，让我们住户能安心生活，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "274449",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=274449",
+   "question": "江宁区天禄大道与秦禄大道交叉路口的南京晨虹特气厂处于南京市交通要道上，周边居民小区居住大量居民。该工厂生产气体是否有毒有害，是否存在安全生产隐患。现全国各地安全生产事故频发，建议该工厂搬迁到偏僻郊区。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "274300",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=274300",
+   "question": "企业为食品类生产工厂，经第三方评估，可能产生职业健康危害点均符合标准（噪音、风尘、高温）； 请问这类企业需要再做“职业健康体检”吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "274128",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=274128",
+   "question": "局长您好！我是一待就业人员，7.16日已经通过低压电工操作证培训考试，7.28日低压电工操作证可以查到了，请问什么时候可以拿到证？今年受疫情影响，我本人因无证无法正常工作，在家待业8个月了，现在急需要用证，没有证，单位拒绝接收，请局长百忙之",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "274124",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=274124",
+   "question": "你好！我的低压电工操作证网上可以查到了，什么时候可以领到？比较急！没有证无法工作！请尽快帮我处理一下！谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "240489",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=240489",
+   "question": "空调系统改造工程施工，金属管道（钢管）焊接，相应要办理动火证，请问可以用住建部发的建筑施工特种操作资格证中的建筑焊工办理吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "240005",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=240005",
+   "question": "请问，在哪里能找到“企业安全生产标准化管理体系”。就是那种验收用的指标体系。需要三级的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "239405",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=239405",
+   "question": "你好，我的高低压操作证三年忘记复审了，2020年8月过期，我现在是不是只能重新考取高低压上岗证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "238897",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=238897",
+   "question": "麻烦问下目前南京市内机械企业如果创建三级安全生产标准化依据的规范是哪个？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "238490",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=238490",
+   "question": "2017.3.20初领的低压电工作业证 复审日期为2020.3 现在还能申请复审吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "238321",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=238321",
+   "question": "你好，我是江北新区一家危化生产企业，我们公司一直按江苏省原先要求买的是公众和雇主责任保险，按照苏应急〔2018〕2号条款“已经投保雇主责任保险、公众责任保险的，在原险种保险期限到期后，要及时转化为安全生产责任保险。”我们去年没有转换安全生产",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "237232",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=237232",
+   "question": "环保工程施工，安装排气筒支架需要焊接作业，相应要办理动火证，请问可以用住建部发的建筑施工特种操作资格证中的建筑焊工办理吗。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "236511",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=236511",
+   "question": "溧水区永阳镇十里牌私营经济园有家小加工坊叫“南京天欣模具”这家小加工坊线路老化很严重（这家厂也不过三四个员工），电线老化很厉害，不接地线，乱拉电线，希望能依法处理（我家住在一品骊城小区40栋1003室，我出于全厂员工安全考虑举报的）",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "236260",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=236260",
+   "question": "今日已经5月28日，在贵司官网仍没有找到关于今年要求开展安全生产月活动的相关文件，请问什么时候能够下发？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "234988",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=234988",
+   "question": "尊敬的领导，您好。我是家住南京市江宁区禄口街道尚洪社区柘木桥村26号的一名普通百姓，给您写信，打扰您实属无奈之举，多有抱歉。 有关自家房屋因省道340施工成为危房，一年多仍未处理，且省道噪音昼夜扰民、阻断住宅与菜地，存在极大安全隐患的事实前",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "234281",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=234281",
+   "question": "您好 我想咨询下，采用门式脚手架进行登高作业（高度超过2m），作业人员需要经过培训取得相应的资格证书后才能作业吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "234131",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=234131",
+   "question": "您好，我是福禄克网络公司的工程师，张泽伟，专注于网络链路底层建设过程中的选型，施工，验收环节的检测工作，现在看到全国在推进应急管理系统的建设，想要南京市的建设过程中的底层链路质量把关，不知道可不可以提供相关技术负责人的联系方式，进行交流，谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "233662",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=233662",
+   "question": "溧水区城北经济开发区中兴东路一号创业园五栋有家小厂叫“南京亚瑞特”这家小厂不过二十号人左右，车间里乱拉电线很严重，并且有部分电线都老化了，车间里机床塞得满满的，消防通道被堵死了，希望能依法处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "233515",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=233515",
+   "question": "申请了企业账号，一直显示未审核，无法开展下面的工作，望及时回电给予说明及指导！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "233296",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=233296",
+   "question": "应急管理局： 为解决企业车用柴油加注难、加注路程远、减少路途拥堵、节约社会资源、降低物流企业运营成本、切实保障供应等问题，拟在企业物流园区安放一台阻隔防爆式撬装加油装置，供物流企业内部车辆自用。 1、该装置采用阻隔防爆技术，符合国家及行业标",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "232959",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=232959",
+   "question": "女高压值班电工上岗证有效期为55周岁，50岁办理退休，那么办理退休手续后还能不能干了。如果不能干，为什么有效期到55岁，如果能干，需履行什么手续",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "232504",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=232504",
+   "question": "高压电工证复审，2020年在哪里上课，在哪里考试？怎么考试？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "232446",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=232446",
+   "question": "尊敬的应急管理局领导： 您好！ 我们是郑州市卧龙游乐设备有限公司，在疫情期间公司研发了移动充气防疫帐篷医院（充气方舱医院），主要用于轻症病人治疗，疑似病人隔离的临时医院，具有可移动性，生产周期短，防水抗风，搭建快速，可以组合成任意规模的临时",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "232045",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=232045",
+   "question": "领导你好，我是南京市江宁区湖熟街道徐慕社区的一位居民，疫情之前我们这里就开始了农村改造建设，目前已经初见成效，我们做为本地居民，感谢政府的规划和实施。 最近我发现原先的路上，有一段附近居民必经的路口发生了变化，道路徐东路本来是乡村老路，比较",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "231562",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=231562",
+   "question": "南京市玄武区玄武湖街道仙居雅苑19栋607在楼道内搭建木制建筑，造成唯一安全通道存在火灾发生后居民无法逃生问题！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "230191",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=230191",
+   "question": "您好，我是雨花台区板桥弘阳装饰城的一名员工，我想说明该地区C区的商户存储了很多液氮和液氧的危化品，严重影响我们的安全，据我所知液态氧气属于乙类危化品，必须要经过氧气站的设计规范，而且人员密集区严禁摆放危化品，我们其他商户的财产生命安全如何保",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "230186",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=230186",
+   "question": "在南京从事手工焊接工作！公司对安全比较重视！6月初焊接需要的特种作业操作证需要复审！可因疫情培训机构没有上班。可能会导致证件过期，无法从事该岗位工作。想问1有没有通道方便完成正常复审，2如果真的错过复审，是不是可以延期复审。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "228856",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=228856",
+   "question": "请问南京市有免费的职业健康体检的公益机构吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "228039",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=228039",
+   "question": "我是独居老人1949年6月出生，住玄武区清溪村9号5栋201室，我用瓶装饮用水，现在要到小区外去取，水重18.9公斤，这对送水行业外的任何人不是轻松的事情。市防疫办公室2月4日，6号公告，谈小区管理，有外卖，快递到小区外取。没有提到瓶装水，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "227236",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=227236",
+   "question": "想请问一下贵单位可以培训电力特种实验证吗？不是高压证，是实验证？如果不可以，请问哪里哪里可以？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "226632",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=226632",
+   "question": "我去年12月5日有一咨询，查询编号343743至今未回复。贵局来信办理统计却说全部回复。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "226428",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=226428",
+   "question": "想取得高压电工证，如何办理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "224951",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=224951",
+   "question": "在检查中，发现大多数灭火器只标注检修日期，未标注有效日期。有效日期还要根据不同灭火器的类型进行计算。建议强行要求生产厂家在灭火器的明显位置标注该灭火器的有效日期，防止已经过了有效期还在备用状态。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "222589",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=222589",
+   "question": "尊敬的领导： 您好！响水事件的教训是相关单位对法律法规的麻木、短视违规操作，从业人群对安全隐患没有基本概念。全面安全基础教育迫在眉睫。 安全家平台针对此准备了完整、专业、低门槛的解决方案。 安全家是安全领域专业资源整合平台，当前已有大量的线",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "221681",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=221681",
+   "question": "您好，我单位需要开具无行政处罚的证明，请问需要如何办理？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "219694",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=219694",
+   "question": "请问一下我高处作业证今年1月刚刚复审过了，但是我现在从原单位辞职了，到了一个新的单位，现在这个新的单位叫我考高处作业证，但是我之前那个单位的证拿不出来了，是需要重新考试还是办理挂失之后补办一张就可以了？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "218163",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=218163",
+   "question": "本人在江宁从事门窗行业，最近遇到一个困难，在滨江“时光印象”小区门窗安装受到物业阻拦，物业需要我出示“高空作业证”，争执之下，我无证觉得理亏，所以我决定去办证，因此在网上查，网上说在安监局可以办理，于是导航去了玄武区安监局，工作人员告诉我说",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "217913",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=217913",
+   "question": "本人毕业于江浦职业教育中心校既现在的浦口区中等专业学校，就读于综合高中部，因为是职业高中发的毕业证书是中等专业毕业证书，你局依填写的报名信息为高中学历为由，让提供高中毕业证明！？问职业高中毕业发的毕业证书难道不能证明我有这同等学历？不信可以",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "216216",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=216216",
+   "question": "南京市应急管理局： 我公司拟向次氯酸钠生产企业江苏重云新材料科技有限公司采购次氯酸钠(含有效氯大于10%)，现特向贵局咨询：江苏重云新材料科技有限公司这家生产企业是否具有次氯酸钠(含有效氯大于10%)的安全生产许可证？年产是多少吨？请给予回",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "216215",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=216215",
+   "question": "南京市应急管理局： 我公司拟向次氯酸钠生产企业江苏重云新材料科技有限公司采购次氯酸钠(含有效氯>10%)，现特向贵局咨询：江苏重云新材料科技有限公司这家生产企业是否具有次氯酸钠(含有效氯>10%)的安全生产许可证？年产是多少吨？请给予回复(",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "215668",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=215668",
+   "question": "南京市应急管理局就我8.7提的建议于8.9就作出了回复，高效的工作效率，负责任的工作态度值得我们广大市民点赞。回复中提到的是既要整治非法行为，确保人民群众生命财产安全，同时也要维护合法商家的利益，体现了共产党人实事求是的工作作风。并且从政府",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "214628",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=214628",
+   "question": "你好，栖霞区安全生产监督管理局监制的《企业拿钱生产逐日自查记录》请问在哪里可以下载啊。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-64",
+   "id": "211636",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=211636",
+   "question": "在园区主要出入口显示屏和OA系统上加载有关安全意识提升的短视频资料，监管部分是否可以提供相关电子资料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

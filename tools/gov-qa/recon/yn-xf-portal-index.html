@@ -1,0 +1,1428 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<meta http-equiv="X-UA-Compatible" content="ie=1123">
+		<title>
+            云南省信访局
+        </title>
+        <!--站点类-->
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" >
+<meta name="renderer" content="webkit"> 
+<meta name="author" content="云南省信访局" >
+<meta name="Copyright" content="云南省信访局" >
+<meta name="keywords" content="云南省信访局">
+<meta name="description" content="云南省信访局">
+<meta name="SiteName" content="云南省信访局">
+<meta name="SiteDomain" content="">
+<meta name="SiteIDCode" content="">
+		<link rel="stylesheet" type="text/css" href="./images/common.css">
+		<link rel="stylesheet" type="text/css" href="./images/swiper.min.css">
+		<link rel="stylesheet" type="text/css" href="./images/main.css">
+		<link rel="stylesheet" type="text/css" href="./images/components.css">
+		<script type="text/javascript" src="./images/jquery.min.js">
+		</script>
+		<script type="text/javascript" src="./images/common.js">
+		</script>
+		<script type="text/javascript" src="./images/swiper.min.js">
+		</script>
+		<script type="text/javascript" src="./images/flexible.js">
+		</script>
+		<script type="text/javascript" src="./images/echarts.min.js">
+		</script>
+	</head>
+	<body>
+		<script src='https://auth.mangren.com/boots/xfservice.yn.gov.cn/esdToolsInit.js' charset='UTF-8'></script>
+        <script src="https://xfservice.yn.gov.cn/images/header.js" charset='UTF-8'></script>
+		<div class="header">
+			<div class="top">
+				<div class="m-auto g-box clearfix">
+					<ul class="related-links lf clearfix">
+						<li class="lf">
+							<a href="http://www.gov.cn">
+								中国政府网
+							</a>
+						</li>
+						<li class="lf">
+							<a href="http://www.yn.gov.cn/">
+								云南省政府
+							</a>
+						</li>
+						<li class="lf">
+							<a href="http://www.gjxfj.gov.cn/">
+								国家信访局
+							</a>
+						</li>
+					</ul>
+					<ul class="related-links rt clearfix">
+						<li class="rt mobile-type">
+							<a href="javascript:;">
+								手机版
+								<span class="d-project-erwei">
+									<img src="https://xfservice.yn.gov.cn/ggbf/sjbewm/202509/W020250924589347768600_ORIGIN.jpg" />
+								</span>
+							</a>
+						</li>
+						<li class="rt">
+							<a id="StranLink" href="javascript:StranBody()" title="點擊以繁體中文方式浏覽">繁體</a>
+						</li>
+						<li class="rt phone">
+							<a href="javascript:zzms();">
+								进入适老模式
+							</a>
+						</li>
+						<li class="rt phone">
+							<a href="javascript:void(0);" id="toolbarSwitch" onclick="EsdInit.openClickFunc();" onkeydown="EsdInit.openKeydownFunc(event);">
+								无障碍浏览
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+            <script>
+                function zzms() {
+                    var h = window.location.href;
+                    window.location.href = "https://xfservice.yn.gov.cn/old.html?u=" + h
+                }
+            </script>
+			<div class="nav-container">
+				<div class="m-auto g-box clearfix nav-box">
+					<div class="logo">
+						<a href="https://xfservice.yn.gov.cn/">
+							<img src="https://xfservice.yn.gov.cn/images/logo.jpg" alt="" />
+						</a>
+					</div>
+					<ul class="nav">
+						<li>
+							<a class="on" href="https://xfservice.yn.gov.cn/">
+								首页
+							</a>
+						</li>
+						<li>
+							<a href="/wsxf/appointment">
+								接访预约
+							</a>
+						</li>
+						<li>
+							<a href="/wsxf/index">
+								网上信访
+							</a>
+						</li>
+						<li>
+							<a href="https://xfservice.yn.gov.cn/zfxxgk/" target="_blank">政府信息公开</a>
+						</li>
+						<li>
+							<a href="https://xfservice.yn.gov.cn/xwdt/" target="_blank">新闻动态</a>
+						</li>
+						<li>
+							<a href="https://xfservice.yn.gov.cn/flfg/flfg/" target="_blank">法律法规</a>
+						</li>
+						<li>
+							<a href="https://xfservice.yn.gov.cn/alxd/" target="_blank">案例选登</a>
+						</li>
+						<li>
+							<a href="https://xfservice.yn.gov.cn/hdjl/" target="_blank">互动交流</a>
+						</li>
+						
+					</ul>
+					<div class="tob_r">
+						<div class="headlink">
+							<a class="icon-search" href="javascript:;">
+								<div class="header-search">
+									<div id="topsech">
+									</div>
+									<form method="get" name="frm" target="_blank" onkeydown="if(event.keyCode==13) submitsearch();" class="sitesearch clearfix">
+										<input type="text" placeholder="请输入关键词" class="hs-input" size="12" name="q" value="" tabindex="4" id="q" />
+										<button title="全文检索" class="retrieval_button" type="submit" onclick="submitsearch();return false;" tabindex="5"></button>
+									</form>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<script>
+				
+				function submitsearch(){
+									var result = $("#q").val();
+									result = $.trim(result); 
+									var reg = /[`~!@#$%^&*_<>{}\/'[\]]/im;
+				
+									var url = window.location.href;
+									var arrUrl = url.split("//");
+									var arrUrl1 = arrUrl[1].split("/");
+									var para = arrUrl1[0];
+				
+									if (reg.test(result)) {
+										alert("您输入的信息包含非法字符!");
+										return false;
+									}
+									if (result == "请输入关键字" || result == "" || result == null) {
+										alert("请输入关键字");
+										return false;
+									} else {
+										result = result.replace("-", "\-");
+										result = result.replace("(", "\(");
+										result = result.replace(")", "\)");
+									}
+									window.open("/irs-c-web/search.shtml?code=198dfc6457c&dataTypeId=303&searchWord=" + encodeURI(result));
+								}
+				</script>
+			<div class="mobile_btn">
+				<span class="line1">
+				</span>
+				<span class="line2">
+				</span>
+				<span class="line3">
+				</span>
+			</div>
+			<div class="navmobile">
+				<ul class="clearfix">
+					<li>
+						<a class="titnopic" href="https://xfservice.yn.gov.cn/">
+							首页
+						</a>
+					</li>
+					<li>
+						<a class="titnopic" href="/wsxf/mailbox?type=01">
+							省委书记信箱
+						</a>
+					</li>
+					<li>
+						<a class="titnopic" href="/wsxf/mailbox?type=02">
+							省长信箱
+						</a>
+					</li>
+					<li>
+						<a class="titnopic" href="/wsxf/index">
+							网上信访
+						</a>
+					</li>
+					<li>
+						<a class="tit" href="https://xfservice.yn.gov.cn/xwdt/">
+							新闻动态
+						</a>
+						<div class="box">
+							<a class="tit" href="https://xfservice.yn.gov.cn/xwdt/szyw/">
+								时政要闻
+							</a>
+							<a class="tit" href="https://xfservice.yn.gov.cn/xwdt/xfdt/">
+								信访动态
+							</a>
+						</div>
+					</li>
+					<li>
+						<a class="tit" href="https://xfservice.yn.gov.cn/flfg/flfg/">
+							法律法规
+						</a>
+						<div class="box">
+							<a class="tit" href="https://xfservice.yn.gov.cn/flfg/flfg/">
+								法律法规
+							</a>
+							<a class="tit" href="https://xfservice.yn.gov.cn/flfg/zcjd/">
+								政策解读
+							</a>
+						</div>
+					</li>
+					<li>
+						<a class="titnopic" href="https://xfservice.yn.gov.cn/alxd/">
+							案例选登
+						</a>
+					</li>
+					<li>
+						<a class="titnopic" href="">
+							
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+        <script src="https://xfservice.yn.gov.cn/images/stran.js" charset='UTF-8'></script>
+		<div class="two-wm">
+			<img src="https://xfservice.yn.gov.cn/ggbf/ynpy/202511/W020251110717932724253.png" />
+		</div>
+		<div class="bg01">
+			<div class="g-box m-auto">
+				<div class="clearfix top-box">
+					<div class="top-swiper swiper-container" id="tabs-container01">
+						<div class="top-swiper-list swiper-wrapper">
+                            
+                                <div class="top-swiper-item swiper-slide">
+                                    <a class="img" href="./xwdt/gdtp/202609/t20260924_4340657.html">
+                                        <img src="https://xfservice.yn.gov.cn/xwdt/gdtp/202609/W020260924620275787672.png" />
+                                        <p class="info ellipsis">
+                                            习近平抵达华盛顿对美国进行国事访问
+                                        </p>
+                                    </a>
+                                </div>
+                            
+                                <div class="top-swiper-item swiper-slide">
+                                    <a class="img" href="./xwdt/gdtp/202609/t20260915_4337047.html">
+                                        <img src="https://xfservice.yn.gov.cn/xwdt/gdtp/202609/W020260915577726545450.png" />
+                                        <p class="info ellipsis">
+                                            习近平出席金砖国家领导人第十八次会晤第二阶段会议并发表重要讲话
+                                        </p>
+                                    </a>
+                                </div>
+                            
+                                <div class="top-swiper-item swiper-slide">
+                                    <a class="img" href="./xwdt/gdtp/202609/t20260902_4020424.html">
+                                        <img src="https://xfservice.yn.gov.cn/xwdt/gdtp/202609/W020260902683752926735.png" />
+                                        <p class="info ellipsis">
+                                            习近平抵达开罗对埃及进行国事访问
+                                        </p>
+                                    </a>
+                                </div>
+                            
+                                <div class="top-swiper-item swiper-slide">
+                                    <a class="img" href="./xwdt/gdtp/202609/t20260902_4018952.html">
+                                        <img src="https://xfservice.yn.gov.cn/xwdt/gdtp/202609/W020260902674636343235.jpg" />
+                                        <p class="info ellipsis">
+                                            2026年下半年云南省人民群众信访服务保障中心公开招聘人员公告
+                                        </p>
+                                    </a>
+                                </div>
+                            
+                                <div class="top-swiper-item swiper-slide">
+                                    <a class="img" href="https://www.yn.gov.cn/ztgg/fjswwkcxjm/index.html">
+                                        <img src="https://xfservice.yn.gov.cn/xwdt/gdtp/202608/W020260825353020599170.png" />
+                                        <p class="info ellipsis">
+                                            奋进十五五  开创新局面
+                                        </p>
+                                    </a>
+                                </div>
+                            
+						</div>
+						<div class="pagination">
+						</div>
+					</div>
+					<div class="jujiao_r top-tabs index-tab">
+						<div class="cm-tab">
+							<div class="tabPanel tabPanelno tabPanel1 index-top">
+								<a class="panel" href="https://xfservice.yn.gov.cn/xwdt/szyw/">
+									时政要闻
+								</a>
+								<a class="panel" href="https://xfservice.yn.gov.cn/xwdt/xfdt/">
+									信访动态
+								</a>
+							</div>
+							<div class="tabContent index-content">
+								<div class="tabItem">
+									<ul class="cm-news-list">
+                                        
+                                            <li>
+                                                <a href="./xwdt/szyw/202609/t20260924_4340657.html">
+                                                    习近平抵达华盛顿对美国进行国事访问
+                                                </a>
+                                                <span>
+                                                    2026-09-24
+                                                </span>
+                                            </li>
+                                        
+                                            <li>
+                                                <a href="./xwdt/szyw/202609/t20260924_4340658.html">
+                                                    习近平向全国广大农民和工作在“三农”战线上的同志们致以节日祝贺和诚挚问候
+                                                </a>
+                                                <span>
+                                                    2026-09-23
+                                                </span>
+                                            </li>
+                                        
+                                            <li>
+                                                <a href="./xwdt/szyw/202609/t20260915_4337038.html">
+                                                    习近平给福建省“漳州110”全体队员回信
+                                                </a>
+                                                <span>
+                                                    2026-09-15
+                                                </span>
+                                            </li>
+                                        
+                                            <li>
+                                                <a href="./xwdt/szyw/202609/t20260915_4337047.html">
+                                                    习近平出席金砖国家领导人第十八次会晤第二阶段会议并发表重要讲话
+                                                </a>
+                                                <span>
+                                                    2026-09-15
+                                                </span>
+                                            </li>
+                                        
+                                            <li>
+                                                <a href="./xwdt/szyw/202609/t20260902_4020761.html">
+                                                    云南省树立和践行正确政绩观学习教育总结会强调认真学习贯彻习近平总书记重要指示精神推动正确政绩观在思想上牢固树立在实践中落地生根
+                                                </a>
+                                                <span>
+                                                    2026-09-02
+                                                </span>
+                                            </li>
+                                        
+                                            <li>
+                                                <a href="./xwdt/szyw/202608/t20260825_3724010.html">
+                                                    习近平作出重要指示强调 巩固拓展树立和践行正确政绩观学习教育成果 努力创造经得起实践人民历史检验的实绩
+                                                </a>
+                                                <span>
+                                                    2026-08-25
+                                                </span>
+                                            </li>
+                                        
+                                            <li>
+                                                <a href="./xwdt/szyw/202608/t20260820_3635869.html">
+                                                    习近平同厄瓜多尔总统诺沃亚会谈
+                                                </a>
+                                                <span>
+                                                    2026-08-19
+                                                </span>
+                                            </li>
+                                        
+									</ul>
+								</div>
+								<div class="tabItem">
+									<ul class="cm-news-list">
+                                        
+                                            <li>
+                                                <a href="./xwdt/xfdt/202609/t20260924_4340661.html">
+                                                    全国社会工作部长专题研讨班举办
+                                                </a>
+                                                <span>
+                                                    2026-09-22
+                                                </span>
+                                            </li>
+                                        
+                                            <li>
+                                                <a href="./xwdt/xfdt/202609/t20260924_4340665.html">
+                                                    黄祎在文山州调研时强调 拧紧齐抓共管责任链条 加力推进民生领域信访问题集中治理
+                                                </a>
+                                                <span>
+                                                    2026-09-16
+                                                </span>
+                                            </li>
+                                        
+                                            <li>
+                                                <a href="./xwdt/xfdt/202609/t20260924_4340663.html">
+                                                    张子建开展接访下访时强调：用心用情做好信访工作 依法依规解决群众诉求
+                                                </a>
+                                                <span>
+                                                    2026-09-16
+                                                </span>
+                                            </li>
+                                        
+                                            <li>
+                                                <a href="./xwdt/xfdt/202609/t20260915_4337054.html">
+                                                    李文章与俄罗斯公民和团体信访局局长米赫耶夫举行会谈并签署合作谅解备忘录
+                                                </a>
+                                                <span>
+                                                    2026-09-15
+                                                </span>
+                                            </li>
+                                        
+                                            <li>
+                                                <a href="./xwdt/xfdt/202609/t20260910_4296160.html">
+                                                    省信访局召开树立和践行正确政绩观学习教育总结会
+                                                </a>
+                                                <span>
+                                                    2026-09-09
+                                                </span>
+                                            </li>
+                                        
+                                            <li>
+                                                <a href="./xwdt/xfdt/202609/t20260902_4020424.html">
+                                                    习近平抵达开罗对埃及进行国事访问
+                                                </a>
+                                                <span>
+                                                    2026-09-02
+                                                </span>
+                                            </li>
+                                        
+                                            <li>
+                                                <a href="./xwdt/xfdt/202609/t20260901_3882156.html">
+                                                    王予波主持召开省政府党组会议常务会议
+                                                </a>
+                                                <span>
+                                                    2026-09-01
+                                                </span>
+                                            </li>
+                                        
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="morea tc01">
+							<div class="moreacontent">
+							</div>
+							<a href="https://xfservice.yn.gov.cn/xwdt/szyw/">
+								更多>>
+							</a>
+						</div>
+						<div class="morea tc02">
+							<div class="moreacontent">
+							</div>
+							<a href="https://xfservice.yn.gov.cn/xwdt/xfdt/">
+								更多>>
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="bujubox">
+					<div class="xfjmenu">
+						<a href="#yxf">
+							网上投诉请求
+						</a>
+					</div>
+					<div class="xfjmenu1">
+						<a href="#yjy">
+							网上建议征集
+						</a>
+					</div>
+					<div class="xfjmenu2">
+						<a href="/wsxf/search">
+							网上查询
+						</a>
+					</div>
+					<div class="xfjmenu3">
+						<a href="#ygz">
+							网上关注信息
+						</a>
+					</div>
+					<div class="xfjmenu4">
+						<a href="#ygk">
+							网上公开信息
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="yxw_bg">
+			<div class="m-auto g-box">
+				<div class="y_title" id="yxf">
+					<img src="./images/yxf_title.png" />
+				</div>
+				<div class="contenhz clearfix">
+					<div class="kj_cirl">
+						<a href="/wsxf/mailbox?type=01">
+							<div class="img1">
+								<img src="./images/xf01.png" />
+							</div>
+							<h3>
+								省委书记信箱
+							</h3>
+							<h5>
+								是一套新型政府信箱系统，是政府及其各部门、各县（市、区）政府与民沟通、为民服务的统一窗口
+							</h5>
+						</a>
+					</div>
+					<div class="kj_cirl">
+						<a href="/wsxf/mailbox?type=02">
+							<div class="img1">
+								<img src="./images/xf02.png" />
+							</div>
+							<h3>
+								省长信箱
+							</h3>
+							<h5>
+								是一套新型政府信箱系统，是政府及其各部门、各县（市、区）政府与民沟通、为民服务的统一窗口
+							</h5>
+						</a>
+					</div>
+					<div class="kj_cirl">
+						<a href="/wsxf/index">
+							<div class="img1">
+								<img src="./images/xf03.png" />
+							</div>
+							<h3>
+								网上信访
+							</h3>
+							<h5>
+								通过信访部门构建在互联网上的信访平台向党委和政府反映的情况、提出的意见建议或者投诉请求
+							</h5>
+						</a>
+					</div>
+					<div class="kj_cirl">
+						<a href="http://liuyan.people.com.cn/forum/list?fid=36">
+							<div class="img1">
+								<img src="./images/xf05.png" />
+							</div>
+							<h3>
+								人民网领导留言板
+							</h3>
+							<h5>
+								《领导留言板》是集群众监督、民主管理、政务点评、大数据分析于一体的网上群众工作综合性平台。
+							</h5>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="yjy m-auto g-box">
+			<div class="y_title" id="yjy">
+				<img src="./images/yjy_title.png" />
+			</div>
+			<div class="contenhz clearfix">
+				<div class="syjianyi_l lf">
+					<a href="/wsxf/advice">
+						<div class="jy_title">
+							人民建议征集
+						</div>
+						<div class="jy_tro">
+							建议人应署明姓名、住址、联系方式等;
+							<br>
+							建议应一事一议;
+							<br>
+							`涉及有多个建议事项的，请分别提出;
+							<br>
+							非建议类事项，不予受理。
+							<br>
+						</div>
+					</a>
+				</div>
+				<div class="syjianyi_r rt clearfix">
+					<div class="top clearfix">
+						<div class="pj_title">
+							受理情况
+							<span>
+								/件
+							</span>
+						</div>
+						<div class="totle01">
+							<div class="totle01a">
+								历史受理建议数量
+							</div>
+							<div class="totle01b ziti" id="tsjyxxTotalCount">
+								
+							</div>
+						</div>
+						<div class="totle01">
+							<div class="totle01a">
+								本年受理建议数量
+							</div>
+							<div class="totle01b ziti" id="tsjyxxThisYearTotalCount">
+								
+							</div>
+						</div>
+					</div>
+					<div class="tuimg" id="echarts">
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+function searchalxd(){
+
+$.ajax({
+	type:"GET",
+	url:"/api/website/v1/newsRends/pageList?current=1&pageSize=6&type=case_selection&newsTypeId=1",
+	dataType:"json",
+	success:function(data){
+
+	var obj = data;
+		var code = obj.success;
+
+		if(code){
+			var html = '<ul class="cm-news-list">';
+			var data = obj.data;
+
+			var totalCount = data.total;
+			var opencaselist = data.list;
+			for(var i=0;i<opencaselist.length;i++){
+				var id = opencaselist[i].id;
+	
+				var subject = opencaselist[i].title;
+				var djsj = formatDate(opencaselist[i].releaseDate);
+
+				html = html+'<li><a href="/alxd/detail.html?id='+id+'" target="_blank">'+subject +'</a><span class="date">'+djsj +'</span></li>';	
+			}
+html = html+'</ul>';		
+			$("#alxdul").html(html);
+		}
+		
+	}
+});
+}
+searchalxd("10","1");
+
+function formatDate(date) {
+  var date = new Date(date);
+  var YY = date.getFullYear() + '-';
+  var MM = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
+  var DD = (date.getDate() < 10 ? '0' + (date.getDate()) : date.getDate());
+  return YY + MM + DD;
+}
+
+</script>
+		<div class="ygz m-auto g-box clearfix">
+			<div class="y_title" id="ygz">
+				<img src="./images/ygz_title.png" />
+			</div>
+			<div class="contenhz">
+				<div class="lf ygz-left index-tab">
+					<div class="cm-tab">
+						<div class="tabPanel tabPanelno tabPanel1 index-top">
+							<a class="panel" href="https://xfservice.yn.gov.cn/flfg/flfg/">
+								法律法规
+							</a>
+							<a class="panel" href="https://xfservice.yn.gov.cn/flfg/zcjd/">
+								政策解读
+							</a>
+						</div>
+						<div class="tabContent index-content">
+							<div class="tabItem">
+								<ul class="cm-news-list">
+                                    
+                                        <li>
+                                            <a href="./flfg/flfg/202604/t20260428_3059647.html">
+                                                中共中央办公厅 国务院办公厅关于加强新就业群体服务管理的意见
+                                            </a>
+                                            <span>
+                                                2026-04-28
+                                            </span>
+                                        </li>
+                                    
+                                        <li>
+                                            <a href="./flfg/flfg/202404/t20240409_1860346.html">
+                                                节约用水条例
+                                            </a>
+                                            <span>
+                                                2024-04-09
+                                            </span>
+                                        </li>
+                                    
+                                        <li>
+                                            <a href="./flfg/flfg/202312/t20231211_1860397.html">
+                                                中华人民共和国行政复议法
+                                            </a>
+                                            <span>
+                                                2023-12-11
+                                            </span>
+                                        </li>
+                                    
+                                        <li>
+                                            <a href="./flfg/flfg/202309/t20230901_1860355.html">
+                                                中华人民共和国无障碍环境建设法
+                                            </a>
+                                            <span>
+                                                2023-09-01
+                                            </span>
+                                        </li>
+                                    
+                                        <li>
+                                            <a href="./flfg/flfg/202212/t20221209_1860431.html">
+                                                云南省人民政府关于进一步加强招商引资工作的指导意见
+                                            </a>
+                                            <span>
+                                                2022-12-09
+                                            </span>
+                                        </li>
+                                    
+                                        <li>
+                                            <a href="./flfg/flfg/202212/t20221209_1860421.html">
+                                                云南省人民政府办公厅关于印发云南省 防范和处置非法集资工作实施细则的通知
+                                            </a>
+                                            <span>
+                                                2022-12-09
+                                            </span>
+                                        </li>
+                                    
+								</ul>
+							</div>
+							<div class="tabItem">
+								<ul class="cm-news-list">
+                                    
+                                        <li>
+                                            <a href="./flfg/zcjd/202604/t20260430_3059655.html">
+                                                中央社会工作部负责人就《关于加强新就业群体服务管理的意见》答记者问
+                                            </a>
+                                            <span>
+                                                2026-04-30
+                                            </span>
+                                        </li>
+                                    
+                                        <li>
+                                            <a href="./flfg/zcjd/202409/t20240903_1860207.html">
+                                                《云南省信访事项复查复核办法》解读
+                                            </a>
+                                            <span>
+                                                2024-09-03
+                                            </span>
+                                        </li>
+                                    
+                                        <li>
+                                            <a href="./flfg/zcjd/202207/t20220705_1860219.html">
+                                                【图解信访工作条例⑤】信访工作监督体系是怎样的？如何进行责任追究？
+                                            </a>
+                                            <span>
+                                                2022-07-05
+                                            </span>
+                                        </li>
+                                    
+                                        <li>
+                                            <a href="./flfg/zcjd/202206/t20220622_1860195.html">
+                                                【图解信访工作条例④】信访事项如何办理？需要注意这些方面
+                                            </a>
+                                            <span>
+                                                2022-06-22
+                                            </span>
+                                        </li>
+                                    
+                                        <li>
+                                            <a href="./flfg/zcjd/202206/t20220608_1860264.html">
+                                                【图解信访工作条例③】信访事项如何提出和受理？
+                                            </a>
+                                            <span>
+                                                2022-06-08
+                                            </span>
+                                        </li>
+                                    
+                                        <li>
+                                            <a href="./flfg/zcjd/202205/t20220513_1860235.html">
+                                                【图解信访工作条例②】构建信访工作新格局
+                                            </a>
+                                            <span>
+                                                2022-05-13
+                                            </span>
+                                        </li>
+                                    
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="morea tc01">
+						<div class="moreacontent">
+						</div>
+						<a href="https://xfservice.yn.gov.cn/flfg/flfg/">
+							更多>>
+						</a>
+					</div>
+					<div class="morea tc02">
+						<div class="moreacontent">
+						</div>
+						<a href="https://xfservice.yn.gov.cn/flfg/zcjd/">
+							更多>>
+						</a>
+					</div>
+				</div>
+				<div class="rt ygz-right index-tab">
+					<div class="cm-tab">
+						<div class="tabPanel tabPanelno tabPanel1 index-top">
+							<a class="panel" href="https://xfservice.yn.gov.cn/ztzl/yfflclxfsq/">
+								专项工作
+							</a>
+							<a class="panel" href="https://xfservice.yn.gov.cn/ztzl/xfgzfzh/">
+								信访工作法治化
+							</a>
+						</div>
+						<div class="tabContent index-content">
+							<div class="tabItem">
+								<ul class="cm-news-list">
+									
+										<li>
+											<a href="./ztzl/yfflclxfsq/202604/t20260424_3059648.html">
+												云南省人力资源和社会保障厅关于公布2026年第一批拖欠农民工工资失信联合惩戒对象名单的公告
+											</a>
+											<span>
+												2026-04-24
+											</span>
+										</li>
+									
+										<li>
+											<a href="./ztzl/yfflclxfsq/202602/t20260202_3059649.html">
+												【根治欠薪进行时】云南省人力资源和社会保障厅关于公布2025年第四批拖欠农民工工资失信联合惩戒对象名单的公告
+											</a>
+											<span>
+												2026-02-02
+											</span>
+										</li>
+									
+										<li>
+											<a href="./ztzl/yfflclxfsq/202511/t20251107_3059651.html">
+												【根治欠薪进行时】云南省人力资源和社会保障厅关于公布2025年第三批重大劳动保障违法案例的公告
+											</a>
+											<span>
+												2025-11-07
+											</span>
+										</li>
+									
+										<li>
+											<a href="./ztzl/yfflclxfsq/202511/t20251107_3059650.html">
+												【根治欠薪进行时】云南省人力资源和社会保障厅关于公布2025年第三批拖欠农民工工资失信联合惩戒对象名单的公告
+											</a>
+											<span>
+												2025-11-07
+											</span>
+										</li>
+									
+										<li>
+											<a href="./ztzl/yfflclxfsq/202507/t20250725_2817978.html">
+												【根治欠薪进行时】云南省人力资源和社会保障厅关于公布2025年第二批拖欠农民工工资失信联合惩戒对象名单的公告
+											</a>
+											<span>
+												2025-07-25
+											</span>
+										</li>
+									
+										<li>
+											<a href="./ztzl/yfflclxfsq/202507/t20250725_1860276.html">
+												【根治欠薪进行时】云南省人力资源和社会保障厅关于公布2025年第二批重大劳动保障违法案例的公告
+											</a>
+											<span>
+												2025-07-25
+											</span>
+										</li>
+									
+								</ul>
+							</div>
+							<div class="tabItem">
+								<ul class="cm-news-list">
+									
+										<li>
+											<a href="./ztzl/xfgzfzh/202609/t20260901_3882156.html">
+												王予波主持召开省政府党组会议常务会议
+											</a>
+											<span>
+												2026-09-01
+											</span>
+										</li>
+									
+										<li>
+											<a href="./ztzl/xfgzfzh/202608/t20260820_3635870.html">
+												省委信访工作联席会议2026年第二次全体（扩大）会议召开
+											</a>
+											<span>
+												2026-08-20
+											</span>
+										</li>
+									
+										<li>
+											<a href="./ztzl/xfgzfzh/202608/t20260820_3636626.html">
+												全省信访局长工作座谈会召开
+											</a>
+											<span>
+												2026-08-19
+											</span>
+										</li>
+									
+										<li>
+											<a href="./ztzl/xfgzfzh/202608/t20260812_3401638.html">
+												中央社会工作部副部长、国家信访局局长李文章：以落实责任制推动信访工作高质量发展
+											</a>
+											<span>
+												2026-08-12
+											</span>
+										</li>
+									
+										<li>
+											<a href="./ztzl/xfgzfzh/202608/t20260812_3401637.html">
+												玉溪市信访聚合力解难题
+											</a>
+											<span>
+												2026-08-12
+											</span>
+										</li>
+									
+										<li>
+											<a href="./ztzl/xfgzfzh/202608/t20260812_3401636.html">
+												昭通市创新机制化解信访“一件多投”
+											</a>
+											<span>
+												2026-08-10
+											</span>
+										</li>
+									
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="morea tc01">
+						<div class="moreacontent">
+						</div>
+						<a href="https://xfservice.yn.gov.cn/ztzl/">
+							更多>>
+						</a>
+					</div>
+					<div class="morea tc02">
+						<div class="moreacontent">
+						</div>
+						<a href="https://xfservice.yn.gov.cn/ztzl/xfgzfzh/">
+							更多>>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="ygk m-auto g-box">
+			<div class="y_title" id="ygk">
+				<img src="./images/ygk_title.png" />
+			</div>
+			<div class="contenhz">
+				<div class="lf ygk-left index-tab">
+					<div class="cm-tab">
+						<div class="tabPanel tabPanelno tabPanel1 index-top">
+							<a class="panel" href="https://xfservice.yn.gov.cn/zfxxgk/fdzdgknr/tzgg/">
+								公告板
+							</a>
+						</div>
+						<div class="tabContent index-content">
+							<div class="tabItem">
+								<ul class="cm-news-list">
+									
+										<li>
+											<a href="./zfxxgk/fdzdgknr/tzgg/202609/t20260915_4337035.html">
+												云南省2026年度省级机关统一公开遴选公务员考试报名入口
+											</a>
+											<span>
+												2026-09-15
+											</span>
+										</li>
+									
+										<li>
+											<a href="./zfxxgk/fdzdgknr/tzgg/202609/t20260911_4296668.html">
+												云南省2026年度省级机关统一公开遴选公务员公告
+											</a>
+											<span>
+												2026-09-10
+											</span>
+										</li>
+									
+										<li>
+											<a href="./zfxxgk/fdzdgknr/tzgg/202609/t20260902_4019955.html">
+												2026年下半年云南省人民群众信访服务保障中心公开招聘人员公告
+											</a>
+											<span>
+												2026-09-02
+											</span>
+										</li>
+									
+										<li>
+											<a href="./zfxxgk/fdzdgknr/tzgg/202607/t20260716_3205133.html">
+												中共云南省信访局党组关于十一届云南省委第十轮巡视“回头看”整改进展情况的通报
+											</a>
+											<span>
+												2026-07-06
+											</span>
+										</li>
+									
+										<li>
+											<a href="./zfxxgk/fdzdgknr/tzgg/202604/t20260401_3059416.html">
+												云南省信访局2026年面向选定高校招录优秀毕业生拟录用人员公示
+											</a>
+											<span>
+												2026-04-01
+											</span>
+										</li>
+									
+										<li>
+											<a href="./zfxxgk/fdzdgknr/tzgg/202603/t20260330_3059423.html">
+												省信访局2026年“三服务”清单
+											</a>
+											<span>
+												2026-03-30
+											</span>
+										</li>
+									
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="morea tc01">
+						<div class="moreacontent">
+						</div>
+						<a href="https://xfservice.yn.gov.cn/zfxxgk/fdzdgknr/tzgg/">
+							更多>>
+						</a>
+					</div>
+				</div>
+				<div class="rt ygk-right index-tab">
+					<div class="cm-tab">
+						<div class="tabPanel tabPanelno tabPanel1 index-top">
+							<a class="panel" href="https://xfservice.yn.gov.cn/zfxxgk/">
+								政府信息公开
+							</a>
+							<a class="panel" href="https://xfservice.yn.gov.cn/alxd/">
+								案例选登
+							</a>
+						</div>
+						<div class="tabContent index-content">
+							<div class="tabItem">
+								<ul class="ygk-right-one clearfix">
+									<li>
+										<a href="https://xfservice.yn.gov.cn/zfxxgk/zfxxgkzn/">
+											<div class="thab_l lf">
+												<img src="./images/thy01.png" />
+											</div>
+											<div class="thab_r rt">
+												政府信息公开指南
+											</div>
+										</a>
+									</li>
+									<li>
+										<a href="https://xfservice.yn.gov.cn/zfxxgk/zfxxgkzd/">
+											<div class="thab_l lf">
+												<img src="./images/thy02.png" />
+											</div>
+											<div class="thab_r rt">
+												政府信息公开制度
+											</div>
+										</a>
+									</li>
+									<li>
+										<a href="https://xfservice.yn.gov.cn/zfxxgk/fdzdgknr/">
+											<div class="thab_l lf">
+												<img src="./images/thy03.png" />
+											</div>
+											<div class="thab_r rt">
+												法定主动公开内容
+											</div>
+										</a>
+									</li>
+									<li>
+										<a href="https://xfservice.yn.gov.cn/zfxxgk/zfxxgknb/">
+											<div class="thab_l lf">
+												<img src="./images/thy04.png" />
+											</div>
+											<div class="thab_r rt">
+												政府信息公开年报
+											</div>
+										</a>
+									</li>
+									<li>
+										<a href="https://xfservice.yn.gov.cn/zfxxgk/ysqgk/">
+											<div class="thab_l lf">
+												<img src="./images/thy05.png" />
+											</div>
+											<div class="thab_r rt">
+												依申请公开
+											</div>
+										</a>
+									</li>
+									<li>
+										<a href="https://xfservice.yn.gov.cn/zfxxgk/zfwzndgzbb/">
+											<div class="thab_l lf">
+												<img src="./images/thy06.png" />
+											</div>
+											<div class="thab_r rt">
+												政府网站年度工作报表
+											</div>
+										</a>
+									</li>
+								</ul>
+							</div>
+							<div class="tabItem" id="alxdul">
+								
+							</div>
+						</div>
+					</div>
+					<div class="morea tc01">
+						<div class="moreacontent	">
+						</div>
+						<a href="https://xfservice.yn.gov.cn/zfxxgk/">
+							更多>>
+						</a>
+					</div>
+					<div class="morea tc02">
+						<div class="moreacontent">
+						</div>
+						<a href="https://xfservice.yn.gov.cn/alxd/">
+							更多>>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="ygk-swiper swiper-container">
+				<div class="ygk-swiper-list swiper-wrapper">
+					
+						<div class="ygk-swiper-item swiper-slide">
+							<a class="img" href="https://www.yn.gov.cn/ztgg/jdbyyzzsjzydfxfyqj/index.html">
+								<img src="https://xfservice.yn.gov.cn/ztzl/202511/W020251103535345630573.jpg" />
+							</a>
+						</div>
+					
+						<div class="ygk-swiper-item swiper-slide">
+							<a class="img" href="http://yn.yunnan.cn/cms_udf/2022/srxxgcddesdjs/index.shtml">
+								<img src="https://xfservice.yn.gov.cn/ztzl/202511/W020251103534829209956.png" />
+							</a>
+						</div>
+					
+						<div class="ygk-swiper-item swiper-slide">
+							<a class="img" href="https://www.yn.gov.cn/ztgg/tjzfgmjqjgxnjs/index.html">
+								<img src="https://xfservice.yn.gov.cn/ztzl/202511/W020251103534518529468.jpg" />
+							</a>
+						</div>
+					
+						<div class="ygk-swiper-item swiper-slide">
+							<a class="img" href="https://www.yn.gov.cn/ztgg/qszzxszywjcjf/index.html">
+								<img src="https://xfservice.yn.gov.cn/ztzl/202511/W020251103534152201211.jpg" />
+							</a>
+						</div>
+					
+						<div class="ygk-swiper-item swiper-slide">
+							<a class="img" href="https://www.gov.cn/hudong/index.htm">
+								<img src="https://xfservice.yn.gov.cn/ztzl/202511/W020251103533731896747.jpg" />
+							</a>
+						</div>
+					
+				</div>
+				<div class="ygk-swiper-btn clearfix">
+					<span class="next swiper-button-next">
+					</span>
+					<span class="prev swiper-button-prev">
+					</span>
+					<span class="next-box">
+					</span>
+					<span class="prev-box">
+					</span>
+				</div>
+			</div>
+			<div class="nav-list">
+				<div class="main-cell clearfix">
+					<div class="drop-select f-ib lf">
+						<p class="select arrow">
+							<span class="tit text f-otw f-ib">省政府部门网站
+								<!---->
+							</span>
+							<span class="arrow-icon">	
+							</span>
+						</p>
+						<div class="dropdown-menu">
+							<ul class="cf-scroll clearfix">
+								<li><a target="_blank" href="http://czt.yn.gov.cn/">云南省财政厅</a></li>
+								<li><a target="_blank" href="http://dfjrjgj.yn.gov.cn/">云南省地方金融监督管理局</a></li>
+								<li><a target="_blank" href="http://yndrc.yn.gov.cn/">云南省发展和改革委员会</a></li>
+							   
+								<li><a target="_blank" href="http://gxt.yn.gov.cn/">云南省工业和信息化厅</a></li>
+								<li><a target="_blank" href="http://gonganting.yn.gov.cn/">云南省公安厅</a></li>
+								<li><a target="_blank" href="http://ynsgbdsj.yn.gov.cn/">云南省广播电视局</a></li>
+								<li><a target="_blank" href="http://ygj.yn.gov.cn/">云南省机关事务管理局</a></li>
+								<li><a target="_blank" href="http://ynjy.yn.gov.cn/">云南省监狱管理局</a></li>
+								<li><a target="_blank" href="http://jtyst.yn.gov.cn/">云南省交通运输厅</a></li>
+								<li><a target="_blank" href="http://www.ynjy.cn/">云南省教育厅</a></li>
+								<li><a target="_blank" href="http://jdglj.yn.gov.cn/">云南省戒毒管理局</a></li>
+								<li><a target="_blank" href="http://kjt.yn.gov.cn/">云南省科学技术厅</a></li>
+								<li><a target="_blank" href="http://lswz.yn.gov.cn/">云南省粮食和物资储备局</a></li>
+								<li><a target="_blank" href="http://lcj.yn.gov.cn/">云南省林业和草原局</a></li>
+								<li><a target="_blank" href="http://ynmz.yn.gov.cn/">云南省民政厅</a></li>
+								<li><a target="_blank" href="https://mz.yn.gov.cn/">云南省民族事务委员会</a></li>
+								<li><a target="_blank" href="http://nyj.yn.gov.cn/">云南省能源局</a></li>
+								<li><a target="_blank" href="https://nync.yn.gov.cn/">云南省农业农村厅</a></li>
+								<li><a target="_blank" href="http://hrss.yn.gov.cn/">云南省人力资源和社会保障厅</a></li>
+								<li><a target="_blank" href="http://yngd.yn.gov.cn/">云南省人民政府国防动员办公室</a></li>
+								<li><a target="_blank" href="http://www.yn.gov.cn/">云南省人民政府办公厅</a></li>
+								<li><a target="_blank" href="http://gzw.yn.gov.cn/">云南省人民政府国有资产监督管理委员会</a></li>
+								<li><a target="_blank" href="http://yfao.yn.gov.cn/">云南省人民政府外事办公室</a></li>
+								<li><a target="_blank" href="http://yjs.yn.gov.cn/">云南省人民政府研究室</a></li>
+								<li><a target="_blank" href="http://swt.yn.gov.cn/">云南省商务厅</a></li>
+								<li><a target="_blank" href="http://audit.yn.gov.cn/">云南省审计厅</a></li>
+								<li><a target="_blank" href="http://sthjt.yn.gov.cn/">云南省生态环境厅</a></li>
+								<li><a target="_blank" href="http://amr.yn.gov.cn/">云南省市场监督管理局</a></li>
+								<li><a target="_blank" href="http://wcb.yn.gov.cn/">云南省水利厅</a></li>
+								<li><a target="_blank" href="http://sft.yn.gov.cn/">云南省司法厅</a></li>
+								<li><a target="_blank" href="http://tyj.yn.gov.cn/">云南省体育局</a></li>
+								<li><a target="_blank" href="http://stats.yn.gov.cn/">云南省统计局</a></li>
+								<li><a target="_blank" href="http://tyjrsw.yn.gov.cn/">云南省退役军人事务厅</a></li>
+								<li><a target="_blank" href="http://ynswsjkw.yn.gov.cn/">云南省卫生健康委员会</a></li>
+								<li><a target="_blank" href="http://dct.yn.gov.cn/">云南省文化和旅游厅</a></li>
+								<li><a target="_blank" href="http://mpa.yn.gov.cn/">云南省药品监督管理局</a></li>
+								<li><a target="_blank" href="http://ylbz.yn.gov.cn/">云南省医疗保障局</a></li>
+								<li><a target="_blank" href="http://yjglt.yn.gov.cn/">云南省应急管理厅</a></li>
+								<li><a target="_blank" href="http://www.ynzx.gov.cn/">云南省政协办公厅</a></li>
+								<li><a target="_blank" href="http://zfcxjst.yn.gov.cn/">云南省住房和城乡建设厅</a></li>
+								<li><a target="_blank" href="http://dnr.yn.gov.cn/">云南省自然资源厅</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="drop-select f-ib lf">
+						<p class="select arrow">
+							<span class="tit text f-otw f-ib">
+								各省信访局
+							</span>
+							<span class="arrow-icon">
+							</span>
+						</p>
+						<div class="dropdown-menu">
+							<ul class="cf-scroll clearfix">
+								<li><a target="_blank" href="http://www.gjxfj.gov.cn/">国家信访局</a></li>
+   								 <li><a target="_blank" href="http://xfb.beijing.gov.cn/">北京</a></li>
+								<li><a target="_blank" href="http://xf.tj.gov.cn">天津</a></li>
+								<li><a target="_blank" href="http://www.hebxfj.gov.cn/">河北</a></li>
+								<li><a target="_blank" href="http://xfj.shanxi.gov.cn/">山西</a></li>
+								<li><a target="_blank" href="http://xfj.nmg.gov.cn/">内蒙古</a></li>
+								<li><a target="_blank" href="http://www.lnxf.gov.cn/">辽宁</a></li>
+								<li><a target="_blank" href="http://xfj.jl.gov.cn/">吉林</a></li>
+								<li><a target="_blank" href="https://www.hljxfj.gov.cn/">黑龙江</a></li>
+								<li><a target="_blank" href="http://xfb.sh.gov.cn/">上海</a></li>
+								<li><a target="_blank" href="http://jssxfj.jiangsu.gov.cn/">江苏</a></li>
+								<li><a target="_blank" href="http://zjsxfj.zj.gov.cn/">浙江</a></li>
+								<li><a target="_blank" href="http://xfj.ah.gov.cn/">安徽</a></li>
+								<li><a target="_blank" href="http://xfj.fj.gov.cn/">福建</a></li>
+								<li><a target="_blank" href="http://www.jx-xinfang.gov.cn/">江西</a></li>
+								<li><a target="_blank" href="http://xfj.shandong.gov.cn/">山东</a></li>
+								<li><a target="_blank" href="http://xfj.henan.gov.cn/">河南</a></li>
+								<li><a target="_blank" href="http://www.hubeixf.gov.cn/">湖北</a></li>
+								<li><a target="_blank" href="http://xfj.hunan.gov.cn/">湖南</a></li>
+								<li><a target="_blank" href="http://gdwsxf.gd.gov.cn/">广东</a></li>
+								<li><a target="_blank" href="http://www.gxxf.gov.cn/">广西</a></li>
+								<li><a target="_blank" href="https://xf.hainan.gov.cn/sxfj/">海南</a></li>
+								<li><a target="_blank" href="http://xfb.cq.gov.cn/">重庆</a></li>
+								<li><a target="_blank" href="http://xfj.sc.gov.cn">四川</a></li>
+								<li><a target="_blank" href="https://www.gzsxfj.gov.cn/">贵州</a></li>
+								<li><a target="_blank" href="https://xzxf.xizang.gov.cn/">西藏</a></li>
+								<li><a target="_blank" href="http://www.gsxfj.gov.cn/">甘肃</a></li>
+								<li><a target="_blank" href="http://xfj.shaanxi.gov.cn/">陕西</a></li>
+								<li><a target="_blank" href="http://xf.nx.gov.cn">宁夏</a></li>
+								<li><a target="_blank" href="https://xfj.qinghai.gov.cn/">青海</a></li>
+								<li><a target="_blank" href="https://xfj.xinjiang.gov.cn/">新疆</a></li>
+								<li><a target="_blank" href="http://www.xjbt.gov.cn/hd/">新疆生产建设兵团</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="drop-select f-ib lf">
+						<p class="select arrow">
+							<span class="tit text f-otw f-ib">
+								州市信访局
+							</span>
+							<span class="arrow-icon">
+							</span>
+						</p>
+						<div class="dropdown-menu">
+							<ul class="cf-scroll clearfix">
+								<li><a target="_blank" href="http://xfj.km.gov.cn/">昆明市信访局</a></li>
+								<li><a target="_blank" href="https://www.zt.gov.cn/">昭通市信访局</a></li>
+								<li><a target="_blank" href="http://www.qj.gov.cn/">曲靖市信访局</a></li>
+								<li><a target="_blank" href="http://www.yuxi.gov.cn/">玉溪市信访局</a></li>
+								<li><a target="_blank" href="http://www.lijiang.gov.cn/">丽江市信访局</a></li>
+								<li><a target="_blank" href="https://nujiang.gov.cn/">怒江州信访局</a></li>
+								<li><a target="_blank" href="http://www.baoshan.gov.cn/">保山市信访局</a></li>
+								<li><a target="_blank" href="http://www.cxz.gov.cn/">楚雄州信访局</a></li>
+								<li><a target="_blank" href="http://www.hh.gov.cn/">红河州信访局</a></li>
+								<li><a target="_blank" href="http://www.ynws.gov.cn/">文山州信访局</a></li>
+								<li><a target="_blank" href="http://www.diqing.gov.cn/">迪庆州信访局</a></li>
+								<li><a target="_blank" href="http://www.lincang.gov.cn">临沧市信访局</a></li>
+								<li><a target="_blank" href="http://www.pes.gov.cn/">普洱市信访局</a></li>
+								<li><a target="_blank" href="http://www.xsbn.gov.cn/index.dhtml">西双版纳州信访局</a></li>
+								<li><a target="_blank" href="http://www.dali.gov.cn/">大理州信访局</a></li>	
+								<li><a target="_blank" href="http://www.dh.gov.cn/Web/">德宏州信访局</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="phone-list">
+				<div class="subaa_title">
+					地图导航
+				</div>
+				<ul class="subts clearfix">
+					<li><a target="_blank" href="http://xfj.km.gov.cn/">昆明市信访局</a></li>
+					<li><a target="_blank" href="https://www.zt.gov.cn/">昭通市信访局</a></li>
+					<li><a target="_blank" href="http://www.qj.gov.cn/">曲靖市信访局</a></li>
+					<li><a target="_blank" href="http://www.yuxi.gov.cn/">玉溪市信访局</a></li>
+					<li><a target="_blank" href="http://www.lijiang.gov.cn/">丽江市信访局</a></li>
+					<li><a target="_blank" href="https://nujiang.gov.cn/">怒江州信访局</a></li>
+					<li><a target="_blank" href="http://www.baoshan.gov.cn/">保山市信访局</a></li>
+					<li><a target="_blank" href="http://www.cxz.gov.cn/">楚雄州信访局</a></li>
+					<li><a target="_blank" href="http://www.hh.gov.cn/">红河州信访局</a></li>
+					<li><a target="_blank" href="http://www.ynws.gov.cn/">文山州信访局</a></li>
+					<li><a target="_blank" href="http://www.diqing.gov.cn/">迪庆州信访局</a></li>
+					<li><a target="_blank" href="http://www.lincang.gov.cn">临沧市信访局</a></li>
+					<li><a target="_blank" href="http://www.pes.gov.cn/">普洱市信访局</a></li>
+					<li><a target="_blank" href="http://www.xsbn.gov.cn/index.dhtml">西双版纳州信访局</a></li>
+					<li><a target="_blank" href="http://www.dali.gov.cn/">大理州信访局</a></li>	
+					<li><a target="_blank" href="http://www.dh.gov.cn/Web/">德宏州信访局</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="lxz-floaty m_shake_img">
+	<a class="axfj" href="javascript:;">
+		<span class="d-project-erwei">
+			<img src="https://xfservice.yn.gov.cn/ggbf/gfwx/202510/W020251006537587760446.png" />
+		</span>
+	</a>
+</div>
+<div class="lxz-float m_shake_img">
+	<a class="axfj" href="javascript:;">
+		<span class="d-project-erwei">
+			<img src="https://xfservice.yn.gov.cn/ggbf/xcx/202510/W020251006537885143615.png" />
+		</span>
+	</a>
+</div>
+<div id="myBtn">
+	<a class="axfjtop" href="javascript:;">
+		<span class="d-erwei">
+			返回顶部
+		</span>
+	</a>
+</div>
+<div class="foot m-auto g-box">
+	<div class="foot_l lf">
+		<div class="footmenu clearfix">
+			<a href="https://xfservice.yn.gov.cn/" target="_blank">
+				网站首页
+			</a>
+			<span>
+				|
+			</span>
+			<a href="https://xfservice.yn.gov.cn/ggbf/wzdt/"  target="_blank">
+				网站地图		
+			</a>
+			<span>
+				|
+			</span>
+			<a href="https://xfservice.yn.gov.cn/ggbf/lxwm/"  target="_blank">
+				关于我们
+			</a>
+			<span>
+				|
+			</span>
+			<a href="https://xfservice.yn.gov.cn/ggbf/bqsm/"  target="_blank">
+				网站声明
+			</a>
+		</div>
+		<div class="foot_l-bottom clearfix">
+			<p>
+				<span>
+					主办单位：云南省信访局
+				</span>
+				<span>
+					承办单位：云南省信访局
+				</span>
+			</p>
+			<p>
+				<span>
+					政务热线：0871-63624517
+				</span>
+				<a href="https://beian.miit.gov.cn/#/Integrated/index"  target="_blank">
+					滇ICP备19003964号
+				</a>
+			</p>
+			<p>
+				<span>
+					政府网站标识码：5300000071
+				</span>
+				<img src="https://xfservice.yn.gov.cn/images/beian.png" alt="" />
+				<a href="https://beian.mps.gov.cn/#/query/webSearch"  target="_blank">
+					滇公网安备 53010202000641号
+				</a>
+			</p>
+		</div>
+	</div>
+	<div class="foot_r rt">
+		<a href="//bszs.conac.cn/sitename?method=show&id=8588C0AA87FD107AE05310291AACD9AA"  target="_blank">
+			<img src="https://xfservice.yn.gov.cn/images/red.png" alt="" />
+		</a>
+		<!--<a href="javascript:;">
+			<img src="https://xfservice.yn.gov.cn/images/jiucuo.png" alt="" />
+		</a>-->
+<script id="_jiucuo_" sitecode="5300000071" src="https://zfwzgl.www.gov.cn/exposure/jiucuo.js"></script>
+		<a href="https://xfservice.yn.gov.cn/ggbf/ynszfwzpgt/">
+			<img src="https://xfservice.yn.gov.cn/images/xfjpgt.png" alt="" />
+		</a>
+		<a href="https://zwfw.yn.gov.cn/portal/#/home"  target="_blank">
+			<img class="img4" src="https://xfservice.yn.gov.cn/images/zhengwu.png" alt="" />
+		</a>
+		<a href="http://wza.isc.org.cn/rzpt/bsgl/dt/20241211/3718.html"  target="_blank">
+			<img class="img5" src="https://xfservice.yn.gov.cn/images/wza.png" alt="" />
+		</a>
+	</div>
+</div>
+		<script type="text/javascript" src="./images/index.js">
+		</script>
+	</body>
+
+</html>

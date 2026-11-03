@@ -1,0 +1,2199 @@
+{
+ "A_考卷": [
+  {
+   "source": "sx-igi-52",
+   "id": "477108",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=477108",
+   "question": "2017年中旬，听信港丽城销售人员蛊惑，购买港丽城现房一套，大红本价5400元/平，承诺年底按揭交房。截止目前2019年无动静.于2019年1月2日到港丽城售楼部了解到，港丽城利丰开发商告知目前无能力购地办证，将交由政府国企开发商接盘，并告",
+   "cited_hits": [
+    {
+     "name": "建筑法",
+     "lib_no": "建筑法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "规划法",
+    "土地法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476520",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476520",
+   "question": "去年准备结婚，五月份港丽城买了一套房，因为当时看见楼已经盖起来了再做二次结构，然后港丽城售楼部的说证件马上就下来了，而且购房协议上面写的是大产权12月31号之前交房。去年太原房价飙升，别的地方也买不起。因为知道好多楼盘都是再没有证的时候就已",
+   "cited_hits": [
+    {
+     "name": "建筑法",
+     "lib_no": "建筑法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "规划法",
+    "土地法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "477160",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=477160",
+   "question": "关于中泽纯境小区民生的问题 领导您好 我们是小店区、富民路90号中泽纯境小区的业主，针对小区物业（山西颐德物业管理有限公司）及开发商（山西济同房地产开发有限公司）的不做为造成小区脏乱差，配套基本没有，物业严重违反了物业管理条例及相关法律规定",
+   "cited_hits": [
+    {
+     "name": "关于规范电动车停放充电加强火灾防范的通告",
+     "lib_no": "关于规范电动车停放充电加强火灾防范的通告",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "住宅服务标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476838",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476838",
+   "question": "我是浓情新居3号楼的一名业主，我反应2个问题，1，合同约定2017年12月底交房，在经过多次和开发商协商后，迟迟未看到交房的动静。已经退迟近6个月了，忘开发区的领导帮忙询问下，到底可以什么时候交房？2，网签合同约定我们的窗户为断桥铝窗户，但",
+   "cited_hits": [
+    {
+     "name": "建筑设计防火规范",
+     "lib_no": "GB 50016-2014",
+     "weak": false
+    },
+    {
+     "name": "高层民用建筑设计防火规范",
+     "lib_no": "GB 50045-2005",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "商品房买卖合同",
+    "太原经济技术开发区管理委员会关于印发2016-2017年度冬季大气污染防控行动工作方案的通知",
+    "山西转型综合改革示范区综合执法局大气污染防治强化督查行动方案",
+    "GB 50016-2006",
+    "GB 50045-95"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "475978",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=475978",
+   "question": "对于综改区没有竣工验收的房子(也就是没有竣工验收表)能否交付使用？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国建筑法",
+     "lib_no": "建筑法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476050",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476050",
+   "question": "小区时常断水断电，电梯时常出问题且无备用电，电动车不让进小区，没法充电，小区围挡不牢固，路面井盖不牢固，物业不作为，开发商不按要求配套小区",
+   "cited_hits": [
+    {
+     "name": "关于规范电动车停放充电加强火灾防范的通告",
+     "lib_no": "关于规范电动车停放充电加强火灾防范的通告",
+     "weak": false
+    },
+    {
+     "name": "物业管理条例",
+     "lib_no": "物业管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476584",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476584",
+   "question": "我是小店区北格镇南格村村民***。2017年年初，为配合山西综改示范区潇河产业园区太原起步区建设，小店区政府征收了我家依法承包的耕地约7.39亩（有土地承包经营权证书）。目前，工程建设单位已经占用以上耕地并开始施工。截至2017年10月12",
+   "cited_hits": [
+    {
+     "name": "信访条例",
+     "lib_no": "信访条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于建设山西转型综改示范区的实施方案"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "sx-igi-52",
+   "id": "477322",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=477322",
+   "question": "领导： 您好，我相信港丽城出现的问题领导已经全部了解了吧。但是我还是要从新说一下我们部分业主的心声： 买房无非两大目的，一居住，二赚钱。我属于第一类，因为在太原5年了，只想在太原买套房安个家。2年前因为自己积攒资金不多，轻信港丽城售楼部人员",
+   "cited_hits": [],
+   "cited_missing": [
+    "担保法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476450",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476450",
+   "question": "您好，我公司是15年成立的物联网领域小型科技企业。想咨询下，最近综改区有没有出台什么扶持中小科技企业发展的政策？？有的话，需要什么文件资料吗？？？",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西转型综合改革示范区促进科技成果转化扶持办法（试行）",
+    "山西转型综合改革示范区促进企业自主创新扶持办法（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476928",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476928",
+   "question": "我与爱人长期两地分居，现苦于孩子小照顾不方便，想要回省城觅得一份好工作。经领导介绍，听说综改示范区聚集了太原的高端产业，想咨询可有招聘机会，如有，可通过什么渠道投递简历。我爱人，全日制研究生学历、控制工程与自动化专业、中共党员、30周岁，中",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于放宽人才户口迁入政策的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476152",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476152",
+   "question": "我孩子户籍在本区翰林华府，学籍在平阳路街道办大马小学，怎么在本区升初中。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好2018年唐槐产业园区小学毕业生升初中工作的实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476146",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476146",
+   "question": "尊敬的示范区、学府园区领导： 我是太嘉小区一名业主，在我小区西侧诺维特科技公司未经规划局审批就开工建设，新建楼房会遮挡现有居民楼的阳光。诺维特科技公司在不挂任何公示标志，也没有经过管理部门审批的情况下，在小区西侧距离居民楼不足13米的地方私",
+   "cited_hits": [],
+   "cited_missing": [
+    "责令改正通知书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476326",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476326",
+   "question": "您好： 我是一名归国留学人员，在国外取得博士学位，现在刚会山西发展，有前期的技术积累，现在想成立一家科技类公司，涉及高性能计算与模拟技术。现在就想了解一下，（1）咱们山西有配套的孵化园吗？（2）税收和补助上有没有相关扶持政策？ 非常非常感谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西转型综合改革示范区鼓励留学人员创新创业办法（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "475930",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=475930",
+   "question": "你好： 我想咨询山西综改区博士后政策以及私企能否申请企业博士后流动站？",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西转型综合改革示范区博士后科研工作站管理细则（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "475900",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=475900",
+   "question": "我们是原高新区通勤车队一名普通职工，属于原市政管理中心事业编制，现在借调到建投孵化器管理工作，因为历史原因使我们的工作，工资，待遇福利都受到了影响，现在综改区整合希望领导们在百忙之中能考虑一下还有10多名职工的归属问题。谢谢领导！！",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于自收自支编制人员整合安置的通知"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "sx-igi-52",
+   "id": "477250",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=477250",
+   "question": "领导您好，二青会召开在即，马练营路也于4月22日全线贯通，综改区入住企业和居民越来越多，请问马练营路的公交何时开通，方便居民出行。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476538",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476538",
+   "question": "一人独资公司需要准备，股东会决议和公司章程吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "477126",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=477126",
+   "question": "坤泽十里城属于小店区还是唐槐园区，行政管辖范围我不明确，还是经济区，这搞不懂，到底属于谁管瞎",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476496",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476496",
+   "question": "您好 麻烦问您一下 综改区文创、文旅、非遗、食品政策有哪些？ 有什么优惠政策或者支持政策呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "477302",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=477302",
+   "question": "尊敬的领导！您好！ 我司是北京一家专业的加氢站设备提供商，涉及项目咨询、设计、集成、运行保障等全产业链。目前在和江铃重汽合作提供加氢及测试设备。 希望能与贵示范区进一步沟通，也希望通过我们的技术能在综改示范区及太原市有个\"加氢示范站\" 谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476486",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476486",
+   "question": "您好：我想咨询一下电子信息、健康医疗企业关于入驻租金减免政策以及企业减免税收政策，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "477380",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=477380",
+   "question": "请问最新规划的迎宾西街太原段走向，为何智慧南街也改名迎宾西街?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "477386",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=477386",
+   "question": "年初在广播上听太原市房管局一位副局长说今年太原市针对市区一些五证齐全房产无法办理产权证的历史遗留问题要专门出台一个处理办法，请问目前综改区有类似工作要进行吗？进展到什么程度了？我是地和苑居民，我们房子都交房十年了都无法办理产权证，而且在收房",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476432",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476432",
+   "question": "企业有正式党员数名，想申请成立党支部，不知道从哪里展开，烦请告知。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476568",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476568",
+   "question": "太原新兴鹿健康管理有限公司是北京阳光鹿童医院管理有限公司的全资子公司，从其网站宣传到主营业务，均属于脑瘫康复医疗服务，是医疗行为，但太原新兴鹿的经营范围内，根本没有医疗服务的项目，更没有医疗服务的资质，属于严重的非法运营，更严重的是，其公司",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476562",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476562",
+   "question": "目前在房地产公司，公司注册于综改区孵化基地，中级职称已经过6年，在综改区是否可以申报高级职称？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476532",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476532",
+   "question": "各位领导好：名称：（山西振弘科技有限公司）该公司没有金融资质，存在金融诈骗事宜，借款2500，实际到账2000；还款期到了还需要还2500；在逾期的情况下一天逾期费是100左右；这已经超出国家的利息；他们这是属于典型的套钱，最可恨的是居然还",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476550",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476550",
+   "question": "您好！ 2018年的政策兑现中有软件著作权的补贴，2019年的政策兑现中没有软件著作权的补贴。 2018年申请的软件著作权在2018年没有享受到补贴，请问2018年申请的软件著作权能否在2019年享受到补贴？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476514",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476514",
+   "question": "想知道一下，普惠类那个政策补贴标准是多少？网站的相关文件在哪里？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "477372",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=477372",
+   "question": "山西科技创新城服务中心，2019能投入使用吗。谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476480",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476480",
+   "question": "请问：综改区的民政系统归省民政厅还是市民政局？上级文件下发至哪？综改区有民政部门吗？ 综改区网点为何没有机构设置链接？ 谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "477366",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=477366",
+   "question": "尊敬的领导您好， 我叫张建铜，北格镇人，现在在北京创业，我们公司叫汉唐信通（北京）股份有限公司，主要从事知识产权行业，我们主要利用互联网大数据技术抓取、处理知产数据，并研发了一系列智能化搜索引擎和监控以及知产评估、分析系统，用科技帮助企业和",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "477256",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=477256",
+   "question": "科技创新城综合服务平台今年能投入使用吗，创新城内有最近有轨道交通开工计划吗？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "477334",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=477334",
+   "question": "请教：太谷医药食品工业园、祁县经开区在综改区范围内吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476438",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476438",
+   "question": "尊敬的领导，您好，山西转型综改示范区人本位医院门诊部是在龙城大街29号吗？医院什么时候开始修？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "477328",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=477328",
+   "question": "领导好： 首先提供本次反映问题的依据为2018年以来，业主多次反映中泽纯境问题和贵部门的回应。地址为：http://zgq.shanxi.gov.cn/?pcyear=20-58&id=162 和 http://zgq.shanxi.gov",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476320",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476320",
+   "question": "您好，我是太原富士康的一名技术人员。我2010年毕业后着急就业就没管档案的事情，上午我通过学校查询到我的档案在山西省大中专就业指导中心，上周五我去那里取了我的档案。现在我想咨询下，我的档案可以挂靠在咱们综改区人才市场么？应该找哪个部门呢？谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476284",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476284",
+   "question": "您好，想咨询一下如何如何参与入选山西转型综改示范区财政投资建设项目承包商诚信体系库（建筑工程库）",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "477296",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=477296",
+   "question": "创新城内的山西电机厂和恒台混凝土公司有搬迁计划吗，这类企业和创新城的规划完全不符，也和城市发展格格不入。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476544",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476544",
+   "question": "申请公开《“一颗印章管审批”管理办法》和《关于实施“一颗印章管审批”加强事中事后监管工作的通知》两个文件。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "477222",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=477222",
+   "question": "请问政府部门对于综改区白天施工，夜间施工是如何规定的？夜间施工影响入住业主正常生活的可以向哪个部门反映？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "477354",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=477354",
+   "question": "19年春季到来马练营路即将迎来复工 通车指日可待 公交配套什么时候能跟上 马练营路上周边小区入住好多了，二青会马练营路也将是去往太原学院，旅游学院的主路",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "477214",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=477214",
+   "question": "科技创新城，马上投入使用，公共交通很不方便。 公共自行车和公交停车场一个没有，对高科技人才出行不方便。 希望加大公共交通配套力度。谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "477206",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=477206",
+   "question": "示范区科技创新城2019建设计划名单出来没，希望示范区越来越好",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "477114",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=477114",
+   "question": "山西科技创新城核心区综合医院，这个医院，还修不修了？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476424",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476424",
+   "question": "领导，你好，我家小孩今年到了幼升小的规定年龄，我在翰林华府有一套住房，大红本没有下来，手里只有网签合同，户口在娄烦县村里面，暂未落户，去年在辖区派出所办了个居住证，前几天去派出所续签的时候告我说太原新规定现在太原的三县一市统一归入太原市区，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476314",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476314",
+   "question": "据说坤泽十里城南边要盖一所小学，八一或者九一分校，开发商说今年年底开工，请问信息是否真实，目前规划小学在7公里以外的唐槐园，很不方便，坤泽南区有没有盖小学的规划",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "477276",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=477276",
+   "question": "想问一下城南逸居1到4号楼有无进展？进展如何？下步措施？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476412",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476412",
+   "question": "您好，在贵区已经投资或者计划投资的项目中，关于金属材料加工方面的企业有哪些？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "477342",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=477342",
+   "question": "马练营路附近大部分人小区业主已入住，去年修起的马路，公交车站也已经完善，为什么到现在不开通公交，出行不太方便，只能开车出行，希望有关部门尽快解决了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "477316",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=477316",
+   "question": "科技创新城内的龙湖大街和华章街，多会拓宽，谢谢 现在的路严重影响的科技创新城的发展。山西的转型发展，科技创新城非常重要。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "477148",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=477148",
+   "question": "建议开通投稿平台，将广大基层工作者好的照片，文字，视频，艺术创作等稿件投递。更好的为宣传示范区风采提供基层平台。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476370",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476370",
+   "question": "我想申报《关于印发新修订的山西转型综合改革示范区扶持科技成果转化项目实施方案的通知》文件，但是不知道哪位负责人负责以及能联系上的方式，请告知。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "477120",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=477120",
+   "question": "科技创新城有没规划幼儿园，多会开始建设。谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476526",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476526",
+   "question": "我们住在四层，佳缘广场二层提咪ktv扰民严重，多次商议都是嘴上答应整改和不开噪音包厢，实则不然，分贝和振动特别大，基本能听清楚在唱什么歌，希望能管理一下，还我们一个安静的休息时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "477096",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=477096",
+   "question": "请问，2019年山西科技创新城初步会引进几个新项目呢，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "477102",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=477102",
+   "question": "科技创新城规划的有小学，请问什么时候开建，唐槐园区小学比较远",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "477090",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=477090",
+   "question": "城西村拆迁什么时候能完成，城南逸居1-4号楼住户什么时候能入住？2013年单位团购的城南逸居的房子，5年过去了，没有一点进展，开发区政府一直回复在想办法推进拆迁，一直没有进展，求综改区领导给个说法，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "477084",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=477084",
+   "question": "武洛街科技创新城路段2019年有没有拓宽计划,谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "477066",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=477066",
+   "question": "领导，您好，我们在唐槐园这边出行一点都不方便，买这里的大多都是刚需族，没车，所以希望有公交车去富士康小店这块，现在将近有500户在这住了，打个车也不方便，都没有车打，公交车很少，30-60分钟一趟真不顶用，这边有学校，也有小区，希望领导可以",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "477270",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=477270",
+   "question": "科创城第一中学多会开？这么招生？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476362",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476362",
+   "question": "华鼎泰富小区属于什么社区？什么街道办事处？ 能否提供有关部门的地址和咨询方式？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476350",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476350",
+   "question": "庆云街唐槐路口也就是富士康南三门这个十字路口，每天下午五点以后出租车和三轮车占据了大半条马路，每次过的时候都很拥堵，再加上过往的行人，已经看到好几次交通事故了，请问这个十字路口监控不开吗，感觉车子都随便走，出租车一停十几辆，庆云街中间是富士",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "477140",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=477140",
+   "question": "马练营路晋中段从2018年3月份开修已来，截止现在仍差最后一层铺油，但半幅路面已通车，人行道上井盖未装，路边乱停车，每天都有堵车，很不好。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "477132",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=477132",
+   "question": "请问家住中泽纯境属于哪个社区医疗卫生服务站？住进来一年多，多次询问物业无果，每次感冒发烧都得去10公里远的小店医院。另外询问一下，户口在中泽纯境，想办理社区医疗保险，应该具体去哪里办理？中泽纯境本身紧挨后所营村，整个小区建成后及小区周边未来",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476470",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476470",
+   "question": "富士康园商住一体楼，二楼饭店的油烟由顶部排放到ab楼中间，严重污染居住环境，关着窗户都能闻到油烟味，ktv晚上扰民严重，半夜都能听到噪音",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476464",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476464",
+   "question": "夏天的时候，每天早晨都被旁边中泽纯境施工噪音吵醒，冬天好不容易好点，这两天小区旁边(南边)又搞建筑，白天也就算了，现在晚上十点多了，马上十一点了，还是没完没了，小区居民大多老人，晚上睡不好，经不起这个折腾，忘有关部门领导重视并予以解决，这才",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "477072",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=477072",
+   "question": "西温庄村2016年就要拆迁，2019年也没拆完，多会开始拆迁。谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476356",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476356",
+   "question": "近两年省里在推动太原榆次新能源汽车产业园的建设，望再进一步加大宣传及招商引资，便于山西更好的发展，山西的儿女可以在山西家门口工作奋斗，可以专门做一个汽车工业的宣传吗？综改区的政策及已经有的整车厂，零部件厂的宣传，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "477282",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=477282",
+   "question": "只是给公司作会计，不知情被登记成公司监事，现在公司被吊销执照十年，法人找不到，本人上了征信黑名单，各方面受限制，望给解决问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "477058",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=477058",
+   "question": "山西大医院专家住宅小区1-4号楼由山西铸邦房地产开发有限公司开发建设，该房已于2015年办理网签，至今已三年多时间，但不动产权证却迟迟办不下来，给业主们造成诸多问题，家里急需用钱的因没有大红本无法正常交易，还有更重要的是影响户口的办理，这些",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476308",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476308",
+   "question": "五龙口街199号的汇大国际属于哪个区,此处的区为行政区，近几年如果区划变化还望告知，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476290",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476290",
+   "question": "领导:您好，晨煜浓情新居（唐槐园南侧）交房半年了，路灯都没有，大门没有门禁，晚上都不敢出门，电动车只能放门口，经常又丢了，规划了电动车充电的地方存在及大的安全隐患，地下室一层，发生火灾了，都没有人知道，不要让这成为第二个坤泽的悲剧呀，反正是",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476296",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476296",
+   "question": "综改示范区在行政管辖方面属于省政府管辖还是市政府？如果是市政府，是晋中管晋中的产业园区，太原管太原的产业园区吗？那如果这两个地区的企业发生纠纷谁来解决，是综改区还是地方政府？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476508",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476508",
+   "question": "富世康园小区每周日因为电压不够而停电，可是楼底的商户缺有电，物业把大部分电都分配给了商户，以至于住户电不够而跳闸。还有2015年10月份就向业主收取了500元的接入国家电网费用，直到现在都没有接上国家电网的电。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476502",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476502",
+   "question": "尊敬的领导，您好: 我是通达街坤泽十里城C1的业主，我们小区已经交房一年了，自交房起小区院子就被改造成了停车场，现在大部分业主已经入住了，480多户业主没有活动的场所，没有绿化，每天回家停车场是必经之路，有时候老人的轮椅，小孩的婴儿车都挡的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476026",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476026",
+   "question": "公司申请了软件著作权，现在我们能申请补助吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "477052",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=477052",
+   "question": "汇通丽城小区分院分停车位，造成小区分裂，停车紧张，请政府帮助小区还原完整小区",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476718",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476718",
+   "question": "马练营路武洛街往南到翰林华府小区路段路灯不亮，夜间大车较多，极度危险。还望各位领导尽快解决，重视起来。还有这里小区入住的业主很多，出行不方便，关于公交车什么时候通行。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476200",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476200",
+   "question": "我是小店经济开发区富民路90号中泽纯境小区业主，小区目前入住率不少，而且小区周围还有几个小区，入住率也不低，就是公交站点太远，出行不太方便，能否考虑在小区附近一公里以内设置公交停车站牌，解决大家出行问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "477046",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=477046",
+   "question": "一：南畔、南黑窑何时拆迁？ 二：唐槐路被富士康截断，以后是否有贯通（下穿、高架）计划？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "477008",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=477008",
+   "question": "尊敬的领导:截至今天,太原市已经供暖1周了，但是综改区开发的唐槐园小区确迟迟供不上暖气，这几天温度骤然下降，家中的老人、小孩实在受不了，恳请领导给解决一下，请不要推辞说暖气需要做注水试验，冒昧的问一句：早点干啥去了，别人小区10月份就可以做",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "477242",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=477242",
+   "question": "上周七天，停水4天。到今日为止也是来一会就又停了，到目前为止，政府回复里也是供水系统是最牛的，供热系统是最好的。停车系统也是全天下独一无二的。但是就是这 也是水也出问题，电也出问题。供暖更是问题多多。各种的都在推进中，进行中。但是眼下的民生",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "477190",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=477190",
+   "question": "唐槐园产业园区所属中泽纯境小区，目前已有10栋楼交房，入住居民逐步增加，但是居民出行非常困难，希望园区领导能解决一下居民的出行问题！园区可否与太原公交公司协商，304公交行至太太路与2号线交叉口后向东改行2号线，然后行经大昌路与泽信街口设置",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476456",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476456",
+   "question": "居然之家坤泽店-1层维意定制衣柜柜门及柜体板材，有15块板破损，商家一直推诿，得不到解决。商家地址为【山西省太原市小店区昌盛街与坞城南路交叉口居然之家坤泽店-1层】",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476418",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476418",
+   "question": "我与2018年5月收了晨煜.唐槐园的房子，物业没有开具相关发票，请问晨煜.唐槐园房子什么情况，为什么不给开发票，我是北京住房公积金，开了发票才能提取公积金，还有交了物业费，取暖费，水费，电费等都不给开发票，一问就是等领导通知，请相关领导关注",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "477078",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=477078",
+   "question": "中泽纯境小区至交房一年来，三天两头停水停电，居民多次被困电梯，绿化面积和路面情况达不到交房条件就草草交房，居民多次向12345反应，没有得到任何回复和解决方案，都市110进行报道也是没有了下文，现在我们老百姓都不知道该向什么单位进行反应，真",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "477040",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=477040",
+   "question": "自2016年国仕山小区交房以来，当初合同上写的是大红本，收房以后成了小产权，水不是自来水公司的水，电不是市政的电，电费是天价9毛一度，取暖没接市政大暖，取暖费更是出奇的高7.5元，全太原也没这价。希望领导们能重视这个小区，解决一下这个小区的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "477028",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=477028",
+   "question": "进门有个拿着牌子说是车位已满，我进去办事专门问了人了，里面可多车位了，经常过来办事，里面有没有位置都清楚。这公家单位不为人民群众办事。宝安还油嘴滑舌跟个地痞流氓一样。我说我进去没有车位我就出来。他心虚不敢让进。最后我进来里面到处都是空的车位",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476270",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476270",
+   "question": "去年在高新区一家公司打工，18年2月离职后这家公司一直拖欠17年11月～18年1月3个月工资不付。期间多次拨打省，市劳动局电话均让寻找综改区劳动监察大队，但都提供不了地址电话。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "477196",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=477196",
+   "question": "太太路太原大学旁唐槐园小区，号称政府的开发商。交的物业费，物业不作为，小区道路一下雨就泥泞不堪，绿化迟迟未做，小区路灯也没有，大门不完善，监控也没有，而且不让电动车自行车进小区，电动车频频丢东西，物业保安多次与业主发生冲突，昨晚我亲身看到了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "477016",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=477016",
+   "question": "尊敬的领导： 您好！ 感谢领导百忙之中能看到这封信，给您致信是想反映一下园区的公共交通问题。 目前庆云街以南，唐明路以东未通公交车，导致在园区上班的员工出行不方便。虽然有通富士康的公交车，但是再往南面就没有了，而且公交车目前仅有877路、8",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476302",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476302",
+   "question": "领导好，我是唐槐园小区业主，晨煜唐槐园小区自5/2交房至今，小区没有正式电，临时用电频频停电，没有小区大门和单元楼门，没有门禁，没有路灯，没有绿化，没有验收，没有派出所备案不能落户，唐槐园小区没有电动车充电停车棚，物业要求保安不准唐槐园业主",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476444",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476444",
+   "question": "唐槐园小区绿化迟迟未完成，小区电动车不让进小区，指定停车点设备不齐全，无人看管，有丢失现象。且保安态度恶劣",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476276",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476276",
+   "question": "之前在位于坞城南路联通业务综合楼的太原医联通数字医疗科技有限公司工作，九月初离职，现在七八月的工资还一直没给。这种情况应该怎么举报",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476258",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476258",
+   "question": "请问 2018年度企业员工职称评定工作，在什么时候开始。 我的工作单位在高新区，具体由什么部门开始通知呢。 我打那个电话可以了解详情。 非常感谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "477002",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=477002",
+   "question": "我司是一家做电磁兼容和热解决方案的公司，主要服务于研究所和军工单位，现需要标准工业厂房生产屏蔽玻璃，由于需要无尘车间制作，所以对周边环境有一定要求，厂房面积600-1000平方。希望政府能帮忙解决问题。 我司也找了一些地方，房租太贵，1.2",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476628",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476628",
+   "question": "富士康园b座三单元二楼ktv每天半夜噪音扰民，我们楼整个都能听到噪音，没法正常生活休息，希望领导能重视整顿一下",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476252",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476252",
+   "question": "你好，我想咨询一下在示范区开办公司的流程和有关政策。谢谢您",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476264",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476264",
+   "question": "我想咨询一下综改示范区的中小企业主管部门的咨询电话",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "477034",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=477034",
+   "question": "1，产权问题！大红本多年不办理！2，安全问题！门禁都是坏的，小偷经常光顾，丢东西，后院成为超市的送货车出入之地，造成院子地面破损严重，安全问题迫在眉睫！3，卫生问题！没有垃圾桶，垃圾随意扔在物业圈? 出的一块空地，业主不敢开窗户，因为恶臭熏",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "477236",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=477236",
+   "question": "尊敬的领导：我是小店综改示范区鸿洋小区的业主，2013年小区交房入住以来，小区环境脏乱差一直未予改善，曾多次与数字城管反映未果。看到打黑除恶真抓实干，故希望能帮我们了解解决为盼。具体问题如下： 1、小区脏乱差一直为解决，小区位于康宁东街与唐",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476400",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476400",
+   "question": "太原市普天光电缆有限公司在没有预售许可证的情况下销售其开发的研发中心写字楼。据了解该项目老板明知不属于销售范围的情况下擅自销售，诈骗钱财。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476344",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476344",
+   "question": "你好。我是山西太原人，现在在北京经营一家大数据公司。本着反哺家乡、想为家乡大数据发展尽一点微薄之力的想法，计划在太原开一家分公司，想具体咨询一下相关政策，尤其是税收方面的政策。谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476954",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476954",
+   "question": "首先回顾一下关于8月1日领导对中泽纯境小区问题的回复（●后的为回复内容）： 唐槐产业园区项目建设服务中心已与中泽纯境小区山西颐德物业管理有限公司对接，并于7月31日进行现场检查，要求物业公司对以上问题尽快答复并整改，具体情况如下： 1、小区",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476948",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476948",
+   "question": "我是坤泽翰林华府的业主，所属开发商为山西恒诚房地产开发有限公司，至2015年月陆续交房以来存在好多工程质量问题，小区业主经过多次维权到现在还是没有解决。1、地库防水工程质量不达标到处漏水。2、暖气和给排水管道到处跑冒地下室购买的库房常年不能",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476338",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476338",
+   "question": "正阳街坤泽十里城南区D区，流浪狗太多，至少十几只，下的幼崽也挺多。一到晚上，狗吠声不仅扰民而且极容易咬伤小孩。 向坤泽物业多次反映，但是物业不作为，恳请政府能够处理了这一安全隐患",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476942",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476942",
+   "question": "我是一名2016年5月从迎泽区调动到九一学校的教师，我是2016年5月份办理的调动手续，可是我的医保在2016年8月和9月就没有单位交纳！这直接影响到我的医疗报销的问题。我只想问一问，经过了大约两年的时间，我的这个问题何时才能有合理的答复？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476934",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476934",
+   "question": "领导，您好，中泽纯境小区这边交通实在不便利，公交站离得远，且班次很少，忘领导可否与有关部门沟通协商，给小区附近设立公交站牌或者公共自行车，改善交通",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476182",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476182",
+   "question": "本人于2017年6月份在综改区管辖内的云特区A座交付10万元首付，销售和我说9月份就可以网签了，18年8月份准时就可以交房了。第一次买房也不懂，也就信以为真了，可是后来到了9月份也没有接到任何通知，之后去了几遍售楼部也都是被各种搪塞，不了了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476194",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476194",
+   "question": "国晶售电有限公司，拖欠临汾区域6名员工，现在相互踢皮球，不给；还没签劳动合同，干活不发钱，现在需要投诉并且那会相应的公司待遇，通过劳动监察大队；国晶售电有限公司地址在山西综改示范区太原学府园区创业街27号1901C室，法人：范磊。现在给太原",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476332",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476332",
+   "question": "国药大厦对面路上有群流浪狗可以清理了吗？总在人行道草丛里，人经过就汪汪着过来，挺怕人的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476246",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476246",
+   "question": "省运会武术套路在综改示范区体育馆 可是地图找不到",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "477184",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=477184",
+   "question": "太原大学，山西青年职业技术学院，太原旅游职业学院，唐槐园小区，国仕山小区，中泽纯境小区，农牧场，七色镇小区周边人流量逐步增长，公交车线路少，发车间距长，给周边学生，居民带来不便。现请求综改区及唐槐园区领导出面与太原市公交公共自行车有限公司协",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476188",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476188",
+   "question": "小店区海棠家园二期3号楼3单元101户装修拆除承重墙，业主仅仅是因为采光不好，就把承重墙拆除，不顾整顿楼的安全，并且物业也不管，目前该业主还再装修施工，希望咱有关部门能够关注。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476236",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476236",
+   "question": "我家现居住在坤泽翰林华府小区，孩子在平阳路街道办大马小学下学期升小学四年级，希望能转入本区上学，请问能转到哪所学校且怎么办理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476406",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476406",
+   "question": "经综改示范区核实：根据太原市消防大队审核意见书要求，晨煜置业公司严格执行《建筑设计防火规范G*****6-2014》第五章第五条第32款规定，“建筑高度大于54米的住宅建筑，每户应有一间房间符合下列规定：1.应靠外墙设置，并应设置可开启外窗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476164",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476164",
+   "question": "注册中介服务平台，显示已经注册，但密码不知道多少，登录不上",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "477178",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=477178",
+   "question": "经“太原市物价局”官网“http://www.ty12358.sx.cn/NewsSelect.aspx?keyWord=%d2%c3%b5%c2&bigtype=” 查询，山西颐德物业仅有“七色镇小区住宅前期物业服务等级与收费标准”，且该",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "477172",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=477172",
+   "question": "小区物业属太原当地企业，严重的不作为，不把翰林华府小区业主当回事，大电不通，自来水不接，暖气是哪哪也漏，地下室漏水严重，电梯安全隐患严重等等，老百姓的忍耐也是有限度的，何况是2000多户老百姓，现郑重恳请区领导重视翰林华府小区问题，别等事态",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "477166",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=477166",
+   "question": "麻烦咨询一下，坤泽今年人户一致的幼升小如何进行信息审核，为什么社区报名时间里面没有梧桐社区？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476176",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476176",
+   "question": "7月份停水停电十几次，物业也不通知，跟物业反应以后停的更频繁，电梯，强电井漏水漏电，非出人命才有人管么。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476922",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476922",
+   "question": "山西昆明卷烟厂技改落户于唐槐产业园区，今年有2名本市户口适龄儿童需要 幼升小，示范区人力资源部口头表示唐槐园产业园的入驻企业昆烟不属于其帮扶范围，昆烟子女无法直接就近入学； 申请对口帮扶领导，协调昆烟享受示范区企业帮扶，让2名职工子女顺利就",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476916",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476916",
+   "question": "学府街平阳路天外天烧烤城(平阳路店)门口长期占道经营，利用明火做饭 存在严重安全隐患 已经反映过政府12345热线和城管热线 给出的意见为：学府园区没有人力管理， 流动饭店方长期危险营业，路面油渍斑斑 夏天路过令人作呕。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476170",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476170",
+   "question": "在租房子做生意 想问一下什么时候拆迁",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476910",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476910",
+   "question": "综改示范区唐槐园产业园区的工作人员对园区企业的帮扶工作做的有问题! 首先：想确定一下什么是规模以上的企业，山西昆明卷烟厂 这么大的企业 难道不是规模以上的企业？ 其次：招商引资进入园区 不是都有帮扶么？投资建厂等巨额资金投入，难道都不算投资",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "477154",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=477154",
+   "question": "根据《中华人民共和国公司登记管理条例》，变更股东的需要30天之内去工商做变更登记，但综改区服务大厅工商的同志说必须满3个月才给做变更，该同志说有文件，但不清楚具体文号。这种做法会导致有关投资方不愿意给我们投资，我想也对促进营商环境不利，所以",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476394",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476394",
+   "question": "1.山西正合信息科技有限公司在给平遥县电动车上牌时候强制消费260元，其中车牌行驶证费用15元，其他费用是否合理，是否有批文支持，2，工作人员态度蛮横，当面辱骂群众。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476388",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476388",
+   "question": "学府街平阳路天外天烧烤城(平阳路店)门口长期占道经营 门口商户使用明火 有安全隐患 使用裸露煤气罐 希望予以受理 谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476382",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476382",
+   "question": "举报内容：和易嘉园住宅小区开发商违规交房 和易嘉园住宅小区（位于高新区佳华街罗克佳华电子工业园北），由山西省四建集团开发建设，购房合同约定2018年5月1日交房。 根据我国《建筑法》、《城市房地产开发经营管理条例》、《建设工程质量管理办法》",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476158",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476158",
+   "question": "最近潇河工业园区施工热火朝天，但是因为工程车辆的增多，导致太太路，特别是辛村路段，柏油路面全是大坑，过往车辆为躲避突然出现的大坑，都急转弯，造成很大的安全隐患。希望能反映给相关部门，可以实地考证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476376",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476376",
+   "question": "我想咨询一下港丽城现在有几证了？该小区以前叫紫光华府，后由山西利丰房地产公司开发并改名为港丽城。港丽城项目后期是否由山西科创城管辖、统一规划？目前土地出让金交了没有？是否正在补办手续？开发商承诺各位业主该小区是大红本且五证齐全。说各种证件会",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476904",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476904",
+   "question": "鑫龙房地产太原有限公司开发的阳光揽胜4期，开盘一年了，现在还是个坑，请有关部门督促盖房，预售证是怎么办下来的。还有资金去向？为什么一年了还是坑，这不是欺骗也主吗？请领导给予解决，为盼！谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476140",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476140",
+   "question": "想要在综改示范区武宿保税区注册公司在哪里办呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476996",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476996",
+   "question": "学府园区亚日街太嘉小区破败不堪，没有任何健身器材，物业公司已经跑路，现在靠小区的几个热心人张罗着自我管理。希望综改区能够高度重视几百人的生活问题，为小区添置健身器材，让太嘉小区的老百姓能够享受到政府的惠民政策。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476990",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476990",
+   "question": "领导好，我想咨询下云特区A座有没有建设用地规划许可证，证件号是多少",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476134",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476134",
+   "question": "请问一下我有一个开了2年的个体户小饭店，因为没有开票问题所以一直没办理税务，现在是否需要办理税务，如果需要有罚款么？怎么办理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476898",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476898",
+   "question": "尊敬的示范区、学府园区领导： 我是示范区学府园区亚日街太嘉小区的业主代表，太嘉小区建成于2005年，距今已有十年时间，房屋有三栋低层（6层）和一栋高层组成。 三栋低层房子为砖混结构，开发商安装的塑钢门窗很多已变形，跑风漏气，夏热冬冷，保温性",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476892",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476892",
+   "question": "一直觉得小店没有一个真正的对外开放场地比较好的球场！当知道咱们为人民服务院内有球场，还漂亮，对外开放，响应国家发现体育事业，全民健身！可最近为什么不让对外开放了，为什么，为什么？领导要做主啊",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476886",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476886",
+   "question": "我想咨询一下港丽城现在有几证了？该小区以前叫紫光华府，后由山西利丰房地产公司开发并改名为港丽城。港丽城项目后期是否由山西科创城管辖、统一规划？目前土地出让金交了没有？是否正在补办手续？开发商承诺各位业主该小区是大红本且五证齐全。说各种证件会",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476862",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476862",
+   "question": "尊敬的领导，说好的磁悬浮列车工程呢，怎么到现在也看不到动静",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476230",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476230",
+   "question": "投诉兄弟钢铁宿舍物业乱收费 具体该找那个地方管理 1、所谓的物业是怎么产生 谁选的 2、夏天说是维修楼顶 已经申请了 维修资金 还有每户收取1000元 费用不合理 明显高于市场价格 3、如果要维修楼顶 建设预算是否改公示 4、质疑该物业能力",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "477022",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=477022",
+   "question": "我今年想参加职称中级职称评定，想了解一下相关情况，我的人事档案之前在高新区人才交流中心，现在的单位所在地是通达街真武路口文化大厦，想问一下，现单位是不是在综改区的管理范围，关于职称评定应该咨询哪个部门",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476856",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476856",
+   "question": "综改区有没有住建部门？？？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476984",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476984",
+   "question": "综改区的领导你好: 我是翰林华府的业主，为什么我们反应的问题迟迟得不到解决呢？现在小区所有的业主要求开发商公示小区前期规划图纸，望相关部门领导督促开发商在2018.6.20日前在小区给业主公示出来。 翰林华府存在的种种问题如下： 1、开发商",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476978",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476978",
+   "question": "政府的回复已收到，小区存在的种种问题我们找个物业，开发商政府到现在迟迟解决不了。物业公司只收钱不办事，望领导可以去小区实地看看。物业经理一年换几个，换个经理让反应问题等回复，完了就石沉大海，经理也不见了。现在所有的业主要求开发商公示小区当初",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476880",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476880",
+   "question": "尊敬的领导:太原学院附近人口剧增，希望能够开通至火车站的公交车。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476850",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476850",
+   "question": "规划与定位：科技创新城规划面积20平方公里，规划总人口约15万人。位于武宿机场南，太原经开区东，晋中经济开发区西。按照“智慧碳谷、科技绿城”的规划理念，着力打造以“产研一体、产城一体、产融一体”为特征的区域发展新格局，成为山西的科技特区、人",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476844",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476844",
+   "question": "坤泽翰林华府为啥代收的契税，维修基金三年了我们的钱去了哪里？承诺的小区配套设施去了那里？会所改成幼儿园私自占用公共用地怎么解释？小区里到处挖开维修一年了也没见维修回填好。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476218",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476218",
+   "question": "您好，我想咨询下关于综改区申报项目有没有微信群呢，或者有没有综改区的公众号可以关注到综改区关于项目申报这方面的信息",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476104",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476104",
+   "question": "您好！请问如果在山西转型综改示范区太原学府园区设立个人独资企业，是否不缴纳企业所得税，而是缴纳个人所得税。当地税务机关对注册在该园区的个人独资企业个人所得税采用核定征收方法，对开票金额的10%按比例征收？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476224",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476224",
+   "question": "我是在西安上学的2018届硕士毕业生，与江铃重型汽车有限公司签订了三方协议。之前企业说由于综改区的政策，户口迁不到公司那块，必须交够一年公积金，第二年才能迁移户口。5月12号太原发布了《关于放宽人才户口迁入的政策》，我想问一下现在户口能不能",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476972",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476972",
+   "question": "领导您好，由于我村在前几年被规划为科创新城范围，但近几年没有什么动作，家里的老房子年久失修，想拆了重新翻盖，但又怕刚盖起又拆迁，造成浪费，请给予答复，什么时候我村进行拆迁，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476128",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476128",
+   "question": "我家的后院子，被邻居家偷量了，拆迁办和村委会在我家不同意的情况下，就给他家结算了，我家的后院，现在有根基在",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476098",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476098",
+   "question": "你好： 我们公司要申报资料，需要知道综改区的金融办在哪里？电话是多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476092",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476092",
+   "question": "政策兑现服务平台的账号是否也能弄成账号登录或社会信用代码登录，还有就是能不能设置找回账号。我刚注册的就说我账号不存在，是否系统出现故障？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476966",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476966",
+   "question": "尊敬的领导，潇河起步区自开建以来，形成了一定的发展局面，取得了一定建设成果，但感觉并没有像人们期待的规划图中那样，感觉进展不是很快",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476086",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476086",
+   "question": "小店阳光揽胜第4期盖房进度太慢，合同上说2019年10月交房，现在连地基都没有挖出来，请问阳光揽胜第4期的预售证是怎么办下来的？都是主体盖好2层才能批预售证，他这连地基都没有挖出来呢就有预售证了，哪个部门监管呢？既然批下来了就赶快盖房子，现",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476874",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476874",
+   "question": "请问潇河起步区园中村是怎样规划的，会拆迁吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476832",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476832",
+   "question": "晋能千禧置业有限公司开发的城南逸居小区里的B C地块目前只有国土土地使用证和建设用地规划许可证，而且这两证早在2016年就办下来了，那第三个证为什么迟迟办不下来呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476960",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476960",
+   "question": "请问潇河起步区园中村什么时候改造",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476080",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476080",
+   "question": "阳光揽胜四期去年开盘到现在一直不动工，买的时候承诺2019年10月交房，去年买的到现在一直没动工，就这速度啥时才能交房啊，老百姓的血汗钱，坑老百姓，我们业主要的就是赶紧动工，加班加点，按期交房，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476826",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476826",
+   "question": "阳光揽胜四期17年8月至今工期缓慢，请领导督促",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476074",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476074",
+   "question": "耿市长你好，我是阳光揽胜4期业主，我们去年2017年8月开盘买的房子，承诺2019年10月交房，去年到现在一只没有动工，前段时间业主去维权，好不容易开始挖了几天土，又没有动静了，好像就是敷衍业主了，当初买也是比较信任阳光集团，老百姓的血汗钱",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476820",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476820",
+   "question": "领导您好： 本人去年购买的阳光揽胜四期房子，合同是2019年10月交房，但截止目前基本没施工，希望领导核实一下，督促他们施工！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476212",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476212",
+   "question": "领导您好： 我是一名普通老百姓，2017年8月份买下的阳光揽胜四期的房子，截止目前才挖了一点坑，业主每天催着他们干，之前的停工他们都归咎到政府方面，前几天说是化章街市政管道漏水，有这回事吗？希望领导帮忙解决一下，是不是他们又把问题归咎到政府",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476206",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476206",
+   "question": "您好：购房合同写着去年4月开工，到现在连做地基的坑还没挖好，全是水，不能施工，说是市政工程的问题，请政府关注此事，让我们钱花的放心，能按期住房。谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476068",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476068",
+   "question": "尊敬的领导您好。我是太原阳光揽胜四期业主（77-79号楼）。2017年8月购房，至今还贷将近一年。但是鑫龙地产（太原）开发商，迟迟不动工，2018年4月，无奈之下，四期业主集体到售楼部维权，然后才开始动工，但是每天就4-5个工人，而且隔三差",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476742",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476742",
+   "question": "尊敬的领导你好，我于2017年8月8日阳光揽胜开盘买的4期78号楼楼房，买房至今工地还是一堆土，开发商到现在没有一点要干活的意思，77到79一块开发，工地每天3个工人，眼看的明年交房，盖都没盖怎么交，买的时候看中的是五证齐全，结果还是坑老白",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476020",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476020",
+   "question": "山西禾木新能科技有限公司自成立以来，一直不给员工上社保，身为该企业一名老员工，深知企业严重违反社保法和劳动法，这种企业竟然享受示范区的种种政策优惠，甚至被评为高新技术企业，希望示范区领导明察，还我们员工一个公道",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476736",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476736",
+   "question": "关于科祥大厦没水的问题，回复说：正在制定解决方案。具我们了解去年问题已找到，解决方案也已提出，只是机构变化影响了。试想你们的办公环境总是无水，会怎样？酷热的夏天已到，希望尽快解决。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476814",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476814",
+   "question": "山西转型综改示范区服务网站中政务服务平台长时间无法登陆",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476014",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476014",
+   "question": "麻烦问一下晨煜唐槐园小区交房快一个月了，水和一表啥时候能到位？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476808",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476808",
+   "question": "已看到交房没有一表的答复，环保验收和全部交房完毕是否有必然的联系？为什么其他小区开始交房就有一表？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476802",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476802",
+   "question": "晨煜唐槐园小区没有竣工验收表交房是否合理？作为业主能否收房？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476730",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476730",
+   "question": "阳光揽胜 四期去年八月份就开盘到现在还没开工，按照工期时间已经过去了三分之一，我们只希望能按时保质保量的交房，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476724",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476724",
+   "question": "阳光揽胜2017年8月8日开盘，我们也都买房，今年在业主的强烈要求下5月份陆续开工，到目前为止，工人太少，进度缓慢，业主担心2019年10月交不了房，请领导督促项目开发商，我们只要求保证质量按期交房。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476008",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476008",
+   "question": "我的综改区清控创新基地中普通企业的一名员工，户口属于原高新区科技集体户口。居住：小店区学府街平阳路兄弟钢铁宿舍（小产权 没有社区管理） 咨询了好多年 不知道 该去那里咨询和了解了关于入党问题 我的入党诉求和那里提",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476002",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476002",
+   "question": "您好，我是中国燃气控股有限公司——北京中燃电力销售有限公司的配售电负责人，从太原经信委有关部门获悉，贵单位负责配网项目，但苦于一直未能找到相关业务接待窗口，请贵单位看到信件后能给予回复。我们的目的是参与配网试点的建设，以投资为主。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476796",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476796",
+   "question": "我们是租住在高新区科祥大厦办公的企业，祥科大厦近几年一进入春天8、9楼，仍直7、6楼就没用水，我们多家租住企业多次向高新置业反映这一问题，得知目前最主要是基础设施老化，主管部门也已报告，希望领导过问此事，尽快得到解决。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476122",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476122",
+   "question": "管委会领导您好: 关于晨煜唐槐园交房的问题，请问: 1、现在是否已经正式通水通电了？已经交房的是否具备装修条件.2、现在已有两书，请问一表啥时候能有呢？3、购房合同中，没有写明要交燃气初装费，而且国家有规定已经取消了燃气初装费，为何这次还要",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476062",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476062",
+   "question": "正大华景天地在2017年7月份还曾被房管局发通告，未取得预售许可证，后经查询得知，审批权限已到综改区内，它现在是否已经获得合法预售许可证？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "475996",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=475996",
+   "question": "坤泽十里城小区是否属于唐槐产业园范围内？ 该小区D区的天然气何时入户？ 该小区D区何时可以办理落户？ 该小区D区的不动产证何时可以办理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "475990",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=475990",
+   "question": "你好！近期我关注咱们官网，并了解到咱们转型综改示范区引进一些科技创新项目和团队，（尤其山西科技创新城和唐槐产业园）我是山西人，热爱科技创新，2013年回乡创业，现在寻找科技创新团队，可否提供帮助？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476712",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476712",
+   "question": "综改区是全省先行先试的主战场，政策好、审批快，但是位置较为偏远，并且没有直达的公交车，附近只有877、840、839路公交车，但是下车后要步行15—20分钟才能到达综改区管委会和政务大厅，十分不方便。希望配套设施可以跟得上，在综改区管委会门",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476664",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476664",
+   "question": "尊敬的领导:看到你的回复唐槐园小区已经开始交房，我什么时候能收到交房通知？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "499735",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=499735",
+   "question": "希望示范区越办越好,将来入驻的人越多越好，为山西省的繁荣多做贡献。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "475984",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=475984",
+   "question": "尊敬的领导:月底复月底，一年又一年，综改示范区的下属单位开发的唐槐园小区何时能交付使用，我们这些穷苦百姓等着入住呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476116",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476116",
+   "question": "想在太原综改示范区租一间500平左右的厂房 做贵金属材料 无污染 哪里可以租到？ 有地址电话么",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476706",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476706",
+   "question": "尊敬的领导:月底复月底，一年又一年。唐槐园的房子啥时候可以交？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476700",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476700",
+   "question": "晋阳街英语周报社悬挂落款为山西综改示范区文明办的条幅,内容为“人民有信仰、民族有希望、国家有力量”，好像总书记的十九大报告不是这样描述的吧？ 附十九大报告原文“人民有信仰，国家有力量，民族有希望。”",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476694",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476694",
+   "question": "尊敬的综改区领导：现在已经是2018年4月30日，晨煜唐槐园小区的房子仍然没有任何动静，说好的月底交房怎么又没消息了，月底复月底，一年又一年，何年为好？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476688",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476688",
+   "question": "城西村拆迁有没有进展，群里要组织去省委上访，请示范区领导给出明确答复，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476110",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476110",
+   "question": "想知道综改区下属单位晨煜公司开发的唐槐园小区啥时候能交房？都延期7个月了。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "475972",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=475972",
+   "question": "想咨询一下晨煜唐槐园小区开始交房了没？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "475966",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=475966",
+   "question": "您好，我想知道晨煜唐槐园小区交房了没？不是答复说3月底就开始交了，现在4月20号了，怎么还没有通知？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476790",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476790",
+   "question": "尊敬的领导:3月份答复的晨煜唐槐园小区3月底交房，现在都4月中旬了，还没交房吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "475960",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=475960",
+   "question": "我们公司原来叫太原市高新区亚日街2号太工天成工业园，现在更名成山西综改示范区太原学府园区理工天成工业园这个证明需去哪里开",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476784",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476784",
+   "question": "尊敬的领导:晨煜唐槐园小区从3月初快到4月底了，自来水水表还在更换吗？能否交房？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "475948",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=475948",
+   "question": "您好！ 2017年6月23号您单位发布了关于整理政府和社会资本合作（PPP）专家库专家的公告。请问能否查询某申请人是否入库的信息，若能请告知查询时间和相关网站链接！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476044",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476044",
+   "question": "您好，我想咨询一下《中共山西省委、山西省人民政府关于建设山西转型综合改革示范区的实施方案》（晋发〔2016〕51号）这个文件为什么在网上找不到呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "475942",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=475942",
+   "question": "尊敬的领导： 您好，我公司是山西汉威激光科技股份有限公司，属非公组织，单位以技术研发为主，是高新技术企业，我想咨询一下企业内科研人员如何进行职称申报及评定工作。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476682",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476682",
+   "question": "领导您好，我是山西皇城相府宇航汽车公司一名普通员工。我们公司不管员工死活，不顾员工民生，因为厂里接不到订单没有生产任务，2018年的春节年假整整休息了一个多月，而没有一分钱工资。2018年3月份上班后，有外来企业要和我们厂谈合作增资扩股。为",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476868",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476868",
+   "question": "标题：关于晨煜-浓情新居及唐槐园业主上学（其适龄子女能否按时入学九一学校唐槐园分校）的建议 时间：2018-3-28 内容： 尊敬的领导： 您好 ！ 我是浓情新居业主中的一员，眼看房子已无法按时交房(房屋也未在综改区分局教育园区派出所备案）",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "475954",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=475954",
+   "question": "尊敬的领导:你好，我现在举报太原晨煜置业发展有限公司，该公司是综改示范区开发控股集团的子公司，借着政府的名义滥用职权，诈骗业主，该公司开发的晨煜唐槐园和浓情新居小区，质量存在重大嫌疑，这两个小区已经被围墙围挡，希望有关部门妥善处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476778",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476778",
+   "question": "尊敬的各位领导:你们好，我家买的晨煜唐槐园小区啥时候能交房？已经延期半年了，给个回信吧。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476772",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476772",
+   "question": "尊敬的领导:您好，麻烦问一下唐槐园小区啥时候能交房？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "475906",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=475906",
+   "question": "尊敬的领导:您好，麻烦问一下唐槐园小区啥时候能交房？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476658",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476658",
+   "question": "领导，帮帮忙啊；综改区注册问题咨询，我查了多半年了，不知道如何下手？因为我要从事海外商品贸易，涉及海外商品的入境；然后国内销售。准备投资1000万；前期50万，先投石问路一下。从去年到今年，时间过去了快半年了，太原的同学，朋友，也跑遍了，不",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476038",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476038",
+   "question": "请问坤泽十里城D区以南，正阳街以北空地有何规划，开发商说有规划学校，是不是真的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476032",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476032",
+   "question": "尊敬的领导:您好，太原晨煜置业发展有限公司是山西综改示范区的下属单位，该公司开发的晨煜唐槐园和浓情新居小区已经延期半年以上，直至现在也无人问津，请问领导，该小区延期的原因是什么？对于延期造成的损失，如何赔偿？小区内的户门打架问题又该如何解决",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476766",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476766",
+   "question": "尊敬的领导:您好，太原晨煜置业发展有限公司是山西综改示范区的下属单位，该公司开发的晨煜唐槐园和浓情新居小区已经延期半年以上，直至现在也无人问津，请问领导，该小区延期的原因是什么？对于延期造成的损失，如何赔偿？小区内的户门打架问题又该如何解决",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "475936",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=475936",
+   "question": "山西转型综合改革示范区政策兑现服务平台，注册账号上传营业执照照片时系统异常。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "475924",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=475924",
+   "question": "我们刚办的营业执照地址是：山西省示范区太原阳曲园区五龙口南巷359号，那我们税务报道去哪个区呀?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476760",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476760",
+   "question": "晋能千禧置业有限公司开发的城南逸居小区里的B C地块迟迟没有五证到底是什么原因？是不是不符合规划，属于违建？什么时候才可以五证齐全",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "475918",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=475918",
+   "question": "晋能千禧置业有限公司开发的城南逸居小区的B C地块儿迟迟没有五证到底是什么原因？是否不符合规划，属于违建么？什么时候才能五证齐全？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476754",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476754",
+   "question": "尊敬的领导：您好，我于2016年11月购买了由山西省综改区下属单位太原晨煜置业开发的唐槐园小区住房，合同上签订于2017年10月31日前交房，但是现在已经2018年3月中旬，迟迟交不了房，也没有收到任何延期消息，麻烦领导给予解决处理，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "475912",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=475912",
+   "question": "尊敬的领导：您好，我于2016年11月购买了太原晨煜置业开发的唐槐园小区的房屋，购房合同签订于2017年10月31日前正式交房，不知道由于什么原因，2017年10月24日接到售楼部通知延期1个月交房，之后再无接到任何来自售楼部的电话，直至现",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476748",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476748",
+   "question": "尊敬的领导： 麻烦问一下，作为整个南部区域的重大民生项目，化章街公交停车场有无专人、专项在推进该项目？会不会出现人为导致的项目滞后现象？原来规划的比亚迪旁边的公交停车场还在规划范围内吗？谢谢您 的慎重回复。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476676",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476676",
+   "question": "太原市高新技术开发区劳动局电话根本查不到，查到的也根本打不通，反映拖欠工资问题怎么联系？？？？？？？？？？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476670",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476670",
+   "question": "各位负责山西综改区相关项目的领导以及各位工作人员，你们好！我是一位普通的太原市民，首先，感谢各位领导及相关负责人员对太原市的建设和发展方面的关心！在此，我站在一名普通市民的立场上，对太原市磁悬浮近期的建设规划，提出一些意见和建议。 首先，中",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476652",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476652",
+   "question": "城西村拆迁什么时候能完成，城南逸居1-4号楼住户什么时候能入住？今年能不能完成城西村的拆迁，能不能动工，能给个说法吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476640",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476640",
+   "question": "城西村拆迁什么时候能完成，城南逸居1-4号楼住户什么时候能入住？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476634",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476634",
+   "question": "帮忙查询一下兄弟钢铁宿舍属于那个街办 小区名称：兄弟钢铁宿舍 位置：小店区学府街平阳路东南角 帮忙查询一下兄弟钢铁宿舍到底归那个社区管理或哪个街道办，麻烦给一个联系方式 和小区物业联系对方也不清楚。 查询街道办归属 小店区人民政府回复：感谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476622",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476622",
+   "question": "我们是一家致力于让妈妈生孩子不疼的移动医疗专业机构，旗下音乐镇痛分娩服务系统是中国第一套音乐治疗结合孕产技术而成的产房适宜技术。现准备进入山西市场，为山西妈妈们带来福音。希望园区给与我们支持在全区内设立公司办公场所",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476616",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476616",
+   "question": "农牧场棚户区安置小区幼儿园(唐槐园小区南区浓情新居幼儿园)由示范区管委会所属企业太原晨煜置业发展有限公司开发建设，为晨煜公司广泛宣传的唐槐园小区公立配套建设幼儿园，而如今却准备采取社会化运作模式。此做法一是违背了国有企业守信原则，二是鉴于示",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476610",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476610",
+   "question": "综改区新开通的网站办得非常好。我们是一家民营科技型企业，能否在综改区的网站上多看到一些中小企业局，科技厅、人社厅、经信委等发布的通知公告转发到这里。现在政府网站太多，企业没有精力每家网站天天都去关注。很多通知从下发到截止只有三时间。特别希望",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "475894",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=475894",
+   "question": "你好，我是山西省太原市高新区山西爱蜗居网络科技有限公司一名普通员工，自4月份离职后，原公司山西爱蜗居网络科技有限公司一直不给我社保办理转出，截止到12月份，我的社保还是处于欠费状态，没办法转出到新单位，多次沟通无效，请问我该怎么办？现在这个",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476604",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476604",
+   "question": "领导您好！我是山西首康科技有限公司总经理，我公司研发生产医用康复设备，拥有授权发明专利一项，属于国内空白，契合大健康产业和虚拟现实产业，现在研发已近尾声，急需一个装配和办公场地。经过我给示范区打电话咨询，问询是否有带装配车间的双创基地，回复",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "475888",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=475888",
+   "question": "关于对山西转型综改示范区中介服务机构遴选（其他类—会计师事务所）的投诉 山西转型综合改革示范区管委会委托山西广信建设项目管理有限公司遴选会计师事务所，我所作为申请人申请遴选。我所对评审方法中报价评审存在疑义，特投诉如下: 综后评估法四价格部",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "475882",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=475882",
+   "question": "有要求两家公司同一个法人，一家公司涉及贸易，另一家公司为国际物流，能否分别享有相应的补助吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476596",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476596",
+   "question": "城西村拆迁什么时候能完成，城南逸居1-4号楼住户什么时候能入住？2013年单位团购的城南逸居的房子，4年过去了，没有一点进展，开发区政府一直回复在想办法推进拆迁，一直没有进展，求综改区领导给个说法，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476590",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476590",
+   "question": "尊敬的转型综改示范区领导： 您好！ 我是来自山西转型综改示范区学府园区山西软件园某公司的一名普通员工，作为山西核心软件开发园区的山西软件园，几年来，我们使用的网络都是非常慢而且不稳定的，像我们公司几十个员工，网络的带宽仅有20MB，据说每年",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-52",
+   "id": "476578",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=476578",
+   "question": "尊敬的领导： 由于小店地区公共幼儿教育资源匮乏，唐槐园小区业主根据唐槐园小区由示范区政府开发并开设公立幼儿园和九年义务教育的优势，购买了唐槐园小区准备入住，但是到目前为止，九一学校已经开学，而幼儿园却迟迟不能交工，唐槐园本月即将交房，眼看幼",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

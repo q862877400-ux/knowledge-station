@@ -1,0 +1,15 @@
+{
+  "tag": "xining",
+  "base": "https://www.xining.gov.cn",
+  "referer": "https://www.xining.gov.cn/",
+  "range": [
+    1,
+    300
+  ],
+  "appId": "",
+  "sites": {
+    "4": 562,
+    "43": 5264
+  },
+  "total": 5826
+}

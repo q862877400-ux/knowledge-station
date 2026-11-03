@@ -1,0 +1,1 @@
+import{u as n,$ as r}from"./index.2044e496.js";import{d as a,r as c,u,o as i,c as m,a as p}from"./index.8ae98d73.js";const w=a({__name:"Index",setup(_){const o=n();s();async function s(){await r.user.session()}return(f,d)=>{var e;const t=c("RouterView");return(e=u(o).session)!=null&&e.token?(i(),m(t,{key:0})):p("",!0)}}});export{w as default};

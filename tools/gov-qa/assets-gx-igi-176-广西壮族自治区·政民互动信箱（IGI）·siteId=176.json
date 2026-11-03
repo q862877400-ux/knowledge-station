@@ -1,0 +1,86 @@
+{
+ "A_考卷": [
+  {
+   "source": "gx-igi-176",
+   "id": "157814396657",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814396657",
+   "question": "民政部门工作人员您好，我通过政务app了解到，我市范围内的内地收养登记的受理条件内容还是依照已经废止的《中华人民共和国收养法》，我很好奇尤其是，现行的《民法典》第一千零九十八条，对收养人条件已经放宽，收养人符合无子女或者只有一名子女的都可以",
+   "cited_hits": [
+    {
+     "name": "中国公民收养子女登记办法",
+     "lib_no": "中国公民收养子女登记办法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "民法典",
+    "中华人民共和国收养法",
+    "民法典"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "gx-igi-176",
+   "id": "157814446734",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814446734",
+   "question": "我是容县人，男朋友是外省的，可以在玉州区领结婚证吗？要带什么材料？",
+   "cited_hits": [],
+   "cited_missing": [
+    "军人婚姻登记证明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-176",
+   "id": "157814406217",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814406217",
+   "question": "您好！&nbsp; &nbsp; 非常抱歉打扰到您，我想咨询一下关于五保户养老问题。我有一个叔叔，是五保户，他的田地入到了我哥名下（也就是侄子名下），现在叔叔已经没有自理能力了，村委会要求我哥服侍他。但是我哥常年在外地，田地的事情他根本不了",
+   "cited_hits": [],
+   "cited_missing": [
+    "分散供养特困人员委托照料护理协议",
+    "广西壮族自治区民政厅关于印发广西壮族自治区特困人员认定操作规程的通知"
+   ],
+   "has_clause_no": true
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "gx-igi-176",
+   "id": "157814422229",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814422229",
+   "question": "请问玉林市民政局网站是否开设政策文件类栏目，如果开设，如何让进入?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-176",
+   "id": "157814409407",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814409407",
+   "question": "您好，我想咨询下怎么申请低保救助？需要什么条件，要什么材料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-176",
+   "id": "157814403622",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814403622",
+   "question": "兴业户口和外国人登记结婚的政策，地点，材料要求，可预约时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-176",
+   "id": "157814226071",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814226071",
+   "question": "我玉林市的户口，男朋友是南宁市的户口，想在玉州区领结婚证。办结婚证时，需要提供什么证件和材料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

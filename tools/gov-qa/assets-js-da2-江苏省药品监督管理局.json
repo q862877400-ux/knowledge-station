@@ -1,0 +1,1597 @@
+{
+ "A_考卷": [
+  {
+   "source": "js-da2",
+   "id": "459223",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=459223&sysid=55",
+   "question": "医疗器械产品注册\n办理二类医疗器械产品注册，需要提交什么材料",
+   "cited_hits": [
+    {
+     "name": "医疗器械监督管理条例",
+     "lib_no": "医疗器械监督管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-da2",
+   "id": "444486",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=444486&sysid=55",
+   "question": "是否可以申请复验\n在我公司生产或经营的药品，在监督抽检中，收到检验结果不合格的报告。请问是否可以申请复验？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国药品管理法",
+     "lib_no": "药品管理法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国药品管理法",
+     "lib_no": "药品管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-da2",
+   "id": "425814",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=425814&sysid=55",
+   "question": "关于购买处方药的咨询\n通过网络购买处方药合不合法？",
+   "cited_hits": [
+    {
+     "name": "药品管理法",
+     "lib_no": "药品管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "药品网络销售监督管理办法",
+    "国家药监局关于发布药品网络销售禁止清单（第一版）的公告",
+    "国家药监局综合司关于《药品网络销售禁止清单（第一版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "319776",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=319776&sysid=55",
+   "question": "以单位名义，为员工团购医疗器械防疫物资\n以单位名义，单位为员工团购或储备医疗器械防疫物资如：防护服、口罩、手套、新冠抗原检测试剂盒，要求销售单位开具采购者单位的发票。销售合同中已明确采购者用于单位自用，不对外进行销售。此类行为，销售单位认定",
+   "cited_hits": [
+    {
+     "name": "医疗器械经营监督管理办法",
+     "lib_no": "医疗器械经营监督管理办法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "284985",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=284985&sysid=55",
+   "question": "执业药师必须是企业负责人吗\n您好，我今年刚取得了执业中药师的资格证书，由于工作的特殊性，我查询了执业药师的工作特点，对于执业药师得是企业负责人这一点深感忧虑，毕竟是替人打工，还是相对被动的，如果遇到恶劣的老板，那我们岂不是成了替罪羔羊？而且",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国药品管理法",
+     "lib_no": "药品管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "277161",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=277161&sysid=55",
+   "question": "京东商户‘传承大药房旗舰店’销售一款没有GMP认证的中药饮片\n贵局领导，你们好 ，本人在京东 商户‘传承大药房旗舰店 ’购得一款生产批号为﹤21082501>(当归)中药饮片 ，10g小包装 ，50袋 。放在外包装为一个普通一次性塑料袋 里",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国药品管理法",
+     "lib_no": "药品管理法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国药品管理法实施条例",
+     "lib_no": "药品管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-da2",
+   "id": "270062",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=270062&sysid=55",
+   "question": "中药饮片\n内蒙的药厂生产四川标准的中药饮片能否在江苏省销售？",
+   "cited_hits": [
+    {
+     "name": "药品管理法",
+     "lib_no": "药品管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-da2",
+   "id": "238959",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=238959&sysid=55",
+   "question": "质量安全负责人\n关于质量安全负责人，是否允许一个质量安全负责人同时在多家公司担任这一岗位，如果是一个集团下的关联公司，几个关联公司是共用一个质量安全部门的，这种情况下是否可以共用一个质量安全负责人？",
+   "cited_hits": [
+    {
+     "name": "化妆品监督管理条例",
+     "lib_no": "化妆品监督管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "化妆品生产许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "221532",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=221532&sysid=55",
+   "question": "江苏省南京市玄武区市场监督管理局任性执法\n陈和平副局长、党组成员您好：于2020-08-25 和26及27日，在京东商城，先声再康大药房旗舰店（企业名称 先声再康江苏药业有限公司，住所 南京市玄武区花园路12号），买3包金士达 医用外科无菌",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国行政复议法（2017修订）",
+     "lib_no": "行政复议法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-da2",
+   "id": "221527",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=221527&sysid=55",
+   "question": "江苏省南京市先声再康江苏药业有限公司任性执法\n田 丰局长、党组书记您好（同时转江苏省药品监督管理局纪检监察）：2020-08-25 和26及27日，买3包金士达 医用外科无菌口罩， 3包口罩标识上（均）没有产品质量检验合格证明。3包口罩均无",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国行政复议法（2017修订）",
+     "lib_no": "行政复议法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-da2",
+   "id": "220475",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=220475&sysid=55",
+   "question": "关于江苏普莱医药公司的投诉信\n自收到本通知书之日起60日内立案查处江苏普莱医药有限公司（以下简称被举报人）如下违法行为：被举报人销售的佛罗肽抗菌洗液药品涉嫌超备案价销售、销售价明显高于市场价和进价、涉嫌价格垄断一枝独秀哄抬物价、进货渠道存疑",
+   "cited_hits": [
+    {
+     "name": "市场监督管理投诉举报处理暂行办法",
+     "lib_no": "市场监督管理投诉举报处理暂行办法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-da2",
+   "id": "220164",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=220164&sysid=55",
+   "question": "江苏省南京市玄武区市场监督管理局任性执法\n2020-08-25 和26及27日，在先声再康大药房旗舰店（企业名称：先声再康江苏药业有限公司，住所 南京市玄武区花园路12号）买3包金士达 医用外科无菌口罩， 3包口罩标识上（均）没有产品质量检",
+   "cited_hits": [
+    {
+     "name": "市场监督管理投诉举报处理暂行办法",
+     "lib_no": "市场监督管理投诉举报处理暂行办法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-da2",
+   "id": "217380",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=217380&sysid=55",
+   "question": "江苏省南京市玄武区市场监督管理局不作为（任性执法）\n王 越局长、党组书记您好 于2020-08-25 和26及27日，在京东商城，买3包金士达 医用外科口罩，订单号 131329148617和 125427569463及 125510710",
+   "cited_hits": [
+    {
+     "name": "市场监督管理投诉举报处理暂行办法",
+     "lib_no": "市场监督管理投诉举报处理暂行办法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-da2",
+   "id": "210148",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=210148&sysid=55",
+   "question": "让全国人民网上买到符合国家标准的一次性医用外科无菌口罩\n2020-07-10 和11及12日，在京东（卡尔保健器械专营店 ），3次买30包口罩（1个/包），30包口罩均无合格证和无说明书。产品（30包口罩）或者其包装上的标识均没有产品质量检",
+   "cited_hits": [
+    {
+     "name": "市场监督管理投诉举报处理暂行办法",
+     "lib_no": "市场监督管理投诉举报处理暂行办法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-da2",
+   "id": "154345",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=154345&sysid=55",
+   "question": "华润徐州医药有限公司目前能否经营药品类体外诊断试剂？\n您好，我公司目前有经营生物制品的资质，请问能否经营批准文号为s20181014的药品类体外诊断试剂？谢谢",
+   "cited_hits": [
+    {
+     "name": "药品管理法",
+     "lib_no": "药品管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "药品经营许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "152006",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=152006&sysid=55",
+   "question": "预防艾滋，更改零售避孕套办理二类医疗器械备案的建议\n建议：直接向消费者销售体温计、血压计、医用棉签、医用脱脂棉、医用脱脂纱布、医用卫生口罩、家用血糖仪、血糖试纸条、妊娠诊断试纸、避孕套、避孕帽、轮椅、医用无菌纱布、电子血压脉搏仪、梅花针、三",
+   "cited_hits": [
+    {
+     "name": "医疗器械经营监督管理办法",
+     "lib_no": "医疗器械经营监督管理办法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "151107",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=151107&sysid=55",
+   "question": "医生开处方让病人家属自己去买羟考酮\n爸爸因为脑出血在常州市第七人民医院就诊，昨天医生给开了处方让自己去买羟考酮，我上网查了这个药知道它属于麻醉药管制范畴。这种药不是应该医院才有的吗，为什么要让我们自己出去买。自己买这个药是犯法了吧",
+   "cited_hits": [
+    {
+     "name": "麻醉药品和精神药品管理条例",
+     "lib_no": "麻醉药品和精神药品管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "122398",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=122398&sysid=55",
+   "question": "关于外省中药饮片能否在江苏省内生产销售的信访\n您好！执行外省中药饮片炮制规范的中药饮片未收入于《中国药典》及《江苏省中药饮片炮制规范》中是否可以在江苏省内进行生产以及销售?望能明示，谢谢！",
+   "cited_hits": [
+    {
+     "name": "药品管理法",
+     "lib_no": "药品管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "js-da2",
+   "id": "479279",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=479279&sysid=55",
+   "question": "长期未生产品种恢复生产\n长期未生产品种想恢复生产，在恢复生产研究时缺少变更前质量研究数据的，企业该怎么处理",
+   "cited_hits": [],
+   "cited_missing": [
+    "已上市化学药品药学变更研究技术指导原则（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "463647",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=463647&sysid=55",
+   "question": "医疗机构制剂备案申请人对应要求\n江苏省内医疗机构制剂注册的申请人需要满足什么条件",
+   "cited_hits": [],
+   "cited_missing": [
+    "医疗机构制剂许可证",
+    "医疗机构制剂许可证",
+    "医疗机构制剂许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "439044",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=439044&sysid=55",
+   "question": "门诊部问题\n尊敬的老师，我们是新成立的门诊部，想咨询如何申请医疗机构制剂？",
+   "cited_hits": [],
+   "cited_missing": [
+    "医疗机构执业许可证",
+    "医疗机构执业许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "432366",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=432366&sysid=55",
+   "question": "互联网药品信息服务资格证\n老师您好，想咨询互联网药品信息服务资格证审批手续是怎么办理的？",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家药监局综合司关于做好有关改革试点经验推广落实工作的通知",
+    "互联网药品信息服务资格证书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "416455",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=416455&sysid=55",
+   "question": "研发佐剂是否需要办理备案\n我司因业务需要研发佐剂，研发前是否需要办理备案或许可。",
+   "cited_hits": [],
+   "cited_missing": [
+    "药品注册管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "416231",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=416231&sysid=55",
+   "question": "关于含有新增禁用成分化妆品能否继续销售的问题\n请问含有《关于更新化妆品禁用原料目录的公告》（2021年第74号）更新后新增的禁用原料的化妆品。在此公告发布实施之前生产的（即2021年5也26日之前生产），产品还在保质期内，能否继续销售，需要",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家药监局关于更新化妆品禁用原料目录的公告",
+    "化妆品禁用原料目录",
+    "化妆品禁用植（动）物原料目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "413368",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=413368&sysid=55",
+   "question": "关于质控品的分类依据的问题\n根据《分类规则》中描述：“与第一类体外诊断试剂配合使用的校准品和质控品，按第二类管理。”在进行质控品单独注册时，应如何提交质控品分类依据？",
+   "cited_hits": [],
+   "cited_missing": [
+    "体外诊断试剂分类规则",
+    "体外诊断试剂分类目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "376875",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=376875&sysid=55",
+   "question": "互联网药品信息服务资格证书办理\n老师好，我公司为医疗器械生产企业，请问生产一类医疗器械的企业官网ICP备案需要办理互联网药品信息服务资格证书吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "医疗器械网络销售监督管理办法",
+    "互联网药品信息服务资格证书"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-da2",
+   "id": "368326",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=368326&sysid=55",
+   "question": "连锁总部的收货地址\n你好老师，      我是一家批发企业，扬州市XX医药连锁有限公司从我公司采购药品，该连锁公司委托扬州市的XX批发公司配送的，属于委托配送性质，其《药品经营许可证》仓库地址项也写明委托xx公司配送，请问，我公司发给该连锁",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省药品经营（批发）管理办法",
+    "药品经营许可证",
+    "药品经营质量管理规范",
+    "药品经营许可证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-da2",
+   "id": "361225",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=361225&sysid=55",
+   "question": "在药店购买中药饮片\n您好，一是请问在药店购买单方斗装（散称）中药饮片是否需要处方？如果需要处方，那药食同源的单方是否需要处方？二是在药店购买标明“炮制规范、功能主治、用法用量”精制包装的中药饮片是否需要处方购买？",
+   "cited_hits": [],
+   "cited_missing": [
+    "处方管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-da2",
+   "id": "350986",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=350986&sysid=55",
+   "question": "强力枇杷露是否属于含有麻醉药品的口服复方制剂\n老师您好！强力枇杷露（甲类非处方）成分中含有麻醉药品罂粟壳，国家药监局发布的《药品网络销售禁止清单（第一版）》中明确含麻醉药品口服复方制剂禁止通过网络销售，请问强力枇杷露（甲类非处方）是否属于含",
+   "cited_hits": [],
+   "cited_missing": [
+    "食品药品监管总局办公厅关于进一步加强含麻醉药品和曲马多口服复方制剂购销管理的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "349975",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=349975&sysid=55",
+   "question": "进口2类和3类医疗器械国产化\n尊敬的药监老师们，你们好！我是一德国企业住中国区负责人.之前我司一直进口2-3类医疗器械.高压造影注射器及管路系统等.目前在太仓投资建厂，为当地带来就业和税收等.本身产品之前进口有注册证，目前没有任何改动，转到",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省药品监督管理局同一集团已取得第二类医疗器械注册证产品来苏申报注册工作指南"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "303717",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=303717&sysid=55",
+   "question": "童颜线 非吸收自封外科缝线ＰＡ６／６６ 审批依据？\n2021年6月份，本人在上海美郴医疗整形机构行面部线雕手术，该机构称给使我用的是南京普立蒙医疗科技有限公司生产的“非吸收自封外科缝线”。注册人名称：南京普立蒙医疗科技有限公司产品注册证号：",
+   "cited_hits": [],
+   "cited_missing": [
+    "医疗器械分类目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "293368",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=293368&sysid=55",
+   "question": "中药配方颗粒\n老师您好，想咨询您几个问题：1.在没有中药配方颗粒国家标准的情况下，是否存在同一中药配方颗粒生产厂家使用多个省级标准生产同一规格包装的中药配方颗粒的情况存在？如果存在这种情况，药监部门赋予该企业几个备案号？2.是否存在同一中药",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家药监局综合司关于中药配方颗粒备案工作有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "274640",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=274640&sysid=55",
+   "question": "三方物流\n老师您好，我这边是江西省内的一家药品批发企业，我想咨询下：如果我们公司想在贵省找一家第三方公司委托储存与运输药品，有没有这个政策是可行的呢？如果可行的话需要准备些什么材料呢，麻烦老师解答一下，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省药品经营（批发）许可管理暂行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "266185",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=266185&sysid=55",
+   "question": "溶剂回收重复使用\n原料药生产使用的溶剂回收利用到相同原料药生产中是否需要按中等变更进行备案？",
+   "cited_hits": [],
+   "cited_missing": [
+    "药品上市后变更管理办法（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "265861",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=265861&sysid=55",
+   "question": "延长中间产品贮存期\n老师，您好！        药品注册评价批件附件《生产工艺信息表》已核准中间产品的贮存期，现拟延长中间产品贮存期，是否依据稳定性考察结果即可？如否，还需要其他什么依据佐证吗？        期盼老师的指导解答，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "药品上市后变更管理办法（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "265178",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=265178&sysid=55",
+   "question": "延长药品有效期备案前生产的药品可以延长有效期吗？\n如题，口服固体制剂批准延长药品有效期备案申请，那么在这之前生产的药品可以延长有效期吗？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "药品上市后变更管理办法（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "220119",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=220119&sysid=55",
+   "question": "医院开局两种发票\n本人在江苏省人民医院门诊治疗，所产生的发票有两种，一个是医院的发票一个是私人药房的发票，现导致药房开具发票不能报销。我想问问私人药房能开到公立医院里吗。南京医药弘景大药房开设到公立医院符合条件吗。",
+   "cited_hits": [],
+   "cited_missing": [
+    "药品经营许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "207957",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=207957&sysid=55",
+   "question": "中药饮片\n您好，领导！我是安徽一家生产企业，我省并没有黄芪粉的炮制规范，但根据省局文件允许我司可以生产执行云南炮制规范的黄芪粉，那么请问在安徽企业生产的执行云南炮规规范的中药饮片是否能在江苏境内销售？",
+   "cited_hits": [],
+   "cited_missing": [
+    "中国药典"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "164818",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=164818&sysid=55",
+   "question": "药品询问是否能用\n复方雷尼替丁片是不是下架被禁止使用",
+   "cited_hits": [],
+   "cited_missing": [
+    "化学药物中亚硝胺类杂质研究技术指导原则（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "152218",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=152218&sysid=55",
+   "question": "化学药包括哪些药品\n现在贵局发出的经营许可证上经营范围写化学药的，包含化学药制剂、化学原料药、抗生素制剂、抗生素原料药、生化药品吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "药品经营监督管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "133270",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=133270&sysid=55",
+   "question": "请问精制包装中药饮片可不可以开架销售？\n现在很多药店有罐装的中药饮片出售，像丹参、黄芪、当归等精制中药饮片，参照中国药典标准炮制的，请问这一类中药饮片按照处方药管理吗？能不能放在货架上让顾客自选？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好处方药与非处方药分类管理实施工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "126110",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=126110&sysid=55",
+   "question": "三七粉能否网络销售？\n您好，请问三七粉能否网络销售。根据相关法规规定，三七粉属于中药饮片，而中药饮片应该按照处方药管理，不得在网络销售。但各大电商平台如京东、天猫都在销售。是否违规？另根据《食品药品监管总局办公厅关于非药品经营单位销售中药材",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于加强中药饮片包装监督管理的通知"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "js-da2",
+   "id": "469660",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=469660&sysid=55",
+   "question": "医疗器械临床创新\n医疗器械临床创新成果转化“春雨行动”，如何进行申请",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "455331",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=455331&sysid=55",
+   "question": "生产产品注册证咨询\n办理二类器械生产许可证的办证材料中需要医疗产品的生产注册证书，该注册证书是否用申请单位或者其他单位的生产产品注册证代替都可以？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "449664",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=449664&sysid=55",
+   "question": "咨询医疗器械网络交易服务第三方平台备案问题\n我司申请医疗器械网络交易服务第三方平台备案，在申请中需要上传电信业务经营许可证和互联网药品信息服务许可证，是否需要提供第三方平台的资料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "421083",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=421083&sysid=55",
+   "question": "注册证许可事项变更注册\n办理注册证许可事项变更注册的，如果不涉及到性能要求的变化，可不可以延续之前的产品检验报告？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "409060",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=409060&sysid=55",
+   "question": "是否需要办理医疗器械许可证扩增\n老师您好，我们是一家医疗器械公司，近期增加了新的产品，想咨询是否需要办理医疗器械许可证扩增业务？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "400494",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=400494&sysid=55",
+   "question": "特殊需要药品购买证明\n老师好，请问特殊需要药品购买证明从哪里申请？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "391362",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=391362&sysid=55",
+   "question": "药品电子监管码一定能验证药品真伪吗\n药品电子监管码查询是真的，药品一定是真的吗，鉴定一个药品的真假最有说服力的方法是什么",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "382141",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=382141&sysid=55",
+   "question": "抖音账号\n请问贵单位开设了抖音号吗？能否提供名称",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "379326",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=379326&sysid=55",
+   "question": "变更类别咨询\n尊敬的江苏省药品监督管理局：我司是小分子注射用冻干粉针剂的药品生产企业。药品生产过程中，配液完成的溶液从最终混液罐直接连接除菌过滤器进行过滤，计划在最终混液罐与除菌过滤器之间增加一个缓冲罐用于暂存配液溶液，用于在多批次生产时提",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "363691",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=363691&sysid=55",
+   "question": "无菌药品生产培养基模拟罐装的问题\n老师好， 法规要求：对于因其他原因停产一定周期的生产线,在恢复正式生产前应进行无菌工艺模拟试验。问题：没有其他变更时，停产多长时间需要做无菌工艺模拟？如果需要评估决定，应考虑哪些方面？谢谢老师指导。最近去上",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "346085",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=346085&sysid=55",
+   "question": "欧盟返工批次原料能否进口到中国？\n尊敬的江苏省药品监督管理局，我司制剂产品的原料为欧盟进口品，其在中国DMF的注册文件上没有针对返工工艺进行具体描述。根据GMP 第一百三十四条，原料允许返工操作，请问，原料工厂根据内部文件进行返工操作的批次",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "340576",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=340576&sysid=55",
+   "question": "上市药品中的原辅料、成品委托检验的要求\n想咨询下，现在对于已上市药品中的原辅料及成品检验，个别检验项目委托有资质的第三方检验机构进行检验，还有没有先备案的要求",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "328847",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=328847&sysid=55",
+   "question": "同一批文且同一包装规格的药品，其包装盒是否可以两种包装\n药品是同品种同规格，是否可以采用两种外包装盒同时生产，其外包装盒总体设计风格一致，但是一种盒子用商标A，另一个盒子用商标B。这两个盒子除了商标不一样，其他所有的内容，包括颜色等都是一模",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "322455",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=322455&sysid=55",
+   "question": "医疗器械销售给认定为合理使用需求的单位，审核其哪些资质资料？\n以单位名义，为员工团购医疗器械防疫物资     据《医疗器械经营监督管理办法》附则：医疗器械批发，是指将医疗器械销售给医疗器械生产企业、医疗器械经营企业、医疗器械使用单位或者其他",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "316630",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=316630&sysid=55",
+   "question": "三七粉属于食用农产品吗?\n瓶装三七粉密封包装好有规格，但是没有生产信息，在江苏我可以把他当作食用农产品销售吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "314508",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=314508&sysid=55",
+   "question": "苏州核查中心联系方式\n您好，我在互联网上未能找到苏州核查中心的联系方式，劳烦分享一下，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "302929",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=302929&sysid=55",
+   "question": "互联网药品信息服务证书\n您好，我们公司的互联网药品信息服务证书在2016年到期，因公司经营问题，没有及时办理展期，请问这个证书到期后是可以申请展期还是需要重新申请办证呢？展期或重新申请需要提供哪些材料呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "296951",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=296951&sysid=55",
+   "question": "药品经营许可证变更问题\n《药品经营许可证管理办法》第十八条 《药品经营许可证》登记事项变更后，应由原发证机关在《药品经营许可证》副本上记录变更的内容和时间，并按变更后的内容重新核发《药品经营许可证》正本，收回原《药品经营许可证》正本。变更后",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "292908",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=292908&sysid=55",
+   "question": "药品生产许可证\n老师，您好，麻烦您，向您请教两个问题：1. 我公司（持有人）增加委托生产品种，需要按照江苏政府服务网站上的哪个情形来准备申请材料？2. 我公司（持有人）在B证增加委托生产品种申请前，受托方已完成C证变更（受托方药品生产许可证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "292163",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=292163&sysid=55",
+   "question": "江苏省何时放开开药店面积限制\n河北省、湖北省、海南省开办药店己取消面积限制，江苏省何时行动？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "291679",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=291679&sysid=55",
+   "question": "关于国家药品监督管理局组织修订前生产产品的销售咨询\n你好!国家药品监督管理局组织修订了《第一类医疗器械产品目录》，自2022年1月1日起施行。根据新《一类目录》的规定，国家药监局对2017版目录中“09-02-03物理降温设备”第三个条目的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "283480",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=283480&sysid=55",
+   "question": "三类医疗器械生产环境\n体外诊断试剂生产洁净区与非洁净区是否能相通，只用一扇门隔开，使用同一进出口。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "283330",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=283330&sysid=55",
+   "question": "多次被贵局查处的湖南乐邦龟蛇酒重出江湖。\n无锡电视台都市资讯节目，借助已备案节目“三分治七分养”请所谓太医派传人讲座，误导消费者龟蛇酒都甲状腺、乳腺增生、扭伤等疾病有疗效！播出时间大约在13:30--14:30之间，请贵局观注。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "280502",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=280502&sysid=55",
+   "question": "GMP符合性检查申请纸质资料邮寄地址咨询\n尊敬的江苏省药品监督管理局：我想咨询一下申请药品（小分子）新增生产车间（原厂址）GMP符合性检查，纸质资料需报送贵局哪个部门？可否告知一下邮寄地址及联络电话，非常感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "266669",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=266669&sysid=55",
+   "question": "药品名称\n请问江苏省药品监督管理局 那些属于所有医院 零售药店暂停退热、止咳、抗病毒、抗生素药品销售药品名称是什么 希望接到网上尽快解决请将相关信息发送到江苏省药品监督管理局政府网站、江苏省市场监督管理局网站 接受社会监督 避免购买到 谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "265360",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=265360&sysid=55",
+   "question": "中间产品贮存期变更需要备案吗?\n如题，口服固体产品中间产品（内包装前素片、包衣片）原已规定贮存期，现在根据稳定性考察结果，拟延长上述中间产品贮存期，请问老师，延长中间产品贮存期需要按照中等变更备案吗？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "256736",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=256736&sysid=55",
+   "question": "质量差的金银花符合国家药典标准 热性的金银花副作用很大\n我是一个银屑病患者 质量好的金银花吃一次就能看到明显好转我也认识一些银屑病病友全国所有省市的都有，他们在医院药店购买的金银花吃了会加重病情有一些金银花副作用比较大有的喝一次耳朵会出血 ",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "256680",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=256680&sysid=55",
+   "question": "注册人制度下委托生产相关问题\n1、我司为广东省三类医疗器械生产企业，现拟委托江苏省内企业生产我司已获证三类产品。参考《江苏省医疗器械注册人制度试点工作实施指南（试行）》，受托企业需先进行“受托生产备案”，请问受托生产备案资料如何递交给江苏省",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "254878",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=254878&sysid=55",
+   "question": "网店卖茶，需要用到食品经营许可证（预包装），无地址能办理吗\n网店销售茶类产品需要用到食品经营许可证，但是没有实际的经营地址。请问这样能办理吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "243374",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=243374&sysid=55",
+   "question": "1210跨境电商进口西洋参是否需要办理进口药品通关单\n我司以1210跨境电商模式从加拿大温哥华进口了100公斤人工种植4-5年参龄的西洋参，税号为：1211201000，进境口岸为连云港，目前货物存滞留在徐州综合保税区，徐州海关要求我们提供",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "238446",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=238446&sysid=55",
+   "question": "关于中药水飞蓟使用问题\n尊敬的领导您好，我公司生产一中药饮片水飞蓟为892医保品种，我公司根据2020版中国药典生产，而中国药典中功能主治为 “供配制成药用”，故让人产生疑惑，该品种是否可以作为中医处方药，后查阅资料，湖南炮规中说明，其用法",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "226044",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=226044&sysid=55",
+   "question": "玄武区市场监督管理局玩忽职守或包庇经营者侵 害消费者合法权益\n致江苏省食品药品监督管理局机关党委（纪检监察）全国12315平台编号：1320102002020083194251087 先声再康江苏药业有限公司 金士达 一次性使用医用外科口罩",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "226043",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=226043&sysid=55",
+   "question": "玄武区市场监督管理局玩忽职守或者包庇经营者侵害消费者合法权益\n全国12315平台编号：1320102002020083194251087 先声再康江苏药业有限公司 金士达 一次性使用医用外科口罩 2020-08-31 不予立案 告知时间 2",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "224392",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=224392&sysid=55",
+   "question": "贵局的格局可要向邻省安徽好好学习啊\n尊敬的领导：您好，刚得知贵局发布了《江苏省中药饮片炮制规范》2020年版第一册，有两个问题：1、从发布到执行，只有一个多月时间，你给各地药检所和企业研究新标准的时间了吗？2、见不到新书和电子版，各地药检所",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "224191",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=224191&sysid=55",
+   "question": "价格合理吗？\n我买了两盒药，一共五十元人民币。一盒是  中智  克咳片  16片一盒的。另一盒是  久金  感冒疏风胶囊    12粒x3板/盒感觉有点小贵，请问是正常的药价吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "223185",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=223185&sysid=55",
+   "question": "取得执业药师资格是否可以申请主管药师资格？\n尊敬的药监局领导，早前有人事部药监局几部委联合发文，说通过国家执业药师考试取得执业药师资格证书，可视为取得中级药学职称资格。不知道药监局能否办理，如能办理需要哪些资料？麻烦局领导百忙中抽个时间给予",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "223046",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=223046&sysid=55",
+   "question": "江苏省中药材标准可以作为中药饮片的标准吗\n我是江苏省的一家中药饮片生产企业，想生产中药饮片茶叶，江苏省中药饮片炮制规范中没有查到茶叶项，而在江苏省中药材标准中可以查到，请问可以按照江苏省中药材标准生产茶叶饮片吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "222176",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=222176&sysid=55",
+   "question": "请问一下我在医院拿的这个药，是合法的吗？\n因为性功能障碍，去绍兴康华门诊治疗，疗程结束后医生开了这个药，但是上百度上面去查，有的医生说这个药是假药，遂求证一下。希望证实后来电告知一下谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "221777",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=221777&sysid=55",
+   "question": "涉嫌销售假冒宁夏生产的糖果悠悠瘦，大肆宣传该糖果具有药物排油\n涉嫌销售假冒宁夏生产的糖果悠悠瘦，大肆宣传该糖果具有药物排油功效，健胃消食公司：南京悠悠瘦商贸有限公司地址；南京市秦淮区越界梦幻城117号楼--2楼展厅；其大肆宣传其公司产品具有",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "221701",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=221701&sysid=55",
+   "question": "中药发酵液体饮片是否可行\n尊敬的领导： 您好！ 我们是江苏菌钥生命科技发展有限公司，从事中药发酵产品开发及生产，前段时间参会偶然得知，可用发酵技术生产液体中药饮片。广东中医药大学王秋红教授开发了商陆果液体发酵饮片，并申请广东省标准。基于我们",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "221327",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=221327&sysid=55",
+   "question": "县人民医院木泽恩替卡韦片经常断供\n恩替卡韦片断供",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "219261",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=219261&sysid=55",
+   "question": "镇区连锁药店从业药师是否2020年后继续担任质量负责人\n局长您好！我是如东县河口镇立新桥南通本草大药房连锁有限公司欣乐药店负责人/质量负责人，从业药师，成立于2002年，许可证有效期2020年12月6日是，现在准备换证.。如东县行政审批局根",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "214137",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=214137&sysid=55",
+   "question": "医疗器械企业纯化水的要求\n我们是一家外资医疗器械产品研发企业，我们的产品是3类神经介入微创器械。公司准备建造厂房。我们的产品制成中不需要使用水做清洗和清洁。纯化水只作为净化室地面和墙面的清洁，请问是否可以采用小型一体纯水机来替代纯化水系统。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "213690",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=213690&sysid=55",
+   "question": "咨询不回，电话无人接听\n您好，我在本网站咨询了一个问题，一直没有得到答复，但处理状态显示“已处理完毕”，没有收到邮件，也没收到电话。想咨询问题有些电话永远没有人接，省里的服务没有我们市里的好。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "211871",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=211871&sysid=55",
+   "question": "出口销售证明相关问题\n老师：您好！我司外销同事反馈，那目前的出口销售证明去做自由销售证书的话， 出口销售证明最下面的江苏省食品药品监督管理局下面没有英文翻译，目前遇到的是出秘鲁的遇到了问题，他们需要最下面的也要有英文翻译。他们有给我们浙江的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "210636",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=210636&sysid=55",
+   "question": "向你们建议\n本人在网络“食法药苑”中看到杭州市萧山区人民法院行政判决书（2019）浙0109行初228号。贵局于2018年10月7日组织的食品流通环节安全监督抽检中，南京市食药检院检验出具了NJ2018MC4011《检验报告》有瑕疵，浙江省",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "205796",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=205796&sysid=55",
+   "question": "2020年7月1日后-药物临床试验备案-问题咨询\n希望向贵省药品监督管理部门咨询如下问题：根据2020年发布的国家市场监督管理总局令第27号《药品注册管理办法》，自2020年7月1日起生效。根据新版《药品注册管理办法》第三十三条：申办方应当",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "205318",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=205318&sysid=55",
+   "question": "治疗疥疮效果非常好的克罗米通乳膏不生产了，硫乳膏效果不好\n常州四月药生产的克罗米通乳膏治疗效果非常明显，但是市面上没有药。听说是药厂没有原料不生产了。现在只有硫软膏，这个药效果不好，用了2个月还是反反复复。请主管领导多考虑一下患者的痛苦，不",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "204711",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=204711&sysid=55",
+   "question": "零售连锁药店冷藏冰箱验证事项\n尊敬的领导您好！根据GSP零售条款，零售药店经营冷藏药品未提及到冷藏冰箱必须经过第三方验证，但是在药店许可验收时，地方主管部门检查要求出具冷藏冰箱第三方验证报告通过后才能经营冷藏药品，这样是否合理呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "202607",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=202607&sysid=55",
+   "question": "三七 三七粉属于药品吗？\n三七属于药品吗？三七打磨后的三七粉属于药品吗？生产、经营三七粉需要什么资质？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "200294",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=200294&sysid=55",
+   "question": "临床试验省局备案\n尊敬的药监局老师 您好， 根据2020年发布的国家市场监督管理总局令第27号《药品注册管理办法》，自2020年7月1日起生效。 根据新版《药品注册管理办法》第三十三条：申办者应当在开展药物临床试验前在药物临床试验登记与信息",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "199917",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=199917&sysid=55",
+   "question": "三七粉属于农产品吗\n三七、三七粉属于农产品吗？生产三七粉的企业需要取得什么资质？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "199070",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=199070&sysid=55",
+   "question": "二类器械经营备案管理是在市场监督管理部门，非药品监管部门\n尊敬的领导谢谢领导回复！根据信件编号SYJJ0120200700375的问题回复，我们二类器械经营备案管理是在市场监督管理部门，非药品监管部门；但苏州市药监部门和工商部门已经合并成了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "198448",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=198448&sysid=55",
+   "question": "连锁总部委托商业公司配送\n你好，       请问连锁总部自身不设立仓库，委托商业公司来配送（非第三方仓库），那么请问该连锁总部有自主采购权限吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "196873",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=196873&sysid=55",
+   "question": "关于《药品生产许可证》办理的咨询\n尊敬的领导，您好！我公司接受研发企业的委托生产，目前产品正在研发阶段，即将注册申报，研发企业在申请办理《药品生产许可证》时，需提供我公司（受托企业）的GMP符合性检查通知书。我公司该剂型的GMP证书仍在有效",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "196760",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=196760&sysid=55",
+   "question": "关于GMP符合性检查通知书的问题\n尊敬的局长：       您好！我公司接受研发企业的委托生产，目前产品正在研发阶段，研发企业在申请办理《药品生产许可证》时，需提供我公司（受托企业）的GMP符合性检查通知书。我公司该剂型的GMP证书仍在有效",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "195572",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=195572&sysid=55",
+   "question": "第二类医疗器械经营备案在省药监局网站上查不到\n尊敬的领导我是苏州一家贸易公司，我们公司经营备案了二类医疗器械，在苏州市监督网站上能查到，但是在省药监局上查不到。我们也不知道具体原因是什么，麻烦告知原因，以便我们修改，谢谢！公司名称：苏州维尔",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "189804",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=189804&sysid=55",
+   "question": "网站页面设计不便于读者使用\n1、网站网页不能复制，不便于保存网页内容，企业无法方便地宣传、执行省局指示。2、网页中链接无法跳转，基本上是摆设，几乎没有人会把几十个字母字符的网址敲一遍再登录。综上，网站网页设计不合理，不方便使用。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "177944",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=177944&sysid=55",
+   "question": "七欣天品蟹轩（大观天地店）就餐集体腹泻\n2020年6月19日（13：30-16:12），在江苏省南京市建宁路300号大观天地七欣天品蟹轩（大观天地店）20号桌就餐，一席4人，其中三人出现集体腹泻情况。1人在就餐途中出现腹泻，另外2人在就餐完",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "177006",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=177006&sysid=55",
+   "question": "食品涨袋是不是变质了？\n本人从事餐饮店，自查发现店内盖浇饭浇头涨袋了，鼓起来了，但是吃起来味道好像没之前好，但是也没有变馊或者发酸等明显异常情况，请问如果政府部门检查发现了，会怎么处罚？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "172672",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=172672&sysid=55",
+   "question": "医疗机构临方炮制问题\n贵局领导：目前在祖国上下传承祖国传统医药氛围下，我院临床老中医努力发掘古方、验方但面临一个重要问题，对临方炮制品种如何申请备案？望领导予以解答。谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-da2",
+   "id": "172280",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=172280&sysid=55",
+   "question": "药的价格涨了5倍，惊讶！\n老父亲普通企业退休人员，患有心脏病，糖尿病，常年用药，每个月的药费，医疗器械费已快达到2000元，近日，医院配药，发现一款药（鲁南贝特制药生产的盐酸索他洛尔）竟然涨了接近5倍（由原来的27.36涨到130），说好的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "171099",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=171099&sysid=55",
+   "question": "咨询注射美容溶脂针，瘦脸针，玻尿酸等是否合法\n近期有朋友被美容院诱惑痴迷，非要花上万去美容院大瘦脸针，我想了解一下是正规美容整形医院可以做相关手术或注射？还是所有注射类溶脂针或瘦脸针都不被批准？是否国家食药监局目前没有对任何溶脂针，注射玻尿",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "168372",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=168372&sysid=55",
+   "question": "为何SYJJ0120200400338显示处理完毕\n请问为何我的编号为SYJJ0120200400338的投诉举报显示处理完毕，而我却并没有接到任何形式的任何回复。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "168172",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=168172&sysid=55",
+   "question": "浙江的饮片企业，按《浙江省炮规》制作的中药饮片能否在江苏销售\n你好请问，浙江的中药饮片企业，按《浙江省中药炮制规范》制作的中药饮片，能否在江苏省内销售？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "166554",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=166554&sysid=55",
+   "question": "非法伪造产品\n苏州好博医疗器械有限公司，在江苏省苏州太仓市浏河镇南海路，公司生产的二类医疗器械产品磁疗康复仪系伪造产品，苏械注准20192090282（HB-CL1、HB-CL2、HB-CL3），从韩国REMED公司进口（REMED激光磁场",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "164345",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=164345&sysid=55",
+   "question": "电子版执业药师可以注册吗？\n可以注册吗？原件什么时候发？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "163782",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=163782&sysid=55",
+   "question": "轮椅车质量问题和售后服务 谁来监管\n我花了5万6千元买的卫美恒Forest3 SU站立式电动轮椅车使用中出现了质量问题，在修理服务问题上受到了厂商的刁难， 厂商态度恶劣 为此我向全国12315平台进行了投诉。（业务编号13205870020",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "161701",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=161701&sysid=55",
+   "question": "举报\n市场监督管理局：一、造假、冒充与中科院合作江苏霍氏医药科技有限公司利用假冒与中国科学院海洋研究所合作研发时康复合肽，为进行传销作宣传。据对中国科学院海洋研究所王凡所长；对外合作处的黄处咨询，他们根本没有与江苏霍氏医药科技有限公司有任何",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "161556",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=161556&sysid=55",
+   "question": "举报江苏益齿星医疗器械有限公司质量体系造假\n江苏益齿星医疗器械有限公司质量体系严重造假，公司实际人员其中生产和质量人员为2019年下半年新招人员各一名，体系文件及注册资料为第三方代为编写，体系考核现场人员名单中多人为第三方公司人员非公司员工",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "160220",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=160220&sysid=55",
+   "question": "药房经营性质不能变\n尊敬的领导：您好！      我作为一个药房经营从业者，对目前药房经营的性质很是反感。所以今日来信向领导吐槽一下。      原来各县级药监局没有合并前，对药房经营地址有距离限制，一般都是200米到500米之间，许多涉及",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "158849",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=158849&sysid=55",
+   "question": "咨询\n请问2020年度的药学副高级职称什么时候开始申报，只要知道大概时间，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "158376",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=158376&sysid=55",
+   "question": "医疗器械出口韩国需要办理什么手续？\n我公司经营二类医疗器械一次性医用口罩，我们想出口韩国，请问是否需要办理第二类医疗器械经营备案凭证？办理出口需要药监部门审批吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "158331",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=158331&sysid=55",
+   "question": "关于苏州科腾医疗科技有限公司生产的口罩问题\n苏州科腾医疗科技有限公司生产的产品“淳紫乐康”医用隔离面罩 生产许可证：苏苏食药监械生产备20172008号。产品备案号；苏苏械备20200078号。 执行标准号：苏苏械备20200078号。在国",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "157751",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=157751&sysid=55",
+   "question": "抗“疫“献言\n疫情期间大批量生产的口罩是不是可以在其产品上面做个生产日期的标记.担心疫情过后被人们囤积的口罩(过了保质期)会被不法之人回收牟利.若这些失效口罩再用来防护岂不是很危险!",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "157545",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=157545&sysid=55",
+   "question": "海安美佳医用辅料有限公司\n海安美佳医用辅料有限公司生产的美佳医用外科口罩，在相关网站查询不到产品注册证号。产品在1药网出售，包装简陋，存在隐患。请给予明确次产品是否符合合格产品！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "157297",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=157297&sysid=55",
+   "question": "格雷片价格差距特别大，为什么？\n我母亲做了动脉瘤手术，没出院之前在医院买的108一盒7片。出院后在药店买的105元一盒。淘宝上卖27元，价差很大，想咨询下是不是相同的药？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "155809",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=155809&sysid=55",
+   "question": "投诉举报南京聚客维食品有限公司生产销售不合格食品\n因生活需要，通过华润苏果超市(扬中店)购买了有被举报人生产销售的聚隆福酱鸭一只，执行标准GB/T23586，食品生产许可证号SC10432011501160。生产日期2019年12月9日。地",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "154148",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=154148&sysid=55",
+   "question": "《失传的中药学》这档节目涉嫌违反广告法和药品管理法\n自19年12月至20年1月，江苏新闻综合AM702电台在21点至22点每天播放《失传的中药学》。在节目中宣传的产品是辽宁金丹药业有限公司生产的茸血补脑液（国药准字Z21020226）。在节",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "153588",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=153588&sysid=55",
+   "question": "咨询过期药品回收点\n贵局曾于2019年9-10月搞过过期药品回收活动。详见贵局2019.8.17发布的微博“”【省局组织开展“家庭过期药品回收”公益活动】“家庭过期药品回收”公益活动由省药监局联合江苏省医药商业协会共同开展，时间为9月至10",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "153359",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=153359&sysid=55",
+   "question": "医疗器械产品注册证-地址变更事项，一直没通告拿新证\n泰州市永泰医用敷料有限公司，于2019.11.27日提交：医疗器械注册证地址变更 材料并受理，受理通知书标明审批期限为10天，现已过去一个多月，025-83273705、83273901电",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "152726",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=152726&sysid=55",
+   "question": "医疗器械注册证到期问题\n1.请问领导 在医疗器械注册证有效期内生产并进口到中国的医疗设备，在医疗器械注册证到期之后是否可以在国内正常销售？2.根据国家食品药品管理监督总局（CFDA）官网在2015年11月2日发布的“医疗器械注册管理法规解读",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "152240",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=152240&sysid=55",
+   "question": "自动医疗货柜机事宜\n请问经营医疗货柜机贩卖1类医疗用品（医用护理垫）需要什么资格吗？（只经营一类器械，二类不经营）    有一类医疗器械零售权限和自动售卖机售卖及相关服务权限 可否经营    第二个问题  器械管理办法能套用药品管理办法吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "151416",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=151416&sysid=55",
+   "question": "弥补体制漏洞，确保疫苗质量与安全\n尊敬的江苏省药品监督管理局领导：你好！在去年（2018年）7月份曝光的长春长生公司疫苗造假事件，性质恶劣，举国震惊，相关涉事企业以及监管部门与人员也都受到了严厉惩罚。然而，如果不找出发生这起疫苗质量事故的深",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "151347",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=151347&sysid=55",
+   "question": "鸡宝\n我家养了四年的鸡在宰杀时获得一个类似鸡宝的东西，比较大 但不能确定的请问哪里可以鉴定 有无药用价值",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "151180",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=151180&sysid=55",
+   "question": "鱼跃温度计温度不准导致宝宝吃两天药\n本人十二月一日购买的鱼跃温度计，给孩子量体温一直是38度多，两天后三十九度了，感觉不对劲去医院就医，发现温度计不好用，孩子不发烧，由于这个原因孩子吃了两天药，吃的美林，医生说的是不超过38.5度不宜进食，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "150657",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=150657&sysid=55",
+   "question": "蒋王庙皮肤研究所 药品价格问题\n帅能  复方甘草酸苷片 该药品价格过高，网上价格是其一半，同样规格100片   都是乐普药业的  医院70＋  网购32 能从网上买来。 我想问问是渠道问题 吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "150638",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=150638&sysid=55",
+   "question": "注射用奥美拉唑钠能否用于治疗5岁儿童\n5岁儿童11月29日于南京市儿童医院就诊，检查出细菌性感染但未明确病因。医生给用了头孢挂水治疗，同时表示为了保胃所以使用了注射用奥美拉唑钠，并在询问后进一步说明该医院给一岁幼儿也使用本药品。请问注射用奥",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "149257",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=149257&sysid=55",
+   "question": "乡镇医院使用小型模块化制氧机用于临床病人吸氧是否合法？\n最近有部分乡镇卫生院和私立医院安装了小型模块化制氧机给病人临床吸氧，请问这种做法是否合法？据了解，给病人吸的氧是医用级氧，是作为药品给患者用的，须有国家批准文号，且符合《中国药典》20",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "147968",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=147968&sysid=55",
+   "question": "关于申请出口欧盟原料药许可证明文件材料递交事宜\n请问下，关于申请出口欧盟原料药许可证明文件的材料，是交到建邺区汉中门大街145号，还是交到鼓楼街5号药品生产监管处，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "147237",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=147237&sysid=55",
+   "question": "咨询关于目前申请出口欧盟原料药许可证明材料接收事宜\n目前我公司有一品种需申请出口欧盟原料药许可证明，请问目前我们的申报材料需向哪个部门递交，能否告知具体联系电话、联系人，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "146875",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=146875&sysid=55",
+   "question": "东革阿里是否属于普通食品原料\n本人在京东平台购买东革阿里，后面发现在我国没有传统食用历史，麻烦贵司核查一下东革阿里是否属于普通食品原料",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "146267",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=146267&sysid=55",
+   "question": "请贵局帮忙核实产品，是否合法\n江苏省药品监督管理局：      本人于2019年10月2日通过“局长信箱”向贵局提出咨询：“江苏省药品监督管理局： 本人于2019年9月底从淘宝“翼品旗舰店”购买“翼品男可舒冷敷凝霜”，收到快递后发现包装粗糙",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "145035",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=145035&sysid=55",
+   "question": "注册证答疑\n对苏械注准20162080184产品的注册证结构及组成部分的内容不太理解，产品本身由两部分组成，但是又说产品不自带另外一部分。感觉前后矛盾",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "144634",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=144634&sysid=55",
+   "question": "请提供家用制氧机不是医疗器械的依据\n关于家用制氧机不是医疗器械的依据，贵单位给我的依据居然是“不符合医疗器械的定义”！那我想问一下，一、医疗器械的定义有哪些？二、那些符合医疗器械定义的制氧机是哪里符合了这些定义？三、家用制氧机 不符合 第二",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "144323",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=144323&sysid=55",
+   "question": "医疗器械备案事宜无处咨询\n公司因经营需要办理医疗器械第三方备案。从6月份开始联系省食药监局，回复说是部门整合要到8月份才有具体部门负责这个事情，8月份到现在又继续联系，不是回复部门没整合好，就是给的电话没人接。83273705回复做不了主叫",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "143616",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=143616&sysid=55",
+   "question": "两次咨询前后矛盾\n号称能解决世界免疫系统难题的药，是我苏骄傲。在SYJJ0220190901028说没有批文号，在SYJJ0320190904427中又说有先后矛盾，附件是该药外包装含审批号请认真核对，有那请公示批文，我想知道该药成分，有什",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "143415",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=143415&sysid=55",
+   "question": "关于连锁换证问题的反映\n尊敬的局长您好，我是一家医药零售连锁企业，现我司药品经营许可证即将到期，涉及我司100多家门店的正常经营，为了维护社会稳定，门店的正常经营不受到影响，能够尽快的办理换证手续，但因机构改革后成立了直属分局及省局部门的重",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "143368",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=143368&sysid=55",
+   "question": "药品零售连锁政策咨询求助\n我是省内一家药品零售连锁企业，我公司药品经营许可证即将于9月29日到期。根据有关法律法规，应提前申请换发证，以便能正常经营。以前，零售连锁总部换证在市药监局，现在是市场局。根据国家药监局和省药监局机构职能政策，现在",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "142384",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=142384&sysid=55",
+   "question": "中药颗粒剂销售使用问题\n中药颗粒剂是否可以在普通药店和医院销售使用？有没有具体规定？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "142334",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=142334&sysid=55",
+   "question": "加快中药制剂备案制的落实\n国家中医药法实施已两年多了，中药制剂备案制省局也颁布了相关实施细则，最近注册处也发布了：《加快审批制度改革 努力实现审批“一窗通办”》。许多医院递交了新的中药制剂品种备案，希望省局能加快新制剂的审批，将这一发扬中医",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "142091",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=142091&sysid=55",
+   "question": "反应关于举报的相关问题\n我在本网站举报的南京食光汇食品有限公司在其经营的天猫网店小鸡收腹旗舰店销售的黑麦代餐面包涉嫌山梨糖醇充当食品原料使用一事自举报完之后未收到承办单位的电话联系及任何告知情况本人的情况！请承办单位依法及时联系本人！谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "141454",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=141454&sysid=55",
+   "question": "江苏省海洋药物（含生物制品）的研发机构和生产单位\n尊敬的药监局：    我想要了解江苏省海洋药物（含生物制品）的研发机构和生产单位有哪些？如何准确获取这些信息？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "141205",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=141205&sysid=55",
+   "question": "投诉举报三无食品\n本人因个人需求于2019年7月20日通过账号在拼多多平台，蒙味部落，购买该店食品内蒙古风味肉干500g手撕风干肉休闲零食小吃原味香辣，合计19.8元，订单号，190720-207819244473051，收到商家出售食品肉",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "139829",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=139829&sysid=55",
+   "question": "医疗器械说明书使用期限的含义\n本人在日常工作中接触到有些医疗器械，例如：剪刀、手杖等规定使用期限一年，厂方解释说，这是从开始使用算起，不能从生产日期算起。有效期或失效期是从生产日期算起的。请问：这解释符合医疗器械标签说明书规定吗？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "139704",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=139704&sysid=55",
+   "question": "联合口腔苏州广电店附属单位无证用药\n其机构没有医疗执照和合法正规手续却在操作医疗范围事宜，目前已经正式营业中，消防却完全不过关，对检查者搪塞自称在试营业，望领导严查这些钻社会空隙的无良商家！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "139545",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=139545&sysid=55",
+   "question": "友德医互联网医院\n我们公司可以提供远程诊疗，远程电子处方，搭建互联网医疗平台，实现医药监管闭环。望请领导惠览！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "139245",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=139245&sysid=55",
+   "question": "苏州碧迪EO灭菌循环存在问题\n现在是AAMI TIR14/15/16/20/28主席Jeffrey Martin 对苏州碧迪灭菌循环的评语：Well,that doesn‘t make it a good process. It just ",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "137792",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=137792&sysid=55",
+   "question": "委托配送\n某零售连锁药企的《药品经营许可证》仓库地址一栏标注“委托配送(xxxx有限公司）”，那么该药企还能在自己的注册地址再收货吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "137032",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=137032&sysid=55",
+   "question": "常州制药厂有限公司\n常州制药厂有限公司生产的药品为何不断涨价，而且药品质量几乎少一半？【例如降压药卡托普利，从原来的每瓶（100粒装）7.5元现在涨价到19元（药店价），而且药品总质量每瓶几乎比原来减少一半。】",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "132814",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=132814&sysid=55",
+   "question": "南京中药药业药品存储条件不合格，泡水药品\n南京中大药业卖过期的药品，存储条件没有达到标准，卖出去的药品，退回来泡水，不经过检验就出售，所有货物流向不清晰，有问题就跟买到药品的患者私底下用金钱解决，希望国家领导为百姓的安全想想，查查这家公司，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "128973",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=128973&sysid=55",
+   "question": "连云港兴康生物科技有限公司违法生产胶囊，配方颗粒\n连云港兴康生物科技有限公司，无牌无证私自生产胶囊及配方颗粒，不仅无牌无证生产，而且工作人员没有健康证，多年举报依然生产，私自生产的胶囊及配方颗粒经过外贸公司销到国外，就是来人检查也就是走过场",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "128488",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=128488&sysid=55",
+   "question": "小作坊证的办理\n尊敬的领导:请问江苏能不能办理纯粮散酒小作坊生产许可证，本人长期在外打工想回乡创业兼照顾年迈的父母。望领导能替我解惑。万分谢谢!!!",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-da2",
+   "id": "117777",
+   "url": "https://da.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=117777&sysid=55",
+   "question": "五老村小学文昌校区食堂\n严重质疑学校食堂卫生环境以及工作人员的职业操守！炊具、食具的清洗消毒制度有没有严格执行？！食品有没有留样？人员有无健康证、定时培训、培训记录？我没有任何证据，当然肯定不是空穴来风，请相关负责人要高度重视，认真对待，严",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

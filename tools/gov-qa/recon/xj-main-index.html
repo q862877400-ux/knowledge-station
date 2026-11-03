@@ -1,0 +1,572 @@
+
+
+
+<html>
+<head>
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>新疆维吾尔自治区信访网</title>
+	<script type="text/javascript" src="/html/js/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="/html/js/public.js"></script>
+	<link href="/html/css/css.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript">
+		$(function() {
+				var url = window.location.href;
+				var	regionCode;
+				if(url.split("?")[1]!=undefined){
+					if(url.split("&")[1]!=undefined){
+						regionCode = url.split("?")[1].split("&")[1].split("=")[1];
+					}else{
+						regionCode = url.split("?")[1].split("=")[1];
+					}
+					var replaceStr = "#";
+					regionCode= regionCode.replace(new RegExp(replaceStr,'gm'),'');
+				}else{
+					regionCode="650000000000";
+				}
+				//首页进行相关配置
+				var indexPage="";
+				if(regionCode=="650000000000"){
+					indexPage="/html/main/index.jsp?regionCode="+regionCode;
+					//首页
+					$("#firstPage").attr("href",indexPage);
+				}else{
+					//设置首页可配置
+					var url="/letter/pre-accept-letter-info!queryStartPage.action?regionCode="+regionCode;
+					$.ajax({
+			                url: url,
+			                contentType: "application/json; charset=utf-8",
+			                dataType: "text",
+			                success: function (result) {
+			                   // alert(result);
+			                    indexPage=result;
+			                  //首页
+			                    $("#firstPage").attr("href",indexPage);
+			                },
+			                error: function (err) {
+			                    return false;
+			                }
+			            }
+			            );
+				}
+				//信访指南
+				$("#guide").attr("href","/html/petitionGuide/onlineOder.jsp?regionCode="+regionCode);
+				//显示图片
+				$("#image").attr("src","/html/images/"+regionCode+".jpg");
+				//网上信访
+				$("#online").attr("href","/html/petitionOnline/netRport.jsp?regionCode="+regionCode);
+				
+				//人民建议征集
+			//	$("#peopleAdvice").attr("href","/html/peopleAdvice/peopleAdvice.jsp?regionCode="+regionCode);
+				$("#peopleAdvice").attr("href","/html/login/login.jsp?regionCode="+regionCode);
+				
+				$("#noLogon").attr("href","/html/login/login.jsp?regionCode="+regionCode);
+				//查询评价
+				$("#queryEval").attr("href","/html/onlineInquiry/onlineILsit.jsp?regionCode="+regionCode);
+				//未登录
+				$("#pingLonNo").attr("href","/html/onlineInquiry/queryIndex.jsp?regionCode="+regionCode);
+				
+				//个人中心
+				$("#grzx01").attr("href","/html/users/index.jsp?regionCode="+regionCode);
+				$("#grzx02").attr("href","/html/login/login.jsp?regionCode="+regionCode);
+		
+		}
+		)
+	</script>
+</head>
+<body >
+<div id="win_wk">
+	<div style="height: 200px;">
+		
+		<img id="image" src="#"/>
+	</div>
+	<div class="nav">
+		<ul>
+			<li><a id="firstPage" class="nav_daoh" href="#">首页</a></li>
+			<li><a id="guide" class="nav_daoh" href="#">信访指南</a></li>
+			<li>
+				
+					<a id="noLogon" class="nav_daoh" href="#"">网上信访</a>
+				
+				
+			</li>
+			<li>
+				
+					<a id="pingLonNo" class="nav_daoh" href="#">查询评价</a>
+				
+				
+			</li>
+			<li>
+				
+					<a id="peopleAdvice" class="nav_daoh" href="#">人民建议征集</a>
+				
+				
+			</li>
+			
+			<li>
+				
+				 
+					<a id="grzx02" class="nav_daoh" href="#">个人中心</a>
+				
+			</li>
+		</ul>
+	</div>
+</div>
+</body>
+</html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>新疆维吾尔自治区信访网</title>
+	<script type="text/javascript">
+		$(function() {
+					$(document).ready(function() {
+						showLocationForId1('province1','city1','county1','complainMaaddressCode');
+					});
+					var url = window.location.href;
+					var	regionCode;
+					if(url.split("?")[1]!=undefined){
+						if(url.split("&")[1]!=undefined){
+							regionCode = url.split("?")[1].split("&")[1].split("=")[1];
+						}else{
+							regionCode = url.split("?")[1].split("=")[1];
+						}
+					}else{
+						regionCode="650000000000";
+					}
+					//投诉案件
+					$("#complaints").attr("href","/html/onlineInquiry/letterLsit.jsp?regionCode="+regionCode);
+					//我的建议
+					$("#sug").attr("href","/html/peopleAdvice/adviceLsit.jsp?regionCode="+regionCode);
+					//用户注册
+					$("#regist").attr("href","/html/register/register.jsp?regionCode="+regionCode);
+					//个人中心
+					$("#pInfo").attr("href","/html/users/index.jsp?regionCode="+regionCode);
+					//
+					//$("#exit").attr("href","/user/network-user-info!userLogOut.action?regionCode="+regionCode);
+					$("#findBack").attr("href","/html/users/findPass.jsp?regionCode="+regionCode);
+
+					//人民建议征集
+					$("#peopleAdviceImage").attr("href", "/html/peopleAdvice/peopleAdvice.jsp?regionCode="+regionCode);
+
+					var userId = "";
+					if (userId == null || userId == "" || userId == "null"){
+						$("#nav_img").attr("href","/html/login/login.jsp?regionCode="+regionCode);
+					} else {
+						//网上信访
+						$("#nav_img").attr("href","/html/petitionOnline/netRport.jsp?regionCode="+regionCode);
+					}
+
+				}
+
+		)
+		function getTxt1CursorPosition(){
+			var oTxt1 = document.getElementById("complainName");
+			if(oTxt1.selectionStart){//非IE浏览器
+				cursurPosition= oTxt1.selectionStart;
+			}else{//IE
+				try{
+					var range = document.selection.createRange();
+					range.moveStart("character",-oTxt1.value.length);
+					cursurPosition=range.text.length;
+				}catch(e){
+
+				}
+			}
+		}
+
+	</script>
+	<link href="/html/css/index.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="/html/css/lightbox.css" />
+	<script type="text/javascript" src="/html/js/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="/html/js/md5.js"></script>
+	<script type="text/javascript" src="/html/js/index.js"></script>
+	<script type="text/javascript" src="/html/js/homeAreaData.js"></script>
+</head>
+<style>
+.news_fl{
+	float: left;
+	width:630px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.news_fr{
+	float: left;
+	padding-left: 10px;
+}
+.black_overlay{
+	display:none;
+	position:absolute;
+	top:0%;
+	left:0%;
+	width:100%;
+	height:100%;
+	background-color: #000000;
+	z-index:1001;
+	-moz-opacity:0.8;
+	opacity:.80;
+	filter:alpha(opacity=80);
+}
+.white_content{
+	display:none;
+	position:absolute;
+	top:17%;
+	left:35%;
+	width:26%;
+	height:70%;
+	border:1px solid #009fe3;
+	background-color:white;
+	z-index:1002;
+	overflow:auto;
+}
+.white_content_small{
+	display:none;
+	position:absolute;
+	top:20%;
+	left:30%;
+	width:40%;
+	height:50%;
+	border:16px solid lightblue;
+	background-color:white;
+	z-index:1002;
+	overflow:auto
+}
+.titleCss{
+	text-align: left;
+    cursor: default;
+    height: 30px;
+    background-color: #009fe3;
+    color: white;
+    line-height: 27px;
+}
+</style>
+<script type="text/javascript">
+	//$.ajax拼接url的异步请求
+	$.ajax({
+	     type:'post',
+	     url:'/news/web-column-info!getNewsList.action',
+	     data:{},
+	     cache:false,
+	     dataType:'html',
+	     success : function(data) {
+	    	var obj = eval('(' + data + ')');
+	    	var html = "";
+			for(i=0;i<obj.length;i++){
+				html+=("<li><span class='news_fl'><a href='"+obj[i].url+"' target='_blank'>"+obj[i].title+"</a></span><span class='news_fr'>"+obj[i].postDate+"</span></li>");
+			}
+			$("#zcfglist").html(html);
+         },
+         error : function(rtn) {
+           return false;
+         }
+    });
+	$.ajax({
+    	url : "/letter/pre-accept-letter-info!letterFeedbackList.action",
+    	type : "post",
+    	async : true,
+    	dataType: "html",
+    	data : {maxResults : 50},
+    	success : function(data) {
+        	var obj = jQuery.parseJSON(data);
+        	var feedbackList = obj[0].feedbackList;
+        	var html="";
+        	html +="<ul class='main_lm'>";
+        	$(feedbackList).each(function(index,model){
+            	html +="<li>"+model.networkLogonUseName+",您于"+model.createDate+"日的来信有新告知事项，请在查询评价中查阅。</li>";
+        	});
+        	html +="</ul>";
+        	$(".feedback").html(html);
+    	},
+    	error : function() {
+    	}
+	});
+</script>
+<body>
+	<div class="main" style="margin-top: 10px;">
+		<div class="main_left">
+			<div class="box">
+				<div class="nav_img">
+
+					<a id="nav_img" target="_blank">
+					<img src="/html/images/changjing_nav.jpg"></a>
+				</div>
+			</div>
+			<div class="box">
+				<div class="box_title">
+					<h2>来信反馈</h2>
+					<span class="box_more"></span>
+				</div>
+				<div class="feedback"></div>
+			</div>
+			<!--<div class="clear"></div>
+			<div class="box">
+				<div class="box_title">
+					<h2>政策法规</h2>
+					<span class="box_more"> </span>
+				</div>
+				<div class="main_lm" >
+					<ul id="zcfglist">
+					</ul>
+				</div>
+			</div>
+			 <div class="box">
+				<div class="box_title">
+					<h2>案例选登</h2>
+					<span class="box_more"></span>
+				</div>
+				<div class="clear"></div>
+				<table class="table_index"></table>
+			</div> -->
+
+
+		</div>
+		<script type="text/javascript">
+		  function autoScroll(obj){
+				$(obj).find("ul").animate({
+					marginTop : "-30px"
+				},500,function(){
+					$(this).css({marginTop : "0px"}).find("li:first").appendTo(this);
+				})
+			}
+			$(function(){
+				setInterval('autoScroll(".feedback")',2000);
+			})
+			//用户退出
+			function logoutexit(){
+				$.ajax({
+				    url : "/user/network-user-info!userLogOut.action",
+				    type : "post",
+				    data : {},
+				    type : "html",
+				    success : function(data) {
+				    	window.location.href =url;
+
+				    },
+				    error : function(data) {
+				    }
+				});
+			}
+			$(document).ready(function(){
+				//切换登陆方式
+				var $tab_li = $('.main_count div a');
+				$tab_li.click(function(){
+					$(this).addClass('tab-bgc-active').siblings().removeClass('tab-bgc-active');
+					var index = $tab_li.index(this);
+					$('div.find-pwd-box > div').eq(index).show().siblings().hide();
+				});
+			});
+	</script>
+		<div class="main_right">
+			
+				<div class="main_login" id="noLogin">
+					<div class="main_count">
+			    		<div class="find-pwd-nav tab-title" style="width: 175px;margin-left: 17px" >
+			    		<!-- find-pwd-navitem selection user_title user_login -->
+			    			<a class="tab-bgc tab-bgc-active" href="#">
+								<span class="ioc_key">用户登录</span>
+							</a>
+							<a class="tab-bgc" href="#">
+								<span class="ico_phone">验证码登录</span>
+							</a>
+			    		</div>
+			    	</div>
+			    	<div class="find-pwd-box">
+			    		<div>
+							<!-- <div class="user_title user_login">信访人登录</div> -->
+							<form id="loginForm" action="#" method="post">
+								<table style="margin-left: 18px">
+									<tr>
+
+										<td style="padding-top: 5px;}"><input name="complainLoginName" type="text" class="username" id="complainLoginName" placeholder="身份证/用户名" style="width:175px" />
+										</td>
+									</tr>
+									<tr>
+
+										<td><input name="complainPassword" type="password" class="pw" id="complainPassword" placeholder="密码" style="width:175px" />
+										</td>
+									</tr>
+
+									<tr>
+										<td><input class="vercode" name="vercode" id="vercode" type="text" placeholder="验证码"style="width:88px"/>
+				        					<img id="authImg" src="/servlet/VerifyCodeServlet" onclick="changeValidateCode(this)"/>
+										</td>
+									</tr>
+									<tr>
+										<td colspan="2">
+											<input class="login_btn" type="button" onclick="logOn()" style="width: 72px;margin-right: 28px" value="登录"/>
+											<input class="login_btn" type="reset" name=""  style="width: 72px;" value="重置">
+										</td>
+									</tr>
+								</table>
+							</form>
+						</div>
+						<div class="hide">
+							<form>
+								<table style="margin-left: 18px">
+									<tr>
+										<td style="padding-top: 5px"><input name="complainLoginName" type="text" class="username" id="phoneNum" placeholder="手机号"style="width:175px" />
+										</td>
+									</tr>
+									<tr>
+										<td><input class="vercod1" id="phoneCode" type="text"style="width: 87px" placeholder="验证码"/>
+				        					<input type="button" class="phoneCode input-btn" value="获取验证码" onclick="selectCode(this)" style="width: 88px;"/>
+										</td>
+									</tr>
+									<tr>
+										<td colspan="2" align="center">
+											<input class="login_btn2" onclick="logOnByPhoneCode()" type="button" value="登录" style="width: 177px;}"/>
+										</td>
+									</tr>
+								</table>
+							</form>
+						</div>
+					</div>
+					<div style="font-size: 13px;color: #555;width: 189px">
+						<a id="regist" href="#">用户注册</a>
+						<a id="findBack" href="#" style="float: right" >忘记密码？</a>
+					</div>
+				</div>
+			
+			
+			<div class="clear"></div>
+			<div class="index_right_bg">
+				<div class="qd"></div>
+				<ul>
+					<li class="qd_bottom"><a href="#" onclick="timeCheckTousu()"><img
+							src="/html/images/index_right_1.jpg"></a>
+					</li>
+					<li class="qd_bottom">
+						
+							<a class="nav_daoh" href="/html/onlineInquiry/queryIndex.jsp">
+							<img src="/html/images/index_right_2.png"></a>
+						
+						
+					</li>
+					<!--  <li class="qd_bottom"><a href="/html/peopleAdvice/advice.jsp">
+						<img src="/html/images/index_right_3.jpg"> </a>
+					</li>
+					<li class="qd_bottom"><a href="/html/peopleAdvice/advice.jsp">
+						 <img src="/html/images/index_right_4.jpg"></a>
+					</li>-->
+					<li><a id="peopleAdviceImage" href="#">
+							<img src="/html/images/index_right_5.jpg"></a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div id="fade" class="black_overlay"></div>
+	<div id = "phoneDiv" class="white_content">
+		<div class="titleCss">
+			<span style="font-size:16px;">当前账号未绑定相关信息，请进行绑定</span>
+		</div>
+		<form action="#" style="margin-top:80px">
+			<div class="regist_1" style="width:80%;height: 85px;font-size: 20px;text-align: left">
+				<select style="display: none;" id="countYY1"></select>
+				<span class="wid11">户籍地：</span>
+				<tr>
+					<td height="32" colspan="2">
+						<select id="province1" ></select>
+						<select id="city1" ></select>
+						<select id="county1" ></select>
+						<input type="hidden" name="complainMaaddressCode" id="complainMaaddressCode"/>
+					</td>
+				</tr>
+                <tr>
+                    <td class="regist_1"></td>
+                    <td>
+                        <input  id="complainMaaddressName" name="complainMaaddressName" class="wid1"/>
+                        <label id="huJiAddressNameLAB"></label>
+                    </td>
+                </tr>
+			</div>
+			<div class="div_user1">
+				<span class="wid11">身份证：</span>
+				<input name="phoneNum" type="text" class="username1" id="complainCredentialCard"/>
+			</div>
+			<div class="div_user1"style="width: 50%">
+				<span class="wid11">姓名：</span>
+				<input name="phoneNum" type="text" class="username1" id="complainName"/>
+			</div>
+			<div class="div_user1" style="float: left;width: 100%;height: 37px;font-size: 12px;text-align: left">
+				<tr>
+					<td class="regist_1" style="font-size:14px "><span class="red"></span>
+						<span style="font-size:14px ;font-weight: bold; ">出生日期：</span></td>
+					<td>
+						<input name="complainBirthday" id="birthday" class="wid1" />
+						<script type="text/javascript">
+							!function() {
+								laydate.skin('danlan');//切换皮肤
+								laydate({
+									elem : '#birthday'
+								});//绑定元素
+							}();
+						</script>
+					</td>
+					<td><label id="birthdayLAB"></label></td>
+				</tr>
+				<tr>
+					<td class="regist_1" ><span class="red"></span>
+						<span style="font-size:14px ;font-weight: bold;">性别：</span>
+						</td>
+					<td>
+						
+						<tr>
+    <td class="tdLabel"></td>
+    <td
+><select name="complainSex" id="xb" class="wid2">
+    <option value="0"
+    >女</option>
+    <option value="1">男</option>
+
+
+</select>
+
+</td>
+</tr>
+
+
+					</td>
+					<td><label id="zjhmLAB"></label></td>
+				</tr>
+			</div>
+			<div class="div_user1">
+				<span class="wid11">手机号：</span>
+				<input name="phoneNum" type="text" class="username1" id="registerPhoneNum"/>
+			</div>
+			<div class="div_yzm1" style="height:160px;width: 350px; ">
+				<span class="wid11">验证码：</span>
+				<input class="yzm1" name="phoneCode" id="registerPhoneCode" type="text"/>
+				<input type="button" class="buttonType" value="获取验证码" onclick="registerSelectCode(this)"/>
+			</div>
+			<div class="div_btn1"  style="width:100%;float: left";>
+				<input type="button" class="login_btn1"   value="确定" onclick="registerPhone()"/>
+				<input type="button" class="login_btn1 login_btn1-margin" value="取消" onclick="logoutexit()"/>
+			</div>
+		</form>
+	</div>
+</body>
+</html>
+
+<html>
+<head>
+
+</head>
+<body>
+	<div class="clear"></div>
+
+	<div class="footer">
+		<div class="foot">
+			<br>版权所有&copy;新疆维吾尔自治区信访局 地址：新疆乌鲁木齐市文化路38号 电话：0991-2391501</br>
+			<br>ICP备案号: 新ICP备09003504 政府网站标识码:6500000006 公安机关备案号:65010099073</br>
+			<script type="text/javascript">document.write(unescape("%3Cspan id='_ideConac' %3E%3C/span%3E%3Cscript src='https://dcs.conac.cn/js/31/000/0000/60311934/CA310000000603119340001.js' type='text/javascript'%3E%3C/script%3E"));
+			</script>
+			<script async id="_jiucuo_" sitecode='6500000006' src='https://zfwzgl.www.gov.cn/exposure/jiucuo.js'></script>
+		</div>
+	</div>
+</body>
+</html>
+

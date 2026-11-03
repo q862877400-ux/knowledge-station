@@ -1,0 +1,97 @@
+{
+ "A_考卷": [],
+ "B_补料": [
+  {
+   "source": "gx-igi-298",
+   "id": "157814436814",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814436814",
+   "question": "“购机者对其购置的补贴机具拥有所有权、自主使用，可依法处置”是否可以随时转卖机具？",
+   "cited_hits": [],
+   "cited_missing": [
+    "农业农村部办公厅 财政部办公厅关于印发&lt;2024-2026年农机购置与应用补贴实施意见&gt;的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-298",
+   "id": "157814433760",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814433760",
+   "question": "“农业农村部办公厅 财政部办公厅关于印发《2024-2026年农机购置与应用补贴实施意见》的通知附件1《2024-2026年农机购置与应用补贴实施操作要求》中“购机者对其购置的补贴机具拥有所有权、自主使用，可依法处置”是否包含可以随时转卖机",
+   "cited_hits": [],
+   "cited_missing": [
+    "农业农村部办公厅 财政部办公厅关于印发&lt;2024-2026年农机购置与应用补贴实施意见&gt;的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-298",
+   "id": "157814401095",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814401095",
+   "question": "请问在哪些店购买无人机有补贴？谢谢回复！",
+   "cited_hits": [],
+   "cited_missing": [
+    "广西2021-2023年农机购置补贴机具补贴额一览表（2023年修订）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-298",
+   "id": "157814222707",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814222707",
+   "question": "我想买甘蔗收割机，想查询一下补贴机具的型号有哪些？麻烦给一下目录清单，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "广西2021——2023年农机购置补贴机具补贴额一览表（第一批）",
+    "广西2021-2023年农机购置补贴机具补贴额一览表（第二批）"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "gx-igi-298",
+   "id": "157830323062",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157830323062",
+   "question": "2026年农机报废补贴与新购机补贴是否可以叠加？如果可以怎么办理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-298",
+   "id": "157814401096",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814401096",
+   "question": "请问使用拖拉机进行机种有什么补贴？谢谢回复！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-298",
+   "id": "157814222692",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814222692",
+   "question": "请问哪种型号的甘蔗收购机适合在小块地里使用？还有什么相应的补贴？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-298",
+   "id": "157814197610",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814197610",
+   "question": "今年购买果园轨道运输机是否还有购机补贴？补贴多少钱？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-298",
+   "id": "157814187276",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814187276",
+   "question": "在来宾市购买到的农机具出现质量问题应该怎么办？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

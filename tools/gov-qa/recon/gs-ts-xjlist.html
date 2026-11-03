@@ -1,0 +1,2413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,minimal-ui:ios">
+    <title>书记留言板-天水市人民政府</title><meta name="pageType" content="2">
+<meta name="pageTitle" content="书记留言板">
+
+
+<META Name="SiteName" Content="天水市人民政府" />
+<META Name="SiteDomain" Content="www.tianshui.gov.cn" />
+<META Name="SiteIDCode" Content="6205000002" />
+<META Name="ColumnName" Content="书记留言板" />
+<META Name="ColumnType" Content="书记留言板" />
+<META Name="ColumnDescription" Content="天水市人民政府,政民互动,领导信箱,书记留言板" />
+<META Name="ColumnKeywords" Content="书记留言板" />
+
+    <link rel="stylesheet" href="../style/layer.css">
+    <link rel="stylesheet" href="../style/public.css">
+    <link rel="stylesheet" href="../style/ny.css">
+    <link rel="stylesheet" href="../style/pagebar.css">
+    <script src="../js/jquery.js"></script>
+    <script src="../js/jquery-migrate.min.js"></script>
+    <script src="../js/slick.js"></script>
+    <script src="../js/public.js"></script>
+    <script src="../js/layer.js"></script>
+<!--Announced by Visual SiteBuilder 9-->
+<link rel="stylesheet" type="text/css" href="../_sitegray/_sitegray_d.css" />
+<script language="javascript" src="../_sitegray/_sitegray.js"></script>
+<!-- CustomerNO:77656262657232307b7a465750525742000200054452 -->
+<link rel="stylesheet" type="text/css" href="xj_list.vsb.css" />
+<script type="text/javascript" src="/system/resource/js/vsbscreen.min.js" id="_vsbscreen" ></script>
+<script type="text/javascript" src="/system/resource/js/counter.js"></script>
+<script type="text/javascript">_jsq_(3861,'/zmhd/xj_list.jsp',-1,1912126876)</script>
+</head>
+<body >
+<!--发布0331-->
+<div class="head pc">
+    <div class="wrap">
+        <div class="d1 f0 clear pc">
+            <div class="ll fl"><script language="javascript" src="/system/resource/js/dynclicks.js"></script><script language="javascript" src="/system/resource/js/openlink.js"></script><a href="https://www.gov.cn/"   onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 31124)">中央人民政府门户网站</a>
+<a href="http://www.gansu.gov.cn/"   onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 31125)">甘肃省人民政府</a>
+<a href="https://zwfw.gansu.gov.cn/tianshui/"   onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 31126)">甘肃省政务服务网-天水</a>
+</div>
+            <div class="rr fr">
+                
+<LINK href="/system/resource/style/component/convertlanguage/stconvert.css" type=text/css rel=stylesheet>
+
+
+<!-- 文字显示 -->
+
+<a  onclick="st_convert(0)" style="cursor:pointer;">简体</a>
+<a  onclick="st_convert(1)" style="cursor:pointer;">繁体</a>
+
+<!-- 按钮显示 -->
+
+<!-- 图片显示 -->
+
+
+
+<script language="javascript" src="/system/resource/js/language.js"></script>
+<script language=javascript>
+
+    try{
+        
+            st_multiOnload("st_convert(0)");
+            
+        
+    }catch(e)
+    {
+    }
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+<a href="javascript:void(0);" id="toolbarSwitch" data-wza="" style="margin:0!important;padding:0!important;"></a>
+<span class="zcdl" id="zcdls" style="display: none;">
+    <a href="javascript:void(0);" onclick="wzaTrigger()">无障碍阅读</a>
+    <a href="../zzms/wzsy.htm">长者模式</a>
+    <a href="javascript:void(0);" onclick="AddFavorite(window.location.href,document.title)">加入收藏</a>
+    <a href="lybpl_comprehensive.jsp?urltype=tree.TreeTempUrl&wbtreeid=10192" >留言评论</a>
+    <a href="../grkjx/mysy.htm" class="log"><span id = 'namespan'></span>
+    【用户空间】</a>|<a href="https://www.zjc.gov.cn/system/resource/caUrl.jsp?goouturl=http://www.tianshui.gov.cn/">退出</a>
+</span>
+
+<span class="zcdl" id="nozcdl">
+    <a href="javascript:void(0);" onclick="wzaTrigger()">无障碍阅读</a>
+    <a href="../zzms/wzsy.htm">长者模式</a>
+    <a href="javascript:;" class="log" onclick="tips()">登录</a>
+    <a href="javascript:;" class="reg" onclick="regs()">注册</a>
+    <a href="lybpl_comprehensive.jsp?urltype=tree.TreeTempUrl&wbtreeid=10192" >留言评论</a>
+</span>
+
+
+<script>
+
+    function AddFavorite(sURL, sTitle) {
+        if (sURL == undefined || sURL == null || sURL.trim() == "") {
+            alert('当前地址为空,无法收藏！');
+        }
+        if (sTitle == undefined || sTitle == null || sTitle.trim() == "") {
+            alert('当前标题为空,无法收藏！');
+        }
+        if (sTitle.length > 60) {
+            sTitle = sTitle.substr(0, 57) + "...";
+        }
+        $.ajax({
+            url: '/system/resource/myspace/collect/addfavorite.jsp',
+            data: {
+                link: sURL,
+                name: sTitle
+            },
+            success: function (d) {
+                if (d) {
+                    alert(d.trim());
+                } else {
+                    alert("收藏出错！");
+                }
+            }
+        });
+    }
+
+    $.ajax({
+        type: "GET",
+        url: '/system/resource/getstatus.jsp',
+        async:false,
+        dataType: "json",
+        success: function (data) {
+            if (data.success) {
+                $("#zcdls").css("display", "");
+                $("#nozcdl").css("display", "none");
+                $("#namespan").html(data.name);
+                sessionStorage.setItem("userId",data.userid);
+            } else {
+                $("#nozcdl").css("display", "");
+                $("#zcdls").css("display", "none");
+                sessionStorage.removeItem("userId");
+            }
+        }
+    });
+</script>
+            </div>
+        </div>
+        <div class="d2 ">
+            <div class="logo fl">
+<a href="../index.htm"><img class="noGrayElement" src="../images/logo2_t_new.png" alt=""><img src="../images/logo2_z.png" alt=""></a></div>
+            <div class="search fr">
+
+
+<script language="javascript" src="/system/resource/js/base64.js"></script><script language="javascript" src="/system/resource/vue/vue.js"></script><script language="javascript" src="/system/resource/vue/bluebird.min.js"></script><script language="javascript" src="/system/resource/vue/axios.js"></script><script language="javascript" src="/system/resource/vue/polyfill.js"></script><script language="javascript" src="/system/resource/vue/token.js"></script><LINK href="/system/resource/vue/static/element/index.css" type=text/css rel=stylesheet><script language="javascript" src="/system/resource/vue/static/element/index.js"></script><script language="javascript" src="/system/resource/vue/static/public.js"></script><div id="divu4"></div>
+<script type="text/html" id="htmlu4">
+    <div id="appu4">
+        <div v-if="!isError">
+           <input type="text"  placeholder="请输入要搜索的关键词" class="inp" autocomplete=off v-model=query.keyWord @keyup.enter="onSubmit">
+            <input type="image" src="../images/search3.png" class="sub" name="submit_button"  v-on:click="onSubmit()"/>
+        </div>
+        <div v-if="isError" style="color: #b30216; font-size:18px;text-align: center;padding:20px;">
+            应用维护中！
+        </div>
+    </div>
+</script>
+<script>
+    $("#divu4").html($("#htmlu4").text());
+</script>
+<script>
+    var appOwner = "1912126876";
+    var token = 'tourist';
+    var urlPrefix = "/aop_component/";
+
+    jQuery.support.cors = true;
+    $.ajaxSetup({
+        beforeSend: function (request, settings) {
+            request.setRequestHeader("Authorization", token);
+            request.setRequestHeader("owner", appOwner);
+        }
+    });
+
+    new Vue({
+        el: "#appu4",
+        data: function () {
+            return {
+                query: {
+                    keyWord: "",//搜索关键词
+                    owner: appOwner,
+                    token: token,
+                    urlPrefix: urlPrefix,
+                    lang:"i18n_zh_CN"
+                },
+                isError: false
+            }
+        },
+        mounted: function () {
+            var _this = this;
+            // _this.init();
+        },
+        methods: {
+            init: function(){
+                $.ajax({
+                    url: "/aop_component//webber/search/test",
+                    type: "get",
+                    success: function (response) {
+                        if (response.code == "0000") {
+                        } else if (response.code == "220") {
+                            _this.isError = true;
+                            console.log(response);
+                        } else if (!response.code) {
+                            _this.isError = true;
+                            console.log(response);
+                        }
+                    },
+                    error: function (response) {
+                        _this.isError = true;
+                    }
+                });
+            },
+            onSubmit: function (e) {
+                var url = "/views/search/modules/resultpc_old/soso.html";
+                if ("10" == "1" || "10" == "2") {
+                    url = "" + url;
+                }
+                var _this = this;
+                var query = _this.query;
+                if (url.indexOf("?") > -1) {
+                    url = url.split("?")[0];
+                }
+                if (query.keyWord) {
+                    var query = new Base64().encode(JSON.stringify(query));
+                    window.open(url + "?query=" + query);
+                } else {
+                    alert("请填写搜索内容")
+                }
+            },
+        }
+    })
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+        </div>
+    </div>
+</div>
+<div class="nav pc">
+    <div class="wrap"><ul class="navList clear">
+        <li >
+        <a href="../index.htm" >网站首页</a>
+    </li>
+    <li >
+        <a href="../ywzx.htm" >要闻资讯</a>
+    </li>
+    <li >
+        <a href="../ldzc.htm" >领导之窗</a>
+    </li>
+    <li >
+        <a href="../zwgk/zfxxgkzn.htm" >政务公开</a>
+    </li>
+    <li >
+        <a href="../zwfw.htm" >政务服务</a>
+    </li>
+    <li class="active">
+        <a href="../zmhd.jsp?urltype=tree.TreeTempUrl&wbtreeid=1061" >政民互动</a>
+    </li>
+    <li >
+        <a href="../mlts.htm" >魅力天水</a>
+    </li>
+    <li >
+        <a href="../ztzl/zfwzndbbzl.htm" >专题专栏</a>
+    </li>
+</ul></div>
+</div>
+<!--wap-->
+<div class="wap-head phone">
+    <div class="logo flex-v-center">
+<a href="../index.htm"><img class="noGrayElement" src="../images/logo2_t_new.png" alt=""><img src="../images/logo2_z.png" alt=""></a></div>
+    <a href="javascript:;" class="navbtnm">
+        <i></i>
+    </a>
+</div>
+<div class="big-nav">
+    <div class="scroll">
+        <div class="btn-search pore">
+            
+
+
+<div id="divu7"></div>
+<script type="text/html" id="htmlu7">
+    <div id="appu7">
+        <div v-if="!isError">
+           <input type="text" placeholder="请输入要搜索的关键词" autocomplete=off v-model=query.keyWord @keyup.enter="onSubmit">
+            <input type="image" src="../images/search2.png" name="submit_button" v-on:click="onSubmit()"/>
+        </div>
+        <div v-if="isError" style="color: #b30216; font-size:18px;text-align: center;padding:20px;">
+            应用维护中！
+        </div>
+    </div>
+</script>
+<script>
+    $("#divu7").html($("#htmlu7").text());
+</script>
+<script>
+    var appOwner = "1912126876";
+    var token = 'tourist';
+    var urlPrefix = "/aop_component/";
+
+    jQuery.support.cors = true;
+    $.ajaxSetup({
+        beforeSend: function (request, settings) {
+            request.setRequestHeader("Authorization", token);
+            request.setRequestHeader("owner", appOwner);
+        }
+    });
+
+    new Vue({
+        el: "#appu7",
+        data: function () {
+            return {
+                query: {
+                    keyWord: "",//搜索关键词
+                    owner: appOwner,
+                    token: token,
+                    urlPrefix: urlPrefix,
+                    lang:"i18n_zh_CN"
+                },
+                isError: false
+            }
+        },
+        mounted: function () {
+            var _this = this;
+            // _this.init();
+        },
+        methods: {
+            init: function(){
+                $.ajax({
+                    url: "/aop_component//webber/search/test",
+                    type: "get",
+                    success: function (response) {
+                        if (response.code == "0000") {
+                        } else if (response.code == "220") {
+                            _this.isError = true;
+                            console.log(response);
+                        } else if (!response.code) {
+                            _this.isError = true;
+                            console.log(response);
+                        }
+                    },
+                    error: function (response) {
+                        _this.isError = true;
+                    }
+                });
+            },
+            onSubmit: function (e) {
+                var url = "/views/search/modules/resultmobile/soso.html";
+                if ("10" == "1" || "10" == "2") {
+                    url = "" + url;
+                }
+                var _this = this;
+                var query = _this.query;
+                if (url.indexOf("?") > -1) {
+                    url = url.split("?")[0];
+                }
+                if (query.keyWord) {
+                    var query = new Base64().encode(JSON.stringify(query));
+                    window.open(url + "?query=" + query);
+                } else {
+                    alert("请填写搜索内容")
+                }
+            },
+        }
+    })
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+        <ul class="flex">
+        <li>
+        <h2 class="h2">
+            <a href="../index.htm" >网站首页</a>
+        </h2>
+        <div class="list">
+            <h3><a href="../index/xmtjz.htm" >新媒体矩阵</a></h3>
+        </div>
+    </li>
+    <li>
+        <h2 class="h2">
+            <a href="../ywzx.htm" >要闻资讯</a>
+        </h2>
+        <div class="list">
+            <h3><a href="../ywzx/tsyw.htm" >天水要闻</a></h3>
+            <h3><a href="../ywzx/zyyw.htm" >中央要闻</a></h3>
+            <h3><a href="../ywzx/gwyxx.htm" >国务院信息</a></h3>
+            <h3><a href="../ywzx/gsyw.htm" >甘肃要闻</a></h3>
+            <h3><a href="../ywzx/xqxw/qzq.htm" >县区新闻</a></h3>
+            <h3><a href="../ywzx/tzgg.htm" >通知公告</a></h3>
+            <h3><a href="../ywzx/bmdt.htm" >部门动态</a></h3>
+        </div>
+    </li>
+    <li>
+        <h2 class="h2">
+            <a href="../ldzc.htm" >领导之窗</a>
+        </h2>
+    </li>
+    <li>
+        <h2 class="h2">
+            <a href="../zwgk/zfxxgkzn.htm" >政务公开</a>
+        </h2>
+        <div class="list">
+            <h3><a href="../zwgk/zfxxgkzn.htm" >政府信息公开指南</a></h3>
+            <h3><a href="../zwgk/zfxxgkzd.htm" >政府信息公开制度</a></h3>
+            <h3><a href="../zwgk/fdzdgknr/lzyj.htm" >法定主动公开内容</a></h3>
+            <h3><a href="../zwgk/zc.htm" >政策</a></h3>
+            <h3><a href="../zwgk/zfxxgknb/a2025n.htm" >政府信息公开年报</a></h3>
+            <h3><a href="../zwgk/ysqgk/sqxz.htm" >依申请公开</a></h3>
+            <h3><a href="../zwgk/xqbmptlj.htm" >县区部门平台链接</a></h3>
+        </div>
+    </li>
+    <li>
+        <h2 class="h2">
+            <a href="../zwfw.htm" >政务服务</a>
+        </h2>
+        <div class="list">
+            <h3><a href="../zwfw/bljx.htm" >不来即享</a></h3>
+        </div>
+    </li>
+    <li>
+        <h2 class="h2">
+            <a href="../zmhd.jsp?urltype=tree.TreeTempUrl&wbtreeid=1061" >政民互动</a>
+        </h2>
+        <div class="list">
+            <h3><a href="hygq.htm" >回应关切</a></h3>
+            <h3><a href="yjzj.htm" >意见征集</a></h3>
+            <h3><a href="zxdc.htm" >在线调查</a></h3>
+            <h3><a href="zxft.htm" >在线访谈</a></h3>
+        </div>
+    </li>
+    <li>
+        <h2 class="h2">
+            <a href="../mlts.htm" >魅力天水</a>
+        </h2>
+        <div class="list">
+            <h3><a href="../mlts/jbgk.htm" >基本概况</a></h3>
+            <h3><a href="../mlts/wdwh.htm" >五大文化</a></h3>
+            <h3><a href="../mlts/gxqj.htm" >故乡情结</a></h3>
+            <h3><a href="../mlts/lsrw.htm" >历史人文</a></h3>
+            <h3><a href="../mlts/mfms.htm" >民风民俗</a></h3>
+            <h3><a href="../mlts/lytj.htm" >旅游推介</a></h3>
+            <h3><a href="../mlts/tsjd.htm" >天水景点</a></h3>
+            <h3><a href="../mlts/tsmr.htm" >天水名人</a></h3>
+            <h3><a href="../mlts/ydylzts.htm" >一带一路在天水</a></h3>
+            <h3><a href="../mlts/yxts.htm" >影像天水</a></h3>
+            <h3><a href="../mlts/zfcht.htm" >政府查号台</a></h3>
+            <h3><a href="../mlts/tssbmfwdh.htm" >天水市便民服务电话</a></h3>
+        </div>
+    </li>
+    <li>
+        <h2 class="h2">
+            <a href="../ztzl/zfwzndbbzl.htm" >专题专栏</a>
+        </h2>
+        <div class="list">
+            <h3><a href="../ztzl/qmgjaqjyr.htm" >全民国家安全教育日</a></h3>
+            <h3><a href="http://www.gov.cn/zhuanti/zswzjjylzzccs/index.htm" >稳经济一揽子政策措施和接续政策</a></h3>
+            <h3><a href="http://gansu.chinatax.gov.cn/col/col9505/index.html" >税费优惠政策专栏</a></h3>
+            <h3><a href="../ztzl/zfwzndbbzl.htm" >政府网站年度报表专栏</a></h3>
+            <h3><a href="../ztzl/sthjbhdcjxs.htm" >生态环境保护督察进行时</a></h3>
+            <h3><a href="../ztzl/szsc_xdjxs.htm" >“三抓三促”行动进行时</a></h3>
+            <h3><a href="../ztzl/shcejxs.htm" >扫黑除恶进行时</a></h3>
+            <h3><a href="../mlts/gjfxdd.htm" >伏羲文化节</a></h3>
+        </div>
+    </li>
+</ul>
+        <div class="m-tlink">
+            
+  <a href="https://www.gov.cn/" onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 92833)" >中央人民政府门户网站</a>
+  <a href="http://www.gansu.gov.cn/" onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 92834)" >甘肃省人民政府</a>
+  <a href="https://zwfw.gansu.gov.cn/tianshui/" onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 92835)" >甘肃省政务服务网</a>
+
+            
+
+
+
+<!-- 文字显示 -->
+
+<a  onclick="st_convert(0)" style="cursor:pointer;">简体</a>
+<a  onclick="st_convert(1)" style="cursor:pointer;">繁体</a>
+
+<!-- 按钮显示 -->
+
+<!-- 图片显示 -->
+
+
+
+
+<script language=javascript>
+
+    try{
+        
+            st_multiOnload("st_convert(0)");
+            
+        
+    }catch(e)
+    {
+    }
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <a href="javascript:void(0);" onclick="wzaTrigger()">无障碍阅读</a>
+<a href="../zzms/wzsy.htm">长者模式</a>
+<span class="zcdl" id="zcdls" style="display: none;">
+    <a href="javascript:void(0);" onclick="AddFavorite(window.location.href,document.title)">加入收藏</a>
+    <a href="lybpl_comprehensive.jsp?urltype=tree.TreeTempUrl&wbtreeid=10192" >留言评论</a>
+    <a href="../yhkj.jsp?urltype=tree.TreeTempUrl&wbtreeid=1661" class="log"><span id = 'namespan'></span>
+    【用户空间】</a>|<a href="https://www.zjc.gov.cn/system/resource/caUrl.jsp?goouturl=http://www.tianshui.gov.cn/">退出</a>
+</span>
+
+<span class="zcdl" id="nozcdl">
+    <a href="javascript:;" class="log" onclick="tips()">登录</a>
+    <a href="javascript:;" class="reg" onclick="regs()">注册</a>
+</span>
+
+
+<script>
+
+    function AddFavorite(sURL, sTitle) {
+        if (sURL == undefined || sURL == null || sURL.trim() == "") {
+            alert('当前地址为空,无法收藏！');
+        }
+        if (sTitle == undefined || sTitle == null || sTitle.trim() == "") {
+            alert('当前标题为空,无法收藏！');
+        }
+        if (sTitle.length > 60) {
+            sTitle = sTitle.substr(0, 57) + "...";
+        }
+        $.ajax({
+            url: '/system/resource/myspace/collect/addfavorite.jsp',
+            data: {
+                link: sURL,
+                name: sTitle
+            },
+            success: function (d) {
+                if (d) {
+                    alert(d.trim());
+                } else {
+                    alert("收藏出错！");
+                }
+            }
+        });
+    }
+
+    $.ajax({
+        type: "GET",
+        url: '/system/resource/getstatus.jsp',
+        dataType: "json",
+        success: function (data) {
+            if (data.success) {
+                $("#zcdls").css("display", "");
+                $("#nozcdl").css("display", "none");
+                $("#namespan").html(data.name);
+                sessionStorage.setItem("userId",data.userid);
+            } else {
+                $("#nozcdl").css("display", "");
+                $("#zcdls").css("display", "none");
+                sessionStorage.removeItem("userId");
+            }
+        }
+    });
+</script>
+        </div>
+    </div>
+</div>
+<!--wap-->
+<div class="main mbg">
+    <div class="wrap bgw">
+        <div class="position"><img src="../images/add.png" alt="">: 
+<a href="../index.htm">网站首页</a>
+ <span>&gt;</span>
+<a href="../zmhd.jsp?urltype=tree.TreeTempUrl&wbtreeid=1061">政民互动</a>
+ <span>&gt;</span>
+<a href="xj_list.jsp?urltype=tree.TreeTempUrl&wbtreeid=3871">领导信箱</a>
+ <span>&gt;</span>
+<a href="xj_list.jsp?urltype=tree.TreeTempUrl&wbtreeid=3861">书记留言板</a>
+</div>
+        <div class="board">
+            <div class="board-tit clear">
+                <div class="inputBox" style="margin-bottom:26px !important;margin-top:0px !important">
+                    <script type="text/javascript">
+  function _leadermail_search_changebase64_1() {
+    if (document.getElementById("wbserialnum_temp")) {
+      var s_t = document.getElementById("wbserialnum_temp").value;
+      if (s_t == null || s_t == "" || s_t == undefined) {
+        alert("请输入流水号");
+        document.getElementById("wbserialnum_temp").focus();
+        return false;
+      }
+    }
+    if (document.getElementById("wbsearchcode_temp")) {
+      var s_t = document.getElementById("wbsearchcode_temp").value;
+      if (s_t == null || s_t == "" || s_t == undefined) {
+        alert("请输入查询密码");
+        document.getElementById("wbsearchcode_temp").focus();
+        return false;
+      }
+    }
+    if(document.getElementById("wbname_temp").value=='')
+    {
+      alert("姓名不能为空!");
+      return false;
+    }
+
+    if(document.getElementById("wbname_temp"))
+    {
+      document.getElementById("wbname").value=new  Base64().encode(document.getElementById("wbname_temp").value);
+      document.getElementById("wbname_temp").disabled=true;
+    }
+
+    if (document.getElementById("wbserialnum_temp")) {
+      document.getElementById("wbserialnum").value = new Base64().encode(document.getElementById("wbserialnum_temp").value);
+      document.getElementById("wbserialnum_temp").disabled = true;
+    }
+    if (document.getElementById("wbsearchcode_temp")) {
+      document.getElementById("wbsearchcode").value = new Base64().encode(document.getElementById("wbsearchcode_temp").value);
+      document.getElementById("wbsearchcode_temp").disabled = true;
+    }
+
+    var yanzheng = document.getElementById("yanzheng").value;
+    if(yanzheng==""||yanzheng==null){
+      alert("验证码不能为空!");
+      return false;
+    }
+    var cansave = false;
+    $.ajax({
+      type: "POST",
+      url: "/system/resource/leadermail/checkyzm.jsp?yanzheng="+yanzheng,
+      async: false,
+      data:{"_csrf":Math.random()},
+      success: function(data) {
+        if(data == 1) {
+          cansave = true;
+        }
+      },
+      dataType: "text"
+    });
+    if(!cansave) {
+      alert("验证码错误!");
+      return false;
+    }
+    return true;
+  }
+</script>
+
+<form  name="leadermailsearch1084632a" method="post" action="xjcxjgy.jsp?urltype=leadermail.LeaderMailContentUrl&wbtreeid=3861" style="display: inline;" onsubmit="return _leadermail_search_changebase64_1();">
+
+  <div class="inp1 inp2">
+    <span>办事编号：</span>
+
+    <input type="hidden" name="wbserialnum" id="wbserialnum">
+    <input type="text" class="gjz" name="wbserialnum_temp" id="wbserialnum_temp">
+
+    <span>查询密码：</span>
+    <input type="hidden" name="wbsearchcode" id="wbsearchcode">
+    <input type="text" class="gjz" name="wbsearchcode_temp" id="wbsearchcode_temp">
+
+  </div>
+
+  <div class="inp1 inp2" style="margin-top: 16px;">
+    <span>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：</span>
+
+    <input type="hidden" name="wbname" id="wbname">
+    <input type="text" class="gjz" name="wbname_temp" id="wbname_temp">
+
+    <span>验&nbsp;&nbsp;证&nbsp;&nbsp;码：</span>
+    <input type="text" class="gjz" name="yanzheng" id="yanzheng" style="margin-right: 10px;"  maxlength="4">
+    <img border="0" src="/system/resource/leadermail/createimage.jsp" style="display: inline-block;vertical-align: middle;height: 40px;" />
+
+    <div class="btn">
+      <button type="submit">查询</button>
+    </div>
+
+  </div>
+
+
+
+
+</form><script language="javascript" src="/system/resource/js/formfunc.js"></script>
+                </div>
+                <div class="tabc f0">
+     <a href="xj_list.jsp?urltype=tree.TreeTempUrl&wbtreeid=3871" >市委书记信箱</a>
+     <a href="xj_list.jsp?urltype=tree.TreeTempUrl&wbtreeid=3881" >市长信箱</a>
+     <a href="xj_list.jsp?urltype=tree.TreeTempUrl&wbtreeid=3861" class="active" >书记留言板</a>
+     <a href="xj_list.jsp?urltype=tree.TreeTempUrl&wbtreeid=1201" >市长留言板</a>
+</div>
+<style>
+.tabb .tabb-item{display:none;}
+.tabb .tabb-item:nth-child(3){
+    display:block!important;
+}
+</style>
+            </div>
+            <div class="content clear">
+                <div class="tabb fl">
+                    <div class="tabb-item">
+                        <div class="board-box">
+                            
+
+
+<div class="scollBox" data-write-letter-href="xjtj_swsjlyb.jsp?urltype=leadermail.LeaderMailsAddUrl&wbtreeid=3861">
+    <table>
+        <thead>
+            <tr>
+                <td class="td-1">序号</td>
+                <td class="td-2">办件编号</td>
+                <td class="td-3">信件标题</td>
+                <td class="td-4">状态</td>
+                <td class="td-5">来信时间</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="td-1">1</td>
+                <td class="td-2">2026083000926BE0401</td>
+                <td class="td-3"><a href="xj_info.jsp?urltype=leadermail.LeaderMailContentUrl&wbtreeid=3861&leadermailid=141AE5B40D694F6AADF59BF78C28DDD1" class="eclip">关于扰民的投诉</a></td>
+                <td class="td-4">
+                     处理完毕
+                </td>
+                <td class="td-5">2026-08-30</td>
+            </tr>
+            <tr>
+                <td class="td-1">2</td>
+                <td class="td-2">20260826001CAAAB0D4</td>
+                <td class="td-3"><a href="xj_info.jsp?urltype=leadermail.LeaderMailContentUrl&wbtreeid=3861&leadermailid=31178B314E23051BECD5D3498C821BD5" class="eclip">甘肃省以及天水市关于残疾人家庭车辆共用问题</a></td>
+                <td class="td-4">
+                     处理完毕
+                </td>
+                <td class="td-5">2026-08-26</td>
+            </tr>
+            <tr>
+                <td class="td-1">3</td>
+                <td class="td-2">20260819002097A35EA</td>
+                <td class="td-3"><a href="xj_info.jsp?urltype=leadermail.LeaderMailContentUrl&wbtreeid=3861&leadermailid=17112BFFA36746E0A6D2A251725CA6CB" class="eclip">致天水2路公交07799D和07783D司机师傅的一份表扬信</a></td>
+                <td class="td-4">
+                     处理完毕
+                </td>
+                <td class="td-5">2026-08-19</td>
+            </tr>
+            <tr>
+                <td class="td-1">4</td>
+                <td class="td-2">20260811012371ED1CD</td>
+                <td class="td-3"><a href="xj_info.jsp?urltype=leadermail.LeaderMailContentUrl&wbtreeid=3861&leadermailid=5C39F759A20EF61B4800F515BFFA0C94" class="eclip">望解决学生上学及人员出行问题：搭设人行桥梁、开通公交车。</a></td>
+                <td class="td-4">
+                     处理完毕
+                </td>
+                <td class="td-5">2026-08-11</td>
+            </tr>
+            <tr>
+                <td class="td-1">5</td>
+                <td class="td-2">202608040105A1881A6</td>
+                <td class="td-3"><a href="xj_info.jsp?urltype=leadermail.LeaderMailContentUrl&wbtreeid=3861&leadermailid=6EFF41406A5B8AD1C3EAF396B8432D1D" class="eclip">甘谷县史家坪村土地租金拖欠不给</a></td>
+                <td class="td-4">
+                     处理完毕
+                </td>
+                <td class="td-5">2026-08-04</td>
+            </tr>
+            <tr>
+                <td class="td-1">6</td>
+                <td class="td-2">20260802003D570E019</td>
+                <td class="td-3"><a href="xj_info.jsp?urltype=leadermail.LeaderMailContentUrl&wbtreeid=3861&leadermailid=BED7A29893715BF0AF9DEC6C40504B1A" class="eclip">请求调解讨要超市兼职劳务报酬（秦州区卓畅百货超市畅和新城店）</a></td>
+                <td class="td-4">
+                     处理完毕
+                </td>
+                <td class="td-5">2026-08-02</td>
+            </tr>
+            <tr>
+                <td class="td-1">7</td>
+                <td class="td-2">20260722011D406AAAA</td>
+                <td class="td-3"><a href="xj_info.jsp?urltype=leadermail.LeaderMailContentUrl&wbtreeid=3861&leadermailid=658FA9095EEEFF5D0B37F67EC35E3CB1" class="eclip">表扬信——感谢秦州区牡丹镇党委、派出所、杜白村工作人员的热情服务</a></td>
+                <td class="td-4">
+                     处理完毕
+                </td>
+                <td class="td-5">2026-07-22</td>
+            </tr>
+            <tr>
+                <td class="td-1">8</td>
+                <td class="td-2">20260708005F7EAB15B</td>
+                <td class="td-3"><a href="xj_info.jsp?urltype=leadermail.LeaderMailContentUrl&wbtreeid=3861&leadermailid=CAE478B4ABABF632C306928043F445D5" class="eclip">名门之秀 严重扰民</a></td>
+                <td class="td-4">
+                     处理完毕
+                </td>
+                <td class="td-5">2026-07-08</td>
+            </tr>
+            <tr>
+                <td class="td-1">9</td>
+                <td class="td-2">2026070700876CD8CED</td>
+                <td class="td-3"><a href="xj_info.jsp?urltype=leadermail.LeaderMailContentUrl&wbtreeid=3861&leadermailid=82185C2AEE5F8CAFD4D7821CFD40EAD6" class="eclip">快递乱象，区别对待</a></td>
+                <td class="td-4">
+                     处理完毕
+                </td>
+                <td class="td-5">2026-07-07</td>
+            </tr>
+            <tr>
+                <td class="td-1">10</td>
+                <td class="td-2">20260630003BEB8F8EA</td>
+                <td class="td-3"><a href="xj_info.jsp?urltype=leadermail.LeaderMailContentUrl&wbtreeid=3861&leadermailid=83750891490CC23B3ADBF8ACEFDA5A8F" class="eclip">恳请协调解决定向医学生跨市域调动问题，省市卫健均已同意，现卡在县...</a></td>
+                <td class="td-4">
+                     处理完毕
+                </td>
+                <td class="td-5">2026-06-30</td>
+            </tr>
+            <tr>
+                <td class="td-1">11</td>
+                <td class="td-2">202606290020F83AF38</td>
+                <td class="td-3"><a href="xj_info.jsp?urltype=leadermail.LeaderMailContentUrl&wbtreeid=3861&leadermailid=57C88D0A56D760B0E304D884847A1FFF" class="eclip">垃圾围城是市民素质还是管理缺失</a></td>
+                <td class="td-4">
+                     处理完毕
+                </td>
+                <td class="td-5">2026-06-29</td>
+            </tr>
+            <tr>
+                <td class="td-1">12</td>
+                <td class="td-2">2026062800149F8D21E</td>
+                <td class="td-3"><a href="xj_info.jsp?urltype=leadermail.LeaderMailContentUrl&wbtreeid=3861&leadermailid=E8672CC97795DF2A80B206BDE168F438" class="eclip">派出所执法人员不作为</a></td>
+                <td class="td-4">
+                     处理完毕
+                </td>
+                <td class="td-5">2026-06-28</td>
+            </tr>
+            <tr>
+                <td class="td-1">13</td>
+                <td class="td-2">20260626007682D8B8E</td>
+                <td class="td-3"><a href="xj_info.jsp?urltype=leadermail.LeaderMailContentUrl&wbtreeid=3861&leadermailid=ADF20FA7950834775D0071BD7360164F" class="eclip">关于石马老坪粮食局家属院拆迁问题</a></td>
+                <td class="td-4">
+                     处理完毕
+                </td>
+                <td class="td-5">2026-06-26</td>
+            </tr>
+            <tr>
+                <td class="td-1">14</td>
+                <td class="td-2">2026061500399CBFA8C</td>
+                <td class="td-3"><a href="xj_info.jsp?urltype=leadermail.LeaderMailContentUrl&wbtreeid=3861&leadermailid=084C83E142003F1DB6277A9A35BBCE88" class="eclip">咨询秦州区滨河西路轴承仪器厂家属院棚改拆迁时间</a></td>
+                <td class="td-4">
+                     处理完毕
+                </td>
+                <td class="td-5">2026-06-15</td>
+            </tr>
+            <tr>
+                <td class="td-1">15</td>
+                <td class="td-2">202605080084EAE48A7</td>
+                <td class="td-3"><a href="xj_info.jsp?urltype=leadermail.LeaderMailContentUrl&wbtreeid=3861&leadermailid=F3B6C353E7EDDC6748F4D4B6B2842631" class="eclip">投诉拆迁工作人员在工作中对相关政策理解不彻底与不作为情况</a></td>
+                <td class="td-4">
+                     处理完毕
+                </td>
+                <td class="td-5">2026-05-08</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="pagebar"><span class="p_t">共404条</span> <span class="p_pages"><span class="p_first_d p_fun_d">首页</span><span class="p_prev_d p_fun_d">上页</span><span class="p_no_d">1</span><span class="p_no"><a href="?totalpage=27&PAGENUM=2&urltype=tree.TreeTempUrl&wbtreeid=3861">2</a></span><span class="p_no"><a href="?totalpage=27&PAGENUM=3&urltype=tree.TreeTempUrl&wbtreeid=3861">3</a></span><span class="p_no"><a href="?totalpage=27&PAGENUM=4&urltype=tree.TreeTempUrl&wbtreeid=3861">4</a></span><span class="p_no"><a href="?totalpage=27&PAGENUM=5&urltype=tree.TreeTempUrl&wbtreeid=3861">5</a></span><span class="p_dot">...</span><span class="p_no"><a href="?totalpage=27&PAGENUM=27&urltype=tree.TreeTempUrl&wbtreeid=3861">27</a></span><span class="p_next p_fun"><a href="?totalpage=27&PAGENUM=2&urltype=tree.TreeTempUrl&wbtreeid=3861">下页</a></span><span class="p_last p_fun"><a href="?totalpage=27&PAGENUM=27&urltype=tree.TreeTempUrl&wbtreeid=3861">尾页</a></span></span></div>
+                        </div>
+                    </div>
+                    <div class="tabb-item">
+                        <div class="board-box">
+                            
+
+
+<div class="scollBox" data-write-letter-href="xjtj_swsjlyb.jsp?urltype=leadermail.LeaderMailsAddUrl&wbtreeid=3861">
+    <table>
+        <thead>
+            <tr>
+                <td class="td-1">序号</td>
+                <td class="td-2">办件编号</td>
+                <td class="td-3">信件标题</td>
+                <td class="td-4">状态</td>
+                <td class="td-5">来信时间</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="td-1">1</td>
+                <td class="td-2">20260907010261B9409</td>
+                <td class="td-3"><a href="xj_info.jsp?urltype=leadermail.LeaderMailContentUrl&wbtreeid=3861&leadermailid=A89A430A1503EAA8F70325C3FD685D23" class="eclip">天水公交卡在哪办</a></td>
+                <td class="td-4">
+                 处理完毕
+                </td>
+                <td class="td-5">2026-09-07</td>
+            </tr>
+            <tr>
+                <td class="td-1">2</td>
+                <td class="td-2">202609070088DD32D04</td>
+                <td class="td-3"><a href="xj_info.jsp?urltype=leadermail.LeaderMailContentUrl&wbtreeid=3861&leadermailid=043CCA4D2B8F7F867FE820E6AB41633E" class="eclip">秦州小学学区在哪查</a></td>
+                <td class="td-4">
+                 处理完毕
+                </td>
+                <td class="td-5">2026-09-07</td>
+            </tr>
+            <tr>
+                <td class="td-1">3</td>
+                <td class="td-2">20260823008432680DC</td>
+                <td class="td-3"><a href="xj_info.jsp?urltype=leadermail.LeaderMailContentUrl&wbtreeid=3861&leadermailid=1810C7FA9F5793A968B849BF9E6535DD" class="eclip">秦安县兴国镇北苑小区楼下大自然烧烤店严重扰民、污染空气</a></td>
+                <td class="td-4">
+                 处理完毕
+                </td>
+                <td class="td-5">2026-08-23</td>
+            </tr>
+            <tr>
+                <td class="td-1">4</td>
+                <td class="td-2">20260818003A14A16F5</td>
+                <td class="td-3"><a href="xj_info.jsp?urltype=leadermail.LeaderMailContentUrl&wbtreeid=3861&leadermailid=3ADF876ABD4F9C42FD21CF8198956626" class="eclip">高压电致死 请求政府介入</a></td>
+                <td class="td-4">
+                 处理完毕
+                </td>
+                <td class="td-5">2026-08-18</td>
+            </tr>
+            <tr>
+                <td class="td-1">5</td>
+                <td class="td-2">202608170091B4F4931</td>
+                <td class="td-3"><a href="xj_info.jsp?urltype=leadermail.LeaderMailContentUrl&wbtreeid=3861&leadermailid=FD5995D60A223A87F3E3E47ABEDAAA5A" class="eclip">大学生就业相关疑惑</a></td>
+                <td class="td-4">
+                 处理完毕
+                </td>
+                <td class="td-5">2026-08-17</td>
+            </tr>
+            <tr>
+                <td class="td-1">6</td>
+                <td class="td-2">202608040122518069E</td>
+                <td class="td-3"><a href="xj_info.jsp?urltype=leadermail.LeaderMailContentUrl&wbtreeid=3861&leadermailid=EA4869F4EA41BE1A7A465CE326706031" class="eclip">论文数据求助</a></td>
+                <td class="td-4">
+                 处理完毕
+                </td>
+                <td class="td-5">2026-08-04</td>
+            </tr>
+            <tr>
+                <td class="td-1">7</td>
+                <td class="td-2">20260802005CBB46429</td>
+                <td class="td-3"><a href="xj_info.jsp?urltype=leadermail.LeaderMailContentUrl&wbtreeid=3861&leadermailid=02CB5CC960CF57DBD761A91AD6FC9D34" class="eclip">交通运输统计数据咨询</a></td>
+                <td class="td-4">
+                 处理完毕
+                </td>
+                <td class="td-5">2026-08-02</td>
+            </tr>
+            <tr>
+                <td class="td-1">8</td>
+                <td class="td-2">202607310017A9D0C80</td>
+                <td class="td-3"><a href="xj_info.jsp?urltype=leadermail.LeaderMailContentUrl&wbtreeid=3861&leadermailid=E64551B4829580FC066D91033155B8FF" class="eclip">伏羲路逸夫小学半夜施工扰民扰民的问题</a></td>
+                <td class="td-4">
+                 处理完毕
+                </td>
+                <td class="td-5">2026-07-31</td>
+            </tr>
+            <tr>
+                <td class="td-1">9</td>
+                <td class="td-2">20260722002591CBC54</td>
+                <td class="td-3"><a href="xj_info.jsp?urltype=leadermail.LeaderMailContentUrl&wbtreeid=3861&leadermailid=D70D8A069B37438197E94E9BED37A354" class="eclip">麦积山景区禁止外来车辆通行</a></td>
+                <td class="td-4">
+                 处理完毕
+                </td>
+                <td class="td-5">2026-07-22</td>
+            </tr>
+            <tr>
+                <td class="td-1">10</td>
+                <td class="td-2">202607150030033142F</td>
+                <td class="td-3"><a href="xj_info.jsp?urltype=leadermail.LeaderMailContentUrl&wbtreeid=3861&leadermailid=C42385E846E56757E9DFBFEABED32EA5" class="eclip">公共安全的问题，人命关天</a></td>
+                <td class="td-4">
+                 处理完毕
+                </td>
+                <td class="td-5">2026-07-15</td>
+            </tr>
+            <tr>
+                <td class="td-1">11</td>
+                <td class="td-2">202607030011EF47567</td>
+                <td class="td-3"><a href="xj_info.jsp?urltype=leadermail.LeaderMailContentUrl&wbtreeid=3861&leadermailid=D4C286C09E8ECC77675C9B46F24DF312" class="eclip">垃圾围城谁之过</a></td>
+                <td class="td-4">
+                 处理完毕
+                </td>
+                <td class="td-5">2026-07-03</td>
+            </tr>
+            <tr>
+                <td class="td-1">12</td>
+                <td class="td-2">20260617002B7DF2D4F</td>
+                <td class="td-3"><a href="xj_info.jsp?urltype=leadermail.LeaderMailContentUrl&wbtreeid=3861&leadermailid=1FC89F8CAA610F27B6467A51D4C344D9" class="eclip">违建举报</a></td>
+                <td class="td-4">
+                 处理完毕
+                </td>
+                <td class="td-5">2026-06-17</td>
+            </tr>
+            <tr>
+                <td class="td-1">13</td>
+                <td class="td-2">202606150064CE1552B</td>
+                <td class="td-3"><a href="xj_info.jsp?urltype=leadermail.LeaderMailContentUrl&wbtreeid=3861&leadermailid=9D0E5852562D4E70E3A7843A92C8E74E" class="eclip">私自处理颅骨</a></td>
+                <td class="td-4">
+                 处理完毕
+                </td>
+                <td class="td-5">2026-06-15</td>
+            </tr>
+            <tr>
+                <td class="td-1">14</td>
+                <td class="td-2">202606080172930D6D3</td>
+                <td class="td-3"><a href="xj_info.jsp?urltype=leadermail.LeaderMailContentUrl&wbtreeid=3861&leadermailid=873754F14CECA342042DC1809DE3C29F" class="eclip">图书馆自习室的具体开放与关闭时间</a></td>
+                <td class="td-4">
+                 处理完毕
+                </td>
+                <td class="td-5">2026-06-08</td>
+            </tr>
+            <tr>
+                <td class="td-1">15</td>
+                <td class="td-2">20260608011E399C38E</td>
+                <td class="td-3"><a href="xj_info.jsp?urltype=leadermail.LeaderMailContentUrl&wbtreeid=3861&leadermailid=3630BFC4945CCE29E1F60E57B3B15D15" class="eclip">事业单位招考</a></td>
+                <td class="td-4">
+                 处理完毕
+                </td>
+                <td class="td-5">2026-06-08</td>
+            </tr>
+        </tbody>
+    </table>
+</div>              
+<div class="pagebar"><span class="p_t">共202条</span> <span class="p_pages"><span class="p_first_d p_fun_d">首页</span><span class="p_prev_d p_fun_d">上页</span><span class="p_no_d">1</span><span class="p_no"><a href="?totalpage=14&PAGENUM=2&urltype=tree.TreeTempUrl&wbtreeid=3861">2</a></span><span class="p_no"><a href="?totalpage=14&PAGENUM=3&urltype=tree.TreeTempUrl&wbtreeid=3861">3</a></span><span class="p_no"><a href="?totalpage=14&PAGENUM=4&urltype=tree.TreeTempUrl&wbtreeid=3861">4</a></span><span class="p_no"><a href="?totalpage=14&PAGENUM=5&urltype=tree.TreeTempUrl&wbtreeid=3861">5</a></span><span class="p_dot">...</span><span class="p_no"><a href="?totalpage=14&PAGENUM=14&urltype=tree.TreeTempUrl&wbtreeid=3861">14</a></span><span class="p_next p_fun"><a href="?totalpage=14&PAGENUM=2&urltype=tree.TreeTempUrl&wbtreeid=3861">下页</a></span><span class="p_last p_fun"><a href="?totalpage=14&PAGENUM=14&urltype=tree.TreeTempUrl&wbtreeid=3861">尾页</a></span></span></div>
+                        </div>
+                    </div>
+                    <div class="tabb-item">
+                        <div class="board-box">
+                            
+
+
+
+
+<div class="scollBox" data-write-letter-href="xjtj_swsjlyb.jsp?urltype=leadermail.LeaderMailsAddUrl&wbtreeid=3861">
+    <table>
+        <thead>
+        <tr>
+            <td class="td-1">序号</td>
+            <td class="td-2">办件编号</td>
+            <td class="td-3">信件标题</td>
+            <td class="td-4">评论数</td>
+            <td class="td-4">状态</td>
+            <td class="td-5">来信时间</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td class="td-1">1</td>
+            <td class="td-2">20260827001E456EB2B</td>
+            <td class="td-3"><a href="xj_info.jsp?urltype=leadermail.LeaderMailContentUrl&wbtreeid=3861&leadermailid=9218532F40C530CC8DC4171A95AA7FA2" class="eclip">出租车租金问题</a></td>
+            <td class="td-3"><a u17table_id="1912126876_33496">0</a></td>
+            <td class="td-4">
+             处理完毕
+            </td>
+            <td class="td-5">2026-08-27</td>
+        </tr>
+        <tr>
+            <td class="td-1">2</td>
+            <td class="td-2">20260824001B4FE1A47</td>
+            <td class="td-3"><a href="xj_info.jsp?urltype=leadermail.LeaderMailContentUrl&wbtreeid=3861&leadermailid=67E7FF50753B5937E7169D5410406220" class="eclip">关于天水市社区工作者招聘信息</a></td>
+            <td class="td-3"><a u17table_id="1912126876_33456">0</a></td>
+            <td class="td-4">
+             处理完毕
+            </td>
+            <td class="td-5">2026-08-24</td>
+        </tr>
+        <tr>
+            <td class="td-1">3</td>
+            <td class="td-2">202608220063137BED9</td>
+            <td class="td-3"><a href="xj_info.jsp?urltype=leadermail.LeaderMailContentUrl&wbtreeid=3861&leadermailid=510F0E1F139732BFAE0BF00B5E55AB9C" class="eclip">关于房屋漏水情况</a></td>
+            <td class="td-3"><a u17table_id="1912126876_33438">0</a></td>
+            <td class="td-4">
+             处理完毕
+            </td>
+            <td class="td-5">2026-08-22</td>
+        </tr>
+        <tr>
+            <td class="td-1">4</td>
+            <td class="td-2">202608220035B5263DD</td>
+            <td class="td-3"><a href="xj_info.jsp?urltype=leadermail.LeaderMailContentUrl&wbtreeid=3861&leadermailid=6C83A0CB115F9804FC7C01518E688697" class="eclip">严查电动车道路乱象</a></td>
+            <td class="td-3"><a u17table_id="1912126876_33435">0</a></td>
+            <td class="td-4">
+             处理完毕
+            </td>
+            <td class="td-5">2026-08-22</td>
+        </tr>
+        <tr>
+            <td class="td-1">5</td>
+            <td class="td-2">202608210046E0E218A</td>
+            <td class="td-3"><a href="xj_info.jsp?urltype=leadermail.LeaderMailContentUrl&wbtreeid=3861&leadermailid=E6B883C0ABDEDB2E46EF3BCBB66E6C51" class="eclip">法院路口桥南小学附近快开学修路</a></td>
+            <td class="td-3"><a u17table_id="1912126876_33424">0</a></td>
+            <td class="td-4">
+             处理完毕
+            </td>
+            <td class="td-5">2026-08-21</td>
+        </tr>
+        <tr>
+            <td class="td-1">6</td>
+            <td class="td-2">20260819006877C7D7E</td>
+            <td class="td-3"><a href="xj_info.jsp?urltype=leadermail.LeaderMailContentUrl&wbtreeid=3861&leadermailid=4689BC92A56E4C8280F201FA48BE5FB3" class="eclip">聚兴唐林园物业收费不办事找不到人</a></td>
+            <td class="td-3"><a u17table_id="1912126876_33402">0</a></td>
+            <td class="td-4">
+             处理完毕
+            </td>
+            <td class="td-5">2026-08-19</td>
+        </tr>
+        <tr>
+            <td class="td-1">7</td>
+            <td class="td-2">20260805009362143A0</td>
+            <td class="td-3"><a href="xj_info.jsp?urltype=leadermail.LeaderMailContentUrl&wbtreeid=3861&leadermailid=C02D91D69E60026C432D0D0C11EEBEA5" class="eclip">武山县洛门镇营儿村新庄道路破损 脏水漫路 臭味难闻</a></td>
+            <td class="td-3"><a u17table_id="1912126876_33234">0</a></td>
+            <td class="td-4">
+             处理完毕
+            </td>
+            <td class="td-5">2026-08-05</td>
+        </tr>
+        <tr>
+            <td class="td-1">8</td>
+            <td class="td-2">20260803011CBA9B391</td>
+            <td class="td-3"><a href="xj_info.jsp?urltype=leadermail.LeaderMailContentUrl&wbtreeid=3861&leadermailid=065D299A879002C35E2D6A24A1ECF976" class="eclip">秦州区藉口镇吴家崖村挪用上水工程和人均环境整治挖机司机和...</a></td>
+            <td class="td-3"><a u17table_id="1912126876_33209">0</a></td>
+            <td class="td-4">
+             处理完毕
+            </td>
+            <td class="td-5">2026-08-03</td>
+        </tr>
+        <tr>
+            <td class="td-1">9</td>
+            <td class="td-2">20260730007F8857163</td>
+            <td class="td-3"><a href="xj_info.jsp?urltype=leadermail.LeaderMailContentUrl&wbtreeid=3861&leadermailid=92A53DB97C9084FC8F8D8D2DF322ACE7" class="eclip">秦州区宏安英郡物业恶意停水施压，水表纠纷不合理转嫁费用，...</a></td>
+            <td class="td-3"><a u17table_id="1912126876_33165">0</a></td>
+            <td class="td-4">
+             处理完毕
+            </td>
+            <td class="td-5">2026-07-30</td>
+        </tr>
+        <tr>
+            <td class="td-1">10</td>
+            <td class="td-2">20260722017852A1F47</td>
+            <td class="td-3"><a href="xj_info.jsp?urltype=leadermail.LeaderMailContentUrl&wbtreeid=3861&leadermailid=D939F9FA94F999ED48B3DCD8B9499DED" class="eclip">玉米北野猪吃完了</a></td>
+            <td class="td-3"><a u17table_id="1912126876_33086">0</a></td>
+            <td class="td-4">
+             处理完毕
+            </td>
+            <td class="td-5">2026-07-22</td>
+        </tr>
+        <tr>
+            <td class="td-1">11</td>
+            <td class="td-2">20260721013BB346F52</td>
+            <td class="td-3"><a href="xj_info.jsp?urltype=leadermail.LeaderMailContentUrl&wbtreeid=3861&leadermailid=28F56D7D00175B20E6DD38CC50E7ADAD" class="eclip">形式主义让老百姓很气愤</a></td>
+            <td class="td-3"><a u17table_id="1912126876_33069">0</a></td>
+            <td class="td-4">
+             处理完毕
+            </td>
+            <td class="td-5">2026-07-21</td>
+        </tr>
+        <tr>
+            <td class="td-1">12</td>
+            <td class="td-2">2026071501160BDD75F</td>
+            <td class="td-3"><a href="xj_info.jsp?urltype=leadermail.LeaderMailContentUrl&wbtreeid=3861&leadermailid=911951B0F780843C7971B1738F8285EB" class="eclip">投诉谢家湾乡政府镇长</a></td>
+            <td class="td-3"><a u17table_id="1912126876_33018">0</a></td>
+            <td class="td-4">
+             处理完毕
+            </td>
+            <td class="td-5">2026-07-15</td>
+        </tr>
+        <tr>
+            <td class="td-1">13</td>
+            <td class="td-2">20260714003A400198F</td>
+            <td class="td-3"><a href="xj_info.jsp?urltype=leadermail.LeaderMailContentUrl&wbtreeid=3861&leadermailid=8F52B28FDAB4F31627B29546344B0336" class="eclip">秦州区杨家寺镇赵家崖村自来水断供问题</a></td>
+            <td class="td-3"><a u17table_id="1912126876_33002">0</a></td>
+            <td class="td-4">
+             处理完毕
+            </td>
+            <td class="td-5">2026-07-14</td>
+        </tr>
+        <tr>
+            <td class="td-1">14</td>
+            <td class="td-2">202607050018995F20B</td>
+            <td class="td-3"><a href="xj_info.jsp?urltype=leadermail.LeaderMailContentUrl&wbtreeid=3861&leadermailid=1109DFF52DD0B59256D381262A3ED776" class="eclip">盛夏垃圾烤人性</a></td>
+            <td class="td-3"><a u17table_id="1912126876_32906">0</a></td>
+            <td class="td-4">
+             处理完毕
+            </td>
+            <td class="td-5">2026-07-05</td>
+        </tr>
+        <tr>
+            <td class="td-1">15</td>
+            <td class="td-2">2026070200750DE5D68</td>
+            <td class="td-3"><a href="xj_info.jsp?urltype=leadermail.LeaderMailContentUrl&wbtreeid=3861&leadermailid=BD19D125EE06157D72716FD7028F3308" class="eclip">秦安县市场监督管理局不作为</a></td>
+            <td class="td-3"><a u17table_id="1912126876_32885">0</a></td>
+            <td class="td-4">
+             处理完毕
+            </td>
+            <td class="td-5">2026-07-02</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div class="pagebar"><span class="p_t">共656条</span> <span class="p_pages"><span class="p_first_d p_fun_d">首页</span><span class="p_prev_d p_fun_d">上页</span><span class="p_no_d">1</span><span class="p_no"><a href="?totalpage=44&PAGENUM=2&urltype=tree.TreeTempUrl&wbtreeid=3861">2</a></span><span class="p_no"><a href="?totalpage=44&PAGENUM=3&urltype=tree.TreeTempUrl&wbtreeid=3861">3</a></span><span class="p_no"><a href="?totalpage=44&PAGENUM=4&urltype=tree.TreeTempUrl&wbtreeid=3861">4</a></span><span class="p_no"><a href="?totalpage=44&PAGENUM=5&urltype=tree.TreeTempUrl&wbtreeid=3861">5</a></span><span class="p_dot">...</span><span class="p_no"><a href="?totalpage=44&PAGENUM=44&urltype=tree.TreeTempUrl&wbtreeid=3861">44</a></span><span class="p_next p_fun"><a href="?totalpage=44&PAGENUM=2&urltype=tree.TreeTempUrl&wbtreeid=3861">下页</a></span><span class="p_last p_fun"><a href="?totalpage=44&PAGENUM=44&urltype=tree.TreeTempUrl&wbtreeid=3861">尾页</a></span></span></div>
+
+
+<script type="text/javascript">
+    $("a[u17table_id]").each(function(i, a){
+        var tableId = $(a).attr("u17table_id");
+        $.ajax({
+            type: 'POST',
+            url: "/system/resource/infocomment/getInfoCommentSize.jsp",
+            data: {
+                viewId: "1084422"
+                ,owner: "1912126876"
+                ,tableId: tableId
+                ,oneUUID: "-1"
+            },
+            async: true,
+            dataType: "json",
+            success: function(json){
+                $(a).text(json.data);
+            },
+            error: function(){
+                alert("后台系统错误!");
+            }
+        });
+    });
+</script>
+                        </div>
+                    </div>
+                    <div class="tabb-item">
+                        <div class="board-box">
+                            
+
+
+
+
+<div class="scollBox" data-write-letter-href="xjtj_swsjlyb.jsp?urltype=leadermail.LeaderMailsAddUrl&wbtreeid=3861">
+    <table>
+        <thead>
+        <tr>
+            <td class="td-1">序号</td>
+            <td class="td-2">办件编号</td>
+            <td class="td-3">信件标题</td>
+            <td class="td-4">评论数</td>
+            <td class="td-4">状态</td>
+            <td class="td-5">来信时间</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td class="td-1">1</td>
+            <td class="td-2">2026090100623640CC5</td>
+            <td class="td-3"><a href="xj_info.jsp?urltype=leadermail.LeaderMailContentUrl&wbtreeid=3861&leadermailid=6435024F8AEA9F9693632011BCB19E09" class="eclip">关于天水市建三小学作业多问题反应</a></td>
+            <td class="td-3"><a u18table_id="1912126876_33554">0</a></td>
+            <td class="td-4">
+             处理完毕
+            </td>
+            <td class="td-5">2026-09-01</td>
+        </tr>
+        <tr>
+            <td class="td-1">2</td>
+            <td class="td-2">20260831002E5FF8DE9</td>
+            <td class="td-3"><a href="xj_info.jsp?urltype=leadermail.LeaderMailContentUrl&wbtreeid=3861&leadermailid=A32EF98F72287E6939623E6DC7C2F52E" class="eclip">小学一年级没有老师</a></td>
+            <td class="td-3"><a u18table_id="1912126876_33538">0</a></td>
+            <td class="td-4">
+             处理完毕
+            </td>
+            <td class="td-5">2026-08-31</td>
+        </tr>
+        <tr>
+            <td class="td-1">3</td>
+            <td class="td-2">202608270035B14AC4B</td>
+            <td class="td-3"><a href="xj_info.jsp?urltype=leadermail.LeaderMailContentUrl&wbtreeid=3861&leadermailid=2BB9A317613CEE407449C9260719D779" class="eclip">伏羲广场暴唱影响孩子学习</a></td>
+            <td class="td-3"><a u18table_id="1912126876_33499">0</a></td>
+            <td class="td-4">
+             处理完毕
+            </td>
+            <td class="td-5">2026-08-27</td>
+        </tr>
+        <tr>
+            <td class="td-1">4</td>
+            <td class="td-2">202608180121D76F7B5</td>
+            <td class="td-3"><a href="xj_info.jsp?urltype=leadermail.LeaderMailContentUrl&wbtreeid=3861&leadermailid=B249432D7B950A3FD9F449D582F02624" class="eclip">2026年天水市秦州区特岗教师面试成绩公示为何不公布？</a></td>
+            <td class="td-3"><a u18table_id="1912126876_33392">0</a></td>
+            <td class="td-4">
+             处理完毕
+            </td>
+            <td class="td-5">2026-08-18</td>
+        </tr>
+        <tr>
+            <td class="td-1">5</td>
+            <td class="td-2">202608170039BA6F7D6</td>
+            <td class="td-3"><a href="xj_info.jsp?urltype=leadermail.LeaderMailContentUrl&wbtreeid=3861&leadermailid=19DD547A0899911B0217C462A9F130A3" class="eclip">秦州区关子镇石咀村自来水供水问题</a></td>
+            <td class="td-3"><a u18table_id="1912126876_33370">0</a></td>
+            <td class="td-4">
+             处理完毕
+            </td>
+            <td class="td-5">2026-08-17</td>
+        </tr>
+        <tr>
+            <td class="td-1">6</td>
+            <td class="td-2">20260816009B15EAFF9</td>
+            <td class="td-3"><a href="xj_info.jsp?urltype=leadermail.LeaderMailContentUrl&wbtreeid=3861&leadermailid=418FE913176ADE7870DC5257C377CF26" class="eclip">秦州区天水郡街道福田天水中心物业周末施工噪音扰民</a></td>
+            <td class="td-3"><a u18table_id="1912126876_33363">0</a></td>
+            <td class="td-4">
+             处理完毕
+            </td>
+            <td class="td-5">2026-08-16</td>
+        </tr>
+        <tr>
+            <td class="td-1">7</td>
+            <td class="td-2">20260814011AE1D8828</td>
+            <td class="td-3"><a href="xj_info.jsp?urltype=leadermail.LeaderMailContentUrl&wbtreeid=3861&leadermailid=1C4A187F5DB4ED01F632A9F695849728" class="eclip">南国寺景区的塔何时能开放？</a></td>
+            <td class="td-3"><a u18table_id="1912126876_33337">0</a></td>
+            <td class="td-4">
+             处理完毕
+            </td>
+            <td class="td-5">2026-08-14</td>
+        </tr>
+        <tr>
+            <td class="td-1">8</td>
+            <td class="td-2">2026081100994F9693C</td>
+            <td class="td-3"><a href="xj_info.jsp?urltype=leadermail.LeaderMailContentUrl&wbtreeid=3861&leadermailid=3A78172F8953120557CFB384A61E5779" class="eclip">麦积山景区服务疏漏及投诉无回应问题投诉书</a></td>
+            <td class="td-3"><a u18table_id="1912126876_33303">0</a></td>
+            <td class="td-4">
+             处理完毕
+            </td>
+            <td class="td-5">2026-08-11</td>
+        </tr>
+        <tr>
+            <td class="td-1">9</td>
+            <td class="td-2">20260811004F2AFFF4C</td>
+            <td class="td-3"><a href="xj_info.jsp?urltype=leadermail.LeaderMailContentUrl&wbtreeid=3861&leadermailid=1059B3F894FFB10C80686195414681F0" class="eclip">罗玉小区住建房农民工讨薪</a></td>
+            <td class="td-3"><a u18table_id="1912126876_33298">0</a></td>
+            <td class="td-4">
+             处理完毕
+            </td>
+            <td class="td-5">2026-08-11</td>
+        </tr>
+        <tr>
+            <td class="td-1">10</td>
+            <td class="td-2">20260810007C990E320</td>
+            <td class="td-3"><a href="xj_info.jsp?urltype=leadermail.LeaderMailContentUrl&wbtreeid=3861&leadermailid=96E96DD2FAE78DF1C0DFAE95D016655D" class="eclip">秦州区大航时代广场停车场乱停乱放</a></td>
+            <td class="td-3"><a u18table_id="1912126876_33291">0</a></td>
+            <td class="td-4">
+             处理完毕
+            </td>
+            <td class="td-5">2026-08-10</td>
+        </tr>
+        <tr>
+            <td class="td-1">11</td>
+            <td class="td-2">2026081000224C29C01</td>
+            <td class="td-3"><a href="xj_info.jsp?urltype=leadermail.LeaderMailContentUrl&wbtreeid=3861&leadermailid=6B3A9C82A6A7A9D173626C2A67EBE274" class="eclip">令牌天悦施工有些扰民</a></td>
+            <td class="td-3"><a u18table_id="1912126876_33286">0</a></td>
+            <td class="td-4">
+             处理完毕
+            </td>
+            <td class="td-5">2026-08-10</td>
+        </tr>
+        <tr>
+            <td class="td-1">12</td>
+            <td class="td-2">2026080900825D228D4</td>
+            <td class="td-3"><a href="xj_info.jsp?urltype=leadermail.LeaderMailContentUrl&wbtreeid=3861&leadermailid=9DBDA3D2B2B0FCF7AB5FC62971D9AA21" class="eclip">公休假政策落实情况</a></td>
+            <td class="td-3"><a u18table_id="1912126876_33282">0</a></td>
+            <td class="td-4">
+             处理完毕
+            </td>
+            <td class="td-5">2026-08-09</td>
+        </tr>
+        <tr>
+            <td class="td-1">13</td>
+            <td class="td-2">20260805015C81E74D1</td>
+            <td class="td-3"><a href="xj_info.jsp?urltype=leadermail.LeaderMailContentUrl&wbtreeid=3861&leadermailid=A259335B1692BC111C488369B3B558A0" class="eclip">玉泉镇左家场村滑坡</a></td>
+            <td class="td-3"><a u18table_id="1912126876_33240">0</a></td>
+            <td class="td-4">
+             处理完毕
+            </td>
+            <td class="td-5">2026-08-05</td>
+        </tr>
+        <tr>
+            <td class="td-1">14</td>
+            <td class="td-2">20260803012BDBCD1AC</td>
+            <td class="td-3"><a href="xj_info.jsp?urltype=leadermail.LeaderMailContentUrl&wbtreeid=3861&leadermailid=BDFAEB976B0554BB2E168AB26E86C98F" class="eclip">万达天御的发票什么时候能开？</a></td>
+            <td class="td-3"><a u18table_id="1912126876_33210">0</a></td>
+            <td class="td-4">
+             处理完毕
+            </td>
+            <td class="td-5">2026-08-03</td>
+        </tr>
+        <tr>
+            <td class="td-1">15</td>
+            <td class="td-2">20260801005C226AFC9</td>
+            <td class="td-3"><a href="xj_info.jsp?urltype=leadermail.LeaderMailContentUrl&wbtreeid=3861&leadermailid=88415A7F7765AE3E1421C864BEB753C5" class="eclip">麦积区经开区第一幼儿园上河郡小区幼儿无法报名</a></td>
+            <td class="td-3"><a u18table_id="1912126876_33188">0</a></td>
+            <td class="td-4">
+             处理完毕
+            </td>
+            <td class="td-5">2026-08-01</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div class="pagebar"><span class="p_t">共1182条</span> <span class="p_pages"><span class="p_first_d p_fun_d">首页</span><span class="p_prev_d p_fun_d">上页</span><span class="p_no_d">1</span><span class="p_no"><a href="?totalpage=79&PAGENUM=2&urltype=tree.TreeTempUrl&wbtreeid=3861">2</a></span><span class="p_no"><a href="?totalpage=79&PAGENUM=3&urltype=tree.TreeTempUrl&wbtreeid=3861">3</a></span><span class="p_no"><a href="?totalpage=79&PAGENUM=4&urltype=tree.TreeTempUrl&wbtreeid=3861">4</a></span><span class="p_no"><a href="?totalpage=79&PAGENUM=5&urltype=tree.TreeTempUrl&wbtreeid=3861">5</a></span><span class="p_dot">...</span><span class="p_no"><a href="?totalpage=79&PAGENUM=79&urltype=tree.TreeTempUrl&wbtreeid=3861">79</a></span><span class="p_next p_fun"><a href="?totalpage=79&PAGENUM=2&urltype=tree.TreeTempUrl&wbtreeid=3861">下页</a></span><span class="p_last p_fun"><a href="?totalpage=79&PAGENUM=79&urltype=tree.TreeTempUrl&wbtreeid=3861">尾页</a></span></span></div>
+
+
+<script type="text/javascript">
+    $("a[u18table_id]").each(function(i, a){
+        var tableId = $(a).attr("u18table_id");
+        $.ajax({
+            type: 'POST',
+            url: "/system/resource/infocomment/getInfoCommentSize.jsp",
+            data: {
+                viewId: "1084423"
+                ,owner: "1912126876"
+                ,tableId: tableId
+                ,oneUUID: "-1"
+            },
+            async: true,
+            dataType: "json",
+            success: function(json){
+                $(a).text(json.data);
+            },
+            error: function(){
+                alert("后台系统错误!");
+            }
+        });
+    });
+</script>
+                        </div>
+                    </div>
+                </div>
+                <div class="wyxx ">
+                    <div class="xxlink">
+                        <a id="write_letter_link1" href="../index.htm" style="display:none"> <img src="../images/xie.png" alt="">我要写信</a>
+                        <a id="write_letter_link2" href="../index.htm" style="display:none"> <img src="../images/xie.png" alt="">我要写信</a>
+                        <a id="write_letter_link3" href="../index.htm" style="display:none"> <img src="../images/xie.png" alt="">我要留言</a>
+                        <a id="write_letter_link4" href="../index.htm" style="display:none"> <img src="../images/xie.png" alt="">我要留言</a>
+                    </div>
+                    <div class="lxtj"><script language="javascript" src="/system/resource/js/jquery/jquery-latest.min.js"></script>
+<h2>留言统计</h2>
+<ul>
+    <li>
+        留言总数: <i id="lyzs">0</i> 条  回复总数: <i id="hfzs">0</i> 条
+    </li>
+    <li>
+        本月留言: <i id="byly">0</i> 条    本月回复: <i id="byhf">0</i> 条
+    </li>
+    <li>
+        上季度回复: <i id="sjdhf">0</i> 条  上季度留言: <i id="sjdly">0</i>条
+    </li>
+    <li>
+        上季度办结率: <i id="sjdbjl">100%</i>
+    </li>
+    <li>
+        <span id="thisyear"></span>年: 留言: <i id="thisly">0</i> 条   回复: <i id="thishf">0</i> 条
+    </li>
+    <li>
+        <span id="lastyear"></span>年: 留言: <i id="lastly">0</i> 条   回复: <i id="lasthf">0</i> 条
+    </li>
+    <li>
+        <span id="twoyear"></span>年: 留言: <i id="twoly">0</i> 条   回复: <i id="twohf">0</i> 条
+    </li>
+</ul>
+<script>
+    var totalPage = 0;
+    var pages= 0;
+    $.ajax({
+        async: false,//同步，异步
+        url: "/system/resource/mail/MailStatistics.jsp", //请求的服务端地址
+        type: "post",
+        data: {
+            "owner": '1912126876',
+            "wbleadercode": 'szxx，xzxx,szlyb,xzlyb'
+        },
+        dataType: "json",
+        success: function (data) {
+            $("#lyzs").html(data.lyzs);
+            $("#hfzs").html(data.hfzs);
+            $("#byly").html(data.byly);
+            $("#byhf").html(data.byhf);
+            $("#sjdly").html(data.sjdly);
+            $("#sjdhf").html(data.sjdhf);
+            $("#thisly").html(data.thisly);
+            $("#thishf").html(data.thishf);
+            $("#lastly").html(data.lastly);
+            $("#lasthf").html(data.lasthf);
+            $("#twoly").html(data.twoly);
+            $("#twohf").html(data.twohf);
+            $("#sjdbjl").html(data.sjdbjl);
+
+            $("#thisyear").html(data.thisyear);
+            $("#lastyear").html(data.lastyear);
+            $("#twoyear").html(data.twoyear);
+        }
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="foot">
+    <div class="wrap">
+        <div class="ftlink clear">
+            <dl><dt class="eclip">--- 区县政府和市直部门 --- </dt>
+<dd style="display:none;">
+    <ul>
+                    <!--<li><a href="https://www.qinzhouqu.gov.cn" target=_blank onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 95598)" title="">秦州区政府</a></li>-->
+            <li><a href="http://www.qinzhouqu.gov.cn">秦州区政府</a></li>
+            <!--<li><a href="https://www.maiji.gov.cn" target=_blank onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 95599)" title="">麦积区政府</a></li>-->
+            <li><a href="http://www.maiji.gov.cn">麦积区政府</a></li>
+            <!--<li><a href="https://www.qinan.gov.cn" target=_blank onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 95606)" title="">秦安县政府</a></li>-->
+            <li><a href="http://www.qinan.gov.cn">秦安县政府</a></li>
+            <!--<li><a href="https://www.gangu.gov.cn" target=_blank onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 95603)" title="">甘谷县政府</a></li>-->
+            <li><a href="http://www.gangu.gov.cn">甘谷县政府</a></li>
+            <!--<li><a href="https://www.wushan.gov.cn" target=_blank onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 95607)" title="">武山县政府</a></li>-->
+            <li><a href="http://www.wushan.gov.cn">武山县政府</a></li>
+            <!--<li><a href="https://www.tsqs.gov.cn" target=_blank onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 95600)" title="">清水县政府</a></li>-->
+            <li><a href="http://www.tsqs.gov.cn">清水县政府</a></li>
+            <!--<li><a href="https://www.zjc.gov.cn" target=_blank onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 95608)" title="">张家川县政府</a></li>-->
+            <li><a href="http://www.zjc.gov.cn">张家川县政府</a></li>
+            <!--<li><a href="https://www.tianshui.gov.cn/fgw" target=_blank onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 95609)" title="">市发展改革委</a></li>-->
+            <li><a href="http://www.tianshui.gov.cn/fgw">市发展改革委</a></li>
+            <!--<li><a href="https://www.tianshui.gov.cn/jyj" target=_blank onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 95604)" title="">市教育局</a></li>-->
+            <li><a href="http://www.tianshui.gov.cn/jyj">市教育局</a></li>
+            <!--<li><a href="https://www.tianshui.gov.cn/kjj" target=_blank onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 95610)" title="">市科技局</a></li>-->
+            <li><a href="http://www.tianshui.gov.cn/kjj">市科技局</a></li>
+            <!--<li><a href="https://www.tianshui.gov.cn/gxj" target=_blank onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 95611)" title="">市工信局</a></li>-->
+            <li><a href="http://www.tianshui.gov.cn/gxj">市工信局</a></li>
+            <!--<li><a href="https://www.tianshui.gov.cn/gaj" target=_blank onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 95597)" title="">市公安局</a></li>-->
+            <li><a href="http://www.tianshui.gov.cn/gaj">市公安局</a></li>
+            <!--<li><a href="https://www.tianshui.gov.cn/sfj" target=_blank onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 95612)" title="">市司法局</a></li>-->
+            <li><a href="http://www.tianshui.gov.cn/sfj">市司法局</a></li>
+            <!--<li><a href="https://www.tianshui.gov.cn/czj" target=_blank onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 95613)" title="">市财政局</a></li>-->
+            <li><a href="http://www.tianshui.gov.cn/czj">市财政局</a></li>
+            <!--<li><a href="https://www.tianshui.gov.cn/rsj" target=_blank onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 95602)" title="">市人社局</a></li>-->
+            <li><a href="http://www.tianshui.gov.cn/rsj">市人社局</a></li>
+            <!--<li><a href="https://www.tianshui.gov.cn/zrzy" target=_blank onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 95601)" title="">市自然资源局</a></li>-->
+            <li><a href="http://www.tianshui.gov.cn/zrzy">市自然资源局</a></li>
+            <!--<li><a href="https://www.tianshui.gov.cn/sthj" target=_blank onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 95614)" title="">市生态环境局</a></li>-->
+            <li><a href="http://www.tianshui.gov.cn/sthj">市生态环境局</a></li>
+            <!--<li><a href="https://www.tianshui.gov.cn/zjj" target=_blank onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 95615)" title="">市住建局</a></li>-->
+            <li><a href="http://www.tianshui.gov.cn/zjj">市住建局</a></li>
+            <!--<li><a href="https://www.tianshui.gov.cn/jtj" target=_blank onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 95616)" title="">市交通运输局</a></li>-->
+            <li><a href="http://www.tianshui.gov.cn/jtj">市交通运输局</a></li>
+            <!--<li><a href="https://www.tianshui.gov.cn/swj" target=_blank onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 95605)" title="">市水务局</a></li>-->
+            <li><a href="http://www.tianshui.gov.cn/swj">市水务局</a></li>
+            <!--<li><a href="https://www.tianshui.gov.cn/nync" target=_blank onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 95617)" title="">市农业农村局</a></li>-->
+            <li><a href="http://www.tianshui.gov.cn/nync">市农业农村局</a></li>
+            <!--<li><a href="https://www.tianshui.gov.cn/sswj" target=_blank onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 95618)" title="">市商务局</a></li>-->
+            <li><a href="http://www.tianshui.gov.cn/sswj">市商务局</a></li>
+            <!--<li><a href="https://www.tianshui.gov.cn/wlj" target=_blank onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 95619)" title="">市文旅局</a></li>-->
+            <li><a href="http://www.tianshui.gov.cn/wlj">市文旅局</a></li>
+            <!--<li><a href="https://www.tianshui.gov.cn/wjw" target=_blank onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 95620)" title="">市卫生健康委</a></li>-->
+            <li><a href="http://www.tianshui.gov.cn/wjw">市卫生健康委</a></li>
+            <!--<li><a href="https://www.tianshui.gov.cn/yjj" target=_blank onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 95621)" title="">市应急局</a></li>-->
+            <li><a href="http://www.tianshui.gov.cn/yjj">市应急局</a></li>
+            <!--<li><a href="https://www.tianshui.gov.cn/sgzw" target=_blank onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 95622)" title="">市政府国资委</a></li>-->
+            <li><a href="http://www.tianshui.gov.cn/sgzw">市政府国资委</a></li>
+            <!--<li><a href="https://www.tianshui.gov.cn/scjg" target=_blank onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 95625)" title="">市市场监管局</a></li>-->
+            <li><a href="http://www.tianshui.gov.cn/scjg">市市场监管局</a></li>
+            <!--<li><a href="https://www.tianshui.gov.cn/lsj" target=_blank onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 95626)" title="">市粮食和储备局</a></li>-->
+            <li><a href="http://www.tianshui.gov.cn/lsj">市粮食和储备局</a></li>
+            <!--<li><a href="https://www.tianshui.gov.cn/xmj" target=_blank onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 95628)" title="">市畜牧局</a></li>-->
+            <li><a href="http://www.tianshui.gov.cn/xmj">市畜牧局</a></li>
+            <!--<li><a href="https://www.tianshui.gov.cn/szsj" target=_blank onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 95629)" title="">市招商局</a></li>-->
+            <li><a href="http://www.tianshui.gov.cn/szsj">市招商局</a></li>
+            <!--<li><a href="https://www.tianshui.gov.cn/gxls" target=_blank onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 95630)" title="">市供销联社</a></li>-->
+            <li><a href="http://www.tianshui.gov.cn/gxls">市供销联社</a></li>
+            <!--<li><a href="https://www.tianshui.gov.cn/gjj" target=_blank onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 95631)" title="">市公积金中心</a></li>-->
+            <li><a href="http://www.tianshui.gov.cn/gjj">市公积金中心</a></li>
+            <!--<li><a href="https://www.tianshui.gov.cn/ggzyjy" target=_blank onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 96850)" title="">市公共资源交易中心</a></li>-->
+            <li><a href="http://www.tianshui.gov.cn/ggzyjy">市公共资源交易中心</a></li>
+            <!--<li><a href="https://www.tianshui.gov.cn/jkq" target=_blank onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 95632)" title="">天水经济技术开发区</a></li>-->
+            <li><a href="http://www.tianshui.gov.cn/jkq">天水经济技术开发区</a></li>
+            <!--<li><a href="https://www.tianshui.gov.cn/mjs" target=_blank onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 95633)" title="">麦积山景区管委会</a></li>-->
+            <li><a href="http://www.tianshui.gov.cn/mjs">麦积山景区管委会</a></li>
+            <!--<li><a href="https://www.tianshui.gov.cn/nyyq" target=_blank onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 95623)" title="">天水国家农业园区</a></li>-->
+            <li><a href="http://www.tianshui.gov.cn/nyyq">天水国家农业园区</a></li>
+            <!--<li><a href="https://www.tianshui.gov.cn/dsb" target=_blank onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 99630)" title="">党史和地方志研究室</a></li>-->
+            <li><a href="http://www.tianshui.gov.cn/dsb">党史和地方志研究室</a></li>
+            <!--<li><a href="https://credit.tianshui.gov.cn/" target=_blank onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 95634)" title="">信用中国（甘肃天水）</a></li>-->
+            <li><a href="http://credit.tianshui.gov.cn/">信用中国（甘肃天水）</a></li>
+    </ul>
+</dd></dl>
+            <dl><dt class="eclip">--- 中央部委 ---  </dt>
+                <dd style="display: none;">
+                    <ul>
+                        
+<li><a href="http://www.gov.cn/"   onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 91007)" title="">中国政府门户网站</a></li>
+                        
+<li><a href="https://www.fmprc.gov.cn/web/"   onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 91008)" title="">外交部</a></li>
+                        
+<li><a href="http://www.mod.gov.cn/"   onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 91009)" title="">国防部</a></li>
+                        
+<li><a href="http://www.ndrc.gov.cn/"   onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 91010)" title="">发展改革委</a></li>
+                        
+<li><a href="http://www.moe.gov.cn/"   onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 91011)" title="">教育部</a></li>
+                        
+<li><a href="http://www.most.gov.cn/"   onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 91012)" title="">科技部</a></li>
+                        
+<li><a href="https://www.miit.gov.cn/"   onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 91013)" title="">工业和信息化部</a></li>
+                        
+<li><a href="http://www.mnr.gov.cn/"   onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 91014)" title="">自然资源部</a></li>
+                        
+<li><a href="https://www.mps.gov.cn/"   onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 91015)" title="">公安部</a></li>
+                        
+<li><a href="http://www.mca.gov.cn/"   onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 91016)" title="">民政部</a></li>
+                        
+<li><a href="http://www.moj.gov.cn/"   onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 91017)" title="">司法部</a></li>
+                        
+<li><a href="http://www.mof.gov.cn/index.htm"   onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 91018)" title="">财政部</a></li>
+                        
+<li><a href="http://www.mohrss.gov.cn/"   onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 91019)" title="">人力资源社会保障部</a></li>
+                        
+<li><a href="http://www.mee.gov.cn/"   onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 91020)" title="">生态环境部</a></li>
+                        
+<li><a href="http://www.mohurd.gov.cn/"   onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 91021)" title="">住房城乡建设部</a></li>
+                        
+<li><a href="http://www.mot.gov.cn/"   onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 91022)" title="">交通运输部</a></li>
+                        
+<li><a href="http://www.mwr.gov.cn/"   onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 91023)" title="">水利部</a></li>
+                        
+<li><a href="http://www.moa.gov.cn/"   onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 91024)" title="">农业农村部</a></li>
+                        
+<li><a href="http://www.mofcom.gov.cn/"   onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 91025)" title="">商务部</a></li>
+                        
+<li><a href="https://www.mct.gov.cn/"   onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 91026)" title="">文化旅游部</a></li>
+                        
+<li><a href="http://www.nhc.gov.cn/"   onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 91027)" title="">国家卫生健康委员会</a></li>
+                        
+<li><a href="https://www.mem.gov.cn/"   onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 91028)" title="">应急管理部</a></li>
+                        
+<li><a href="http://www.pbc.gov.cn/"   onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 91029)" title="">人民银行</a></li>
+                        
+<li><a href="http://www.audit.gov.cn/"   onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 91030)" title="">审计署</a></li>
+                        
+<li><a href="http://www.sasac.gov.cn/index.html"   onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 91031)" title="">国资委</a></li>
+                        
+<li><a href="http://www.customs.gov.cn/"   onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 91032)" title="">海关总署</a></li>
+                        
+<li><a href="http://www.chinatax.gov.cn/"   onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 91033)" title="">税务总局</a></li>
+                        
+<li><a href="http://www.samr.gov.cn/"   onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 91034)" title="">国家市场监督管理总局</a></li>
+                        
+<li><a href="http://www.nrta.gov.cn/"   onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 91035)" title="">国家广播电视总局</a></li>
+                        
+<li><a href="http://www.sport.gov.cn/"   onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 91036)" title="">体育总局</a></li>
+                        
+<li><a href="http://www.stats.gov.cn/"   onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 91037)" title="">统计局</a></li>
+                        
+<li><a href="https://www.cnipa.gov.cn/"   onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 91038)" title="">知识产权局</a></li>
+                        
+<li><a href="https://www.mct.gov.cn/"   onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 91039)" title="">文化和旅游部</a></li>
+                        
+<li><a href="http://www.counsellor.gov.cn/"   onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 91040)" title="">参事室</a></li>
+                        
+<li><a href="http://www.ggj.gov.cn/"   onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 91041)" title="">国管局</a></li>
+                        
+<li><a href="http://www.ncac.gov.cn/"   onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 91042)" title="">版权局</a></li>
+                        
+<li><a href="http://www.chinalaw.gov.cn/"   onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 91043)" title="">司法部</a></li>
+                        
+<li><a href="http://www.gov.cn/gjjg/2005-12/26/content_137261.htm"   onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 91044)" title="">国务院研究室</a></li>
+                        
+<li><a href="http://www.gwytb.gov.cn/"   onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 91045)" title="">台办</a></li>
+                        
+<li><a href="http://www.scio.gov.cn/index.htm"   onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 91046)" title="">新闻办</a></li>
+                        
+<li><a href="http://www3.xinhuanet.com/"   onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 91047)" title="">新华社</a></li>
+                        
+<li><a href="http://www.cas.cn/"   onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 91048)" title="">中科院</a></li>
+                        
+<li><a href="http://www.cae.cn/"   onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 91050)" title="">工程院</a></li>
+                        
+<li><a href="https://www.drc.gov.cn/default.aspx"   onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 91051)" title="">发展研究中心</a></li>
+                        
+<li><a href="https://www.ccps.gov.cn/"   onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 91052)" title="">中央党校</a></li>
+                        
+<li><a href="http://www.cma.gov.cn/"   onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 91053)" title="">气象局</a></li>
+                        
+<li><a href="https://www.cea.gov.cn/"   onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 91054)" title="">地震局</a></li>
+                        
+<li><a href="http://www.csrc.gov.cn/pub/newsite/"   onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 91055)" title="">证监会</a></li>
+                        
+</ul>
+                </dd></dl>
+            <dl><dt class="eclip">--- 省级部门 ---  </dt>
+                <dd style="display: none;">
+                    <ul>
+                        
+<li><a href="https://www.gansu.gov.cn/" target=_blank onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 93593)" title="">甘肃省政府门户网站</a></li>
+                        
+<li><a href="http://fzgg.gansu.gov.cn/"  onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 90865)" title="">省发展改革委</a></li>
+                        
+<li><a href="http://jyt.gansu.gov.cn/"  onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 90866)" title="">省教育厅</a></li>
+                        
+<li><a href="https://kjt.gansu.gov.cn/"  onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 90867)" title="">省科技厅</a></li>
+                        
+<li><a href="http://gxt.gansu.gov.cn/"  onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 90868)" title="">省工信厅</a></li>
+                        
+<li><a href="http://mzsw.gansu.gov.cn/"  onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 90869)" title="">省民委</a></li>
+                        
+<li><a href="http://gat.gansu.gov.cn/"  onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 90870)" title="">省公安厅</a></li>
+                        
+<li><a href="http://mzt.gansu.gov.cn/"  onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 90871)" title="">省民政厅</a></li>
+                        
+<li><a href="http://sft.gansu.gov.cn/"  onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 90872)" title="">省司法厅</a></li>
+                        
+<li><a href="http://czt.gansu.gov.cn/"  onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 90873)" title="">省财政厅</a></li>
+                        
+<li><a href="http://rst.gansu.gov.cn/"  onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 90874)" title="">省人社厅</a></li>
+                        
+<li><a href="http://zrzy.gansu.gov.cn/"  onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 90875)" title="">省自然资源厅</a></li>
+                        
+<li><a href="http://sthj.gansu.gov.cn/"  onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 90876)" title="">省生态环境厅</a></li>
+                        
+<li><a href="http://zjt.gansu.gov.cn/?nkbjjqxbmpluoahy?iqesiaywjjqgttdx"  onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 90877)" title="">省住建厅</a></li>
+                        
+<li><a href="http://jtys.gansu.gov.cn/"  onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 90878)" title="">省交通运输厅</a></li>
+                        
+<li><a href="http://slt.gansu.gov.cn/"  onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 90879)" title="">省水利厅</a></li>
+                        
+<li><a href="http://nync.gansu.gov.cn/"  onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 90880)" title="">省农业农村厅</a></li>
+                        
+<li><a href="http://swt.gansu.gov.cn/"  onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 90881)" title="">省商务厅</a></li>
+                        
+<li><a href="http://wlt.gansu.gov.cn/"  onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 90882)" title="">省文旅厅</a></li>
+                        
+<li><a href="http://wsjk.gansu.gov.cn/"  onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 90883)" title="">省卫生健康委</a></li>
+                        
+<li><a href="http://tyjr.gansu.gov.cn"  onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 90884)" title="">省退役军人厅</a></li>
+                        
+<li><a href="http://yjgl.gansu.gov.cn/"  onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 90885)" title="">省应急厅</a></li>
+                        
+<li><a href="http://sjt.gansu.gov.cn/"  onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 90886)" title="">省审计厅</a></li>
+                        
+<li><a href="http://wsb.gansu.gov.cn/"  onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 90887)" title="">省政府外事办</a></li>
+                        
+<li><a href="http://gzw.gansu.gov.cn/"  onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 90888)" title="">省政府国资委</a></li>
+                        
+<li><a href="http://lycy.gansu.gov.cn/"  onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 90889)" title="">省林草局</a></li>
+                        
+<li><a href="http://scjg.gansu.gov.cn/"  onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 90890)" title="">省市场监管局</a></li>
+                        
+<li><a href="http://gdj.gansu.gov.cn/"  onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 90891)" title="">省广电局</a></li>
+                        
+<li><a href="http://tyj.gansu.gov.cn/"  onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 90892)" title="">省体育局</a></li>
+                        
+<li><a href="http://tjj.gansu.gov.cn/"  onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 90893)" title="">省统计局</a></li>
+                        
+<li><a  title="">省政府研究室</a></li>
+                        
+<li><a href="http://rfb.gansu.gov.cn/"  onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 90895)" title="">省人防办</a></li>
+                        
+<li><a href="http://fpb.gansu.gov.cn/"  onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 90896)" title="">省乡村振兴局</a></li>
+                        
+<li><a href="http://jrjg.gansu.gov.cn/"  onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 90897)" title="">省金融监管局</a></li>
+                        
+<li><a href="http://jgsw.gansu.gov.cn/"  onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 90898)" title="">省机关事务局</a></li>
+                        
+<li><a href="http://ylbz.gansu.gov.cn/"  onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 90899)" title="">省医保局</a></li>
+                        
+<li><a  title="">省政府参事室</a></li>
+                        
+<li><a href="http://lscb.gansu.gov.cn/"  onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 90901)" title="">省粮食和储备局</a></li>
+                        
+<li><a  title="">省监狱管理局</a></li>
+                        
+<li><a  title="">省畜牧兽医局</a></li>
+                        
+<li><a href="http://wwj.gansu.gov.cn/"  onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 90904)" title="">省文物局</a></li>
+                        
+<li><a href="http://yjj.gansu.gov.cn"  onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 90905)" title="">省药监局</a></li>
+                        
+</ul>
+                </dd></dl>
+            <dl><dt class="eclip">--- 市州政府 ---  </dt>
+                <dd style="display: none;">
+                    <ul>
+                        
+<li><a href="http://www.tianshui.gov.cn/"  onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 92371)" title="">天水市</a></li>
+                        
+<li><a href="http://www.lanzhou.gov.cn/"  onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 92331)" title="">兰州市</a></li>
+                        
+<li><a href="http://jyg.gov.cn/"  onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 92341)" title="">嘉峪关市</a></li>
+                        
+<li><a href="http://www.jcs.gov.cn/"  onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 92342)" title="">金昌市</a></li>
+                        
+<li><a href="http://www.jiuquan.gov.cn/"  onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 92345)" title="">酒泉市</a></li>
+                        
+<li><a href="http://www.zhangye.gov.cn/"  onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 92353)" title="">张掖市</a></li>
+                        
+<li><a href="http://www.gswuwei.gov.cn/"  onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 92360)" title="">武威市</a></li>
+                        
+<li><a href="http://www.baiyin.gov.cn/"  onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 92365)" title="">白银市</a></li>
+                        
+<li><a href="http://www.pingliang.gov.cn/"  onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 92379)" title="">平凉市</a></li>
+                        
+<li><a href="http://www.zgqingyang.gov.cn/"  onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 92387)" title="">庆阳市</a></li>
+                        
+<li><a href="http://www.dingxi.gov.cn/"  onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 92396)" title="">定西市</a></li>
+                        
+<li><a href="https://www.longnan.gov.cn/"  onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 92404)" title="">陇南市</a></li>
+                        
+<li><a href="http://www.gnzrmzf.gov.cn/"  onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 92414)" title="">甘南州</a></li>
+                        
+<li><a href="http://www.linxia.gov.cn/"  onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 92423)" title="">临夏州</a></li>
+                        
+</ul>
+                </dd></dl>
+        </div>
+        <div class="ftbs clear">
+            <div class="f-l fl ">    <a href="http://bszs.conac.cn/sitename?method=show&id=245444369B745B01E053022819AC138B" class="a1"onclick="_addDynClicks(&#34;wbimage&#34;, 1912126876, 36259)">
+                    <img src="../images/f-icon01.png" alt="">
+                </a>
+                
+<a href="https://zfwzgl.www.gov.cn/exposure/jiucuo.html?site_code=6205000002&url=http%3A%2F%2Fwww.tianshui.gov.cn%2F"  class="a2"onclick="_addDynClicks(&#34;wbimage&#34;, 1912126876, 36260)">
+                    <img src="../images/f-icon02.png" alt="">
+                </a>
+                
+</div>
+            <div class="fl f-txt">
+                <div class="a-txt f0"><a href="../index/wzsm.htm"  onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 31113)">网站声明</a>
+                    
+<a href="../index/wzdt.htm"  onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 31114)">网站地图</a>
+                    
+<a href="../index/lxwm.htm"  onclick="_addDynClicks(&#34;wburl&#34;, 1912126876, 31115)">联系我们</a>
+                    
+</div>
+                <div class="p-txt">
+<!-- 版权内容请在本组件"内容配置-版权"处填写 -->
+<p class="f0"><span>主办单位： 天水市人民政府办公室&nbsp;&nbsp;&nbsp;&nbsp;邮编: 741000&nbsp;&nbsp;&nbsp;&nbsp;地址: 甘肃省天水市秦州区民主西路34号</span></p><p class="f0"><span>网站标识码: 6205000002</span><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=62050202000103" target="_blank" textvalue="甘公网安备 62050202000103号"><img src="../images/jh.png" style="display:inline-block;vertical-align:text-bottom;" />甘公网安备 62050202000103号</a> <span>备案编号：<a href="https://beian.miit.gov.cn/" target="_blank" textvalue="陇ICP备05001007号-1">陇ICP备05001007号-1</a></span></p>
+<script id="initwzaTools" src="https://zwfwxcx.tianshui.gov.cn/resource/site/6205000002/wza/wza.js"></script>
+<script>
+    //间接点击无障碍
+    function wzaTrigger(){
+        $("#toolbarSwitch").click();
+    }
+</script></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!--这一部分放在页面最底部  连着loginBox 这一部分 不要放在head里面 样式有影响-->
+<div id="loginBox" class="loginBox">
+    <div class="tcTit">登录</div>
+    <div class="logCon">
+        <a href="https://www.zjc.gov.cn/system/resource/caUrl.jsp?zzurl=http://www.tianshui.gov.cn/&ymurl=http://www.tianshui.gov.cn/">实名登录</a>
+        <a href="../login.jsp?urltype=tree.TreeTempUrl&wbtreeid=4131">匿名登录</a>
+    </div>
+</div>
+
+<script>
+    /*登录提示弹窗*/
+
+    function tips() {
+        layer.open({
+            type: 1,
+            title:'',
+            area:['330px','187px'],
+            content: $('#loginBox') //这里content是一个DOM，注意：最好该元素要存放在body最外层，否则可能被其它的相对元素所影响
+        });
+    }
+    
+    var logoCut2 = function (obj,obj2){
+        if ($(obj).css('display','none')){
+            $(obj).eq(0).show()
+        }
+        $(obj2).click(function (){
+            var i = $(this).index();
+            $(this).stop().addClass('active').siblings().removeClass('active');
+            $(obj).eq(i).stop().fadeIn().siblings().hide();
+
+        })
+    }
+    
+    //logoCut2('.loginBox .log_tabb .tabb-item','.loginBox .log_tabc span');
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--注册弹窗-->
+<div id="regBox" class="loginBox">
+    <div class="tcTit"></div>
+    <div class="logCon">
+        <a href="https://zwfw.gansu.gov.cn/gsjis/sso/register">实名注册</a>
+        <a href="../zuche.jsp?urltype=tree.TreeTempUrl&wbtreeid=4121">匿名注册</a>
+    </div>
+</div>
+<script>
+    /*注册提示弹窗*/
+    function regs() {
+        layer.open({
+            type: 1,
+            title:'',
+            area:['330px','187px'],
+            content: $('#regBox') //这里content是一个DOM，注意：最好该元素要存放在body最外层，否则可能被其它的相对元素所影响
+        });
+    }
+</script>
+</body>
+<script>
+    $('.inputBox .sel p').click(function () {
+        $('.inputBox .sel  ul').slideToggle()
+    })
+    $('.inputBox .sel ul li').click(function (){
+        //console.log($(this).text());
+        $('.inputBox .sel p').text($(this).text())
+        $('.inputBox .sel ul').slideUp(0)
+    })
+
+    /*
+        var tabCut = function (obj,obj2){
+            if ($(obj).css('display','none')){
+                $(obj).eq(0).show()
+            }
+            $(obj2).hover(function (){
+                var i = $(this).index();
+                $(this).stop().addClass('active').siblings().removeClass('active');
+                $(obj).eq(i).stop().fadeIn().siblings().hide();
+
+            })
+        }
+        tabCut('.tabb .tabb-item','.tabc a')
+    */
+
+</script>
+
+<script>
+    //加载我要写信链接
+    $(document).ready(function(){
+        $(".tabc a").each(function(index){
+            if($(this).hasClass("active")){
+                var write_btn = "#write_letter_link"+(index+1);
+                $(write_btn).css("display","block");
+                $(write_btn).attr("href",$(".tabb-item .scollBox").eq(index).attr("data-write-letter-href"));
+            }
+        });
+    });
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,238 @@
+
+
+<html>
+	<head>
+		
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>新疆维吾尔自治区信访网</title>
+	<script type="text/javascript" src="/html/js/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="/html/js/public.js"></script>
+	<link href="/html/css/css.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript">
+		$(function() {
+				var url = window.location.href;
+				var	regionCode;
+				if(url.split("?")[1]!=undefined){
+					if(url.split("&")[1]!=undefined){
+						regionCode = url.split("?")[1].split("&")[1].split("=")[1];
+					}else{
+						regionCode = url.split("?")[1].split("=")[1];
+					}
+					var replaceStr = "#";
+					regionCode= regionCode.replace(new RegExp(replaceStr,'gm'),'');
+				}else{
+					regionCode="650000000000";
+				}
+				//首页进行相关配置
+				var indexPage="";
+				if(regionCode=="650000000000"){
+					indexPage="/html/main/index.jsp?regionCode="+regionCode;
+					//首页
+					$("#firstPage").attr("href",indexPage);
+				}else{
+					//设置首页可配置
+					var url="/letter/pre-accept-letter-info!queryStartPage.action?regionCode="+regionCode;
+					$.ajax({
+			                url: url,
+			                contentType: "application/json; charset=utf-8",
+			                dataType: "text",
+			                success: function (result) {
+			                   // alert(result);
+			                    indexPage=result;
+			                  //首页
+			                    $("#firstPage").attr("href",indexPage);
+			                },
+			                error: function (err) {
+			                    return false;
+			                }
+			            }
+			            );
+				}
+				//信访指南
+				$("#guide").attr("href","/html/petitionGuide/onlineOder.jsp?regionCode="+regionCode);
+				//显示图片
+				$("#image").attr("src","/html/images/"+regionCode+".jpg");
+				//网上信访
+				$("#online").attr("href","/html/petitionOnline/netRport.jsp?regionCode="+regionCode);
+				
+				//人民建议征集
+			//	$("#peopleAdvice").attr("href","/html/peopleAdvice/peopleAdvice.jsp?regionCode="+regionCode);
+				$("#peopleAdvice").attr("href","/html/login/login.jsp?regionCode="+regionCode);
+				
+				$("#noLogon").attr("href","/html/login/login.jsp?regionCode="+regionCode);
+				//查询评价
+				$("#queryEval").attr("href","/html/onlineInquiry/onlineILsit.jsp?regionCode="+regionCode);
+				//未登录
+				$("#pingLonNo").attr("href","/html/onlineInquiry/queryIndex.jsp?regionCode="+regionCode);
+				
+				//个人中心
+				$("#grzx01").attr("href","/html/users/index.jsp?regionCode="+regionCode);
+				$("#grzx02").attr("href","/html/login/login.jsp?regionCode="+regionCode);
+		
+		}
+		)
+	</script>
+</head>
+<body >
+<div id="win_wk">
+	<div style="height: 200px;">
+		
+		<img id="image" src="#"/>
+	</div>
+	<div class="nav">
+		<ul>
+			<li><a id="firstPage" class="nav_daoh" href="#">首页</a></li>
+			<li><a id="guide" class="nav_daoh" href="#">信访指南</a></li>
+			<li>
+				
+					<a id="noLogon" class="nav_daoh" href="#"">网上信访</a>
+				
+				
+			</li>
+			<li>
+				
+					<a id="pingLonNo" class="nav_daoh" href="#">查询评价</a>
+				
+				
+			</li>
+			<li>
+				
+					<a id="peopleAdvice" class="nav_daoh" href="#">人民建议征集</a>
+				
+				
+			</li>
+			
+			<li>
+				
+				 
+					<a id="grzx02" class="nav_daoh" href="#">个人中心</a>
+				
+			</li>
+		</ul>
+	</div>
+</div>
+</body>
+</html>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>查询评价</title>
+		<script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
+		<script type="text/javascript" src="../js/json2.js"></script>
+		<script type="text/javascript" src="../js/onlineInquiry.js"></script>
+		<link href="../css/onlineInquiry.css" rel="stylesheet" type="text/css">
+		<script type="text/javascript">
+		$(function() {
+				var url = window.location.href;
+				var	regionCode;
+				if(url.split("?")[1]!=undefined){
+					if(url.split("&")[1]!=undefined){
+						regionCode = url.split("?")[1].split("&")[1].split("=")[1];
+					}else{
+						regionCode = url.split("?")[1].split("=")[1];
+					}
+				}else{
+					regionCode="650000000000";
+				}
+				$("#login").attr("href","../login/login.jsp?regionCode="+regionCode);
+			}
+		)
+	</script>
+	</head>
+	<body onload="hideInfo()" onKeyDown="KeyDown()">
+		<div class="nav_son">
+			<span class="nav_sonhome">当前位置：</span>
+			<span>首页&gt;&gt; 查询评价 </span>
+		</div>
+		<div class="main" style="margin-bottom: 10px;">
+			<div id="cxmcx">
+				<div class="main-query">
+					<div class="query-careful">
+						<p>
+							1、信访人可通过本窗口查询纳入满意度评价信件的处理过程和办理结果，
+							并对信访工作机构和有权处理机关办理工作情况作出评价。
+						</p>
+						<p>
+							2、查询前需在查询界面填写真实姓名、查询码、验证码。
+							通过系统验证后，方可进入查询界面进行查询评价。
+						</p>
+					</div>
+					<div class="query-main">
+						<div class="login">如果您是信访网络用户，请在此<a id="login" href="#">登录</a>后查询！</div>
+						<form action="" method="post" id="getLetterBynot">
+							<div class="query-box">
+								<h2>信访事项查询</h2>
+								<div class="queryTrCss">
+									<span class="query-input">信访人姓名：</span>
+									<span>
+										<input class="wid200" id="networkUseName" name='networkUseName'  onkeyup="showPoint()"/>
+									</span>
+								</div>
+								<div class="queryTrCss">
+									<span class="query-input">查询码：</span>
+									<span><input class="wid200" id="queryCode" name='feedBackCode' /></span>
+								</div>
+								<div class="queryTrCss">
+									<span class="query-input">验证码：</span>
+									<span><input class="wid100" id="queryCheck" name='queryCheck' /></span>
+									<span>
+										<img src="/servlet/VerifyCodeServlet" id="authImg" onClick="changeValidateCode(this)" title="看不清？单击此处刷新" />
+									</span>
+								</div>
+								<div class="queryTrCss-btn">
+									<input type="button" value="提交" class="query-button" onclick="queryLetterByNot()" />
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<!-- 查询数据 -->
+			<div class="onlinequery-main hidecxm" style="display: none;" id="hidecxm">
+				<div class="query-info">
+					<div class="query-letter-title">网上查询</div>
+					<table width="100%" border="1px">
+						<tr>
+							<td width="445" id="petitionNo"></td>
+							<td width="445" id="petitionDate"></td>
+						</tr>
+						<tr>
+							<td width="445" id="endFlag"></td>
+							<td width="445" id="whetherOpenName"></td>
+						</tr>
+						<tr>
+							<td colspan="2" ><span class="neirong"></span></td>
+						</tr>
+					</table>
+				</div>
+				<div class="listContent" style="display: none;">
+					<div class="query-letter-title">办理情况：</div>
+					<table width="890" id="listContent"></table>
+					<div id="pingjia" class="clear"></div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+<html>
+<head>
+
+</head>
+<body>
+	<div class="clear"></div>
+
+	<div class="footer">
+		<div class="foot">
+			<br>版权所有&copy;新疆维吾尔自治区信访局 地址：新疆乌鲁木齐市文化路38号 电话：0991-2391501</br>
+			<br>ICP备案号: 新ICP备09003504 政府网站标识码:6500000006 公安机关备案号:65010099073</br>
+			<script type="text/javascript">document.write(unescape("%3Cspan id='_ideConac' %3E%3C/span%3E%3Cscript src='https://dcs.conac.cn/js/31/000/0000/60311934/CA310000000603119340001.js' type='text/javascript'%3E%3C/script%3E"));
+			</script>
+			<script async id="_jiucuo_" sitecode='6500000006' src='https://zfwzgl.www.gov.cn/exposure/jiucuo.js'></script>
+		</div>
+	</div>
+</body>
+</html>
+
+

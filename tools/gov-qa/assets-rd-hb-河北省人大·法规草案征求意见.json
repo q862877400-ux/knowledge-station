@@ -1,0 +1,267 @@
+{
+ "A_考卷": [
+  {
+   "source": "rd-hb",
+   "id": "ww_hbrd_gov_cn_system_2026_09_30_102228987_shtml",
+   "url": "https://www.hbrd.gov.cn/system/2026/09/30/102228987.shtml",
+   "question": "关于《河北省农村土地承包条例 （修订草案）》公开征求意见的通知",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国民法典",
+     "lib_no": "中华人民共和国民法典",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国农村土地承包法",
+     "lib_no": "农村土地承包法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国农村集体经济组织法",
+     "lib_no": "农村集体经济组织法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国农村土地承包经营纠纷调解仲裁法",
+     "lib_no": "仲裁法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "河北省农村土地承包条例 （修订草案）",
+    "河北省农村土地承包条例（修订草案）",
+    "河北省农村土地承包条例（修订草案）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "rd-hb",
+   "id": "ww_hbrd_gov_cn_system_2026_09_30_102228982_shtml",
+   "url": "https://www.hbrd.gov.cn/system/2026/09/30/102228982.shtml",
+   "question": "关于《河北省科学技术普及条例 （修订草案）》公开征求意见的通知",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国科学技术普及法",
+     "lib_no": "科学技术普及法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "河北省科学技术普及条例 （修订草案）",
+    "河北省科学技术普及条例（修订草案）",
+    "河北省科学技术普及条例（修订草案）",
+    "河北省科学技术普及条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "rd-hb",
+   "id": "ww_hbrd_gov_cn_system_2026_09_29_102228526_shtml",
+   "url": "https://www.hbrd.gov.cn/system/2026/09/29/102228526.shtml",
+   "question": "关于《河北省矿产资源管理条例（修订草案）》公开征求意见的通知",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国矿产资源法",
+     "lib_no": "矿产资源法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国矿产资源法实施条例",
+     "lib_no": "矿产资源法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "河北省矿产资源管理条例（修订草案）",
+    "河北省矿产资源管理条例（修订草案）",
+    "河北省矿产资源管理条例（修订草案）",
+    "河北省地质勘查管理条例",
+    "河北省地热资源管理条例",
+    "河北省非煤矿山综合治理条例",
+    "河北省矿产资源管理条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "rd-hb",
+   "id": "ww_hbrd_gov_cn_system_2026_09_28_102227734_shtml",
+   "url": "https://www.hbrd.gov.cn/system/2026/09/28/102227734.shtml",
+   "question": "关于《河北省工业产品质量促进条例（草案）》公开征求意见的通知",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国产品质量法",
+     "lib_no": "产品质量法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国认证认可条例",
+     "lib_no": "认证认可条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "河北省工业产品质量促进条例（草案）",
+    "河北省工业产品质量促进条例（草案）",
+    "河北省工业产品质量促进条例（草案）",
+    "河北省工业产品质量促进条例（草案）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "rd-hb",
+   "id": "ww_hbrd_gov_cn_system_2026_08_06_102211078_shtml",
+   "url": "https://www.hbrd.gov.cn/system/2026/08/06/102211078.shtml",
+   "question": "关于《河北省国民经济和社会发展计划审查监督条例（草案）》公开征求意见的通知",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国各级人民代表大会常务委员会监督法",
+     "lib_no": "各级人民代表大会常务委员会监督法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "河北省国民经济和社会发展计划审查监督条例（草案）",
+    "河北省国民经济和社会发展计划审查监督条例（草案）",
+    "河北省国民经济和社会发展计划审查监督条例（草案）",
+    "中华人民共和国国家发展规划法",
+    "全国人民代表大会常务委员会关于加强经济工作监督的决定",
+    "河北省各级人民代表大会常务委员会经济工作监督条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "rd-hb",
+   "id": "ww_hbrd_gov_cn_system_2026_08_06_102211072_shtml",
+   "url": "https://www.hbrd.gov.cn/system/2026/08/06/102211072.shtml",
+   "question": "关于《河北省法治宣传教育条例（草案）》公开征求意见的通知",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国法治宣传教育法",
+     "lib_no": "教育法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "河北省法治宣传教育条例（草案）",
+    "河北省法治宣传教育条例（草案）",
+    "河北省法治宣传教育条例（草案）",
+    "河北省法制宣传教育条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "rd-hb",
+   "id": "ww_hbrd_gov_cn_system_2026_06_26_102198154_shtml",
+   "url": "https://www.hbrd.gov.cn/system/2026/06/26/102198154.shtml",
+   "question": "关于《河北省气象探测条例（草案）》公开征求意见的通知",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国气象法",
+     "lib_no": "气象法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国数据安全法",
+     "lib_no": "数据安全法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "气象设施和气象探测环境保护条例",
+     "lib_no": "气象设施和气象探测环境保护条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国城乡规划法",
+     "lib_no": "城乡规划法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国土地管理法",
+     "lib_no": "土地管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "河北省气象探测条例（草案）",
+    "河北省气象探测条例（草案）",
+    "河北省气象探测条例（草案）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "rd-hb",
+   "id": "ww_hbrd_gov_cn_system_2026_06_11_102192613_shtml",
+   "url": "https://www.hbrd.gov.cn/system/2026/06/11/102192613.shtml",
+   "question": "关于《河北省港口条例（修订草案）》公开征求意见的通知",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国港口法",
+     "lib_no": "港口法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "河北省港口条例（修订草案）",
+    "河北省港口条例（修订草案）",
+    "河北省港口条例（修订草案）"
+   ],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "rd-hb",
+   "id": "ww_hbrd_gov_cn_system_2026_09_28_102227983_shtml",
+   "url": "https://www.hbrd.gov.cn/system/2026/09/28/102227983.shtml",
+   "question": "关于《河北省生态环境保护条例（修订草案）》公开征求意见的通知",
+   "cited_hits": [],
+   "cited_missing": [
+    "河北省生态环境保护条例（修订草案）",
+    "河北省生态环境保护条例（修订草案）",
+    "河北省生态环境保护条例（修订草案）",
+    "中华人民共和国生态环境法典"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "rd-hb",
+   "id": "ww_hbrd_gov_cn_system_2026_08_07_102211417_shtml",
+   "url": "https://www.hbrd.gov.cn/system/2026/08/07/102211417.shtml",
+   "question": "关于《河北省哲学社会科学促进条例（草案）》公开征求意见的通知",
+   "cited_hits": [],
+   "cited_missing": [
+    "河北省哲学社会科学促进条例（草案）",
+    "河北省哲学社会科学促进条例（草案）",
+    "河北省哲学社会科学促进条例（草案）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "rd-hb",
+   "id": "ww_hbrd_gov_cn_system_2026_05_19_102183906_shtml",
+   "url": "https://www.hbrd.gov.cn/system/2026/05/19/102183906.shtml",
+   "question": "关于《河北省哲学社会科学促进条例（草案）》公开征求意见的通知",
+   "cited_hits": [],
+   "cited_missing": [
+    "河北省哲学社会科学促进条例（草案）",
+    "河北省哲学社会科学促进条例（草案）",
+    "河北省哲学社会科学促进条例（草案）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "rd-hb",
+   "id": "ww_hbrd_gov_cn_system_2026_04_14_102171867_shtml",
+   "url": "https://www.hbrd.gov.cn/system/2026/04/14/102171867.shtml",
+   "question": "关于《河北省现代商贸物流发展促进条例（草案）》公开征求意见的通知",
+   "cited_hits": [],
+   "cited_missing": [
+    "河北省现代商贸物流发展促进条例（草案）",
+    "河北省现代商贸物流发展促进条例（草案）",
+    "河北省现代商贸物流发展促进条例（草案）"
+   ],
+   "has_clause_no": true
+  }
+ ],
+ "C_无依据": []
+}

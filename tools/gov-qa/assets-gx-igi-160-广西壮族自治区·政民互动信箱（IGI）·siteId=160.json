@@ -1,0 +1,24 @@
+{
+ "A_考卷": [],
+ "B_补料": [],
+ "C_无依据": [
+  {
+   "source": "gx-igi-160",
+   "id": "157814446294",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814446294",
+   "question": "你好，我想了解2025年一季度玉林招商引资项目签约情况。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-160",
+   "id": "157814411297",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814411297",
+   "question": "想了解一下，2023年全市招商引资工作取得了哪些成效。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

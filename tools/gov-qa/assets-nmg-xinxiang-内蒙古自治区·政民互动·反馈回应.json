@@ -1,0 +1,663 @@
+{
+ "A_考卷": [
+  {
+   "source": "nmg-xinxiang",
+   "id": "5889d5bd-d07d-4be5-b129-a3342407cc6b",
+   "url": "https://www.nmg.gov.cn/zmhd/fkhy_1/index_13317.html?id=5889d5bd-d07d-4be5-b129-a3342407cc6b",
+   "question": "阿拉善盟孪井滩生态移民示范区群众咨询在上下班途中发生交通事故可以认定为工伤吗？",
+   "cited_hits": [
+    {
+     "name": "内蒙古自治区人民政府关于印发〈内蒙古自治区工伤保险条例实施办法〉的通知",
+     "lib_no": "工伤保险条例(OCR采集)",
+     "weak": true
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "nmg-xinxiang",
+   "id": "eea02aa9-a72a-4b94-b31b-44e87d300095",
+   "url": "https://www.nmg.gov.cn/zmhd/fkhy_1/index_13317.html?id=eea02aa9-a72a-4b94-b31b-44e87d300095",
+   "question": "兴安盟乌兰浩特市群众咨询快递退货上门取件时是否需要核实寄件人身份信息？",
+   "cited_hits": [
+    {
+     "name": "快递暂行条例",
+     "lib_no": "快递暂行条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "nmg-xinxiang",
+   "id": "698cd04e-030f-4bb3-a6e1-510e046fff26",
+   "url": "https://www.nmg.gov.cn/zmhd/fkhy_1/index_13317.html?id=698cd04e-030f-4bb3-a6e1-510e046fff26",
+   "question": "乌海市乌达区群众咨询企业申请经营场所“一照多址”登记需要什么材料？",
+   "cited_hits": [],
+   "cited_missing": [
+    "公司登记（备案）申请书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nmg-xinxiang",
+   "id": "4a41568a-7867-40a1-94e7-f5a18c4d636a",
+   "url": "https://www.nmg.gov.cn/zmhd/fkhy_1/index_13317.html?id=4a41568a-7867-40a1-94e7-f5a18c4d636a",
+   "question": "乌兰察布市兴和县群众咨询如何补办独生子女父母光荣证？",
+   "cited_hits": [],
+   "cited_missing": [
+    "独生子女父母光荣证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nmg-xinxiang",
+   "id": "20a7df61-e67b-470a-a206-e6e6745313d0",
+   "url": "https://www.nmg.gov.cn/zmhd/fkhy_1/index_13317.html?id=20a7df61-e67b-470a-a206-e6e6745313d0",
+   "question": "锡林郭勒盟乌拉盖管理区群众咨询个人产权充装气瓶召回后统一更换充装单位气瓶是否有相关依据？",
+   "cited_hits": [],
+   "cited_missing": [
+    "气瓶安全技术规程"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nmg-xinxiang",
+   "id": "f573e4e9-5356-4283-a2d6-8cc6e009803c",
+   "url": "https://www.nmg.gov.cn/zmhd/fkhy_1/index_13317.html?id=f573e4e9-5356-4283-a2d6-8cc6e009803c",
+   "question": "呼伦贝尔市海拉尔区群众咨询‌护士执业资格证书丢失后如何补办？",
+   "cited_hits": [],
+   "cited_missing": [
+    "初中级专业技术资格证书补发（换发）审核表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nmg-xinxiang",
+   "id": "f6a89b2e-1d8c-4ce5-9671-80ff704651a6",
+   "url": "https://www.nmg.gov.cn/zmhd/fkhy_1/index_13317.html?id=f6a89b2e-1d8c-4ce5-9671-80ff704651a6",
+   "question": "赤峰市元宝山区群众咨询提取公积金支付取暖费需要什么材料？",
+   "cited_hits": [],
+   "cited_missing": [
+    "不动产权证书",
+    "商品房买卖合同"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nmg-xinxiang",
+   "id": "41c2d137-eb2e-4da2-b82d-584225400785",
+   "url": "https://www.nmg.gov.cn/zmhd/fkhy_1/index_13317.html?id=41c2d137-eb2e-4da2-b82d-584225400785",
+   "question": "赤峰市阿鲁科尔沁旗群众咨询社会保障卡丢失后到哪里补办？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步规范赤峰市社会保障卡业务管理的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nmg-xinxiang",
+   "id": "c38a2ba7-d0e1-4bb3-a862-6eaac8e1a307",
+   "url": "https://www.nmg.gov.cn/zmhd/fkhy_1/index_13317.html?id=c38a2ba7-d0e1-4bb3-a862-6eaac8e1a307",
+   "question": "呼和浩特市赛罕区群众咨询本市育儿补贴与国家育儿补贴是否可以同时享受？",
+   "cited_hits": [],
+   "cited_missing": [
+    "呼和浩特市落实育儿补贴制度和人口集聚生育支持政策实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nmg-xinxiang",
+   "id": "2a2c99e7-1fe0-47ef-b2cf-6122f253e65e",
+   "url": "https://www.nmg.gov.cn/zmhd/fkhy_1/index_13317.html?id=2a2c99e7-1fe0-47ef-b2cf-6122f253e65e",
+   "question": "兴安盟突泉县群众咨询宅基地办理过户需要哪些材料？",
+   "cited_hits": [],
+   "cited_missing": [
+    "实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nmg-xinxiang",
+   "id": "dcc9670b-c015-4527-89c4-d6124dd046c1",
+   "url": "https://www.nmg.gov.cn/zmhd/fkhy_1/index_13317.html?id=dcc9670b-c015-4527-89c4-d6124dd046c1",
+   "question": "鄂尔多斯市鄂托克前旗群众咨询水浇地用水量规定是什么？",
+   "cited_hits": [],
+   "cited_missing": [
+    "鄂托克前旗农业水价综合改革试点工作方案",
+    "内蒙古自治区行业用水定额标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nmg-xinxiang",
+   "id": "759a95d6-bd7f-493f-80fd-c98e5942c73e",
+   "url": "https://www.nmg.gov.cn/zmhd/fkhy_1/index_13317.html?id=759a95d6-bd7f-493f-80fd-c98e5942c73e",
+   "question": "通辽市霍林郭勒市群众咨询老旧小区楼道走廊漏雨如何处理？",
+   "cited_hits": [],
+   "cited_missing": [
+    "住宅专项维修资金管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nmg-xinxiang",
+   "id": "e5abfcd3-d78d-4b23-b2be-96736b16e51f",
+   "url": "https://www.nmg.gov.cn/zmhd/fkhy_1/index_13317.html?id=e5abfcd3-d78d-4b23-b2be-96736b16e51f",
+   "question": "包头市青山区群众咨询独生子女补贴的申报条件是什么？",
+   "cited_hits": [],
+   "cited_missing": [
+    "独生子女父母光荣证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nmg-xinxiang",
+   "id": "1d90a087-328e-4527-9cce-d2a5b02e039c",
+   "url": "https://www.nmg.gov.cn/zmhd/fkhy_1/index_13317.html?id=1d90a087-328e-4527-9cce-d2a5b02e039c",
+   "question": "乌海市海勃湾区群众咨询新生儿出生登记落户如何办理？",
+   "cited_hits": [],
+   "cited_missing": [
+    "出生医学证明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nmg-xinxiang",
+   "id": "0adae4ec-1e18-4beb-b33e-47ce6c4b3530",
+   "url": "https://www.nmg.gov.cn/zmhd/fkhy_1/index_13317.html?id=0adae4ec-1e18-4beb-b33e-47ce6c4b3530",
+   "question": "呼和浩特市新城区群众咨询在辖区内分娩机构出生的孩子，遗失出生医学证明如何补办？",
+   "cited_hits": [],
+   "cited_missing": [
+    "出生医学证明",
+    "出生医学证明",
+    "出生医学证明",
+    "出生医学证明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nmg-xinxiang",
+   "id": "e41e222a-b32e-4abb-81f0-7618fb16d9b2",
+   "url": "https://www.nmg.gov.cn/zmhd/fkhy_1/index_13317.html?id=e41e222a-b32e-4abb-81f0-7618fb16d9b2",
+   "question": "阿拉善盟乌兰布和生态沙产业示范区群众咨询就业困难人员申领社会保险补贴的流程是什么？",
+   "cited_hits": [],
+   "cited_missing": [
+    "阿拉善盟就业困难人员灵活就业社保补贴申请表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nmg-xinxiang",
+   "id": "bafa1cbd-2f97-4144-8c36-23a95f3514c0",
+   "url": "https://www.nmg.gov.cn/zmhd/fkhy_1/index_13317.html?id=bafa1cbd-2f97-4144-8c36-23a95f3514c0",
+   "question": "锡林郭勒盟锡林浩特市群众咨询在药店线下购买药品后是否可以退换？",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家药品监督管理局药品经营质量管理规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nmg-xinxiang",
+   "id": "1f10a8fe-4772-42bb-bb3d-7a14095a5675",
+   "url": "https://www.nmg.gov.cn/zmhd/fkhy_1/index_13317.html?id=1f10a8fe-4772-42bb-bb3d-7a14095a5675",
+   "question": "包头市东河区群众咨询申请注册登记个体工商户时，能否使用同一个地址申请多个营业执照？",
+   "cited_hits": [],
+   "cited_missing": [
+    "内蒙古自治区市场主体住所（经营场所）登记规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nmg-xinxiang",
+   "id": "c6ccbd2f-92c5-4a06-ad1d-2f71ac53592b",
+   "url": "https://www.nmg.gov.cn/zmhd/fkhy_1/index_13317.html?id=c6ccbd2f-92c5-4a06-ad1d-2f71ac53592b",
+   "question": "呼和浩特市回民区群众咨询退役军人持退役军人优待证是否可以免费乘坐呼和浩特地铁？",
+   "cited_hits": [],
+   "cited_missing": [
+    "呼和浩特市发展和改革委员会关于呼和浩特市轨道交通票制票价的通知",
+    "中华人民共和国残疾军人证"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "nmg-xinxiang",
+   "id": "a47e73e6-234f-4630-bb79-4c5f89908002",
+   "url": "https://www.nmg.gov.cn/zmhd/fkhy_1/index_13317.html?id=a47e73e6-234f-4630-bb79-4c5f89908002",
+   "question": "鄂尔多斯市杭锦旗群众咨询外地户籍申请公租房应具备什么条件？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nmg-xinxiang",
+   "id": "a664a5d4-1d1b-44a6-aa08-5bd0a15cb2ad",
+   "url": "https://www.nmg.gov.cn/zmhd/fkhy_1/index_13317.html?id=a664a5d4-1d1b-44a6-aa08-5bd0a15cb2ad",
+   "question": "包头市固阳县群众咨询16周岁以下未成年人如何申领居民身份证？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nmg-xinxiang",
+   "id": "89b47bac-cdd3-43b9-870f-c1cd0d755323",
+   "url": "https://www.nmg.gov.cn/zmhd/fkhy_1/index_13317.html?id=89b47bac-cdd3-43b9-870f-c1cd0d755323",
+   "question": "通辽市奈曼旗群众咨询如何查询本人的退休年龄？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nmg-xinxiang",
+   "id": "ae056651-1109-4564-9d34-9c96655c9065",
+   "url": "https://www.nmg.gov.cn/zmhd/fkhy_1/index_13317.html?id=ae056651-1109-4564-9d34-9c96655c9065",
+   "question": "阿拉善盟额济纳旗群众咨询技能提升补贴的申领方式有哪些？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nmg-xinxiang",
+   "id": "8f87b32d-68fc-4bcb-9e2d-ea0665792526",
+   "url": "https://www.nmg.gov.cn/zmhd/fkhy_1/index_13317.html?id=8f87b32d-68fc-4bcb-9e2d-ea0665792526",
+   "question": "巴彦淖尔市临河区群众咨询机动车驾驶证‌到期换证的办理地址在哪里？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nmg-xinxiang",
+   "id": "2e8ed601-bbbd-4221-8f63-5ad6da966751",
+   "url": "https://www.nmg.gov.cn/zmhd/fkhy_1/index_13317.html?id=2e8ed601-bbbd-4221-8f63-5ad6da966751",
+   "question": "兴安盟科尔沁右翼中旗群众咨询最低生活保障的认定条件是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nmg-xinxiang",
+   "id": "b4cadb7b-0ae4-4078-93e9-08140491c4be",
+   "url": "https://www.nmg.gov.cn/zmhd/fkhy_1/index_13317.html?id=b4cadb7b-0ae4-4078-93e9-08140491c4be",
+   "question": "鄂尔多斯市东胜区群众咨询灵活就业人员缴纳城镇职工基本养老保险是否限制户籍？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nmg-xinxiang",
+   "id": "8e2fe7db-9554-4969-9d8a-b6a3cca7aba4",
+   "url": "https://www.nmg.gov.cn/zmhd/fkhy_1/index_13317.html?id=8e2fe7db-9554-4969-9d8a-b6a3cca7aba4",
+   "question": "包头稀土高新技术产业开发区群众咨询灵活就业人员医疗保险缴费方式有哪些？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nmg-xinxiang",
+   "id": "69a032e0-fcf0-4a4f-b503-95bc4a57e83e",
+   "url": "https://www.nmg.gov.cn/zmhd/fkhy_1/index_13317.html?id=69a032e0-fcf0-4a4f-b503-95bc4a57e83e",
+   "question": "企业如何在蒙速办申请电子签章？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nmg-xinxiang",
+   "id": "b1935d73-6298-4ac2-844c-4c635125614f",
+   "url": "https://www.nmg.gov.cn/zmhd/fkhy_1/index_13317.html?id=b1935d73-6298-4ac2-844c-4c635125614f",
+   "question": "巴彦淖尔市乌拉特后旗群众咨询申请丧葬补贴需要哪些材料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nmg-xinxiang",
+   "id": "60467a3f-8e8e-4bbb-889d-5809ab15cfd7",
+   "url": "https://www.nmg.gov.cn/zmhd/fkhy_1/index_13317.html?id=60467a3f-8e8e-4bbb-889d-5809ab15cfd7",
+   "question": "乌兰察布市集宁区群众咨询线上如何查询水表户号？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nmg-xinxiang",
+   "id": "9b1f7bab-197b-4116-a190-bffc9da51c7e",
+   "url": "https://www.nmg.gov.cn/zmhd/fkhy_1/index_13317.html?id=9b1f7bab-197b-4116-a190-bffc9da51c7e",
+   "question": "呼和浩特市和林格尔县群众咨询持退役军人优待证能否免费乘坐公交？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nmg-xinxiang",
+   "id": "5b4187d9-6f72-4c91-81cb-a5b464115ee5",
+   "url": "https://www.nmg.gov.cn/zmhd/fkhy_1/index_13317.html?id=5b4187d9-6f72-4c91-81cb-a5b464115ee5",
+   "question": "锡林郭勒盟西乌珠穆沁旗群众咨询“个人身后一件事”线上办理流程是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nmg-xinxiang",
+   "id": "93691791-97ee-4c9c-a163-08a5f99aa673",
+   "url": "https://www.nmg.gov.cn/zmhd/fkhy_1/index_13317.html?id=93691791-97ee-4c9c-a163-08a5f99aa673",
+   "question": "呼伦贝尔市牙克石市群众咨询如何办理异地就医备案？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nmg-xinxiang",
+   "id": "f4550301-45c0-4ea6-a0ea-fd247a25fc8f",
+   "url": "https://www.nmg.gov.cn/zmhd/fkhy_1/index_13317.html?id=f4550301-45c0-4ea6-a0ea-fd247a25fc8f",
+   "question": "鄂尔多斯市康巴什区群众咨询旧房装修改造提取公积金的条件是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nmg-xinxiang",
+   "id": "83fa3e30-0ad0-4bca-8793-dbb217cbb16a",
+   "url": "https://www.nmg.gov.cn/zmhd/fkhy_1/index_13317.html?id=83fa3e30-0ad0-4bca-8793-dbb217cbb16a",
+   "question": "通辽市科尔沁左翼后旗群众咨询城乡居民医疗保险如何办理停保？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nmg-xinxiang",
+   "id": "3ac692e2-a699-4aa0-a64f-d5853f235901",
+   "url": "https://www.nmg.gov.cn/zmhd/fkhy_1/index_13317.html?id=3ac692e2-a699-4aa0-a64f-d5853f235901",
+   "question": "乌海市乌达区群众咨询男职工护理假津贴是否可以线上申领？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nmg-xinxiang",
+   "id": "efd5c4a0-7364-4dbb-9ba8-cea925af00bd",
+   "url": "https://www.nmg.gov.cn/zmhd/fkhy_1/index_13317.html?id=efd5c4a0-7364-4dbb-9ba8-cea925af00bd",
+   "question": "呼和浩特市回民区群众咨询高校毕业生签订过劳动合同、缴纳过社保，在公务员招录时是否影响应届毕业生身份？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nmg-xinxiang",
+   "id": "270d530b-9f30-4aea-8d40-20b36a112507",
+   "url": "https://www.nmg.gov.cn/zmhd/fkhy_1/index_13317.html?id=270d530b-9f30-4aea-8d40-20b36a112507",
+   "question": "包头市石拐区群众咨询中度以上失能老年人养老服务消费补贴的申领条件是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nmg-xinxiang",
+   "id": "5a852553-56b6-43f4-98a3-66f73ed4044c",
+   "url": "https://www.nmg.gov.cn/zmhd/fkhy_1/index_13317.html?id=5a852553-56b6-43f4-98a3-66f73ed4044c",
+   "question": "兴安盟科尔沁右翼前旗群众咨询应届高校毕业生如何查询学籍档案存档情况？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nmg-xinxiang",
+   "id": "92b4542e-896b-4af6-bdea-0793966f4a5f",
+   "url": "https://www.nmg.gov.cn/zmhd/fkhy_1/index_13317.html?id=92b4542e-896b-4af6-bdea-0793966f4a5f",
+   "question": "在内蒙古政务服务网注册法人账号时法人类型如何选择？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nmg-xinxiang",
+   "id": "965a615e-c63a-4590-978a-c76ccd96867d",
+   "url": "https://www.nmg.gov.cn/zmhd/fkhy_1/index_13317.html?id=965a615e-c63a-4590-978a-c76ccd96867d",
+   "question": "乌兰察布市化德县群众咨询通过蒙速办开具了无犯罪记录证明如何下载电子版？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nmg-xinxiang",
+   "id": "5fc7d767-0aff-4b2c-aff0-0f0450c750c5",
+   "url": "https://www.nmg.gov.cn/zmhd/fkhy_1/index_13317.html?id=5fc7d767-0aff-4b2c-aff0-0f0450c750c5",
+   "question": "阿拉善盟阿拉善左旗群众咨询身份证即将到期可以到哪里换领新证？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nmg-xinxiang",
+   "id": "10fe138e-92cb-4ca2-ad37-5be6c8a44782",
+   "url": "https://www.nmg.gov.cn/zmhd/fkhy_1/index_13317.html?id=10fe138e-92cb-4ca2-ad37-5be6c8a44782",
+   "question": "缴存锡林郭勒盟太仆寺旗公积金，租房提取公积金的线上办理渠道有哪些？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nmg-xinxiang",
+   "id": "64784e5a-1117-403c-90de-6c1f9b9933ae",
+   "url": "https://www.nmg.gov.cn/zmhd/fkhy_1/index_13317.html?id=64784e5a-1117-403c-90de-6c1f9b9933ae",
+   "question": "巴彦淖尔市五原县群众咨询线上如何缴纳水费？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nmg-xinxiang",
+   "id": "ca1c595e-1c99-417c-84c4-8df9d85ea1a9",
+   "url": "https://www.nmg.gov.cn/zmhd/fkhy_1/index_13317.html?id=ca1c595e-1c99-417c-84c4-8df9d85ea1a9",
+   "question": "呼伦贝尔市莫力达瓦达斡尔族自治旗群众咨询线下可以到哪里办理新生儿出生一件事？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nmg-xinxiang",
+   "id": "fa1e2041-33a6-483c-b2ae-8104f55e2e53",
+   "url": "https://www.nmg.gov.cn/zmhd/fkhy_1/index_13317.html?id=fa1e2041-33a6-483c-b2ae-8104f55e2e53",
+   "question": "通辽市科尔沁区群众咨询营业执照注销后如何补打注销通知书？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nmg-xinxiang",
+   "id": "9b201854-a26a-4de3-b1e0-0da31c56e84e",
+   "url": "https://www.nmg.gov.cn/zmhd/fkhy_1/index_13317.html?id=9b201854-a26a-4de3-b1e0-0da31c56e84e",
+   "question": "鄂尔多斯市乌审旗群众咨询健康体检费用是否纳入医保报销范围？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nmg-xinxiang",
+   "id": "27631aa5-afbe-46d7-8024-82898962f9ca",
+   "url": "https://www.nmg.gov.cn/zmhd/fkhy_1/index_13317.html?id=27631aa5-afbe-46d7-8024-82898962f9ca",
+   "question": "缴存外省公积金，在赤峰市红山区购房，能否在赤峰市公积金中心办理公积金贷款？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nmg-xinxiang",
+   "id": "79e34369-270a-416d-bfdf-b3dfe3a19104",
+   "url": "https://www.nmg.gov.cn/zmhd/fkhy_1/index_13317.html?id=79e34369-270a-416d-bfdf-b3dfe3a19104",
+   "question": "乌海市海勃湾区群众咨询个体工商户缴纳电费后如何开具发票？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nmg-xinxiang",
+   "id": "2906d588-edc5-4a39-9df0-d43acd8cad43",
+   "url": "https://www.nmg.gov.cn/zmhd/fkhy_1/index_13317.html?id=2906d588-edc5-4a39-9df0-d43acd8cad43",
+   "question": "包头市九原区群众咨询为什么养老金未按时发放？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nmg-xinxiang",
+   "id": "f2398a21-2d1f-44ca-a3eb-8c7b5914155e",
+   "url": "https://www.nmg.gov.cn/zmhd/fkhy_1/index_13317.html?id=f2398a21-2d1f-44ca-a3eb-8c7b5914155e",
+   "question": "原来缴纳内蒙古自治区本级公积金，公积金断缴后对已经办理的公积金贷款有何影响？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nmg-xinxiang",
+   "id": "82397fc4-6c6a-4eb8-9e73-8f7d8cfeb137",
+   "url": "https://www.nmg.gov.cn/zmhd/fkhy_1/index_13317.html?id=82397fc4-6c6a-4eb8-9e73-8f7d8cfeb137",
+   "question": "阿拉善盟阿拉善左旗群众咨询在内蒙古自治区范围内如何办理养老保险关系转移？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nmg-xinxiang",
+   "id": "f8fb5d0a-3443-4daa-a6cd-886e2d24e151",
+   "url": "https://www.nmg.gov.cn/zmhd/fkhy_1/index_13317.html?id=f8fb5d0a-3443-4daa-a6cd-886e2d24e151",
+   "question": "锡林郭勒盟锡林浩特市群众咨询如何查询电子健康证？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nmg-xinxiang",
+   "id": "6ba4767a-a3f4-4228-8cc4-615153ee2d4a",
+   "url": "https://www.nmg.gov.cn/zmhd/fkhy_1/index_13317.html?id=6ba4767a-a3f4-4228-8cc4-615153ee2d4a",
+   "question": "乌兰察布市凉城县群众咨询如何申请临时救助？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nmg-xinxiang",
+   "id": "978bb8fa-9019-4bff-9a6b-45113ba5bf5a",
+   "url": "https://www.nmg.gov.cn/zmhd/fkhy_1/index_13317.html?id=978bb8fa-9019-4bff-9a6b-45113ba5bf5a",
+   "question": "巴彦淖尔市乌拉特前旗群众咨询建筑工地允许施工时段是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nmg-xinxiang",
+   "id": "dee4a49d-d726-425a-9d9f-420bdeb27c98",
+   "url": "https://www.nmg.gov.cn/zmhd/fkhy_1/index_13317.html?id=dee4a49d-d726-425a-9d9f-420bdeb27c98",
+   "question": "呼伦贝尔市陈巴尔虎旗群众咨询租房提取公积金需要什么材料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nmg-xinxiang",
+   "id": "8e4bb497-e10a-4d49-99f3-797c5f142552",
+   "url": "https://www.nmg.gov.cn/zmhd/fkhy_1/index_13317.html?id=8e4bb497-e10a-4d49-99f3-797c5f142552",
+   "question": "赤峰市敖汉旗群众咨询2026年中考成绩查询方式有哪些？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nmg-xinxiang",
+   "id": "b26a4e8f-42cd-4ff0-8497-e8133292a6ff",
+   "url": "https://www.nmg.gov.cn/zmhd/fkhy_1/index_13317.html?id=b26a4e8f-42cd-4ff0-8497-e8133292a6ff",
+   "question": "住建部门发放的特种作业操作证到期怎么延期？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nmg-xinxiang",
+   "id": "742f860a-4555-42be-92a0-35065ccd7691",
+   "url": "https://www.nmg.gov.cn/zmhd/fkhy_1/index_13317.html?id=742f860a-4555-42be-92a0-35065ccd7691",
+   "question": "兴安盟扎赉特旗群众咨询育儿补贴发放金额是多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nmg-xinxiang",
+   "id": "806cc160-d736-4988-9acf-ed610b6173f4",
+   "url": "https://www.nmg.gov.cn/zmhd/fkhy_1/index_13317.html?id=806cc160-d736-4988-9acf-ed610b6173f4",
+   "question": "呼伦贝尔市鄂伦春自治旗群众咨询办理婚姻登记后如何查询电子结婚证？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nmg-xinxiang",
+   "id": "660daca1-43d1-4511-bb76-f025b3fdc246",
+   "url": "https://www.nmg.gov.cn/zmhd/fkhy_1/index_13317.html?id=660daca1-43d1-4511-bb76-f025b3fdc246",
+   "question": "鄂尔多斯市达拉特旗群众咨询缴纳职工医疗保险如何办理门诊慢特病备案？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nmg-xinxiang",
+   "id": "59881fd8-1cdb-45c8-94c0-bba9160379ae",
+   "url": "https://www.nmg.gov.cn/zmhd/fkhy_1/index_13317.html?id=59881fd8-1cdb-45c8-94c0-bba9160379ae",
+   "question": "巴彦淖尔市乌拉特中旗群众咨询缴纳城乡居民医疗保险在内蒙古自治区范围内的医院住院，医疗保险报销的起付线是多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nmg-xinxiang",
+   "id": "de1fe247-9d85-49c3-a697-4827b49001e9",
+   "url": "https://www.nmg.gov.cn/zmhd/fkhy_1/index_13317.html?id=de1fe247-9d85-49c3-a697-4827b49001e9",
+   "question": "通辽市科尔沁区群众咨询80岁高龄津贴发放时间是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nmg-xinxiang",
+   "id": "b2f8fbc2-078c-40d1-ae0a-4d159ffe1050",
+   "url": "https://www.nmg.gov.cn/zmhd/fkhy_1/index_13317.html?id=b2f8fbc2-078c-40d1-ae0a-4d159ffe1050",
+   "question": "赤峰市松山区群众咨询缴纳城乡居民养老保险如何线上查询参保信息？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nmg-xinxiang",
+   "id": "f2e6f7e3-34b4-42f1-a0fb-6a4b8e855049",
+   "url": "https://www.nmg.gov.cn/zmhd/fkhy_1/index_13317.html?id=f2e6f7e3-34b4-42f1-a0fb-6a4b8e855049",
+   "question": "乌兰察布市卓资县群众咨询缴纳乌兰察布市卓资县城乡居民医疗保险，能否通过电话方式办理停保？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nmg-xinxiang",
+   "id": "b9732a97-4c1d-451c-9da8-868cf784815d",
+   "url": "https://www.nmg.gov.cn/zmhd/fkhy_1/index_13317.html?id=b9732a97-4c1d-451c-9da8-868cf784815d",
+   "question": "乌海市海南区群众咨询企业职工如何申请电子退休证？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nmg-xinxiang",
+   "id": "952d69ea-88fc-4627-9cb1-7f481888fcbd",
+   "url": "https://www.nmg.gov.cn/zmhd/fkhy_1/index_13317.html?id=952d69ea-88fc-4627-9cb1-7f481888fcbd",
+   "question": "建筑施工企业专职安全生产管理人员继续教育工作由什么部门负责？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

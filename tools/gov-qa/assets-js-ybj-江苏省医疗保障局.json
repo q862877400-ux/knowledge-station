@@ -1,0 +1,2021 @@
+{
+ "A_考卷": [
+  {
+   "source": "js-ybj",
+   "id": "430146",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=430146&sysid=200",
+   "question": "产假期间社会保险单位缴费部分由单位承担还是由个人承担\n女职工产假期间公司足额缴纳社会保险，个人缴费部分由职工个人承担，单位缴费部分应该由单位承担还是个人承担？",
+   "cited_hits": [
+    {
+     "name": "社会保险法",
+     "lib_no": "社会保险法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "妇女权益保障法",
+     "lib_no": "妇女权益保障法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "女职工劳动保护特别规定",
+     "lib_no": "女职工劳动保护特别规定(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "418380",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=418380&sysid=200",
+   "question": "希望能允许外籍配偶购买居民医保\n现在每年都有不少外籍媳妇嫁到中国，以外国人居留许可留在中国，并和中国公民育有子女。但是外国人居留许可不允许外籍媳妇工作，外国人工作许可需要另外申请，门槛较高，养家糊口的重任就落到了中国配偶身上；而且外国人居留",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国社会保险法",
+     "lib_no": "保险法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "外国人永久居留证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "359594",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=359594&sysid=200",
+   "question": "建议将职工生育险与灵活就业保险中的医疗险合并缴纳\n局长，您好，我目前是面临着这样的状况，在上一家公司离职之后，换工作的阶段购买了灵活就业社保，但是在换工作的阶段发现自己怀孕了，这个怀孕阶段找工作是非常困难的，几乎没有一家企业能够接受怀孕的女",
+   "cited_hits": [
+    {
+     "name": "社会保险法",
+     "lib_no": "社会保险法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于解决参加职工基本医疗保险灵活就业人员生育的医疗费用的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "354172",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=354172&sysid=200",
+   "question": "企业单位补缴企业职工基本医疗保险要不要缴纳滞纳金\n请问现在江苏省内企业单位按规定补缴应缴未缴的企业职工医疗保险，是属于几年前企业单位没有依法缴纳的，然后依照确认劳动关系的判决进行补缴，企业单位要不要缴纳滞纳金，另外就是医疗保障局稽查科有没有",
+   "cited_hits": [
+    {
+     "name": "社会保险法",
+     "lib_no": "社会保险法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "国税地税征管体制改革方案"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-ybj",
+   "id": "351621",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=351621&sysid=200",
+   "question": "关于退休时医保缴费年限的问题\n本人23年12月社保缴满15年可以退休，到时医保缴费同样15年如何办退休？新政对我的影响？",
+   "cited_hits": [
+    {
+     "name": "社会保险法",
+     "lib_no": "社会保险法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "社会保险法",
+     "lib_no": "社会保险法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "江苏省医疗保障条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-ybj",
+   "id": "338367",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=338367&sysid=200",
+   "question": "灵活就业人员能不能申请生育津贴？\n国家卫健委等17部门联合发布《关于进一步完善和落实积极生育支持措施的指导意见》，根据文件精神，有条件的地方可探索参加职工基本医疗保险的灵活就业人员同步参加生育保险，目前浙江、广东等地已经开展试点探索，例如杭",
+   "cited_hits": [
+    {
+     "name": "社会保险法",
+     "lib_no": "社会保险法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于解决参加职工基本医疗保险灵活就业人员生育的医疗费用的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "306200",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=306200&sysid=200",
+   "question": "关于葡萄胎手术享不享受生育津贴的问题\n本人在怀孕9周多（5月10日）做B超显示未见胎心胎芽，淮安市妇幼保健院早孕门诊医生诊断：胚胎停育，转计划生育科。5月13日在淮安市妇幼保健院计划生育科做清宫手术，病理提示葡萄胎。6月14日去淮安市医保中",
+   "cited_hits": [
+    {
+     "name": "江苏省女职工劳动保护特别规定",
+     "lib_no": "女职工劳动保护特别规定(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "江苏省职工生育保险规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "243347",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=243347&sysid=200",
+   "question": "退休医保是按累计算25年，还是连续25年\n退休医保是按累计算25年，还是连续25年",
+   "cited_hits": [
+    {
+     "name": "关于贯彻落实﹤社会保险法﹥医疗生育保险有关问题的暂行处理意见",
+     "lib_no": "保险法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "js-ybj",
+   "id": "482392",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=482392&sysid=200",
+   "question": "关于两个收费问题\n江苏省医疗保障局，您好：      我们是太仓市第一人民医院，关于今年3月份下发的《关于开展2026年全省医保定点医药机构违法违规使用医保基金自查自纠工作的通知》，在通知附件中有一条“直接开展多排螺旋CT增强扫描、磁共振增",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于两个收费问题"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "482136",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=482136&sysid=200",
+   "question": "原开展的“持续有创性血压监测”与“心电监测”是否可以同时收取\n“持续有创性血压监测”的项目内涵为：“含心电、压力连续示波”中的“心电”是否指“心电监测”？",
+   "cited_hits": [],
+   "cited_missing": [
+    "全国医疗服务价格项目规范（2001年版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "472148",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=472148&sysid=200",
+   "question": "三金牌桂林西瓜霜3g门店不给刷医保\n尊敬的领导您好：  本人于2026年7月21日在江苏省徐州市云龙区翠屏山街道的恩华大药房（一百一十药店）购买了三金牌桂林西瓜霜3g规格，明确询问店员是否可以刷医保，店员回复不能，然后本人自费购买了该产品，",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于简化药品挂网流程及医保目录对接的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "456668",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=456668&sysid=200",
+   "question": "男职工15天生育津贴发放要求\n地址南通市海门区。前期已把相关申报资料交到了医保窗口，目前男职工15天的生育津贴(一千多元)也已打到单位账户。单位说因为生育期间工资是全额发放的，发放的工资高于该津贴标准，并且配偶有工作，所以这笔钱是医保账户支",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省职工生育保险规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "441104",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=441104&sysid=200",
+   "question": "在新增药店申请时，执业药师一定要在本药店参保吗？\n在新增药店申请时，因执业药师也是另一个企业的法人，已在企业参保，是否一定要以本药店的单位参保，如果坚持在其他企业参保可以申请吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "零售药店医疗保障定点管理暂行办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-ybj",
+   "id": "439679",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=439679&sysid=200",
+   "question": "手术收费问题\n我想咨询一下，胆囊结石病人，要求保留胆囊，需要进行腹腔镜下保胆取石手术，在ICD-9手术操作名称中有腹腔镜下胆囊切开取石术，DIP国家核心病组中也有胆囊结石伴有其他胆囊炎-腹腔镜下胆囊切开取石术病种入组。但是医保三目录中却没有",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于深化医疗服务价格改革的实施意见",
+    "江苏省医疗服务价格项目目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "437279",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=437279&sysid=200",
+   "question": "关于类别为康复医疗中心的医疗机构是否可以申请医保定点的请示\n尊敬的江苏省医疗保障局领导：您好！康复医疗中心是国家为鼓励社会力量举办康复医疗机构、护理机构，打通专业康复医疗服务、临床护理服务向社区和居家康复、护理延伸的“最后一公里”而设立的医",
+   "cited_hits": [],
+   "cited_missing": [
+    "医疗保障医疗机构定点管理暂行办法",
+    "江苏省医疗机构医疗保障定点管理实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "435073",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=435073&sysid=200",
+   "question": "中药饮片支付\n您好！依据《江苏省医疗保障局关于规范中药饮片医保支付管理的通知》第三条规定，“对于改变传统饮片物质特性和服用方式的‘超微粉’‘破壁饮片’‘纳米饮片’等精制饮片，医保统筹基金不予支付”。现特向您咨询以下两个问题：1.针对这类精制",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家医疗保障局办公室关于印发医保药品中药饮片和医疗机构制剂统一编码规则和方法的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "428714",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=428714&sysid=200",
+   "question": "什么时间全省医保卡互动\n尊敬的领导你们好      现在反映一下江苏省医保卡什么时间互动，和社保一样，这样百姓方便就医。多少年了为什么不重视一下，还有每年农村医保为什么江苏省不统一。",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家医保局 财政部关于进一步加强异地就医直接结算管理服务的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "421637",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=421637&sysid=200",
+   "question": "关于利妥昔单抗治疗系统性红斑狼疮肾炎费用报销事宜\n您好！   首先非常感谢您抽空回复!   我父亲于3年前肾穿确诊系统性红斑狼疮肾炎，经过2年多3甲医院的系统治疗，静脉注射10余次环磷酰胺，口服药品有激素＋玛替麦考酚。疾病一直没有好转，24",
+   "cited_hits": [],
+   "cited_missing": [
+    "基本医疗保险用药管理暂行办法",
+    "药品目录"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-ybj",
+   "id": "413688",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=413688&sysid=200",
+   "question": "关于iga肾病患者治疗用药问题\n本人家人患有iga肾病，因这疾病会导致尿毒症的发生，而且现在没有突效药。现国家医保引进了《耐赋康》这款新药，可大大减缓和降低蛋白尿的发展对疾病能起到有效控制，减少尿毒症的发生几率，对广大江苏病患者无疑是一个福",
+   "cited_hits": [],
+   "cited_missing": [
+    "基本医疗保险用药管理暂行办法",
+    "药品目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "411574",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=411574&sysid=200",
+   "question": "医保个人账户购药范围\n我想咨询医保个人账户购药范围，目前为止有没有什么文件对于个人账户的购药范围做出规定和限制，比如说大人没有开通家庭共济不能买小儿标识的药，类似于这样的限制。如果有的话，烦请告知文件的具体规定。不胜感激。",
+   "cited_hits": [],
+   "cited_missing": [
+    "省政府办公厅关于建立健全职工基本医疗保险门诊共济保障机制的实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "409473",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=409473&sysid=200",
+   "question": "请问医保特殊药品使用的条件在哪里查询\n比如说肺癌、肾癌等的靶向用药，需要满足哪些检查指标条件等，在哪里可以查询到",
+   "cited_hits": [],
+   "cited_missing": [
+    "基本医疗保险用药管理暂行办法",
+    "药品目录"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-ybj",
+   "id": "407839",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=407839&sysid=200",
+   "question": "“司库奇尤单抗”继续治疗中重度银屑病的问题\n司库奇尤单抗是治疗中重度银屑病的单独支付的双通道药，效果很好。经过一年的治疗后，中重度变成轻度。想请问第二年申请特药的时候，还能申请吗？如果不用这个药的话，很快就变成中重度，临床指南说“坚持规范化",
+   "cited_hits": [],
+   "cited_missing": [
+    "基本医疗保险用药管理暂行办法",
+    "药品目录"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-ybj",
+   "id": "405369",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=405369&sysid=200",
+   "question": "关于爱人在南京缴纳社保生育津贴申请事项\n领导您好，我爱人在南京江宁区上班，我家宝宝是8月1日出生，她得社保一直都在南京缴纳的，之前电话咨询过医保客服，说是产后六个月以后带材料过去申请生育津贴，在网上百度又有很多说在江苏或南京生育津贴和报销产",
+   "cited_hits": [],
+   "cited_missing": [
+    "南京市医疗保险（生育）待遇申报表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "402501",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=402501&sysid=200",
+   "question": "南通职工不好用共济账户代缴南通市大学生2025年居民医保问题\n我参加的是南通市职工医疗保险，我小孩在南通大学上大二，根据通医保发2024年36号《关于做好2025年全市学生参加城乡居民基本医疗保险工作的通知》精神，南通市医保局规定南通市内的",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省医保条例",
+    "江苏省医疗保障局江苏省财政厅关于职工基本医疗保险个人账户使用及家庭共济有关事项的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-ybj",
+   "id": "398305",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=398305&sysid=200",
+   "question": "家人的常用药能否纳入医保\n尊敬的局长：您好！因家人生病，需要长期服用贞芪扶正颗粒这个药品来维持机体免疫功能，也推荐了很多病友服用，通过比对吉林敖东药业生产的贞芪扶正颗粒服用效果较好，生产企业有个无糖60袋一个月用药量的大包装，为了不用总跑药",
+   "cited_hits": [],
+   "cited_missing": [
+    "基本医疗保险药品目录",
+    "基本医疗保险药品目录",
+    "国家药品目录",
+    "药品目录数据库",
+    "关于深入推进药品阳光采购的实施意见",
+    "药品目录数据库",
+    "药品目录数据库",
+    "药品目录数据库"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "397357",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=397357&sysid=200",
+   "question": "女方未缴纳社保，男方正常缴纳，是否可以代领生育补贴\n女方为南京本地户口，在宁两年未缴纳社保。男方一直在职且缴纳社保，请问女方怀孕后能否通过男方代领生育补贴，如果可以能领取全部吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省职工生育保险规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "394300",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=394300&sysid=200",
+   "question": "关于城乡居民医保转职工医保问题咨询\n我母亲属于灵活就业人员，于去年底在邳州办理退休手续，之前和现在一直交的城乡居民医保，也就是新农合，目前定居在无锡，我想通过一次性补缴或者按月补缴的方式把目前转为职工医保。但是邳州医保工作人员告知23年6月",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于推动灵活就业人员参加职工基本医疗保险的通知",
+    "江苏省医疗保障条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "386395",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=386395&sysid=200",
+   "question": "关于辅助生殖纳入医保问题\n近期全国各地多个省市已经将辅助生殖纳入医保，当前国家大力鼓励生育，请问江苏什么时候能将辅助生殖纳入医保，具体要多久，请领导回复。",
+   "cited_hits": [],
+   "cited_missing": [
+    "辅助生殖类医疗服务价格项目立项指南（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "379296",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=379296&sysid=200",
+   "question": "医保家庭共济\n医保家庭共济网上申请时，显示不了子女的“参保地”，子女在北京上大二，参加了学校医保，未办理江苏居民医保。这种情况如何办理家庭共济申请？",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省医疗保障局 江苏省财政厅关于职工基本医疗保险个人账户使用及家庭共济有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "364338",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=364338&sysid=200",
+   "question": "视同缴费年限如何理解\n江苏省医疗保障条例第十七条 职工依法办理退休手续、参加职工基本医疗保险的灵活就业人员达到国家规定的退休年龄时，参加职工基本医疗保险累计缴费年限（包含按照国家规定认可的视同缴费年限和实际缴费年限）男性满二十五年、女性满二",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏医疗保障局 江苏省财政厅关于印发 <关于贯彻落实国家医疗保障待遇清单制度的实施方案>"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "333207",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=333207&sysid=200",
+   "question": "关于少儿医疗保险的咨询\n您好！我是江苏扬州地区的，村里每年都参与那个农村合作医疗，但是小孩出生后去医保办的新生儿医疗。请问：1.农村合作医疗、新生儿医疗属于什么类型的医疗？2.这2个医疗保险的具体内容是什么？3.这2个保险的使用细则，报销政",
+   "cited_hits": [],
+   "cited_missing": [
+    "国务院关于整合城乡居民基本医疗保险制度的意见",
+    "关于印发〈扬州市城乡居民基本医疗保险实施细则〉的通知",
+    "关于完善和统一全市城乡居民医保分级诊疗有关保障待遇的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "330869",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=330869&sysid=200",
+   "question": "常州市长期护理保险待遇被无故取消\n家属陈秀鸿於2022年3月加入常州市长期护理保险。陈秀鸿原有前列腺癌症，至今已抗癌三年。保险公司在3月份的首次评估中，把陈秀鸿评估为中度失能。陈秀鸿在2022年9月底前一直享有中度失能的待遇。   按照《常",
+   "cited_hits": [],
+   "cited_missing": [
+    "常州市长期护理保险试点失能评估管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "305270",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=305270&sysid=200",
+   "question": "关于疫情原因断缴医疗保险等待期问题\n局长你好。我是泰州兴化一名灵活就业人员，由于疫情影响，我们家庭没有了收入来源，今年就断缴了医疗保险5个月，谁知道老天捉弄人，我老婆6月份被查出颈椎压迫神经，医院要求动手术。我并到兴化医疗保险中心咨询医保报",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发泰州市职工基本医疗保险和生育保险市级统筹实施办法的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "301815",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=301815&sysid=200",
+   "question": "医院分类含义\n在“江苏省基本医疗保险和工伤保险诊疗服务项目、医疗服务设施范围和支付标准”中，将医院分为一、二、三类，其代表什么样的含义呢，与平常的一、二、三类分级有何不同？感谢解答！",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省基本医疗保险和工伤保险诊疗服务项目、医疗服务设施范围和支付标准",
+    "关于印发〈江苏省医疗服务价格项目〉的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "301372",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=301372&sysid=200",
+   "question": "医保断缴政策咨询\n我是一名扬州75后个体经营户，上有老下有小，三年疫情折磨了像我一样的广大灵活就业人员，最近扬州仪征疫情又再次居家观察，没有收入来源，还要承担经营成本，压的喘不过气了。自从今年1月缴纳完社保后，因为资金有限，要承担老人看病，",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于推动灵活就业人员参加职工基本医疗保险的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "296666",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=296666&sysid=200",
+   "question": "医保可以不可在网上办法转市\n我去年在苏州工作现在工作在南京，原先在苏州办理的医保卡还有钱，我怎么才能这钱合并在南京医保卡上，网上可以办理吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "参保凭证",
+    "参保凭证",
+    "参保凭证",
+    "联系函",
+    "联系函",
+    "信息表",
+    "信息表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "284492",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=284492&sysid=200",
+   "question": "关于收取床位费的问题\n在2021年医疗服务专项检查时发现，某县级公立医院原核定三人间的病房加1张临时病床，其向三人间原床位收取核定的40元/床日，向加床收取核定的12元/床日。 根据2016年原江苏省物价局、省卫生计生委、省人力资源社会保障",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省公立医疗机构病房床位价格管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "280858",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=280858&sysid=200",
+   "question": "咨询医保卡里的余额怎样可以给父母、配偶和子女共用？\n你好，近期看到网上相关信息，江苏可以实现个人医保卡里的余额可以给父母、配偶和子女使用，这是便民、惠民的重大举措，请问如何操作？如果可以的话，我医保卡里的余额可以给我的岳父、岳母用吗  因为",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于建立健全职工医保基本医疗保险门诊共济保障机制的实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "273809",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=273809&sysid=200",
+   "question": "扬中市人民医院违规用药\n我妈妈胃癌手术，在镇江扬中市的扬中人民医院进行了2次化疗，化疗住院期间医院让我们在医院的门诊药房自行自费购买了2种进口药分别是奥沙利铂和卡培他滨，由于我妈妈医保在南京，我现在拿这2种药回南京医保中心报销，无法报销。之",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步规范异地就医参保人员相关待遇标准的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-ybj",
+   "id": "270928",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=270928&sysid=200",
+   "question": "咨询\n江苏省医保局：通过网络查阅其他医院康复科对减重支持系统的介绍以及专业论文资料的查阅，我们得出了关于减重支持系统训练(340200021乙类 )的概念及印象，知道了减重支持系统的基本设备构成，见（图1、2、3、4、）。下肢由于力量不足不",
+   "cited_hits": [],
+   "cited_missing": [
+    "新增医疗服务价格项目申报评审服务指南"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "263040",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=263040&sysid=200",
+   "question": "三胎医疗费报销政策\n我是八月十三号在宿迁市军人疗养院生下的三孩，当时准生证还不能办理然后自费结的账。然后九月一号卫计部门通知我可以办理三胎准生证了。请问现在我可以持准生证和收据再到医院报销医疗费吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "转发国家医疗保障局办公室关于做好支持三孩政策生育保险工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "261798",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=261798&sysid=200",
+   "question": "准许充钱的医保？不能报销的医保?\n老太84岁是淮安市洪泽县农村人（现在讲划分到淮安什么工业园区）今年7月27跌一跤要在洪泽区县医院做手术，这期间才知道医保没交（年年都交，可以查的，就今年由于在外地打工，队长上门收，兄弟俩搞岔了）咨询村里讲交",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发基本医疗保险和生育保险市级统筹实施办法的通知",
+    "关于加强和改进基本医疗保险参保工作的指导意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "256397",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=256397&sysid=200",
+   "question": "合肥市庐江县人民医院是否可以使用苏州市医保报销\n你好，请问苏州市相城区的医保怎么报销在合肥市庐江县人民医院生产的费用？是直接在医院结算还是返回苏州市结算？具体需要哪些流程和资料？",
+   "cited_hits": [],
+   "cited_missing": [
+    "苏州市职工生育保险管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "253537",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=253537&sysid=200",
+   "question": "关于生育津贴发放\n根据《江苏省人口和计划生育条例2016》自2016年1月1日起，符合本条例规定生育子女的夫妻，女方在享受国家规定产假的基础上，延长产假三十天，男方享受护理假十五天。那么意味着如果不符合，女方仍可以享受国家规定产假98天？根",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省职工生育保险规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-ybj",
+   "id": "252926",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=252926&sysid=200",
+   "question": "新生儿首次办医保先看病后跨市报销比例低到对医保保障失去信心\n您好！我妻子是徐州人，在苏州居住生活，2020年1月在苏州生育二胎，2020年在徐州沛县张寨镇登记户口并办理缴纳新生儿医保。2021年5月小孩在苏州吴中区胥口镇卫生院生病（肺炎）住",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于统一徐州市城乡居民医疗保险筹资和待遇标准的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "252165",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=252165&sysid=200",
+   "question": "关于克罗恩病进医保，但江苏省还未有新的政策，盼与浙江省同步\n我是一名大四刚毕业的学生，今年四月份的时候我父亲被确诊为克罗恩病，这类疾病在国内非常少见，开始是被误诊为癌症，虽然克罗恩不会很快致死，但是其医疗费用巨大，因为家庭经济原因，估计很快",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于建立完善国家医保谈判药品“双通道”管理机制的实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "251072",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=251072&sysid=200",
+   "question": "异地就医备案后，之前的异地门诊发票不能报销了么\n尊敬的领导您好：      我想咨询：参保地徐州，就医地上海三甲医院。1、6月1日到异地就医发生门诊费一万多块钱，之后在6月3日办理了异地就医并审核通过，请问6月2日之前发生的各种异地门诊费用",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于统一全市城镇职工医疗保险待遇标准的通知 ",
+    "基本医疗保险药品目录",
+    "基本医疗保险服务设施与标准",
+    "基本医疗保险诊疗项目范围和目录"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-ybj",
+   "id": "248690",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=248690&sysid=200",
+   "question": "希望淮安开通阿达木单抗门诊医保专项报销\n尊敬的领导，您好，我是一名银屑病患者，得了这个病需要长期吃药打针，来控制病情发展，经济负担很重，我在淮安市第一人民医院，用阿达木单抗这个药物，在门诊不能走专项报销，而周边城市徐州连云港不仅可以门诊专项",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省医疗保障局江苏省卫生健康委关于进一步规范基本医疗保险特药管理的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "248110",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=248110&sysid=200",
+   "question": "关于司库奇尤单抗进入医保目录后的各地级市报销问题\n我是一名33岁男子，患有银屑病（牛皮癣）25年，一直深受其苦，严重时全身长满皮疹，无法行动，今年三月份治疗银屑病的有效药剂司库奇尤单抗进入国家医保目录，但是到6月份江苏大部分地级市都不能实行",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于建立完善国家医保谈判药品“双通道”管理机制的指导意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "241402",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=241402&sysid=200",
+   "question": "希望省医保局督促无锡市医保局提高无锡市血友病门特限额的建议\n血友病是一种隐性遗传性出血疾病，患者从一出生起就因为体内缺少凝血因子而导致凝血功能弱于常人，患者需要终身定期注射凝血因子进行维持治疗，保证体内的凝血因子维持在正常水平，否则会导致全",
+   "cited_hits": [],
+   "cited_missing": [
+    "无锡市职工医保门诊特殊病种用药目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "240476",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=240476&sysid=200",
+   "question": "医保结算及药品使用范围问题\n尊敬的领导：       我是安徽省马鞍山市和县人，目前居住于南京，爷爷不幸于2020年4月份患上骨髓增生异常综合征（MDS）,因当地医院无法治疗，于是爷爷在南京市就医。医生给的治疗方案是阿扎胞苷去甲基化治疗（抗",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家基本医疗保险、工伤保险和生育保险药品目录（ 2020 年）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "239903",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=239903&sysid=200",
+   "question": "江苏省新型农村合作医疗条例\n2011年通过的《江苏省新型农村合作医疗条例》至今已有十年，确立了新农合的法治制度。但是，2016年开始国家、省开始整合城镇居民基本医疗保险和新型农村合作医疗两项制度，建立统一的城乡居民基本医疗保险制度。截止目前",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省新型农村合作医疗条例",
+    "江苏省新型农村合作医疗条例",
+    "江苏省新型农村合作医疗条例",
+    "江苏省新型农村合作医疗条例",
+    "江苏省新型农村合作医疗条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "239689",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=239689&sysid=200",
+   "question": "生育报销\n近日有报道上海市非婚妈妈能够申领到生育保险，其重要政策背景，来自于上海市民政局做出的一份《关于市卫生健康委“申请享受生育保险待遇计划生育情况审核”事项退出社区事务受理服务中心受理清单的通知》，即计生审核表已经取消了。白岩松的新闻周",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省职工生育保险规定",
+    "身份证",
+    "社会保障卡",
+    "结婚证",
+    "江苏省人口与计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "237228",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=237228&sysid=200",
+   "question": "关于血友病儿童申请书\n申请书尊敬的各位领导 :我们是靖江市血友病患者的家属，首先感谢各位领导一直以来对血友病人群体的关怀和照顾。自从血友病纳入我市医保“门诊特殊病”后，患者的医疗费用大大降低了，在这里我们深深的感谢各位领导们。之前我们靖江市",
+   "cited_hits": [],
+   "cited_missing": [
+    "泰州市城乡居民基本医疗保险市级统筹实施办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-ybj",
+   "id": "235081",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=235081&sysid=200",
+   "question": "医保转移后个人金额\n我2020年10月份从无锡/上海有转移两笔医保，私人账户上都有钱，但是转移过来这么久了，我苏州账户的金额一直没有增加进来？请确认是什么问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发苏州市流动就业人员医疗保险关系转移接续若干问题处理意见的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "235029",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=235029&sysid=200",
+   "question": "2020国家医保\n我们省什么时候开始执行2020国家医保目录，国家医保局说从3.1正式开始执行，还没看到我们省的消息。",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省基本医疗保险、工伤保险和生育保险药品目录数据库"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "234368",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=234368&sysid=200",
+   "question": "盐城市的异地就医报销比例为什么比省内其它地市低？\n尊敬的医保局领导，请问我省盐城市的异地就医报销比例为什么比省内其它地市低？这个标准符不符合国家和省医保局相关文件精神要求？这个政策的出发点符不符合人民群众的根本利益？这个政策近期会不会有所改",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于调整统一基本医疗保险有关政策待遇的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "231734",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=231734&sysid=200",
+   "question": "关于药品“贝利尤单抗”是否将纳入医保的问题\n尊敬的领导您好，我之前听说用于治疗“系统性红斑狼疮”的新药“贝利尤单抗”即将纳入医保报销范围，所以我想烦请咨询一下，咱们江苏或者说江苏徐州这边有没有将“贝利尤单抗”纳入医保报销的具体时间。",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家基本医疗保险、工伤保险和生育保险药品目录（2020年"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "231472",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=231472&sysid=200",
+   "question": "新增医疗服务价格申报（2012版本外）\n想了解咱江苏省关于  新增医疗服务价格申报相关文件要求、工作流程及每年申报时间",
+   "cited_hits": [],
+   "cited_missing": [
+    "新增医疗服务价格项目申报评审服务指南"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "js-ybj",
+   "id": "480726",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=480726&sysid=200",
+   "question": "手术项目计价规则\n前一阵收到的《江苏立项指南解读》文件中：第10条：手术项目计价规则是否有调整?目前我省沿用既往相关手术项目计价规则，同一编码手术项目，计价单位为单侧的，双侧器官同时实行相同手术，另一侧器官手术按50%计费。不同编码手术项目",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "480101",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=480101&sysid=200",
+   "question": "关于特医食品、药品议价售价，肢具收费问题\n民营医院1、特医食品、及药品已挂网，除集采不得议价外，其他药品医院议价后是否可以只要最终售价不超过阳采价格就可以还是，就要按照议价价格进行售卖。2、未挂网的特医食品该如何定价？3、医用高分子夹板，计",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "474551",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=474551&sysid=200",
+   "question": "咨询关于如何增补申报纳入江苏省特殊医用材料目录\n尊敬的江苏省医疗保障局老师您好：我司是上海纽脉医疗科技股份有限公司（耗材生产厂家），因后期新产品为国内首款产品，此类产品未在江苏省特殊医用材料目录查询到，此类情况，我司应该如何增补申报纳入江苏",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "473852",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=473852&sysid=200",
+   "question": "手术收费咨询\n1、根据2025.7.22国家医保局关于公开发布第二批智能监管“两库”规则和知识点的公告:“经同一切口进行的两种及以上不同的手术，第二及以后的手术应按规定折价计收”，这个手术收费规则江苏执行吗?如果执行，第二个手术折价多少？2",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "471069",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=471069&sysid=200",
+   "question": "慢性病购药咨询\n尊敬的局长，向您咨询一下，治疗阿尔兹海默症的安理申和易倍申可不可以在乡镇的一级医院配到？为什么咨询了几个乡镇医院都反映他们没有权限配此类药物？已办理慢性医保的退休职工配此类药物的每年额度是多少？报销比例是多少？不胜感激！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "469451",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=469451&sysid=200",
+   "question": "关于将阿尔茨海默病纳入江苏省门诊特殊病统一目录的政策建议\n一、阿尔茨海默病是老年人群高发、需终身门诊维持治疗、家庭负担极重的神经退行性疾病。江苏省作为全国深度老龄化省份，现有医保政策对该病保障存在明显短板：1. 全省政策极度不统一、不公平仅",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "467539",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=467539&sysid=200",
+   "question": "关于静脉输液和预充收费的咨询\n2025年7月护理类医疗服务价格项目整合，删除了“动静脉置管护理”，整合新增了“置管护理（深静脉/动脉）”，新增项目的价格涵盖了导管状态评估、管理疏通、封管等资源消耗，也就是说“置管护理（深静脉/动脉）”这个项",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "466088",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=466088&sysid=200",
+   "question": "为什么同样集采药品江苏价格比别的省份要高？\n利妥昔单抗属于治疗B系统淋巴瘤核心药物，但是我们同样属于B细胞淋巴里面的套细胞淋巴瘤不能医保报销是为什么？还有利妥昔单抗价格别的省份现在才几百一支，但是我们江苏同样是集采为什么价格还是在上千元以上",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "465616",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=465616&sysid=200",
+   "question": "跨省异地就医\n我在扬州市退休，现经常在上海女儿处和扬州家里两地居住。请问我如何办理异地就医。如果在上海异地就医，是否影响我在扬州的医保购药看病？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "465459",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=465459&sysid=200",
+   "question": "中药加工咨询\n请问，医疗机构开的中药是否可以代为打粉，并咨询收费标准，是否可以使用医保基金谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "465299",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=465299&sysid=200",
+   "question": "关于医用耗材医保支付问题\n您好！我是一家湖南耗材企业，其产品“一次性经皮穿刺器”注册证号:湘械注准20252140107已经在江苏省挂网成功，想咨询我们这款产品是否纳入耗材目录，医保支付政策是怎样的？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "463697",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=463697&sysid=200",
+   "question": "省内异地就医可以在两个城市享受医保待遇吗？\n目前在泰州公司就职且缴纳职工医保，家住扬州，备案了在扬州的省内异地就医，请问这种情况还能在泰州医院享受医保待遇。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "462264",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=462264&sysid=200",
+   "question": "关于新立项手术收费相关问题\n新立项中“说明”中指出：双侧器官同时实行相同手术，另一侧器官手术按50%计费。是独指计价部位为“单侧”的手术，如果做双侧，收费是*1.5；但是比如：013315000550000截骨矫形费（肢体），计价部位是“每",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "459502",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=459502&sysid=200",
+   "question": "关于复合麻醉的收费问题\n全身麻醉（插管或者非插管）同时复合神经阻滞麻醉，或者复合椎管内麻醉，那么是否可以收费。第二个麻醉收取基础费用的0.7这个政策是否适用于这种情况？因为神经阻滞麻醉和椎管内麻醉现阶段都归结到局部麻醉的大类中。而全麻后切口",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "458790",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=458790&sysid=200",
+   "question": "医保钱包\n目前江苏省13市仅3市开通医保钱包，请问其它地市有开通医保钱包计划嘛",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "455989",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=455989&sysid=200",
+   "question": "下腔静脉、肠系膜上动脉均为人体单根血管，收取1，还是减半收\n彩色多普勒超声检查（血管）部位中：下腔静脉、肠系膜上动脉、门静脉、腹腔动脉、是按照计价说明中的写出来的部位收1，人体只有1条，还是按照实际情况中单侧开展的，减半收费",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "455100",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=455100&sysid=200",
+   "question": "关于优化江苏灵活就业生育津贴缴费年限的建议\n尊敬的江苏省医疗保障局领导：您好！我是一名在江苏长期灵活就业的群众。得知灵活就业人员终于被纳入生育保险范围，我非常高兴，也感受到了政府对我们这类群体的关心。但在了解政策时，我发现“生产时必须连续缴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "454567",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=454567&sysid=200",
+   "question": "咨询退休人员重复参保的退费问题 望解答\n你好，我想咨询退休人员重复参保退费的问题。我母亲23年退休，在江苏省金湖县已交满20年职工医保费用（2015年-2023年8年职工医保＋12年补交），与江苏省金湖县阮桥村2003-2014年缴纳的新农",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "453594",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=453594&sysid=200",
+   "question": "咨询医疗机构收费问题\n省医疗保障局，您好！我们是淮安市洪泽区人民医院，我们想请教以下收费问题：开展介入类手术，收取治疗类手术费（滤网置入术、球囊置入术、球囊扩张术、栓塞术等治疗）之后，能不能收造影费用？（主要为：江苏省医疗服务价格项目目录、",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "450918",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=450918&sysid=200",
+   "question": "幼儿异地医保报销\n我是一名双胞胎妈妈，双胞胎因出生时早产在无锡住院，后因rop转院至上海。在上海出院后，因甲状腺指标异常，需要一直在上海的医院进行长期门诊的复查。经过我向医保部门的了解，对于500元的门诊报销的额度只能在无锡大市范围内进行报",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "450100",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=450100&sysid=200",
+   "question": "关于“静脉输液”项目收费相关问题的咨询\n江苏省医疗保障局：江苏省《医疗服务价格项目目录》中“静脉输液”收费项目标准为6.4元/次，内涵“一次性输液器”，不得另行收取。但是现在部分基层公立医疗机构在治疗过程中，不提供内涵规定包含的的“一次性输",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "447446",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=447446&sysid=200",
+   "question": "江苏省泰州有无二次报销\n你好：我妈妈今年9月份生病，到苏州异地就医。办理异地就医护人备案，在出院结算后，自付部分有没有二次报销政策？如果没有二次报销政策，请告知原由。谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "445803",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=445803&sysid=200",
+   "question": "生育津贴何时实现直接发放到个人\n尊敬的各位领导，      最近看到有20个省份已经实现了生育津贴直接发放至个人账户，不知道江苏省什么时候实现，      发放至单位被克扣的现象还有很多，有的孩子都上学了，还是没有要回来；有的单位只允许放9",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "444439",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=444439&sysid=200",
+   "question": "关于PET CT检查胶片收费事宜\n根据苏医保发（2025）24号文件要求，2025年10月1日起，012303030010000 正电子发射计算机断层显像/计算机断层扫描（PET/CT) 等检查项目的价格构成中，已包括数字影像处理与上传存储",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "443430",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=443430&sysid=200",
+   "question": "儿童使用父母的家庭共济是否可以走统筹\n我女儿今年12岁，户口是江阴的，今天去张家港人民医院看病，她的医保卡绑定了她爸爸的共济账户，2月份的时候去张家港人民医院看病还可以刷她爸医保卡里的个人账户余额，当时已开通异地就医，今天去就刷不了，全部自",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "440262",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=440262&sysid=200",
+   "question": "乳腺旋切刀能否收费；能否医保统筹报销\n乳腺肿块使用旋切刀手术，旋切刀能否收费？如果能收费，收费代码是什么？医保是否能统筹支付？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "438929",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=438929&sysid=200",
+   "question": "异地新生儿医保\n您好，本人为江苏省直机关公务员，户口在山西省，妻子为山西省企业职工，户口也在山西省，妻子预产期为今年10月份，在山西省生孩子，孩子出生后医疗保险可以在江苏省跟着我登记么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "435736",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=435736&sysid=200",
+   "question": "挂网问题\n1.苏医保发（2024）35号文件对于产品配送关系说明，如挂网后3个月内未选择配送关系，将予以暂停挂网。请问这个配送关系是需要把省属和各个地市级全部点选才可以，还是说选择省属及各个地市级其中一个即可。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "424560",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=424560&sysid=200",
+   "question": "医保跨省转移接续-余额未到账\n领导您好，我于3.13号已办结医保转移接续申请（无锡转到安徽合肥），但余额未到账，经咨询安徽省医保局，回复说是无锡医保局未注入资金（大概一千多元），但查看无锡的职工医保个人账户余额已经清零，想咨询下是什么原因",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "417106",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=417106&sysid=200",
+   "question": "医保耗材目录\n领导您好，我想问一下，下一批省医保耗材目录大概什么时间能公示呀？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "406861",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=406861&sysid=200",
+   "question": "医保卡跨省异地使用问题\n医保卡跨省使用出现问题，显示“未备案或备案已过期”。由于已离职，现已不再江苏省工作，无法再次备案。想咨询这种情况下，怎样操作才能继续使用本人医保卡内的资金？谢谢!",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "398944",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=398944&sysid=200",
+   "question": "男职工护理假津贴\n男职工已离职，现提出未休男职工护理假要求支付其医保返回单位的男职工护理假津贴，合规吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "392600",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=392600&sysid=200",
+   "question": "关于异地就医报销问题\n目前江苏省对于异地就医手续进行调整，更加简单化，但异地就医报销政策却存在疑问，由于地区发展的不平衡，医疗水平存在差异，为了获得更好的治疗，部分患者异会前往医疗水平更发达地区就医，但异地就医并不一定都需要住院治疗，更多的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "388895",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=388895&sysid=200",
+   "question": "阿瑞匹垣胶囊（正大天晴）\n阿瑞匹垣胶囊作为化疗止吐类药物，肿瘤患者在化疗时及化疗后需用两盒，每盒三粒，医院价格为445元每盒，两盒890元，这样的药物在江苏南京没有进入医保，作为自费药，给肿瘤患者造成了较大的经济压力。而通过网上查询，其他多",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "383080",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=383080&sysid=200",
+   "question": "医保断缴看病\n领导您好！今年1月，我在江苏省人民医院就医治疗，当时我的医保状态处于断交状态，而且对医保政策不够了解，所以选择了自费支付全部的医药费用。我听说有些地方如果补交断交期间的医保，那可以把这种情况下的医疗费用转成医保支付，所以想问一",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "380495",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=380495&sysid=200",
+   "question": "诊疗项目中关于超声波治疗联合加收的咨询\n领导您好！  有关江苏省诊疗项目标准中的诊疗项目“超声波治疗（收费编码340100017）”，在其子目录栏中有一个“联合治疗加收(收费编码340100017—a)”,请问在什么样的情况下，可以收取此项",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "375881",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=375881&sysid=200",
+   "question": "医保亲情账号相关问题\n本人是镇江高校在校生，我目前准备将自己与我父亲的职工医保绑定医保亲情账户，我父亲医保的参保地位于南通，请问绑定后我能否在镇江医院就诊时，可否用我父亲的医保进行结算",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "375531",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=375531&sysid=200",
+   "question": "关于异地就医办理流程问题\n你好，我在苏州上班，在江阴生活，社保也是交在苏州，该怎么办理江阴的异地就医，有操作指南么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "372957",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=372957&sysid=200",
+   "question": "医保药物报销问题\n您好，我家一个亲戚在江苏的医保药店购买了在医保目录内的药物，但是这个药物在江苏未挂网，请问能否走医保报销？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "372104",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=372104&sysid=200",
+   "question": "医保收费\n1.局部浸润麻醉时，不使用呼吸机的情况下，开展麻醉中监测的心电监护和指脉氧监护是否可以收取麻醉中监测费用。使用呼吸机的情况下，单纯看心电图及脉氧时，是否可以收取麻醉中监测费用？2.眼科手术开展时能否收取电子显微镜加收费用？3.检查",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "371294",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=371294&sysid=200",
+   "question": "怎样正确查询药品耗材项目的支付比例\n想知道，可以从哪个官网正确查询药品耗材项目的支付比例，到底好不好报销？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "370425",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=370425&sysid=200",
+   "question": "特殊医用材料凭何作医保对照\n自2022年1月贵局颁布《江苏省特殊材料库v2.1版本》实施2年之后，目前该版本已停用。请问有没有最近更新的材料库版本？鉴于耗材国标码是动态的，没有材料库，我们如何确定其江苏医保对照码？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "369925",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=369925&sysid=200",
+   "question": "门特怎么二次加入大病报销\n本人想了解：门特产生大额费用，负担不起，第一次报销只有十分之一，想二次门诊报销，找不到渠道，怎么办",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "351220",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=351220&sysid=200",
+   "question": "是否考虑灵活就业人员的生育险缴纳政及生育津贴的领取政策？\n局长您好：        因为我目前打算为自己缴纳灵活就业险，发现本省灵活就业险并不包含生育险和生育津贴，灵活就业女性的生育保障水平较之企业职工存在很大差距，但我国多地已开始探索灵活",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "350903",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=350903&sysid=200",
+   "question": "辅助生殖\n您好，2月5日，国家医保局在给国家医疗保障局关于政协十三届全国委员会第五次会议中提案的答复函中表示，针对关于建议将不孕不育治疗纳入免费医疗的提案，国家医保局将逐步把适宜的分娩镇痛和辅助生殖技术项目纳入医保基金支付范围，并鼓励中医医",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "347853",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=347853&sysid=200",
+   "question": "关于膝关节假体是否可以报销的问题\n尊敬的领导，我是一名骨肿瘤患者，因病需要使用膝关节假体，提供假体的厂家是北京力达康科技有限公司，我是在上海六院做的手术，费用先自己垫付，后回江苏泰州报销，在进行报销时，工作人员回复我，我使用的假体不报销，说",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "347073",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=347073&sysid=200",
+   "question": "胎盘生长因子检测，是否可以按照血管内皮生长因子检测的项目收费\n1.胎盘生长因子，是血管内皮生长因子( VEGF)家族中的一员（血管内皮生长因子是一个家族，包括VEGF-A、VEGF-B、VEGF-C、VEGF-D、VEGF-E和胎盘生长因子",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "346909",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=346909&sysid=200",
+   "question": "异地刷卡买药\n常州市参保，在国家医保服务平台上申请成功了异地备案山东济宁。去济宁市任城区广联医药药店刷卡买药，提示（结算失败：服务调用失败：调用中心服务出错：调用国家平台结算失败：，原因是：【国家平台】调用参保地返回错误：【江苏省】【常州市",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "343646",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=343646&sysid=200",
+   "question": "种牙集采\n请问江苏贯彻落实《国家医保局关于开展口腔种植医疗服务收费和耗材价格专项治理的通知》的工作计划和时间安排，关于种牙集采的安排？老百姓什么时候可以享受优惠价种牙？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "330491",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=330491&sysid=200",
+   "question": "跨省异地零售药店购药失败， 已办理异地就医备案\n你好。 我已经办理了异地就医备案（异地长期居住人员）。我的社保情况为， 参保地：江苏苏州。 就医地： 四川绵阳。我在绵阳市医保局（http://ylbzj.my.gov.cn/yljgcx/3",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "328178",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=328178&sysid=200",
+   "question": "关于颈动脉彩色多普勒超声检查收费问题\n颈部血管彩色多普勒超声（220302003），项目内涵：包括颈动脉、颈静脉、椎动脉、锁骨下动脉，单价：55元，计价单位：每根血管。请问：在同一次颈动脉超声检查中，对双侧的颈总动脉、双侧的颈内动脉、双侧的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "326550",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=326550&sysid=200",
+   "question": "从就业单位被迫之后，医保的缴纳问题\n我于2020年9月29日被南京的某公司解雇，工作一时半会难以找到，目前面临要缴纳医保的事情。我是外地人，户籍在云南省昆明市，离职之后，10月份的社保已经选择灵活就业的方式缴纳完成，同时申请了失业保险金，在",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "324260",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=324260&sysid=200",
+   "question": "门诊慢性病认定申请事项\n目前，医保异地安置备案后，可进行异地门诊及住院直接异地结算或报销。但慢性病认定及用药申请，无法在网上申请且需居民与目前工作或居住所在地当地社区卫生服务中心签约，但当地社区服务中心并不知晓如何签约，且服务中心无慢性病所",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "324247",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=324247&sysid=200",
+   "question": "恳请贵局尽快公布最新一批过评满三家暂停未过评产品挂网明细\n贵局2022.7.21公示了最新一批过评满三家暂停未过评产品挂网的明细，截止到目前已经接近三个月，仍未发布公布执行通知。根据惯例，一般是公示之后一个月左右公布，上次咨询给与我们的答复",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "322644",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=322644&sysid=200",
+   "question": "泰州医保转苏州，线上无法办理\n各位领导好！本人2020年4月-2021年5月在泰州市泰兴市某企业工作并正常参保。2021年5月至今在苏州市吴中区某企业工作并正常参保。目前泰州市医保账户余额为4527元。本人已尝试了泰州医保、泰兴医保、苏州医",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "319507",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=319507&sysid=200",
+   "question": "达沙替尼支持费阳儿童急性淋巴细胞白血病医保报销问题\n目前虽然达沙替尼已经进入医保，但只对慢粒病人报销，对于费阳急性淋巴细胞白血病儿童还是不能报销，伊马替尼容易耐药，耐药就复发，如果能支持ph急淋儿童医保支付，那将大大降低儿白的负担！全国现在",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "318543",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=318543&sysid=200",
+   "question": "省内医保转移 无锡线上转不了\n我在无锡交了两年多的医保，我要专移到苏州园区，APP 上 找不到无锡，其他市都有，是APP的问题还是无锡医保局的问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "316324",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=316324&sysid=200",
+   "question": "请将“西罗莫司”纳入2023年“再生障碍性贫血”医保用药目录\n我妻子2017年发现再生障碍性贫血，职工慢保，吃免疫抑制剂环孢素3年造成肾损伤，现在只能改吃免疫抑制剂西罗莫司有效（当地医疗机构无药，一直自费从网上买药，再加上肾损伤扶助用药，费",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "314513",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=314513&sysid=200",
+   "question": "江苏省内异地药店购药问题\n我是江苏盐城响水县医保卡，已办理徐州市异地就医备案，要医院使用正常，但是在徐州云龙瑞柏门诊部和徐州云龙乐康门诊部均无法使用医保卡，请问是怎么回事？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "314176",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=314176&sysid=200",
+   "question": "江苏医保云APP问题无人解决且 设计不合理\n我使用我的手机号码准备给我小孩注册app,注册后一直提示身份验证失败（提供的对比照片失败，无法使用刷脸认证）1.不刷脸就不让登陆 2.这个问题到底谁处理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "312877",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=312877&sysid=200",
+   "question": "医保肿瘤报销比例\n医保领导：您好！     我母亲6.24日在苏大附二院做的上肢肿块切除，病理报告确诊B细胞淋巴瘤，想问下后续治疗医保报销额度会有所上升吗？7.26日购买了江苏医慧宝1号，询问客服是有90天的等待期，希望能出一份没有等待期的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "308473",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=308473&sysid=200",
+   "question": "是否可以参加江苏农村合作医疗咨询？\n你好，我长辈女 55岁，户口所在地是甘肃省，因为一些原因常年生活在江苏省沛县一农村，请问她能参加江苏省农村合作医疗保险吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "305278",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=305278&sysid=200",
+   "question": "我省何时将辅助生育纳入医保\n咨询一下，我省何时将辅助生育纳入医保，有这方面的打算吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "303944",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=303944&sysid=200",
+   "question": "恳求能够出台相关政策，将布罗索尤单抗纳人医保目录。\n尊敬的医保局局长：您好！我是一名低磷佝偻病患儿的母亲，低磷佝偻病是一种罕见病，被收录到我国2018年发布的《第一批罕见病目录》，位列第51位。这个病从小会走路起，下肢就开始出现严重畸形，步",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "303923",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=303923&sysid=200",
+   "question": "异地新农合如何办理门特？\n您好，我想咨询一下异地新农合是否可以办理门特，如何办理？我父亲是在连云港参保新农合，最近办理了异地就医，在南京就医，目前已经住院，我想问一下门特需要在连云港还是南京办理呢？怎么办理呢？需要在门诊之前办理吗？报销比例",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "302229",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=302229&sysid=200",
+   "question": "新生儿医保报销问题\n孩子爸爸是省公，宝宝出生后刚随父亲办了省公儿童医保统筹。想问下在这之前，小孩出生时住院费用中的医保统筹部分可以办理报销么？？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "294669",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=294669&sysid=200",
+   "question": "紫杉醇在江苏省为什么不报销？\n尊敬的省领导你好：我今年74岁，是一名胰腺癌的患者，我自去年9月份在扬州市宝应县人民医院查出胰腺癌后，经过了几方医院的检查、确诊，决定以化疗来维持生命，首先感谢国家为我报销了许多的药费，但是还有一部分的药品不能",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "292854",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=292854&sysid=200",
+   "question": "医保卡跨市使用\n在常州这边参保在常州办了医保卡，去年我的医保转回泰兴，请问在常州办的这张医保卡还能继续在常州使用吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "288966",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=288966&sysid=200",
+   "question": "关于异地就医零售药店的刷卡问题\n你好，我在苏州上班，在无锡生活，社保也是交在苏州，办理了无锡的异地就医，在你们官网上江苏省省内异地就医联网医疗机构查询里面的零售药店查到了无锡的相关药店，但是还是不能直接刷医保卡买药，请问这个是还需要办理什么",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "284334",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=284334&sysid=200",
+   "question": "参保人员异地就医使用直接结算或者先垫付后报销待遇是否相同？\n我是江苏镇江市2007年退休职工，退休后在上海定居，办理了异地就医手续。我在网上《江苏省医疗保险费异地就医指南》查询到这样两条内容：（一）参保人员异地就医发生的医疗费用如何结算或报",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "274458",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=274458&sysid=200",
+   "question": "江苏医惠保1号有关问题咨询\n一、已经购买地市普惠性补充医疗保险的（比如宁惠保），还可以再购买省级的江苏医惠保1号吗？二、赔付标准是按“分档计算法”理赔，还是按“累计计算法”理赔？举例说明，张某年度累计保障责任一内的费用（即医保范围内个人自付",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "270741",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=270741&sysid=200",
+   "question": "异地药店买药\n我是盐城市民，盐城医保卡。目前常年居住苏州，已办了异地就医手续，可以在苏州的医院就诊看病。今年8月份，苏州医保局列出了几十家药店，可以供异地购药。但盐城的医保卡无法结账。省内其他城市的可以。什么原因？盐城的医保卡何时能用？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "263635",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=263635&sysid=200",
+   "question": "生育津贴延迟未发放\n因为在南通地区跨统筹缴纳社保，中间未断缴，工作人员表明符合领取条件，生完小孩快一年了，医保中心一直回复需要工程师拉取数据，每个月都打电话到医保中心询问进度，每个月都是同样的理由，已经拖了半年都未解决此问题。工作人员极度言",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "262871",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=262871&sysid=200",
+   "question": "请问用来止吐的阿瑞匹坦现在报销不报销\n家人最近开始化疗了，呕吐反应比较严重，想问下阿瑞匹坦进不进医保。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "262762",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=262762&sysid=200",
+   "question": "医保卡在异地不显示\n你好局长先生，我是江苏省睢宁县人目前在河北省石家庄市生活。今年7月份的时候帮我儿子办理了异地就医并入院治疗。但是河北省人民医院治疗一段时间办理转院转诊的时候，显示我儿子的社保卡不能用。 显示错误信息为：获取个人信息失败。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "259135",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=259135&sysid=200",
+   "question": "药物球囊\n尊敬的领导，您好，我想咨询下，冠心病治疗过程中使用的一种器械，药物球囊，有朋友的家属手术中用了，单个器械需要自费两万多的费用，但是据朋友了解，在上海那边好像只需要一万左右，同样的东西在长三角怎么会差距这么大？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "258399",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=258399&sysid=200",
+   "question": "一次性营养费迟迟未收到\n我是于2019年7月生育的，有一千多的一次性营养费，2020年去银行柜台想领取这笔钱，柜台说账户里没钱，也和单位确认了是有这笔钱的存在，于是我打了社保局电话，每次打都无人接听，本人医保卡没有丢失过，自己也确实没去领过",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "257537",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=257537&sysid=200",
+   "question": "乳腺癌晚期无法用“注射用紫杉醇脂质体“和“伊尼妥单抗“\n病友刘，女，75岁，2016年乳癌改良手术，切除右侧乳房；2018年10月在省人民医院行肺穿刺活检术，肿瘤细胞：ER(-),PR(-),Her-2(＋＋＋),GATA3(＋＋),E-c",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "257257",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=257257&sysid=200",
+   "question": "关于江苏省妇幼保健院生殖科自费问题\n为响应国家国家号召，对于生育小孩问题，为什么不孕不育去看生殖科的人，全是自费，无法理解，国家都开放二胎三胎，但是对于连一胎生殖困难的我们，生殖科全部自费，即使有医保，个人认为如果不是国家有明确规定，不应该",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "256221",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=256221&sysid=200",
+   "question": "医保信息查询不到\n本人于2021年4月工作调动到无锡，原在浙江台州单位已停交医保，无锡工作单位于2021年5月缴纳社保，但是任何医保凭证都查询不到我的参保信息，无锡医保局电话也打不进，不知道是哪个环节出错了，请查证，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "256011",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=256011&sysid=200",
+   "question": "三胎无法开通生育金等服务\n您好，我是无锡惠山区本地户籍居民，第3胎即将生产。目前因条例尚未修改，社区开不出准生证，医院这边因为没有准生证不给开通生育金等服务，导致生育不能报销，无法享受产假等待遇。7月21日看到国家医疗保障局发的通知（htt",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "255839",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=255839&sysid=200",
+   "question": "苏州张家港医保的退休人员在南京看病不能使用医保卡，都是自费的\n苏州张家港交的社保，已退休，在南京门诊看病无法使用医保卡，都是自费的，这个费用可以报销吗？怎么报销？定期来南京住几个月，怎么操作才能在南京的时候使用医保卡看病？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "255259",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=255259&sysid=200",
+   "question": "重症感染标准口径\n尊敬的各位领导：      目前江苏省医保药品目录中部分抗菌药物的限制支付范围为“限明确药敏试验证据或重症感染”，想咨询一下关于“重症感染”标准的口径问题。因为目前没有相关诊疗指南或者口径对“重症感染”进行定义，能找到“重",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "254317",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=254317&sysid=200",
+   "question": "关于最新版医保目录\n您好！！请问1、最新版医保目录公布文件在哪可以查询和下载。2、江苏省是看这一份目录就可以，还是需要另外再把国家医保目录中的药品再加进去看？工作需要，万分感谢帮助解决的领导！！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "254067",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=254067&sysid=200",
+   "question": "关于江苏省门诊特殊病咨询\n您好我想咨询一下，江苏省门诊特殊病有没有统一目录，还是各个地区自己制定的。我老婆得了肺动脉高压，这个病每个月吃药负担非常重。我咨询了常州医保局，说这个病没有进入门诊特种病，需要等省里的统一的文件下发才行。我看省里去",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "253601",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=253601&sysid=200",
+   "question": "关于提高血友病罕见病医疗保障水平的建议\n尊敬的周英局长：       您好！欣闻江苏医疗保障局5日下发了《关于明确罕见病用药保障对象诊断，用药治疗及待遇享受等有关事宜的通知》，对于江苏罕见病患者是重大利好消息，让此类罕见病患者看到了希望，也",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "253407",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=253407&sysid=200",
+   "question": "关于同省不同市异地就医\n各位领导您好本人目前是宿迁市泗洪县的城镇职工医保，因为身体原因一直在南京口腔医院住院治疗，我想了解一下同省不同市需要办理异地就医吗，该如何办理？如何可以在南京就诊医院直接刷医保卡使用？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "253210",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=253210&sysid=200",
+   "question": "职工医保个人账户余额与余额变动提醒\n本人属于职工社保，公司和个人每个月也一直有缴费。因四月份看病拿药医保卡上个人账户的金额用尽，五六月份没有用，7月6日去医院抓药时发现医保卡个人账户余额依旧为零，打无锡市医疗保障局电话咨询时，答复是医保个人",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "253187",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=253187&sysid=200",
+   "question": "省内为什么就医不能报销门诊等费用\n我家属是盐城医保，在苏州这边就医，为什么医保卡无法使用，我想问下，省内为什么就医不能报销门诊等费用。现在全国都能用，江苏为什么省内都跟不上。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "253175",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=253175&sysid=200",
+   "question": "关于罕见病用药保障政策的咨询\n各位领导，你们好！      今天看到江苏发布了罕见病用药保障政策，里面只包含了四种罕见疾病。我儿子是一名血友病患者，虽说目前有药在医保目录，但这个药需要一周三次反复穿刺静脉，且有极大的抗体危险，我儿子才三岁，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "253138",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=253138&sysid=200",
+   "question": "请求给予一次产品编码和价格确认的机会。\n尊敬的领导和专家与老师你们好，海门市中大纺织科技有限公司由于没有及时看到2021年1月苏公易6号文件，错失在阳光平台进行本公司产品编码与价格的确认。现请求领导专家与老师开放操作平台给我们一次机会。谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "253100",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=253100&sysid=200",
+   "question": "关于明确罕见病用药保障的通知\n关于此通知中第一条1.第一批罕见病用药保障对象范围，提到首次确认时年龄不满5周岁，具有江苏省户籍且其生父母一方获得江苏省户籍满5年的江苏省基本医疗保险参保人员。此规定的范围是为了打击为了医保看病而转移户口等行为",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "253017",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=253017&sysid=200",
+   "question": "咨询\n关于国家集采冠脉支架中选产品供应，目前我看到索引号MB1846817/2021-00043，文号苏医保函〔2021〕158号，医疗机构对原约定采购品种不能正常供货的，可根据临床需求从国家组织冠脉支架集中带量采购其他中选品种中采购适宜产",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "251735",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=251735&sysid=200",
+   "question": "关于省内新农合异地就医\n你好，我父母老家是江苏江都，办的是新农合，现随我长期居住江苏无锡，现有下列几个问题咨询：1.新农合可以省内异地就医吗？如果可以，需要备案吗？还是直接就可以异地使用？（在“国家异地就医备案”小程序内操作的时候，显示“您",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "251477",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=251477&sysid=200",
+   "question": "南京市和宿迁市何时能够实现药店联网直接结算\n欣闻近日，南京市和徐州市作为省内药店联网直接结算试点城市，近日率先实现职工医保异地就医定点零售药店购药直接结算互联互通，第一批40家联网药店可为两地参保人员提供医保卡、医保电子凭证购药直接结算服务",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "251325",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=251325&sysid=200",
+   "question": "咨询医保续保事项\n本人19年左右是由公司交社保，后期离职后没有继续续保，已停交一年，现想改交个人交社保，是可以一次性交一年费用吗？另本人是在外地，不在江苏省内",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "250698",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=250698&sysid=200",
+   "question": "请省医保局让无锡市能按照中央法规，确保个人账户足额到账\n根据《中华人民共和国城镇职工基本医疗保险条例》第十九条，从业人员缴纳的基本医疗保险费全部计入其个人帐户；以及第五十六条规定 （一）未按规定将基本医疗保险费记入个人帐户、统筹基金的，可以",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "249960",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=249960&sysid=200",
+   "question": "卡瑞利珠单抗医保报销咨询\n家人去年确诊食管癌，接受食管切除手术后又出现乳糜漏，多次住院治疗。2021年初检查身体发现转移至肺部，医院建议化疗＋免疫疗法，其中卡瑞利珠单抗可否按照转移性食管鳞癌进行医保报销？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "249721",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=249721&sysid=200",
+   "question": "华氏巨球蛋白血症何时能报销泽布替尼\n我父亲 十一年血透 还有十二指肠腺癌 上个月刚查出华氏巨球蛋白血症 现在每月2瓶的泽布替尼 一问医保局才知道 这药要对症报销 只有慢淋 套淋才能报销 希望国家尽快将巨球蛋白血症纳入报销 咱们国家第一个国产",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "247408",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=247408&sysid=200",
+   "question": "咨询\n我们参保地在泰州，因隨子女生活户口巳迁到镇江，现在看病到医院已没有问题，但小毛小病凭医保卡不能在药店买到药，给我们生活带来很大的困扰，我们想不通的是，我们用个人账户里的钱在药店里买药为什么就不可以呢？、买一点药逼我们到医院去，既增加我",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "247286",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=247286&sysid=200",
+   "question": "省内异地就医，门诊费用报销\n我是淮安居民医保，已经申请了异地就医，在苏州这边无法使用，提示没有备案。我打淮安医保局电话，回复只有住院可以使用，门诊和挂号这些都不可以。我想问下，省内什么时候可以异地报销门诊费用。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "246728",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=246728&sysid=200",
+   "question": "睢宁县中医院\n尊敬的领导:        您好！感谢您在百忙之中审阅我的举报信。我举报江苏省睢宁县中医院违法行为。     1.睢宁县中医院明知科室不能承包的情况下把手外科和脊柱骨关节科承包给他人（手外科:2012年起，脊柱骨关节科:201",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "246727",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=246727&sysid=200",
+   "question": "关于接种宫颈癌疫苗的若干问题\n局长同志，您好！首先非常感谢您能帮忙解决我的疑惑与问题。我是一名将近26周岁的女性，我以及我周围的一些适龄女性都十分关心关于颈癌价九宫疫苗的接种情况。2019年我开始了解到九价疫苗的存在，我便想要接种宫颈癌九价",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "245194",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=245194&sysid=200",
+   "question": "为什么医保目录的药品医院里买不到？\n我是一名盐城的克罗恩病患者，因要长期吃药，办了门诊特殊病手续，希望能在门诊买药时报销部分，吃的是美沙拉秦缓释颗粒，这是医保目录药品，可医院里却买不到，医院说进不到，不知何故？这样我只能自费在药店买，但长期",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "244318",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=244318&sysid=200",
+   "question": "关于员工生育险报销问题\n我公司1名女员工，从2017年9月到至今均在我公司进行上班，2020年11月28日顺产一名孩子。现在进行生育险报销时出现下列问题。因我公司在2021年1月时候为了整合管理，把该员工的缴纳社保单位从个体转到公司进行缴纳",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "242838",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=242838&sysid=200",
+   "question": "扬州15名肺动脉高压患者的求救！我们想活下去！\n尊敬的省医保局局长，我是江苏扬州的一名重度肺动脉高压患者。我代表扬州市29明肺动脉高压患者请求省局长，为民做主，不要放弃我们。肺动脉高压被称为慢性癌症，死亡率高。右心衰竭是它的并发症，全江苏省",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "242559",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=242559&sysid=200",
+   "question": "徐州到4月28日还没执行新版医保目录导致不能报销\n你好，新版国家医保目录去年底已公布，今年3月1日执行，但徐州医保局没有及时调整到位或者调整错误，影响了报销，用药为卡瑞丽珠单抗，2928元，徐州医保系统设置为乙类100%自负，请核实。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "242274",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=242274&sysid=200",
+   "question": "卡瑞利珠单抗\n我是鼻咽癌肝转骨转患者，2015年4月干始参加了卡瑞利珠单抗一期临床试验效果好，停药后复发，需要再使用卡瑞利珠单抗，可是鼻咽癌不是适应症不能报销，希望申请能报销减轻负担。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "242273",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=242273&sysid=200",
+   "question": "残疾军人异地医保\n我是名六级残疾军人，盱眙县人。在南京已居住十年，医疗费用都是我先垫付然后回盱眙报销。现在患有肺癌和其他慢性病，盱眙县还要求每月回去报销医药费，我身体本来就不好，经不起折腾。我希望领导能尽快帮助解决我医药费异地结算的问题。这",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "242071",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=242071&sysid=200",
+   "question": "一位多发性硬化患者的心声\n尊敬的领导：本人是一位被上海华山医院总院刚确诊为多发性硬化的患者，在华山医院总院住院半个月，了解该病为一种罕见的慢性疾病，全国患者才3万人。华山医院的医生告知现在有特效治疗药，叫做西尼莫德，一种进口药物，需长期服用",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "242041",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=242041&sysid=200",
+   "question": "城乡居民医疗保险相关问题\n你好，我2020年7月毕业并于2020年12月首次办理了江阴市的城乡居民医疗保险，但是在几天后进入了靖江市的单位，单位医保是从2020年12月开始缴费的，我想请问在我至今没有享受到江阴市农保（从未去医院或药店用过农",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "241612",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=241612&sysid=200",
+   "question": "超声报告是否在大力提倡使用胶片打印\n很少有超声报告会存放10-20年之久，也会产生医疗垃圾。收病人的费用也从原来的15元涨至20元/张。现在好医院在用胶片打印，想了解是否是政策的集中调控？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "241540",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=241540&sysid=200",
+   "question": "2021年财政预算报告\n您好，请问贵单位网站的2021年财政预算报告发布了吗？能否提供网址链接给我？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "241326",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=241326&sysid=200",
+   "question": "度普利尤单抗医保落地执行\n度普利尤单抗自今年3月国家纳入医保后，作为病患天天盼日日等，希望在江苏医保局能像其他省份一样迅速落地执行，然而一等再等，等来的只有领导们在研究研究。都2021年了，作为经济大省的江苏办事效率居然还不如隔壁的安徽省，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "241192",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=241192&sysid=200",
+   "question": "颈动脉支架\n冠状动脉支架已实现了国家集中带量采购，价格大幅下降，使老百姓能看得起病，切切实实感受到了党和国家的关怀！颈动脉支架价格目前还在高位，何时能集中带量采购实现降价？有这方面的计划吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "240301",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=240301&sysid=200",
+   "question": "省医保卡使用便利化\n目前省医保卡只有在省级机关医院等个别医院的自助机上挂号缴费，给广大人民的美好生活带来了一丝丝便利，希望贵单位能够继续推动省医保卡在更大范围使用，比如省级各类医院，如果市级医院也可以当然更完美。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "240141",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=240141&sysid=200",
+   "question": "罕见病普拉德威利综合征纳入门诊特定病重\n尊敬的江苏省局领导，您好！我们是罹患小胖威利（普拉德威利综合征）罕见病孩子的家长，期待获得您的帮助。目前该病只能靠长期注射生长激素改善和控制病情。放眼全国，四川省、湖南省、安徽合肥、青岛、以及咱们江苏",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "239536",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=239536&sysid=200",
+   "question": "达必妥\n请问一下局长，北京、天津、上海都把达必妥列入医保范围了，江苏啥时能帮达必妥列入医保范围的，前几天带孩子去中科院皮肤病医院看病，医院竟然没有这种药，而医院外面的药店竟然有，3千多一支，长期治疗真的打不起的，希望能早日解决的。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "238906",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=238906&sysid=200",
+   "question": "省内备案异地就医，医保部门相互推诿，无法就医\n本人一直在江苏省苏州市昆山市交缴社保，近几年一直在老家盐城市响水县生活居住。2021.3.23日通过昆山市社保中心备案办理省内异地就医到盐城市。可是从备案成功后，社保卡在盐城市响水县人民医院一直",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "237969",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=237969&sysid=200",
+   "question": "滔罗特报销问题\n您好，请问滔罗特在甲类报销目录里，在治疗胆结石的时候，门诊如何报销呢？扬州的医院、药店都没有这个药，那么在网上购买可以报销吗？如果不可以，那么请问如何才能买到药，又可以报销？谢谢！前期咨询扬州医保局，他们自己都不知道，只答复",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "237643",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=237643&sysid=200",
+   "question": "老农民看不起病，医保能否帮帮忙\n本人患有患银屑病（俗称牛皮癣）三年，前期使用各种治疗方法均无效甚至加重病情，全身没有一块完成的皮肤，每天饱受全身瘙痒掉屑的困扰。外人不明白真相，都以为是传染病，闭而远之，连公共浴室都不让进。这几年遭受生理和心",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "237636",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=237636&sysid=200",
+   "question": "办了异地就医后，没法在当地看病了——常州市金坛区异地就医政策\n本人社保在常州市金坛区，因为生病需要到南京就医，2020年底办理了异地就医手续，到南京看病。但是现在犯难了，医保卡不能在金坛本地看病了，不能在本地看病了，不能在本地看病了。医保卡",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "237064",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=237064&sysid=200",
+   "question": "丹阳市医保局重复参保不退保\n因为之前辞职在家一段时间，怕医保断了，就自己去人社局交医保，当时问他告诉我的是，自己不能交两个月，只能交一年，我说如果我后面找了工作怎么办，他说后面单位交了，自己交的可以退，所以我就把今年一年的都交了。现在我找了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "236991",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=236991&sysid=200",
+   "question": "尼拉帕利（则乐）为什么南京还没有执行医保政策？\n2021年1月国家已公布新年度医保政策，尼拉帕利在名录内，也可在公开江苏省医保药品名录查到，国家明确规定3月1日开始执行。至今南京市医保局未按规定执行，投诉半月无果，患者在南京12345平台点",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "236464",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=236464&sysid=200",
+   "question": "退休多年，医保待遇迟迟不能办理，看病就医无法报销\n江苏省医保局领导好，我叫单世怀，我于2013年由于工作调动从江苏省“中煤大屯煤电公司”调到山西省“中煤华晋集团公司”工作。我的原养老保险参保地在江苏省，医疗保险参保地在徐州市。我于2017年",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "236459",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=236459&sysid=200",
+   "question": "同一批退休职工10人，无法办理医保退休待遇\n江苏省医保局领导好，我公司名称为“中煤华晋集团有限公司”，公司属地在山西省。上级管理单位为“中国中煤能源集团有限公司”。我公司职工养老保险参保地在山西省社保局、医疗保险参保地在山西省太原市。现就存",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "236362",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=236362&sysid=200",
+   "question": "敷料类低值耗材是否也需要申请国家医保医用耗材分类编码？\n您好，我们是一家江苏省的医疗器械生产企业，主要产品是一次性使用的口罩、手术帽、纱布片、棉球、棉垫等医用敷料，属于低值耗材。请问我们的产品是否也需要在国家的医保医用耗材分类与代码数据库中",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "235937",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=235937&sysid=200",
+   "question": "注射用伊米苷酶多少钱\n老师，上次我们发了一个关于百度网上 注射用伊米苷酶多少钱的短文，老师以为我们发广告，其实不是的，是价格信息。土耳其价格5800 国内价格19999。我们患者说江苏省要谈判 了，希望谈判价格能到这样。我们的负担也轻了。好",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "235516",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=235516&sysid=200",
+   "question": "原来集体乡镇企业人员的社会保障问题\n溧阳市湖东水泥厂，在溧阳市上黄镇，后改名为溧阳市扬子水泥有限公司，后又改制为民营企业。和我父亲一样的不少人，从20世纪八十年代末到21世纪初那几年，将近20年一直在此辛勤工作，后来因为改制调整或下岗或辞职",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "235213",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=235213&sysid=200",
+   "question": "医保合并\n你好，请问我以前在高邮交了几年医保，后来因工作原因，现在在溧阳交医保，不知到退休时，能不能把在溧阳交的医保转到高邮，因为我要在高邮办理退休，敬请解惑，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "234931",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=234931&sysid=200",
+   "question": "关于我母在苏州住院期间医药费报销问题\n您好: 我们老家在淮安市准安区城内,我母亲李爱华,今年89周岁,身份证号320828******,多年来一直在淮安区参加了居民医保,费用交至2020年底,我母的户口已于2020年6月份迁至苏州市吴中区,",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "234775",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=234775&sysid=200",
+   "question": "2021新版国家医保用药可善挺什么时候在江苏落实？\n医保局领导，您好，我是银屑病患者，患病已有十多年，久治未愈，深受其害，近期得知2021年新版国家医保用药中，可善挺（司库奇尤单抗）已进入医保范围，该药对于银屑病患者治疗极好，且药价较国外有",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "234431",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=234431&sysid=200",
+   "question": "咨询\n我想查医保卡的余额，请告诉我用什么APP查",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "234179",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=234179&sysid=200",
+   "question": "异地就医门诊诊查费刷卡问题\n尊敬的领导：我是宿迁市职工医保参保人员，已经异地就医备案到盐城市。但是在异地就医门诊过程中有一个困惑：就是在门诊挂号门诊诊查费时，必须使用现金，不能使用卡内个人账户余额。而购药、检查等费用都可以使用个人账户余额。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "234026",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=234026&sysid=200",
+   "question": "直肠癌造口耗材是否可以报销？比例多少？\n直肠癌术后腹部造口，每年耗材及护理产品约2万元。请问是否可以报销?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "233278",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=233278&sysid=200",
+   "question": "特药达沙替尼报销\n我女儿于2020/11/9在上海儿童医学中心查出急性淋巴细胞白血病伴有BCR-ABL融合基因阳性问题，医院开了一种叫达沙替尼的药让每天都吃，后来偶然发现这个药是自费药，不报销，于是打电话回老家医保局问，医保局说这个是特药，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "232787",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=232787&sysid=200",
+   "question": "核酸检测费用\n2月2日上午在江苏省中西医做的核酸检测费用是120元，江苏省文件自2月2日零时起将至80元，这个怎么办理退费？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "232609",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=232609&sysid=200",
+   "question": "核酸检测价格\n别的省检测费用都下调了，江苏玩拟下调通知套路，明摆是拖延时间巧取民利，想想有多少外省务工人员，一天多收多少民脂民膏",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "231935",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=231935&sysid=200",
+   "question": "新农合省内异地就医如何使用\n领导好！            我是一名籍贯徐州新沂市在苏州上班务工人员，父母随行苏州生活，父母在老家有新农合医疗保险，2019年我为父母办理了异地就医备案（定点苏州），但到苏州省内异地就医联网医疗机构使用新农合",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "231904",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=231904&sysid=200",
+   "question": "为什么南京市核酸检查费用高于全国水平\n经查询江苏省医疗保障局、江苏省卫生健康委员会于2020年7月2日发布的《关于降低新型冠状病毒核酸检测等项目价格的通知》价格120元。目前在江宁区各大医院咨询核酸检测费用基本维持在120元左右的价格。但是",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-ybj",
+   "id": "231597",
+   "url": "https://ybj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=231597&sysid=200",
+   "question": "注射用伊米苷酶多少钱\nhttps://www.1blv.com/newsDetail/81896.html注射用伊米苷酶售价多少钱发表者：医伴旅医学部王敏      发表日期：2020-11-30     原创文章  转载请注明出处伊米苷酶",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

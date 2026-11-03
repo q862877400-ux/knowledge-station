@@ -1,0 +1,689 @@
+{
+ "A_考卷": [
+  {
+   "source": "tongliao-igi-9",
+   "id": "8877",
+   "url": "https://www.tongliao.gov.cn/IGI/nbhd/openGovmsgbox.do?id=8877",
+   "question": "请问在网上造谣诬陷别人是犯罪行为吗？",
+   "cited_hits": [
+    {
+     "name": "治安管理处罚法",
+     "lib_no": "治安管理处罚法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tongliao-igi-9",
+   "id": "5005",
+   "url": "https://www.tongliao.gov.cn/IGI/nbhd/openGovmsgbox.do?id=5005",
+   "question": "您好，想问一下哪些情形可以认定为工伤？谢谢！",
+   "cited_hits": [
+    {
+     "name": "工伤保险条例",
+     "lib_no": "工伤保险条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "tongliao-igi-9",
+   "id": "9602",
+   "url": "https://www.tongliao.gov.cn/IGI/nbhd/openGovmsgbox.do?id=9602",
+   "question": "我本科是汉语言文学专业（本科院校不符合人才引进的条件），研究生是教育学专业的毕业生，科区人才引进的岗位表中要求应聘语文老师的条件：研究生专业包含教育学原理专业。研究生院校愿意开具证明，在校期间所学的专业内容完全包含教育学原理的课程与培养要求",
+   "cited_hits": [],
+   "cited_missing": [
+    "研究生教育学科专业目录（2022年）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "tongliao-igi-9",
+   "id": "9110",
+   "url": "https://www.tongliao.gov.cn/IGI/nbhd/openGovmsgbox.do?id=9110",
+   "question": "请问户口迁移到本省内的其他城市，可以在网上办理吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好“人口管理互联网+”服务平台上线试运行相关工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "tongliao-igi-9",
+   "id": "8601",
+   "url": "https://www.tongliao.gov.cn/IGI/nbhd/openGovmsgbox.do?id=8601",
+   "question": "请问一下，办理护照的照片可不可以自己准备，有什么要求？",
+   "cited_hits": [],
+   "cited_missing": [
+    "出入境证件相片照相指引"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "tongliao-igi-9",
+   "id": "5374",
+   "url": "https://www.tongliao.gov.cn/IGI/nbhd/openGovmsgbox.do?id=5374",
+   "question": "通科政发〔2024〕99号 各苏木镇人民政府、国有农牧场，各街道办事处，区政府各委办局，驻科中区直各单位： 今年以来，部分省外企业积极响应号召，认真履行社会责任，在推进基础工程建设、民生工程建设等方面积极作为，为感谢对我区经济社会高质量发展",
+   "cited_hits": [],
+   "cited_missing": [
+    "科尔沁区人民政府关于表扬省外企业助力经济社会高质量发展的通报"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "tongliao-igi-9",
+   "id": "5016",
+   "url": "https://www.tongliao.gov.cn/IGI/nbhd/openGovmsgbox.do?id=5016",
+   "question": "请问一下，科区卫健系统中事业单位副科级干部选拔任用需要什么具体条件，工作年限是多少年，是在卫健系统的工作年限么，如果原来在其他事业单位，后来进入卫健系统，工作年限是否合并累积原来事业单位的工作年限，有没有年龄限制，科区卫健系统科级干部选拔任",
+   "cited_hits": [],
+   "cited_missing": [
+    "科尔沁区科级领导干部选拔任用工作实施办法(试行)"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "tongliao-igi-9",
+   "id": "4884",
+   "url": "https://www.tongliao.gov.cn/IGI/nbhd/openGovmsgbox.do?id=4884",
+   "question": "2023年中级社会工作者通过考试，是否有补贴？",
+   "cited_hits": [],
+   "cited_missing": [
+    "科尔沁区社区工作者职业体系建设实施方案"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "tongliao-igi-9",
+   "id": "9723",
+   "url": "https://www.tongliao.gov.cn/IGI/nbhd/openGovmsgbox.do?id=9723",
+   "question": "领导您好：今年是否有科尔沁区公开招聘社区工作者考试?谢谢领导",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tongliao-igi-9",
+   "id": "9664",
+   "url": "https://www.tongliao.gov.cn/IGI/nbhd/openGovmsgbox.do?id=9664",
+   "question": "电厂二工区小区是老旧小区，也是拆迁区，已经10多年也未拆迁，但是部分单元房屋门窗等基础设施已在当年划为拆迁区时被拆走，目前部分单元房屋渗水导致地面沉降倾斜，不知道电厂二工区是否属于D级危房，科尔沁区关于内蒙古自治区危房重建的新政策今年有没有",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tongliao-igi-9",
+   "id": "9548",
+   "url": "https://www.tongliao.gov.cn/IGI/nbhd/openGovmsgbox.do?id=9548",
+   "question": "本人和孩子是通辽市奈曼旗八仙筒真的户口，孩子目前在河北石家庄就读小学五年级，计划2027年9月在通辽入学初中，研读文件发现通辽学生分为A、B、C、D四类，咨询两个问题：1、孩子在通辽市读公立初中：2027年1月30日前买房落户完成，是否符合",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tongliao-igi-9",
+   "id": "9545",
+   "url": "https://www.tongliao.gov.cn/IGI/nbhd/openGovmsgbox.do?id=9545",
+   "question": "想问下26年上半年认定的证书什么时候发放，最近想报名相关考试 需要证书 如果不能发放的话可以开通什么证明报名吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tongliao-igi-9",
+   "id": "9442",
+   "url": "https://www.tongliao.gov.cn/IGI/nbhd/openGovmsgbox.do?id=9442",
+   "question": "领导您好：请问科尔沁区工作4年，科尔沁区2025年公开招聘社区工作者公告中显示每满3年可放宽考试年龄1年，还是超龄的社区专职网格员，能否按面向社区专职网格员等编外聘用人员定向岗位参加科尔沁区以后的社区工作者招聘考试？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tongliao-igi-9",
+   "id": "9398",
+   "url": "https://www.tongliao.gov.cn/IGI/nbhd/openGovmsgbox.do?id=9398",
+   "question": "领导您好，请问一下科尔沁区2026年公开招聘社区工作者公告什么时候出来？谢谢领导！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tongliao-igi-9",
+   "id": "9389",
+   "url": "https://www.tongliao.gov.cn/IGI/nbhd/openGovmsgbox.do?id=9389",
+   "question": "请问一下领导，22年高新技术企业市级奖补资金什么时候落实到企业？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tongliao-igi-9",
+   "id": "9339",
+   "url": "https://www.tongliao.gov.cn/IGI/nbhd/openGovmsgbox.do?id=9339",
+   "question": "科尔沁区统计局同志：您好！向您咨询科尔沁区户籍人口数：我看到2023科尔沁区统计公报中全区户籍总人口为728212人，而2024通辽市统计年鉴中发布的2023年科尔沁区户籍总人口为848687人。这两个资料中的户籍人口数相差十万多人，请问这",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tongliao-igi-9",
+   "id": "9293",
+   "url": "https://www.tongliao.gov.cn/IGI/nbhd/openGovmsgbox.do?id=9293",
+   "question": "领导你好!我是商务英语专业应届毕业生，目前正在积极求职，想咨询一下通辽市科尔沁区的人才引进政策，以及想进一步了解贵地是否有针对本专业的相关岗位、招聘活动或人才引进政策。期待您的回复，谢谢您！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tongliao-igi-9",
+   "id": "9145",
+   "url": "https://www.tongliao.gov.cn/IGI/nbhd/openGovmsgbox.do?id=9145",
+   "question": "清澄大连建设有限公司的木里图工业园区600兆瓦微风风力发电基础底座建设项目从发改委2024年回复显示项目存在，目前手续什么进展，还存在么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tongliao-igi-9",
+   "id": "9120",
+   "url": "https://www.tongliao.gov.cn/IGI/nbhd/openGovmsgbox.do?id=9120",
+   "question": "我2017年大学毕业在科区通辽梅花工作，档案随着转移到科区，24年在科区原单位离职，回到朝阳老家，做着本职工作且距离比较远，走线下手续比较繁琐和困难。目前，在全国人社平台查询到科区人力资源和就业服务中心已开通跨省流动人员人事档案，但在平台还",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tongliao-igi-9",
+   "id": "9118",
+   "url": "https://www.tongliao.gov.cn/IGI/nbhd/openGovmsgbox.do?id=9118",
+   "question": "请问本单位每年的财政预算信息一般在哪发布？麻烦给我个链接",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tongliao-igi-9",
+   "id": "9081",
+   "url": "https://www.tongliao.gov.cn/IGI/nbhd/openGovmsgbox.do?id=9081",
+   "question": "您好！我是科区村小已辞职教师，但工作七年期间养老保险单位部分欠缴，请问何时补缴？目前得到的回复是:退休时再给补缴，谁退给谁补。但我现已在外省工作，户籍也是外省，退休也不在本地开资。我的诉求是:尽快把单位欠我的部分补缴，我好把社保关系转移到外",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tongliao-igi-9",
+   "id": "9034",
+   "url": "https://www.tongliao.gov.cn/IGI/nbhd/openGovmsgbox.do?id=9034",
+   "question": "通辽四中。招生。房产证是父母的情况下。房产证是。刚满一年。有不妥吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tongliao-igi-9",
+   "id": "8963",
+   "url": "https://www.tongliao.gov.cn/IGI/nbhd/openGovmsgbox.do?id=8963",
+   "question": "负责人您好，我是南京农业大学的一名研究生，因研究需要咨询以下问题：据科尔沁区人民政府网站公布的科尔沁区人民政府关于印发《通辽市科尔沁区畜禽养殖污染防治规划（2022-2025年）》的通知，科尔沁区在2017年划定了畜禽养殖禁养区（通科政办发",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tongliao-igi-9",
+   "id": "8918",
+   "url": "https://www.tongliao.gov.cn/IGI/nbhd/openGovmsgbox.do?id=8918",
+   "question": "我想问一下内蒙古高林屯什么时候合村并镇",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tongliao-igi-9",
+   "id": "8892",
+   "url": "https://www.tongliao.gov.cn/IGI/nbhd/openGovmsgbox.do?id=8892",
+   "question": "楼下有家挂着招牌为麻辣鸭脖王的卤鸭脖店，疑似一家小型加工厂，因为自从这家卤鸭脖开业后，就没有见过零售。排烟在窗户下方，之前是每天早上7点左右能闻到味道，影响还是比较小，但自从7月15日晚间开始下雨之后，连续晚上半夜10点之后味道大的都熏人，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tongliao-igi-9",
+   "id": "8896",
+   "url": "https://www.tongliao.gov.cn/IGI/nbhd/openGovmsgbox.do?id=8896",
+   "question": "开发区每年都在招公益岗，科区政府为什么不招呀？》",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tongliao-igi-9",
+   "id": "8895",
+   "url": "https://www.tongliao.gov.cn/IGI/nbhd/openGovmsgbox.do?id=8895",
+   "question": "哈克雷斯10GW制氢项目进展到哪一步了？麻烦领导回复。辛苦辛苦",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tongliao-igi-9",
+   "id": "8888",
+   "url": "https://www.tongliao.gov.cn/IGI/nbhd/openGovmsgbox.do?id=8888",
+   "question": "木里图工业园区耐火材料厂大连清澄公司风电项目有备案吗？开工手续齐全吗？期待您的回复，辛苦了！谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tongliao-igi-9",
+   "id": "8862",
+   "url": "https://www.tongliao.gov.cn/IGI/nbhd/openGovmsgbox.do?id=8862",
+   "question": "请问生小孩可以选择去妇幼保健院吗？和医院的区别是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tongliao-igi-9",
+   "id": "8826",
+   "url": "https://www.tongliao.gov.cn/IGI/nbhd/openGovmsgbox.do?id=8826",
+   "question": "招聘的专业有动物遗传育种与繁殖、畜牧学、畜牧等一级学科，生物学一级学科，有兽医一级学科。招聘中含有，基础兽医学和临床兽医学属于二级学科，兽医学属于2个专业的一级学科，是否符合要求，学习内容为基础兽医学或临床兽医学，可以开相关证明是否可以报考",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tongliao-igi-9",
+   "id": "8801",
+   "url": "https://www.tongliao.gov.cn/IGI/nbhd/openGovmsgbox.do?id=8801",
+   "question": "通辽聚民微风公司就科尔沁木里图微风发电基础建设手续是否齐全？诚恳地希望梦得到您的回复！谢谢🙏",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tongliao-igi-9",
+   "id": "8800",
+   "url": "https://www.tongliao.gov.cn/IGI/nbhd/openGovmsgbox.do?id=8800",
+   "question": "通辽市科尔沁区木里图工业园区60万KW微风风机建设工程的进展如何？何时开工？与中铁十局是否签约？主要负责人是蒋树民吗？期待您的回复！谢谢～",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tongliao-igi-9",
+   "id": "8784",
+   "url": "https://www.tongliao.gov.cn/IGI/nbhd/openGovmsgbox.do?id=8784",
+   "question": "本人户口在通辽市科左后旗，单位为中石油辽河油田辽兴油气开发公司。2022年毕业于中国地质大学（武汉），2024年9月份在通辽市桥北水墨嘉华小区买房，故咨询下是否符合通辽市有关高校毕业生住房补贴的政策，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tongliao-igi-9",
+   "id": "8729",
+   "url": "https://www.tongliao.gov.cn/IGI/nbhd/openGovmsgbox.do?id=8729",
+   "question": "目前科区有没有外市在编人员回流政策",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tongliao-igi-9",
+   "id": "8709",
+   "url": "https://www.tongliao.gov.cn/IGI/nbhd/openGovmsgbox.do?id=8709",
+   "question": "在2025年度通辽市科尔沁区教体系统人才引进中内蒙古大学数学系毕业的研究生是否有安家费，是否有可能下周进行面试",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tongliao-igi-9",
+   "id": "8705",
+   "url": "https://www.tongliao.gov.cn/IGI/nbhd/openGovmsgbox.do?id=8705",
+   "question": "木里图工业园区600兆瓦微风风力发电基础底座建设项目有施工许可证吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tongliao-igi-9",
+   "id": "8698",
+   "url": "https://www.tongliao.gov.cn/IGI/nbhd/openGovmsgbox.do?id=8698",
+   "question": "木里图工业园区600兆瓦微风风力发电基础建设项目的施工单位是大连清澄建设有限公司吗？此项目的施工许可证是否已经办理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tongliao-igi-9",
+   "id": "8697",
+   "url": "https://www.tongliao.gov.cn/IGI/nbhd/openGovmsgbox.do?id=8697",
+   "question": "木里图工业园区600兆瓦微风风力发电基础建设项目施工单位招投标开始了吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tongliao-igi-9",
+   "id": "8696",
+   "url": "https://www.tongliao.gov.cn/IGI/nbhd/openGovmsgbox.do?id=8696",
+   "question": "木里图工业园区600兆瓦微风风力发电基础建设项目施工单位招投标开始了吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tongliao-igi-9",
+   "id": "8638",
+   "url": "https://www.tongliao.gov.cn/IGI/nbhd/openGovmsgbox.do?id=8638",
+   "question": "科尔沁区，2025年是否有事业单位的人才引进，包括那些专业",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tongliao-igi-9",
+   "id": "8628",
+   "url": "https://www.tongliao.gov.cn/IGI/nbhd/openGovmsgbox.do?id=8628",
+   "question": "请问内蒙古科尔沁的木里图园区，今年是否有微风发电项目建设，合作单位为清澄(大连)建设有限公司",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tongliao-igi-9",
+   "id": "8627",
+   "url": "https://www.tongliao.gov.cn/IGI/nbhd/openGovmsgbox.do?id=8627",
+   "question": "以下信息是真实的吗？谢谢 项目单位:清澄（大连）建设有限公司 木里图工业园区600兆瓦微风风力发电基础底座建设项目 城市基础设施项目备案项目，符合产业政策和市场准入标准，准予备案。请据此开展有关工作。在开工建设前，应当办理法律法规要求的其他",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tongliao-igi-9",
+   "id": "8590",
+   "url": "https://www.tongliao.gov.cn/IGI/nbhd/openGovmsgbox.do?id=8590",
+   "question": "请问本单位的人事变动信息可以在哪查看？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tongliao-igi-9",
+   "id": "8573",
+   "url": "https://www.tongliao.gov.cn/IGI/nbhd/openGovmsgbox.do?id=8573",
+   "question": "你好，我是18年通过内蒙古省考的，现在在兴安盟扎赉特旗工作，现在五年服务期已满，因父母年事已高，夫妻两地分居，我可以个人向相关部门申请调动吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tongliao-igi-9",
+   "id": "8563",
+   "url": "https://www.tongliao.gov.cn/IGI/nbhd/openGovmsgbox.do?id=8563",
+   "question": "尊敬的领导，您好！我想咨询一下关于2025年上半年教师资格证认定科区什么时候出具体公告？望答复，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tongliao-igi-9",
+   "id": "8493",
+   "url": "https://www.tongliao.gov.cn/IGI/nbhd/openGovmsgbox.do?id=8493",
+   "question": "请问项目是否真实，中铁十局有限公司中标是真实的吗？业主是通辽市聚民微风电力设备有限公司，确定这个项目手续齐全吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tongliao-igi-9",
+   "id": "8487",
+   "url": "https://www.tongliao.gov.cn/IGI/nbhd/openGovmsgbox.do?id=8487",
+   "question": "22年认定的高新技术企业，市里答复奖补资金已经落实到科尔沁区了，想问问领导什么时间落实到企业",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tongliao-igi-9",
+   "id": "8468",
+   "url": "https://www.tongliao.gov.cn/IGI/nbhd/openGovmsgbox.do?id=8468",
+   "question": "非常抱歉通过这种方式联系咱们的市政府。我们在通辽的科尔沁区学习，为了学习方便通过居派地产租了一个房子（同上面的联系地址），房子从一月份租到五月份，押一付五共花费6600元。当时租到这个房子的时候中介并没有如实的告知我们房子有漏水的情况，现在",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tongliao-igi-9",
+   "id": "8404",
+   "url": "https://www.tongliao.gov.cn/IGI/nbhd/openGovmsgbox.do?id=8404",
+   "question": "我是异地行政编，请问科区有人才回引政策吗？今年有回引政策的计划吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tongliao-igi-9",
+   "id": "8305",
+   "url": "https://www.tongliao.gov.cn/IGI/nbhd/openGovmsgbox.do?id=8305",
+   "question": "请问开具无犯罪记录证明需要准备哪些材料呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tongliao-igi-9",
+   "id": "8089",
+   "url": "https://www.tongliao.gov.cn/IGI/nbhd/openGovmsgbox.do?id=8089",
+   "question": "大兴社区什么时候动迁？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tongliao-igi-9",
+   "id": "7932",
+   "url": "https://www.tongliao.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7932",
+   "question": "不满意科区卫计委信访事项答复意见书，希望向科尔沁区人民政府申请复查。请问怎么申请？是在哪个网站还是邮箱？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tongliao-igi-9",
+   "id": "7930",
+   "url": "https://www.tongliao.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7930",
+   "question": "请问，大兴棚户区改造项目已竣工，什么时候动迁？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tongliao-igi-9",
+   "id": "7750",
+   "url": "https://www.tongliao.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7750",
+   "question": "通辽融媒体中心需要实习生吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tongliao-igi-9",
+   "id": "7748",
+   "url": "https://www.tongliao.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7748",
+   "question": "我是2005年当兵退伍回来的，回来以后等待安置，2006年安置办把我的党组织关系迁到科尔沁街道奋进社区，，后来因奋进社区合并，把我的党组织关系整丢了，我一直在找，把档案里的入党的材料等都拿给科尔沁街道办的看了，他们说让我提供交党费的收据，收",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tongliao-igi-9",
+   "id": "7589",
+   "url": "https://www.tongliao.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7589",
+   "question": "不是为啥老停水呀？你停水咋也得发呀发通知吧，两天48个小时你能停36个小时，市民都快干成流浪汉了，咋的，交警楼的人不用洗澡呗？是老城区是老点，那大家不都是通辽市的市民吗？停水你先发个通知不行吗？还有就是咱们的管道能不能快一点修好呢？每天这样",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tongliao-igi-9",
+   "id": "7363",
+   "url": "https://www.tongliao.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7363",
+   "question": "您好，本人是考到市外的一名公务员，无服务期限制，想要咨询下通辽各地区是否有出台“回引异地编制”的相关政策或者调动渠道。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tongliao-igi-9",
+   "id": "5125",
+   "url": "https://www.tongliao.gov.cn/IGI/nbhd/openGovmsgbox.do?id=5125",
+   "question": "您好，请问当前科区对于推进无障碍环境建设有什么样的举措呢，有没有取得一些成效，有没有地方性的相关法规呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tongliao-igi-9",
+   "id": "5039",
+   "url": "https://www.tongliao.gov.cn/IGI/nbhd/openGovmsgbox.do?id=5039",
+   "question": "您好！关于科区教师“三生”辞职人员的养老保险补缴一事最近有什么消息吗？何时能够着手办理此事？谢谢！本人曾是科区乡村教师，2013年上岗，2019年辞职，至今一直在等待补缴养老保险一事。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tongliao-igi-9",
+   "id": "4987",
+   "url": "https://www.tongliao.gov.cn/IGI/nbhd/openGovmsgbox.do?id=4987",
+   "question": "您好，请问科尔沁区人民政府2022年信息公开年报如何查阅？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tongliao-igi-9",
+   "id": "4981",
+   "url": "https://www.tongliao.gov.cn/IGI/nbhd/openGovmsgbox.do?id=4981",
+   "question": "问题一；关于教师认定全程网办，上传居住证的问题，那个后面写的是“持有科尔沁区居住证且在有效期期内的通辽市以外的户籍人员，请上传居住证”我的户口本上是“内蒙古通辽市科尔沁区✕✕镇✕✕村”是不是不用上传也可以通过呢？ 问题二；由于本人不在通辽工",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tongliao-igi-9",
+   "id": "4979",
+   "url": "https://www.tongliao.gov.cn/IGI/nbhd/openGovmsgbox.do?id=4979",
+   "question": "请问办理临时身份证需要户口本吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tongliao-igi-9",
+   "id": "4958",
+   "url": "https://www.tongliao.gov.cn/IGI/nbhd/openGovmsgbox.do?id=4958",
+   "question": "请问科尔沁区可以在哪接种九价HPV疫苗呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tongliao-igi-9",
+   "id": "4957",
+   "url": "https://www.tongliao.gov.cn/IGI/nbhd/openGovmsgbox.do?id=4957",
+   "question": "请问科尔沁区可以在哪接种九价HPV疫苗呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tongliao-igi-9",
+   "id": "4955",
+   "url": "https://www.tongliao.gov.cn/IGI/nbhd/openGovmsgbox.do?id=4955",
+   "question": "您好！我是教师，2013年上岗，在科区村小工作六年的“三生”人员。于2019年辞职。工作期间养老保险个人部分已缴纳，单位部分未缴纳，至今没给予补缴。网上咨询多次，半年过去了，回复一直在说政府联合相关部门在统计调查。今年年初3月份已给“三生”",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tongliao-igi-9",
+   "id": "4953",
+   "url": "https://www.tongliao.gov.cn/IGI/nbhd/openGovmsgbox.do?id=4953",
+   "question": "我是山西农大的学生，在为家乡调研活动中我想咨询一次咱们区的道德银行建设情况",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tongliao-igi-9",
+   "id": "4952",
+   "url": "https://www.tongliao.gov.cn/IGI/nbhd/openGovmsgbox.do?id=4952",
+   "question": "我想咨询咱们科尔沁区有没有建设道德银行的情况",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tongliao-igi-9",
+   "id": "4950",
+   "url": "https://www.tongliao.gov.cn/IGI/nbhd/openGovmsgbox.do?id=4950",
+   "question": "您好，关于科区教育系统“三生”辞职人员的养老保险补缴问题，请问区政府何时给予解决？我于2013.3入职，职位是村小教师。2019年12月辞职到异地工作，但社保关系一直未能转出，因为单位该缴纳的部分未缴纳，网上无记载，个人部分已扣缴。2023",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tongliao-igi-9",
+   "id": "4948",
+   "url": "https://www.tongliao.gov.cn/IGI/nbhd/openGovmsgbox.do?id=4948",
+   "question": "我人现在在包头市，但是我的城镇居民医保在科尔沁，我现在需要停办医保。1、请问是否可以异地停办医保？2、如果可以，应该怎么操作？3、如果不可以异地停办，能否委托他人在科尔沁区帮我停办医保？4、如果可以委托他人停办医保，需要带什么证件、材料？去",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tongliao-igi-9",
+   "id": "4933",
+   "url": "https://www.tongliao.gov.cn/IGI/nbhd/openGovmsgbox.do?id=4933",
+   "question": "领导您好，我是一名自治区内的自学考试的考生，准备参加2023年10月底的下半年内蒙古自治区自学统一考试，因全区仅在呼和浩特和通辽市设置考点，所以我选择了通辽考点，想咨询今年上半年的考点在在哪个学校？以及下半年的考试是否还在这个学校，以备提前",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tongliao-igi-9",
+   "id": "4931",
+   "url": "https://www.tongliao.gov.cn/IGI/nbhd/openGovmsgbox.do?id=4931",
+   "question": "本人不服科尔沁区教体局的通科教体信字【2023】77号信访事项答复意见书，希望向科尔沁区人民政府申请复查。请问该如何申请？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tongliao-igi-9",
+   "id": "4903",
+   "url": "https://www.tongliao.gov.cn/IGI/nbhd/openGovmsgbox.do?id=4903",
+   "question": "请问科尔沁街道是否有《科尔沁办事处调解委员会》或者《通辽市科尔沁区科尔沁街道办事处调解委员会》这两个中的组织，没有的话，请问科尔沁正规的调解单位是什么名字，地址在哪里，有联系电话吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tongliao-igi-9",
+   "id": "4887",
+   "url": "https://www.tongliao.gov.cn/IGI/nbhd/openGovmsgbox.do?id=4887",
+   "question": "红光大街西段道路两侧和中间的草丛无人修剪，枝繁叶茂杂草丛生，严重影响城市道路形象，明明是科区的位置看着连河西都不如。只看见在市委书记和市长视察前一天修剪过一次，之后再无人管。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

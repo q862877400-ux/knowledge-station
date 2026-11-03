@@ -1,0 +1,1867 @@
+{
+ "A_考卷": [
+  {
+   "source": "js-mzt",
+   "id": "154456",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=154456&sysid=148",
+   "question": "2020年02月02日我们江苏省全省民政局婚姻登记处上班吗？\n澎湃新闻注意到，考虑到不少年轻人2月2日领证的“急切愿望”，部分城市民政部门已表态：当天将安排工作人员正常上班，为市民办理婚姻登记手续。据澎湃新闻不完全统计，表态“加班”的城市包",
+   "cited_hits": [
+    {
+     "name": "劳动法",
+     "lib_no": "劳动法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "婚姻登记工作规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "147738",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=147738&sysid=148",
+   "question": "村委会成员补选由谁主持\n省民政厅的领导，您们好。关于村委会的补选工作，在《江苏省村民委会选举规程》中第六十九明确规定：补选村民委员会成员由村民委员会主持。与之相对应的是，该规程第十二条规定，村民选举委员会成员的推选工作由上一届村民委员会主持",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国村民委员会组织法",
+     "lib_no": "村民委员会组织法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "江苏省实施（中华人民共和国村民委员会组织法）办法",
+     "lib_no": "村民委员会组织法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国村民委员会组织法",
+     "lib_no": "村民委员会组织法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国村民委员会组织法",
+     "lib_no": "村民委员会组织法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国村民委员会组织法",
+     "lib_no": "村民委员会组织法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "江苏省村民委员会选举办法",
+    "江苏省村民委员会选举办法",
+    "中国共产党农村基层组织工作条例"
+   ],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "js-mzt",
+   "id": "445296",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=445296&sysid=148",
+   "question": "社会救助家庭收入认定有关问题\n省里关于改革完善社会救助制度的实施意见指出落实就业成本抵扣、收入豁免、缓退渐退等政策。其中，就业成本抵扣、收入豁免两项政策是否同时适用问题，可能存在各地的理解掌握不一的情况。民政部《最低生活保障审核确认办法》第",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于切实做好最低生活保障等社会救助兜底保障工作的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-mzt",
+   "id": "395842",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=395842&sysid=148",
+   "question": "咨询离婚冷静期\n咨询离婚冷静期马上过了，但是有一方没办法到场，都同意离婚，可以延期去拿证吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "民法典"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "372062",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=372062&sysid=148",
+   "question": "领证什么要求\n到了法定年龄过生日当天能领证还是第二天能领证需要什么材料要预约吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "民法典"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "371434",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=371434&sysid=148",
+   "question": "残疾人两补与工伤保险关系\n残疾人两项补贴是什么？它与工伤保险能否同时使用？",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省民政厅 江苏省财政厅 江苏省残联关于完善困难残疾人生活补贴和重度残疾人护理补贴制度的实施意见",
+    "中华人民共和国残疾人证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "370691",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=370691&sysid=148",
+   "question": "咨询：社区工作人员的性质算公益岗位还是国企？\n咨询：社区工作人员的性质算公益岗位还是国企？省民政厅的各位领导：       （政策背景）2022年10月28日，江苏省人民政府办公厅颁布了《江苏省促进残疾人就业三年行动方案（2022-2024",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省促进残疾人就业三年行动方案（2022-2024年）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "369715",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=369715&sysid=148",
+   "question": "《关于规范行政村社区履职事项 切实减轻村级组织负担的意见》\n请问，我在你们网上看到了这个《关于规范行政村社区履职事项 切实减轻村级组织负担的意见》。请问里面有提及到“三张清单”：《主体责任清单》、《协助办理事项准入清单》、《村级组织履职负面",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于规范行政村社区履职事项 切实减轻村级组织负担的意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "332636",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=332636&sysid=148",
+   "question": "网站信息建议\n江苏省民政厅网站法定主动公开栏目中（见附件截屏），省政府规章栏内的《江苏省城市居民最低生活保障办法》已被2021年12月31日省政府令第154号《江苏省人民政府关于废止部分省政府规章的决定》予以废止。因此，建议网站该栏目中移除",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省城市居民最低生活保障办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "326996",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=326996&sysid=148",
+   "question": "1999江苏省双拥工作领导小组、省民政厅评选双拥工作先进\n请问1999江苏省双拥工作领导小组、省民政厅评选双拥工作先进的表彰文件，是否有获得荣誉的先进工作者享受劳模待遇等表述？（涉及相关领导退休一次性补贴核定，请给与答复，谢谢）",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于表彰全国爱心献功臣行动先进单位和先进个人的决定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "255917",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=255917&sysid=148",
+   "question": "异地怎么离婚\n请问我在网上预约离婚怎么操作，我是四川达州的，他是江苏淮安的。协议离婚在网上预约，要一个月以后才能办理离婚证，还是预约到什么时候就可以办理离婚拿到离婚证。还望告知一下流程",
+   "cited_hits": [],
+   "cited_missing": [
+    "民法典"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "240451",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=240451&sysid=148",
+   "question": "户口本与身份证地址不一样\n男方才把户口弄好，户口本本地址和身份证地址不一样，可以领证嘛",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省婚姻登记工作规范"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "js-mzt",
+   "id": "453516",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=453516&sysid=148",
+   "question": "关于困境儿童政策的咨询\n您好！就江苏省内困境儿童救助政策中对困境儿童认定条件的“医保年度自付医疗费超2万元”，我想请问，在康复医院内康复，结算后剩余自付医疗费用是否也包含在此类情况内，盼复，感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "452929",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=452929&sysid=148",
+   "question": "无锡市是否有结婚补贴\n男女双方皆为初婚，且年龄不超过35周岁，女方为无锡户口，是否有结婚补贴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "452663",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=452663&sysid=148",
+   "question": "表扬立新农场办事人员\n立新农场工作人员张卫兵（或许是读音），在协助我找到我失散多年的舅舅提供了很大的帮助。之前通过民政厅官网联系上了立新农场。张卫兵是具体和我沟通的工作人员，在他的热情帮助下，使得我了解了我舅舅的情况，虽然很遗憾舅舅已经去世",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "452492",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=452492&sysid=148",
+   "question": "关于完善及落实生育保障措施\n近年来国家出台了相关鼓励生育二胎的政策，但普通家庭仍普遍面临生育二胎影响个人职业发展、育儿成本高、社会保障托儿机构欠缺等现实痛点。我们夫妻双方都是国企基层员工，已育有一名4岁儿童上小班，现怀有二胎，本是一件喜事，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "451877",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=451877&sysid=148",
+   "question": "查询江苏省养老机构基本信息一览表\n想要查询截止25/12 江苏省养老机构基本信息一览表",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "451538",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=451538&sysid=148",
+   "question": "1.1号民政局能领证吗\n2026.1.1号民政局能领证吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "450849",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=450849&sysid=148",
+   "question": "空挂的集体户口一定要强制迁出吗？\n我是大概二十年前，毕业之后到淮安工作，户口就落在淮安。后来生病落了残疾，就丢了工作，离开了淮安，但户口没有迁出，不过在淮安办了残疾证。现在我户口还在淮安，但人不在淮安居住，请问我的户口一定要强制迁出淮安吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "450597",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=450597&sysid=148",
+   "question": "2026 1月1日放假吗能办证不\n2026   1月1日放假吗能办证不",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "450575",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=450575&sysid=148",
+   "question": "领证一方是临时身份证可以领证吗\n领证一方是临时身份证可以领证吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "450391",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=450391&sysid=148",
+   "question": "请问“江苏省口腔医学会”这一社会团体目前状态是否正常？\n省民政厅，在你们网站查询“江苏省口腔医学会”这一社会团体，显示目前状态为正常。但同时显示该社会团体法人登记证书已于2023年12月31日后失效，且2023年后未查到该社会团体的年检信息",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "450138",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=450138&sysid=148",
+   "question": "人口老龄化\n请问今年还发布江苏省人口老龄化情况吗，目前只在网站上看到2023年江苏省人口老龄化情况，如果发布的话会发在哪里，怎么查看？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "449390",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=449390&sysid=148",
+   "question": "离婚\n离婚",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "449256",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=449256&sysid=148",
+   "question": "90岁老人优惠政策\n90岁的老人可以免费领取轮椅吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "448443",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=448443&sysid=148",
+   "question": "陪护假\n我和我配偶都是独生子女，陪护假只能是自己的父母住院才能休吗？配偶的父母住院不能休？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "448289",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=448289&sysid=148",
+   "question": "补领结婚证\n如何补领结婚证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "448269",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=448269&sysid=148",
+   "question": "申请查阅政府公开信息\n申请查阅《关于严格控制城镇兵比例有关问题的通知》（苏民安【1990】3号）文件",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "448218",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=448218&sysid=148",
+   "question": "外地人员是否可以在江苏办理协议离婚\n双方都是省外人员，双方协议离婚，一方有当地居住证，是否可以在江苏本地办理离婚",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "448133",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=448133&sysid=148",
+   "question": "外地户口在本地长期工作有居住证，可以在昆山本地登记离婚吗\n因老家较远，双方协议离婚，我在昆山长期工作有居住证可以在昆山办理吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "447959",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=447959&sysid=148",
+   "question": "社会组织换届的时候资产是否一定要大于注册资金\n社会组织没有经营，没有收入，换届的时候资产是否一定要大于注册资金",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "446752",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=446752&sysid=148",
+   "question": "江苏省县级以下（村级）行政地名\n你好，想询问一下是否有江苏省村级地名的公开数据。望回复谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "445998",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=445998&sysid=148",
+   "question": "异地领证\n您好，有3个问题想咨询一下，1.双方均为湖北户口，领证只需要带身份证和登记照就可以了吗2.如果后期需要开具婚姻证明的话必须在领结婚证的地方开吗3.预约的11月9日是周日，只要预约上就可以正常去领证吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "410324",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=410324&sysid=148",
+   "question": "江苏省哪个婚姻登记处周日可以办理婚姻登记？\n江苏省各婚姻登记处有哪个可以在周日办理婚姻登记，望告知，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "410290",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=410290&sysid=148",
+   "question": "关于补办六十年代精减退职人员待遇的事项\n家中有老人在1957年前参加工作， 后下发劳动，符合办理六十年代精减退职人员的条件，因当时各种原因未能办到，请问现在还能补办吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "410130",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=410130&sysid=148",
+   "question": "询问《江苏省老龄事业发展报告（2024年）》原文\n您好，我是东南大学的一名研究生，现研究方向是有关老龄化的，了解到《江苏省老龄事业发展报告（2024年）》在近期发布会上已公布，但查询到只有一些媒体报道的总结性文章，特想向您办询问一下，能否提",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "410104",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=410104&sysid=148",
+   "question": "养老服务机构信息查询\n我想查询下南京市的养老服务机构清单",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "409865",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=409865&sysid=148",
+   "question": "婚检结果查询\n在海洲民政局做的婚检结果在哪里查",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "409807",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=409807&sysid=148",
+   "question": "身份证和户口本地址不一致\n身份证上的地址是：湖南省岳阳市岳阳楼区红日机械厂生活区53栋201号，户口本上的地址是：湖南省岳阳市岳阳楼区红日机械厂53栋201号",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "409775",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=409775&sysid=148",
+   "question": "关于苏民事[2021]36号文件内容如何解读的咨询\n尊敬的江苏省民政厅：       苏民事[2021]36号文件《关于进一步加强和规范公墓建设管理的通知》，文件第四大点的第二小点。       四、加强墓地管理           二、要",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "409714",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=409714&sysid=148",
+   "question": "社团换届申请无法上网？\n社团换届申请无法上网？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "397908",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=397908&sysid=148",
+   "question": "公积金线上提取\n租房线上提取公积金，民政婚姻信息查询接口升级中多久能好",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "397784",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=397784&sysid=148",
+   "question": "连云港一户多残补贴取消了吗\n家里爷爷奶奶残疾，奶奶二十多年前突发精神病，之前村里，乡里都不帮忙上报办理，直到2018年市残联下访，才办理残疾证，二级，后来乡里帮重残转低保了，现在拿低保，就帮一户多残补贴取消了，问一下，是不是全连云港市的一户",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "397458",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=397458&sysid=148",
+   "question": "越南女孩到中国结婚需要准备什么材料\n你好，我前几个月去越南玩认识一个女孩，我想和她结婚不知道跨国婚姻的话，需要准备什么材料我是江苏的，把人带过来之后去哪里办理结婚证呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "397223",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=397223&sysid=148",
+   "question": "希望今年2024年8月10日七夕节（星期六）开放结婚登记\n想在8月10日七夕节登记结婚，但是在南通民政上预约登记发现是周六不上班，无法预约。网上查询的说法是根据各地政策来，会在特殊日期开放结婚登记。故此希望今年8月10日办事员们能稍微加会儿",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "396518",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=396518&sysid=148",
+   "question": "结婚登记预约咨询\n请问江苏省内的任何一个登记处，是否存在只允许网上预约登记而不允许线下排队登记的情况。如果有，是否违规？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "394938",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=394938&sysid=148",
+   "question": "公司能否规定员工试用期不得休育儿假？\n请问公司能否规定员工试用期不得休育儿假？试用期员工能否享有正式员工同样的休假权？涉及的法律规定是哪些？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "394715",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=394715&sysid=148",
+   "question": "离婚登记申请时是否必须带离婚协议？\n苏民事【2020】21号文规定，当事人在离婚申请阶段无须提交离婚协议。在苏民规【2021】3号文离婚登记申请受理条件中有‘当事人持有离婚协议书’。问题是：离婚登记申请时是否必须带离婚协议？两个文件的一致含",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "392948",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=392948&sysid=148",
+   "question": "江苏省各地级市2000、2010和2020年养老资源相关数据\n尊敬江苏省民政厅相关负责人：您好！我是一名在读研究生，为了完成我的研究课题《长三角城市群养老设施发展的历史与现状分析》，需要收集江苏省2000年、2010年和2020年三个年份各",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "392740",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=392740&sysid=148",
+   "question": "退五险一金\n去年在江苏世硕工作，缴纳的社保，五险一金，要退出来",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "391745",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=391745&sysid=148",
+   "question": "咨询残疾人两补政策\n咨询关于肢体四级残疾人申请残疾人“两补”年龄限制是18-60岁，那么这个四级肢体残疾人已经是低保户，申请保内轻度残疾人补贴年龄已经超过60周岁，现在是否可以申请？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "391737",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=391737&sysid=148",
+   "question": "无人抚养儿童补贴\n你好 我是聋哑人念书不够。我老家是黑龙江。我老公是连云港市赣榆区。我们想给孩子办理无人抚养儿童补贴。但社区不给我们办。想请你帮忙。你这边能不能帮我给孩子办理无人抚养儿童补贴。如果能办。给我发短信。谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "391545",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=391545&sysid=148",
+   "question": "省政府有关信息发布明显与国家部位文件相抵触\n我在贵网站看到一则关于博士研究生和在职人员考取硕士研究生工龄计算有关的回复，与国家教委、人事部和劳动部【1990】（001）号文件严重抵触的信息。国家三部委联合下发的文件（通知）明确规定国内博士研",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "388977",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=388977&sysid=148",
+   "question": "关于对福利假肢装配的求助\n尊敬的厅领导：     我叫季友力，今年53岁，盐城滨海人，三级残（因儿时6岁遭遇车祸，致左膝部以下截肢）自96年至今，一直在无锡私企打工谋生，闲余写些文字作品，发表贴补家用。   本人因截肢残留原因，属所谓的“跪",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "388786",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=388786&sysid=148",
+   "question": "现在如果划拨用地还能直接建设经营性公墓吗？\n以前民政部门通过划拨方式拿到的地，现在规划建设经营性公墓是否依法合规，如果不行，能否有变通的方法，确实是早期划拨拿的地一直没有规划建设，还是说一定要把这块地再挂牌出来？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "388554",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=388554&sysid=148",
+   "question": "关于徐州市公积金提取\n徐州市公积金提取将离职提取变更为丧失劳动能力提取，对普通离职人员造成无法提取的困扰。退休还早，买房租房也不需要，希望有关部门能进行协调，从新加上离职提取选项。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "388094",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=388094&sysid=148",
+   "question": "请问今年9月14日周六是中秋节调休上班日，可以领证吗\n你好，我想问一下中秋节前的调休日，即9月14日周六这天，是需要调休工作的时间，这天可以申请领证吗？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "387649",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=387649&sysid=148",
+   "question": "休独生子女父母护理假，扣奖励性绩效工资吗\n我在江苏省事业单位上班，请问休独生子女父母护理假和育儿假，用人单位基本工资照常发放，奖励性绩效工资需要适当扣除吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "387500",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=387500&sysid=148",
+   "question": "准生证问题\n孩子已经生了，没办理准生证，到领取生育津贴需要，怎么解决",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "387375",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=387375&sysid=148",
+   "question": "婚姻登记\n想预约昆山民政五月二十号婚姻登记，约不上",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "387014",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=387014&sysid=148",
+   "question": "关于《江苏省养老服务条例》的具体实施细则咨询\n“独生子女父母年满60周岁后患病住院期间，独生子女每年享受5天的带薪护理假。可以一次性享受，也可以分次享受。”   那么夫妻AB双方都是独生子女，A的配偶B父母满足条件住院诊疗，A是否能享受5天",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "386670",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=386670&sysid=148",
+   "question": "捐助法人相关政策规定\n1、根据民法典规定，原登记的民非（法人）养老服务机构、新设非营利性养老服务机构，是否一律需要按照民法典92条捐助法人的规定办理。如果作肯定答复，则：2、原有民非（法人）如何转为捐助法人？如果出资人、设立人拒绝承诺将出资",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "376715",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=376715&sysid=148",
+   "question": "拿结婚证一定要户口簿吗？\n我昨天给你们写的信，信件编号：[MZT0220231203600]，查询码：[QC672755]，显示受理回复-处理状态是处理完毕，怎么看不到回复内容的呢？请告知我联系电话。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "376577",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=376577&sysid=148",
+   "question": "结婚登记咨询\n工作人员您好，我是广西户口，我女朋友江苏淮安户口，请问我们想在无锡登记领证需要什么证件呢，需要居住证吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "371920",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=371920&sysid=148",
+   "question": "结婚需要那些东西\n1.两个人不是当地户口，是否有影响。2.结婚需要准备那些东西。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "371565",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=371565&sysid=148",
+   "question": "咨询残疾人补助费用发放规定\n本人家属为2级重残疾人员，享受相关的政府补助。但自2023年3月份拿了农保后，村委就扣除了重残补助中的部分费用 ，每月近200.00元，理由是农保中的个人账户养老金作为收入。请问：重残疾人员享受的政府补助是有哪一",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "371544",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=371544&sysid=148",
+   "question": "法院判离后民政系统无法修改婚姻状态太不合理\n省民政厅你好，我是2012年在南京市建邺区结婚登记的，于2014年在南京市建邺区法院判定离婚，手上有离婚判决书。我咨询了建邺区民政局，并不能拿着相关材料更改婚姻状态。导致各个平台我的婚姻状态都是已",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "371375",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=371375&sysid=148",
+   "question": "登记结婚\n我预约了10.23号上午10领证，因为个人原因晚到一会会不会影响登记结婚的进度，比如过号无效什么的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "371359",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=371359&sysid=148",
+   "question": "咨询残疾人补助费用发放规定\n我的家属2018年5月确定为二级残疾，并享受了政府的二项残疾补助金。今年三月我家属到了60岁退休年龄，并开始拿农保，不知什么原因到今年九月份才一次发放了六个月的农保。而拿到农保后，村里非要让我退还农保中的个人账户",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "371243",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=371243&sysid=148",
+   "question": "财产净收入的计算标准\n江苏省民政厅 江苏省财政厅 江苏省残联关于完善困难残疾人生活补贴和重度残疾人护理补贴制度的实施意见苏民规〔2022〕4 号文件中“低保家庭外无固定收入（是指连续六个月工资性收入、经营净收入、财产净收入、转移净收入等各类",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "370676",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=370676&sysid=148",
+   "question": "领结婚证证件\n领取结婚证，但是身份证丢了，临时身份证可以吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "370668",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=370668&sysid=148",
+   "question": "结婚登记相关\n异地结婚登记需要准备哪些材料和证件",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "370052",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=370052&sysid=148",
+   "question": "政府官员不作为\n江苏省连云港市灌南县新集政府官员徇私枉法 以权谋私偏心 不作为 不为老百姓公平公正处理事情",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "370017",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=370017&sysid=148",
+   "question": "咨询诉讼离婚\n我想咨询诉讼离婚，不在结婚登记处可以吗？在男方现在户籍所在地昆山法院能不能诉讼，？如果诉讼离婚需要注意什么",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "369964",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=369964&sysid=148",
+   "question": "婚前体检免费吗\n婚前体检只要必查有哪些项目",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "369799",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=369799&sysid=148",
+   "question": "学雷锋，做公益\n我是一名做了两年公益的志愿者，经宿迁市宿城区府前社区某领导推荐，长期驻守在一个广场上面小木屋中，开了一个面向社会，，对重残，困难户全免费的五块钱理发店，经过不到五个月的时间，周边人群满意度百分之百的说“好，政府实实在在的，真",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "369750",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=369750&sysid=148",
+   "question": "结婚证\n一个江苏徐州的一个安徽淮南的。可以在南京领结婚证吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "369577",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=369577&sysid=148",
+   "question": "申请临救期间是否同时可以办理大病救助和低保\n尊敬的领导！因我父亲生病在床，我申请的小额救助目前还没下来，后面还有临时救助，需要时间等。我想咨询我在办理临时救助等待期间是否可以申请大病救助和低保呢？我感觉要是这样下去我感觉等待时间太长了。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "340378",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=340378&sysid=148",
+   "question": "关于五保户申请的问题？\n我小叔有五十多岁了，智力低下，有残疾证，未婚，无儿无女，无劳动能力，无生活来源，能申请五保户吗？能通过吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "340159",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=340159&sysid=148",
+   "question": "关于献血荣誉卡三免政策\n按照江苏省献血条例的规定，在本省范围内都可以持证件和献血荣誉卡享受三免政策，但是各地执行还是存在门槛，按照各地自己的献血条例，在本市范围内获得荣誉卡才能享受本市的三免政策，省内异地获取的荣誉卡不能在本市享受，这样就限",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "340077",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=340077&sysid=148",
+   "question": "结婚登记咨询\n您好！我想问下2.14号那天不在网上预约，直接去现场排队可以登记吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "339995",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=339995&sysid=148",
+   "question": "女方无户口簿\n想咨询下女方没有户口簿有户籍证明可以办理结婚证吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "339867",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=339867&sysid=148",
+   "question": "淮安市经济开发区未经过批准擅自将新港划入经济开发区辖区范围内\n首先淮安经济技术开发区是国家级开发区。根据2003年4月17日江苏省淮安经济开发区管理委员会下发的《关于成立江苏省淮安经济开发区新港办事处的通知》（淮管发[2003]56号）：根",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "335542",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=335542&sysid=148",
+   "question": "关于社保\n本人是2023专科毕业生，我想问一下。如果我在专科实习是上了社保，但是有通过了转本考试上了本科。那这个社保对于我本科毕业后考研考公影响吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "335338",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=335338&sysid=148",
+   "question": "因疫情导致申请疫情经济补助金\n2022年以来因疫情反复无常，一年封了三次导致我厨师灵活就业人员无法获得经济来源，虽然疫情放开但是餐饮行业萧条，我已经快三个月没有收入了，现在生活特别困难，每个月没有收入还要交纳社保，银行信用卡已经逾期无法偿还",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "335335",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=335335&sysid=148",
+   "question": "结婚证异地领取条件\n您好，请问我和我老婆都不是无锡户口，而且没居住证，但在无锡买了房，并且在无锡工作，可以凭房产证在无锡领证吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "335306",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=335306&sysid=148",
+   "question": "关于户口本个人婚姻状态与结婚登记方面的疑问\n您好。我是山东户籍，之前已离婚，但户口本上暂时是未婚状态（以前并没有去把未婚改成已婚），打算在盐城市登记结婚，但来回奔波，一是路费，二是疫情当下，感染的风险也更大。不知是否必需回山东把户口本个人页",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "335255",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=335255&sysid=148",
+   "question": "补领结婚证\n我们是1984年12月结婚的，没有领过结婚证。婚后生两女儿，现已长大成人了，系事实婚姻。如果想补领结婚证，须要哪些手续？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "335030",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=335030&sysid=148",
+   "question": "请问一下我从百度上搜到的内容是不是真实有效？内容如下\n失独家庭一次性补助金城乡统一标准，每户一次性补助3万元，其中精神慰藉费1万元，生活补助费2万元。同时，将年龄在60周岁以上的失独家庭夫妇扶助金标准统一调整为每人每月1000元。失独家庭应",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "335000",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=335000&sysid=148",
+   "question": "各地疫情已经放开近月，养老机构何时能开放\n2022年，养老机构因为封闭管理，员工大半年都在单位住，不准回家，现在各地疫情都在放开，行程码取消了，核酸也不要求了，养老机构的工作人员却还是在封闭管理，大家有家庭，有老人照顾，有孩子哺育，养老机构",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "334276",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=334276&sysid=148",
+   "question": "户口簿与实际婚姻状态不符可以领取结婚证吗？\n你好，女方离婚，户口簿婚姻状态显示未婚，这种情况可以再次领取结婚证吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "333454",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=333454&sysid=148",
+   "question": "申请领养婴儿\n我们夫妻不育不孕治疗多年未孕，想申请领养儿童！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "331449",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=331449&sysid=148",
+   "question": "退役军人安置\n尊敬的领导您好，我是2005年退役的城镇安置退役军人，在2006年安置在粮食局后，一天班没上，现在在县市场监督管理局一个月一千多元工资，生活实在困难，希望能回安置岗位，谢谢领导!",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "330991",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=330991&sysid=148",
+   "question": "咨询江苏省养老服务补贴相关政策\n您好！请问江苏省最早实施养老服务补贴是什么时候什么文件，以及目前江苏省养老服务补贴政策是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "330881",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=330881&sysid=148",
+   "question": "请问没有户口本原件，户籍地开具的户籍证明可以吗？\n你好，我想请问下没有户口本原件，户籍地开具的户籍证明可以吗？没有原件的情况下怎么办？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "330452",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=330452&sysid=148",
+   "question": "光荣人家发放标准\n我们家里的革命烈士证明书形同虚设，没人过问，没人关心。没见过谁给我们家颁发光荣人家匾额。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "329780",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=329780&sysid=148",
+   "question": "听力残疾如何申请\n突发性耳聋申请听力残疾的条件",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "328642",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=328642&sysid=148",
+   "question": "咨询下省政府食堂是否对外开放\n省政府的食堂还对外开放 不在里面工作的还可以进去就餐",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "328331",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=328331&sysid=148",
+   "question": "江苏苏州耦园登记点 不预约现场排队是否可以\n想通过微信预约11月11日江苏苏州市姑苏区耦园登记点领取结婚证。但网上预约发现每天仅10个名额。苏州身边小伙伴说领证都没有预约过（苏州其他点），都是现场直接排队取号，不知道耦园点是否也可现场排队",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "327233",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=327233&sysid=148",
+   "question": "沛县什么时候能成为省直管县？\n沛县成为省直管县后，沛县自主权是不是变得更大？可以摆脱徐州的阴影?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "326186",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=326186&sysid=148",
+   "question": "志愿者星级认定\n您好！请问在中国志愿服务网实名的志愿者，咱江苏的志愿者星级是怎样认定的？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "325349",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=325349&sysid=148",
+   "question": "江苏高邮新生儿居民医保\n新生儿一年一度的居民医保如何办理需要在哪里办理办理时间是什么时候需要带哪些资料需要父母双方都到场办理，还是只需一人办理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "272698",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=272698&sysid=148",
+   "question": "城乡社区服务类社会组织\n2014年9月22日颁布的《江苏省四类社会组织直接登记管理暂行办法》是否有效？城乡社区服务类社会组织可否直接登记？是否可以设立一个城乡社区服务类社会组织叫：xx市xx镇xx服务协会，面向本镇内的所有社区居民，还是必须",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "272301",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=272301&sysid=148",
+   "question": "预约离婚\n预约离婚",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "272256",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=272256&sysid=148",
+   "question": "财政决算报告\n您好，请问贵单位网站的2020年财政决算报告发布了吗？能否提供网址链接给我？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "268028",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=268028&sysid=148",
+   "question": "地名图集\n第二次地名普查业已结束，我省是否有编纂省级标准地名图集的计划？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "267161",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=267161&sysid=148",
+   "question": "退伍士兵专升本补贴\n退役士兵大专升本科的补贴，2020年拿的毕业证，这个补贴到什么时候下发",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "257008",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=257008&sysid=148",
+   "question": "婚姻登记\n婚姻登记需要提前预约吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "256215",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=256215&sysid=148",
+   "question": "2021年七夕（周六）可以进行结婚登记吗？\n江苏省苏州市姑苏区2021年七夕（周六）会开放结婚登记吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "254779",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=254779&sysid=148",
+   "question": "军人结婚\n本人服役期间，由于本人是南京人，再徐州异地当兵，再徐州鼓楼区办理结婚信息，是否只需要提供婚姻证明信，关于鼓楼区民政局咨询，需要提供户口跟暂住证，由于部队是集体户口，请问到底只需要证明信跟女方户口，还是男方居住证跟户口也需要",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "253813",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=253813&sysid=148",
+   "question": "我妈双眼失明 脑梗致右侧肢体活动不便 申请一个轮椅\n我妈双眼失明 脑梗致右侧肢体活动不便 申请一个轮椅",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "253714",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=253714&sysid=148",
+   "question": "异地办理咨询\n您好，男女双方户口不在南京，在南通，请问可以在南京办理结婚证吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "241134",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=241134&sysid=148",
+   "question": "江苏省博物馆学会法人变更\n请问江苏省博物馆学会法人变更办理需要哪些材料？办理流程是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "240942",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=240942&sysid=148",
+   "question": "结婚证遗失\n想补办结婚证，结婚证遗失。两人都不在赣榆，请问需要两个人一起吗？还是自己也可以。可以代理补办吗。需要什么手续，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "240697",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=240697&sysid=148",
+   "question": "跨省是否可以办理结婚证？\n我是云南人，现在江苏省无锡市打工生活，我和女朋友还没有办理结婚证，现在想要办理，请问结婚证是否可以跨省通办，如果可以，需要准备的材料是？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "239562",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=239562&sysid=148",
+   "question": "注销社会组织相关疑问\n您好，请问现在注销社会组织的材料中，如无债权债务，是否还需要提前45天登报公告再做清算？以及登记机关是否需要出具注销批文？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "239561",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=239561&sysid=148",
+   "question": "社会组织成立登记\n您好！1、请问社会组织成立登记，网上系统核准名称的时候需要上传业务主管单位批文吗？从登记部门获取的登记流程上，业务主管部门的批文是在名称核准后出具的，网上提交的时候却要求上传主管单位批复。2、申请成立登记需要到登记部门取得",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "238933",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=238933&sysid=148",
+   "question": "省级学术团体协会申请需要做什么\n请写明信件有关事件、地点、事实，字数不要超过1000字",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "238594",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=238594&sysid=148",
+   "question": "结婚信息查询\n本人广西的，在昆山，没带结婚证，能否查询到结婚证件原件信息",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "238498",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=238498&sysid=148",
+   "question": "江苏婚假问题\n我想咨询下2021年江苏婚假有几天，除了法定3天外， 还有晚婚假吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "236242",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=236242&sysid=148",
+   "question": "有关婚检\n你好，我想咨询一下军婚婚检和普通婚检有何区别？在民政局婚检还是要去妇幼保健医院以及是否收费的问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "235977",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=235977&sysid=148",
+   "question": "结婚登记\n浙江省已经实现了结婚证全省通办一年了，希望我省也实现这一功能。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "235933",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=235933&sysid=148",
+   "question": "军婚\n军婚需要哪些材料",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "235855",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=235855&sysid=148",
+   "question": "结婚证件咨询\n请写明信件有关事件、地点、事实，字数不要超过1000字",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "235001",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=235001&sysid=148",
+   "question": "请问跨国婚姻需要哪些手续\n女方美国籍，请问结婚需要对方什么资料",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "234998",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=234998&sysid=148",
+   "question": "伤残军人房屋\n我是一名退伍伤残军人，现有徐州市泉山区泉盛美家14号楼二单元603室住房，2020年三月发现入户门门外以及室内墙面有渗水现象，当即向物业反应情况，期间用无检测设备无人员检测为由，不来检测维修，与之经过无数次沟通无果，岁末通过徐",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "234968",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=234968&sysid=148",
+   "question": "伤残军人的房屋\n我是一名退伍伤残军人，现有徐州市泉山区泉盛美家14号楼二单元603室住房，2020年三月发现入户门门外以及室内墙面有渗水现象，当即向物业反应情况，期间用无检测设备无人员检测为由，不来检测维修，与之经过无数次沟通无果，岁末通过",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "234581",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=234581&sysid=148",
+   "question": "关于如皋市高龄津贴\n您好，我想了解一下如皋市关于高龄老人津贴的政策。谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "234351",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=234351&sysid=148",
+   "question": "外省优抚对像家属能在江苏享受哪些优惠政策？\n你好！我是河南省人，在苏州工作12年，父亲是出国作战人员战时荣立个人三等功，母亲因病致残，家庭是河南省低保户。按国家优抚政策子女入学工作可享受优惠政策，由于国家政策下发晚，我本人没有享受到任何优抚",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "234050",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=234050&sysid=148",
+   "question": "孩子姓氏问题\n您好，我想咨询一下，孩子可以跟爷爷姓吗？（非父姓，非母姓）。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "234002",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=234002&sysid=148",
+   "question": "异地情侣领证需要准备什么材料\n异地情侣领证需要准备什么材料，我湖南永州，男朋友江苏南通，准备今年在南通领证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "223213",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=223213&sysid=148",
+   "question": "残疾人新农合\n老俩口都是二级残，去年新农合是政府帮缴费的，今年政策是不是也一样？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "223175",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=223175&sysid=148",
+   "question": "婚姻登记预约\n现在婚姻登记已经停止周末值班，但是从人情角度出发，今年安排了2月2日登记，后来又因疫情取消了。感觉今年12月12日也是非常好的日子，能不能为新人们加个班呢！感谢各位领导！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "222739",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=222739&sysid=148",
+   "question": "离婚协议书\n请写明信件有关事件、地点、事实，字数不要超过1000字",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "221050",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=221050&sysid=148",
+   "question": "元旦1.1号可以结婚登记吗\n1.1号民政局上班吗，可以领证吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "220977",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=220977&sysid=148",
+   "question": "优抚金查询\n原来的退伍军人优抚金都是三个月发一次，今天的十月份也发了，不过只有原来的三分之一，是不是减少了呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "220237",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=220237&sysid=148",
+   "question": "听力残疾算不算残疾\n听力残疾一级能不能申请国家的困境儿童生活补贴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "219025",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=219025&sysid=148",
+   "question": "江苏慈善奖最具影响力慈善公益项目何时颁奖\n通过文件得知，我基金会 乡村生活老师计划 获得江苏慈善奖最具影响力慈善公益项目，但一直没有收到领奖通知！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "218973",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=218973&sysid=148",
+   "question": "江苏政务app修改电话号码信息\n本人需要报名普通话考试，但系统自动带入的电话号码已经无法使用，并且app的电话号码信息无法更改。请问我应该怎么做才能成功报名",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "218315",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=218315&sysid=148",
+   "question": "社会组织系统信息错误\n您好，在贵网站社会组织查询中为何查不到已注销俱乐部--“南京领航摔跤俱乐部”的相关信息？附件是通过第三方APP“启信宝”查询的结论，显示仍正常状态，可是我已经通过注销了。我想确认下是什么原因？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "217170",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=217170&sysid=148",
+   "question": "婚假\n今年我国婚假3天，江苏还是13天，公司的规章制度写的按国家规定执行，那只能放3天吗？如果所有公司都这样，江苏放13天又是给谁的？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "216781",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=216781&sysid=148",
+   "question": "常熟结婚登记预约\n结婚登记网上预约成功是否会有短信通知还是会在登记前几天有短信通知",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "216507",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=216507&sysid=148",
+   "question": "离婚登记预约\n疫情期间离婚登记要预约，请问梁溪区婚姻登记处一天能办几对离婚？工作人员说只能12对，但是网上预约登记说一天开放18对。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "216181",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=216181&sysid=148",
+   "question": "户籍迁到苏州，在外地办的结婚证，离婚在哪里办\n结婚证在宿迁办的，现在双方户籍迁到苏州园区，请问离婚是在哪里办？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "216070",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=216070&sysid=148",
+   "question": "光荣军属证\n光荣军属证怎么申领？有什么优待吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "211318",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=211318&sysid=148",
+   "question": "集体户口领证流程\n江苏昆山的集体户口，自己手上只有一张户口卡,有户口专用章的，请问领证还需要去人才市场拿户口首页复印件吗？还需要其他东西吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "210953",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=210953&sysid=148",
+   "question": "涉核退役军人补助\n2008年至2013年11月，在南海舰队核潜艇上参加服役，从事核辐射工作，2013年退伍的时候部队给开具了涉核工作人员的证明。回到地方是有渉核工作补贴的。但是13年退伍回来的时候去丹徒区民政局报道，出具涉核工作证明。讯问涉",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "210555",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=210555&sysid=148",
+   "question": "结婚登记一定要网上预约吗？\n结婚登记网上没有预约，可以直接去民政局办理结婚吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "210263",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=210263&sysid=148",
+   "question": "关于80岁以上老人尊老金的问题\n我想问问我们江苏省有没有针对80岁以上老人发放尊老金的政策？如果有什么标准？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "208849",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=208849&sysid=148",
+   "question": "寻找爷爷在江苏牺牲的墓地陪父亲去祭拜爷爷\n爷爷：杨新田。1949年4月江苏因战牺牲。籍贯：山东省济南市平阴县东阿镇东方红大队。所在部队：四野十八兵团六十一军一八一五师五四一团一营二连。爷爷参加革命的时候父亲8个多月，爷爷去世的时候，父亲只有",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "208783",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=208783&sysid=148",
+   "question": "寻找爷爷的墓地\n爷爷是1949年江苏因战牺牲的，我查阅了些资料从时间上来看，应该是渡江战役那个时候。我咨询了当地退役军人事务处，他们说这样的烈士陵园有200多处，因为没有联网，所以很慢很难查到。恳请江苏民政部门帮忙查找，我希望在父亲的有生之",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "208414",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=208414&sysid=148",
+   "question": "分户问题\n我家公公常年卧床加双目失明，婆婆智障加腿脚不便，奶奶九十多岁，老公左眼失明，两个小孩在上小学和幼儿园，大队部通知分户，我们没有独立房产，可以不分吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "205740",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=205740&sysid=148",
+   "question": "社团年检入口\n您好！网页改版，找不到社团年检年报入口了。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "205338",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=205338&sysid=148",
+   "question": "生大病，民政补助如何申请？\n我父亲是江宁区户口，肺癌晚期，收入微薄。现在想了解民政补助这一块的政策。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "204712",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=204712&sysid=148",
+   "question": "领结婚证户口本需要全部页吗\n领结婚证户口本需要全部页吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "204072",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=204072&sysid=148",
+   "question": "关于经济状况核对机构\n《江苏省社会救助家庭经济状况核对办法》于2018年12月23日经省人民政府第22次常务会议讨论通过，自2019年2月1日起施行。该办法第二条明确：“经核对对象授权，由社会救助家庭经济状况核对机构（以下简称核对机构）对其",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "199930",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=199930&sysid=148",
+   "question": "2020年10月10号 是否上班\n您好  我想咨询一下 2020年10月10号昆山市婚姻登记是否可以办理婚姻登记",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "199572",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=199572&sysid=148",
+   "question": "残疾评级及相关救助补贴政策咨询\n我家婆婆是残疾〈有残疾证，具体等级不清楚〉，有证大概有十几年了从未领取任何补贴，咨询下：1.残疾证需要定期评估或复审？2.不同等级对应的补贴救助政策是什么？3.若有补贴救助政策，怎么申报领取？4.若有救助补贴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "199278",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=199278&sysid=148",
+   "question": "无人抚养儿童\n你好！我们夫妻作为聋哑人，已有女儿，我朋友告诉我们尽快办无人抚养儿童，有补助，对吗？让我们怎么安排办理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "196577",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=196577&sysid=148",
+   "question": "民政厅是否有高港地区人民代表要求将高港划归泰州管辖的联名信？\n泰州升地二十多年来在党和各级政府的领导下地方经济与文化发展取得了不朽的成绩，当年的区划亲历者写一本《十年磨一剑》来记述丰功伟绩，并在泰州地区广为流传，该书提到，当初高港地区的人民",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "196137",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=196137&sysid=148",
+   "question": "结婚证办理\n我听说领证要预约，预约是每天都会出来一定数量的号吗？一般提前几天预约？因为我0点以后看的时候数量是0",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "149150",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=149150&sysid=148",
+   "question": "伤残护理费问题\n我父亲二级伤残已十多年时间，在2019年10月份以前，从未享受过150元的伤残护理费，也未有人告知有这项福利，我想知道2019年10月份以前的费用是退回省里了还是被地方政府部门截留了。谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "148949",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=148949&sysid=148",
+   "question": "关于养老机构备案问题\n今年7月，省民政厅、省市场监管局联合印发了《养老机构登记备案管理工作的通知》。的实际操作中，有两个问题存在疑问，请求民政厅予以释疑为感：一、已经工商注册登记的养老机构，向民政部门申请备案，是否只需提供《设置养老机构备案",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "148210",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=148210&sysid=148",
+   "question": "成立社会团体（文化研究类）\n成立地方社会团体（文化研究类），开展对地方历史文化名人的研究，江苏有什么具体规定和要求？社会团体的名称又有什么具体规定？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "148196",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=148196&sysid=148",
+   "question": "关于农村低保问题\n具体情况：老人为建湖县农村户籍，一人住（丧偶）。女儿为知青子女，户籍已经返沪并结婚生子。老人现在享有低保。想问的是：在沪的女儿、女婿的生活状况（如是否有车或股票账户等）是否会影响老人的低保申领？女儿女婿的经济状况是否也要顾",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "146338",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=146338&sysid=148",
+   "question": "查询网络以下信息是否有效。附信息：\n• 尊敬的部领导• 查询网络以下信息是否有效。附信息：“• 残疾人补贴,《通知》规定，对参保的残疾程度为一级和二级的视力残疾人、肢体残疾人，残疾程度为一级、二级和三级的精神残疾人、智力残疾人（以下简称重残",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "146088",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=146088&sysid=148",
+   "question": "城市低保政策咨询\n低保本人年满60周岁，无子女，无收入，名下仅有一套住房想给侄女，用于老人养老看病及身后事，转赠后是否能继续享受低保待遇。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "145946",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=145946&sysid=148",
+   "question": "上学补助\n请问退役士兵可以免费享受一次技能学习(如驾照.烹饪)及其他形式的补贴，对于复学的来说，退役后一年内或是一年以上升学的(在没有享受过民政部门的补助的前提下)是怎么规定啊？对于复学后的剩余学年或升学后再毕业的学制年又是怎样进行补贴的呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "143300",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=143300&sysid=148",
+   "question": "伤残公务员证\n1、伤残公务员证件遗失了，如何补办？2、残疾人可以办理免费乘车公交卡，乘地铁、公交很方便。可使用伤残公务员证件很不方便，因为不是每个出口都有人值班。建议也参照残疾人公交卡，方便大家。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "141772",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=141772&sysid=148",
+   "question": "行业协会不进行生产经营，只收取会费，需要办理税务登记证吗？\n行业协会不进行生产经营，只收取会费，票据我们是在江苏财政厅领取会费机打票据，我们需要办理税务登记证吗？13，14号社团组织负责人培训说社团组织即使只有会费收入也需要进行免税申请认证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "141216",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=141216&sysid=148",
+   "question": "高级社会工作师什么时候可以报考\n请问什么时候可以报考高级社会工作师证书！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "139528",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=139528&sysid=148",
+   "question": "困境儿童政策咨询\n对于聋哑儿童，在残疾类别上属于多重一级残疾，是否属于困境儿童类别？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "137658",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=137658&sysid=148",
+   "question": "选举问题\n想咨询一下，今年11月份江苏省大市范围内要不要进行村委会换届选举工作了？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "136081",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=136081&sysid=148",
+   "question": "大学生入伍补偿金\n想请问江苏省大学生入伍补偿金是哪一年开始实施的。大学生入伍补偿金和学费是挂钩吗，就是补偿金就是学费吗？如果不是想请问江苏这项政策吗？是全省实施的吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "134798",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=134798&sysid=148",
+   "question": "《烈士证明书》能否补发\n兹有烈士吴某富，于1947年6月在江苏高邮因战争牺牲。其生前育有二女。原《烈士证明书》由烈士的弟弟吴某明保存。1983年对烈士遗属信息采集登记时，不知何因，将烈士遗属二女信息遗漏登记，致使烈士原始档案显示其无直系亲属",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "130072",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=130072&sysid=148",
+   "question": "社工网上登记后密码如何找回？\n由于社工证网上注册登记时间比较久远，密码忘记了，使用“找回密码”功能，当初未填写密保邮箱和密保问题。想重新注册又显示“该身份证号已存在”。请问现在还可以通过哪种方式找回密码重新登录社会工作管理系统平台？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "129328",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=129328&sysid=148",
+   "question": "结婚登记着装问题\n你好，请问拍结婚证上的照片可以穿汉服吗？对着装有没有特殊的要求？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "126376",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=126376&sysid=148",
+   "question": "退伍后评残问题\n你们好，根据《中华人民共和国军人抚恤优待条例》，抚恤优待径费由各级政府分级负担原则，县民政局有军人的档案，你们是不是应该组织鉴定人员到家庭来给精神病退伍军人签发“中华人民共和国残疾军人等级证＂。或者根据睢宁县县民政局精神病退",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "125891",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=125891&sysid=148",
+   "question": "重大疾病救助\n我姐2017年检查结肠癌中晚期，南京雨花区人，无业，离异，有一女儿大学毕业目前无工作照顾患者，要申请疾病救助，找哪个部门，请回复，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "121196",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=121196&sysid=148",
+   "question": "退役军人成人业余专升本学费报销问题\n请问退役军人参加成人业余专升本学历提升取得学历证书后报销资金是按照全省退役士兵教育培训资金管理办法规定的参加业余或函授（网络远程教育除外）成人高等学历教育，取得学历证书后，按每人每年5400元安排资金。我",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "119817",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=119817&sysid=148",
+   "question": "咨询乡镇文联注册登记事项\n您好：由江苏省海安市滨海新区管委会申请，江苏省海安市文联批复，成立了海安市角斜镇文学艺术界联合会，由于乡镇文联没有编制，无法进行事业单位法人登记。请问：这样乡镇文联可以到县级民政机关进行社团法人登记吗？需要携带哪些",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "119502",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=119502&sysid=148",
+   "question": "关于退伍军人信息采集的问题\n本人为江苏如皋人，七六年退伍后，到江苏徐州煤煤矿工作，退休后回原籍如皋，现户户籍为徐州，前些天收到村里通知说退伍军人信息采集，到镇上办理却说让我到户口所在地办理，这样的互联网时代还不能异地采集吗？本是体恤退伍老兵",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "119470",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=119470&sysid=148",
+   "question": "退伍老兵登记流程咨询\n请问：现在好多退伍老兵跟随子女在外地，来回一趟很不方便，网络如此发达，为什么不能通过网络采集信息呢？而宿迁市泗洪县非要本人到现场采集信息呢？ 本来政策是好的，流程又来回折腾人。看了苏州网络咨询，都可以异地采集信息。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "119314",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=119314&sysid=148",
+   "question": "光荣之家牌发放\n你好，请问家父是退伍军人并且亨受四级伤残军人【本人现已去世】，其遗属【我母亲】健在，我家向村里申请光荣之家牌时告知家父去世不好发光荣之家牌，请问是否应该发放并悬挂光荣之家的光荣牌？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "119221",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=119221&sysid=148",
+   "question": "军人残疾证\n本人籍贯:灌南县，2018年9月退伍，在部队评残后，退伍回到籍贯地民政局，残疾军人退役或者向政府移交，必须自军队办理了退役手续或者移交手续后60日内，向户籍迁入地的县级人民政府民政部门申请转入抚恤关系。是这样吗？我们当地民政局说",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "116231",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=116231&sysid=148",
+   "question": "2胎罚款\n第一胎是未婚先孕，后来补领了结婚证，现在想生2胎，去咨询办理准生证，他们说第一胎是违规，要罚款2000元，我就想问问是不是有这个规定。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "115412",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=115412&sysid=148",
+   "question": "咨询有退役军人事务部转给江苏省民政厅的信函\n“领导好！国家信访局于2018年8月15日将我写给退役军人事务部的信函转交给了贵厅，不知你们是否收到？如何处理？我是一名退役军人，现已退休，没精力，也没能力为自己的事情再奔波了，麻烦领导在百忙中关",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "114453",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=114453&sysid=148",
+   "question": "您好，想咨询关于涉外婚姻的材料问题\n我得老婆的越南人，现在在办理结婚的一些证件，其中开具的这份越南单身证，其中手指的地方翻译胃未婚，想咨询是否需要写成，现未婚？还有需要完善哪些材料，我在越南做好，以防来到您这里缺少材料，造成麻烦，谢谢您读完",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "114100",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=114100&sysid=148",
+   "question": "关于妻子户口转进本村问题\n本人为农村户口2011年结婚的时侯妻子户口忘记迁回村，现在想迁回来。请问婚嫁户口迁移需要什么样的手续！谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "110475",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=110475&sysid=148",
+   "question": "苏州大市范围内男士陪产假几天？\n苏州大市范围内男士陪产假几天？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "109090",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=109090&sysid=148",
+   "question": "省内异地新农保参保\n我在省内异地工作，想将年迈的老母亲接过来一起生活，请问她能在异地参加新农保吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "106689",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=106689&sysid=148",
+   "question": "离婚后的计划生育关系怎么转移回自己户口的所在地\n您好，我是福建的，我老公是江苏盐城建湖冈东的，我的户口结婚后没有转移，还在福建，但是生宝宝的时候有转移计划生育关系到江苏来办理准生证的，想咨询下办理离婚后怎么处理转移这个计划生育关系，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "104700",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=104700&sysid=148",
+   "question": "关于中小型水库移民后期扶持资金问题\n2006年国家对中小型水库移民后期扶持20年，每人每年补助600元，但是我户王永勤 吴启明 吴韧雪 王永娟 王永花在补助名单上，属于补助对象，至今却没有得到一块钱补偿款。请问是否被地方政府截留挪用，如果是",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "90538",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=90538&sysid=148",
+   "question": "婚假咨询\n2018年南京婚假规定多少天，晚婚假多少天？，休假有没有具体要求",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "88822",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=88822&sysid=148",
+   "question": "18962120688\n请问异地商会监事长是否能当选商会会长，是否有选举和被选举权利。民政厅是否有相关文件规定。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "88616",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=88616&sysid=148",
+   "question": "户籍地拆迁\n本人在户籍所在地没有房产，现户籍所在地要拆迁，本人能享有哪些待遇~！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "58732",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=58732&sysid=148",
+   "question": "咨询贵网站《关于江苏省2017年度公益性社会团体捐赠税前扣》\n尊敬的民政厅领导：        您好，贵网站公告《关于江苏省2017年度公益性社会团体捐赠税前扣除资格名单的公告》有正式发文文号吗？谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "58613",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=58613&sysid=148",
+   "question": "婚假咨询\n您好。打扰了。经咨询得知江苏省婚假13天，我计划4月23日请婚假，请问，我可以请到几号、几号开始上班？因为中间涉及到劳动节法定假期，不清楚这个婚假怎么算，希望能尽快告知。谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "58108",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=58108&sysid=148",
+   "question": "在线社工注册失败，网页显示错误信息\n在线社工注册失败，网页显示错误信息，信息丢失，再次登录显示身份证已注册，无法登陆",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-mzt",
+   "id": "56297",
+   "url": "https://mzt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=56297&sysid=148",
+   "question": "2018年婚假\n想咨询一下，2018年晚婚晚育婚假还是15天吗？网上有传言从今年改为了3天。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

@@ -1,0 +1,726 @@
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+    <title>西藏信访网上投诉平台</title>
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN"/>
+    <meta name="description" content="西藏自治区信访局,信访局,西藏,西藏自治区" />
+    <meta name="keywords" content="西藏自治区信访局,信访局,西藏,西藏自治区" />
+    <meta name="SiteName" content="西藏自治区信访局">
+    <meta name="SiteDomain" content="xzxf.xizang.gov.cn">
+    <meta name="ColumnName" content="西藏信访网上投诉平台">
+    <meta name="ColumnDescription" content="西藏信访网上投诉平台">
+    <meta name="ColumnKeywords" content="西藏信访网上投诉平台">
+    <meta name="ColumnType" content="西藏信访网上投诉平台">
+    <link rel="stylesheet" href="/tongyong/layui/css/layui.css">
+    <link rel="stylesheet" href="/portal/css/index.css">
+</head>
+<body>
+
+<div class="layui-box">
+    
+
+
+
+
+
+
+
+
+
+
+<style>
+    .box_heat{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: white;
+        background-image:  url("/portal/img/head_bg.png") ;
+        height: 80px;
+        padding: 0 100px;
+        min-width: 1000px;
+    }
+    .box_heat .guohui{
+        font-size: 32px;
+    }
+    .box_heat .guohui img{
+        height: 50px;
+    }
+    .login{
+        font-size: 16px;
+    }
+    .login .login1{
+        background-color: white;
+        color: #357ef1;
+    }
+    .login span{
+        display: inline-block;
+        padding: 5px 15px;
+        border-radius: 100px;
+        letter-spacing: 5px;
+    }
+    .login span:hover{
+        cursor: pointer;
+    }
+    .login img{
+        margin-right: 5px;
+        height: 20px;
+        width: 20px;
+    }
+
+    .logined .layui-nav{
+        background: white;
+        border-radius: 100px;
+        padding-right: 10px;
+        padding-left: 0;
+        font-size: 14px;
+    }
+    .logined .layui-nav .layui-nav-item a{
+        color: #357ef1;
+        line-height: 30px;
+    }
+    .logined .layui-nav .layui-nav-more{
+        border-color :#357ef1 transparent transparent
+    }
+    .logined .layui-nav .layui-nav-mored{
+        border-color: transparent transparent #357ef1;
+    }
+    .logined .layui-nav-bar{
+        display: none;
+    }
+    .logined .layui-nav .layui-nav-item dd a{
+        line-height: 40px;
+        color: #8f8f8f;
+    }
+    .logined .layui-nav .layui-nav-item dd img{
+        margin-right: 10px;
+    }
+    .logined .layui-nav-child{
+        border-radius:5px;
+        border: none;
+        right: -10px;
+        top: 50px;
+        left: auto;
+    }
+    .logined .layui-nav-child dd.layui-this, .logined .layui-nav .layui-nav-child dd.layui-this a{
+        background-color: #f2f2f2;
+    }
+</style>
+<div class="box_heat">
+    <div class="guohui">
+        <img src="/portal/img/guohui.png">
+        <span>西藏信访网上投诉平台（藏易访）</span>
+    </div>
+    <div class="login ">
+        <span class="login1" onclick="login()"><img src="/portal/img/login.png">登录</span>
+        <span class="login2" onclick="register()"><img src="/portal/img/sigin.png">注册</span>
+    </div>
+    <div class="logined layui-hide">
+        <ul class="layui-nav" lay-filter="">
+            <li class="layui-nav-item">
+                <a href="/ocp/personal.html">我</a>
+                <dl class="layui-nav-child"> <!-- 二级菜单 -->
+                    <dd><a href="/ocp/personal.html"><img src="/portal/img/dl_wdxfj_icon.jpg" alt="">我的信访件</a></dd>
+                    <dd><a href="/ocp/user.html"><img src="/portal/img/dl_grzl_icon.jpg" alt="">个人资料</a></dd>
+                    <dd><a href="/oauth/user/center.html" target="_blank"><img src="/portal/img/dl_xgmm_icon.jpg" alt="">修改密码</a></dd>
+                    <dd><a href="/oauth/logout.html"><img src="/portal/img/dl_tcdl_icon.jpg" alt="">退出登录</a></dd>
+                </dl>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/tongyong/js/jq.js"></script>
+<style>
+    div.petition_login_tips_page .tishi{
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0,0,0,0.4);
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+    }
+    div.petition_login_tips_page .tishi .cont{
+        width: 697px;
+        border-radius: 20px;
+        background: url("/portal/img/tishi.jpg") no-repeat white;
+        padding-top: 270px;
+        padding-bottom: 20px;
+        position: relative;
+    }
+    div.petition_login_tips_page .tishi .cont h2{
+        font-size: 25px;
+        font-weight: bold;
+        letter-spacing: 5px;
+        margin-top: 20px;
+    }
+    div.petition_login_tips_page .tishi .cont p{
+        font-size: 16px;
+        line-height: 40px;
+        padding: 10px 65px;
+        text-align: left;
+        text-indent: 2em;
+        letter-spacing: 3px;
+    }
+    div.petition_login_tips_page .tishi .layui-btn-radius{
+        font-size: 24px;
+        background-color: #1b44a5;
+        padding : 10px 90px;
+        height: auto;
+        letter-spacing: 5px;
+    }
+    div.petition_login_tips_page .tishi .cont .layui-icon-close{
+        position: absolute;
+        top: -38px;
+        right: -38px;
+        color: #fff;
+        height: 40px;
+        width: 40px;
+        border: 3px solid #fff;
+        border-radius: 50%;
+        font-size: 34px;
+        line-height: 40px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+</style>
+<div class="petition_login_tips_page" style="display: none;">
+    <div class="tishi">
+        <div class="cont">
+            <i class="layui-icon-close layui-icon" onclick="$('div.petition_login_tips_page').hide()"></i>
+            <h2>温馨提示</h2>
+            <p>按照自治区推进“数字政府”建设有关要求，西藏信访网上投诉平台已与自治区统一身份认证系统实现对接。请在自治区统一身份认证系统认证后登录。</p>
+            <a class="layui-btn layui-btn-radius" href="/oauth/login.html">认证登录</a>
+        </div>
+    </div>
+</div>
+
+
+
+<style>
+    div.petition_login_after_valid_mobile .tishi{
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0,0,0,0.4);
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+    }
+    div.petition_login_after_valid_mobile .tishi .cont{
+        width: 697px;
+        border-radius: 20px;
+        background: url("/portal/img/anqs.png") no-repeat white;
+        background-size: 100%;
+        padding-top: 270px;
+        padding-bottom: 20px;
+        position: relative;
+    }
+    div.petition_login_after_valid_mobile .tishi .cont h2{
+        font-size: 25px;
+        font-weight: bold;
+        letter-spacing: 5px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    div.petition_login_after_valid_mobile .tishi .cont p{
+        font-size: 16px;
+        line-height: 40px;
+        padding: 10px 65px;
+        text-align: left;
+        text-indent: 2em;
+        letter-spacing: 3px;
+    }
+    div.petition_login_after_valid_mobile .tishi .layui-btn-radius{
+        font-size: 24px;
+        background-color: #1b44a5;
+        padding : 10px 90px;
+        height: auto;
+        letter-spacing: 5px;
+    }
+    div.petition_login_after_valid_mobile .tishi .layui-btn-danger {
+        background-color: #ff5722;
+    }
+    div.petition_login_after_valid_mobile .layui-form-item {
+        margin-bottom: 15px !important;
+        margin-top: 0 !important;
+    }
+</style>
+
+<div class="petition_login_after_valid_mobile"  style="display: none;">
+    <div class="tishi">
+        <div class="cont">
+            <h2>安全校验</h2>
+            <div style="text-align: left;padding-left: 140px;">
+                <div class="layui-form-item" style="display: inline-block;">
+                    <label class="layui-form-label">手机号：</label>
+                    <div class="layui-form-mid layui-word-aux" style="text-align: left;">未绑定手机号码</div>
+                </div>
+            </div>
+            <div style="text-align: left;padding-left: 140px;">
+                <div class="layui-form-item" style="display: inline-block;">
+                    <label class="layui-form-label">验证码：</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="title" required lay-verify="required" autocomplete="off" class="layui-input inputMobileCode" maxlength="6">
+                    </div>
+                </div>
+                <input type="button" style="vertical-align: top;" class="layui-btn layui-btn-primary getMobileCode" value="获取验证码">
+            </div>
+            <a class="layui-btn layui-btn-sm layui-btn-radius checkMobileCode" style="margin-top: 10px;" href="javascript:void(0);">短信认证</a>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function(){
+        /**
+         * 初始化界面
+         */
+        var initCheckView = function() {
+            if (false) {
+                $("div.petition_login_after_valid_mobile").show();
+            }
+        };
+        /**
+         * 获取手机短信验证码
+         */
+        var getMobileCode = function($btn) {
+            $.post("/service/rest/member.user.petitionuserservice/colletion/getMobileCodeByOAuth", function(result) {
+                if (result && 1 == result.code) {
+                    mobileCodeTimer($btn);
+                } else {
+                    $btn.removeClass("layui-btn-disabled").val(result.description || "重新获取验证码");
+                }
+            });
+        };
+        /**
+         * 验证码倒计时
+         * @param $btn
+         */
+        var mobileCodeTimer = function($btn) {
+            var interval;
+            var time = 180;
+            var fun = function() {
+                time--;
+                if(time <= 0){
+                    $btn.removeClass("layui-btn-disabled").val("获取验证码");
+                    clearInterval(interval);
+                    return;
+                }
+                $btn.val(time + "秒后可重新获取");
+            };
+            interval = setInterval(fun, 1000);
+        };
+
+        initCheckView();
+        // 获取验证码事件处理
+        $("div.petition_login_after_valid_mobile input.getMobileCode").on("click", function() {
+            var $this = $(this);
+            if ($this.hasClass("layui-btn-disabled")) {
+                return;
+            }
+            $this.addClass("layui-btn-disabled");
+            getMobileCode($this);
+        });
+        // 安全校验提交事件处理
+        $("div.petition_login_after_valid_mobile a.checkMobileCode").on("click", function() {
+            var $this = $(this);
+            if ($this.hasClass("layui-btn-disabled")) {
+                return;
+            }
+            $this.addClass("layui-btn-disabled");
+            var param = { code : $("div.petition_login_after_valid_mobile input.inputMobileCode").val() };
+            $.post("/service/rest/member.user.petitionuserservice/colletion/checkMobileCodeByOAuth", param, function(result) {
+                if (result && 1 == result.code) {
+                    $("div.petition_login_after_valid_mobile").hide();
+                } else {
+                    $this.removeClass("layui-btn-disabled").addClass("layui-btn-danger").html(result.description || "安全认证失败");
+                    setTimeout(function(){
+                        $this.removeClass("layui-btn-danger").html("短信认证");
+                    }, 3000);
+                }
+            });
+        });
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/tongyong/js/jq.js"></script>
+<style>
+    div.petition_register_tips_page .tishi{
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0,0,0,0.4);
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+    }
+    div.petition_register_tips_page .tishi .cont{
+        width: 697px;
+        border-radius: 20px;
+        background: url("/portal/img/tishi.jpg") no-repeat white;
+        padding-top: 270px;
+        padding-bottom: 20px;
+        position: relative;
+    }
+    div.petition_register_tips_page .tishi .cont h2{
+        font-size: 25px;
+        font-weight: bold;
+        letter-spacing: 5px;
+        margin-top: 20px;
+    }
+    div.petition_register_tips_page .tishi .cont p{
+        font-size: 16px;
+        line-height: 40px;
+        padding: 10px 65px;
+        text-align: left;
+        text-indent: 2em;
+        letter-spacing: 3px;
+    }
+    div.petition_register_tips_page .tishi .layui-btn-radius{
+        font-size: 24px;
+        background-color: #1b44a5;
+        padding : 10px 90px;
+        height: auto;
+        letter-spacing: 5px;
+    }
+    div.petition_register_tips_page .tishi .cont .layui-icon-close{
+        position: absolute;
+        top: -38px;
+        right: -38px;
+        color: #fff;
+        height: 40px;
+        width: 40px;
+        border: 3px solid #fff;
+        border-radius: 50%;
+        font-size: 34px;
+        line-height: 40px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+</style>
+<div class="petition_register_tips_page" style="display: none;">
+    <div class="tishi">
+        <div class="cont">
+            <i class="layui-icon-close layui-icon" onclick="$('div.petition_register_tips_page').hide()"></i>
+            <h2>温馨提示</h2>
+            <p>按照自治区推进“数字政府”建设有关要求，西藏网上信访平台已与自治区统一身份认证系统实现对接。请在自治区统一身份认证系统注册后登录系统并提交投诉事项。</p>
+            <a class="layui-btn layui-btn-radius" href="/oauth/register.html">前往注册</a>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    function login() {
+        $("div.petition_login_tips_page").show();
+    }
+
+    function register() {
+        $("div.petition_register_tips_page").show();
+    }
+</script>
+
+
+    <div class="index_bk">
+        <img src="/portal/img/index_bk.png" alt="">
+    </div>
+    
+    <div class="index_tab">
+        <ul>
+            <li>
+                <a href="/ocp/xfzn.html" target="_blank">
+                    <img src="/portal/img/sy_xfzn_icon.png">
+                    <p>信访指南</p>
+                    <p class="bop">
+                        <img class="right2" src="/portal/img/right2.png">
+                        <img class="right1" src="/portal/img/right1.png">
+                    </p>
+                </a>
+            </li>
+            <li>
+                <a href="/ocp/wyts.html" target="_blank">
+                    <img src="/portal/img/sy_wyts_icon.png" alt="">
+                    <p>我要投诉</p>
+                    <p class="bop">
+                        <img class="right2" src="/portal/img/right2.png">
+                        <img class="right1" src="/portal/img/right1.png">
+                    </p>
+                </a>
+            </li>
+            <li>
+                <a href="/ocp/wyjy.html" target="_blank">
+                    <img src="/portal/img/sy_wyjy_icon.png">
+                    <p>我要建议</p>
+                    <p class="bop">
+                        <img class="right2" src="/portal/img/right2.png">
+                        <img class="right1" src="/portal/img/right1.png">
+                    </p>
+                </a>
+            </li>
+            <li>
+                <a href="/ocp/wypj.html" target="_blank">
+                    <img src="/portal/img/sy_cxpj_icon.png">
+                    <p>查询评价</p>
+                    <p class="bop">
+                        <img class="right2" src="/portal/img/right2.png">
+                        <img class="right1" src="/portal/img/right1.png">
+                    </p>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    
+
+
+
+
+
+
+
+
+
+
+<style>
+    .footer{
+        background: url("/portal/img/sy_banner_bg.png");
+        padding: 30px 0;
+        text-align: center;
+        color: white;
+    }
+    .footer_heat{
+        display: flex;
+        justify-content: center;
+    }
+    .footer_heat span{
+        display: inline-block;
+        padding: 5px 20px;
+        position: relative;
+        border: 1px solid #99c2ff;
+        margin-right: 80px;
+        font-size: 16px;
+    }
+    .footer_heat span:before{
+        content: "";
+        position: absolute;
+        height: 15px;
+        width: 1px;
+        top: 8px;
+        right: -40px;
+        background-color: #99c2ff;
+    }
+    .footer_heat a{
+        color: #f3f7fe;
+        cursor: pointer;
+    }
+    .footer_heat span:last-child{
+        margin-right: 0;
+    }
+    .footer_heat span:last-child:before{
+        display: none;
+    }
+    .footer .cont{
+        font-size: 16px;
+        color: #f3f7fe;
+        margin: 30px;
+    }
+    .footer .cont span{
+        margin-right: 60px;
+        display: inline-block;
+    }
+    .footer .cont span:last-child{
+        margin-right: 0;
+    }
+    .footer .desc{
+        color: #85acfd;
+        font-size: 14px;
+        border-top: 1px solid #85acfd;
+        padding-top: 10px;
+        margin-bottom: 30px;
+    }
+</style>
+<div class="footer">
+    <div class="footer_heat">
+        <span>
+            <a href="http://www.xizang.gov.cn/" target="_blank">西藏政府网</a>
+        </span>
+        <span>
+            <a href="http://xzxf.xizang.gov.cn" target="_blank">自治区信访局</a>
+        </span>
+    </div>
+
+    <p class="cont">
+        <span>主办单位：西藏自治区信访局 </span>
+        <span>地址：西藏自治区拉萨市城关区色拉路5号</span>
+        
+    </p>
+
+    <p class="desc"> 建议您使用IE11、Chrome、Firefox、360、Edge等主流浏览器浏览本网站</p>
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+<script src="/tongyong/js/jq.js"></script>
+<style>
+    div.petition_normal_tips_page{
+        position: fixed;
+        top: 150px;
+        left: 50px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        z-index: 9;
+        width: 455px;
+    }
+    div.petition_normal_tips_page .tishi{
+        background-color: white;
+        padding: 60px 40px 0 40px;
+        position: relative;
+        margin-top: -60px;
+        z-index: 10;
+        border-bottom-right-radius: 21px;
+        border-bottom-left-radius: 21px;
+        width: 375px;
+    }
+    div.petition_normal_tips_page .tishi_head{
+        background: url("/portal/img/normal_tips.png") no-repeat 0 0;
+        background-size: 100% auto;
+        width: 100%;
+        padding: 110px 0 0;
+        position: relative;
+        z-index: 11;
+    }
+    div.petition_normal_tips_page .tishi img{
+        width: 100%;
+    }
+    div.petition_normal_tips_page .tishi_head h3{
+        font-size: 22px;
+        color: black;
+        margin-bottom: 30px;
+    }
+    div.petition_normal_tips_page .tishi p{
+        font-size: 14px;
+        line-height: 35px;
+        text-indent: 2em;
+        text-align: left;
+        width: 100%;
+    }
+    div.petition_normal_tips_page   .close{
+        font-size: 14px;
+        color: white;
+        background-color: rgb(142, 185, 253);
+        cursor: pointer;
+        padding: 2px 15px;
+        display: inline-block;
+        border-radius: 10px;
+        margin-top: 10px;
+    }
+</style>
+<div class="petition_normal_tips_page" style="display: none;">
+    <div class="tishi_head">
+        <h3>【登录提示】</h3>
+    </div>
+    <div class="tishi">
+        <p style="text-indent: 0em;">平台各用户：</p>
+        <p>按照自治区推进“数字政府”建设有关要求，西藏信访网上投诉平台已全面改版，所有注册信息已统一切换至自治区身份认证管理平台，现将有关事宜告知如下：</p>
+        <p>1、原西藏信访网上投诉平台用户请按照自治区身份认证管理平台登录提示登录，如无法正常登录，请重新注册账号后投诉，由此给您带来的不便，敬请谅解。</p>
+        <p>2、2021年6月30日后，未修改完善个人基本信息的，将无法正常登录，历史信访件也将无法查看，需重新注册后投诉。</p>
+    </div>
+    <span class="close">关闭</span>
+</div>
+
+<script>
+    (function(){
+        /*var ifShow = window.sessionStorage.getItem("showNormalTips");
+        if ("true" != ifShow) {
+            $('div.petition_normal_tips_page').show();
+        }*/
+        $("div.petition_normal_tips_page > span.close").on("click", function () {
+            $('div.petition_normal_tips_page').hide();
+            window.sessionStorage.setItem("showNormalTips", "true");
+        });
+    })();
+</script>
+
+</div>
+<script src="/tongyong/layui/layui.all.js"></script>
+<script>
+    var oauth_message = "";
+    if (oauth_message) {
+        layer.open({
+            title: '统一认证平台提示',
+            offset: '43%',
+            content: oauth_message
+        });
+    }
+</script>
+</body>
+</html>

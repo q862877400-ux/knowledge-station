@@ -1,0 +1,724 @@
+{
+ "A_考卷": [
+  {
+   "source": "hb-rst",
+   "id": "t20261008_6028150",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202610/t20261008_6028150.shtml",
+   "question": "服务对象 反映建筑施工企业使用劳务公司人员从事木工、瓦工、水电工及装修等工作，企业以项目缴纳了本项目工伤保险费。咨询劳务公司派遣人员是否为该项目工伤保险覆盖人员，发生工伤后能否享受由工伤基金支付的工伤待遇。",
+   "cited_hits": [
+    {
+     "name": "工伤保险条例",
+     "lib_no": "工伤保险条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [],
+ "C_无依据": [
+  {
+   "source": "hb-rst",
+   "id": "t20260902_6006354",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202609/t20260902_6006354.shtml",
+   "question": "服务对象 反映已成功考过二级建造师，咨询二级建造师证书具体发放时间和下载方式 。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20260805_5989727",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202608/t20260805_5989727.shtml",
+   "question": "服务对象 反映，原专科学院毕业后档案一直存放在湖北省人才事业发展中心，现在某大学提升 了 学历，顺利毕业，本科毕业档案能否与前期专科毕业档案一起存放于湖北人才事业发展中心？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20260706_5971474",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202607/t20260706_5971474.shtml",
+   "question": "服务对象 反映，通过微信 “湖北公共就业创业培训服务”小程序报名某学院的电子商务师技能培训，显示报名：失败，提示：不符合条件，处于非岗前培训状态。服务对象表示实际社保为未就业状态，对于技能培训报名失败存在疑问，要求核实给予处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20260608_5954041",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202606/t20260608_5954041.shtml",
+   "question": "服务对象 反映，在鄂汇办和湖北政务网上都可以看到自己基本养老保险参保情况，每个月的缴费基数，但是没有提供 “个人账户累计储存额”，咨询如何找到这个信息，查询的具体路径是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20260507_5929161",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202605/t20260507_5929161.shtml",
+   "question": "服务对象 咨询，档案存放在湖北省人才中心，怎么办理档案转出？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20260403_5907933",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202604/t20260403_5907933.shtml",
+   "question": "服务对象 咨询，在线办理人事档案转出业务时，除使用法人账号操作外，是否仅限干部本人提交线上申请？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20260306_5886966",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202603/t20260306_5886966.shtml",
+   "question": "服务对象 咨询 “ 2026年湖北省重点产业急需紧缺技能人才职业（工种）指导目录 ” 的执行生效时间 。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20260204_5869970",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202602/t20260204_5869970.shtml",
+   "question": "服务对象反映 2026 年 1 月退休金未到账，希望帮忙核实处理 。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20260104_5847763",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202601/t20260104_5847763.shtml",
+   "question": "服务对象反映 之前 代表湖北参加了 全国 职业技能大赛 并获奖， 按 相关 政策，可以将原 来的 中级证书升为高级。 咨询 如何办理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20251205_5827854",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202512/t20251205_5827854.shtml",
+   "question": "服务对象反映在湖北政务服务网申请技能提升补贴 时， 填写完相应信息后，系统提示请勿越权操作， 希望 核实处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20251107_5807079",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202511/t20251107_5807079.shtml",
+   "question": "服务对象反映 曾参加湖北省优秀技能人才交流会的培训，培训通过考核，成绩合格，但是发的技能等级证当时不能在全国职业资格网站上查询 。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20251010_5785725",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202510/t20251010_5785725.shtml",
+   "question": "服务对象反映 其社保从湖北转移到了省外 ， 咨询如何查询在湖北的缴费记录 。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20250904_5763767",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202509/t20250904_5763767.shtml",
+   "question": "服务对象反映 2025年8月的增补工资未发放， 希望能 核实。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20250805_5738663",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202508/t20250805_5738663.shtml",
+   "question": "服务对象反映今年的养老补贴还没有发放，咨询具体情况。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20250604_5678953",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202506/t20250604_5678953.shtml",
+   "question": "服务对象反映因没有进行退休年审，导致 4月份退休金没有发放，现已 完成 年审 ，咨询退休金发放时间 。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20250507_5642250",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202505/t20250507_5642250.shtml",
+   "question": "服务对象反映 其之前参加的省本级社保，去年离职，咨询灵活就业人员养老保险缴费问题 。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20250409_5607737",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202504/t20250409_5607737.shtml",
+   "question": "服务对象反映 其 高级工程测量工职业资格证书 无法在网上查询到，咨询网上信息查询问题 。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20250306_5564340",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202503/t20250306_5564340.shtml",
+   "question": "服务对象反映 专业技术人员职业资格证书遗失 ，咨询补办的事宜 。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20250206_5531441",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202502/t20250206_5531441.shtml",
+   "question": "服务对象反映在湖北省人事考试网官网中报名 2025年湖北省省考，填写信息后保存提交时提示“错误，系统正在更新维护，请稍后再试”。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20250107_5492951",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202501/t20250107_5492951.shtml",
+   "question": "服务对象反映有一个企业能力资源管理师的职业资格证书，现在证书有污损，询问能否补办 ； 如果可以，需要准备哪些材料 。希望协助处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20241205_5438659",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202412/t20241205_5438659.shtml",
+   "question": "服务对象反映在湖北政务服务网为自己申请技能提升补贴申领，操作到申请表单填写证书信息时，页面乱码报错，无法正常申请 。希望 核实处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20241106_5402769",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202411/t20241106_5402769.shtml",
+   "question": "服务对象反映 之前在湖北政务服务网上 申办湖北省武汉市楚才卡，信息填写后上传个人照片失败，提示： “ 上传图像失败 ” ，多次尝试无效 。希望 核实处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20241009_5362841",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202410/t20241009_5362841.shtml",
+   "question": "服务对象反映其本人于 2000年至2006年在十堰市 某 公司工作，参保为湖北省直社保， 2006-2009年参保的是武汉市经开区社保，2009年-2024年由单位办理的湖北省直社保，现在只能查询到2009年至2024年参保的湖北省直养老保",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20240906_5328018",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202409/t20240906_5328018.shtml",
+   "question": "服务对象反映学籍档案存放 在人社部门，但有个别信息有误，咨询存放后修改的问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20240805_5291766",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202408/t20240805_5291766.shtml",
+   "question": "服务对象反映省直机关事业单位的 7月份养老金 未 发， 希望帮忙 核实 。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20240709_5263907",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202407/t20240709_5263907.shtml",
+   "question": "服务对象是集体户口，想咨询档案是否在湖北省人力资源市场，如果档案存在，想咨询湖北省人力资源市场是否能签署赴港协议书，申请香港优才计划需要这个 。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20240606_5229349",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202406/t20240606_5229349.shtml",
+   "question": "服务对象来电反映通过湖北政务服务网 -提交了【省集中企保系统】技能提升补贴申领，现审核通过了，咨询补贴什么时候能到账 。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20240507_5182075",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202405/t20240507_5182075.shtml",
+   "question": "服务对象反映报考高级会计师考试 并 通过考试，在湖北政务服务网 -专业技术人员资格证书办理中下载高级会计师证书，发现电子版没有证书编号，请求反映处理 。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20240407_5150252",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202404/t20240407_5150252.shtml",
+   "question": "服务对象反映通过鄂汇办 APP提交了技能提升补贴申领，状态显示不予受理办结 ，咨询能否核实不予通过的具体原因。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20240306_5109569",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202403/t20240306_5109569.shtml",
+   "question": "服务对象 服务对象反映于 2023年6月退休，当时退休是按照 20 22年标准计算的养老金，告知新标准出来之后按照新标准执行。咨询新标准是否已出？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20240206_5079473",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202402/t20240206_5079473.shtml",
+   "question": "服务对象 咨询，专业技术人员职称证书查验入口在哪里？希望告知。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20240105_5029900",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202401/t20240105_5029900.shtml",
+   "question": "服务对象 咨询，在鄂汇办 APP办理湖北省人力资源和社会保障厅的技能提升补贴申领的事项，点击在线申请的时候，页面提示该人员存在未复核的技能提升补贴申领核定信息，导致无法进行到下一步。希望协助处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20231206_4992016",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202312/t20231206_4992016.shtml",
+   "question": "服务对象 反映其养老金没 收 到，咨询何时可以到账。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20231108_4933179",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202311/t20231108_4933179.shtml",
+   "question": "服务对象 反映其 10 月退休金没 收 到，咨询何时可以到账。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20231011_4884455",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202310/t20231011_4884455.shtml",
+   "question": "服务对象 咨询湖北省 2023年最低工资标准是否会调整。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20230912_4835108",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202309/t20230912_4835108.shtml",
+   "question": "服务对象反映老人去世后领取了安葬抚恤金，听说去世后还可领取 3个月养老金，咨询是否属实 。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20230810_4790526",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202308/t20230810_4790526.shtml",
+   "question": "服务对象 表示 其 2019年退休，现发现2022年7月份退休金没有发，其他时间正常发放，咨询原因 。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20230707_4737139",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202307/t20230707_4737139.shtml",
+   "question": "服务对象 表示 自己是 2012年7月至2014年12月就职于 某 医院， 在 通过湖北政务服务网申请个人权益记录（个人历年参保缴费证明）时，参保证明上只展示 了 2014年10月至2014年12月参保地缴费信息 ，咨询原因。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20230609_4701993",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202306/t20230609_4701993.shtml",
+   "question": "服务对象 咨询，个人账号登录湖北政务服务网 -特色专区-人才服务专区-楚才卡-立即申领，但是页面提示：已取消网页导航，另反映无法上传申领条件的奖项或证书扫描件，要如何申领楚才卡。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20230512_4660371",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202305/t20230512_4660371.shtml",
+   "question": "服务对象 咨询，技能提升补贴申领审核已通过，补贴却一直未发放。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20230411_4619358",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202304/t20230411_4619358.shtml",
+   "question": "服务对象 咨询，在湖北政务服务网进行在线办理档案转出的相关问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20230310_4578308",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202303/t20230310_4578308.shtml",
+   "question": "服务对象 咨询 事业单位职工辞职 后 职业年金补记 时 工资基数 “中人”与其他人是 否 一样 。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20230214_4545245",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202302/t20230214_4545245.shtml",
+   "question": "服务对象反映 之前 领取了高级工程师证书，发证机关 为 湖北省职改办，在湖北政务服务网 -专业技术人员职称证书查验里查询无数据，咨询该证书真伪 。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20230129_4499610",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202301/t20230129_4499610.shtml",
+   "question": "服务对象 咨询，自己属于省直参保，在省社保中心待遇审核处办理了正式退休，目前还在审核中。服务对象称当兵档案应征入伍登记表出生年月和入团申请书的档案申请表显示的出生年月存在误差。自己又不懂办理流程，很着急，要求协助处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20221209_4449735",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202212/t20221209_4449735.shtml",
+   "question": "服务对象 反映，需 将党组织关系转移到外地，当地接收部门要求提供入党志愿书、政审材料、入党材料等相关证明，工作人员告知可在档案所在地开具，咨询如何开具 。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20221109_4396763",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202211/t20221109_4396763.shtml",
+   "question": "服务对象 咨询，需在湖北政务服务网打印湖北省省本级的社保参保证明，登录后选择特色服务 -企业职工养老保险信息系统，进入湖北省社保网上办事大厅，选择参保所属地中无“湖北省省本级”的选项，导致无法查询到其省本级参保证明，请求核实。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20221018_4355918",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202210/t20221018_4355918.shtml",
+   "question": "服务对象 咨询，在湖北政务服务网代家人办理楚才卡，从首页湖北省特色服务选择楚才卡进入，但点击立即申领后页面显示空白，应该怎么处理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20220914_4306331",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202209/t20220914_4306331.shtml",
+   "question": "服务对象 咨询，咨询心理咨询师报名成功后，湖北省政务服务网上在哪里缴费？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20220817_4266473",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202208/t20220817_4266473.shtml",
+   "question": "服务对象 咨询，二级建造师有电子版证书吗？如果有，在哪里可以下载打印？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20220712_4215813",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202207/t20220712_4215813.shtml",
+   "question": "服务对象 咨询，一级建造师考试，第一年公共课通过，但实物未通过。第二年报考可以换专业吗？已通过的成绩是否继续有效？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20220609_4168921",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202206/t20220609_4168921.shtml",
+   "question": "服务对象 希望查询其高级职称证书是否真实。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20220513_4127430",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202205/t20220513_4127430.shtml",
+   "question": "服务对象 咨询， 2022年能否报考注册助理安全工程师？有没有最新的要求？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20220420_4091091",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202204/t20220420_4091091.shtml",
+   "question": "服务对象 反映，想将档案 从湖北省转到荆州市，信息不知道怎么填写，涉及的材料有一些不理解 。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20220308_4030777",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202203/t20220308_4030777.shtml",
+   "question": "服务对象 反映，单位要求申领楚才卡，自己在鄂汇办上申领了楚才卡，但无法查询到办理进度，希望能核实处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20220210_3995308",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202202/t20220210_3995308.shtml",
+   "question": "服务对象 咨询，在湖北政务服务网已办理湖北省人力资源和社会保障厅审批的专业技术人员资格证书补办事项，办件状态显示：准予许可办结。至今未收到证书，希望能核实。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20220111_3960201",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202201/t20220111_3960201.shtml",
+   "question": "服务对象 咨询， 2021年二建考试合格的人员什么时候颁发证书？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20211209_3905856",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202112/t20211209_3905856.shtml",
+   "question": "服务对象 咨询，省统计局已经发布了 2020年度在岗职工平均工资，今年内是否会重新核定养老金标准，并补发？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20211124_3880009",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202111/t20211124_3880009.shtml",
+   "question": "服务对象 咨询失业保险金的申领条件。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20211012_3804716",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202110/t20211012_3804716.shtml",
+   "question": "服务对象 反映自己名字中之前包含生僻字，现已更改姓名，但在鄂汇办电子卡包查看，身份证上名字未更新，在鄂汇办中申领电子社保卡时提示暂未查询到社保卡信息。服务对象希望尽快核实处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20210910_3749329",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202109/t20210910_3749329.shtml",
+   "question": "服务对象 咨询，在线申请社保卡注册提交时报错，出错：原始图像度相差超过 10个像素！社会保障卡补换失败，应该如何处理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20210810_3688822",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202108/t20210810_3688822.shtml",
+   "question": "服务对象 咨询，在湖北政务服务网上查询信息时，网站显示 “获取政务网用户信息失败！”，应该如何处理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20210708_3635762",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202107/t20210708_3635762.shtml",
+   "question": "服务对象 咨询，专业技术人员资格证书遗失补办，经办单位收到申请资料后，自己大概什么时候能收到证书？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20210604_3578769",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202106/t20210604_3578769.shtml",
+   "question": "服务对象 咨询，自己的一级建造师证书遗失了，应该如何补办 ？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20210510_3527256",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202105/t20210510_3527256.shtml",
+   "question": "服务对象 咨询， 2020年湖北二级建造师分数线已公布两个半月，不知二级建造师纸质证书什么时候发放 ？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20210407_3455687",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202104/t20210407_3455687.shtml",
+   "question": "服务对象 咨询，其持有 2018年取得的 中级经济师 证书，是否 能领取技能提升补贴？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20210305_3378306",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202103/t20210305_3378306.shtml",
+   "question": "服务对象 咨询 2020年助理社会工作师合格证书什么时候开始办 理 ？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20210205_3337827",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202102/t20210205_3337827.shtml",
+   "question": "服务对象 咨询 2020年湖北省二级建造师合格线是多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20210105_3199595",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202101/t20210105_3199595.shtml",
+   "question": "服务对象因工作调动拟办理社保转移手续，发现原信息上身份证号码无误，但名字错了一字，咨询如何修改？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20201226_3131376",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202012/t20201226_3131376.shtml",
+   "question": "服务对象原在中国建设银行湖北省分行英山支行上班，2003年买断工龄，现在上海要进行工龄核定，询问上海当地社会养老保险机构发函应该发到湖北社保哪个部门？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20201226_3131375",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202012/t20201226_3131375.shtml",
+   "question": "服务对象询问高级人力资源师证书考试合格后证书如何办理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20201226_3131374",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202012/t20201226_3131374.shtml",
+   "question": "服务对象询问，2019年度湖北省经济专业高级职务任职资格评审结果去年已公示，不知道是否可以领取高级经济师资格证书了？如果可以领取在哪里领取？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20201226_3131373",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202012/t20201226_3131373.shtml",
+   "question": "服务对象办理了档案转递申请，询问办结后的快递问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20201226_3131359",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202012/t20201226_3131359.shtml",
+   "question": "服务对象咨询园艺技术专业是否可以报考一级建造师。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20201226_3131358",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202012/t20201226_3131358.shtml",
+   "question": "服务对象询问在省直个人窗口退休该如何进行年审，多长时间进行一次。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20201226_3131357",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202012/t20201226_3131357.shtml",
+   "question": "服务对象办理了养老保险转入申请，处理意见是资料不符。咨询具体原因。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20201226_3131356",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202012/t20201226_3131356.shtml",
+   "question": "服务对象去年从湖北单位辞职，目前在浙江工作，去年12月社保没有缴费，咨询能不能补缴。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20201226_3131355",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202012/t20201226_3131355.shtml",
+   "question": "服务对象反映自己考一级建造师，查询成绩全部合格，咨询能否拿到证书。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-rst",
+   "id": "t20201226_3131354",
+   "url": "http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/202012/t20201226_3131354.shtml",
+   "question": "服务对象办理了养老保险转入申请，处理意见是资料不符。咨询具体原因。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

@@ -1,0 +1,4382 @@
+{
+ "A_考卷": [
+  {
+   "source": "gd-jieyang",
+   "id": "3429390",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3429390",
+   "question": "建筑面积在500平方米以下的建筑，是否可以豁免消防验收？\n您好，我司因业务发展需要，计划租赁新的厂房，现在看中一个建筑面积为345平方的车间，房东在2024年已为该车间办理了消防验收，请问我们租赁之后还需要办理二次消防验收吗？如果需要办理可",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国消防法",
+     "lib_no": "消防法(2021修正全本)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "建设工程消防设计审查验收管理暂行规定",
+    "广东省住房和城乡建设厅关于对一般项目实行建设工程消防验收告知承诺制备案的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3377807",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3377807",
+   "question": "房改商\n揭阳进贤门东环城路靠近农业局小区旁边的临街旧房（有产权证，产权证地址为凤归林），业主想改成商用，需要办理走什么流程办理？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国民法典",
+     "lib_no": "中华人民共和国民法典",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3286511",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3286511",
+   "question": "关于政府为残疾人代缴“六险二金”的意见建议\n尊敬的领导，我叫陈锐泓，是一位二级肢体残疾人，我市在残疾人社会保障全覆盖方面，仍存在许多短板。特此建言，希望我市能逐步推进为残疾人代缴“六险二金”(养老保险、医疗保险、失业保险、工伤保险、生育保险",
+   "cited_hits": [
+    {
+     "name": "广东省工伤保险条例",
+     "lib_no": "工伤保险条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "住房公积金管理条例",
+     "lib_no": "住房公积金管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "广东省失业保险保险条例",
+    "企业年金办法",
+    "揭阳市城乡居民基本医疗保险实施意见",
+    "揭阳市医疗救助实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3049174",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3049174",
+   "question": "自建房施工过程中出现人员伤亡是否需要报安监局（应急管理局）\n自建房施工过程中出现人员伤亡是否需要报安监局（应急管理局）",
+   "cited_hits": [
+    {
+     "name": "生产安全事故报告和调查处理条例",
+     "lib_no": "生产安全事故报告和调查处理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2775228",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2775228",
+   "question": "退役转业士官\n你好。我是今年12月准备转业回揭阳的士官。请问是需要什么时候回去报道。还想问问退役之后有没有什么优待金之类的",
+   "cited_hits": [
+    {
+     "name": "退役士兵安置条例",
+     "lib_no": "退役士兵安置条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2632707",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2632707",
+   "question": "电动自行车上路\n请问已经在车管所登记上牌，只是牌还未下来的电动自行车，可以上路了吗？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国道路交通安全法",
+     "lib_no": "道路交通安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "广东省道路交通安全条例",
+    "揭阳市城市道路车辆通行管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2610032",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2610032",
+   "question": "建筑工程招投标相关\n根据http://www.jieyang.gov.cn/jtys/zcfg/zcfg/content/post_164235.html揭阳市交通公众网发布，揭阳市招标投标管理办法，本管理办法自2011年10月1日起施行。",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国招标投标法",
+     "lib_no": "招标投标法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "广东省实施&lt;中华人民共和国招标投标法&gt;办法",
+     "lib_no": "招标投标法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "揭阳市招标投标管理办法",
+    "房屋建筑和市政基础设施工程施工招标投标管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2416758",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2416758",
+   "question": "2016年之前入学的师范生如何认定教师资格证？\n您好，请问2016年之前入学的师范生因普通话等级不合格而没有教师资格证，2022年获得普通话等级合格后怎么认定教师资格证？需要哪些资料以及在哪里认证？谢谢！",
+   "cited_hits": [
+    {
+     "name": "教师法",
+     "lib_no": "教师法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "教师资格条例",
+     "lib_no": "教师资格条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "揭阳市2022年下半年中小学教师资格认定公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2162718",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2162718",
+   "question": "关于HPV疫苗预约\n您好，关于hpv疫苗想咨询一下：1.揭阳是否有hpv接种的官方预约渠道呢？ 2.据了解目前仅有几个卫生院可在网上预约，但经常关注也预约不到，要么未有预约号，要么被“秒预约”，经常打电话或跑现场咨询也不现实，请问能否像其他",
+   "cited_hits": [
+    {
+     "name": "中华人民疫苗管理法",
+     "lib_no": "疫苗管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "1035847",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=1035847",
+   "question": "电动代步滑板车可以上路吗？\n就是在广州这边工作的时候然后这边基本都是有戴安全头盔之类的情况下，代步车交警看到都不会拦下的，我想问下如果拿出普宁这边后在有戴头盔之类的情况下是有抓吗？（就那种站着的电动滑板车）",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国道路交通安全法",
+     "lib_no": "道路交通安全法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "道路交通安全法",
+     "lib_no": "道路交通安全法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国道路交通安全法实施条例",
+     "lib_no": "道路交通安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "893527",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=893527",
+   "question": "揭阳某个楼盘预售证上的土地使用用途为商住房，开发商出示的土地使用许可证上使用期限是70年。\n你好，我最近打算买房，然后看到一个楼盘的预售证上的土地使用用途为商住房，开发商出示的土地使用许可证上使用期限是70年，我自己在网上查询土地用途为商住",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国城镇国有土地使用权出让和转让暂行条例",
+     "lib_no": "城镇国有土地使用权出让和转让暂行条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "858637",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=858637",
+   "question": "咨询统计数据\n您好，我是广州工商学院的2021届毕业生，因撰写论文的学术研究需要，想要向您咨询一个统计数据。请问是否能够提供揭阳市2000年-2019年的项目投资的资金来源，因为我在统计年鉴中看到是数据是2015年之前是固定资产投资的资金来",
+   "cited_hits": [
+    {
+     "name": "统计法",
+     "lib_no": "统计法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "848206",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=848206",
+   "question": "城镇登记失业率数据咨询\n因论文需要，请问揭阳市2018年的城镇登记失业率是多少？（其他年份的已在国民经济和社会发展统计公报中获悉，单独2018年的没有）谢谢！",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国统计法",
+     "lib_no": "统计法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "834591",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=834591",
+   "question": "咨询开办眼科医院标准及审批单位\n请问,在揭阳开办眼科专科医院是参照哪个设置标准进行设立? 我想参照国家卫健委(2018)年11号关于印发医疗消毒供应室中心等三类医疗机构基本标准和管理规范(试行)的通知中,眼科医院设置标准设立眼科医院,是由市",
+   "cited_hits": [
+    {
+     "name": "根据医疗机构管理条例",
+     "lib_no": "医疗机构管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "广东省卫生计生委关于进一步规范医疗机构审批管理的通知",
+    "关于印医疗消毒供应中心等三类医疗机构基本标准和管理规范（试行)的通知",
+    "眼科医院的基本标准（试行）",
+    "关于进一步改革完善医疗机构医师审批工作（试行)的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "798650",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=798650",
+   "question": "如何办理污水排入排水管网许可证\n请问：个体工商户餐饮店被要求办理污水排放许可，请问如何办理污水排入排水管网许可证， 具体流程？对口部门和地址？要准备的手续资料是？",
+   "cited_hits": [
+    {
+     "name": "城镇排水与污水处理条例",
+     "lib_no": "城镇排水与污水处理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "城镇污水排入排水管网许可管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "764628",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=764628",
+   "question": "被辞退但是没有拿到相应的补偿金\n尊敬的政府工作人员你们好，很感激你们能再百忙之中抽出空来阅读我的咨询信，我先说下我的问题。我在揭阳市某一工厂工作了20年，但是一直未签订工作协议，现如今因为身体原因，不能胜任当前的工作，老板将我辞退，但是老板",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国劳动合同法",
+     "lib_no": "劳动合同法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国劳动合同法",
+     "lib_no": "劳动合同法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "535424",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=535424",
+   "question": "关于市区菓籽池片区拆迁安置（补偿）房的不动产权登记法律咨询\n本人从事律师工作，因工作需要，特向贵单位咨询关于市区菓籽池片区的不动产权登记等法律问题，具体问题如下：1、目前该片区的拆迁安置补偿房是否可以办理不动产权登记； 2、如可以办理，被拆",
+   "cited_hits": [
+    {
+     "name": "不动产登记暂行条例实施细则",
+     "lib_no": "不动产登记暂行条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "不动产登记暂行条例实施细则",
+     "lib_no": "不动产登记暂行条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "535634",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=535634",
+   "question": "农村旧房重建手续\n麻烦提供一下旧房重建的具体手续及条件，已经咨询过住建局，说是该项职能已由贵单位执行，谢谢",
+   "cited_hits": [
+    {
+     "name": "土地管理法",
+     "lib_no": "土地管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于规范农村宅基地审批管理的通知",
+    "关于规范农村宅基地审批管理的通知"
+   ],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "gd-jieyang",
+   "id": "3508932",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3508932",
+   "question": "关于建房宅基地\n我想咨询一下现在农村建房宅基地需要怎么去申请这个情况，我们之前有买过的地，后来因为经济条件原因没有建，到现在被拉去农田了，找过村委会都说不能建了，搞到现在我们都没有房子住，所以我想咨询一下有关部门能帮我们审核一下之前的地现在",
+   "cited_hits": [],
+   "cited_missing": [
+    "揭阳市农村宅基地和住房建设管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3506929",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3506929",
+   "question": "统计数据咨询\n尊敬的揭阳市领导，您好！我是一名在读研究生，出于科研工作需要，现需获取2000-2024年揭阳市全社会分三次产业从业人数相关数据，方便的话烦请将相关数据发送给我，我的邮箱：2221623978@qq.com，数据仅用于科研使用",
+   "cited_hits": [],
+   "cited_missing": [
+    "揭阳统计年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3424517",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3424517",
+   "question": "咨询2027年高考同等学力 体艺、信息通用技术考试报名时间及流程\n您好，本人揭阳户籍，计划以同等学力身份参加2027年普通高考。目前本人语数英、物化生、政史地九门学业水平合格性考试已全部考试合格，文化课成绩全部达标。 现专门咨询体育、美术（",
+   "cited_hits": [],
+   "cited_missing": [
+    "揭阳市普通高中同等学力认定申请表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3424923",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3424923",
+   "question": "关于2026年暑假放假时间咨询\n您好，请问2026年暑假开始放假时间具体是哪一天？谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省教育厅关于制定2025-2026学年普通中小学校校历的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3411397",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3411397",
+   "question": "关于规范揭阳市中小学体质健康测试工作的建议\n尊敬的揭阳市教育局领导： 您好！ 按国家规定，我市中小学每学年须全员开展《国家学生体质健康标准》测试，且体测成绩已纳入中考体育40分权重 。但目前现状是：多数学校流于形式、部分学校漏测少测、个别学",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于规范揭阳市中小学体质健康测试工作的建议",
+    "广东省教育厅办公室转发〈教育部办公厅关于2015年开展国家学生体质健康标准测试和落实学校体育三个办法有关工作安排〉的通知",
+    "做好我市中小学生体质健康标准测试及迎接省教育厅体质健康抽测工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3382774",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3382774",
+   "question": "2025年度教师职称评审关于职称资历年限如何计算\n尊敬的领导你好！想咨询一下：广东省人力资源和社会保障厅于2025年11月25日发布的《关于做好2025年度职称评审工作的通知》中的附件《关于做好2025年度职称评审具体工作的政策问答》中的第",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省中小学教师职称评审标准条件"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3380439",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3380439",
+   "question": "居民医保转职工医保\n尊敬的领导大家好 想问一下居民医保转职工医保有等待期吗？居民医保连续缴纳15年没有中断过 3月13号在粤省事缴纳了职工社保后居民医保就自动显示暂停参保了 但是2026年居民医保费已经交过了的 就是说我是在居民医保正常参保",
+   "cited_hits": [],
+   "cited_missing": [
+    "揭阳市人民政府关于印发揭阳市职工基本医疗保险实施办法的通"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3326246",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3326246",
+   "question": "揭阳阳光城丽景湾项目地下产权车位确权、销售及过户事宜\n就揭阳揭东区阳光城丽景湾项目地下产权车位的相关事宜，想向自然资源局了解： （1）该项目地下产权车位的大产权证具体办理完成时间/首次确权登记时间为何时？ （2）此前经咨询不动产登记中心工作",
+   "cited_hits": [],
+   "cited_missing": [
+    "不动产登记规程"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3325419",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3325419",
+   "question": "生育津贴\n请问2025年12月1日后生育的，生育津贴个人可以网上（粤医保）申请办理吗？生育津贴是拨付到单位还是个人？是申请人放完产假后再办理还是具体什么时候可以办理",
+   "cited_hits": [],
+   "cited_missing": [
+    "揭阳市人民政府关于印发揭阳市职工生育保险规定的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3282437",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3282437",
+   "question": "备案了省内异地长期居住，住院是按揭阳市内住院标准报销吗\n你好，备案了深圳长期居住，在深圳定点医院住院是不是按照揭阳的住院报销标准保险，看相关广东省的政策是这样的。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发&lt;揭阳市基本医疗保险门诊特定病种管理办法&gt;的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3247644",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3247644",
+   "question": "职工社保和城乡医保的矛盾问题\n咨询问题，失业了断交了职工医保，不管是哪个月份失业断交职工社保，一个月内交城乡居民医保，有没有等待期？或者说职工医保医保断交，几个月内交城乡医保还需等待期吗？还有不是集中缴费期，能不能交城乡居民医保？三个问题，",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家医疗保障局办公室推动落实&lt;国务院办公厅关于健全基本医疗保险参保长效机制的指导意见&gt;的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3221666",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3221666",
+   "question": "异地门特办理问题\n我在中山市人民医院就医确诊了克罗恩病。但是医生告诉我无法在中山办理门特。这种情况我该如何办理异地门特 还是需要办理我们揭阳本地的门特 可以网上申请吗 我在粤医保也没有看到门特申请的窗口",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于广东省基本医疗保险门诊特定病种准入标准的通知",
+    "关于做好门诊特定病种管理工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3224315",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3224315",
+   "question": "《揭阳1—6月全市经济运行简况》什么时候发布？请给网址。\n《揭阳1—6月全市经济运行简况》什么时候发布？请给网址。",
+   "cited_hits": [],
+   "cited_missing": [
+    " 2025年上半年全市经济运行简况 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3165923",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3165923",
+   "question": "关于慢性乙肝，肝硬化慢性病门特申请\n你好， 请问 1.关于慢性病门特申请流程是什么？ 2.需要什么材料？ 3.检验报告需要什么项目？ 4.详细指标标准是什么？有没有相关文件或者网站可以查询 5.达到部分标准就行？还是说必须全部指标必须达到？",
+   "cited_hits": [],
+   "cited_missing": [
+    "揭阳市基本医疗保险门诊特定病种管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3125999",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3125999",
+   "question": "军婚\n请问军婚领证时军人一方需要带什么材料？",
+   "cited_hits": [],
+   "cited_missing": [
+    "军人婚姻登记证明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3124068",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3124068",
+   "question": "咨询国家中医药管理局中医政策\n2023年12月18日国家中医药管理局发布《关于深化中医馆建设加强中医医师配备的通知》，该条通知细则提到凡在基层工作中医师可以提前1年考中级职称，但是广东省和揭阳市2025年的卫生人才考试通知并未提到该条细则，",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好2025年度卫生专业技术资格考试工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3076684",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3076684",
+   "question": "关于揭阳市旅游数据的请求\n我们是暨南大学经济学院的大二学生，我们正在开展“基于潮汕地区的潮汕牛肉丸传承与推广”研究，需要获取揭阳市近两个月各月的旅游客流量统统计数据用于研究，请问有什么渠道可以获取这些数据吗？我们非常需要您的帮助！",
+   "cited_hits": [],
+   "cited_missing": [
+    "全国文化文物和旅游统计调查制度"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3076735",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3076735",
+   "question": "关于企业安全生产标准化认证\n我单位是驻揭中央企业，单位名称是中央储备粮揭阳直属库有限公司，主要从事粮食收储业务。现咨询是否可在贵局申请办理安全生产标准化三级企业认证相关业务？",
+   "cited_hits": [],
+   "cited_missing": [
+    "中共揭阳市委办公室揭阳市人民政府办公室关于印发&lt;揭阳市应急管理局职能配置、内设机构和人员编制规定&gt;的通知",
+    "应急管理部办公厅关于修订&lt;冶金有色建材机械轻工纺织烟草商贸行业安全监管分类标准（试行）&gt;的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3074240",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3074240",
+   "question": "统计年鉴和2024年全年GDP预计\n2024年揭阳统计年鉴大概什么时间发布呢？2024年全年预计实现地区生产总值多少？",
+   "cited_hits": [],
+   "cited_missing": [
+    "全市2024年经济运行简况"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3007525",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3007525",
+   "question": "关于揭阳市水土保持规划的下载\n出于工作与学习的需要想查阅已批复的揭阳市水土保持规划，但自行搜索无法找到对应的版本，请问可否开放下载该文件，谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "揭阳市水土保持规划（2017~2030年）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3005414",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3005414",
+   "question": "揭西县异地医保问题\n我随家庭购买了2024年的城乡居民医保，但是我常年在广州市上学。我最近在广州市定点了一个二级医院，因为揭西县并未开通统筹区，所以我在这个医院门诊产生的费用能否直接结算？还是仍需返回揭西县医疗保障局办理报销手续？异地门诊报",
+   "cited_hits": [],
+   "cited_missing": [
+    "揭阳市基本医疗保险普通门诊统筹管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2955835",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2955835",
+   "question": "城乡居民医疗保险能报销生育所产生的相关费用吗\n领导您好，本人有职工社保，老婆没有参保任何保险，目前有生育计划，如果老婆去购买城乡居民医疗保险，到时候产检之类的生育相关的医疗费用能够报销吗？该如何报销呢，麻烦领导为我排忧解难",
+   "cited_hits": [],
+   "cited_missing": [
+    "揭阳市人民政府关于印发揭阳市职工生育保险规定的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2955790",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2955790",
+   "question": "关于加力支持大规模设备更新和消费品以旧换新的若干措施\n你好，请问我最近有意向购买一辆货车，是否符合关于加力支持大规模设备更新和消费品以旧换新的若干措施通知中的无报废只更新符合条件的货车，平均每辆车补贴3.5万元的政策",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于加力支持大规模设备更新和消费品以旧换新的若干措施"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2903027",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2903027",
+   "question": "居民医保异地转移\n我母亲有干燥综合征及心血管疾病，现长期居住广州，有购买揭阳居民医保，并且还有 2 年左右便可办理退休，想了解下可以购买广州居民医保，将揭阳医保转到广州吗？会对后续退休有影响吗？ 如果还是继续购买揭阳医保，那我母亲在广州三甲",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发〈揭阳市基本医疗保险普通门诊统筹管理办法〉的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2882385",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2882385",
+   "question": "阿尔兹海默病能否纳入揭阳市门诊特定病种目录范围内？\n我爸爸今年75岁，于2022年7月确诊阿尔茨海默病和高血压病等，由于我爸户口在老家惠来县大南山，所以办理门特认定只能根据揭阳门特病种目录，已认定高血压病，由于揭阳门特病种目录里面没有阿尔茨",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省医疗保障局关于印发〈广东省基本医疗保险门诊特定病种管理办法〉的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2883786",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2883786",
+   "question": "想问一下有关揭西县城镇医保异地门诊就医就诊有关问题\n我现在没在揭西县生活工作了，偶尔回去，家里父母买的都是揭西的城镇医疗保险，已经过来一起住了，想去医院就诊需要定点那些吗？定了点而且怎样才能实行统筹报销？普通门诊可以用吗？社区医院，三甲医院",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于揭阳市临时外出就医人员省内异地就医免备案的通知",
+    "揭阳市基本医疗保险普通门诊统筹管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2862543",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2862543",
+   "question": "毕业证补办\n尊敬的领导： 您好！麻烦问下毕业证补办有便捷方式吗(初中)，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省教育厅关于中小学生学籍管理的实施细则（试行）",
+    "广东省九年义务教育证书",
+    "广东省普通高中毕（结、肄）业证书"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2765592",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2765592",
+   "question": "购买了揭阳市医保可以异地门诊跟住院报销吗\n本人在小程序上已经定点了，想咨询一下异地报销，现在我在广州花都平常生病感冒发烧，可以直接使用揭阳市医保进行门诊报销吗？无需回到揭阳市社保局报销！可以在广州当地在扣医药费直接使用统筹金额报销吗？操作流",
+   "cited_hits": [],
+   "cited_missing": [
+    "揭阳市基本医疗保险普通门诊统筹管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2740429",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2740429",
+   "question": "慢性特殊门诊报销\n领导，您好，我想咨询下甲亢可以走慢性特殊门诊报销吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发揭阳市基本医疗保险门诊特定病种管理办法的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2685223",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2685223",
+   "question": "灵活就业医保\n你好！本人社保已断缴半年，现想买灵活就业医保，请问买完多久可以生效？生育险多久可以用？如果到生产的时候灵活就业医保缴纳未满1年可以用生育险吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "揭阳市职工基本医疗保险实施办法",
+    "揭阳市职工生育保险规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2657406",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2657406",
+   "question": "教师资格证领取时间\n请问2023年上半年第一批次4月23日的教师资格证认定什么时候会通知领取呢？ 如果需要用到的话可以先提供电子版吗？怎么查询呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "教师资格证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2651336",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2651336",
+   "question": "练江流域是否有设置水产养殖禁养区\n我司接到1个项目为内陆养殖甲鱼项目，但是距练江流域干流直线距离110m，根据《普宁市畜禽养殖禁养区划定方案》，练江干流及主要支流两岸向陆纵深1000米范围内的区域为禁养区，但是本项目为内陆养殖甲鱼项目，根据",
+   "cited_hits": [],
+   "cited_missing": [
+    "普宁市养殖水域滩涂规划（2018-2030年）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2581881",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2581881",
+   "question": "领养孩子\n亲戚家因为家里有三个小孩，不久前意外怀孕不知道，现在生下来没能力抚养，而我和老婆两人又结婚多年没有孩子，所以双方同意后我们领养他的孩子，只是孩子出生证是她亲生父母的名字，这样我们想把她户口上到我们这边来，这样需要什么手续，和要怎么",
+   "cited_hits": [],
+   "cited_missing": [
+    "民法典"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2530602",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2530602",
+   "question": "数据咨询\n您好！请问揭阳市2022年各县区地区生产总值总量与增速分别是多少？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "2022年揭阳市经济运行快报"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2528914",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2528914",
+   "question": "3周岁小孩改名\n请问3周岁小孩入户已已经半年，改名需要什么手续？流程是什么",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省户口居民身份证管理工作操作规范(试行)",
+    "出生医学证明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2501394",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2501394",
+   "question": "教师资格证退费\n本人报考2022教资面试，疫情原因，周边感染人群多，本人也出现症状，喉咙已经极度沙哑，无法参加面试，看迟迟没有消息，想咨询一下能否退费",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省2022年下半年中小学教师资格考试面试考前公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2502980",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2502980",
+   "question": "2022下半年教资面试退费\n教资面试已临近，但是本人已经感染新冠数天，恐怕无法参加本次1月初的教资面试，希望揭阳教育局能尽快发布正式的退费公告及细则。",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省2022年下半年中小学教师资格考试面试考前公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2504396",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2504396",
+   "question": "揭阳市教师资格证面试退费的流程\n广东省教育厅于12月22日发布广东省教师资格证面试若符合条件可以申请退费，并延长笔试成绩半年，请问揭阳市这边的教师资格证面试退费应该如何办理？提供什么资料？拨打教育局电话一直无法打通。",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省2022年下半年中小学教师资格考试面试考前公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2486355",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2486355",
+   "question": "关于2022年1月中等职业学校专业课教师资格面试相关问题\n您好，请问中职计算机网络技术专业面试可以用这本书吗？《计算机网络技术》9787040342116，教材内容是关于计算机网络基础的内容，但是教材上写着计算机应用专业，不知道是否可以用做",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省2022年下半年中小学教师资格考试面试公告",
+    "2022年下半年中小学教师资格考试揭阳考区面试公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2398389",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2398389",
+   "question": "灵活就业人员缴纳职工医保\n请问揭阳市灵活就业人员如何缴纳职工医保？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省医疗保障局 国家税务总局广东省税务局关于进一步做好我省灵活就业人员参加职工基本医疗保险有关工作的通知",
+    "揭阳市人民政府关于印发揭阳市职工基本医疗保险实施办法的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2400637",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2400637",
+   "question": "身份证\n请问补办身份证最快多久能拿到证件",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省户口居民身份证管理工作操作规范（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2368109",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2368109",
+   "question": "定向卫生计划学生升学，考研问题\n您好，尊敬的揭阳市卫生局负责人，我是一名签订了揭阳揭东区定向卫生服务协议的2020届学生，现就读于广东药科大学临床医学专业。今年上半年辅导员向我们传达了中央红头文件，上面叙述了定向生的最新升学考验政策。与往年",
+   "cited_hits": [],
+   "cited_missing": [
+    "农村订单定向医学生免费培养定向就业协议书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2370283",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2370283",
+   "question": "忘记缴纳2022年度医保\n去年忘记在集中缴费期交纳2022年度的医保费用，请问应该如何补交，粤税通目前无法线上办理",
+   "cited_hits": [],
+   "cited_missing": [
+    "揭阳市人民政府关于印发揭阳市基本医疗保险待遇标准调整方案的通知",
+    "转发&lt;关于允许部分特殊人群办理城乡居民基本医疗保险中途参保手续的复函&gt;的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2341478",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2341478",
+   "question": "血友病患者在揭阳慈云医院凝血因子不能多开药带回家\n医保局的各位领导你好： 我是一名重型血友病患儿的父亲，关于血友病的用药问题想咨询一下，因为血友病患者血液缺乏凝血因子，经常会自发性出血，严重时生活无法自理，甚至有生命危险，在出血时需及时补充",
+   "cited_hits": [],
+   "cited_missing": [
+    "揭阳市基本医疗保险定点医疗机构医疗服务协议（2021年度）",
+    "长期处方管理规范",
+    "关于进一步做好全市血友病医疗服务工作的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2318435",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2318435",
+   "question": "退休职工医保如何续保\n揭阳市医保局负责同志： 在6月24日贵局的公众号推送的一条“不同参保身份，如何参加医保”中提到没有工作单位可以按灵活就业进行参加职工医保。我在5月底曾在揭阳政务中有咨询过，给出的答复是等政策。由于我的身份比较特殊，与原",
+   "cited_hits": [],
+   "cited_missing": [
+    "揭阳市职工基本医疗保险实施办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2312486",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2312486",
+   "question": "外地公职人员公租房申请问题\n请问外地公职人员的填写申请表是否可以直接送至房管局或者政务服务中心，麻烦电话答复谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "揭阳市区2022年度第二批公共租赁住房配租方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2280467",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2280467",
+   "question": "跨境电商培训\n您好！请问揭阳哪部门有提供跨境电商职业培训？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "国务院关于同意在鄂尔多斯等27个城市和地区设立跨境电子商务综合试验区的批复"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2279613",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2279613",
+   "question": "关于粤东贸易广场内房产是否可以交易问题\n领导，您好！想咨询位于揭阳市东山马牙北路以东环市北路以北粤东贸易广场D10幢的一间商铺住宅是否可以正常交易。 房屋用途：铺位、住宅 房屋所有权性质：私有房产 土地使用权来源：揭府国用（2000）字第1",
+   "cited_hits": [],
+   "cited_missing": [
+    "民法典",
+    "自然资源部关于做好不动产抵押权登记工作的通知",
+    "民法典"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2271996",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2271996",
+   "question": "户口注销办理流程\n本人已获得香港永久居民身份，内地户籍归属地为普宁市流沙北街道，想咨询办理户口注销手续流程以及相关办理机构，感谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "注销户口通知",
+    "领取出境定居证件通知书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2270102",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2270102",
+   "question": "揭阳牙科纳入医保了吗\n深圳那边牙科已经纳入医保了，揭阳政策是否一样",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省基本医疗保险、工伤保险和生育保险诊疗项目目录（2021年）",
+    "广东省基本医疗保险、工伤保险和生育保险诊疗项目目录（2021年）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2229063",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2229063",
+   "question": "门特支付最高限额\n高血压居民的门特每个月最高支付限额是三百，指每个月可以报销三百以内，是吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好门诊特定病种管理工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2207205",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2207205",
+   "question": "口腔科可以走医保吗\n网上都说拔牙补牙可以走医保报销，但是今天去地点医院告知用不了医保",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省城镇职工基本医疗保险诊疗项目管理暂行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "1097548",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=1097548",
+   "question": "研究生职称认定问题\n尊敬的相关工作人员或领导，您好。 我是一名市直高中教师，研究生毕业。2015年市教育局到华师校招，我去应聘的时候，曾咨询过研究生是不是可以直接认定中级职称，当时得到肯定的回复。我在2016年入职，转正时被认定了初级职称。",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省人力资源和社会保障厅关于印发广东省职称评审管理服务实施办法及配套规定的通知",
+    "广东省初次职称考核认定规定",
+    "广东省深化中小学教师职称制度改革实施方案",
+    "揭阳市深化中小学教师职称制度改革具体实施方案"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "1026687",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=1026687",
+   "question": "数据咨询\n您好，因论文撰写需要，特向贵局咨询2006-2019年的综合能源平衡表，或是有无2006-2019年能源外地调入量、能源生产量数据，万分感谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省人民政府办公厅关于印发广东省级政务数据资源开放与共享负面清单的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "1008383",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=1008383",
+   "question": "关于孕妇产检使用医保报销咨询事宜\n近日家中有孕妇进行产检，留存有医保金额的社保卡在揭西县二甲级揭西县人民医院无法使用，想咨询揭阳市的政策是否有像广州市那样，医保缴纳者定点一个医院，产检可以直接使用医保报销抵扣支付？在广州生育比在揭阳市生育花",
+   "cited_hits": [],
+   "cited_missing": [
+    "生育备案登记打印单"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "1003609",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=1003609",
+   "question": "幼师资格证咨询\n我是2015年毕业于江门幼师的，有两学成绩单，普通话水平测试通过还可以申请教师资格证书吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "揭阳市2021年上半年中小学教师资格认定公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "951431",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=951431",
+   "question": "疫苗\n怎么预约打新冠疫苗",
+   "cited_hits": [],
+   "cited_missing": [
+    " 点进来 你问我答 | 关于新冠疫苗接种的… "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "933124",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=933124",
+   "question": "建议教育局强调要求各校最迟下学期按中央要求调整到校时间。\n上一条您回复我：尊敬的市民： 您好，非常感谢您的来信，现就您的建议答复如下： 揭阳市教育局已在2021年4月将教育部印发《关于进一步加强中小学生睡眠管理工作的通知》下发到各地各学校，",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步加强中小学生睡眠管理工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "933739",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=933739",
+   "question": "怎么成为一个合格的网约车从业人员\n您好，我来自揭阳普宁，由于工作性质稳定，下班时间充足，所以打算业余时间兼职滴滴等网约车。但对于网约车合规不了解，想请问办理车证对车辆有什么要求，还有车辆转营运后年限到退出营运转非运营是否影响之后正常使用。烦",
+   "cited_hits": [],
+   "cited_missing": [
+    "网络预约出租汽车运输证",
+    "网络预约出租汽车驾驶员证",
+    "网络预约出租汽车经营许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "889620",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=889620",
+   "question": "农村旧房重建\n您好，请问揭阳市揭西县农村旧房重建有补贴吗？有的话具体条件要求跟申请流程是什么？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省住房和城乡建设厅等部门关于印发〈广东省2018年农村危房改造实施方案〉的通知",
+    "农村危险房屋鉴定技术导则（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "889161",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=889161",
+   "question": "关于自然资源部文件我市落实情况的咨询\n自然资源局同事，您好。1月4日，自然资源部印发《关于加快解决不动产登记若干历史遗留问题的通知》（自然资发【2021】1号），提出“证缴分离”及“部分核实”等问题对应解决办法，要求各地高度重视，明确责任主",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于处理揭阳市区不动产统一登记历史遗留问题的意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "885164",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=885164",
+   "question": "特殊门诊\n患者通过门诊特定病种待遇认定后， 一、到哪里选定2家符合条件的定点医疗机构（和2家定点零售药店）作为门特就诊医疗机构（和外配处方药店）； 二、如何向医保经办机构进行备案； 三、是否带着社保卡，拿着处方，到备案的药房购买相关特殊门诊",
+   "cited_hits": [],
+   "cited_missing": [
+    "揭阳市基本医疗保险费门诊特定病种管理办法",
+    "揭阳市榕城区基本医疗保险门诊特定病种鉴定表"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "862455",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=862455",
+   "question": "关于2021年1月中等职业学校专业课教师资格面试相关问题\n1. 专业教材是否需要上交一本给到市教育局。 2. 关于专业教材是否有具体的书目要求或者具体的出版社要求等。 3. 面试过程是否会有结构化题目。 非常感谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "揭阳市2020年下半年中小学教师资格考试面试公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "845694",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=845694",
+   "question": "上海回揭阳需要隔离麻\n请问从上海回到揭阳的话 需要隔离麻 因为下个月想去上海那边办点事情",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好精准健康管理推进人员有序流动的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "845230",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=845230",
+   "question": "关于2020广东事业单位统招资审问题\n你好，关于2020广东事业单位统招资审问题，我想问下对于报考指南里关于2019年毕业生的资格审查，是要在报名前离职的才有资格吗，但是统招通知是在八月份发出来的，就算离职也是要一个月的流程，赶不上在8月3",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省事业单位2020年集中公开招聘高校应届毕业生公告",
+    "广东省事业单位2020年度集中公开招聘高校应届毕业生报考指南",
+    "报考指南",
+    "报考指南"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "834638",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=834638",
+   "question": "2020年教师职称评审继续教育条件\n你好，今年广东人社出台的教师职称评审文件中关于教师继续教育只需提供当年即本年度2020年的继续教育证书，如若没有可以上交承诺书，待证书取得后上交再发取得的职称证书。为什么揭阳发布的文件必须提供2019年度",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好2020年度职称评审工作的通知",
+    "广东省专业技术人员继续教育条例",
+    "广东省专业技术人员继续教育证书",
+    "广东省专业技术人员继续教育证书",
+    "广东省专业技术人员继续教育条例",
+    "广东省专业技术人员继续教育证书",
+    "广东省专业技术人员继续教育证书",
+    "广东省专业技术人员继续教育证书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "819904",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=819904",
+   "question": "退休老人医保\n请问退休老人退休时累计医保缴费年限多少年就不需要缴纳医保？",
+   "cited_hits": [],
+   "cited_missing": [
+    "揭阳市城镇职工基本医疗保险规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "816590",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=816590",
+   "question": "关于 集体建设用地“房地一体”确权登记颁证 事宜\n你好。关于 集体建设用地“房地一体”确权登记颁证 事宜，距实施意见颁布已有两个月，目前社区还没有通知居民办理相关手续。想咨询下这个是村集体/社区统一办理，还是需要个人各自办理？以及办理流程及",
+   "cited_hits": [],
+   "cited_missing": [
+    "揭阳市区宅基地和集体建设用地“房地一体”确权登记颁证实施意见",
+    "广东省加快推进“房地一体”农村不动产登记发证工作方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "813663",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=813663",
+   "question": "慢性病医疗保险\n请问得了红斑狼疮这种慢性病，怎样买社保最划算。具体需要怎么操作，流程是什么样的",
+   "cited_hits": [],
+   "cited_missing": [
+    "揭阳市基本医疗保险门诊特定病种鉴定表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "812244",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=812244",
+   "question": "网约车驾驶员证\n请问我要报名考网约车驾驶员证，请问在哪里报名 然后需要准备什么材料？",
+   "cited_hits": [],
+   "cited_missing": [
+    "出租汽车驾驶员从业资格证申请表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "776547",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=776547",
+   "question": "有建制村完全没有实现“村村通客车”\n你们好！我要反映近日揭阳市政府发布的关于“村村通客车”出现的问题 我所在的地区是惠来县靖海镇后王村，我发现我所在地区的村及附近的村基本没有通客车，只有镇上才有通客车，镇上的客车有途经的村也只是镇区附近的村",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省交通运输厅关于印发《广东省农村客运服务规范(试行)"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "770421",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=770421",
+   "question": "职称申报\n尊敬的领导： 我在揭西县河婆街道溪西小学任教29年，自2001年秋季小学开设英语课程以来，一直任教英语，担任六年级毕业班教学18年。本科毕业，教育学学位，几年来不断奋斗，也取得了相关证书，不知道今年是否能申报小学英语高级职称。谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省中小学教师水平评价标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "755343",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=755343",
+   "question": "收费标准\n榕城区天福路岭南明珠问题楼盘，开发商要求房款增缴至6成方可同意业主提前装修。现物业要求业主装修前需缴纳下列费用： 1.装修押金2000.00元。装修结束后物业验房后此押金可抵其他费用，不予退还。 2.预交水费500.00元。 3.",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省定价目录（2018年版）",
+    "关于物业服务收费的管理办法",
+    "关于调整市区住宅小区前期物业服务收费标准有关问题的通知",
+    "关于转发省发展和改革委 省住房和城乡建设厅&lt;关于进一步规范物业服务收费的通知&gt;的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "755506",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=755506",
+   "question": "办理房地产开发资质暂定级\n请问需要多少人员带有职称？",
+   "cited_hits": [],
+   "cited_missing": [
+    "住宅质量保证书",
+    "住宅使用说明书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "748221",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=748221",
+   "question": "医保省内异地就诊备案材料及无社会保障卡情况下医保报销\n请问： 1.揭阳市农村医保参保对象长期省内异地工作，进行异地住院医保备案所需材料？ 2.揭阳市农村医保参保后未获取社会保障卡，那么如何在异地就诊时出院结算费用的时候进行报销？",
+   "cited_hits": [],
+   "cited_missing": [
+    "疾病诊断证明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "730857",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=730857",
+   "question": "二次医保报销\n您好！ 请问什么病情可符合出院结算后的再二次报销？ 急性脑出血算吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "揭阳市人民政府办公室关于印发揭阳市基本医疗保险待遇标准调整方案的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "747863",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=747863",
+   "question": "2020上半年揭阳市榕城区教师资格认定\n您好，2020上半年揭阳市榕城区教师资格认定的指定体检医院是哪间？指定体检时间范围是什么时候？公告上没有找到相关信心，望回复，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "榕城区教育局关于开展2020年上半年中小学教师资格认定工作公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "727877",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=727877",
+   "question": "关于省内异地就医报销比例咨询\n您好！ 父亲常年居住在广州，5月份因急性脑出血被救护车送入（广州解放军陆军第七十四集团医院），属于三级医院。 现咨询父亲医疗费用出院结算时的报销比例是多少？目前已花费超过20万元 另外脑出血病情十分严重，是否属",
+   "cited_hits": [],
+   "cited_missing": [
+    "揭阳市人民政府办公室关于印发揭阳市基本医疗保险待遇标准调整方案的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "670138",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=670138",
+   "question": "特殊门诊报销流程\n请问城乡居民的特殊门诊(慢性病)怎么申请和报销，认定标准和申请流程，有没有宣传单之类，谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "揭阳市基本医疗保险门诊特定病种管理办法",
+    "揭阳市基本医疗保险门诊特定病种鉴定表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "620856",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=620856",
+   "question": "医保报销\n请问城乡居民基本医疗看牙科可以报销吗？像拔牙，补牙，割息肉这种。",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省城镇职工基本医疗保险诊疗项目管理暂行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "619193",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=619193",
+   "question": "医师资格证发放\n请问2019年医师资格证什么时候发放？",
+   "cited_hits": [],
+   "cited_missing": [
+    "医师资格考试报名暨授予医师资格申请表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "565837",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=565837",
+   "question": "关于咨询生育医疗费用报销结算事项\n您好，本人在榕城区购买职工医保22个月，妻子已在揭西县购买城乡医疗保险，目前怀孕中，请问按照我市生育报销相关政策规定，其生育医疗相关费用（如门诊产前检查、住院分娩医疗费用)如何报销结算？是按男方职工医保报销",
+   "cited_hits": [],
+   "cited_missing": [
+    "揭阳市职工生育保险规定",
+    "揭阳市职工生育保险规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "557653",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=557653",
+   "question": "榕城区GDP和三产增加值\n您好！ 查询发现，《揭阳统计年鉴》发布的榕城区GDP和三产增加值与《广东统计年鉴》发布数据差异较大，想咨询一下是否是口径问题，两者口径差异是哪些？其他地市是否也有类似情况？",
+   "cited_hits": [],
+   "cited_missing": [
+    "揭阳统计年鉴",
+    "广东统计年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "550837",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=550837",
+   "question": "揭东区国民经济和社会发展统计公报\n你好，经查询揭阳市各级政府网站，均无法找到 揭东区2018年国民经济和社会发展统计公报等信息，请问该统计信息在哪里查询，可否直接回复查询链接或者指引，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "揭东区2018年统计年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "547662",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=547662",
+   "question": "关于扶持军残创业的优惠政策是如何落实的？\n我是一名退役的伤残军人，目前处于待业状态，就2019/6/26关于促进残疾人自主就业创业的实施意见的通知里的精神指示希望得到市民政局领导的帮助，自主创业开设一个中国福利彩票销售点，本身福利彩票也是助",
+   "cited_hits": [],
+   "cited_missing": [
+    " 广东省福利彩票投注站管理办法 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "539746",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=539746",
+   "question": "2020年揭阳市工程造价信息\n请问揭阳市出版了2020年揭阳市《工程造价信息》的书籍吗？急需统计2020年揭阳市建筑工程材料价格",
+   "cited_hits": [],
+   "cited_missing": [
+    "工程造价信息",
+    "揭阳市住房和城乡建设局网站",
+    "揭阳市造价信息网"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "538004",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=538004",
+   "question": "关于咨询生育医疗费用报销结算事项\n本人妻子系揭阳产业转移工业园一名学校教师，社保医保在揭阳产业转移工业园缴纳，目前怀孕中，请问按照我市生育报销相关政策规定，其生育医疗相关费用（如门诊产前检查、住院分娩医疗费用)如何报销结算？报销比例是多少？",
+   "cited_hits": [],
+   "cited_missing": [
+    "揭阳市职工生育保险规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "523929",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=523929",
+   "question": "教师资格证认定\n请问2020年上半年教师资格证认定大概是什么时候？语文教师资格证认定的普通话等级要求是多少？",
+   "cited_hits": [],
+   "cited_missing": [
+    "普通话水平测试等级标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "292618",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=292618",
+   "question": "请求设立梅云镇吉荣路公交车线路\n请求设立梅云镇吉荣路公交车线路，解决梅云镇靠近龟石山村庄出行难的状况~ 吉荣路原先有19路公交车，但是公交车随叫随停，速度稍快，造成稍不留神就错过，进而导致客源少停运~ 能否按照站点的情况设立车站，不采用随叫",
+   "cited_hits": [],
+   "cited_missing": [
+    "请求设立梅云镇吉荣路公交车线路",
+    "揭阳市公共交通发展规划",
+    "揭阳市公共交通发展规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "292614",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=292614",
+   "question": "咨询揭阳公交2019年计划打算\n尊敬的交通运输局领导 关于2019年底揭阳公交事业，本人想咨询了解两个问题 1.今年揭阳公交事业有何新规划计划 2.随着梅汕高铁揭阳北站、潮汕机场站和众多的新建市政道路建成，接下来揭阳有无计划开通公共新路线 ",
+   "cited_hits": [],
+   "cited_missing": [
+    "加快推进全市长途客运体制改革和扩大市区公交覆盖面实施方案"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "gd-jieyang",
+   "id": "3504967",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3504967",
+   "question": "大病二次报销是不是去县医保局结算\n我父亲确诊了肺癌在广州市做了手术，出院时已经凭“揭阳市新农合医保”直接结算获得第一次报销，结算后自费3万多元。由于肺癌属于大病的范畴，想知道医保的大病二次报销要去哪个机构结算？我们是在神泉镇的神渔村，是不是",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3508980",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3508980",
+   "question": "医保共济\n我父亲在揭阳买的社保，在深圳住院的时候可以正常通过医保支付通过共济使用我的医保支付，但是门诊的时候不能用，小孩是深圳的医保可以使用我的，只有父亲不行，不是省内都支持家庭共济吗？怎么揭阳的不行呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3507773",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3507773",
+   "question": "请问农村自建房测量需要费用吗？还有需要交税吗？\n今天国土来村里开会，说自建房要测量，测量费用要收2500元，后面还要交税一平58-120元，请问这些是否合法。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3507167",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3507167",
+   "question": "报名点咨询\n2026年成人高考报名点，揭阳市直报名点1到7的具体位置是哪里，需要线下资审",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3504378",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3504378",
+   "question": "关于本市户籍58周岁女性能否购买灵活就业职工医保\n本市户籍现在是还在继续缴纳灵活就业职工养老保险，想咨询是否能再户籍地继续购买灵活就业职工医保，先前未在揭阳有开户职工医疗账号，但是在省内惠州有过7个月的职工医疗参保已停保多年，现在想咨询会因",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3503061",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3503061",
+   "question": "职工医疗保险个人账户\n缴纳职工医疗保险后，个人账户的钱多久能到账",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3500945",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3500945",
+   "question": "请问揭东区一初小学部是不是直升一初初中部？\n您好，请问揭东区一初小学部是不是可以直升一初初中部？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3499307",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3499307",
+   "question": "品牌出海宣传\n你好，我是揭阳市党员，长年在深圳从事外贸工作。因工作结识东非坦桑尼亚企业家Isaya Yunge。Isaya Yunge于今年8月10号在肯尼亚和肯尼亚总统鲁托的长女订婚，并邀请我参加10月6号在坦桑尼亚举行的两国联姻婚礼。我",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3461993",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3461993",
+   "question": "关于医保的大病二次报销的条件\n领导，您好！因我父亲得了腹主动脉瘤在汕头市的“汕头大学医学院第一附属医院”做了支架手术，出院时已经凭“揭阳市新农合医保”直接结算获得第一次报销，结算后自费9.1万元。由于动脉瘤属于大病的范畴，想知道医保的大病二",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3461464",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3461464",
+   "question": "揭阳市房屋和市政工程危大工程专家库\n您好，领导，我想咨询，我市的危大工程专家库近期会有更新入库的通知吗？若有入库通知，请问在什么网站可以看到相关文件，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3460528",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3460528",
+   "question": "集体建设用地出让中的土地增值收益调节金\n您好，请问集体建设用地使用权出让给组织内的个人，是否产生土地增值收益调节金？改调节金的缴纳人是出让方还是受让方？调节金的收取比例是多少？能否提供相关文件？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3461392",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3461392",
+   "question": "低压电工证考试什么时候可以预约考试\n上次咨询的已了解到电工考场已经建好，请问低压电工什么时候可以预约理论考试呢？有没有具体时间，目前预约不了是怎么回事？低压电工考试具体时间什么时候可以开始考试？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3454941",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3454941",
+   "question": "关于居民医保异地使用困难群众报销比例认证条件\n尊敬的市医保局领导，您好， 2026年6月22日，父亲（王凰发 440527195010103735）因疑似恶性肿瘤转移至深圳市肿瘤医院就诊，目前正在住院检查治疗，我在揭阳医保公众号看到关于异地",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3455986",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3455986",
+   "question": "军属优待证\n我想带家人去医院检查身体，是否需要办理军属优待证，如果需要办理应该准备什么材料",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3451513",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3451513",
+   "question": "江南新城三期 B 区办证困难\n我注意到市自然资源局发布的揭阳市区 8 大楼盘可办理商品房转移登记的通告。但是开发商拒不配合一直拖延。我的房屋情况特殊，购买后，开发商没有按规办理网签，也没有开具发票。已经数十次与开发商沟通，都以各种理由推脱拒",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3428931",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3428931",
+   "question": "“十四五”时期揭阳市经济数据申请\n领导您好！因个人研究需要，现需申请公开以下信息： 1.2019-2024年全年揭阳市各区县市的地区生产总值(含各产业增加值情况)的总量和增速情况。(最终核算数据) 2.2024-2025年全年揭阳市各区县市",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3431216",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3431216",
+   "question": "数据咨询\n2026年一季度揭阳市规上工业营业收入和规上工业利润的总量及增速是多少？感谢答复！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3428478",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3428478",
+   "question": "关于汕头中院复函的进一步咨询\n我系（2024）粤05民终415号建设用地使用权转让合同纠纷一案的上诉人程樵生代理律师，贵单位在2025年6月9日向汕头中级法院提交了一份复函，恳请继续解答如下疑问：1、土地使用权：揭东国用（2013）第163",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3404210",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3404210",
+   "question": "旅游数据求助\n领导您好！我是一名旅游管理专业的研究生，因论文撰写需要，正在收集揭阳市2020-2024年各个年份的A级景区数量、旅行社数量和星级饭店数量，共五年。现因查询统计年鉴/公报发现数据有所缺失，故向您咨询。数据仅用于学术研究使用 。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3407408",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3407408",
+   "question": "咨询个人废机油如何处理的问题\n您好，我想咨询一下，如果个人自行更换机动车的机油，这更换下来的废机油要如何处理？请用邮箱进行回复，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3404543",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3404543",
+   "question": "关于在三库一平台已提交的项目总监解锁事宜\n我司于2026.2.4日提交项目总监解锁。 此项目是2018.8月签订了整个合同，但是一期B地块施工缓建有3年，亦与业主于2021.11.10签了补充协议终止合同，望贵局审批为盼",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3378633",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3378633",
+   "question": "关于2026年居民医保补缴\n我母亲2025年年底在集中缴纳的时候忘记缴纳了，现在需要补缴，但是不管是重新参保登记，还是直接在线缴费，都无法操作。参保登记那边就显示“系统显示您已在当前地市正常参保，请勿重新参保”，清缴那边就提示“未查询到您的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3379930",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3379930",
+   "question": "揭阳市揭西县上砂镇联东村最新人口数据\n你好，我是广州新华学院的学生，最近在做毕业论文，需要最新数据的揭阳市揭西县上砂镇联东村人口数据和老年人人口数据，谢谢了。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3378739",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3378739",
+   "question": "2026专升本考场\n尊敬的市教育局:您好!由于即将临近2026年广东普通专升本考试时间，在此向教育局咨询一下今年考场的情况，请问主次设置考杨是否和去午相同?如若不同分别是哪几个学校?期待得到教育局的回复!非常感 谢!",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3372817",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3372817",
+   "question": "关于2026年广东省普通专升本考点安排\n您好！现在三月份距离专升本考试还剩下二十多天了有清远和湛江的考生清远市和湛江市教育部分咨询考点设置获得了具体答复，那请问揭阳市2026专升本考试设置在哪所学校，是否跟2025年一致？因为酒店价格已经很",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3375761",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3375761",
+   "question": "2025退役士兵\n2025年9月退役退伍费什么时候发",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3353329",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3353329",
+   "question": "2025汽车购新补贴\n汽车购新补贴申请在2025年12月25日左右已经显示为终审成功，至今未到账，大概多久会到账呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3352576",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3352576",
+   "question": "离职当月职工医保中断断缴，当月内交城乡居民医保有没有等待期？\n尊敬的领导和工作人员，咨询一个问题，就是当月离职当月的职工医保中断断缴了，回老家当月内交城乡居民医保，请问有没有等待期，还是立即生效？（当月职工社保中断断缴，当月交城乡居民医保）",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3351158",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3351158",
+   "question": "关于揭阳市相关统计数据的咨询\n揭阳市统计局： 您好！我需收集揭阳市相关统计数据开展研究，有以下一处咨询，麻烦您提供对应数据或者明确数据查询途径。 我想计算“计算机服务和软件业从业人员占城镇单位从业人员比重”这项指标，要用到2014-2024",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3350781",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3350781",
+   "question": "数据咨询\n尊敬的领导： 您好！申请人是一名河北工业大学在读硕士生，现因学术研究需要，请求获取揭阳市2024年普通高等学校专任教师人数和2024年揭阳市公共预算中的科学技术支出，经查询官网、统计公报等公开渠道，暂未查找到相关数据，因此特向贵部",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3349902",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3349902",
+   "question": "咨询揭阳市建筑工程综合服务中心的职能\n《房屋市政工程危险性较大的分部分项工程安全管理实施细则》规定危险性较大的工程需要经过专家论证，专家组成员应从工程所在地人民政府住房城乡建设主管部门建立的专家库中选取。请问揭阳市危险性较大的分部分项工程专",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3329865",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3329865",
+   "question": "数据咨询\n您好！我是一名研究生，因课题需要，想请问贵局能否提供根据第三次农业普查结果调整后的2010年贵市的农作物总播种面积数据，课题时间紧急，希望能得到您的尽快回复，不胜感激！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3327698",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3327698",
+   "question": "大学生入伍奖励金\n我是应届毕业生2023年3月从揭阳学院走的兵，25年3月退伍，11月份学校收集我们的资料，说年底发大学生入伍奖励金，为什么到现在还没发，具体发放时间是什么时候",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3328099",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3328099",
+   "question": "法考报名条件\n关于法考，我是老人老办法，13年全日制大专毕业，自考非全日制法学本科毕业时间是在26年12月，27年1月学信网可查，3月份发毕业证，毕业证和学信网显示的毕业时间都是26年12月30日，请问我这种情况可以参加明年2026年的法考",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3282058",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3282058",
+   "question": "有关社保的一些问题\n1，广州的社保账户有余额，咨询广州方说广东省内已经联网通用，在揭阳药店有时候可以刷个账支付费用，但国庆后就一直不可以，是怎么一回事？ 2，此外，广州的个人账户，或者揭阳的个人账户里面的余额可以用来缴纳城乡医保的年保费吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3281594",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3281594",
+   "question": "关于11月旧车报废补贴资格\n10月下发资格券600万，想请问11月份一共下发多少？什么时候出公告？确认购买的市民能否顺利抢到，市面出现很多无购车想法但成功抢券占用资格的，2026年还会有旧车报废补贴吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3283186",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3283186",
+   "question": "关于物业服务备案及物业管理资质申办的问题\n您好，我是一家负责产业园建设及运营的企业，地址是揭阳市榕城区，现在公司要成立一家子公司负责该产业园的物业管理服务，我们进行工商注册后是否需要向您部门进行备案，需要怎么备案呢，是线下窗口还是线上办理就",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3276810",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3276810",
+   "question": "揭阳市工业数据\n亲爱的工业人员你们好！我想了解一下揭阳2025年1-8月规上工业营收、规上工业利润、规上工业总产值的总量及增速情况以及2024年全年揭阳市规上工业总产值总量及增速情况，仅作个人了解用途，感谢解答，祝工作人员身体健康、工作顺利",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3274628",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3274628",
+   "question": "大学生返乡安家补贴\n2023年申请大学生返乡安家补贴通过并已公示，目前未未收到补贴，请问是全部申请人员未发放还是什么原因，希望有确切的回答，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3276214",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3276214",
+   "question": "揭阳勘察备案问题咨询\n尊敬的揭阳住建局领导： 您好，我公司近期承接了揭阳惠来县一个变电站改扩建项目的勘察工作，想咨询贵局对外地单位在揭阳开展勘察工作有无相关备案要求，如有则勘察备案需提供哪些材料、窗口办理位置及联系方式。 十分感谢!",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3252508",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3252508",
+   "question": "2025年汽车置换补贴\n今天（2025年9月12日）早上，在未收到官方公告的情况下，粤焕新暂停发放揭阳的汽车置换补贴券，这是什么原因呢？后续是否重新开放？在7月份已取得二手车交易发票和新车发票的消费者，至今还未抢到券。是否会直接没有了补贴？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3248437",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3248437",
+   "question": "关于商铺将地面填高这一做法是否合法\n你好，是我想查询一下揭阳市榕城区关于商铺店内地面填高的相关政策，相关政策是否支持这一做法。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3251127",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3251127",
+   "question": "咨询2025年度揭阳市市本级公共租赁住房新申请家庭配租方案\n想了解一下，《2025年度揭阳市市本级公共租赁住房新申请家庭配租方案》中，关于申请公共租赁住房，应当符合以下条件之一规定： （三）新就业人员 1.家庭财产低于规定标准，如家庭名下拥",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3223683",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3223683",
+   "question": "建设工程造价信息查询系统\n请问揭阳市有自己的建设工程造价信息查询系统 ，链接请发一下，多谢多谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3224155",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3224155",
+   "question": "高考社会考生咨询\n尊敬的领导您好！我有以下问题想咨询：我是一名揭东区户籍的高三毕业生，想以社会考生的身份报名2026年的春季高考1:报名春季高考需要报名夏季的普通高考吗？2:揭东区的报名地点在哪？时间是什么时候？报名时要带上什么材料？3:报",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3223949",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3223949",
+   "question": "初中毕业生如何参加学业水平测试，获得高中同等学力证明，参加普通夏季高考\n您好，我初中毕业，之前高中退学了，没有高中毕业证和高中学籍，现在想获得高中同等学力证明，参加普通夏季高考。请问我该怎么做，怎么参加学业水平测试，取得了高中同等学力证明就",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3220960",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3220960",
+   "question": "职工医保个人账户余额为-\n已申领中山医保卡，目前公司购买的揭阳社保，查询揭阳职工医保个账余额为-请问是什么原因？需要重新申领揭阳的医保卡吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3219947",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3219947",
+   "question": "揭阳统计数据上半年\n您好，我想请问一下2025年上半年揭阳各区县地区生产总值（GDP）及增速具体是多少，谢谢（网上留言，不用电话）",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3218915",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3218915",
+   "question": "关于2025年初级会计考试考后证书发放时间和流程\n请问2025年初级会计考试通过需要考后审核吗？成绩合格后需要办理什么流程领取证书",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3190826",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3190826",
+   "question": "医保个人账户余额异常\n本人5月中办理揭阳社保卡，单位一直有缴纳医保，但是账户余额一直显示为0",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3190993",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3190993",
+   "question": "申请迁居到广州番禺市桥\n你好，我想咨询社矫的事情。我现在广东揭阳惠来华湖司法所矫正。 可家庭都在广州生活。我老婆一个人在家照顾3个孩子大的11岁，最小的才2岁，完全无法支撑家庭。 两个孩子在广州番禺市桥同心小学读书，公司也在番禺市桥注册经营",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3183560",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3183560",
+   "question": "25年汽车置换补贴\n25年6月揭阳市汽车置换补贴申请每日限量领取，请问是否本轮补贴额度即将用完？7月上旬才能提到新车，提交资料有申请流程，是否能够赶得上？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3184545",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3184545",
+   "question": "在编教师转正\n你好，我是去年2024年2月份入职的在编教师，本应是2025年2月份转正，但是3-5月工资仍是实习工资，教育局回复是因为人社还在申批，我想咨询 1、人社审批转正需要多少个工作日？ 2.正常应当是转正隔月生效，为何工资一直没有变",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3160807",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3160807",
+   "question": "对数据进行咨询\n我想咨询揭阳市限额以上批发和零售业家用电器和音像器材类月度商品零售额情况，例如冰箱，空调，洗衣机数据，最好能将上述数据以Excel形式储存，该数据将用于对家电行业相关问题的数据分析和数学建模，如能帮助感激不尽！ （已经从广东",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3126149",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3126149",
+   "question": "揭阳市省级和市级传统村落分批次保护名录\n您好，我是哈尔滨工业大学（深圳）的一名建筑学学生，最近在做传统村落保护的相关研究。通过网上现有资料未能查询到揭阳市省级和市级传统村落分批次保护名录（省级只看到了2014年第一批名录）。请问可以提供相关",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3141236",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3141236",
+   "question": "急急急！惠来南环二路前何村路口速安装正式红绿灯和电子警察\n尊敬的领导 您好！本人反映的此问题事关过往群众生命安全，十万火急，急需解决！！！位于惠来县华湖镇南环二路与Y132乡道十字交叉路口（前何村路口）目前只简单放置个临时红绿灯，因无抓拍设",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3141822",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3141822",
+   "question": "2008-2024年政府信息公开工作要点分工方案\n您好！由于毕业论文所需，能否提供2008-2024年政府信息公开工作要点分工方案，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3139993",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3139993",
+   "question": "大病医保起付线\n请问揭阳大病医保的起付线是多少，若参保了揭阳的大病医保，但是在外地就医，大病医保的起付线是否不一样，若不一样，起付线是按照就医当地的吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3139089",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3139089",
+   "question": "关于广州中医药大学第一附属医院门诊省内跨市异地医保结算问题的反馈​\n本人家人罗女士持有揭阳职工医保，目前随子女长期居住在广州，已经通过粤医保进行异地就医备案。 罗女士近期在广州中医药大学第一附属医院门诊就诊、取药时，持省内异地医保卡（参保地",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3125405",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3125405",
+   "question": "家庭优待金\n我是2023年9月入伍，请问第二年的家庭优待金，也就是今年的家庭优待金什么时候下发呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3124392",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3124392",
+   "question": "导游资格证\n2024导游资格证是否可以邮寄",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3098393",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3098393",
+   "question": "刷医保码显示无效商户，参加的是职工医保\n刷医保码显示无效商户，参加的是职工医保，医保账户6217222019902291778，是正常参保的，医保余额就是用不了，2024年可以用，2025年就不行了，辛苦帮忙看看更新下医保信息，着急，辛苦兄",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3098179",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3098179",
+   "question": "揭阳市基本医疗保险药品、医用耗材、诊疗项目支付有关标准的最新政策\n您好，揭阳市基本医疗保险药品、医用耗材、诊疗项目支付有关标准的最新政策是什么，在哪里可以查询相关项目是否可以报销，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3097122",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3097122",
+   "question": "2025年揭阳专升本考场安排\n你好！尊敬的揭阳市教育局领导！ 请问2025年广东省普通专升本揭阳考点具体安排了哪些学校？ 是否只安排了揭阳第一中学榕江新城学校？ 离新城学校最近的住宿旅馆酒店有2.5公里左右，且附近共享单车等交通配套不足，而",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3096619",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3096619",
+   "question": "2018年的国民经济和社会发展统计报告\n你好，由于毕业论文所需，想要一下2018年的国民经济和社会发展统计报告，统计局公报里面没有",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3075030",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3075030",
+   "question": "特种作业操作证类报考\n你好！ 请问揭阳市特种作业操作证类—叉车证，目前是要通过哪些渠道才能报考，现有揭阳市内有哪些认证机构能报考。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3075594",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3075594",
+   "question": "揭阳市应急管理局微信公众号\n您好，请问一下揭阳市应急管理局有没有开设官方的微信公众号？平时想了解下贵单位的资讯，麻烦直接网上回复，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3074143",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3074143",
+   "question": "文化广电旅游体育局视频号\n请问揭阳市文化广电旅游体育局有无开设微信视频号",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3075396",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3075396",
+   "question": "揭阳市工业和信息化局微信公众号\n您好，请问一下揭阳市工业和信息化局有没有开设官方的微信公众号？平时想了解下相关资讯，麻烦直接网上回复，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3075348",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3075348",
+   "question": "政务微信\n你好，请问揭阳市生态环境局有开设政务微信吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3074053",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3074053",
+   "question": "政务微信\n你好，请问揭阳市林业局有开设政务微信吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3073533",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3073533",
+   "question": "揭阳市自然资源局微信公众号\n请问一下揭阳市自然资源局有没有开设官方的微信公众号？平时想了解一下贵单位的资讯，麻烦直接网上回复，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3071476",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3071476",
+   "question": "安全生产风控管理培训\n应急管理局对安全生产风控管理培训资质有什么要求？有的话是什么？ 应急管理局下属宣教中心能否批准我司进行培训安全生产风控管理？ 应急管理局下属宣教中心有无安全生产风控管理培训的收费标准（有无政策文件）？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3049276",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3049276",
+   "question": "医保账户余额信息无法查询\n你好，我是今年毕业于揭阳工作，单位自7月开始一直缴纳职工医保，但我在国家医保服务平台上一直查询不到医保账户余额信息，一直显示一条杠，请问是什么原因导致的呢？我应该如何处理？我之前于深圳读书办理的深圳社保卡，现在并无",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3048132",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3048132",
+   "question": "家电以旧换补贴\n商家如何参加家电以旧换新资格，去哪里报名申请。个体户可以参加吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3012813",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3012813",
+   "question": "关于社会考生报名高考的一些疑问\n教育局的相关领导，您好！我于2024年毕业 想以社会考生的身份报名2025年的春季高考与夏季高考 关于报名相关的事项有几点疑问:1.我是一名普宁本地户籍的考生，在网上报名后，应该去哪个报名点进行现场确认，如果",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3009009",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3009009",
+   "question": "汽车换新补贴\n24年8月4号申请的 9月3号显示申请通过，但是补贴一直没到账 这个补贴一般是多久到账",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "3009277",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=3009277",
+   "question": "请问参与揭阳市第一轮汽车“以旧换新”消费券的补贴什么时候发放\n请问参与揭阳市第一轮汽车“以旧换新”消费券的补贴什么时候发放",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2990166",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2990166",
+   "question": "能不能线上办理低保证\n因为父母相继离世，只剩下我和哥哥，现在因为没有在家那边，想着可不可以线上办理低保证，因为学校有相关的补贴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2989432",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2989432",
+   "question": "结婚登记\n我的户籍是揭阳的，男方的户籍是江西省的，我想在揭阳市民政局办理结婚登记，男方那边该准备什么证件呢？女方又要什么证件？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2991673",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2991673",
+   "question": "烟花爆竹\n请问在哪里报考烟花爆竹安全员证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2973685",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2973685",
+   "question": "自考档案存档\n你好，2022年我在外省参与了自考考试并取得了自考毕业证。自考毕业材料目前还在我手上，想近期去存档，但是没有封档，我能在揭阳哪里进行封档呢？封档后以便我存入当地人才中心，盼复！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2972428",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2972428",
+   "question": "揭阳医保补牙是全部不能报销吗\n揭阳医保补牙是全部不能报销吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2973388",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2973388",
+   "question": "汽车以旧换新补贴\n你好，我刚购置了一辆中型营运货车，现名下无符合报废条件的国三车辆。请问是否符合以旧换新政策中的无报废只更新国六营运货车的规定？补贴金额为多少，申请入口在哪里？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2971065",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2971065",
+   "question": "2022年最终核算GDP\n其他城市已经公布2022年GDP最终核算数据，揭阳市各区县2022年最终核算GDP数据总值及增速分别是？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2971104",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2971104",
+   "question": "家庭优待金发放时间\n你好，我是24年3月份入伍的，想问一下家庭优待金什么时候会发放到位",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2970571",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2970571",
+   "question": "汽车置换补贴\n你好，请问时间为:5月1号至8月31号的汽车置换补贴活动。可否叠加国补的报废补贴。即，旧车辆为报废，非过户。谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2954226",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2954226",
+   "question": "职工社保去医院怎么使用？\n去揭阳第三人民医院做检查后进行了支付，支付的时候为什么都是用个人账户去支付的没有走统筹账户，查看了检查项目是属于报销范围内的。 1、去医院如何使用职工医保？ 2、职工医保是否有起付线？要到达起付线才能报销吗？起付线",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2953158",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2953158",
+   "question": "新中考政策解读（包括复读，录取等）\n您好，我想了解一下职高录取如果志愿上填的都录取不上还有机会录取分数更加吻合的职高学校吗？（也就是说志愿上没有出现的学校能去读吗？）",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2953940",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2953940",
+   "question": "编制\n你好，由于我2019年7月全日制中技毕业，2019年3月非全日制大专入学，目前最高学历是全日制本科毕业，我想问一下在往年的教师招聘以及公务员招聘中，这个学历的中技和大专的毕业入学时间是否会影响考编制和考公务员呢 辛苦各位工作人员帮我解",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2954013",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2954013",
+   "question": "工业园区\n请问一下揭阳市目前有多少个工业园区，地址分别是哪里？其中有哪些园区是有从事音响设计、制造、销售、进出口的？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2953419",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2953419",
+   "question": "上半年经济 去年经济数据\n因个人研究需要，可否询问去年揭阳各区县的规上工业增加值、固定资产投资额以及规上工业总产值的数值及增速为多少呢？ 上半年经济运行怎么样，这周会发布吗？ 同比增长是如何计算的？与名义增速的区别是？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2952770",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2952770",
+   "question": "2020年揭阳市人口出生、死亡和自然增长情况\n因论文写作需要，在《2020年揭阳市国民经济和社会发展统计公报》中未找到相关数据，故希望获取2020年揭阳市人口出生数、出生率、死亡人数、死亡率、自然增长人数、自然增长率的情况，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2950762",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2950762",
+   "question": "自考档案没密封\n揭阳自考办电话打不通，本人自考档案没有密封，归档需要密封之后才能上交到相应的单位，能否帮忙密封，如若可以需不需要带其他资料",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2926787",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2926787",
+   "question": "中级会计证书\n你好，去年考过的中级会计成绩，但是中途换公司了，报名信息表上的单位无法提供盖章，请问能否直接认领中级会计证书？能否提供信息变更的方式？或者其他证明工作经历的文件？报名信息表上的单位无法提供盖章。谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2926304",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2926304",
+   "question": "自考本科\n自考本科毕业材料提交是什么时候，需要提交哪些材料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2924468",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2924468",
+   "question": "自考生毕业照片审核\n广东自考毕业申请并采集照片，目前毕业照片上传24小时过了还未审核，因为申请毕业时间有限，想问一下大概什么时间可以审核通过，考生才可以进行下一步毕业工作安排",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2923177",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2923177",
+   "question": "自考本科毕业提交资料\n请问自考本科毕业在线上系统申请毕业后，去哪里提交材料，什么时间内提交",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2924876",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2924876",
+   "question": "教师资格证认定\n户籍所在地是揭西县可以在普宁市认定教资吗？本人是应届毕业生今年6月30号毕业，还没有拿到毕业证，学生证学校也没有盖全章，还有什么办法可以证明我的学历？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2924775",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2924775",
+   "question": "在深圳购买社保，医保卡个人账户怎么没办法在揭阳使用\n在深圳参保，现在在揭阳市榕城区的医院门诊，为什么没办法用医保卡个人账户余额付款。如果本人将社保迁到揭阳，之前在深圳参保医保卡里面的余额能否延续合并到揭阳。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2923429",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2923429",
+   "question": "科技局抖音\n请问揭阳市科学技术局有抖音号吗（网上回复即可）",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2901232",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2901232",
+   "question": "高中同等学力证明办理\n老师你好，我想问一下同等学力证明的办理条件，我现在是已经考完非文化科和已经报名了六科文化科，差语数英三科文化科，如果我考完了是成绩出来了就能去教育局办同等学力证明还是需要等到成绩开放打印通道才能去办同等学力证明，我想补",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2904653",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2904653",
+   "question": "社会考生报考高考\n尊敬的教育局领导，您好！我有以下问题请您指导:一名高二下学期辍学的本省考生，想要以社会考生的身份报名高考的话 ①已参加过历政地物化生和信技通技的学考且均以合格，能够表示与高中毕业同等学力吗，如何开证明？ ②是否需要后续参加",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2904771",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2904771",
+   "question": "教师资格证\n我只是不明白明明有教育局的人说五月底六月初拿证，结果变成六月尾",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2903040",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2903040",
+   "question": "教师资格证\n你好，我是四月份认定的人员，想问一下下，教师资格证什么时候能拿到，因为入面需要资格审核。所以想问一下，什么时候拿到?能不能加急",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2903706",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2903706",
+   "question": "广东省内异地生育报销咨询\n咨询问题1、异地生育保险报销的备案可以亲属代办吗？因为本人在异地生产了不方便回参保地办理 咨询问题2、异地生育保险报销备案需要的资料有哪些？（本人办理和亲属代办资料有区别吗） 咨询问题3、产前检查（比如抽血.三维.",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2903677",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2903677",
+   "question": "金审三期启动、验收时间\n贵审计局您好，我是一名在读研究生，由于研究论文需要搜集各地级市金审三期项目相关时间信息，因此请问贵市金审三期工程启动、相应设备采购及验收时间分别是什么时候？（相关数据仅作论文研究，不会对外传播）非常感谢您的回复！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2902112",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2902112",
+   "question": "咨询\n请问揭阳捷和职业技术学校是揭阳市市直事业单位吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2884703",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2884703",
+   "question": "电动自行车新国标白牌\n深圳牌新国标电动自行车白牌能在家乡普宁道路骑行吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2863005",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2863005",
+   "question": "普通门诊报销额度\n我每年定期购买揭阳城乡居民医保，普通门诊报销额度一年只有400上限，每次最多报销40。 那口腔科的牙周炎系统性治疗是归属普通门诊还是门特啊？ 若是归属普通门诊，那牙周炎系统性治疗还是按400上限报销吗？怎么可以多点报销啊？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2863820",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2863820",
+   "question": "殡葬\n原存放殡仪馆先人骨灰是否有组织撒入江河活动？何时？如何申请？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2841813",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2841813",
+   "question": "普宁户籍在深圳特殊门诊取药\n之前在普宁已经办理过特殊门诊，一直有在普宁那边定点医院取药，由于后续需要常驻深圳，请问怎么把特殊门诊的定点医院改到深圳的医院来？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2841989",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2841989",
+   "question": "高考复读生档案问题\n教育局的领导您们好！我是一名2024届户籍在惠来县的高考复读生，在普宁市的一所私立高中复读了一个学期，下学期想要居家自学。 现有一个问题想请教：最近学校发来通知说，中途退学的学生，不给更新档案。请问这种情况该怎么办？或者",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2842528",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2842528",
+   "question": "2024广东普通专升本\n请问2024年广东省普通专升本揭阳考点具体安排在哪",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2841095",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2841095",
+   "question": "自学考试成绩复查\n自学考试单科成绩复查",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2840744",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2840744",
+   "question": "高考补报名\n您好，我是一名在深圳的往届生自学参加自主招生的考生，但户籍在揭阳市揭东区，现在马上要高考补报名了，我想询问一下资格初核和网上报名还有确定报名是不是在26号到28号之间完成，已经打过揭东区招生办的电话，但一直打不通",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2842147",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2842147",
+   "question": "慢性粒细胞白细胞（P210型，PH+,慢性期），如何申请才能在深圳领药走新农合可报销\n家婆今年70岁，常年在深圳生活，因得慢性粒细胞白细胞，需长期购药根治，有购买老家揭阳的新农合医疗，现想申请在深圳购药，咨询了好几个部门，不知道具体该怎么样",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2839807",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2839807",
+   "question": "高考补报名\n您好，我是一名在深圳的往届生自学参加自主招生，但户籍在揭阳市揭东区，现在马上要高考补报名了，我想询问一下什么时候公布社会报名点，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2840233",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2840233",
+   "question": "2024揭阳市普通专升本考场安排\n尊敬的揭阳市教育局，您好!由于即将临近2024年专升本考试时间，在此向教育局咨询一下今年考场的情况，请问本次设置考场是否和去年相同? 如若不同分别是哪几个学校? 期待得到教育局的回复!非常感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2792106",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2792106",
+   "question": "城乡居民医保参保登记请问多久审核\n您好！由于我之前城乡居民医保停保了，现在无法线上缴费，12月1号我在粤医保城乡居民医保参保登记上填写资料上交，现在5号了还是显示上交情况，没有进入审核，想问下需要多久完成？让我有个心里准备，实在无法完成，我",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2772505",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2772505",
+   "question": "居民医保停保（2024年度）线上办理及是否影响今年余下时间保障\n由于老人家长期在广州居住，2024计划转广州居民医保，需要停保揭阳居民医保。粤医保可以办理？今年11月12月保障待遇不应该影响吧？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2760942",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2760942",
+   "question": "城乡居民医保异地就医备案\n您好，在惠来县买的城乡居民医保，现在要去汕头医院门诊检查，请问如何登记异地就医备案，可以报销吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2771868",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2771868",
+   "question": "教师资格证面试\n我是揭阳户籍地的学生，请问报名教师资格证面试的材料要求中的个人户口簿可以用复印件吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2771951",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2771951",
+   "question": "教师资格证面试\n揭阳户籍大四学生，之前报考揭阳市教师资格证笔试时个人信息的“目前在读年级”那里填四年级后审核都说不符合报名条件，电话咨询工作人员后说是系统设置的问题，让我填写三年级，但是面试需要的在读证明显示大四在读学生，教师资格证考试网的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2764817",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2764817",
+   "question": "高职高考\n你们好！我是一名在深圳的往届生自学参加高职高考，但户籍在揭阳市惠来县，现在马上要高考报名了，我想询问一下关于高考报名的流程和提交资料领取考生号、确认报名是否能在同一天，以及还是否需要再高考体检？之前有打过电话，但是一直处于打不通的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2764210",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2764210",
+   "question": "咨询个人公积金用于支付购房首付款的政策\n为贯彻落实党中央、国务院的决策部署，促进房地产市场平稳健康发展，支持刚性和改善性住房需求。去年以来，我省6个地市（粤东地区已有梅州、汕尾、潮州）已出台支持职工提取住房公积金作购房首付款的配套政策。为此",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2763553",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2763553",
+   "question": "往届毕业生在家自学报名3+高职高考去哪里确认名字\n往届毕业生参加3+高职高考去哪里确认名字户口揭东",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2761930",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2761930",
+   "question": "3+高职高考\n往届毕业生怎么报名3+高职高考",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2759862",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2759862",
+   "question": "高考报名\n领考生号和确认报名能同一天去吗，报名需要哪些资料，户口榕城区的是要去揭阳市教育局报名还是揭阳榕城区教育局报名？为什么打电话给8622102打不通",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2762393",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2762393",
+   "question": "省外监理企业承接项目\n您好，请问省外监理企业想在揭阳承接报建监理项目，是否办理诚信登记即可？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2757091",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2757091",
+   "question": "在深圳复读的社会考生高考咨询\n尊敬的领导： 你们好！我是一名在深圳复读但户籍在揭阳市揭东县的复读生，现在马上要高考报名了，我想询问一下关于高考报名的流程，以及还是否需要再高考体检？看到之前的一些留言，我已经打过8724409这个电话，电话里",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2744775",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2744775",
+   "question": "本省异地就医如何办理医保的大病二次报销\n我父亲于今天1月份确诊肺癌，在中山大学附属肿瘤医院做了化疗、放疗等治疗，已通过“门特”和住院等方式获得第一次报销，在网上了解到“揭阳市城乡居民医保”大病可以进行二次报销，请问在哪里办理？需要哪些资料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2741923",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2741923",
+   "question": "惠来县房地产商关于购房合同的问题\n想问下是不是近段时间惠来县所有的可以办理房产证的房地产，都没办法签订购房合同。已联系售楼处有关人员，说是因为住建局的系统在升级，导致无法从住建局系统里面下载到相应的购房合同案本，和房地厂商无关，是这个意思吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2741010",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2741010",
+   "question": "结婚预约\n夫妻双方都是榕城区户口可以区砲台镇或者周边预约登记吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2741471",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2741471",
+   "question": "家庭优待金\n我是21年3月份，去部队两年就拿到了第一年的家庭优待金，今第二年的优待金到现在都没有发，已经有一年半了，请问是我们揭阳，给军人的优待金还没有下发？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2742053",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2742053",
+   "question": "2023居民医疗保险缴费\n你好，我要替代他人缴2023居民医疗保险，总是显示暂无应征信息，不是说9月开始缴费吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2726611",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2726611",
+   "question": "异地居民医保门诊定点\n本人买了揭阳的居民医保，想在广州市的省口腔医院拔智齿，已经有异地备案了，想就医的医院在异地定点医疗机构里面，此医院有开通省内门诊，医院工作人员说要具体到门诊定点才可以报销，但粤医保小程序的门诊选点登记里提示“参保人最多",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2734830",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2734830",
+   "question": "数学教材版本\n想了解小学和初中的数学教材版本是什么",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2720587",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2720587",
+   "question": "2023年初级会计资格证书考后审核通过后何时发放\n请问2023年初级会计资格证书考后审核通过后何时发放？是以什么形式发放到个人",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2717133",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2717133",
+   "question": "参加2024春季高考\n2023届落榜后，在家自学，想参加2024年春季高考，应该去哪个教育局报名，户口是属于榕城区的，要去揭阳市榕城区教育局还是揭阳市教育局报名",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2717596",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2717596",
+   "question": "揭阳市跑平台顺风车违法吗？\n你好，最近需要带我妹妹去肇庆市上学，路途较远，负担有点大，能否在顺风车平台接两个一起去肇庆学校附近的分担下路费呢？揭阳是顺风车是怎样的政策呢？具体一车能接几单呢？恳请帮我们普法一下这方面的知识可以吗？恳请回复，谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2712003",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2712003",
+   "question": "23年考完初级继续教育\n请问2023年刚考过初级会计的，需要参加继续教育吗？点进去发现继续教育属于未完成状态，需要怎么做呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2705270",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2705270",
+   "question": "关于参加2024年高考\n教育局的领导，您好，我是2023年高考考生。由于我的志愿滑档了，所以我想参加2024年的高考，但是由于家庭原因不能去学校复读，可以在家自学参加高考吗。我的高中母校通知档案要录取通知书或者复读声明才能领取，那么我的档案",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2704401",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2704401",
+   "question": "户口迁出，原户口如何注销？\n我户口迁出到深圳，已经落户了，原来的揭阳户口应该怎么注销？是什么流程？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2685807",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2685807",
+   "question": "户口迁移\n您好，本人揭阳户口是寄户在别人家的，但现在户口本所在地址已经没有了，寄户家庭要求户口迁出，没有结婚也没有在揭阳买房，迁回自己家也迁不回去，能有什么办法迁走吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2684702",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2684702",
+   "question": "统计师的就业方向\n统计师职称是否与企业中有关质量控制的质量工程人员对口",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2684241",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2684241",
+   "question": "揭西县小升初成绩\n揭西县小升初成绩什么时候可以查询？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2682533",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2682533",
+   "question": "广东省内不同城市户口迁移\n你好，我老婆户口是汕头的，我的户口是揭阳的，如果我老婆的户口要迁移到揭阳市的话，需要回到汕头那边公安局办理户口迁移还是在揭阳市的公安局办理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2676351",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2676351",
+   "question": "医保问题\n因长期在国外工作生活，国内老人忘记帮忙缴纳医保费用，导致医保连续两年或以上未缴费。想重新申请缴费。但人在国外。想咨询需要如何处理。有什么手续和程序。感谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2678273",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2678273",
+   "question": "初级会计继续教育\n你好，请问2022年8月取得初级会计资格证，在校大学生财务管理专业的2023年需要进行继续教育吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2658215",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2658215",
+   "question": "初级考后复核\n请问考生信息表填写了单位，后续因为无单位导致无法盖章该怎么办呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2657894",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2657894",
+   "question": "初级会计考后复核\n请问考生信息表填写的时候写了单位一定要盖章吗？如果目前无单位的话，可以打印出来划掉吗？还是直接不盖章上传？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2651990",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2651990",
+   "question": "揭阳市初级会计考后资格审核\n请问揭阳市的初级会计考后资格审核是线上还是线下？需要哪些材料呢？考生信息表需要吗？如果需要没打印的话可以补打印吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2636501",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2636501",
+   "question": "揭阳医保问题咨询\n你好，我有2个问题咨询： 1.我已经缴纳了一年的揭阳职工医保，但是在小程序上查询不到医保余额。之前咨询过医保人员，他们让我去银行激活医保卡，我也已经激活了快2个月，仍旧查询不到余额，显示-。我还需要怎样操作，才能查到余额?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2630707",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2630707",
+   "question": "在2市都买了医保，需要停办揭阳医保\n我家小孩户口2019已经迁入深圳市，同时也在这边参加了几年的深圳市社会医疗保险，但是这两天收到深圳医保局短信通知说我小孩同时也参加了揭阳市 城乡居民或职工基本医疗保险，要我选择保留一个参保关系，并暂停其他",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2604348",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2604348",
+   "question": "城镇化率咨询\n您好，因工作需要，咨询一下揭西县和惠来县2021年常住人口城镇化率数据或者城镇常住人口数据，查询了统计年鉴、统计公报和政府工作报告均为找到相关信息，希望能够解答，感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2588411",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2588411",
+   "question": "社会考生高考\n您好，我是户籍是在揭西县的，但是当年高中在揭阳一中读的，然后又到湖南上了大专，大专是今年7月份毕业，请问一下，我可以报名2024年高考吗？如果允许的话，请问需要哪些步骤？需要到哪里去办理什么手续吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2591812",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2591812",
+   "question": "2011—2020年每一年揭阳市的人口自然增长率\n因论文需要，想要获取2011—2020年每一年揭阳市的人口自然增长率",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2581233",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2581233",
+   "question": "初级会计职称的继续教育\n于2022年8月取得的初级会计证书，2023年毕业当年是否需要继续教育或者需要办理些什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2578046",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2578046",
+   "question": "退役军人贷款\n您好本人张碧波服役年限2年1个月，役情期间响应国家号召自主创业，目前急需贷款经营，请相关部门人员给予支持，我将再接再厉在这非常时期继续为国家作贡献。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2579850",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2579850",
+   "question": "金银珠宝类销售额统计数据\n您好，因课题需要金银珠宝类销售额统计数据。揭阳的翡翠市场时本课题研究的重点，所以烦请您提供一下2000-2022年金银珠宝类销售额。如无此数据，烦请告知原因，非常感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2578871",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2578871",
+   "question": "论文数据需要\n您好，我是一名在珠海市大四的揭阳大学生，因为论文需要，向您了解，揭阳市物流的总额、揭阳市物流园区的数量和物流基础设施的数量、揭阳市各类物流服务企业的总数、物流就业人员的数量、仓储型物流企业占比、综合性物流企业的占比、运输型物流",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2573256",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2573256",
+   "question": "自考本科档案归属\n您好，我想咨询关于自考本科档案的问题，我已经申请毕业并拿到档案了，但是档案没有密封的，自考办的工作人员说要去教育局密封，亲问是去揭阳榕城区的教育局吗，在教育局的那个部门，什么时候可以去，麻烦帮我解答一下，谢谢您。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2540913",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2540913",
+   "question": "职工医保和城乡医保切换期间报销问题\n本人职工医保缴至本年1月份，2月份开始职工医保暂停参保，并在2月份办理了城乡医保中途参保，城乡医保待遇3月份才生效，查看了揭阳的职工医保管理规定，是说职工医保自断缴次月起停止待遇，想咨询是不是2月份发生医",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2541787",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2541787",
+   "question": "揭阳市调研考\n想一下揭阳市期末调研考成绩什么时候出来，等得人都快麻了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2535170",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2535170",
+   "question": "集体建设用地“房地一体”确权登记颁证进度咨询\n您好， 2021年初本村进行了“房地一体”确权的登记，截至目前没有看到相关的权属公告，想咨询下预计公告时间，以及在什么渠道可以关注相关公告？ 谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2525636",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2525636",
+   "question": "揭阳市普通专升本考场安排\n你好，我是参加2023年普通专升本的考生，我想咨询一下揭阳市的考点安排，揭阳市考点有几个，分别是哪个学校？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2526853",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2526853",
+   "question": "初级会计报名\n您好，我是大一学生。想参加2023年初级会计报名，但是高中毕业证放在广州学校，现在还未开学。过几天报名的时候学历证明那一栏怎么办？我可以去高中毕业学校开一个证明，然后在毕业证那一栏上传那个证明吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2521078",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2521078",
+   "question": "网上居民身份证申领登记表\n第一次写，不知道要什么搞，就是里面的有些表格都需要（盖章）什么的，是要需要去现场去填写的吗？ 还是我直接去复印出来填写还是得直接去附近的公安局去领取填写后，直接上次到这个网上的补办的这个身份的材料上，那去公安局是不",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2504997",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2504997",
+   "question": "如何办理房产证\n父亲去世，留下套揭阳的房子，请问如何以我母亲的名字办理房产证，需要什么资料，还有契税和维修基金都没交，能够易地或者网上交吗？希望能百忙中回复下，一头雾水。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2501660",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2501660",
+   "question": "揭阳市期末考试是否照常进行\n揭阳普宁市高一期末市统考是否如期进行，有些人说取消了，有些老师说不取消，请问一下你们怎么安排的？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2502336",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2502336",
+   "question": "揭阳市地价动态监测数据\n您好，请问揭阳市地价动态监测数据可以去哪里查询，或者是否可以提供近3年揭阳市地价动态监测数据（水平值、指数等）？谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2502112",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2502112",
+   "question": "初会证书\n22年的初会证书纸质版什么时候能领，什么时候有通知",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2501709",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2501709",
+   "question": "公积金异地贷款\n你好，本人户籍揭阳，目前在梅州工作缴存了公积金，若是在揭阳买房是否可申请公积金贷款。另目前本人配偶未缴纳公积金，若想个人缴纳需带何材料去何处办理缴纳手续，缴纳到满足何条件届时可申请办理双边的公积金贷款，请领导抽空指教，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2493106",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2493106",
+   "question": "中考录取资格\n我今年从深圳回普宁复读初三，户口是普宁的，请问中考有资格被公办高中录取吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2461826",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2461826",
+   "question": "社会考生可否参加一月质检\n社会考生可否参加一月市举办的质检？可以的话如何参加？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2454247",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2454247",
+   "question": "医保二次\n你好，请问一下！ 我2022年5月份得了急性心肌梗死在广西南宁瑞康医院住院治疗，出院时已经凭“揭阳市社会保障卡”直接结算 获得第一次报销，结算后自费2万元。由于心梗属于大病的范畴，想知道医保的大病二次报销要去哪个机构",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2446940",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2446940",
+   "question": "医保暂停\n您好，我这边在深圳已经报了医保，但是显示暂停医保，然后我在揭阳那边是没有缴医保的，但是显示正常参保，所以我现在需要在揭阳那边帮我暂停参保我在这边的才能显示正常参保，但是不知道怎么联系到揭阳医保那边",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2445865",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2445865",
+   "question": "体育学业水平考试\n您好!请问22年6月高中毕业生，具有高中毕业证书，今年在校复读，需要参加体育学业水平考试吗?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2446021",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2446021",
+   "question": "复读生合格性考试\n今年的已取得毕业证的在校复读生可以不参加体育合格性考试，音乐美术这些吗？是否对高考会有影响？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2439871",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2439871",
+   "question": "查询个人消息档案\n由于高中档案填写需求，我想查询小学读过学校的时间和当时的班主任",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2429205",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2429205",
+   "question": "中级会计报考条件\n本人2020年参加国家组织的【高职扩招】学习，2023年毕业。读完出来的学历说是全日制，在学信网能查询到信息的。那我这种情况。2023年的中级会计考试能报考吗？ 我知道非全日制+5年工作经验就可以报考。问题是我现在读出来的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2399476",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2399476",
+   "question": "揭阳地区医保乙类材料自付比例多少\n揭阳地区医保乙类材料自付比例是多少，药品，治疗，检查，材料（体内材料，体外材料）",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2402007",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2402007",
+   "question": "粤省事医保清缴问题\n粤省事小程序城乡居民医保清缴查询不到应征信息，信息都正确的，请问该如何解决呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2395359",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2395359",
+   "question": "关于粤医保平台医保登记一直无人审核的情况\n您好，本人于2022年5月22日在“粤医保”平台，按要求填写并提交相关资料进行居民医保参保登记的申请，但至今2022年9月14日该申请一直处于提交成功却一直无人审核的状态，该申请服务事项ID为：10",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2394151",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2394151",
+   "question": "关于金色阳光（金城峰会）地下车位的产权问题\n本人在2019年向创鸿集团购买了位于金色阳光（金城峰会）地下二层车位一个，创鸿国际只在合同中约定车位使用年限为44年，且至今未办理车位产权证。 现向住建部门了解，关于金色阳光（金城峰会）地下二层车",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2377131",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2377131",
+   "question": "医保报销问题\n您好，我在粤省事上是查得到每个月的职工基本医疗保险缴费记录的，参保状态是正常参保，但是医保余额查询是查不到余额的（显示暂未查询到数据），请问这种情况到医院就医是否可以正常使用医保报销相关费用？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2372350",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2372350",
+   "question": "关于城乡居民医保（非职工医保）报销范畴的询问\n揭阳市医保局的领导与干部，您好！ 我想咨询关于非职工医保的城乡居民医保（2022年费用为每人320元的那种），请问门诊是否跟职工医保一样有报销比例呢？ 如能报销，在需转诊到更高一级的医院就诊时，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2376778",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2376778",
+   "question": "揭阳市内接单顺风车是否合法？\n工作人员，你们好！本人是揭阳市（普宁）本地居民，新购入小轿车一辆，尚未取得网约车双证。想咨询上下班或周末出游时在顺风车平台（嘀嗒、哈啰）接单顺风车是否合规？每天接单数量是否有限制？揭阳市本地具体规定是怎么样的？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2369671",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2369671",
+   "question": "揭阳市普通话考试什么时候可以开放考试\n揭阳市普通话从3月开始就暂停面向社会考生的测试，想问下什么时候可以重新开放社会考试的报考",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2364357",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2364357",
+   "question": "汕湛高速汕头至揭西段运输的主要危化品\n您好，请问汕湛高速公路汕头至揭西段，运输的主要危化品有哪些呢？分别是属于什么类别？是否发生过重大危化品运输事故？谢谢~",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2342611",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2342611",
+   "question": "咨询初级会计准考证打印要求\n你好，我想请问初级会计准考证打印要求激光打印机打印吗？喷墨打印机打印不可以吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2324951",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2324951",
+   "question": "咨询揭阳普宁市的初级会计考点以及考后复核等问题\n你好，我想问一下2022年揭阳普宁市的初级会计考点有哪些地方吗？考后复核时间，可否线上复核，以及需要哪些手续？还有初级证书可否邮寄？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2325017",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2325017",
+   "question": "初级会计资格审核\n你好！初级会计考试地点从肇庆市调转到揭阳市后，考试合格后的资格审核是需要在揭阳完成吗？如果是，可以委托家人办理吗？可以的话是否有委托办理申请书等相关文件下载？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2324164",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2324164",
+   "question": "关于2022届应届毕业生法律职业资格考试证书申领\n你好，我的户籍地址是揭阳市普宁市，我依照通知选择了户籍地“揭阳市”作为申领地，并在司法部官网上预约了7.13提交材料。想确认一下我是否已经在揭阳市司法局预约成功，以及我当天的材料提交是否是直",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2324781",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2324781",
+   "question": "初级会计考试地点\n请问一下，揭西县有没有初级会计考试的地点设置。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2321007",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2321007",
+   "question": "医院没有备药的情况下，医生让去外面购药要怎么报销\n您好，我想了解一下，家人在深圳人民医院进行治疗，目前需要用到靶向药尼妥珠单抗 医生说医院没有购药，需要到外面药房购买，请问这种要怎么申请报销呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2322023",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2322023",
+   "question": "医院无备药，需外购医保目录内药，如何报销\n在医院住院治疗，但是医院内没有备治疗所需药物（尼妥珠单抗）医保乙类 医生开具单据出去外面药房购买，请问这一类费用怎么报销",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2320068",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2320068",
+   "question": "助学贷款查询\n您好，我想了解一下今年有关高考应届毕业生在民办本科方面的助学贷款",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2317407",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2317407",
+   "question": "合格性考试\n2022年的高考生若复读参加2023年高考的话，是否需要进行信息技术，体育，音乐等合格性考试？若不参加是否影响高考录取？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2312353",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2312353",
+   "question": "数据咨询\n您好，我是一名北京林业大学的研究生，因研究需要，烦请贵单位提供贵市2005-2019年规模以上工业企业主要能源品种消费量、能源消费总量数据。相关数据未在统计年鉴中查询到。10种主要能源为原煤、焦炭、原油、汽油、煤油、柴油、燃料油、",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2312698",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2312698",
+   "question": "地方一次性补助金\n麻烦发个通知让我们知道这个补助金在什么时候发，退伍9个月马上10个月了。没有动静。2021年退伍的战友们都在问",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2276986",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2276986",
+   "question": "省内跨市使用医保\n你好，我是在深圳读书的学生，没有购买深圳医保，购买的是揭阳市新农合，请问，如果去深圳已经开通了异地就医结算的定点医院看门诊，可以使用揭阳的医保卡吗？需要异地备案吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2277804",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2277804",
+   "question": "关于中考志愿填报中兼报榕城区与揭东区高中的问题\n《关于做好2022年高中阶段学校招生工作的通知》中提到，今年报名时填报户口所在地在揭东区，已在榕城区（含原空港经济区，下同）报名参加中考的考生或报名时填报户口所在地在榕城区，已在揭东区报名参加",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2270240",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2270240",
+   "question": "高考防疫\n尊敬的领导你好！ 近日广东考试院发出通知，因疫情原因，要求在外市的考生于高考前14天回到报考所在地级市。我报考地在揭阳市，目前在汕头市。两市接壤距离相近且无疫情影响，能不能在高考前2、3天才返回揭阳市？ 希望领导早日回复不尽感激。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2270961",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2270961",
+   "question": "统计数据\n请问有2000-2005年揭阳市统计年鉴吗？主要用到的数据是2000-2005年每年份的揭阳市县域级别的农作物播种面积、粮食作物播种面积、粮食产量数据。本人是广东工业大学管理学院学生，写论文需要。如有可发到871472525@qq",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2243217",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2243217",
+   "question": "揭阳市普通专升本考场安排\n你好，我是参加2022年普通专升本的考生，由于疫情防控安排，此次将就近地市考试，我想咨询一下揭阳市的考点安排，揭阳市考点有几个，分别是哪个学校？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2238833",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2238833",
+   "question": "复核教师资格考试成绩\n您好，不好意思在百忙之中打扰，我想请问一下我该如何申请复核我的2022年上半年教师资格考试的笔试成绩呢？是到揭阳市教育局提交申请吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2237316",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2237316",
+   "question": "关于2022年二胎政策\n请问1、揭阳市2021-2022年生育二胎有生育补贴吗？其配偶没有工作单位，男方可以向公司申请吗？还是生育后可以直接向社会保障局申请？ 2、公司有帮男方缴纳生育保险，以新的政策执行的话，可以报销吗？能报销的话能否和配",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2230207",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2230207",
+   "question": "数据及联系方式\n之前咨询的榕城区、揭东区、揭西县、惠来县、普宁市等地区的2021年城镇常住居民人均可支配收入、2021年城镇常住居民人均可支配收入增速、2021年农村常住居民人均可支配收入、2021年农村常住居民人均可支配收入增速、等数据，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2227875",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2227875",
+   "question": "部分统计数据\n您好，因个人课题研究，烦请告知榕城区、揭东区、揭西县、惠来县、普宁市等地区的2021年城镇常住居民人均可支配收入、2021年城镇常住居民人均可支配收入增速、2021年农村常住居民人均可支配收入、2021年农村常住居民人均可支配",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2195680",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2195680",
+   "question": "身份证\n身份证丢失，申请补办身份证后，需要办临时身份证时还要再提交什么材料吗？如果办临时身份证还需要提供材料，请问还要提供什么材料",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2196527",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2196527",
+   "question": "关于揭阳市电子商务交易额，农村网络零售额\n您好，因毕业论文需要用到揭阳市最近5年的电子交易总额和农村网络零售额数据，麻烦可以提供相关数据吗，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2195574",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2195574",
+   "question": "往届自学考试毕业生成绩单打印问题\n您好，情况描述如下： （一）原因：我是往届的自考毕业生，现需要打印自学考试成绩单，但广东省自学考试管理系统显示密码错误无法打印。咨询省自考办后答复因当年没有绑定手机号码，无法更改密码，可以前往揭阳市自考办修",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2193504",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2193504",
+   "question": "身份证\n请问身份证2022年6月25日过期，请问提前多久去补办呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2187849",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2187849",
+   "question": "关于省直公医在揭报销的咨询\n您好，本人为省直单位干部，享受省直公医。去年来，服务省里战略来揭阳驻镇参加乡村振兴。近期因意外突发急性肠胃炎而在揭阳本地的镇卫生院住院，医生反馈镇卫生院无医保报销权限，可以按需求提供相关资料回广州办理。 想咨询如",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2191050",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2191050",
+   "question": "代卖水车属不属于违法行为\n你好我想咨询一个问题，帮别人卖水车走私车属不属于违法犯罪行为 。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2152875",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2152875",
+   "question": "外市企业想在揭阳市承接工程\n外地企业想在揭阳市备案登记，需要在哪个网站填写资料，联系电话咨询是多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2162343",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2162343",
+   "question": "报到证改派\n本人申请报到证改派到深圳，现需惠来县人社局【揭阳市惠来县人才交流服务中心】的同意改派函。 请问有什么方法可以从网上获取呢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2151299",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2151299",
+   "question": "异地电动车牌照\n上了外省牌照的电动车，能否在揭阳市地域内正常行驶？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2149942",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2149942",
+   "question": "初级会计考试信息错误\n报考的初级会计考试专业信息填错，本人为会计专业学生，填写信息时填错为非财经专业，想询问一下是否需要修改，如何修改。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2148181",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2148181",
+   "question": "地址\n你好，请问揭阳市公安局的地址是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2148041",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2148041",
+   "question": "具体位置\n请问揭阳市商务局具体位置在哪？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2147921",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2147921",
+   "question": "新媒体类型\n请问揭阳市教育局有开设哪些类型的新媒体？类型和账号名称分别是什么",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2143680",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2143680",
+   "question": "联考成绩复查\n请问一下2022年1月8号美术联考成绩复查的渠道是哪，怎么复查联考成绩",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2115045",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2115045",
+   "question": "2022医保缴费\n你好，我去年帮父母在粤省事平台成功缴纳了城乡居民医保，今年想继续缴费发现，母亲的可以正常缴费，而父亲的页面却显示“查询不到个人应缴信息，请重新输入”，请问是怎么回事呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "2117154",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=2117154",
+   "question": "11月29号申请失业补助金，等到12月14号才审核通过，现在17号了还没有发放补助金\n11月29号申请失业补助金，等到12月14号才审核通过，现在17号了还没有发放补助金，这样的速度太慢了吧？如果命短的人都可能收不到",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "1099470",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=1099470",
+   "question": "买的揭阳社保，深圳住院如何报销，已出院了\n买的揭阳社保，深圳住院如何报销，住院费如何报销。买的揭阳老家社保",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "1100003",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=1100003",
+   "question": "医保无法缴费\n您好，我在粤省事缴费发现，去年还可以在粤省事交，上个月在粤省事查也有显示今年要交320元，这两天去粤省事查，想缴费，总是显示查询不到个人应缴信息，这样应该怎么办呢？能网上解决吗？我具体也不知道去哪里办理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "1095957",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=1095957",
+   "question": "2022年城乡居民医保缴费问题咨询\n我母亲在10月14日缴费了2022年居民医保320元后，在粤税通一直查不到记录。后在微信支付平台申请退费准备重新支付。但是现在粤省事平台进入医保缴费界面没有应缴记录可供缴费，请问要如何购买2022年城乡居",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "1098298",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=1098298",
+   "question": "主观题考试疫情防控要求\n我收到短信说最好在18日9点后进行核酸检测，于是下午就去核酸检测，在19日早上1时收到检测结果，不知什么原因，不是72小时阴性证明，是48小时阴性证明，我明明提前去检测，反而好像还不合格，我看到揭阳法考要求是考前72",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "1092444",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=1092444",
+   "question": "社会考生错过了高考报名时间还可以补报吗？\n领导你好，我是一名高中往届生，现读于广州某技校，想要回去参加春季高考，但听人说没有报名高考不能报名春季高考。 我想请问一下像我现在这种情况要怎么解决？恳请您给我答复，谢谢啦！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "1078862",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=1078862",
+   "question": "社会考生高考报名咨询\n教育局的领导您好，我这边是一名中专学历的学生想要以社会考生身份参加2022年的普通高考，有个问题想咨询一下您，问题如下: 请问社会考生在网上注册之前需要提前去到招生办现场申请报名吗？因为我有看到说需要报名前准备符合我市",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "1078545",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=1078545",
+   "question": "揭阳市经济\n请问一下揭阳市2020年的gdp是多少？（请直接在网上直接回复，不用打电话，谢谢）",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "1055502",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=1055502",
+   "question": "2022年揭阳城乡医保的门诊待遇问题\n请问2022年揭阳城乡医保的普通门诊待遇，有没有什么使用限制？在揭西县的哪些医疗机构可以享受普通门诊待遇？之前一直找不到享受待遇的门诊",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "1036001",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=1036001",
+   "question": "请问小孩子满六周岁一定要读小学\n请问小孩子是否满六周岁就一定要去读小学还是说可以等到七周岁在读小学？要是因为一些特殊原因无法按时入读小学，是否需要提前申请延迟入学证明？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "1030424",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=1030424",
+   "question": "Hpv疫苗预约\n您好，关于hpv疫苗想咨询一下：1.揭阳是否有hpv接种的官方预约渠道呢？ 2.现在揭阳当地有哪些公立医院和卫生站可以接种hpv疫苗？价格是否统一呢？ 麻烦解答了，非常感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "1029032",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=1029032",
+   "question": "复读生档案及高考报名问题\n教育局的领导您好! 我是空港经济区2021年应届毕业生，因今年高考成绩不理想，决定在家复读自学高考。现有这些问题需要请教： 一、原毕业学校通知我去学校拿档案（因为我有被大学录取了但是并不想去但学校让我去拿），请问档",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "1008349",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=1008349",
+   "question": "关于银屑病办理基本医疗保险参保人员享受门诊特定病种待遇认定\n本人根据揭市医保规（2021）2号通知咨询本镇医保部门，银屑病是否能办理门诊特定病种待遇认定，被告知银屑病是无法办理的，可2号通知里包含有银屑病这一病种，想问一下主管的上级部门可否",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "1007532",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=1007532",
+   "question": "社保卡网上申领\n请问公众号申领社保卡一个月了进度一直显示等候处理，是有什么问题还是处理时间本身较长的原因？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "991535",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=991535",
+   "question": "2021年揭阳市中考成绩查询时间\n您好，请问2021年揭阳的中考成绩何时公布呢？担心出去旅游期间刚好放榜，得赶回家报名，特此咨询，麻烦您解答了，谢谢！祝您工作顺利，生活愉快！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "988242",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=988242",
+   "question": "有高中毕业证的社会考生还需要考学业水平测试吗\n你好，我想请问有高中毕业证的社会考生还需要参加学业水平测试吗？社会考生报名参加高考是需要自己在家自学还是有分配到地区高中就读呢？？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "989682",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=989682",
+   "question": "复读\n您好，请问今年揭阳公立学校可以招收复读生吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "987914",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=987914",
+   "question": "关于公立学校教师招聘的要求\n你好，针对近年各区发布的关于公立学校教师招聘的要求中，对“全日制普通高校毕业生”的这一要求，请问如果是广东专插本的毕业生 会被限制报名吗？由于本人是全日制大专非师范专业，持有教师资格证，受报考条件限制的专业和学历",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "986957",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=986957",
+   "question": "中德金属生态城发展情况咨询\n领导好，此次来信是想了解我市中德金属生态城发展的一些情况，希望能得到解答。 第一个问题是年初政府工作报告中提到今年将创新举办第六届中德（欧）中小企业合作交流会，目前的筹备情况和项目洽谈进展是怎样的？ 第二个问题是",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "990090",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=990090",
+   "question": "空港经济区人才交流服务中心\n请问揭阳市空港经济区人才交流中心的具体地址是哪里？是在港口村路口公交站附近吗？还是在空港去政务中心公交站呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "983022",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=983022",
+   "question": "关于武汉理工大学马赛学院\n你好！一直以来我时刻关注着家乡的发展，据2018年我从新闻就看到关于揭阳市政府、香港招商局集团、武汉理工大学计划在粤东新城筹建武汉理工大学马赛学院的新闻报道，到现如今在新闻上只看到关于粤东新城广东工业大学分校区（揭",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "980897",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=980897",
+   "question": "自学高考如何报名\n教育局的领导您好! 我是揭东区2021年应届毕业生，因今年高考成绩不理想，决定在家自学高考。现有这些问题需要请教： 一.请问自己报名高考需要准备什么材料去报名？二.报名的时候需要什么流程？三.到哪里去报名 以上问题希望领导",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "951984",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=951984",
+   "question": "中考招生\n广州的华南师范大学附属中学创新班招生简章中，揭阳市今年有8个推荐名额。我想问一下这8个名额是按照中考成绩推荐的还是按照地区分配名额。普宁市有分配名额吗？且中考志愿是否可填华附创新班。往年填报这项志愿的人数大概多少，需要在揭阳市排名",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "953110",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=953110",
+   "question": "数据查询\n您好，我这边写报告涉及到要分析当地的高危行业情况，麻烦能不能提取一下普宁市矿山，危险化学品，烟花爆竹，交通运输，建筑施工，金属冶炼六大高危领域的最新生产经营单位数，最好是能加上单位名称。以及以上这六个行业在普宁地区的经济产值占比。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "937240",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=937240",
+   "question": "各区公开招聘教师时，能否不限制毕业年限？\n您好！ 就揭阳市各区公开招聘教师的公告中，有明确限制毕业年限。如：2016年后毕业的人员才能报名。这意味着之前毕业的社会人员无法参加考试。 社会人员有教学经验，也想在教育领域上做贡献，为社会谋发展！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "934337",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=934337",
+   "question": "数据咨询\n您好，因论文需要想获取揭阳市以下数据： （1）、2006-2008年揭阳市规模以上企业总发电量 （2）、2006-2008年揭阳市规模以上工业综合能源消费量 （3）、2006-2014年揭阳市电力、热力生产和供应业用电量（年鉴仅有",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "918878",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=918878",
+   "question": "常住人口城镇化率数据咨询\n您好，因论文需要想获取以下县市自2014-2019年的常住人口城镇化率数据（统计年鉴上只有户籍城镇化率故需求您的帮助），感谢。 惠来县 普宁市 揭西县",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "919061",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=919061",
+   "question": "医保报销\n我是在外地读书的大学生，在揭阳这边参保，现需要在学校这边就医，请问是否符合参保政策中门诊费用报销里的条件，（我在外地看的病并不属于医保中不可以报销的事项）即我在外地就医后能不能回揭阳报销医保费用。烦请解答，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "893328",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=893328",
+   "question": "地都镇青屿社区列入旧改及旅游乡村历史名胜古迹\n你好市领导，由于近年来粤东地区迅速发展，还有个别地方有着优久历史记载及名胜古迹，至今有名无份未列入改造及旧改，地都镇青屿社区也一个小山村大约2千多人，全村瓦房占一半，危房及老瓦房居多，此村还有一",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "893239",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=893239",
+   "question": "公司不给员工购买职工医保和生育保险\n我是广东高乐股份有限公司的员工，去年发现公司没给员工购买职工医保和生育保险，向上级反应无果，直至今年公司仍然不给我们购买职工医保和生育保险，我们的基本权益受损，还请领导重视并帮帮我们。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "892522",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=892522",
+   "question": "农用地是否确权？\n请问普宁市各村的农用地，农民兄弟用于耕种的土地是否能进行确权？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "888223",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=888223",
+   "question": "异地住院备案\n异地医疗备案",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "879141",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=879141",
+   "question": "请问普宁社保一个月缴纳多少？\n你好，请问在普宁交社保，每个月要交多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "880363",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=880363",
+   "question": "放假咨询\n你好，请问这学期高三什么时候放假，是否需要补课",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "879776",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=879776",
+   "question": "公证\n原户主老婆已过世，要过户，需要原户主子女公证放弃房屋继承权，子女都不在本地，请问公证处可以提供方便视频连线给子女们提供公证吗？ 另外，给原户主买的房是单位集资房（揭东粮食大院），请问要过户具体要走哪些步骤？ 谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "878511",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=878511",
+   "question": "揭阳顺风车法规咨询\n您好，我是一名企业区域经理，经常往返于汕头揭阳两市，刚注册了滴滴/哈啰/滴答的顺风车业务，但没有办理运营双证，想咨询下是否可以操作揭阳市的顺风车业务，感谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "874000",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=874000",
+   "question": "摩托车考试\n揭阳空港炮台中队摩托车考试，揭东区的人可以过去报考吗？现在是可以自备考试车了吗？有什么要求吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "876180",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=876180",
+   "question": "高考社会考生咨询\n你好，我是初中毕业，如果考了电大中专毕业，能不能以社会考生身份参加普通高考",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "870096",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=870096",
+   "question": "揭阳何时开放因私出国新冠疫苗预约\n因私出国学习工作人群属于重点人群之一 目前有多省市发布新闻在春节前完成重点人群新冠疫苗接种 请问揭阳何时能够开放因私出国人群新冠疫苗接种? 是否能够在春节前? 谢谢!",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "860365",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=860365",
+   "question": "有交社保，但是查不到社保\n您好，我是揭阳市揭东区第二中学的老师，工作已有六年整，编制内的，从参加工作开始就有交社保医保等一切需要交的费用，但是在粤省事里面查不到我的社保缴费情况，也没有能绑定的社保卡，电子社保卡也领不了。请问是什么原因导致的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "850162",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=850162",
+   "question": "生育与新生儿住院费用\n1:刚生完三胎，农村购买医疗报销能否报销？ 2.第三胎新生儿住院费用能否报销以及报销流程",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "848465",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=848465",
+   "question": "揭西县五经富镇中和学校体育设施为何如此落后，20年不变！为何五经富镇教育资源如何匮乏！？\n高中毕业后就外出读大学，从此走上了游学工作的职业生涯，甚少回揭阳揭西五经富镇老家，偶尔回去也基本经过或者不去小学母校，母校「中和学校」创建于1944年",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "849784",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=849784",
+   "question": "2020年鉴咨询\n尊敬的统计局领导，您好！ 我是一名来自福州大学的研究生，毕业论文需要用到揭阳2020年统计年鉴中的数据。 若揭阳2020统计年鉴电子版已经制作完毕，劳烦您发一份至我邮箱。 非常感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "845863",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=845863",
+   "question": "关于社保清缴\n你好，我在缴纳今年居民医保时，发现父母的无缴纳信息，即查询不到相关信息，本人及兄长的可以查询到，全家均为第一次网上缴纳，之前都是父母在村委会缴纳，今年通知村委不给交，那现在该如何操作？父母均为低保户。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "834601",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=834601",
+   "question": "建设工程投标\n请问外市企业到揭阳参加项目投标需要在住建局进行备案吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "826413",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=826413",
+   "question": "医保缴费\n您好，我帮我姐姐在粤省事缴费发现，明明身份证号码和名字都填好了，但是显示查询不到个人应缴信息，请重新输入，这样应该怎么办呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "826325",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=826325",
+   "question": "户籍是揭阳市空港经济区登岗镇，现住榕城区嘉盛家园，小孩是否能在附近读小学\n您好，本人户籍是揭阳市空港经济区登岗镇，现住揭阳市榕城区嘉盛家园，已住5年，已买社保5年，有合法稳定工作。请问，榕城区教育局发布的，关于榕城区2020年小学新生第二批",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "824832",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=824832",
+   "question": "往届生参加考试\n往届生想参加春季高考需要先报名夏季高考吗，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "825262",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=825262",
+   "question": "关于“房地一体”确认权相关事宜\n近期住所所在村在进行房地一体确认相关事宜，本户拥有申请房地一体确认权证的材料，但由于不是本村村民，村委不予确权，请问该如何处理？请问政府是否会发布关于在非户籍地如何进行“房地一体”确认权办理手续的相关公告，避",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "817529",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=817529",
+   "question": "高考社会考生\n你好 我是揭阳市揭西县的高考社会考生 准备报名2021年高考 ①请问我高考报名是直接拿资料去揭阳市教育局报名吗②我是自己在家里复习 没有去学校 看见贴吧和知乎里有人咨询过县教育局 说只能在学校报名 不能在教育局报名 像我这种情",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "816368",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=816368",
+   "question": "微信公众号粤省事医保清缴问题\n你好，通过微信公众号粤省事（揭阳），给小孩买2021年医保费用，试了无数次都是显示“查询不到个人应缴信息，请重新输入”，身份证号码和姓名确定无误的，请问要如何解决呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "816037",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=816037",
+   "question": "退休公务员医疗补助\n咨询揭阳市退休公务员是否享受基本医疗加公务员医疗补助？公务员医疗补助是如何规定的？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "815044",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=815044",
+   "question": "图书馆\n你好，请问揭阳市图书馆在哪",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "813130",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=813130",
+   "question": "揭阳空港经济区教育局地址\n您好!请问揭阳空港经济区教育局具体地址在哪里?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "813674",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=813674",
+   "question": "投诉米谷泰城半夜唱歌扰民\n揭阳市榕城区沿江路揭阳市儿童公园旁边 米谷泰城 每天晚上十点到凌晨两点不间断扯着音响唱歌的，声音非常大，鬼哭狼嚎的，声音穿透力极强，严重打扰周边居民休息，河对岸揭阳市人民医院附近居民也深受其扰，虽电联派出所后有所改",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "807164",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=807164",
+   "question": "无犯罪记录证明\n因公司需要，需要户口所在地派出所开具的“无违法犯罪记录证明“",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "784849",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=784849",
+   "question": "关于甲港公路建设情况\n尊敬的领导，陆丰与惠来山水相连，唇齿相依，人缘相亲，关系密切。甲港公路作为两地人民群众往来交流的交通要道，它的建成通车，对两地经济社会发展、深化沟通合作具有重大意义。甲港公路全长约15公里，陆丰境内全长9.843公里已",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "792967",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=792967",
+   "question": "身份证\n你好，本人现在在外地，身份证2020年11月19日到期，现在要补办身份证，请问要怎么办理？可以请人代办或者网上办理吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "791491",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=791491",
+   "question": "关于2019年退役士兵领取地方政府经济补助金相关事宜\n一是产业园区2019年退役士兵政府经济补助金什么时候发放？（根据相关规定应于退役士兵返乡后一年内发放完毕）二是关于公布退役士兵政府经济补助金发放标准？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "785843",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=785843",
+   "question": "2014年后从揭阳市调离的教师社保补缴问题\n领导你好，我是2017年从惠来县公立学校调离到四川的教师，2017年调离前揭阳市一直采用的老的机关事业单位社保缴费政策，与我现在就业地的缴费政策不一致，所以社保一直无法转移，2019年揭阳市开始统",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "783283",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=783283",
+   "question": "高考社会考生咨询\n你好，本人是普宁市2020年高考生，但是由于高考成绩不理想，想参加2021年的高考，想咨询一下2021年高考以及春季高考时能以社会青年的身份进行报考吗？如可以，需准备哪一些资料和去哪里报名？（普宁户籍）",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "776020",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=776020",
+   "question": "在家自学高考\n教育局的领导您好! 我是2020年应届毕业生，今年高考成绩不理想，考虑再三，决定在家自学高考。现有这些问题需要请教： 一.请问可以自己报名高考考试吗?如果可以，应该怎么报名?程序怎么走？ 二.我是老高考理科生，想转成历史，地理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "775485",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=775485",
+   "question": "教师资格证领取细则\n教师资格证代领需要出示什么证明材料？应届毕业生能否不用毕业证？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "771727",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=771727",
+   "question": "残疾军人户口迁移及抚恤迁移\n您好，我想咨询关于残疾军人户口迁移和抚恤迁移具体问题，本市内户口迁移需要，抚恤迁移吗？具体应该寻找哪些部门和具体应该怎么办理，多次咨询没有部门均答复无法办理，也没有相关部门愿意处理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "769513",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=769513",
+   "question": "关于社会考生如何报名\n您好，我是19年的高中毕业生，请问我应该如何报名今年的春季高考和夏季高考，我刚才打电话询问了一下普宁的招生办，他们让我回毕业学校报名，难道招生办不能报名吗？ 我改如何做 希望您能给下答复 谢谢您",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "769220",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=769220",
+   "question": "外市企业进揭承接单一工程\n中午好，我司需进揭承接一工程项目，该工程项目由建设单位直接发包，请问是办理单项工程诚信登记还是外来建筑企业诚信登记？能否留和咨询电话，方便沟通。谢谢!!",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "768943",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=768943",
+   "question": "外市企业想在揭阳市承接工程\n我司在揭阳市承接一工程项目，需向那些相关部门申请及备案？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "764795",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=764795",
+   "question": "咨询城镇比数据\n你好，我是广东省国土资源测绘院的，因项目需要，在揭阳市统计年鉴数据中未查询到需要的数据，需要帮忙提供下惠来县、揭西县、普宁市的城镇比数据。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "762239",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=762239",
+   "question": "关于广东2021新高考政策下复读问题\n领导们好！我是2019广东理科高考生，现读大一，假如我退学想参加2021年高考的话，由于面临广东新高考政策，有以下疑惑请求解答： 一、若新高考依然选择考物理、化学、生物的话，当初高二考的政治、历史、地理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "762968",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=762968",
+   "question": "教师资格证领取时间\n您好，请问2020年教师资格证大概的领取时间是什么时候？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "761360",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=761360",
+   "question": "房产首付退回相关\n2018年缴纳房产首付，后由于个人原因不想购买商品房，向开发商提出解除合同，退还首付款，开发商以购房意向书内约定，如不购买，需待房产出售后才能退还收付款，请问这样的规定是否合规。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "756987",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=756987",
+   "question": "物业管理服务问题\n2020年4月，本人在揭阳市榕城区空港经济区榕江四季城楼盘办理交房、装修手续，该楼盘指定的前期物业公司告知，必须由他们指定的搬运队进场搬运装修材料，否则不予业主装修。问题1：物业管理企业是否有权利指定搬运队，强制业主使用其",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "760866",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=760866",
+   "question": "社保卡的领取\n领导好 ： 我在06月23日通过揭阳市人社微信公众号 申请的社保卡，查询社保卡制卡进度 已经在2020年07月07日邮寄到申领网点 。我本人至今没有收到任何电话通知叫我过去哪里领卡 ！申卡 填写的住宅地址自己社保扣费银行 都没",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "758274",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=758274",
+   "question": "参战退伍老兵遗孀补助\n我爷爷是抗美援朝老兵，后参与社会主义事业建设，就地安排工作，16年病故， 我奶奶成为遗孀，没有经济来源（包括社保低保等），有遗孀补助吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "756679",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=756679",
+   "question": "和桂园\n我想咨询下能不能查询到和桂园的报建信息，或者给我提供下查询方式，希望有关部门能帮下忙，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "756008",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=756008",
+   "question": "请问出租汽车特种设备（车用气瓶CNG）粤东地区的注册正规的检测机构有哪几家？\n揭阳市南翔汽车出租有限公司、揭阳市龙之泉小汽车出租有限公司属下出租车辆分别于2018年度在揭阳市质量技术监督局和2019年度在揭阳市市场监督管理局登记注册了车用气",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "754295",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=754295",
+   "question": "退伍军人补缴社保问题\n本人01入伍03退伍，已经补缴了25月的社保。问题来了04年到14年本人未参保，15年底才开始缴纳社保至今。那么04至14空白时间是否能补缴呢？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "753187",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=753187",
+   "question": "电子医保查询不到相关记录（异地到揭工作）\n您好~请问异地到揭工作，在粤省事关联了电子医保凭证后却查询不到相关记录，这会不会影响之后的跨市医保报销？若以后想要在网上查询相关信息，需要怎么办理程序？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "753110",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=753110",
+   "question": "房改办业务\n本人户口所在地是空港经济开发区，现在要开具在户口所在地没有享受过旧房改造的证明。咨询空港经济开发区的相关部门，没有相关“房改”的部门。想咨询，揭阳市住房和城乡建设局那个部门办理“房改”业务，如何开具证明，需要提供什么材料。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "751894",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=751894",
+   "question": "残疾人企业就业报备\n您好，我想咨询，我在深圳应聘一家公司上班，后来公司知道我有残疾军人证，公司跟我商量说一次性给我五百，让我配合公司做残疾人就业报备，我想问一下，公司应该给我一下优抚补助吗？另外，我不是公司安排就业，是我自己应聘进去的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "751101",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=751101",
+   "question": "关于榕城区2019年事业单位公开招聘工作人员网络资格审核事项\n您好，《关于榕城区2019年事业单位公开招聘工作人员网络资格审核的通知》中明确资格审核时间为2020年4月16至30日，但指定报名网址中至今仍显示尚未审核，想请问：1.该项公开招",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "750034",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=750034",
+   "question": "揭东区第一幼儿园入学咨询\n您好！从去年了解到揭东区将在梅岗中学前建立一所揭东区第一幼儿园，今年九月份可以投入使用，我家一直在关注，也观望到幼儿园的外观基本完工了，而距离九月份开学也只有两个月的时间了，为了能让孩子更好的接受正规幼儿教育，故来",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "659013",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=659013",
+   "question": "公租房退出\n我于今年3月份办理公租房退租手续，当时申请属于第四类人员申请。现本人在其他城市工作，因申请其他地方住房补贴时被告知揭阳市还有享受揭阳政策性住房福利，请协助核查是否已经处理好我市住房和城乡建设局内部数据处理或者相关退出办理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "655074",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=655074",
+   "question": "2016年之前入学的师范生如何直接认定教师资格证？\n请问2016年之前入学的师范生直接认定教师资格证，但毕业证无师范二字，除了常规材料，还需要什么材料？（比如在校成绩单、学校盖章的师范生证明等） 若大学成绩单中有教育学和心理学成绩，但没有教",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "619009",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=619009",
+   "question": "《关于2019年粤东西北地区基层事业单位急需紧缺人才专项公开招聘相关事宜》\n你好，我是一名2019年粤东西北地区基层事业单位急需紧缺人才专项公开招聘的报名考试人员，我知道因为这次新冠肺炎的突然发生，导致我们这次招聘工作的暂时搁置。但是随着疫",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "618483",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=618483",
+   "question": "教师编制考试\n您好，我想咨询下揭阳市各个区这两年的教师编制考试都是几月份开始报名和考试的？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "561101",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=561101",
+   "question": "咨询统计数据\n您好，我是广州市的一名大学生，因撰写论文需要，想要向您咨询一个统计数据。请问是否能够提供揭阳市2017年液化石油气供气总量的数据（应该归属城市建设指标），若能提供，万分感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "559098",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=559098",
+   "question": "如何提取公积金\n在国外定居的人，如何提取原来缴存的公积金？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "558329",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=558329",
+   "question": "揭阳医保问题咨询\n请问在揭阳交社保的老年人，是否是凭身份证就医，还是有发广东省的社保卡，用社保卡就医？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "552596",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=552596",
+   "question": "消防工程申报事宜\n1、村里没有报建，没有土建消防竣工验收意见书的仓库，想要装修，拿消防竣工验收意见书个的话改怎么办？ 2、这个是属于2500平方米左右的仓库。要用于存放闲置机器，这样改怎么办？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "557613",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=557613",
+   "question": "失业保险关系转移\n您好，我是购买广州的社保，现已登记失业，要回到户籍揭阳领取失业保险待遇，现广州已开具失业保险关系转移凭证，请问要到揭阳哪里办理相关转入手续？本人户口属于揭阳市产业转移工业园白塔镇的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "551779",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=551779",
+   "question": "教师职称周课时\n您好！我想咨询下关于中学一级教师职称评审中的周课时的界定，文件中所要求的周课时是指任现职以来总的平均周课时，（即总课时数除以总的周数所得）还是每一学年的周平均课时必须达到10节以上？ 如果是第一种情况，是否意味着如果有一学年",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "552266",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=552266",
+   "question": "小学生入学\n我住在淡蒲路嘉盛家园，请问附近有哪些小学可以供小孩报名入学。谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "551588",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=551588",
+   "question": "2018年统计年鉴打开是乱码的\n您好，我这边写论文需要用到年鉴数据，网站上其他年份的数据都是压缩文件的数据，仅2018年为PDF文件，打开文件时乱码的。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "550038",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=550038",
+   "question": "咨询市直退休公务员医保卡个人账户每月进账多少钱\n咨询市直退休公务员医保卡个人账户每月进账多少钱，如何计算的？按退休基本工资为基数计算还是按全额退休工资为基数计算？乘以比例多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "549416",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=549416",
+   "question": "《普宁市人民政府关于公布普宁市基准地价更新成果的通知》 普府〔2018〕3号\n你好： 《普宁市人民政府关于公布普宁市基准地价更新成果的通知》 普府〔2018〕3号，由于在普宁自然自然局业务咨询里提交不了问题，希望上级部门能够帮忙解决普宁市基",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "548024",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=548024",
+   "question": "关于医保的大病二次报销应该去哪个机构结算？\n我母亲得了乳腺癌在广州市的“广东省人民医院”做了手术和化疗，出院时已经凭“揭阳市新农合医保”直接结算获得第一次报销，结算后自费3万元。由于乳腺癌属于大病的范畴，想知道医保的大病二次报销要去哪个机构",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "547083",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=547083",
+   "question": "关于消防设计审核、验收事宜\n请问揭阳市商业建筑（5万平方米）消防设计审核、验收报哪里？联系人、联系电话是什么？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "545344",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=545344",
+   "question": "咨询电话\n我需要揭阳住房和城乡建设局建筑市场管理科的电话，需咨询办理业务。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "535931",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=535931",
+   "question": "行业资料\n了解揭阳的下水管网的日常的维护保养工作哪里负责的？是市场招标购买服务的形式吗？还是城建部门有自己的养护单位？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "535650",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=535650",
+   "question": "1800平米的楼房，土地性质为村集体土地，想作为幼儿园使用，怎么样 办理消防安全检查合格证\n1800平米的楼房，土地性质为村集体土地，想作为幼儿园使用，怎么样 办理消防安全检查合格证。地址在广东揭东曲溪街道，哪里地址的住建局对外窗口可以咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "534642",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=534642",
+   "question": "政府网站工作年度报表\n请问贵市政府门户网站的2019年度政府网站工作年度报表在哪里查看或下载？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "532077",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=532077",
+   "question": "反馈问题\n因新型冠状病毒感染严重，为什么揭阳市全市所有酒店餐厅企业什么的各种业务项目还是各村里都不进行每个路口落实到位进行全面封路，封村道，这个是怎么回事，要求相关职能部门给出明确答复",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "523559",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=523559",
+   "question": "揭阳产业园\n请问一下揭阳产业园中部控制性规划什么时候公布，申报国家级高新区的进度怎么样了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "522472",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=522472",
+   "question": "揭阳2018年统计年鉴打开是乱码\n学生写论文需要查询资料",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "390554",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=390554",
+   "question": "关于申请开放办理2020年02月02日婚姻登记的请求\n尊敬的民政局领导： 您好！特此留言，是希望贵单位可以开放办理2020年02月02日婚姻登记，虽然此日非法定工作日，但是2020年02月02日是难得一遇的对称日期，作为准新婚夫妻，希望能够",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "294234",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=294234",
+   "question": "驾驶证换证体检\n你好，我驾驶证即将到期，网上申请换证说需要体检报告，是否需要一定在揭阳体检，是否有相关指定医院，有的话麻烦告知一下相关医院名称，感谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jieyang",
+   "id": "192727",
+   "url": "http://www.jieyang.gov.cn/hdjlpt/detail?pid=192727",
+   "question": "运送垃圾污染环境\n反映市自然资源局东面一垃圾站，每次运送垃圾时垃圾废水都滴满周边路道，臭气很大，造成环境污染，要求有关部门及早处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

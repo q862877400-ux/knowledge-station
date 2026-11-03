@@ -1,0 +1,220 @@
+{
+ "A_考卷": [],
+ "B_补料": [
+  {
+   "source": "gx-igi-232",
+   "id": "157814187298",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814187298",
+   "question": "想咨询一下今年我县高一的开学时间是什么时候？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于调整2020年春季学期教育教学活动及暑假放假时间的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-232",
+   "id": "1578112541",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=1578112541",
+   "question": "事业编制管理岗位10级晋升9级需要什么条件？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发〈广西壮族自治区事业单位岗位设置管理实施意见〉的通知",
+    "岗位设置方案",
+    "关于印发广西壮族自治区事业单位工作人员竞聘上岗试行办法的通知"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "gx-igi-232",
+   "id": "100082660",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=100082660",
+   "question": "请问广西崇左天等县人民政府门户网站是否开设了规划计划类栏目？如果有，如何进入规划计划类栏目？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-232",
+   "id": "100082654",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=100082654",
+   "question": "请问广西崇左天等县人民政府门户网站是否开设了政策文件类栏目？如果有，如何进入政策文件类栏目？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-232",
+   "id": "157830215711",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157830215711",
+   "question": "请问天等县人民政府门户网站是否开设了政府会议类栏目？如果有，如何进入政府会议类栏目？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-232",
+   "id": "157830215705",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157830215705",
+   "question": "请问天等县人民政府门户网站是否开设了新闻动态类栏目？如果有，如何进入新闻动态类栏目？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-232",
+   "id": "157814421655",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814421655",
+   "question": "&nbsp;天等镇丽川村什么时候改成的丽川社区",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-232",
+   "id": "157814410817",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814410817",
+   "question": "请问贵单位周末上班吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-232",
+   "id": "157814360235",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814360235",
+   "question": "请问广西崇左市天等县人民政府是否开设了政策解读栏目？如果开设，如何进入？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-232",
+   "id": "157814219844",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814219844",
+   "question": "请问崇左市天等县人民政府门户网站是否开设了政策解读栏目？如果开设了，如何进入该栏目。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-232",
+   "id": "157814215237",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814215237",
+   "question": "请问崇左市天等县人民政府门户网站中是否开设了住房保障的栏目？如果开设了，如何才能进入到该栏目",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-232",
+   "id": "157814202720",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814202720",
+   "question": "我想了解一下你们是否有官方微博，如果有，链接是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-232",
+   "id": "157814199157",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814199157",
+   "question": "请问大学生创业有哪些政策？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-232",
+   "id": "157814198020",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814198020",
+   "question": "领导好：&nbsp; &nbsp; &nbsp; &nbsp;本人自2020年12月底基本每天往返天等县县城与龙茗镇，都会路过天等返乡创业园门口的辅道。该辅道之前因某些原因开挖后有约3米长0.5米宽大小的路面一直没有硬化，只是将碎砂石填上，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-232",
+   "id": "157814197233",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814197233",
+   "question": "尊敬的领导，您好，和平路与天宝北路交叉路口（旧公安局旁边）的交通信号灯显示异常，请领导安排相关部门维修一下。谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-232",
+   "id": "157814196587",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814196587",
+   "question": "电业公司领导：您好，城厢供电所旁边的自助缴费大厅，晚上灯不亮，群众缴费不方便。建议电业公司加个灯。谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-232",
+   "id": "157814195281",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814195281",
+   "question": "尊敬的领导：您好，我家住在名辰地王国际对面。县城主干道天宝北路穿过我家门口，每天我们去城北商贸城买菜都要横过公路。公路上来往的车辆有的开得很快，存在极大的安全隐患。本人强烈建议有关部门，在阳光花园与名辰地王国际之间通往城北商贸城（天福八道）",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-232",
+   "id": "157814188492",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814188492",
+   "question": "想问一下，第一次养狗狗，办宠物证，需要什么，到哪里办理，需要带宠物去吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-232",
+   "id": "157814188161",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814188161",
+   "question": "准备开学了，小孩是小学一年级新生，想了解一下恒丰希望小学情况，学校电话号码是多少？谢谢了。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-232",
+   "id": "1578112435",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=1578112435",
+   "question": "想咨询一下，我县政务服务中心的上班时间。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-232",
+   "id": "1578077845",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=1578077845",
+   "question": "有人占道经营，影响我们出入，该打哪个投诉电话？谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-232",
+   "id": "83659",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=83659",
+   "question": "我们县三级残疾有什么优惠政策？怎么申请？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-232",
+   "id": "1578112594",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=1578112594",
+   "question": "我是一名退伍军人，想咨询一些问题，请问退伍军人局在哪个地方？谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

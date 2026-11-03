@@ -1,0 +1,116 @@
+{
+ "A_考卷": [
+  {
+   "source": "gx-igi-61",
+   "id": "92931",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=92931",
+   "question": "我是广西贵港桂平市罗秀镇的一位学生，目前在读大三，我想咨询一下关于贵港动物保护的问题，在假期在家时间，近一两年，经常看到有盗猎现象，有果子狸，豹猫等，特别是到了冬季，有大量候鸟途径路过，有大白鹭，豆雁，灰头麦鸡等大型鸟类，停留在村民的稻田里",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国野生动物保护法",
+     "lib_no": "野生动物保护法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国野生动物保护法",
+     "lib_no": "野生动物保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gx-igi-61",
+   "id": "92927",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=92927",
+   "question": "小时候的鸟非常多，为什么现在这么少了？政府部门对保护鸟类有没有什么行动、措施啊？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国野生动物保护法",
+     "lib_no": "野生动物保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "中华人民共和国了野生动物保护实施条例"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "gx-igi-61",
+   "id": "157814410048",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814410048",
+   "question": "请问贵局网站是否公开贵港市林业局2022年度政府信息公开工作报告？怎么查看？",
+   "cited_hits": [],
+   "cited_missing": [
+    " 贵港市林业局2022年度政府信息公开工作报告 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-61",
+   "id": "1578112626",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=1578112626",
+   "question": "请问如果种植国家珍稀树种有政策补贴吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "造林技术规程（GB/T 15776-2016)",
+    " 中国主要栽培珍贵树种参考名录（2017年版） ",
+    "GB/T 15776-2016"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-61",
+   "id": "92930",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=92930",
+   "question": "林局相关部门人员你们好！ 我是港南区桥圩镇民众，听说我区林业局有免费给我区民众提供给茶树苗种植，不知道是否有此政策福利给民众？大概什么时候有发放？怎么领取？ 谢谢各位人员帮忙解答回复，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "广西壮族自治区人民政府关于实施油茶“双千”计划 助推乡村产业振兴的意见"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "gx-igi-61",
+   "id": "157830384913",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157830384913",
+   "question": "请问贵局网站是否开设了政策解读类栏目？如果有，如何进入？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-61",
+   "id": "157814419171",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814419171",
+   "question": "由于写论文需要了解贵港市2022年、2023年松树种植面积,谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-61",
+   "id": "157814410727",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814410727",
+   "question": "请问贵港市林业局网站有开设政策解读类栏目吗？如有，怎么查看？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-61",
+   "id": "92926",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=92926",
+   "question": "平天山森林公园东门这边从去年维修到现在，公园只是在维修道路还是也对里面的设施进行更新维修，具体什么时候完工对外开放？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

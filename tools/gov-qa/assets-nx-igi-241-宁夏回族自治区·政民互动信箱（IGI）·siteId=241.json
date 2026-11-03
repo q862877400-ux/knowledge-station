@@ -1,0 +1,605 @@
+{
+ "A_考卷": [
+  {
+   "source": "nx-igi-241",
+   "id": "10071962",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10071962",
+   "question": "%E6%82%A8%E5%A5%BD%EF%BC%81%0A%E6%A0%B9%E6%8D%AE%E3%80%8A%E5%AE%81%E5%A4%8F%E5%9B%9E%E6%97%8F%E8%87%AA%E6%B2%BB%E5%8C%BA",
+   "cited_hits": [
+    {
+     "name": "企业投资项目核准和备案管理条例",
+     "lib_no": "企业投资项目核准和备案管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "企业投资项目备案证",
+    "企业投资项目核准和备案管理办法",
+    "宁夏回族自治区企业投资项目备案和核准管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nx-igi-241",
+   "id": "10068004",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10068004",
+   "question": "宁夏回族自治区发展与改革委员会主任： 您好！ 最近亲水大街高架建设项目疑似暂停，请问原因是什么？自治区是否要修改，或者撤销银川市快速路建设规划？此致 敬礼 一位宁夏群众 2020年4月5日",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "nx-igi-241",
+   "id": "10155496",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10155496",
+   "question": "尊敬的各位领导： 鄙人，固原人，现西安创业求发展。鄙人心系家乡，热爱着生我养我的地方，时刻鉴证、关注着家乡的快速发展！慢火车早已不能满足我们快速的出行需求！更何况固原县里不通，市里火车又是慢、线路少、班次少、凌晨两班上下车，凌晨上下车就是带",
+   "cited_hits": [],
+   "cited_missing": [
+    "“十四五”铁路发展规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-241",
+   "id": "10155350",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10155350",
+   "question": "目前定西至平凉铁路起于定西市，经白银市会宁县、平凉市静宁县、宁夏固原市隆德县、泾源县，终至平凉市与平庆铁路接轨，线路顺直、设站合理，不建议绕至固原市区。固原市人口本身较少，且主要客流为北上银川南下西安方向，东西出行客流不足，线路特意绕至固原",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家“十四五”铁路发展规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-241",
+   "id": "10155225",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10155225",
+   "question": "根据甘肃省的初步规划，定西至平凉铁路起于定西市，经白银市会宁县、平凉市静宁县、宁夏固原市隆德县、泾源县，终至平凉市与平庆铁路接轨。固原一直缺少东西向铁路通道，我区也一直在争取定平铁路经过固原市区并设站。请问项目前期工作进展如何了，靠近固原市",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家“十四五”铁路发展规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-241",
+   "id": "10155151",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10155151",
+   "question": "尊敬的各位领导，今年已经2023年了，随着银西、银兰，包银等铁路的开通和建设，宁夏北部各市区已经基本全部覆盖高铁、一年又一年，给固原承诺的通高铁动车也迟迟未来，唯一不变的是给固原人民不断的画大饼、说安慰的话，让固原人民无语至极，宝中铁路扩能",
+   "cited_hits": [],
+   "cited_missing": [
+    "普速线路动力分散动车组调整运行图的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-241",
+   "id": "10152708",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10152708",
+   "question": "关于银川市轨道交通建设推进的最新情况",
+   "cited_hits": [],
+   "cited_missing": [
+    "银川市轨道交通线网规划（修编）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-241",
+   "id": "10145165",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10145165",
+   "question": "随着中兰今年开通，包银高铁开工，银川东站是否也到了修建的时候？省会城市市内一般都有好几个高铁站，主要是为了方便群众乘车，城南和永宁老百姓需要一个近一点的乘坐高铁的车站，刚开始即使规模不大，也可以满足老百姓的需求了，况且随着城市发展，一个火车",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于新建银川至西安铁路调整可行性研究报告的批复"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-241",
+   "id": "10144475",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10144475",
+   "question": "河东机场由于白芨滩国家级自然保护区，如果改扩建，沙湖周边的洪广、暖泉工业园这一片区可供选址。首先，洪广、暖泉工业园的污染确实影响到沙湖景区，不如整改。而包银高铁通车后，机场也可与沙湖站空铁联营。最后，这样布局为宁夏的全域旅游助力。",
+   "cited_hits": [],
+   "cited_missing": [
+    "银川河东国际机场总体规划（2021年版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-241",
+   "id": "10068212",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10068212",
+   "question": "关于建设万头牧场项目是否收取草原植被恢复费的问题 一是根据国家林业和草原局关于印发《草原征占用审核审批管理规范》的通知（林草规〔2020〕2号），第八条在草原上修建直接为草原保护和畜牧业生产服务的工程设施确需使用草原的，依照下列规定的权限办",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于草原植被恢复收费标准及有关问题的通知",
+    "国家林业和草原局关于印发&lt;草原征占用审核审批管理规范&gt;的通知",
+    "自治区物价局 财政厅关于草原植被恢复费收费标准的复函"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-241",
+   "id": "10068192",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10068192",
+   "question": "居民空置房未住人停止供暖还需要每年向供暖公司缴费，费用是当年暖气费的1/3。还要每年办理，不办理就视为供暖，按全额缴费。想咨询一下，未享受服务每年缴费是否合理，每年办理停暖比较麻烦，能付调整。",
+   "cited_hits": [],
+   "cited_missing": [
+    "银川市城市供热条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nx-igi-241",
+   "id": "10068182",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10068182",
+   "question": "国家已经开始实施《关于清理规范城镇供水供电供气供暖行业收费促进行业高质量发展的意见》，石嘴山市根据政府《专题会议纪要》（2009第50次）向市民收取的天然气入户改造费符合《意见》精神吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于清理规范城镇供水供电供气供暖行业收费促进行业高质量发展的意见"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nx-igi-241",
+   "id": "10068116",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10068116",
+   "question": "您好，太中银铁路定边至中卫段作为连接祖国华北与西北的动脉大通道长期单线运营，对通道的运输效率大大降低，随着银西高铁的建成、中兰客专的即将建成和宝中铁路扩能工程的即将实施，太中银铁路中卫至定边段在路网中东联西达的位置将更加重要。故建议自治区在",
+   "cited_hits": [],
+   "cited_missing": [
+    "中长期铁路网规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-241",
+   "id": "10068114",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10068114",
+   "question": "主任，您好，我是银川市西夏区棉厂小区15-3-301居民住户，前些年我所在的小区进行天然气入户改造，因那段时间我未在该处居住，房子当时空着，也没有通知我，天然气管道只通到了我阳台的外墙上未入户，我申请供气企业接通天然气，但企业说要交3600",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于清理规范城镇供水供电供气供暖行业收费促进行业高质量发展的意见",
+    "关于制定老旧小区天然气入户工程费的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nx-igi-241",
+   "id": "10068110",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10068110",
+   "question": "银川至西安高铁和兰州至西安高铁距离和时间基本一样，银川至西安高铁一等座价格为392-422元，二等座价格为245-264元，兰州至西安高铁一等座价格为231.5-320.5元，二等座价格为174.5-199.5元，请解释一下价格为什么差距这",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家发展改革委关于改革完善高铁动车组旅客票价政策的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-241",
+   "id": "10068106",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10068106",
+   "question": "主任你好，银新铁路改造计划迟迟未能进行，不知道是否有新的规划？",
+   "cited_hits": [],
+   "cited_missing": [
+    "银新铁路专用线改造项目修建性详细规划及周边城市设计、交通设计"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-241",
+   "id": "10068076",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10068076",
+   "question": "夜间快20点（大概在19点50左右）在石嘴山市大武口区华欣西门停车场入场停车，于当晚20点37分出场，不足1小时，停车费收取2次（白天2元夜间4元），咨询石嘴山发改委回复定的政策就这样，跨时间段收费有不合理的地方。停车场按次收费，投诉：1.",
+   "cited_hits": [],
+   "cited_missing": [
+    "自治区人民政府关于公布施行宁夏回族自治区定价目录的通知",
+    "关于规范石嘴山市车辆停放收费标准的通知",
+    "关于规范石嘴山市机动车停放服务收费标准的补充通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nx-igi-241",
+   "id": "10068045",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10068045",
+   "question": "尊敬的发改委领导，你们好，刚刚看到西宁公布了《西宁市城市轨道交通线网规划修编》环境影响评价工作进行第一次信息公示，公开本规划及其环境影响评价工作的有关信息，并征求公众意见。查看了一下银川市的情况，2019年的GDP和财政收入两项指标均超过了",
+   "cited_hits": [],
+   "cited_missing": [
+    "银川市城市轨道线网规划",
+    "国务院办公厅关于进一步加强城市轨道交通规划建设管理的意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-241",
+   "id": "10068032",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10068032",
+   "question": "2019年-2020年政兴苑暖气费上涨极为不合理，政兴苑小区，是物业自己烧暖气，并非其他供热公司集中供暖，所以不存在其他工程改造所带来的成本上涨。而且烧的极其的差，大晚上锅炉房连点热气都不冒，就这样的供暖质量，三块八已经是我们的底线了，现在",
+   "cited_hits": [],
+   "cited_missing": [
+    "政府制定价格行为规则",
+    "银川市城市供热条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-241",
+   "id": "10068024",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10068024",
+   "question": "您好，想和贵委咨询一下关于新建集装箱物流园区、危化品物流园区等现代物流配套设施，贵委层面可提供哪些具体层面的支持与帮助",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家物流枢纽布局和建设规划",
+    "国家物流枢纽网络建设实施方案（2019-2020年）",
+    "促进服务业发展若干政策措施",
+    "关于积极应对疫情影响释放消费潜力支持服务业健康发展的若干政策措施"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-241",
+   "id": "10068014",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10068014",
+   "question": "银川地区允许个人投资光伏发电并网项目吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家能源局综合司关于2019年户用光伏项目信息公布和报送有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-241",
+   "id": "10068010",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10068010",
+   "question": "主任您好，我想咨询一下宁夏自治区医疗服务收费目录在哪里能够查询，查询路径请您明示一下，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "宁夏回族自治区医疗服务价格手册"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "nx-igi-241",
+   "id": "10155847",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10155847",
+   "question": "现阶段宁夏已建成银西、银兰两条高铁线路，正在建设包银高铁项目，高铁建设取得重大成就，但仍存在不平衡不充分的特点。建议加快进行宝中铁路改造，以及定平庆铁路建设，实现固原地区动车通达。关于定平庆铁路不过固原市区的问题，建议通过建设固原到定平庆铁",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-241",
+   "id": "10154821",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10154821",
+   "question": "您好，去年底中卫至平凉铁路扩能工程可研已经上报，关于中卫至平凉铁路工程动车组开行事宜国铁集团回复只能开行动力集中型动车组，在此再次向自治区领导建议恳请国铁集团在中卫至平凉铁路扩能改造后开行动力分散型动车组，银川至固原动车组拉通运行。原因如下",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-241",
+   "id": "10154800",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10154800",
+   "question": "你好，中卫至平凉铁路扩能改造工程前期工作已推进多年，可研报告目前仍未批复，请问涉及影响项目进度主要原因是什么，是否确定的开行动车方案，能否能实现固原直达银川的动车目标，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-241",
+   "id": "10153239",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10153239",
+   "question": "您好，中卫至平凉铁路扩能改造（即宝中铁路二线）工程，自5月份以来就与国铁集团商讨动车组开行事宜，可研迟迟未上报，目前2022年已仅剩一个多月，特此咨询：一是动车组开行方案是否确定。二是工程作为2022年自治区重点项目，还能否在今年内开工建设",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-241",
+   "id": "10149957",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10149957",
+   "question": "请问，宝中铁路扩能改造工程（中宁-固原）段，今年能否开工建设？ 坐个火车去银川要8个多小时，太慢了。如果早日建成银川到固原的城际铁路， 2.5小时去银川真的很方便。 希望宝中铁路扩能改造工程（中宁-固原）段，早日建成投运，圆固原人的快铁梦！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-241",
+   "id": "10148503",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10148503",
+   "question": "尊敬的领导您好！从去年年底至今，国家出台了一系列规划、方针、意见，如《黄河流域生态保护和高质量发展》、“中央财经委员会第十一次会议”、《关于推进以县城为重要载体的城镇化建设的意见》，这为我区加快启动银川至太原高铁建设提供了重要契机，在此，我",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-241",
+   "id": "10148258",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10148258",
+   "question": "泾源作为宁夏南部最偏远的一个县城，南北交通受阻，这也是泾源作为旅游县城最大的痛点，也是阻碍泾源发展的最大桎梏，希望自治区政府可以考虑将泾源纳入固原－平凉铁路网，毕竟泾源是固原和平凉的中间地段，又是链接宁夏和甘肃关键地，将泾源并入国家铁路网不",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-241",
+   "id": "10148127",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10148127",
+   "question": "建议对包兰铁路银川至中卫段扩能改造，同时增设二线，速度提升至160KM/h,预留进一步提速条件，与宝中线扩能改造线路联通并同步实施，作为银川至固原动车组运行线路，避免动车组在银西高铁以及银兰高铁上运行所带来的线路利用效率低下，高速铁路跑低速",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-241",
+   "id": "10147563",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10147563",
+   "question": "银川作为一个省会城市，至今城区内没有轨道交通，实在令人想不通，宁夏十四五将银川轨道交通列入十大重点建设工程，不知道现在进度如何？ 银川到太原高铁，对银川联通华北和京津地区有重要意义，对促进宁夏经济发展作用巨大，不知道现在进度如何？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-241",
+   "id": "10147173",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10147173",
+   "question": "尊敬的发改委主任，根据国家十三五《中长期铁路网规划》内容，银渝高速铁路，是国家十三五《中长期铁路网规划》中的综合交通运输通道之一，是一条北起自宁夏自治区的银川市，至重庆市的南北走向铁路干线;设计时速为350千米每小时，建成后可开行高速动车组",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-241",
+   "id": "10146179",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10146179",
+   "question": "尊敬的领导您好！宝中铁路扩能改造（中卫至固原）段项目从2020年就说要开工建设，至今怎么没有一点要开工建设的消息呢？固原火车站也该扩建一下了，规模太小了。还不如外省一个县城的火车站大。很期待固原能建一座高端大气上档次的火车站。成为固原的靓丽",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-241",
+   "id": "10146031",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10146031",
+   "question": "银太高铁已经纳入了自治区十大工程，并且今年全国两会期间，代表也提了关于银太高铁的提案，想问一下目前银太高铁进展到哪一步了，可否以高铁250公里，或者350公里的时速进行修建，以此来满足宁夏人民前往华北地区",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-241",
+   "id": "10126232",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10126232",
+   "question": "尊敬领导你好 来信目的是希望领导答复一下宁夏固原高铁何时可以开通？革命老区人民是为国家做出贡献的，六盘山地区的固原人民不配享有高铁吗？宁夏固原为什么还在使用80年代的火车站？宁夏固原是不是被宁夏发改委领导给忘记了？ 期待领导回复！！！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-241",
+   "id": "10073259",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10073259",
+   "question": "%E6%98%8E%E5%B9%B4%E4%B8%80%E5%AD%A3%E5%BA%A6%E7%9A%84%E9%93%81%E8%B7%AF%E8%B0%83%E5%9B%BE%E5%B7%A5%E4%BD%9C%E9%A9%AC%E4",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-241",
+   "id": "10068279",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10068279",
+   "question": "请问价格监测数据公布的蔬菜价格是否包含了供应商的税金等各类费用？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-241",
+   "id": "10068236",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10068236",
+   "question": "领导您好： 我住在银川城南和望远交界处，现在银西和银中高铁开通了，对宁夏人民出行旅游甚至是发展经济带来了极大的方便。但是每次去火车站又实在太远，出租车去最少要花三十块钱，多则四十多块钱，而坐公交车不堵车至少一个半小时以上的时间，对于银川城南",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-241",
+   "id": "10068230",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10068230",
+   "question": "尊敬的领导您好：宝中铁路作为区内连接南北的关键交通要道，自开通以来就在连接南北往来发挥着重大的作用。随着时代的发展，现有宝中铁路显然无法满足当下人民群众出行和企业运输的需求，现在宁夏五市已有三市进入高铁时代，石嘴山距离进入高铁时代也只差一步",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-241",
+   "id": "10068202",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10068202",
+   "question": "贵委您好！针对宝中铁路扩能改造计划，目前宁夏段线路走向与技术标准基本趋于定数。根据去年出台的环评来看，宝中扩改包含两部分，一是在与既有线基本平行的基础上增建一条设计时速160kph的新线，二是对既有线部分路段提质提速，除部分区间限速120k",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-241",
+   "id": "10068200",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10068200",
+   "question": "您好，宝中铁路扩能改造工程（原中平庆铁路）近期进展如何，特来咨询以下两点：1.宝中铁路扩能改造工程原来与甘肃平庆铁路打包为一项工程即中卫至平凉至庆阳铁路，近期据甘肃发改委消息原中平庆铁路国铁集团又拆分为宝中铁路中卫至平凉改造工程和平庆铁路两",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-241",
+   "id": "10068172",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10068172",
+   "question": "尊敬的自治区发改委领导： 您好，我是固原市隆德县一名在外求学的学生，因学业需要每年多次往返西安至隆德，在出行过程中经常选择乘坐火车的方式，也深感家乡铁路客运的不便，更羡慕身边家乡通高铁的同学。但中卫至平凉至庆阳铁路的建设让自己特别激动，从2",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-241",
+   "id": "10068142",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10068142",
+   "question": "您好，请问有宁夏回族自治区煤矿集团信息汇总吗？想了解一下。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-241",
+   "id": "10068134",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10068134",
+   "question": "领导您好，宁夏有很多人在武汉上学和工作，目前只有一趟路过武汉的高铁，有必要开行银川始发终到武汉的高铁，请领导与铁路部门沟通协商，争取4月份调图开行，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-241",
+   "id": "10068125",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10068125",
+   "question": "您好，2021春运已经拉开帷幕，但银中高铁却大幅减少车次，从1月31日开始每天减少到只有5趟列车，对区内群众交通出行造成了极大的影响，当前虽然全国疫情形势出现反复但区内全部处于低风险状态，春节临近，区内人群有限流动增多，银中高铁速度价格优势",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-241",
+   "id": "10068112",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10068112",
+   "question": "主任，您好！请问2021年全国铁路调图，银川将新增到杭州，上海和郑州的高铁，是否有开通直达北京和广州的高铁呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-241",
+   "id": "10068101",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10068101",
+   "question": "请问银西高铁何时开始售票，是所有站同时开通嘛？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-241",
+   "id": "10068099",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10068099",
+   "question": "银西高铁什么时候可以在网上购票，有洛阳开往吴忠的车次？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-241",
+   "id": "10068097",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10068097",
+   "question": "您好！一直以来，银川站没有直达重庆的客运列车，这样学生上学，宁渝两地的人员来往很不方便，建议能不能将银川直达陇南的k9881次和陇南直达银川的k9883次列车延伸到银川和重庆北始发终到，这样可以方便两地及沿线群众的出行。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-241",
+   "id": "10068089",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10068089",
+   "question": "主任，您好。请问银西高铁月底开通后，是否会有从银川出发，直接可以到达例如北京、郑州、武汉、上海等重要城市的高铁路线呢？如果能直接开通，那以后银川的市民去往全国各地将会更加方便快捷了。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-241",
+   "id": "10068078",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10068078",
+   "question": "您好，银西高铁开通临近，请问银西高铁开通后都会有开往哪些城市的高铁动车组？有没有中卫南开往西安方向的动车组？如果没有建议在前期排图时能考虑中卫市开行至西安北站的动车组，让中卫、中宁也能接入全国高铁网。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-241",
+   "id": "10068069",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10068069",
+   "question": "定边和银川两地人员，日常出行很多，银西高铁是否能延伸至定边，或有其他规划，方便两地人口出行。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-241",
+   "id": "10068049",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10068049",
+   "question": "亲爱的宁夏回族自治区发改委： 您好，看了贵单位发布的《2020全区重大项目清单》，有几点疑问想咨询一下。 1.建设性质类型中的拟建项目和新建项目有何区别？按我的理解拟建项目是准备建设，但还只是停留在计划阶段，真正的建设活动还没开始，为何清单",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-241",
+   "id": "10068034",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10068034",
+   "question": "机构改革前，原经信委发布的文件《宁夏回族自治区能耗限额目录》，包括原物价局的一些调价文件，现在从什么地方可以查阅和下载？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-241",
+   "id": "10068028",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10068028",
+   "question": "您好，西银高铁现在修到哪了，车型是什么 ？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-241",
+   "id": "10068022",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10068022",
+   "question": "您好，想咨询一下贵委现有的针对新基建的支持性政策以及扶持类专项资金或专项债有哪些，申请上述扶持类资金需要什么条件？如有相关文件可否将电子版发至我邮箱，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-241",
+   "id": "10068016",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10068016",
+   "question": "一直以来，中国的交通建设都是按专业划分，各自为政，各搞各的，互通性较差。人们出行时，换乘不同交通工具非常麻烦，银川也不例外。上海虹桥客运中心开启了中国综合交通的新时代，是未来中国城市交通枢纽的代表。它以轨道交通为骨干，将城市中的航空、高铁、",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-241",
+   "id": "10068008",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10068008",
+   "question": "您好，1.宝中铁路固原至中宁段扩能改造自去年可研批复后现在进入哪个阶段了？2.去年说开工却没有开工，今年能否按时开工？3.最终设计时速是多少，有没有预留提速的空间？4.工期几年，固原人民何时能坐动车到首府？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-241",
+   "id": "10068000",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10068000",
+   "question": "建议在机构职能内设机构中把工作人员姓名、职务、联系电话、房间号码都公开，方便群众办事联系。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

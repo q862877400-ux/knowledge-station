@@ -1,0 +1,33 @@
+{
+ "A_考卷": [],
+ "B_补料": [],
+ "C_无依据": [
+  {
+   "source": "gx-igi-157",
+   "id": "157814411335",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814411335",
+   "question": "咨询玉林市审计局工作时间。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-157",
+   "id": "157814405112",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814405112",
+   "question": "咨询玉林市审计局2023年下半年公开招聘编外工作人员笔试时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-157",
+   "id": "157814208026",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814208026",
+   "question": "请问2022年审计专业技术资格考试广西什么时候报名？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

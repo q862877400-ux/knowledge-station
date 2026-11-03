@@ -128,6 +128,26 @@ def find_normative_column(exe: str, hub_url: str, budget_ms: int) -> tuple[str, 
     return "", {"why": "no_normative_column", "tried": len(strong)}
 
 
+
+#: 登记表里这些标记表示"这个域名本身就是别的地方" —— **一律不抓**，
+#: 否则会把别人的数据记到本站名下（2026-11-02 实测：梅州/清远/唐山 被反复抓回错数据）。
+REGISTRY = ROOT / "tools" / "gov-qa" / "recon" / "city-domains-all.json"
+
+
+def site_blocked(site: str) -> str | None:
+    """该站是否被登记为不可用。返回原因或 None。"""
+    try:
+        reg = json.loads(REGISTRY.read_text(encoding="utf-8"))
+    except Exception:                            # noqa: BLE001
+        return None
+    info = reg.get(site) or {}
+    if info.get("url_wrong"):
+        return "registry_url_wrong"
+    if info.get("exclude_crawl"):
+        return info.get("exclude_crawl")
+    return None
+
+
 def crawl_generic(site: str, rec: dict, page_source, next_action, pages: int,
                   engine: str = "headless-dom",
                   max_barren: int = 2) -> dict:
@@ -142,6 +162,10 @@ def crawl_generic(site: str, rec: dict, page_source, next_action, pages: int,
     """
     board = rec.get("board_url") or ""
     prov = rec.get("province") or "未知"
+    blocked = site_blocked(site)
+    if blocked:
+        return {"site": site, "status": "skipped", "reason": blocked,
+                "items": 0, "pages": 0, "seconds": 0.0}
     stats = {"site": site, "board": board, "status": None, "pages": 0,
              "items": 0, "seconds": 0.0, "error": None}
     if not board:

@@ -1,0 +1,24 @@
+{
+ "A_考卷": [],
+ "B_补料": [],
+ "C_无依据": [
+  {
+   "source": "gx-igi-161",
+   "id": "157814408075",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814408075",
+   "question": "玉林市民主南路石子岭路段占道经营问题严重，希望有关部门管管。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-161",
+   "id": "157814223493",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814223493",
+   "question": "今年开始，这条路越来越多大货车在此路段占道卸货，装货，固定下来摆卖，不时有丢弃的果蔬堆在路面，占用大面积公共道路，拉货的电动三轮车乱穿路面进入市场，给我们居住在附近的过往造成安全隐患。可以管吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

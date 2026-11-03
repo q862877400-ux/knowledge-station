@@ -1,0 +1,990 @@
+{
+ "A_考卷": [
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "c87e5dea-b9a2-4076-967d-8c97d43f389e",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=c87e5dea-b9a2-4076-967d-8c97d43f389e",
+   "question": "私营企业开办畜牧养殖场，需要哪些手续？\n领导，您好！\n我咨询一下，私营企业开办畜牧养殖场，具体需要哪些审批手续、提供哪些资料？\n希望能够尽量详细一点，能有具体步骤、审批的对应部门、需要填写的资料文档等，最好有一整套的资料包。谢谢！",
+   "cited_hits": [
+    {
+     "name": "农村土地承包法",
+     "lib_no": "农村土地承包法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "土地管理法",
+     "lib_no": "土地管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "工商营业执照",
+    "动物防疫条件审查办法",
+    "动物防疫条件合格证",
+    "动物防疫条件审查办法",
+    "动物防疫条件合格证",
+    "动物防疫合格证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "2db014ef-621f-443d-bcc6-37a16ae011c5",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=2db014ef-621f-443d-bcc6-37a16ae011c5",
+   "question": "异地生育保险的报销\n你好，我在凉山州西昌市工作，交的凉山州社保，想回老家山东德州生育，想咨询下异地生育险的报销流程是什么样的",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国社会保险法",
+     "lib_no": "保险法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "女职工劳动保护特别规定",
+     "lib_no": "女职工劳动保护特别规定(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "参保职工现金垫付住院费用结算清单",
+    "凉山州生育保险待遇申领表",
+    "凉山州生育保险和城镇职工基本医疗保险合并实施方案",
+    "四川省人口和计划生育条例",
+    "四川省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "8065cd40-808e-4b86-a2ee-c59e3c778c15f",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantproposaldetail.html?cguid=8065cd40-808e-4b86-a2ee-c59e3c778c15f",
+   "question": "屯狗事件\n群众来电反映，凉山屯狗事件，提出以下建议;\n1、建议相关部门出具对狗无害化处理的具体证据 。 \n2、建议相关出具对狗检测流程与动物检验检疫局检查报告。\n3、对于私屠乱宰，非法屯运未经检验检疫的的活犬国家是不允许的，要求相关部门处理",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国动物防疫法",
+     "lib_no": "动物防疫法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于印发四川省动物包虫病控制传播途径技术措施与工作方案的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "d3109b65-9871-4da7-82bc-362ee54c84da",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=d3109b65-9871-4da7-82bc-362ee54c84da",
+   "question": "公司违法储存销售柴油\n3月30日，阿支来信反映：布拖县九嘎路中航天建设工程有限公司布拖分公司、中电建筑集团有限公司布拖分公司私自购买3个大油罐和3台小油罐车储存柴油，偷偷销售柴油，小油罐车天天进进出出给车辆加油，搞得乌烟瘴气，扰乱市场，对群",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国安全生产法",
+     "lib_no": "安全生产法(2021修正)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国计量法",
+     "lib_no": "计量法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国行政强制法",
+     "lib_no": "行政强制法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国治安管理处罚法",
+     "lib_no": "治安管理处罚法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "中华人民共和国强制检定的工作计量器具明细目录"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "6f27da6c-60ba-4789-b55c-9019252f43d1",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=6f27da6c-60ba-4789-b55c-9019252f43d1",
+   "question": "咨询婚假新规\n你好，我想咨询一下凉山州什么时候开始执行四川省关于婚假的新规，谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于四川省人口与计划生育条例实施中有关假期规定适用问题的指导意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "d1d226fc-2f88-46bb-b74d-32c883af9671",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=d1d226fc-2f88-46bb-b74d-32c883af9671",
+   "question": "合作社\n办理农业农村发展种植合作社",
+   "cited_hits": [],
+   "cited_missing": [
+    "农民专业合作社登记（备案）申请书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "f300c99a-90e8-4642-985b-9503cc41b4f7",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=f300c99a-90e8-4642-985b-9503cc41b4f7",
+   "question": "新生儿户口\n刚出的新生儿，在哪里上户口？需要准备什么材料",
+   "cited_hits": [],
+   "cited_missing": [
+    "全省公安机关户政管理工作规程",
+    "出生医学证明",
+    "出生医学证明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "369a96ba-9079-4e80-9b0d-4c74cfd5913a",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=369a96ba-9079-4e80-9b0d-4c74cfd5913a",
+   "question": "关于如何证明自己是农村户口的问题\n现在户口本上感觉看不出是农村户口还是城镇户口，应该如何才能证明自己是农村户口呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "四川省人民政府关于印发四川省进一步推进户籍制度改革实施方案的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "75c795c3-7524-4171-be6a-986b229b5fb9",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=75c795c3-7524-4171-be6a-986b229b5fb9",
+   "question": "异地办理身份证\n我是非凉山州本地的一名大学生，身份证还有一个月就要到期了，但我是四川人，想要咨询一下可不可以在西昌办理身份证",
+   "cited_hits": [],
+   "cited_missing": [
+    "四川省流动人口信息登记办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "2fd84d26-9928-48f1-8633-784837fc330f",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=2fd84d26-9928-48f1-8633-784837fc330f",
+   "question": "农村养老保险补缴咨询\n目前父母在冕宁农村，年龄都是59岁，想请问现在能一次性补缴15年养老保险吗，补缴金额需要多少，到60岁退休能拿到多少退休金；补缴我想按照最高标准。请尽快给予回复，感谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "四川省完善城乡居民养老保险制度的实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "02b6e450-745d-4f46-bbc4-187fbeecfa5e",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=02b6e450-745d-4f46-bbc4-187fbeecfa5e",
+   "question": "如何变更执事人？\n如何变更公司执事人？具体操作流程，需要审核多久",
+   "cited_hits": [],
+   "cited_missing": [
+    "营业执照"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "133c6784-8196-400d-b2d6-60979a3f59f8",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=133c6784-8196-400d-b2d6-60979a3f59f8",
+   "question": "公积金提取\n本人之前在十九冶西昌设备结构有限公司上班，于2012年9月离职，因现在成都市简阳市购买了商品房，想咨询一下之前在十九冶西昌设备结构有限公司缴纳的公积金能否提取。如果能够提取，需要准备哪些资料，办理流程是哪些，是否需要本人到现场窗",
+   "cited_hits": [],
+   "cited_missing": [
+    "住房城乡建设部 财政部 人民银行 公安部 关于开展治理违规提取住房公积金工作的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "e76808bf-f878-477f-a2b1-981bd6d6e26b",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=e76808bf-f878-477f-a2b1-981bd6d6e26b",
+   "question": "在手机营商通上无法申请修改个体户名称\n在手机营商通上无法申请修改个体户名称，让我在电脑上申请营业执照名称自主申报，找了半天没有申报名称入口，然后手机上点击进去又显示没有可用名称，请给予解决办法。",
+   "cited_hits": [],
+   "cited_missing": [
+    "市场主体名称自主申报告知承诺书",
+    "市场主体名称预先登记申请表",
+    "指定代表或者共同委托代理人的证明",
+    "市场主体名称预先登记告知书",
+    "营业执照",
+    "营业执照",
+    "个体工商户登记变更登记申请表",
+    "市场主体名称预先登记告知（承诺书）",
+    "营业执照",
+    "营业执照",
+    "遗失作废声明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "b6498b2f-837c-41e4-9a41-a916b6e375f1",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=b6498b2f-837c-41e4-9a41-a916b6e375f1",
+   "question": "社保购买\n原事业单位刑满释放人员，女，年满51岁，现在可不可以买社保？怎么买？买多少年？好久能领养金？满55岁时能不能一次补买剩余年的头保？",
+   "cited_hits": [],
+   "cited_missing": [
+    "四川省劳动和社会保障厅关于印发四川省完善企业职工基本养老保险制度实施办法的实施细则的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "fe24ea29-275a-4f2e-9ea1-df3b64f9e179",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=fe24ea29-275a-4f2e-9ea1-df3b64f9e179",
+   "question": "二滩水库是否允许钓鱼\n在禁渔期外是否允许在岸边钓鱼一人一杆一针",
+   "cited_hits": [],
+   "cited_missing": [
+    "盐源县人民政府关于长江流域重点水域全面禁捕的通告",
+    "盐源县休闲垂钓管理办法",
+    "管理办法",
+    "管理办法",
+    "管理办法",
+    "管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "eb4cdb53-85c1-48f8-b764-ca6ee7b3a08c",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantproposaldetail.html?cguid=eb4cdb53-85c1-48f8-b764-ca6ee7b3a08c",
+   "question": "关于电动车上校内牌\n尊敬的领导，您好!\n   关于西昌学院上校内识别牌这个事情，学生要求必须上公安局的牌，才给上校内识别牌，而有些同学和老师以及教职工却可以直接上校内识别牌，并且无任何手续。\n   学生无法上牌的，学校教职工却可以买来挂上学",
+   "cited_hits": [],
+   "cited_missing": [
+    "西昌学院规范电动车管理的通知",
+    "西昌学院电瓶车管理办法补充通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "9c3a69ba-e454-4240-bfb6-5b5956fcb5cd",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=9c3a69ba-e454-4240-bfb6-5b5956fcb5cd",
+   "question": "家庭作坊污染空气\n5月21日，张女士来信反映：仓街13号一家家庭作坊式的魔芋制作点，每天晚上至第二天早上六点都会不定时的进行魔芋初加工。他们使用的是老式的柴火灶，燃料是收来的诸如旧家具、泡沫、塑料等废旧品，一烧火，周围全是一股很浓烈的臭味。",
+   "cited_hits": [],
+   "cited_missing": [
+    "四川省食品小作坊、小经营店及摊贩管理条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "3c779862-7ddb-4b0c-89cd-e04c8232051e",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=3c779862-7ddb-4b0c-89cd-e04c8232051e",
+   "question": "春城东路餐饮店占道经营污水横流\n5月26日，陈女士来信反映：春城东路新开了一家龙虾餐馆，该商户不仅直接将炊具和操作台摆到了人行道上，而且各种污水（洗碗水、洗菜水、洗龙虾的脏水）直接倒在人行道上。近期高温酷暑，散发出恶臭，严重影响市容市貌。",
+   "cited_hits": [],
+   "cited_missing": [
+    "四川省城乡环境综合治理条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "e73c2147-b73d-40bf-9e43-a32132d2d98b",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=e73c2147-b73d-40bf-9e43-a32132d2d98b",
+   "question": "羊肉馆存在火灾隐患\n4月23日，张先生来信反映：会理县首府路90到92号的田记羊肉馆至今还在使用燃烧块煤加土灶的模式经营生意。该羊肉馆在清晨生火时，因为使用块煤的原因，一根20余米高的锈迹斑斑的钢管烟囱，排气口产生巨大的火苗且火星乱飞，浓烟",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于督促隐患整改的告知书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "308ccc9a-4a5b-46f6-b65d-da222a41a403",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=308ccc9a-4a5b-46f6-b65d-da222a41a403",
+   "question": "违规搭建的彩钢棚仍未拆除\n4月11日，张先生来电反映：吉祥路祁家屯巷博爱医院后面的盘龙烧烤店，违规搭建的彩钢棚还没有被拆除，请有关部门监督。",
+   "cited_hits": [],
+   "cited_missing": [
+    "中共西昌市委 西昌市人民政府关于印发拆除西昌市城市建成区“彩钢棚”违建专项行动实施方案的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "12b365c6-4319-4d33-932c-81b573980322",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=12b365c6-4319-4d33-932c-81b573980322",
+   "question": "请拆除阳光路苑三期门口彩钢棚\n3月21日，张先生来信反映：西昌火车站背后阳光路苑三期门口有很多彩钢棚搭建的建筑物，刚刚挡住小区大门，影响小区人员出行。",
+   "cited_hits": [],
+   "cited_missing": [
+    "拆除西昌市城市建成区“彩钢棚”违建专项行动实施方案"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "cbe485b5-ab8e-4e26-8563-aa5d7cbe7438",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=cbe485b5-ab8e-4e26-8563-aa5d7cbe7438",
+   "question": "独生子女证怎么新办\n独生子女证怎么新办",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "cfb2cf97-a042-49ee-b2e8-ea2613be701b",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=cfb2cf97-a042-49ee-b2e8-ea2613be701b",
+   "question": "怎么开个人无犯罪证明\n怎么开个人无犯罪记录",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "e93ae8d3-0bdd-4cca-871d-23d980f888af",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=e93ae8d3-0bdd-4cca-871d-23d980f888af",
+   "question": "开无犯罪记录证明\n需要开一份无犯罪记录证明，找工作",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "7296f0cc-0351-48f2-97c2-476d61b378d2",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=7296f0cc-0351-48f2-97c2-476d61b378d2",
+   "question": "无犯罪记录证明\n申请了快一个星期了，怎么看不到办理进度？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "49228040-24e8-4689-8c9c-ce648a723537",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=49228040-24e8-4689-8c9c-ce648a723537",
+   "question": "租房合同\n泸州人来凉山工作租房子住，压力颇大，提取公积金",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "2f1fdbb4-ca94-4fa4-a037-b12a04335cb3",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=2f1fdbb4-ca94-4fa4-a037-b12a04335cb3",
+   "question": "育儿补贴进度咨询\n领导们。你们好。咨询下。育儿补贴大概何时能到账？提交至审核接近两月。审核通过也接近两月。。提交至今。接近四月时间了。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "bc2bc16b-8bdd-48c0-a3b8-789211f5fd20",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=bc2bc16b-8bdd-48c0-a3b8-789211f5fd20",
+   "question": "冕宁育儿补贴多久发放\n冕宁县育儿补贴多久发放",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "77f1567d-08e0-4237-9d59-5ae6e5c46519",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=77f1567d-08e0-4237-9d59-5ae6e5c46519",
+   "question": "四川省凉山州喜德县育儿补贴什么时候发\n四川省凉山州喜德县育儿补贴什么时候发",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "12e99519-8a0c-4726-a826-a9aa51b37507",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=12e99519-8a0c-4726-a826-a9aa51b37507",
+   "question": "应届毕业生咨询人才引进与岗位相关事宜\n领导你好!我是土地资源管理专业应届毕业生，目前正在积极求职，想咨询一下当地的人才引进政策，以及想进一步了解贵县是否有针对本专业的相关岗位、招聘活动或人才引进政策。期待你的回复，谢谢你！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "215d0c1c-8017-4469-b314-dc51f24e754f",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=215d0c1c-8017-4469-b314-dc51f24e754f",
+   "question": "办理营业执照\n办理营业执照",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "161ac387-366d-4d42-a382-788ea57f5e88",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=161ac387-366d-4d42-a382-788ea57f5e88",
+   "question": "冕宁县何时招聘森林扑火队员\n冕宁县2025年啥时候招聘森林扑火队员",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "725f1dec-5ef7-4e57-8396-99c0c407e9e0",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=725f1dec-5ef7-4e57-8396-99c0c407e9e0",
+   "question": "烂尾楼\n请问西昌市房管局等和新商品房有关的政府部门，目前西昌市正在修建大量新商品房，现在是采取哪些措施来保障西昌市不会出现烂尾楼的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "cd19540e-bf7d-4c61-9131-911e58a7ebe9",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=cd19540e-bf7d-4c61-9131-911e58a7ebe9",
+   "question": "不动产房屋权利人名字书写错误\n不动产查档结果证明提示权利人名字书写错误，请问可以修改吗，如何修改？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "2fbd30db-aba3-4dc4-a5f5-70fe4d826859",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=2fbd30db-aba3-4dc4-a5f5-70fe4d826859",
+   "question": "不动产查询\n不动产中心出具的无住房证明怎么开",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "94761bb6-0b67-42ff-843e-ff48e87210fa",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=94761bb6-0b67-42ff-843e-ff48e87210fa",
+   "question": "身份证丢失补办\n身份证掉了，有效期是十年，能网上办理吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "d506d5ef-33e9-4b50-81f8-b8441b0d2181",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=d506d5ef-33e9-4b50-81f8-b8441b0d2181",
+   "question": "政府领导允许在道路上面晾晒粮食？\n请问是否有领导允许农户在会理市城南街道五官那边星星村银坡村新修的4.5米宽的道路上面晾晒粮食，并且从早上就开始直接把道路全部封死一直到下午太阳落山农户收谷子之后才允许通行，并且有的农户还要求过往车辆，要走这",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "dda3ab06-343e-42d6-a41e-757fe52e60e8",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=dda3ab06-343e-42d6-a41e-757fe52e60e8",
+   "question": "不动产登记\n不动产登记页面一直显示没有登陆。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "3dbd21b4-8e06-4bad-840b-28fcefacc361",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=3dbd21b4-8e06-4bad-840b-28fcefacc361",
+   "question": "肺结核可以免费治疗吗？\n外地户口在西昌市可以免费治疗肺结核吗？医保参保地在雅安市汉源县。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "f3c3451c-7561-4f0d-9682-d7ea4b3ab4d6",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=f3c3451c-7561-4f0d-9682-d7ea4b3ab4d6",
+   "question": "职称评审\n我想咨询下个人在凉山州进行土木工程类职称评审的程序和步骤，需要什么资料，要什条件，每年什么时候评审。在什么单位去评审。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "50189407-92a5-444f-8bc0-92b483489856",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=50189407-92a5-444f-8bc0-92b483489856",
+   "question": "为什么不可以领取求职创业补贴\n为什么不能领取求职创业补贴了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "16ca34dd-02bc-4b65-babd-031007b2fa02",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=16ca34dd-02bc-4b65-babd-031007b2fa02",
+   "question": "社保转移\n2020年3月至2021年2月在凉山州买了职工社保，现在在成都上班，从2021年3月开始买了成都职工社保，请问要怎样转移社保呀，网上咨询是要打印原参保地的缴费证明及信息。请问在哪里打印。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "1828a035-0097-40f9-b98a-415f26a23fef",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=1828a035-0097-40f9-b98a-415f26a23fef",
+   "question": "退役军人创业政策扶持\n我想咨询关于退役军人回乡就业创业有没有政策扶持和资金扶持等相关问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "8b31c654-a99f-43ba-9036-39d625888312",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=8b31c654-a99f-43ba-9036-39d625888312",
+   "question": "西昌市企业增加注册资本需要准备什么资料，办事流程是怎么样的。\n西昌市企业增加注册资本需要准备什么资料，办事流程是怎么样的。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "2c0098b9-3a76-4d6d-ad6b-43fe7324d266",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=2c0098b9-3a76-4d6d-ad6b-43fe7324d266",
+   "question": "西乡中学门口的Y026乡道为什么不让停车\n从重庆到凉山已经工作了3年，作为一个外来户，目睹了西昌的繁荣发展。为了把机场路修好，西乡路口停水停电停网都理解，也支持政府工程。但是西乡中心门口这条路为啥不让停车啊，先是有人举报这条路堵车，你们来划",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "f8b7eafc-f755-460a-b579-2800250fe7aa",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantproposaldetail.html?cguid=f8b7eafc-f755-460a-b579-2800250fe7aa",
+   "question": "道路维修\n越西县往普雄镇G245国道路面塌方，经常导致交通拥堵，希望有关部门进行维修，存在安全隐患，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "398f9376-d284-425e-9c3c-b96c3a4fd6e8",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantproposaldetail.html?cguid=398f9376-d284-425e-9c3c-b96c3a4fd6e8",
+   "question": "建议审核速度快一点\n我需要一个无犯罪记录证明，我在网上申请了，昨天晚上申请的，我投简历的，时间很急，昨今。明三天，时间快过了，希望今明两天内办理，这对人民很重要，为了一份工作大家都经历过，不能错过一点机会，时间紧迫，谢谢工作人员为人民服务！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "c81b69d1-2952-47c4-bb32-96a9848e844b",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantproposaldetail.html?cguid=c81b69d1-2952-47c4-bb32-96a9848e844b",
+   "question": "农村土地增减挂钩项目工资拖欠问题\n尊敬的有关部门以及各位领导我是马鞍村2组土地增减挂钩项目中的水电工，2021年年尾我的施工团队，以及朱勇老板因为手上没有活了就此回去过年了，留下我一个人做水电工收尾，他们结算完工资大老板张雄以水电工未完工为",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "6d8139f2-f112-4519-ad4e-9bfae0b912a5",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantproposaldetail.html?cguid=6d8139f2-f112-4519-ad4e-9bfae0b912a5",
+   "question": "关于绿化树遮挡居民光线\n冕宁县中央街这边的绿化树现在长得高，而且枝繁叶茂，加之部分树木有煤灰病，不仅遮挡了周围住户的光线，还导致部分病菌粘在窗户上，擦不干净。建议给该条街的绿化树做一次全面的修枝。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "4625bc50-de86-4c5a-8b60-c11ae13e0683",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantproposaldetail.html?cguid=4625bc50-de86-4c5a-8b60-c11ae13e0683",
+   "question": "建议迎宾大道路灯晚关10分钟\n每天早上7点16分迎宾大道的路灯就关闭。此时路上正是车流量最大的时侯，送学生上学的电瓶车特别多，因光线差，许多小车开远光灯。特别危险。希望能延长10分钟关灯。为节约用电可以开小灯，关大灯。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "dd27baa1-193b-4c8b-bc5e-cb8358a96175",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantproposaldetail.html?cguid=dd27baa1-193b-4c8b-bc5e-cb8358a96175",
+   "question": "建议允许州内参保职工在省内异地就医时可以通过电话备案。\n目前的政策是省内异地就医备案只接受因抢救或急诊的现场提交资料备案，这对于外地职工极其不方便。当外地职工回家休假或其他原因不在州内地区，突然生病但不至于需要抢救或者符合急诊条件只能通过门",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "381fd7c2-f270-4f82-83bc-caa664d2d0c1",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantproposaldetail.html?cguid=381fd7c2-f270-4f82-83bc-caa664d2d0c1",
+   "question": "桂园居民区大货车扰民\n袁家山桂园与月城丽景2期中间公路大货车扰民，此处是居民区公路两边有学生有幼儿园老百姓人多，大货车每天不停的跑还通宵超速，甚至凌晨3-4点还按喇叭，速度快超速，居民生活质量差，精神状态紧张无法休眠，并且生命安全受到不安全",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "6dfac703-0706-4fc5-8887-92e104332d28",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantproposaldetail.html?cguid=6dfac703-0706-4fc5-8887-92e104332d28",
+   "question": "关于树基村5组的公路\n六铁镇所有的村社基本上都已经通水泥路了，就树基村5组的公路还是泥巴路车基本上走不起，希望有关部门及时查看。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "98dd79a8-4c8f-43d1-8539-d1092d729976",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantproposaldetail.html?cguid=98dd79a8-4c8f-43d1-8539-d1092d729976",
+   "question": "惠民家园以北河东大道旁修建生态公园\n我是惠民家园居民，现在惠民家园北面河东大道旁正在填方，造成灰尘太大，现窗户都不能开，严重影响居住环境，建议此地方修建成生态公园，也希望政府多利用城市剩余空地修建离居住住户近的地方修生态公园提高老百姓生活品",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "05e67e8d-e37b-410e-9c56-fa897eacc697",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantproposaldetail.html?cguid=05e67e8d-e37b-410e-9c56-fa897eacc697",
+   "question": "惠民家园以北河东大道旁修建生态公园\n我是惠民家园居民，现在惠民家园北面河东大道旁正在填方，造成灰尘太大，现窗户都不能开，严重影响居住环境，建议此地方修建成生态公园，也希望政府多利用城市剩余空地修建离居住住户近的地方修生态公园提高老百姓生活品",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "267304e2-d97c-4a0d-b5bd-b952f5533a12",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantproposaldetail.html?cguid=267304e2-d97c-4a0d-b5bd-b952f5533a12",
+   "question": "建议安装人行道红绿灯\n风情园北路和风情园路交汇的路口，自从新改扩建通行后，该路口未安装人行道红绿灯，造成行人通行路口的时候只能参考车行红绿灯指示，很不方便。建议和以前一样安装人行道红绿灯。谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "268f364d-ed15-4331-9695-e7d2cad5dc87",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantproposaldetail.html?cguid=268f364d-ed15-4331-9695-e7d2cad5dc87",
+   "question": "社区疫苗接种三查七对一验证事宜\n根据《预防接种工作范围》中，疫苗接种时医务人员要做到：三查七对一验证，建议披砂镇社区卫生服务中心及其他疫苗接种单位的医务人员强化“一验证”，在接种疫苗时，主动让每一位受种者或者监护人验证核对疫苗的种类、批号、",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "350e970f-acc6-448c-9b65-edebcd834002",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantproposaldetail.html?cguid=350e970f-acc6-448c-9b65-edebcd834002",
+   "question": "小黄车\n西昌什么时候才能有共享小黄车啊？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "ea3d493f-5c6a-4a0a-b574-62db603ebf10a",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantproposaldetail.html?cguid=ea3d493f-5c6a-4a0a-b574-62db603ebf10a",
+   "question": "反映学校问题\n群众来电反映校讯通就收不到学生信息，有找学校校讯通的老师，但一直未解决，希望相关部门处理校讯通的事情。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "e21fc024-354a-4407-9024-bbe6b01d3a81",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantproposaldetail.html?cguid=e21fc024-354a-4407-9024-bbe6b01d3a81",
+   "question": "水资源严重污染，想要自来水\n我的家乡在四川省凉山州西昌市中坝乡大中村，今天我只想为我的父母，为我家乡的人民讨口水喝，从五六年前，我们当地的水已经被检测出污染严重，为什么污染严重，因为我们的上游有攀钢，有西溪化工厂有无数的因素造成了水资源污染",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "9e7e6e02-b98a-4cff-aa1c-16703890f49b",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantproposaldetail.html?cguid=9e7e6e02-b98a-4cff-aa1c-16703890f49b",
+   "question": "高速路口到太和方向天天早上堵车\n5月20日，王女士来信反映：每周一到周五早上高速路口到太和方向车流量太大，虽然实行单向通行，但是蓝天幼儿园附近交通复杂，车流量大、电瓶车乱穿、大货车多、学生多，还有小区的逆行车辆。每天早上堵得水泄不通，经常发",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "59ff60a4-ce6d-4c75-a16c-479963e44f74",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantproposaldetail.html?cguid=59ff60a4-ce6d-4c75-a16c-479963e44f74",
+   "question": "加大未取得营运资格黑车整治力度\n尊敬的领导，近年来，未取得营运资格黑车拉客现象较突出，存在重大安全隐患，很多黑车司机开车过程中，边开车边联系现象突出，且个别司机驾驶资格年限短，有的还是实习期便拉客，这为我县客运安全埋下重大隐患。随着宁南知名",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "233d63bb-8b03-4545-9864-4924128365c2",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=233d63bb-8b03-4545-9864-4924128365c2",
+   "question": "生活垃圾没人管理\n越西县新民镇新市村的垃圾堆积如山，无人管理，臭气熏天，阻碍交通，给出行和生活带来了恶劣的影响，希望有关部门能给新民镇的管理人员警告立即处理问题，给人民一个清新干净的生活环境",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "4f85ece9-11fb-4640-842a-0af5a6000429",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=4f85ece9-11fb-4640-842a-0af5a6000429",
+   "question": "小区三期装修扰民严重\n尊敬的领导：我是宁南县正黄金域国际二期业主，由于三期交房后，小区内天天在非装修时间进行施工，电钻声、砸墙声此起彼伏，该噪音严重影响超出《城市区域环境噪声标准》规定的分贝，严重影响其他业主的身心健康，完全无法午休，本人已",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "a589e2fc-16a9-4d2a-9921-9407dc4ff099",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=a589e2fc-16a9-4d2a-9921-9407dc4ff099",
+   "question": "违法施工\n会理市会太路公园1935.锦绣城项目、会理市四川长征干部学院凉山彝海结盟分院会理校区建设项目，在没有取得施工许可证的情况下于2021年11月开始违法施工。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "da0656de-717b-421b-9ac9-fdcb66b53bd9",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=da0656de-717b-421b-9ac9-fdcb66b53bd9",
+   "question": "邛海湿地凉大入口\n邛海湿地公园凉大入口存在消防安全隐患，该入口右侧公共休息区域停放满电瓶车，还在该区域充电，入口人流密集，存在消防安全隐患。还有工作人员在该区域做饭，影响景区形象",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "a2091e7d-ecd3-4251-ace8-f5a305e487bb",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=a2091e7d-ecd3-4251-ace8-f5a305e487bb",
+   "question": "学校宿管明目张胆无证营业，学校包庇，存在食品安全隐患\n领导您好，我是凉山州西昌市西昌学院的一个普通商家，去年有幸投标在学校开了一个超市，但是去年年底开始学校宿管就明目张胆的在宿舍里面买东西，各种牛奶面包，零食日用品，烤肠什么的，还甚至有学生",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "fa0a7ee2-cb0c-4ae1-a17a-930bf4f41145",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=fa0a7ee2-cb0c-4ae1-a17a-930bf4f41145",
+   "question": "学校高三年级清明节不放假\n我们学校高三年级清明节不放假，只放周末，四月三号下午六点就要上课，回家祭祖的时间都没有，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "b5a0b8de-55e8-4d5b-b61f-2c880cc09c3d",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=b5a0b8de-55e8-4d5b-b61f-2c880cc09c3d",
+   "question": "砖厂释放有害气体\n我们居住的小区背后有一家砖厂一到夜间就开始生产散发出难闻的化学气味及大量的白色粉尘和浓烟，在家根本就不敢开窗通风，很多人都感觉到呼吸道极度不适，严重污染我们生活环境危害了我们身体健康，砖厂附近还有一所一贯制寄宿学校，两三千",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "f0182777-8a22-41c7-b04e-df62f4561f74",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=f0182777-8a22-41c7-b04e-df62f4561f74",
+   "question": "西昌市中航南路倒土场及停车场扰民\n西昌西部新城目前处于大力建设中，周边建设工地较多，因建设工程用地紧张，德馨苑小区东侧空地被临时利用，其中靠近德馨苑一侧空地被利用为货车停车场，靠近天王山大道一侧空地被利用为临时倒土场。自从这两个场地建立后，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "cb96141a-0fd5-4e15-b6b7-817bef6a7b98",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=cb96141a-0fd5-4e15-b6b7-817bef6a7b98",
+   "question": "城管所属机动车无牌照上路问题\n昭觉县内城管所属机动车（皮卡，洒水，垃圾清运等）基本上无牌照上路，是否存在安全隐患，机动车性能是否达标。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "ac36ea5f-bb8b-476c-bc9f-c46004ac2200",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=ac36ea5f-bb8b-476c-bc9f-c46004ac2200",
+   "question": "劳动力输出问题\n本人目前在固铂轮胎工作（此单位为美国上市公司），因公司劳动力紧缺，因此想和家乡联系进行对口劳动力输入，能够帮助家乡扶贫。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "e7db4828-5d75-4bce-95af-13153a512272",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=e7db4828-5d75-4bce-95af-13153a512272",
+   "question": "反映学校上学问题\n群众来电反映西昌阳光学校进行扩招招生，其实并没有那么多教室来安排学生就学，就准备把六年级的学生安排到其他学校就读，此决定学校一直未告知到学生家长，学校教导处称六年级学生读的是西昌阳光学校的分校，但家长有了解到分校周边都是建",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "09960b3b-07c5-48a1-8ce1-15cdb86d5c2a",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=09960b3b-07c5-48a1-8ce1-15cdb86d5c2a",
+   "question": "反映商家漏发货\n具体情况：群众来电反映2019年8月在天猫xxx园旗舰店购买了6瓶生生酱园零添加黑豆酱油，共计消费8.1元，但是收货的时候只收到了两瓶，群众联系商家，商家承诺说后面补齐，但是一直没有补齐，之后群众联系商家两次一直没有回复。\n",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "ca981923-cbeb-4804-a42a-e7e2382c2a8c",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=ca981923-cbeb-4804-a42a-e7e2382c2a8c",
+   "question": "南红雕件问题\n本人在凉山州xxxxxxx有限公司（四川省凉山彝族自治州西昌市xx乡xx村海门xxx区）法定代表人：陈xx（电话：1859999xxxx、1762034xxxx）处购买南红唐马雕件，定做尺寸和品质跟样品差别极大，后期沟通无果，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "883ec606-8fcd-482d-b731-8aaa6d1498fd",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=883ec606-8fcd-482d-b731-8aaa6d1498fd",
+   "question": "电线老化为何一直不更换\n7月12日，付先生来电反映：我是西昌文汇xxxxx住户，我们小区外面的电线已经老化了，经常发生短路的情况，可是电力公司一直没有给我们更换。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "be171bbf-fb0c-4ab9-ba8e-0a2c00780165",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=be171bbf-fb0c-4ab9-ba8e-0a2c00780165",
+   "question": "请拆除消防通道上的彩钢瓦棚\n7月5日，周女士来电反映：雷波县西街47号旁边有一个消防通道，去年魏某在那儿搭了一个彩钢瓦棚，他说把房子修好就拆，但到现在都没有拆，影响我们过路，希望能尽快拆除。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "25b4f0f6-95ba-4e64-ba19-04cfd67cb5a10",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=25b4f0f6-95ba-4e64-ba19-04cfd67cb5a10",
+   "question": "公路破损导致污水到处流\n7月12日，姚女士来电反映：财贸校家属区门口公路，路面破损严重，一到下午，污水就会流得到处都是。我之前看见有市政和污水处理厂的人来看过，都是看完就走了，过后也没有处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "2e186496-a0e7-499e-825f-dd5ad7ba79ee",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=2e186496-a0e7-499e-825f-dd5ad7ba79ee",
+   "question": "企业违规扣押执业证书\n5月27日，魏先生通过省政务热线反映：本人于2019年1月7日持二级建造师证件到四川正平消防科技有限公司注册（未和公司签订任何劳动合同、未购买社会保险），根据（建办市〔2018〕57号）文件精神，现要求注销证书。因与公",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "9a9dd3e3-304e-6a78-6ca6-f3bb06c778e4",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=9a9dd3e3-304e-6a78-6ca6-f3bb06c778e4",
+   "question": "姜舟小学存在私办托管补课现象\n5月27日，张先生来信反映：姜舟镇姜舟小学对面商店二、三楼，唐某违反规定，私自开办托管和补习班。有学生60人左右，大部分学生都是相关老师要求去那里补习的，导致学生成绩下降，请教育部门严厉查处和处罚这些违反国家规",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "a007b224-29ae-4e32-9b70-76aa4cd0ae53",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=a007b224-29ae-4e32-9b70-76aa4cd0ae53",
+   "question": "大瑞小学噪音扰民\n5月29日，曾先生来信反映：大瑞小学天天上下课的音乐都大得不得了，严重影响周围居民生活。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "12b365c6-4319-4d33-932c-81b573980325",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=12b365c6-4319-4d33-932c-81b573980325",
+   "question": "砖厂排放废气影响周围环境\n5月30日，毛先生来电反映：喜德县新联村4组附近有一个祥运页岩砖厂，砖厂晚上排放废气，污染周围环境。因为废气污染严重，导致果园果树叶子都干了。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "54c1b256-a0a6-4fbb-8919-03881ccb479c",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=54c1b256-a0a6-4fbb-8919-03881ccb479c",
+   "question": "永郎货场拉矿影响环境\n5月24日，一位先生来电反映：永郎货场经常有拉矿货车超载，道路上全是遗洒的灰尘。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "53de396f-23a1-49e6-8763-af2726036c32",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=53de396f-23a1-49e6-8763-af2726036c32",
+   "question": "春城西路市政工程拖沓影响商户生意\n5月30日，张先生来信反映：2019年2月底至今，市政工程修理春城西路酒吧街管道，告知书上工期是2019年5月31号完工，可是承建商只把路面挖得稀烂，之后就不管了，到目前为止基本看不到动工的迹象。这对我们的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "7379614c-83ae-4f64-a5a9-4ec3c18327a7",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=7379614c-83ae-4f64-a5a9-4ec3c18327a7",
+   "question": "公交公司未落实重症残疾人陪护人员乘车问题\n5月27日，一位先生来电反映：西昌市月城公交公司发文规定，除重度残疾人以外，允许一名陪护人员免费乘车。但实际上，陪护人员并没有任何形式的卡可以证明自己是陪护人员，司机会误以为陪护人员逃票。请公交公司",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "417f755e-42f7-4c4e-bd9b-bb1ce1eb3955",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=417f755e-42f7-4c4e-bd9b-bb1ce1eb3955",
+   "question": "违规生产水果套袋存在安全隐患\n5月14日，一位先生来电反映：会理县新桥污水处理厂旁边有一间废弃厂房，有人在里面违规生产水果套袋，厂房里有很多化学生产用品。5月13日，质监部门和安监部门去检查过，让他们停止生产，可是晚上，他们又开始生产。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "0e6cc547-4c78-48c6-84d4-458ee3360488",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=0e6cc547-4c78-48c6-84d4-458ee3360488",
+   "question": "泸沽湖洛洼南古村经营户乱排客栈污水\n5月14日，喇先生来信反映：泸沽湖洛洼南古村从事经营活动的商户没有环保意识，直接排放生活污水到泸沽湖，当地有关部门也没有监管。乱排污水的有圣湖草畔客栈，乱排放餐厅厨房油污的有摩梭风味、食全酒美餐厅。当地居",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "ec3572a6-f72e-4e4d-b731-43f526a732dd",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=ec3572a6-f72e-4e4d-b731-43f526a732dd",
+   "question": "太和砖厂排放有害气体污染空气\n5月10日，王先生来电反映：正在修建的高铁站附近有一个太和砖厂，每天傍晚就开始排放刺鼻的浓烟，希望有关部门查处该厂污染环境的行为。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "03550539-7401-42c2-a613-4f8780a4eee3",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=03550539-7401-42c2-a613-4f8780a4eee3",
+   "question": "金川磷化工厂污染环境且噪音扰民\n5月6日，阳先生通过省政务热线反映：从2008年至今，会东县鲁吉镇热水村4社的金川磷化工厂，作业时会发出严重的噪音，并且对环境造成污染，希望对噪音和环境污染进行处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "26aa428a-08bd-429f-b511-1f60bb48a344",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=26aa428a-08bd-429f-b511-1f60bb48a344",
+   "question": "南街摆摊设点影响老城区风貌及出行\n5月8日，张女士来信反映：我是南街137号的住户，小区共有28家住户，由于单位解体，没有门卫和物管。小区门口长期有四五个老太婆摆摊卖草药，多次阻止无效，对老城区风貌及住户的出行造成极大影响。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "0458392a-73e5-41ab-a3f6-0a64f6a6260e",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=0458392a-73e5-41ab-a3f6-0a64f6a6260e",
+   "question": "宏源泡沫制品厂违规建设生产\n4月17日，王先生来信反映：德昌县永郎镇宏源泡沫制品厂违规扩建，安全消防措施不完善，存在很多安全隐患，还私自更换超标锅炉，希望有关部门介入调查。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "1f896e7c-e95d-437b-a0e0-4941852104f4",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=1f896e7c-e95d-437b-a0e0-4941852104f4",
+   "question": "下河坝交警队将罚单信息填写错误\n4月16日，乔先生来电反映：4月8日在雷波县违章，开了罚单，但4月8日的罚单，被错开成3月10日，因此产生了滞纳金。我的手写罚单上写的都是4月8日，可是去交罚款的时候系统上显示就是3月10日。当时打电话给雷波",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "0ab05335-28fb-49e3-9ae7-9c90f8118077",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=0ab05335-28fb-49e3-9ae7-9c90f8118077",
+   "question": "泸沽湖旅游被骗\n4月4日，时先生来信反映：当时在泸沽湖旅行，经过走婚桥头（北侧），遇到一女的卖土特产，本来只是随便看看，这时来了一个男的，走到摊点前，就开始说铁皮石斛功效有多好，他父亲肺病就是吃铁皮石斛吃好的，还拿着那个卷起来的铁皮石斛说是",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "aaefaa68-c513-4c71-ad03-bc19df4a3c39",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=aaefaa68-c513-4c71-ad03-bc19df4a3c39",
+   "question": "逸品烟酒店销售假烟\n3月26日，曲先生来信反映：越西县老武装部逸品烟酒销售假烟，老板既不退也不换。朋友也反映在她们家也买到过假烟，请有关部门好好管一下。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "29eae926-5686-4f25-84ee-883cea2e2857",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=29eae926-5686-4f25-84ee-883cea2e2857",
+   "question": "关于西昌市枫丹丽舍业主商转公保证金退款业务\n尊敬的各级领导：我是西昌市枫丹丽舍北区业主，该小区也2015年5月交房！至今已是快6年了，2015年起凉山州住房公积金中心有政策，商贷满一年的可以转为住房公积金贷款，并有业主自己缴纳保证金在开发商",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-liangshan-zwfw",
+   "id": "4d7d5f1c-f266-49c6-8f72-36ae2242f942",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=4d7d5f1c-f266-49c6-8f72-36ae2242f942",
+   "question": "凉山州各级政府不作为 推皮球\n本人目前在固铂轮胎工作（此单位为美国上市公司），因公司劳动力紧缺，因此想和家乡联系进行对口劳动力输入，能够帮助家乡扶贫。本公司的工资待遇比凉山州待遇高很多，但是打了八九个电话所有接电话的人都推皮球，都让联系其他",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

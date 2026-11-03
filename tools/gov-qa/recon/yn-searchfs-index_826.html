@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+<title>云南省人民政府门户网站</title>
+
+<meta name="sitename" content="云南省人民政府">
+<meta name="sitedomain" content="www.yn.gov.cn">
+<meta name="siteidcode" content="5300000033">
+<meta name="columnname" content="搜索frameset">
+<meta name="columndescription" content="提供内容搜索功能">
+<meta name="columnkeywords" content="搜索frameset">
+<meta name="columntype" content="搜索frameset">
+<link href="https://www.gov.cn/govweb/xhtml/favicon.ico" rel="shortcut icon" type="image/x-icon">
+
+<!-- Monitor Start -->
+<script language='JavaScript' charset='utf-8' src='https://www.yn.gov.cn/ubas/js/count.js'></script>
+<script type='text/javascript'>
+params.docId='';
+params.doctitle='';
+params.siteId='5';
+params.channelId='2843';
+<!-- 默认文档点击量设置依据系统来设置（无元数据可以设置扩展字段BaseCount来设置默认值，有元数据可用元数据设置字段BaseCount来设置） -->
+params.BaseCount='';
+</script>
+<script language='JavaScript' charset='utf-8' src='https://www.yn.gov.cn/ubas/js/submit.js'></script>
+<!-- Monitor End --> 
+
+<link href="https://www.gov.cn/govweb/xhtml/favicon.ico" rel="shortcut icon" type="image/x-icon">
+
+<script type="text/javascript">
+    /**
+    * 获取url参数
+    */
+    function getUrlRequest() {
+      var url = window.location.search;
+      if (url.indexOf("?") != -1) {
+        var str = url.substr(url.indexOf("?"));
+      }
+      if (url.indexOf("s?") != -1) {//搜索页
+        var str = url.substr(url.indexOf("s?"));
+      }
+      return str;
+    }
+
+var _p = getUrlRequest();
+
+window.onload = function(){
+  document.getElementsByName('fs')[0].src = 'https://sheng.so-gov.cn/'+_p;
+}
+
+</script>
+</head>
+
+
+
+<frameset cols="100%">
+  <frame name="fs" src="">
+</frameset>
+
+
+
+</html>

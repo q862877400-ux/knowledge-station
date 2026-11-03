@@ -1,0 +1,4333 @@
+{
+ "A_考卷": [
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ab957052f50196bd65ecb10aff",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ab957052f50196bd65ecb10aff",
+   "question": "在外地购买的二手摩托车，如何在镇江市区办理过户、上牌？\n在外地购买的二手摩托车，如何在镇江市区办理过户、上牌？",
+   "cited_hits": [
+    {
+     "name": "机动车登记规定",
+     "lib_no": "机动车登记规定(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80a193de67810193ec5482cd0051",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80a193de67810193ec5482cd0051",
+   "question": "在外地购买的二手摩托车，如何在镇江市区办理过户、上牌？\n在外地购买的二手摩托车，如何在镇江市区办理过户、上牌？",
+   "cited_hits": [
+    {
+     "name": "机动车登记规定",
+     "lib_no": "机动车登记规定(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86499204817f019217769d4e0097",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86499204817f019217769d4e0097",
+   "question": "润州区的经营者提供商品或者服务有欺诈行为的，消费者如何要求赔偿？\n润州区的经营者提供商品或者服务有欺诈行为的，消费者如何要求赔偿？",
+   "cited_hits": [
+    {
+     "name": "消费者权益保护法",
+     "lib_no": "消费者权益保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa864090244c55019043f25f380138",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa864090244c55019043f25f380138",
+   "question": "“新国标”电动自行车和“旧国标”电动自行车的牌照的区别是什么？\n咨询“新国标”电动自行车和“旧国标”电动自行车的牌照的区别？",
+   "cited_hits": [
+    {
+     "name": "GB17761-2018电动自行车安全技术规范",
+     "lib_no": "GB 17761-2024",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "GB17761-2018"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa800da024423f01a02c8a7cfd0000",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa800da024423f01a02c8a7cfd0000",
+   "question": "关于咨询申请公积金贷款对缴存情况有何要求的问题\n想了解申请公积金贷款对公积金缴存情况是否有要求？",
+   "cited_hits": [],
+   "cited_missing": [
+    "镇江市住房公积金个人贷款实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa800c9ef2c2f5019f0bed5b8c00b5",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa800c9ef2c2f5019f0bed5b8c00b5",
+   "question": "关于低保证减免水费的问题\n持有外地核发的低保证，能否在镇江办理自来水费用减免？",
+   "cited_hits": [],
+   "cited_missing": [
+    "镇江市物价局关于进一步完善市区居民用水阶梯价格制度的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa800a9ed901e9019ee8ffef080020",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa800a9ed901e9019ee8ffef080020",
+   "question": "关于单位如何开通公积金网上汇缴功能的问题\n在镇江，单位如何开通公积金网上汇缴功能？",
+   "cited_hits": [],
+   "cited_missing": [
+    "镇江市住房公积金单位网上业务数字证书申请单"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80f49cbc44a1019ccbeb9ec40053",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80f49cbc44a1019ccbeb9ec40053",
+   "question": "关于镇江电视台频道调整的问题\n镇江电视台频道怎么换了？",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家广播电视总局关于同意撤销镇江广播电视台教育频道、公共频道、经济广播并开办教育・民生频道的批复"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ee9adf28b2019ca73aa8f20ce3",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ee9adf28b2019ca73aa8f20ce3",
+   "question": "关于咨询申请镇江市中度以上失能老年人养老服务消费补贴的问题\n咨询哪些老年人能申请镇江市中度以上失能老年人养老服务消费补贴？补贴项目有哪些？如何申请？",
+   "cited_hits": [],
+   "cited_missing": [
+    "老年人能力评估规范",
+    "GB/T42195-2022"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ee9adf28b2019ca73959fe0ce0",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ee9adf28b2019ca73959fe0ce0",
+   "question": "关于咨询城镇非从业居民计划生育一次性奖励的问题\n咨询本市户籍的城镇非从业人员如何申请计划生育一次性奖励？",
+   "cited_hits": [],
+   "cited_missing": [
+    "独生子女父母光荣证",
+    "独生子女父母光荣证",
+    "户口簿",
+    "身份证",
+    "独生子女父母光荣证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ee9adf28b2019c83813b0f0c1d",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ee9adf28b2019c83813b0f0c1d",
+   "question": "关于出租车春节期间多收5元的问题\n请问春节期间出租车可以多收5元吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于镇江市市区巡游出租汽车运价机制和运价调整的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ee9adf28b2019bf2ded4080881",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ee9adf28b2019bf2ded4080881",
+   "question": "关于镇江市最低工资标准的问题\n目前镇江市最低工资标准是多少？",
+   "cited_hits": [],
+   "cited_missing": [
+    "省人力资源社会保障厅关于调整全省最低工资标准的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ee9adf28b2019bf2d5dd74087e",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ee9adf28b2019bf2d5dd74087e",
+   "question": "关于丁卯个体工商户申请营业执照的问题\n咨询丁卯片区的个体工商户如何申请营业执照？",
+   "cited_hits": [],
+   "cited_missing": [
+    "个体工商户登记（备案）申请书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ee9adf28b2019babe403c90677",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ee9adf28b2019babe403c90677",
+   "question": "关于《独生子女父母光荣证》补领程序的问题\n《独生子女父母光荣证》补领程序是什么？",
+   "cited_hits": [],
+   "cited_missing": [
+    "独生子女父母光荣证",
+    "独生子女父母光荣证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ee9adf28b2019b8233eab30544",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ee9adf28b2019b8233eab30544",
+   "question": "关于元旦期间公积金办理业务的问题\n元旦期间公积金可以线下办理业务吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "国务院办公厅关于2026年部分节假日安排的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ee9adf28b2019b63470c7d0485",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ee9adf28b2019b63470c7d0485",
+   "question": "关于镇江经开区公司监事备案的问题\n镇江经开区的公司监事备案需要什么材料？",
+   "cited_hits": [],
+   "cited_missing": [
+    "公司登记（备案）申请书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80e49a2e2b0e019ad375092005dc",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80e49a2e2b0e019ad375092005dc",
+   "question": "关于农扶金申请过程中需要携带哪些材料的问题\n想了解农扶金申请过程中需要携带哪些材料？",
+   "cited_hits": [],
+   "cited_missing": [
+    "独生子女证",
+    "独生子女父母光荣证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80e49a2e2b0e019ad3278b4305d6",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80e49a2e2b0e019ad3278b4305d6",
+   "question": "关于农扶金申请条件的问题\n想了解是不是所有人都可以享受农扶金？",
+   "cited_hits": [],
+   "cited_missing": [
+    "独生子女证",
+    "独生子女父母光荣证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80e49a2e2b0e019a8a1fa96402b5",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80e49a2e2b0e019a8a1fa96402b5",
+   "question": "关于镇江市在职职工医疗保险是否可以补缴的问题\n咨询镇江市在职职工医疗保险可以补缴吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "镇江市职工医疗保险参保登记表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80e49a2e2b0e019a6749190c01b7",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80e49a2e2b0e019a6749190c01b7",
+   "question": "关于申请困难残疾人生活补贴对收入有什么要求的问题\n咨询在申请困难残疾人生活补贴时，对收入有什么要求？",
+   "cited_hits": [],
+   "cited_missing": [
+    "中华人民共和国残疾人证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80e49a2e2b0e019a6745e8fe01b4",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80e49a2e2b0e019a6745e8fe01b4",
+   "question": "关于购买公有住房提取公积金需要什么材料的问题\n想了解如购买的是公有住房，在提取公积金时需要什么材料？",
+   "cited_hits": [],
+   "cited_missing": [
+    "不动产权证",
+    "房屋所有权证",
+    "不动产权证",
+    "房屋所有权证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80d4995207f601996b64745c00c2",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80d4995207f601996b64745c00c2",
+   "question": "关于学生医保缴纳长期护理险的问题\n为什么从今年7月1日起，参加居民医保的学生、儿童也要参加长期护理保险？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于深化长期护理保险制度建设的指导意见",
+    "镇江市人民政府办公室关于建立长期护理保险制度的实施意见",
+    "关于进一步扩大镇江市长期护理保险制度参保覆盖范围的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80d098f452cb019946dacf67028e",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80d098f452cb019946dacf67028e",
+   "question": "关于补领、换领机动车登记证书的问题\n咨询补领、换领机动车登记证书所需什么材料？办理地点？",
+   "cited_hits": [],
+   "cited_missing": [
+    "机动车查验记录表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ca989e3ddf0198b5a0a03d008d",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ca989e3ddf0198b5a0a03d008d",
+   "question": "关于住宅专项维修资金交存标准的问题\n镇江市住宅专项维修资金交存标准是多少？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于调整市区首期住宅专项维修资金交存标准的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80c6981bb00201984a38acb1011f",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80c6981bb00201984a38acb1011f",
+   "question": "关于新办烟草证的问题\n镇江市如何新办烟草专卖零售许可证？",
+   "cited_hits": [],
+   "cited_missing": [
+    "用户协议",
+    "隐私政策"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80b797d3c1400198024131710182",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80b797d3c1400198024131710182",
+   "question": "关于办理边境管理区通行证需要哪些材料的问题\n办理边境管理区通行证需要哪些材料？",
+   "cited_hits": [],
+   "cited_missing": [
+    "边境管理区通行证申请表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80b4971b879801974db1962d014b",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80b4971b879801974db1962d014b",
+   "question": "关于哪些证件可以免费乘坐镇江市内公交车的问题\n哪些证件可以免费乘坐镇江市内公交车？",
+   "cited_hits": [],
+   "cited_missing": [
+    "人民警察伤残证",
+    "残疾证",
+    "江苏省无偿献血荣誉证",
+    "老干部离休证",
+    "“见义勇为”乘车证",
+    "革命军人伤残证",
+    "残疾人军人证",
+    "现役军人证",
+    "消防员证",
+    "消防员相关证件",
+    "特困职工证",
+    "中华人民共和国退役军人优待证",
+    "中华人民共和国烈士、因公牺牲军人、病故军人遗属优待证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ab957052f50196bd67d6a00b05",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ab957052f50196bd67d6a00b05",
+   "question": "镇江市如何办理新生儿户口登记？\n镇江市如何办理新生儿户口登记？",
+   "cited_hits": [],
+   "cited_missing": [
+    "镇江市常住户口登记管理规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ab957052f501960912c837050a",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ab957052f501960912c837050a",
+   "question": "关于工伤认定后申请劳动能力鉴定需要哪些材料的问题\n工伤认定后，申请劳动能力鉴定，需要哪些材料？",
+   "cited_hits": [],
+   "cited_missing": [
+    "镇江市劳动能力鉴定工作程序",
+    "工伤鉴定申请表",
+    "工伤认定决定书",
+    "“老工伤”确认决定书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80a293f6e6380194c5e3db3505e0",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80a293f6e6380194c5e3db3505e0",
+   "question": "加装电梯提取公积金需要哪些材料？\n加装电梯提取公积金需要哪些材料？",
+   "cited_hits": [],
+   "cited_missing": [
+    "不动产权证书",
+    "房屋所有权证",
+    "商品房买卖合同"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80a293f6e638019434fb17d101e2",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80a293f6e638019434fb17d101e2",
+   "question": "镇江丹徒区如何领取80岁高龄补贴？\n镇江丹徒区如何领取80岁高龄补贴？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于发放丹徒区2024年度上半年尊老金及往年补发的函",
+    "镇江市“尊老金申报”应用试点工作实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80a193de67810193ec53c0de004e",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80a193de67810193ec53c0de004e",
+   "question": "镇江市区男职工有生育津贴吗？如何申领？\n镇江市区男职工有生育津贴吗？如何申领？",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省职工生育保险规定",
+    "镇江市生育保险待遇申请表"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa809893ba6db50193c7fefad90045",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa809893ba6db50193c7fefad90045",
+   "question": "如何办理自来水阶梯人口增加手续？\n如何办理自来水阶梯人口增加手续？",
+   "cited_hits": [],
+   "cited_missing": [
+    "居民户口簿",
+    "居住证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa8095936d003d0193a420b36b018f",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa8095936d003d0193a420b36b018f",
+   "question": "车辆到年限该怎么报废?\n车辆到年限该怎么报废?",
+   "cited_hits": [],
+   "cited_missing": [
+    "机动车注销证明书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa8095936d003d0193a41fd448018c",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa8095936d003d0193a41fd448018c",
+   "question": "机动车过户（二手车过户）——个人过给个人，如何办理？\n机动车过户（二手车过户）——个人过给个人，如何办理？",
+   "cited_hits": [],
+   "cited_missing": [
+    "经营性道路运输车辆核准表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa8095936d003d01937ac0c0960079",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa8095936d003d01937ac0c0960079",
+   "question": "退休人员如何查看电子退休证?\n退休人员如何查看电子退休证?",
+   "cited_hits": [],
+   "cited_missing": [
+    "职工退休养老证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa8091933d669201933e1faadf001f",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa8091933d669201933e1faadf001f",
+   "question": "如何查询网约车是否合规？\n如何查询网约车是否合规？",
+   "cited_hits": [],
+   "cited_missing": [
+    "您乘坐的网约车合规吗？输个车牌试试吧"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa8091933d669201933e1ee2de001c",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa8091933d669201933e1ee2de001c",
+   "question": "（折叠）电动车是否可以带上公交车？\n（折叠）电动车是否可以带上公交车？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于严禁携带电动车等超标锂电池乘坐公共交通工具"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa864891e98b420191f90e48cd0071",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa864891e98b420191f90e48cd0071",
+   "question": "身份证到期了，镇江市区异地身份证换领地点在哪里？需要什么资料？照片是自己准备还是现场拍？\n身份证到期了，镇江市区异地身份证换领地点在哪里？需要什么资料？照片是自己准备还是现场拍？",
+   "cited_hits": [],
+   "cited_missing": [
+    "苏公传发〔2023〕497号关于全面实施居民身份证“跨省通办”的通知",
+    "户口居民身份证管理工作规范（试行）",
+    "居民身份证领取凭证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa8642914f232c019186f1aa0e01a5",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa8642914f232c019186f1aa0e01a5",
+   "question": "咨询​用章单位因公章被盗、被抢、丢失等原因需要补刻的，如何办理？\n咨询用章单位因公章被盗、被抢、丢失等原因需要补刻的，如何办理？",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省公章刻制许可备案管理规范（试行）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa8642914f232c0191630d340b00a1",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa8642914f232c0191630d340b00a1",
+   "question": "营业执照领取后，如何刻制印章？\n营业执照领取后，如何刻制印章？",
+   "cited_hits": [],
+   "cited_missing": [
+    "特种行业许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa864090d2a74801913f0e6087054b",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa864090d2a74801913f0e6087054b",
+   "question": "咨询户外广告设施设置许可期限是多久？\n咨询户外广告设施设置许可期限是多久？",
+   "cited_hits": [],
+   "cited_missing": [
+    "镇江市户外广告设置管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa864090d2a74801911b2a9f6803aa",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa864090d2a74801911b2a9f6803aa",
+   "question": "为什么做成人烟草流行监测？\n为什么做成人烟草流行监测？",
+   "cited_hits": [],
+   "cited_missing": [
+    "中国吸烟危害健康报告2020"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa864090d2a7480190d45e411b0003",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa864090d2a7480190d45e411b0003",
+   "question": "咨询业主购买了商品房需缴纳住房维修基金（住宅专项维修资金），但想自行缴纳无需开发商代缴，是否可以\n咨询业主购买了商品房需缴纳住房维修基金（住宅专项维修资金），但想自行缴纳无需开发商代缴，是否可以？",
+   "cited_hits": [],
+   "cited_missing": [
+    "镇江市市区住宅专项维修资金管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86409044df7d01908ca03915025d",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86409044df7d01908ca03915025d",
+   "question": "居住区绿化迁移、砍伐向谁申请？\n居住区绿化迁移、砍伐向谁申请？",
+   "cited_hits": [],
+   "cited_missing": [
+    "镇江市城市树木砍伐、移植申请表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86409044df7d01908c9f739c025a",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86409044df7d01908c9f739c025a",
+   "question": "“旧国标”电动自行车还能办理备案登记牌吗?\n“旧国标”电动自行车还能办理备案登记牌吗?",
+   "cited_hits": [],
+   "cited_missing": [
+    "GB17761-2018"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa864090244c55019043f48c7f013b",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa864090244c55019043f48c7f013b",
+   "question": "咨询居住区绿化迁移、砍伐向谁申请？\n咨询居住区绿化迁移、砍伐向谁申请？",
+   "cited_hits": [],
+   "cited_missing": [
+    "镇江市城市树木砍伐、移植申请表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa864090244c55019024d7f267000c",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa864090244c55019024d7f267000c",
+   "question": "住宅专项维修资金如何过户？购买的二手房，房屋维修资金需要办理过户手续吗？\n住宅专项维修资金如何过户？购买的二手房，房屋维修资金需要办理过户手续吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "住宅专项维修资金管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86388f938b30018fd3b212a10208",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86388f938b30018fd3b212a10208",
+   "question": "听说个人住房公积金贷款利率下调了？\n听说个人住房公积金贷款利率下调了？",
+   "cited_hits": [],
+   "cited_missing": [
+    "中国人民银行关于下调个人住房公积金贷款利率的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86388f938b30018fb3bccc45011b",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86388f938b30018fb3bccc45011b",
+   "question": "咨询新生儿如何办理社保卡？\n咨询新生儿如何办理社保卡？",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省社会保障卡业务经办规程"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86388f938b30018fb3b907420115",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86388f938b30018fb3b907420115",
+   "question": "咨询关于下调个人住房公积金贷款利率的通知\n咨询关于下调个人住房公积金贷款利率的通知",
+   "cited_hits": [],
+   "cited_missing": [
+    "中国人民银行关于下调个人住房公积金贷款利率的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86218ed08a34018effa17f5d015b",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86218ed08a34018effa17f5d015b",
+   "question": "关于开办旅馆是否需要消防验收的相关材料问题\n咨询开办旅馆是否需要消防验收的相关材料？",
+   "cited_hits": [],
+   "cited_missing": [
+    "公众聚集场所投入使用、营业前消防安全检查意见书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86218ed08a34018eff9bc2070158",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86218ed08a34018eff9bc2070158",
+   "question": "关于房屋租赁备案如何办理的问题\n咨询房屋租赁备案如何办理及所需材料？",
+   "cited_hits": [],
+   "cited_missing": [
+    "镇江市城市房屋租赁管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86118d5a6cd3018dddd11bf90310",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86118d5a6cd3018dddd11bf90310",
+   "question": "咨询2024年职称初定时间和申报方式\n咨询2024年职称初定时间和申报方式",
+   "cited_hits": [],
+   "cited_missing": [
+    "专业技术资格初定申报表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86108c3c9c39018d4e7f5ec30884",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86108c3c9c39018d4e7f5ec30884",
+   "question": "关于退休人员如何查看电子退休证的问题\n已经退休并办理了退休手续，该如何查看电子退休证？",
+   "cited_hits": [],
+   "cited_missing": [
+    "职工退休养老证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86108c3c9c39018d4e488118087b",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86108c3c9c39018d4e488118087b",
+   "question": "关于持有残疾证是否可以减免电费的问题\n咨询持有残疾证，在缴纳电费时是否可以减免或享受优惠？",
+   "cited_hits": [],
+   "cited_missing": [
+    "省发展改革委关于完善居民阶梯电价有关问题的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86108c3c9c39018d2b0092a80786",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86108c3c9c39018d2b0092a80786",
+   "question": "镇江市最低工资标准是多少？\n镇江市最低工资标准是多少？",
+   "cited_hits": [],
+   "cited_missing": [
+    "最低工资规定",
+    "江苏省工资支付条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86108c3c9c39018d057994710666",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86108c3c9c39018d057994710666",
+   "question": "关于城镇非从业居民计划生育一次性奖励政策对象、奖励标准、所需材料的问题\n咨询城镇非从业居民计划生育一次性奖励政策对象、奖励标准、所需材料？",
+   "cited_hits": [],
+   "cited_missing": [
+    "独生子女父母光荣证",
+    "独生子女父母光荣证",
+    "户口簿",
+    "身份证",
+    "独生子女父母光荣证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86108c3c9c39018c9aba9ff702cc",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86108c3c9c39018c9aba9ff702cc",
+   "question": "怎么查看电子退休证？\n退休人员如何查看电子退休证？",
+   "cited_hits": [],
+   "cited_missing": [
+    "职工退休养老证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86108c3c9c39018c75379e6c0175",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86108c3c9c39018c75379e6c0175",
+   "question": "关于退休人员如何查看电子退休证的问题\n咨询退休人员如何查看电子退休证？",
+   "cited_hits": [],
+   "cited_missing": [
+    "职工退休养老证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86108b7e571a018be5eb52a90330",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86108b7e571a018be5eb52a90330",
+   "question": "关于大修住房提取公积金需要什么材料的问题\n咨询住房如果要大修提取公积金，需提交什么材料？",
+   "cited_hits": [],
+   "cited_missing": [
+    "不动产权证",
+    "房屋所有权证",
+    "房屋修缮范围和标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86108b7e571a018be59ed501032a",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86108b7e571a018be59ed501032a",
+   "question": "关于镇江新区店铺如何办理烟花爆竹经营（零售）许可证的问题\n镇江新区店铺咨询如何办理烟花爆竹经营（零售）许可证？",
+   "cited_hits": [],
+   "cited_missing": [
+    "烟花爆竹经营（零售）许可证"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa800ea0900ced01a1060475d10239",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa800ea0900ced01a1060475d10239",
+   "question": "关于咨询经开区政务服务中心国庆是否放假的问题\n咨询经开区政务服务中心国庆是否放假？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa800ea0900ced01a106039e920236",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa800ea0900ced01a106039e920236",
+   "question": "关于咨询“三山一渡”旅游专线的问题\n我听说国庆会开通 “三山一渡”旅游专线，想了解线路以及发车时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa800ea0900ced01a10602e11d0233",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa800ea0900ced01a10602e11d0233",
+   "question": "关于咨询最低生活保障标准的问题\n想了解目前镇江市最低生活保障的标准是每月多少元？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa800ea0900ced01a0e123c9a601c4",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa800ea0900ced01a0e123c9a601c4",
+   "question": "关于如何查询个人公积金账户信息的问题\n在镇江，如何查询个人公积金账户信息？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa800ea0900ced01a0e122496201c1",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa800ea0900ced01a0e122496201c1",
+   "question": "关于从扬中市区乘坐公交怎样前往大港体育馆的问题\n从扬中市区乘坐公交怎样前往江苏省城市篮球联赛镇江主场大港体育馆？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa800ea0900ced01a0e120b78e01be",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa800ea0900ced01a0e120b78e01be",
+   "question": "关于镇江经开区有哪些公交线路能到大港体育馆的问题\n镇江经开区有哪些公交线路能够到达江苏省城市篮球联赛赛场大港体育馆？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa800ea0900ced01a0bcb6476900dc",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa800ea0900ced01a0bcb6476900dc",
+   "question": "关于咨询市不动产中心中秋期间是否办公的问题\n咨询镇江市不动产中心中秋节是否办公？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa800ea0900ced01a0bcb570c500d9",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa800ea0900ced01a0bcb570c500d9",
+   "question": "关于如何预约三山景点免费游玩门票的问题\n我是连云港的市民，周末会去镇江游玩，想了解如何预约免费游玩三山景点？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa800ea0900ced01a0bcb464a200d6",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa800ea0900ced01a0bcb464a200d6",
+   "question": "关于咨询处理交通违法的问题\n咨询没有带驾驶证的情况，可以用电子驾驶证处理违章吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa800ea0900ced01a0989ed13e0006",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa800ea0900ced01a0989ed13e0006",
+   "question": "关于江苏省城市篮球联赛赛事期间镇江经开区会有哪些文旅优惠活动的问题\n江苏省城市篮球联赛赛事期间，镇江经开区会有哪些文旅优惠活动？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa800ea0900ced01a0989d93850003",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa800ea0900ced01a0989d93850003",
+   "question": "关于持镇江市民卡是否可以乘坐市内公交车的问题\n市民持镇江市民卡是否可以乘坐镇江市内公交车？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa800ea0900ced01a0989c446f0000",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa800ea0900ced01a0989c446f0000",
+   "question": "关于镇江市不动产登记业务常用表格下载的问题\n镇江市不动产登记业务常用表格可以在哪里下载？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa800da032d6d901a0754ad88801bf",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa800da032d6d901a0754ad88801bf",
+   "question": "关于异地购买小型轿车如何在镇江办理上牌的问题\n咨询异地购买的小型轿车，在镇江怎么办理上牌？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa800da032d6d901a0754868d601bc",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa800da032d6d901a0754868d601bc",
+   "question": "关于2027年度镇江市区中小学、幼儿园学生参加城乡居民医疗保险缴费渠道问题\n咨询2027年度镇江市区学生（中小学、幼儿园）参加城乡居民医疗保险缴费渠道？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa800da032d6d901a07544fbd301b9",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa800da032d6d901a07544fbd301b9",
+   "question": "关于镇江市预防接种门诊及查询渠道的问题\n咨询如何查询镇江市有哪些预防接种门诊可以接种疫苗，有哪些渠道？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa800da032d6d901a0504d2fa500c6",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa800da032d6d901a0504d2fa500c6",
+   "question": "关于人才购房票和人才租房票政策咨询电话的问题\n镇江市区人才购房票和人才租房票政策咨询电话是多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa800da032d6d901a05050530600cc",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa800da032d6d901a05050530600cc",
+   "question": "关于江苏省城市篮球联赛镇江赛区完整的赛程安排的问题\n在哪里可以查询江苏省城市篮球联赛镇江赛区完整的赛程安排？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa800da032d6d901a0504f5b9f00c9",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa800da032d6d901a0504f5b9f00c9",
+   "question": "关于江苏省城市篮球联赛镇江对阵徐州的比赛交通管制的问题\n2026年9月5日江苏省城市篮球联赛镇江对阵徐州的比赛，镇江大港体育馆周边是否会实施交通管制？管制时段和范围是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa800da024423f01a02c8c9fe40006",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa800da024423f01a02c8c9fe40006",
+   "question": "关于咨询苏超期间徐州市民是否可以免费游玩镇江三山景点的问题\n咨询徐州户籍本周是否可以免费游玩镇江三山的景点？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa800da024423f01a02c8b9c5d0003",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa800da024423f01a02c8b9c5d0003",
+   "question": "关于咨询单位车辆在镇江发生的违章如何处理的问题\n咨询单位车辆在镇江发生的违章如何处理？润州区可以前往哪里处理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa800d9ffe35f301a0089305ac0068",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa800d9ffe35f301a0089305ac0068",
+   "question": "关于苏超期间南通市民免费游玩镇江景区的问题\n2026年苏超联赛期间（8月15日-8月16日），南通市民如何预约镇江金山、焦山、北固山、南山景区的免费游玩门票？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa800d9ffe35f301a00893ec1c006b",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa800d9ffe35f301a00893ec1c006b",
+   "question": "关于办理失业保险转移的问题\n在镇江，失业保险如何办理转移？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa800d9ffe35f301a00894b727006e",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa800d9ffe35f301a00894b727006e",
+   "question": "关于滴滴助老打车的问题\n镇江市滴滴助老打车服务热线是多少？除了电话打车，还可以通过什么方式打车？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa800d9fd9cde2019fe4504ff4003b",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa800d9fd9cde2019fe4504ff4003b",
+   "question": "关于查询接种疫苗记录的问题\n在镇江市接种疫苗的儿童，可以通过什么渠道查询疫苗接种记录？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa800d9fd9cde2019fe44f08800038",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa800d9fd9cde2019fe44f08800038",
+   "question": "关于临时车牌的问题\n办理的5天有效期临时车牌的新车，在有效期内是否能开出镇江市？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa800d9fd9cde2019fe44df7810035",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa800d9fd9cde2019fe44df7810035",
+   "question": "关于烟草证注销的问题\n请问烟草证如何办理注销？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa800d9fb612d9019fc06763bb0029",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa800d9fb612d9019fc06763bb0029",
+   "question": "关于线下办理犬证的问题\n镇江市还能线下办理犬证吗？办理渠道有哪些？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa800d9fb612d9019fc065e1210026",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa800d9fb612d9019fc065e1210026",
+   "question": "关于增加阶梯气量的问题\n在镇江，办理燃气多人口认定后，每增加一人可以增加多少阶梯气量？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa800d9fb612d9019fc064928b0023",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa800d9fb612d9019fc064928b0023",
+   "question": "关于异地办理的健康证是否可以在镇江市从业使用？\n异地办理处于有效期内的健康证，是否可以在镇江市从业使用？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa800d9f698410019f9c29dbcb0235",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa800d9f698410019f9c29dbcb0235",
+   "question": "关于苏超期间淮安市民游玩镇江景区的问题\n2026年苏超联赛期间（7月25日-7月26日），淮安市民如何预约镇江金山、焦山、北固山、南山景区的免费游玩门票？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa800d9f698410019f9c28c8e80232",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa800d9f698410019f9c28c8e80232",
+   "question": "关于查询身份证办证进度的问题\n在镇江如何查询身份证办证进度？换领补办身份证后，可以选择邮寄还是线下领取？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa800d9f698410019f9c27b8e3022f",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa800d9f698410019f9c27b8e3022f",
+   "question": "关于公积金账户计息的问题\n镇江市缴存职工个人公积金账户如何计息？销户时利息怎么发放？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa800d9f698410019f78161e85006b",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa800d9f698410019f78161e85006b",
+   "question": "关于城市生活垃圾处理费减免政策的问题\n镇江市城市生活垃圾处理费有什么减免政策？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa800d9f698410019f7817d89e006e",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa800d9f698410019f7817d89e006e",
+   "question": "关于网络预约出租汽车办理使用性质变更登记的问题\n镇江市网络预约出租汽车如何办理使用性质变更登记？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa800d9f698410019f781497970068",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa800d9f698410019f781497970068",
+   "question": "关于燃气减免政策的问题\n镇江市燃气减免政策适用于什么类型的困难群众？困难群众使用燃气有哪些减免政策？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa800c9ef2c2f5019f540062d30302",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa800c9ef2c2f5019f540062d30302",
+   "question": "关于市区购买二手摩托车并上镇江市区牌照所需材料、办理流程及收费标准的问题\n在镇江市区购买二手摩托车并上镇江市区牌照，所需材料、办理流程及收费标准分别是什么",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa800c9ef2c2f5019f53fe7d3702ff",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa800c9ef2c2f5019f53fe7d3702ff",
+   "question": "关于异地考了部分驾照科目转到镇江继续考剩余科目的问题\n之前在异地考了部分驾照科目，能否转到镇江继续考剩余科目？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa800c9ef2c2f5019f53fcc10602fc",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa800c9ef2c2f5019f53fcc10602fc",
+   "question": "关于在镇江电动摩托车如何上牌的问题\n在镇江，电动摩托车如何上牌？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa800c9ef2c2f5019f2fd6c1060211",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa800c9ef2c2f5019f2fd6c1060211",
+   "question": "关于提取公积金和办理公积金贷款的问题\n在镇江，公积金状态属于封存的情况下是否可以提取公积金或办理公积金贷款？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa800c9ef2c2f5019f2fd4a447020e",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa800c9ef2c2f5019f2fd4a447020e",
+   "question": "关于退休证遗失的问题\n镇江市退休证遗失是否可以补办？如何办理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa800c9ef2c2f5019f2fd32062020b",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa800c9ef2c2f5019f2fd32062020b",
+   "question": "关于镇江市经开区绿野乐园游玩项目的问题\n镇江市经开区绿野乐园内有哪些游玩项目？摩天轮什么时间开放？摩天轮收费价格是多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa800c9ef2c2f5019f0beecf9700b8",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa800c9ef2c2f5019f0beecf9700b8",
+   "question": "关于乘坐镇江公交车携带宠物的问题\n可以携带宠物乘坐镇江公交车吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa800c9ef2c2f5019f0bec211400b2",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa800c9ef2c2f5019f0bec211400b2",
+   "question": "关于最低生活保障的问题\n2026年7月1日起，镇江市最低生活保障标准是多少？特困供养人员基本生活保障标准是多少？集中供养、社会散居孤儿标准是多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa800a9ed901e9019ee8feac5b001d",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa800a9ed901e9019ee8feac5b001d",
+   "question": "关于办理驾驶证补换证业务的问题\n在镇江市，如只需办理驾驶证补换证业务（无需体检），可以前往哪些派出所？如需同时办理驾驶人体检和补换证，前往哪些派出所？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa800a9ed901e9019ee8fd346c001a",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa800a9ed901e9019ee8fd346c001a",
+   "question": "关于免费乘坐镇江市区内公交车的问题\n哪些公交卡种可以免费乘坐镇江市区内公交车？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80089eafe014019ec3bdc7180070",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80089eafe014019ec3bdc7180070",
+   "question": "关于提取公积金缴纳物业费的问题\n听说目前镇江可以提取公积金缴纳物业费，想了解一下如何办理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80089eafe014019ec3bcab21006d",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80089eafe014019ec3bcab21006d",
+   "question": "关于咨询不参加中考是否能被职业学校录取的问题\n请问小孩不参加中考的情况下，能不能被职业学校录取就读？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80089eafe014019ec3bbc082006a",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80089eafe014019ec3bbc082006a",
+   "question": "关于查询已上牌的新国标电动车的问题\n请问如何线上查询已经上牌的新国标电动车的车辆信息？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80029e960b7c019e9be7baab0017",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80029e960b7c019e9be7baab0017",
+   "question": "关于公交卡挂失的问题\n镇江公交卡已挂失，找到后如何解除挂失？挂失之后卡上的钱怎么处理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80029e960b7c019e9be4f2d60014",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80029e960b7c019e9be4f2d60014",
+   "question": "关于高考考生遗失或忘带准考证的问题\n镇江市高考考生遗失或忘带准考证如何处理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80029e960b7c019e9be378d40011",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80029e960b7c019e9be378d40011",
+   "question": "关于高考考点是否可以代伙的问题\n镇江市高考考点学校中午是否可以代伙？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80fe9e6cf3c8019e7c13548c0035",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80fe9e6cf3c8019e7c13548c0035",
+   "question": "关于从业人员健康检查的问题\n镇江市从业人员进行预防性健康检查时是否需要空腹？各检查机构的检查时间是如何安排的？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80fe9e6cf3c8019e7c11f3170032",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80fe9e6cf3c8019e7c11f3170032",
+   "question": "关于申请增驾A1大型客车驾驶证的问题\n在镇江，如何申请增驾A1大型客车驾驶证？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80fe9e6cf3c8019e7c111ef9002f",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80fe9e6cf3c8019e7c111ef9002f",
+   "question": "关于常州市民预约镇江景区的问题\n2026年苏超联赛期间（5月30日-5月31日），常州市民如何预约镇江金山、焦山、北固山、南山景区的免费游玩门票？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80f69d42072b019e57a2823f09f8",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80f69d42072b019e57a2823f09f8",
+   "question": "关于高考考生遗失身份证的问题\n请问镇江市高考考生遗失或忘带身份证如何处理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80f69d42072b019e57a15dd909f5",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80f69d42072b019e57a15dd909f5",
+   "question": "关于车辆违停举报方式的问题\n在镇江市辖区道路上发现车辆违停，是否可以通过交管12123APP举报车辆违停行为？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80f69d42072b019e579fd5b509f2",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80f69d42072b019e579fd5b509f2",
+   "question": "关于变更交管12123APP企业账号管理员的问题\n扬中市的企业用户，是否可以在镇江市区办理交管12123APP企业账号的管理人员变更业务？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80f69d42072b019e3498d22e0871",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80f69d42072b019e3498d22e0871",
+   "question": "关于封闭电动三轮车（老头乐）能否直接上路的问题\n咨询：在镇江，封闭电动三轮车（老头乐）能否直接上路？是否需要上牌吗？手续如何办理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80f69d42072b019e348683c1086e",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80f69d42072b019e348683c1086e",
+   "question": "关于镇江市特困家庭、低保户使用燃气有哪些减免政策问题\n咨询目前对镇江市特困家庭、低保户使用燃气有哪些减免政策？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80f69d42072b019e34841ac6086b",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80f69d42072b019e34841ac6086b",
+   "question": "关于江苏电力历史教育基地预约开放问题\n咨询江苏电力历史教育基地如何预约？地址在哪里？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80f69d42072b019e0ac30d1a06c0",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80f69d42072b019e0ac30d1a06c0",
+   "question": "关于镇江市大件垃圾处置问题？\n请问镇江市大件垃圾可以送到哪里处理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80f69d42072b019e0ac124a706bd",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80f69d42072b019e0ac124a706bd",
+   "question": "关于车辆年检是否可以预约的问题\n请问在镇江，车辆年检是否可以预约？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80f69d42072b019e0abf41a606ba",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80f69d42072b019e0abf41a606ba",
+   "question": "关于机动车临时牌照有效期的问题\n请问镇江市区出具的机动车临时牌照有效期是多久？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80f69d42072b019debadc79205a3",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80f69d42072b019debadc79205a3",
+   "question": "关于苏超期间盐城市民游玩镇江景区的问题\n2026年苏超联赛期间（5月2日-5月3日），盐城市民如何预约镇江金山、焦山、北固山、南山景区的免费游玩门票？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80f69d42072b019debac839205a0",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80f69d42072b019debac839205a0",
+   "question": "关于申请无犯罪记录证明的问题\n本市户籍、省内外市户籍和外省户籍人员，在镇江如何申请无犯罪记录证明？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80f69d42072b019debaba2d7059d",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80f69d42072b019debaba2d7059d",
+   "question": "关于补办住宅专项维修资金发票的问题\n镇江住宅专项维修资金缴纳以后收据（发票）丢失，是否可以补办？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80f69d42072b019dc880285704bf",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80f69d42072b019dc880285704bf",
+   "question": "关于镇江僵尸车清理整治工作的问题\n咨询镇江僵尸车清理整治工作是由哪个部门负责？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80f69d42072b019dc87d637804bc",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80f69d42072b019dc87d637804bc",
+   "question": "关于个人机动车辆如何变更车主姓名的问题\n咨询如在镇江，个人机动车辆如何变更车主姓名？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80f69d42072b019da48bd29a0377",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80f69d42072b019da48bd29a0377",
+   "question": "关于长护险失能等级评估结论异议如何处理的问题\n咨询如果对长护险失能等级评估结论有异议该怎么办？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80f69d42072b019da47b82b60374",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80f69d42072b019da47b82b60374",
+   "question": "关于镇江广播电视报订阅价的问题\n咨询2026年镇江广播电视报如何订阅？订阅价是多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80f69d42072b019da4739b760371",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80f69d42072b019da4739b760371",
+   "question": "关于咨询户外广告设施设置审批材料的问题\n咨询户外广告设施设置审批需要哪些办理材料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80f69d42072b019d7f80538e01ff",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80f69d42072b019d7f80538e01ff",
+   "question": "关于查询燃气费的问题\n镇江市居民用户如何查询燃气费？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80f69d42072b019d7f7f75c301fc",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80f69d42072b019d7f7f75c301fc",
+   "question": "关于农扶金发放名单公示的问题\n农扶金发放人员名单公示多长时间?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80f69d42072b019d7f7e953c01f9",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80f69d42072b019d7f7e953c01f9",
+   "question": "关于缴纳电费的问题\n如何缴纳电费？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80f69d42072b019d5b38ec9700c0",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80f69d42072b019d5b38ec9700c0",
+   "question": "关于咨询镇江市博物馆清明开放的问题\n请问镇江市博物馆清明期间是否正常开放？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80f69d42072b019d5b379d9500bd",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80f69d42072b019d5b379d9500bd",
+   "question": "关于咨询大件垃圾处理的问题\n请问装修清理出来的废旧大件垃圾（床、衣柜等）该怎么处理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80f69d42072b019d5b361ddc00ba",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80f69d42072b019d5b361ddc00ba",
+   "question": "关于咨询外地车辆违章处理的问题\n请问无锡牌照车辆在南京发生的违章，可以在镇江处理吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80f49cbc44a1019d385adfb70330",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80f49cbc44a1019d385adfb70330",
+   "question": "关于镇江市总工会对于新就业人群是否提供技能培训等服务的问题\n咨询镇江市总工会对于新就业人群是否提供技能培训等服务？如果有，如何申请？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80f49cbc44a1019d38575a90032d",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80f49cbc44a1019d38575a90032d",
+   "question": "关于宠物托运手续办理流程及所需材料的问题\n咨询宠物托运手续办理的流程，及所需什么材料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80f49cbc44a1019d385247d1032a",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80f49cbc44a1019d385247d1032a",
+   "question": "关于参保人员享受长护险待遇期间是否可以变更服务方式和定点护理机构的问题\n咨询参保人员享受长护险待遇期间，可以变更服务方式和定点护理机构吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80f49cbc44a1019d137524a5021e",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80f49cbc44a1019d137524a5021e",
+   "question": "关于新就业形态人员异地就医的问题\n新就业形态人员在镇江参加职工医疗保险/灵活就业人员医疗保险/城乡居民医疗保险，因病情需要至外地就医，如何办理异地就医备案？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80f49cbc44a1019d13744677021b",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80f49cbc44a1019d13744677021b",
+   "question": "关于户外工作者24小时休息驿站的问题\n镇江市户外工作者24小时休息驿站在哪里可以查看具体点位？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80f49cbc44a1019d137399be0218",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80f49cbc44a1019d137399be0218",
+   "question": "关于新就业形态人员遇到法律问题的问题\n镇江市新就业形态人员遇到法律问题，是否有免费法律咨询服务？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80f49cbc44a1019cf00551a10121",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80f49cbc44a1019cf00551a10121",
+   "question": "关于2026年镇江市城乡居民基本养老保险的待遇标准是多少的问题\n想了解下2026年镇江市城乡居民基本养老保险的待遇标准是多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80f49cbc44a1019ceff337e6011e",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80f49cbc44a1019ceff337e6011e",
+   "question": "关于如何申请镇江市区高校毕业生租房券的问题\n想了解下申请镇江市区高校毕业生租房券的流程是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80f49cbc44a1019cefed82e9011b",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80f49cbc44a1019cefed82e9011b",
+   "question": "关于参加镇江市城乡居民基本养老保险，待遇领取期间是否需要资格认证的问题\n咨询参加镇江市城乡居民基本养老保险，待遇领取期间是否需要资格认证？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80f49cbc44a1019ccbe9a801004d",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80f49cbc44a1019ccbe9a801004d",
+   "question": "关于红十字会退会的问题\n镇江市红十字会会员如何申请退会？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80f49cbc44a1019ccbeacd4f0050",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80f49cbc44a1019ccbeacd4f0050",
+   "question": "关于暖心过年规上企业奖补申报流程的问题\n暖心过年规上企业奖补申报流程是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ee9adf28b2019ca73c35f70ce6",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ee9adf28b2019ca73c35f70ce6",
+   "question": "关于报名参加镇江市红十字会救护培训的问题\n想了解如何报名参加镇江市红十字会救护培训？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ee9adf28b2019c838a89390c23",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ee9adf28b2019c838a89390c23",
+   "question": "关于市政务服务中心公安窗口春节期间更换身份证的问题\n我的身份证到期需要更换，只有春节期间有时间，想问一下市政务服务中心的公安窗口春节期间可以办理吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ee9adf28b2019c8385e6620c20",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ee9adf28b2019c8385e6620c20",
+   "question": "关于镇江市图书馆春节开放时间的问题\n咨询镇江市图书馆少儿馆春节期间的开放时间？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ee9adf28b2019c5f09de3b0c10",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ee9adf28b2019c5f09de3b0c10",
+   "question": "关于留镇补贴上班时间的问题\n个人申请留镇补贴，提供企业在岗证明，是要求企业春节期间连续经营，还是个人上一天班也行？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ee9adf28b2019c5f0907a10c0d",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ee9adf28b2019c5f0907a10c0d",
+   "question": "关于留镇补贴交通票据的问题\n留镇补贴中交通票据有何规定？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ee9adf28b2019c5f083a780c0a",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ee9adf28b2019c5f083a780c0a",
+   "question": "关于低保标准的问题\n2025年7月1日起，镇江市最低生活保障标准是多少？特困供养人员基本生活保障标准是多少？集中供养、社会散居孤儿标准是多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ee9adf28b2019c3aecb1e70abd",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ee9adf28b2019c3aecb1e70abd",
+   "question": "关于养犬登记模式的问题\n请问镇江市包含辖市养犬登记模式是一样的吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ee9adf28b2019c3ae8e1000ab7",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ee9adf28b2019c3ae8e1000ab7",
+   "question": "关于长护险失能登记评估的问题\n长护险失能等级评估费用标准是什么？评估费用由谁承担？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ee9adf28b2019c3aeadee00aba",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ee9adf28b2019c3aeadee00aba",
+   "question": "关于养犬登记在哪儿办理的问题\n请问养犬登记在哪儿办理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ee9adf28b2019c1813f94c098c",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ee9adf28b2019c1813f94c098c",
+   "question": "关于咨询镇江市住房公积金管理中心城区客户服务部工作时间的问题\n咨询镇江市住房公积金管理中心城区客户服务部工作时间是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ee9adf28b2019c1811a3200989",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ee9adf28b2019c1811a3200989",
+   "question": "关于咨询老年人公交卡办理的问题\n想了解63岁的老人要办理公交卡需要哪些材料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ee9adf28b2019c180d26ae0986",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ee9adf28b2019c180d26ae0986",
+   "question": "关于独生子女奖励金的问题\n我是企业退休职工，1月份刚在镇江退休，但户口不在镇江，想了解独生子女奖励金应该到哪里申请？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ee9adf28b2019bf2c099cb087b",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ee9adf28b2019bf2c099cb087b",
+   "question": "关于不动产权证增加配偶名字的问题\n咨询润州区的房产，在没有贷款的情况下，怎么增加配偶的名字？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ee9adf28b2019bceea052c077e",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ee9adf28b2019bceea052c077e",
+   "question": "关于申请农扶金的问题\n农扶金需要每年重新申请吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ee9adf28b2019bcee8358f0778",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ee9adf28b2019bcee8358f0778",
+   "question": "关于查询燃气费的问题\n镇江市居民用户如何查询燃气费？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ee9adf28b2019bcee95c47077b",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ee9adf28b2019bcee95c47077b",
+   "question": "关于线下办理货车通行证的问题\n镇江货车通行证线下办证点地址、工作时间及联系电话分别是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ee9adf28b2019babe578dd067a",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ee9adf28b2019babe578dd067a",
+   "question": "关于长护险亲情护理服务补助发放的问题？\n长护险亲情护理服务补助一般会什么时候发放？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ee9adf28b2019babe25a340674",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ee9adf28b2019babe25a340674",
+   "question": "关于长护险待遇与其他政策如何衔接的问题\n请问长护险待遇与其他政策如何衔接的？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ee9adf28b2019b82330c430541",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ee9adf28b2019b82330c430541",
+   "question": "关于公交充值点上班时间的问题\n元旦期间公交充值点休息吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ee9adf28b2019b823216d3053e",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ee9adf28b2019b823216d3053e",
+   "question": "关于申请农扶金的问题\n我今年59岁了，是明年才可以申请农扶金吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ee9adf28b2019b6347eb950488",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ee9adf28b2019b6347eb950488",
+   "question": "关于镇江经开区调取企业档案的问题\n镇江经开区的企业调取企业档案需要什么材料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ee9adf28b2019b63461be50482",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ee9adf28b2019b63461be50482",
+   "question": "关于镇江高新区个体演员备案的问题\n镇江高新区个体演员备案需要什么材料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ee9adf28b2019b4395fc19031a",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ee9adf28b2019b4395fc19031a",
+   "question": "关于机动车车牌遗失补办的问题\n机动车车牌遗失如何补办？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ee9adf28b2019b43950ae20317",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ee9adf28b2019b43950ae20317",
+   "question": "关于2025年度镇江市区灵活就业人员医疗保险的缴费方式和缴费时间的问题\n2025年度镇江市区灵活就业人员医疗保险的缴费方式和缴费时间是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ee9adf28b2019b4394036b0314",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ee9adf28b2019b4394036b0314",
+   "question": "关于2025年度镇江市区灵活就业人员养老保险的缴费方式和时间的问题\n2025年度镇江市区灵活就业人员养老保险的缴费方式和时间是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ee9adf28b2019b218e266f020d",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ee9adf28b2019b218e266f020d",
+   "question": "关于持有“镇青驿站”纸质乘车凭证乘车优惠的问题\n持有“镇青驿站”发放的一次性纸质乘车凭证可以享受什么乘车优惠？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ee9adf28b2019b218bc69b020a",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ee9adf28b2019b218bc69b020a",
+   "question": "关于办理实体犬牌的问题\n在哪里查看犬只免疫接种点？我想办实体犬牌到哪里去办？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ee9adf28b2019b218a4e5d0207",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ee9adf28b2019b218a4e5d0207",
+   "question": "关于毕业生一次性求职补贴的问题\n毕业生一次性求职补贴审核通过了，补贴什么时候到账？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ee9adf28b2019af6bd720600a3",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ee9adf28b2019af6bd720600a3",
+   "question": "关于夫妻没有生育子女但收养了一个孩子是否可以领取农扶金的问题\n一对夫妻没有生育子女，但收养了一个孩子，可以领取农扶金吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ee9adf28b2019af6afe45500a0",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ee9adf28b2019af6afe45500a0",
+   "question": "关于农扶金发放人员名单公示时间的问题\n农扶金发放人员名单公示多长时间?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ee9adf28b2019af6ae1bc6009d",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ee9adf28b2019af6ae1bc6009d",
+   "question": "关于户口从镇江迁到外省还能享受农扶金的问题\n户口从镇江迁到外省了，还能享受农扶金吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80e49a2e2b0e019ad35c149d05d9",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80e49a2e2b0e019ad35c149d05d9",
+   "question": "关于2025年镇江市旧房装修、厨卫等局部改造所需物品和材料购置补贴范围和标准的问题\n咨询2025年镇江市旧房装修、厨卫等局部改造所需物品和材料购置补贴的范围和标准？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80e49a2e2b0e019aae768e1a0474",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80e49a2e2b0e019aae768e1a0474",
+   "question": "关于居民电价峰谷时间规定的问题\n居民电价峰谷时间是如何规定的？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80e49a2e2b0e019aae70aa120471",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80e49a2e2b0e019aae70aa120471",
+   "question": "关于如何查询电费的问题\n如何查询电费？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80e49a2e2b0e019aae6e284d046e",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80e49a2e2b0e019aae6e284d046e",
+   "question": "关于长护险失能等级评定环节有哪些的问题\n咨询长护险失能等级评定环节有哪些？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80e49a2e2b0e019a8a1de9de02b2",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80e49a2e2b0e019a8a1de9de02b2",
+   "question": "关于如何查询镇江公交卡的刷卡记录的问题\n咨询如何查询镇江公交卡的刷卡记录？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80e49a2e2b0e019a8a1b6df002af",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80e49a2e2b0e019a8a1b6df002af",
+   "question": "关于如何缴纳电费的问题\n咨询如何缴纳电费？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80e49a2e2b0e019a6741b07801b1",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80e49a2e2b0e019a6741b07801b1",
+   "question": "关于流动人口居住证申领材料有哪些的问题\n想咨询流动人口居住证申领材料有哪些？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80e49a2e2b0e019a4211d35f0074",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80e49a2e2b0e019a4211d35f0074",
+   "question": "关于非赴港澳“个人旅游”试点城市的户籍居民可否申请赴港澳\n咨询非赴港澳“个人旅游”试点城市的户籍居民可否申请赴港澳\"个人旅游”签注?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80e49a2e2b0e019a420fd64e0071",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80e49a2e2b0e019a420fd64e0071",
+   "question": "关于在镇江申领的失业保险金什么时候发放的问题\n在镇江申领的失业保险金什么时候发放？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80e49a2e2b0e019a420e8797006e",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80e49a2e2b0e019a420e8797006e",
+   "question": "关于在镇江哪些情况可以申请“商务”签注的问题\n咨询在镇江哪些情况可以申请“商务”签注?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80d5997521fa019a1eafb66f0591",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80d5997521fa019a1eafb66f0591",
+   "question": "关于失业金申领的问题\n在省内其他城市缴纳失业保险，回镇江户籍地申领失业金，怎么办理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80d5997521fa019a1eaecb3a058e",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80d5997521fa019a1eaecb3a058e",
+   "question": "关于商务签注的问题\n企业机构人员能否直接申请多次有效商务签注？如不能，需要先行办理哪些手续才能申办?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80d5997521fa019a1eadc05f058b",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80d5997521fa019a1eadc05f058b",
+   "question": "关于非赴港澳“个人旅游”试点城市的问题\n非赴港澳“个人旅游”试点城市的户籍居民可否申请赴港澳\"个人旅游”签注?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80d5997521fa0199fb1db9100473",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80d5997521fa0199fb1db9100473",
+   "question": "关于办理健康证有哪些体检项目的问题\n咨询在办理健康证时，有哪些体检项目？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80d5997521fa0199fb1a43d70470",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80d5997521fa0199fb1a43d70470",
+   "question": "关于中国公民因私出国护照办理的问题\n如因私出国办理护照，需提供什么材料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80d5997521fa0199fb0fbb7e046d",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80d5997521fa0199fb0fbb7e046d",
+   "question": "关于携带宠物乘坐镇江公交车的问题\n想了解是否可以携带宠物乘坐镇江公交车？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80d5997521fa0199d5e41aab028e",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80d5997521fa0199d5e41aab028e",
+   "question": "关于专科、本科阶段申领过一次性求职补贴，现在本科、研究生毕业是否可以再次申领的问题\n咨询专科、本科阶段申领过一次性求职补贴，现在本科、研究生毕业是否可以再次申领？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80d5997521fa0199d5e1073a028b",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80d5997521fa0199d5e1073a028b",
+   "question": "关于2025年镇江市住房公积金缴存基数上下限的问题\n咨询2025年镇江市住房公积金缴存基数上下限是多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80d5997521fa0199d5deaba90288",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80d5997521fa0199d5deaba90288",
+   "question": "关于镇江市限养区内禁止饲养烈性犬品种和大型犬标准是什么的问题\n咨询镇江市限养区内禁止饲养烈性犬品种和大型犬标准是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80d5997521fa0199af34effb016a",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80d5997521fa0199af34effb016a",
+   "question": "关于社保卡挂失补卡的问题\n咨询社保卡如何挂失？如何进行补卡？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80d5997521fa0199af31d59f0167",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80d5997521fa0199af31d59f0167",
+   "question": "关于居住证如何办理延期的问题\n想了解居住证如何办理延期？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80d5997521fa0199af2fa5420164",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80d5997521fa0199af2fa5420164",
+   "question": "关于镇江市限养区内禁止饲养烈性犬品种和大型犬标准的问题\n咨询镇江市限养区内禁止饲养烈性犬品种和大型犬标准是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80d5997521fa0199909c730a00e5",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80d5997521fa0199909c730a00e5",
+   "question": "关于社保卡损坏如何换卡的问题\n想了解下社保卡损坏如何更换新卡？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80d5997521fa01999090f0e800e2",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80d5997521fa01999090f0e800e2",
+   "question": "关于咨询古运河水上游线项目的问题\n咨询古运河水上运营线路及票价？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80d4995207f601996b6654fe00c8",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80d4995207f601996b6654fe00c8",
+   "question": "关于2025年公积金缴存基数的问题\n2025年镇江市住房公积金缴存基数上下限是多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80d4995207f601996b656d5200c5",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80d4995207f601996b656d5200c5",
+   "question": "关于犬只免疫接种的问题\n在哪里查看犬只免疫接种点？我想办实体犬牌到哪里去办？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80d098f452cb019946e256490291",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80d098f452cb019946e256490291",
+   "question": "关于镇江市2026届毕业生一次性求职补贴申领的问题\n咨询镇江市2026届毕业生一次性求职补贴申领对象以及申领方式？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80d098f452cb0199223bd408016a",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80d098f452cb0199223bd408016a",
+   "question": "关于丹徒区办理健康证的问题\n丹徒区免费办理健康证的人群范围有哪些？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80d098f452cb0199223df4750170",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80d098f452cb0199223df4750170",
+   "question": "关于办理货车通行证的问题\n镇江货车通行证线下办证点地址、工作时间及联系电话分别是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80d098f452cb0199223cea5d016d",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80d098f452cb0199223cea5d016d",
+   "question": "关于苏超免费游金山的问题\n江苏省城市足球联赛（“苏超”）第二波福利新增了集赞免费游金山福利，如何参加？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80d098f452cb0198fdb08ef1001f",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80d098f452cb0198fdb08ef1001f",
+   "question": "关于龙易行APP充值如何领取发票的问题\n咨询龙易行APP充值如何领取发票？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80d098f452cb0198fdaec1c3001c",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80d098f452cb0198fdaec1c3001c",
+   "question": "关于镇江市居民医疗保险最高支付限额的问题\n咨询镇江市居民医疗保险最高支付限额是多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80d098f452cb0198fdac5d650019",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80d098f452cb0198fdac5d650019",
+   "question": "关于不同的货车车型在镇江有哪些不同的限行管理措施的问题\n咨询不同的货车车型在镇江有哪些不同的限行管理措施？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ca989e3ddf0198da58d22501e0",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ca989e3ddf0198da58d22501e0",
+   "question": "关于业主如何查询住宅专项维修资金账户余额的问题\n业主如何查询住宅专项维修资金账户余额？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ca989e3ddf0198da55f9f501dd",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ca989e3ddf0198da55f9f501dd",
+   "question": "关于镇江市工人文化宫工会驿站作息时间的问题\n想了解镇江市工人文化宫智能化工号驿站作息时间？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ca989e3ddf0198b59c785e008a",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ca989e3ddf0198b59c785e008a",
+   "question": "关于货车限行管理时段的问题\n镇江货车限行管理有哪三种时段？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ca989e3ddf0198b59a4abb0087",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ca989e3ddf0198b59a4abb0087",
+   "question": "关于丹徒区免费办理健康证人群范围的问题\n丹徒区免费办理健康证的人群范围有哪些？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80c6981bb0020198914b3125031b",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80c6981bb0020198914b3125031b",
+   "question": "关于镇江学生公交卡高中毕业后如何处理的问题\n咨询原先办理的镇江学生公交卡，高中毕业后，如何处理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80c6981bb002019891499fcb0318",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80c6981bb002019891499fcb0318",
+   "question": "关于镇江市企业离退休人员基本养老金发放时间的问题\n咨询镇江市企业离退休人员基本养老金什么时候发放？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80c6981bb002019891481dc50315",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80c6981bb002019891481dc50315",
+   "question": "关于镇江市区房屋拆迁是否可以提取房屋维修资金账户内剩余的维修资金的问题\n咨询镇江市区的房屋拆迁，可以提取房屋维修资金账户内剩余的维修资金吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80c6981bb00201986ea432a6024d",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80c6981bb00201986ea432a6024d",
+   "question": "关于如何查看镇江市2024年度高新技术企业培育奖补到账的问题\n咨询如何查看镇江市2024年度高新技术企业培育奖补到账情况？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80c6981bb00201986e98025f024a",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80c6981bb00201986e98025f024a",
+   "question": "关于外地人员如何在镇江报考保安员证的问题\n想了解下外地人员是否可以在镇江报考保安员证？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80c6981bb00201986e939d8a0247",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80c6981bb00201986e939d8a0247",
+   "question": "关于外省户籍人员如何在镇江办理临时身份证的问题\n想了解下外省户籍人员如何在镇江办理临时身份证？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80c6981bb00201984a37cfde011c",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80c6981bb00201984a37cfde011c",
+   "question": "关于烟草证变更地址法人的问题\n镇江市烟草专卖零售许可证上的地址、法人如何变更?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80c6981bb00201984a36d46a0119",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80c6981bb00201984a36d46a0119",
+   "question": "关于学生医保异地就医报销的问题\n镇江市参保的在校学生假期回户籍地发生医疗费用如何享受医保待遇？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80c6981bb00201982556a8270023",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80c6981bb00201982556a8270023",
+   "question": "关于镇江市城乡居民医保是否可以变更定点社区卫生服务机构（乡镇卫生院）的问题\n咨询镇江市城乡居民医保可以变更定点社区卫生服务机构（乡镇卫生院）吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80c6981bb002019825555a7e0020",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80c6981bb002019825555a7e0020",
+   "question": "关于镇江江天公交的乘坐方式的问题\n咨询镇江江天公交的乘坐方式有哪些？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80c6981bb0020198255440df001d",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80c6981bb0020198255440df001d",
+   "question": "关于在镇江患者如有医疗急救需求或需要转院至外地就诊应如何正确联系的问题\n咨询在镇江患者如有医疗急救需求或需要转院至外地就诊，应该如何正确联系？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80b797d3c1400198024c3f330185",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80b797d3c1400198024c3f330185",
+   "question": "关于镇江市城乡居民医保是否可以变更定点社区卫生服务机构（乡镇卫生院）的问题\n参加的是镇江市城乡居民医保，可以变更定点社区卫生服务机构（乡镇卫生院）吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80b797d3c1400198023e2246017f",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80b797d3c1400198023e2246017f",
+   "question": "关于咨询镇江市工伤认定的地点在哪里的问题\n想了解镇江市工伤认定的地点在哪里？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80b797d3c1400197de00faf00040",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80b797d3c1400197de00faf00040",
+   "question": "关于办理异地就医的问题\n镇江市退休职工未办理过异地就医，为什么还会收到镇江市医疗保障局的补充材料短信？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80b797d3c1400197ddfffe14003d",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80b797d3c1400197ddfffe14003d",
+   "question": "关于异地就医补充材料的问题\n已根据要求补充了备案信息，为何还会收到镇江市医疗保障局的补充材料短信？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80b797d3c1400197ddfe2cde003a",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80b797d3c1400197ddfe2cde003a",
+   "question": "关于江天公交乘坐的问题\n镇江江天公交的乘坐方式有哪些？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80b4971b87980197bf9eb47004d4",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80b4971b87980197bf9eb47004d4",
+   "question": "关于镇江市如何办理失业登记的问题\n咨询镇江市如何办理失业登记？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80b4971b87980197bf9dc75904d1",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80b4971b87980197bf9dc75904d1",
+   "question": "关于镇江市住房公积金个人住房贷款购房时如何办理抵押登记的问题\n咨询镇江市住房公积金个人住房贷款购房时，如何办理抵押登记？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80b4971b87980197bf9c339c04ce",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80b4971b87980197bf9c339c04ce",
+   "question": "关于哪些证件可以免费乘坐江天集团的公交车的问题\n咨询哪些证件可以免费乘坐江天集团的公交车？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80b4971b87980197964c84d603c2",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80b4971b87980197964c84d603c2",
+   "question": "关于公交卡充值方式的问题\n镇江公交卡有哪些充值方式？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80b4971b87980197964a907303bf",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80b4971b87980197964a907303bf",
+   "question": "关于秋季幼儿园招生的问题\n可以到哪里咨询京口区2025年秋季幼儿园招生问题？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80b4971b87980197964725c703bc",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80b4971b87980197964725c703bc",
+   "question": "关于查询购置学区房学位的问题\n在镇江市购置学区房，但不清楚如何确认房屋是否存在学位，有哪些可靠的查询途径或方法？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80b4971b879801977255d0f3028c",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80b4971b879801977255d0f3028c",
+   "question": "关于劳动能力鉴定的问题\n润州区范围内的劳动能力鉴定申请地址在哪里？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80b4971b87980197725508810289",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80b4971b87980197725508810289",
+   "question": "关于高校毕业生租房补贴的问题\n镇江市高校毕业生租房补贴经办部门咨询电话是多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80b4971b879801977254120b0286",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80b4971b879801977254120b0286",
+   "question": "关于京口区幼儿园入学的问题\n京口区范围可以到哪里咨询2025年秋季幼儿园招生问题？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80b4971b879801974dab24910148",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80b4971b879801974dab24910148",
+   "question": "关于更换学生公交卡的问题\n市区学生升初中或初中升高中，是否需要更换学生公交卡？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80b4971b879801974da6d43c0145",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80b4971b879801974da6d43c0145",
+   "question": "关于查询镇江公交卡刷卡记录的问题\n如何查询镇江公交卡的刷卡记录？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80b4971b87980197295073450039",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80b4971b87980197295073450039",
+   "question": "镇江市居民身份证丢失是否可以挂失？\n镇江市居民身份证丢失是否可以挂失？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80b4971b87980197294fc1d40036",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80b4971b87980197294fc1d40036",
+   "question": "镇江市出入境受理点地址在哪里？电话是多少？工作时间是什么？\n镇江市出入境受理点地址在哪里？电话是多少？工作时间是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80b4971b87980197294ef4f80033",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80b4971b87980197294ef4f80033",
+   "question": "在镇江哪些情况可以申请“商务”签注?\n在镇江哪些情况可以申请“商务”签注?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80b396ed1eaf0197051b7f3a0116",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80b396ed1eaf0197051b7f3a0116",
+   "question": "独生子女父母光荣证丢失或其它一些情况，不知道是否可以申请，可以咨询哪里？\n独生子女父母光荣证丢失或其它一些情况，不知道是否可以申请，可以咨询哪里？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80b396ed1eaf0197051ac5ed0113",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80b396ed1eaf0197051ac5ed0113",
+   "question": "如何查询镇江商品房预（销）售许可证？\n如何查询镇江商品房预（销）售许可证？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80b396ed1eaf0197051a08c80110",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80b396ed1eaf0197051a08c80110",
+   "question": "省内异地、省外居民身份证在镇江丢失是否可以挂失？\n省内异地、省外居民身份证在镇江丢失是否可以挂失？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ab957052f50196e0bb7a070c3d",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ab957052f50196e0bb7a070c3d",
+   "question": "关于镇江市居民用户阶梯气量是多少的问题\n咨询镇江市居民用户阶梯气量是多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ab957052f50196e0ba4c870c3a",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ab957052f50196e0ba4c870c3a",
+   "question": "关于镇江长寿卡（L卡）是否可以代办的问题\n咨询镇江长寿卡（L卡）是否可以代办？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ab957052f50196e0b93a860c37",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ab957052f50196e0b93a860c37",
+   "question": "关于计划生育一次性奖励的基本申请条件的问题\n咨询计划生育一次性奖励的基本申请条件是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ab957052f50196bd673e5a0b02",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ab957052f50196bd673e5a0b02",
+   "question": "镇江市区商品住房购房契税补贴线下办理流程是什么?\n镇江市区商品住房购房契税补贴线下办理流程是什么?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ab957052f5019698bc8b4e09d9",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ab957052f5019698bc8b4e09d9",
+   "question": "关于在镇江办理异地就医备案时是否需要选择就医地的定点医院的问题\n咨询在镇江办理异地就医备案时，是否需要选择就医地的定点医院？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ab957052f50196906cdb2109cd",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ab957052f50196906cdb2109cd",
+   "question": "经开区政务服务中心五一放假吗？\n经开区政务服务中心五一放假吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ab957052f50196907e1b9309d0",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ab957052f50196907e1b9309d0",
+   "question": "镇江市居民用户阶梯气量是多少？\n镇江市居民用户阶梯气量是多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ab957052f5019698ba0af409d6",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ab957052f5019698ba0af409d6",
+   "question": "关于法拍房能否申请享受镇江市区商品住房购房契税补贴的问题\n咨询法拍房能否申请享受镇江市区商品住房购房契税补贴？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ab957052f50196906a736a09ca",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ab957052f50196906a736a09ca",
+   "question": "法拍房能否申请享受镇江市区商品住房购房契税补贴？\n法拍房能否申请享受镇江市区商品住房购房契税补贴？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ab957052f5019698b88ec809d3",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ab957052f5019698b88ec809d3",
+   "question": "关于镇江市居民用户人口阶梯认定成功后可增加多少气量的问题\n咨询镇江市居民用户人口阶梯认定成功后，可增加多少气量？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ab957052f501966f9f4e7108d3",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ab957052f501966f9f4e7108d3",
+   "question": "目前在镇江市卫健委备案的非急救转运社会化服务单位有哪些？联系方式是什么？是否收费？\n目前在镇江市卫健委备案的非急救转运社会化服务单位有哪些？联系方式是什么？是否收费？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ab957052f501966f9e8ffe08d0",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ab957052f501966f9e8ffe08d0",
+   "question": "有医疗需求或者需转院至外地就诊该怎么办？\n有医疗需求或者需转院至外地就诊该怎么办？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ab957052f501966f9de33208cd",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ab957052f501966f9de33208cd",
+   "question": "在外地因急诊抢救就医未能提前向镇江市医疗保障局办理异地就医备案，该如何报销就医费用？\n在外地因急诊抢救就医未能提前向镇江市医疗保障局办理异地就医备案，该如何报销就医费用？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ab957052f5019651a803640793",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ab957052f5019651a803640793",
+   "question": "关于江苏智慧人社网办大厅打印的个人权益单是否需要加盖公章的问题\n在江苏智慧人社网办大厅打印的个人权益单需要加盖公章吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ab957052f5019651a04d9b0790",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ab957052f5019651a04d9b0790",
+   "question": "关于镇江市职工如何查询医疗保险参保信息的问题\n镇江市职工如何查询医疗保险参保信息？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ab957052f501962d76e9280664",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ab957052f501962d76e9280664",
+   "question": "关于镇江是否已取消从业资格证诚信考核的问题\n镇江是否已取消从业资格证诚信考核？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ab957052f501962d722e530661",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ab957052f501962d722e530661",
+   "question": "关于镇江市最低生活保障标准是多少的问题\n镇江市最低生活保障标准是多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ab957052f501962d6eb181065e",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ab957052f501962d6eb181065e",
+   "question": "关于能否以个人名义报考危险品押运证的问题\n能否以个人名义报考危险品押运证？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ab957052f50196091739190510",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ab957052f50196091739190510",
+   "question": "关于赴香港或者澳门探望亲属范围的问题\n申请赴香港或者澳门探望亲属的范围?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ab957052f501960914e3a3050d",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ab957052f501960914e3a3050d",
+   "question": "关于办理港澳通行证续签注的问题\n办理港澳通行证续签注需要多久？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ab957052f50195e515fc870402",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ab957052f50195e515fc870402",
+   "question": "镇江退休人员死亡，养老金发放到什么时候？\n镇江退休人员死亡，养老金发放到什么时候？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ab957052f50195e51521be03ff",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ab957052f50195e51521be03ff",
+   "question": "润州区线上办理个体工商户登记如何领取纸质营业执照？\n润州区线上办理个体工商户登记如何领取纸质营业执照？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ab957052f50195e514843803fc",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ab957052f50195e514843803fc",
+   "question": "镇江市涉路施工“一件事”网上办理流程是什么？\n镇江市涉路施工“一件事”网上办理流程是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ab957052f50195c07834d90268",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ab957052f50195c07834d90268",
+   "question": "关于乘坐公交车有哪些支付方式的问题\n咨询乘坐公交车有哪些支付方式？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ab957052f50195c076a3ab0265",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ab957052f50195c076a3ab0265",
+   "question": "关于镇江退休人员死亡养老金发放的问题\n咨询镇江退休人员死亡，养老金发放到什么时候？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ab957052f50195c075462d0262",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ab957052f50195c075462d0262",
+   "question": "关于镇江市区二手房买卖资金监管账户的问题\n咨询镇江市区二手房买卖是否有资金监管账户？若有，如何操作？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ab957052f501959c6d1ad1014a",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ab957052f501959c6d1ad1014a",
+   "question": "关于镇江法定婚假天数的问题\n咨询镇江法定婚假是多少天?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ab957052f501959c6b5f110147",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ab957052f501959c6b5f110147",
+   "question": "关于不动产权证工本费的问题\n咨询不动产权证工本费是多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ab957052f501959c6920be0144",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ab957052f501959c6920be0144",
+   "question": "关于第三代社保卡在镇江乘坐公交车优惠政策的问题\n咨询第三代社保卡在镇江乘坐公交车，有什么优惠政策？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ab957052f5019579647fa80009",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ab957052f5019579647fa80009",
+   "question": "如何办理镇江市困难家庭未实物配租租房提取公积金？\n如何办理镇江市困难家庭未实物配租租房提取公积金？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ab957052f501957963d8ef0006",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ab957052f501957963d8ef0006",
+   "question": "申请镇江经开区农村部分计划生育家庭奖励扶助金对户籍是否有要求？\n申请镇江经开区农村部分计划生育家庭奖励扶助金对户籍是否有要求？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80ab957052f50195796322b00003",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80ab957052f50195796322b00003",
+   "question": "非婚同居只生育一个孩子的单亲家庭是否符合申请镇江经开区农村部分计划生育家庭奖励扶金助条件？\n非婚同居只生育一个孩子的单亲家庭是否符合申请镇江经开区农村部分计划生育家庭奖励扶金助条件？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80aa94daa2110195545e24a203bd",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80aa94daa2110195545e24a203bd",
+   "question": "关于如何申领一次性营养补助的问题\n咨询如何申领一次性营养补助？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80aa94daa2110195545cc2d103ba",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80aa94daa2110195545cc2d103ba",
+   "question": "关于镇江苏南人力资源市场市卡管中心周六办理社保卡的问题\n咨询镇江苏南人力资源市场市卡管中心周六办理社保卡吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80aa94daa2110195545b284d03b7",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80aa94daa2110195545b284d03b7",
+   "question": "关于镇江货车限行管理时段的问题\n咨询镇江货车限行管理有哪三种时段？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80aa94daa211019530a7352d0285",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80aa94daa211019530a7352d0285",
+   "question": "镇江市区商品住房购房契税补贴线下办理流程是什么?\n镇江市区商品住房购房契税补贴线下办理流程是什么?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80aa94daa211019530a629130282",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80aa94daa211019530a629130282",
+   "question": "如何申领一次性营养补助？\n如何申领一次性营养补助？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80aa94daa211019530a38a58027f",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80aa94daa211019530a38a58027f",
+   "question": "网上如何办理镇江货车通行证？\n网上如何办理镇江货车通行证？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80aa94daa21101950ebde6db0129",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80aa94daa21101950ebde6db0129",
+   "question": "不动产权证工本费是多少？\n不动产权证工本费是多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80aa94daa21101950ebb825b0126",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80aa94daa21101950ebb825b0126",
+   "question": "婴儿出生后领取的结婚证，能线上申报新生儿一件事吗？\n婴儿出生后领取的结婚证，能线上申报新生儿一件事吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80aa94daa21101950eb9ba030123",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80aa94daa21101950eb9ba030123",
+   "question": "镇江心湖景区是否允许携带宠物入内？\n镇江心湖景区是否允许携带宠物入内？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80aa94daa2110194e995ed62003b",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80aa94daa2110194e995ed62003b",
+   "question": "从开发商处购买的商品房办理不动产权证需要什么材料？\n从开发商处购买的商品房办理不动产权证需要什么材料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80aa94daa2110194e99533610038",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80aa94daa2110194e99533610038",
+   "question": "镇江市出入境受理点地址在哪里？电话是多少？工作时间是什么？\n镇江市出入境受理点地址在哪里？电话是多少？工作时间是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80aa94daa2110194e994721f0035",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80aa94daa2110194e994721f0035",
+   "question": "个人银行贷款还清了，要办理注销（解押）手续，需要什么材料？\n个人银行贷款还清了，要办理注销（解押）手续，需要什么材料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80a293f6e6380194c5e2052305da",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80a293f6e6380194c5e2052305da",
+   "question": "通过网约车软件叫车乘坐巡游出租汽车是否应该加收5元？\n通过网约车软件叫车乘坐巡游出租汽车是否应该加收5元？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80a293f6e6380194c5e2aa3005dd",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80a293f6e6380194c5e2aa3005dd",
+   "question": "装修可以提取公积金吗？\n装修可以提取公积金吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80a293f6e6380194a02c039f0588",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80a293f6e6380194a02c039f0588",
+   "question": "关于计划生育一次性奖励何时到账的问题\n咨询计划生育一次性奖励什么时候到账？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80a293f6e6380194a0258ed10582",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80a293f6e6380194a0258ed10582",
+   "question": "关于镇江法定婚假天数的问题\n咨询镇江法定婚假是多少天?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80a293f6e6380194a023b8fd057f",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80a293f6e6380194a023b8fd057f",
+   "question": "关于镇江市经开区断山墩遗址公园是否允许携带宠物入内的问题\n咨询镇江市经开区断山墩遗址公园是否允许携带宠物入内？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80a293f6e63801947d25b4740438",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80a293f6e63801947d25b4740438",
+   "question": "镇江市的阶梯水价是多少？\n镇江市的阶梯水价是多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80a293f6e63801947d21e98d0435",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80a293f6e63801947d21e98d0435",
+   "question": "哪些人可以以灵活就业人员身份在我市参加企业职工基本养老保险？\n哪些人可以以灵活就业人员身份在我市参加企业职工基本养老保险？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80a293f6e63801947d1eed370432",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80a293f6e63801947d1eed370432",
+   "question": "新生儿如何办理城乡居民基本医疗保险参保登记？\n新生儿如何办理城乡居民基本医疗保险参保登记？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80a293f6e6380194580dae2a0323",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80a293f6e6380194580dae2a0323",
+   "question": "去哪里申请办理计划生育一次性奖励金？\n去哪里申请办理计划生育一次性奖励金？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80a293f6e6380194580d045d0320",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80a293f6e6380194580d045d0320",
+   "question": "独生子女父母光荣证丢失或其它一些情况，不知道是否可以申请，可以咨询哪里？\n独生子女父母光荣证丢失或其它一些情况，不知道是否可以申请，可以咨询哪里？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80a293f6e6380194580c54f5031d",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80a293f6e6380194580c54f5031d",
+   "question": "镇江法定婚假是多少天?\n镇江法定婚假是多少天?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80a293f6e638019434f97dc701df",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80a293f6e638019434f97dc701df",
+   "question": "本人常住镇江丹徒区，但不是本地户籍，是否可以申请尊老金？\n本人常住镇江丹徒区，但不是本地户籍，是否可以申请尊老金？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80a293f6e638019434f6a95401dc",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80a293f6e638019434f6a95401dc",
+   "question": "如何办理异地就医备案手续？\n如何办理异地就医备案手续？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80a293f6e63801941046a13500c5",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80a293f6e63801941046a13500c5",
+   "question": "在镇江参保的外地户籍就业困难人员是否可以申报灵活就业社保补贴？\n在镇江参保的外地户籍就业困难人员是否可以申报灵活就业社保补贴？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80a293f6e638019410456c9900c2",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80a293f6e638019410456c9900c2",
+   "question": "未参加过失业保险是否可以享受灵活就业社保补贴？\n未参加过失业保险是否可以享受灵活就业社保补贴？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80a293f6e6380194104327bd00bf",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80a293f6e6380194104327bd00bf",
+   "question": "什么人可以享受镇江市灵活就业社会保险补贴？\n什么人可以享受镇江市灵活就业社会保险补贴？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa80a193de67810193ec530abb004b",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa80a193de67810193ec530abb004b",
+   "question": "怎么订阅2025年的镇江电视报？\n怎么订阅2025年的镇江电视报？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa809893ba6db50193c7fe39460042",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa809893ba6db50193c7fe39460042",
+   "question": "我家是淮安人，孩子今年六年级，准备到镇江上初中，怎样办理入学手续？\n我家是淮安人，孩子今年六年级，准备到镇江上初中，怎样办理入学手续？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa809893ba6db50193c7fd53d8003f",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa809893ba6db50193c7fd53d8003f",
+   "question": "家长怎样查到家庭房产对应的学区？\n家长怎样查到家庭房产对应的学区？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa8095936d003d0193a421a08a0192",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa8095936d003d0193a421a08a0192",
+   "question": "镇江高新区辖区房地产企业申请房地产开发二级资质需要哪些材料？\n镇江高新区辖区房地产企业申请房地产开发二级资质需要哪些材料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa8095936d003d01937acf76b1007f",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa8095936d003d01937acf76b1007f",
+   "question": "如何查询单位营业执照注册地？\n如何查询单位营业执照注册地？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa8095936d003d01937ac51569007c",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa8095936d003d01937ac51569007c",
+   "question": "退休人员死亡，养老金发放到什么时候？\n退休人员死亡，养老金发放到什么时候？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa809293520d3a01935c73eefc001c",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa809293520d3a01935c73eefc001c",
+   "question": "单身收养孩子可以享受农扶金吗？\n单身收养孩子可以享受农扶金吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa809293520d3a01935c73087c0019",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa809293520d3a01935c73087c0019",
+   "question": "我今年59岁了，是明年才可以申请农扶金吗？\n我今年59岁了，是明年才可以申请农扶金吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa809293520d3a01935c7216040016",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa809293520d3a01935c7216040016",
+   "question": "退休人员死亡，养老金发放到什么时候？\n退休人员死亡，养老金发放到什么时候？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa865693013fd301930e53235b00c8",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa865693013fd301930e53235b00c8",
+   "question": "若车辆在停泊位内发生刮蹭等事故，停车收费的管理单位是否会进行赔偿？\n若车辆在停泊位内发生刮蹭等事故，停车收费的管理单位是否会进行赔偿？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa865693013fd301930e523b6a00c5",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa865693013fd301930e523b6a00c5",
+   "question": "哪些车辆在路边临停泊位点有优惠政策?\n哪些车辆在路边临停泊位点有优惠政策?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa865693013fd301930e50aaf700c2",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa865693013fd301930e50aaf700c2",
+   "question": "参加了城乡居民医保，在外地住院能不能报销？\n参加了城乡居民医保，在外地住院能不能报销？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa864c9293780c0192f1db61bc02b2",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa864c9293780c0192f1db61bc02b2",
+   "question": "市民卡游园功能使用前是否要提前预约？\n市民卡游园功能使用前是否要提前预约？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa864c9293780c0192f1da61b502af",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa864c9293780c0192f1da61b502af",
+   "question": "灵活就业社保补贴标准是什么？如果提高缴费标准，按照什么标准进行补贴？\n灵活就业社保补贴标准是什么？如果提高缴费标准，按照什么标准进行补贴？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa864c9293780c0192f1d9515f02ac",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa864c9293780c0192f1d9515f02ac",
+   "question": "申请消费品以旧换新居家适老化改造，从哪里申请？\n申请消费品以旧换新居家适老化改造，从哪里申请？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa864c9293780c0192cb9506060190",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa864c9293780c0192cb9506060190",
+   "question": "公积金贷款以等额本息还款方式进行还款，为什么首月还款和次月还款金额会不一样？\n公积金贷款以等额本息还款方式进行还款，为什么首月还款和次月还款金额会不一样？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa864c9293780c0192cb94116e018d",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa864c9293780c0192cb94116e018d",
+   "question": "市民卡丢失，是否可以电话挂失？\n市民卡丢失，是否可以电话挂失？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa864c9293780c0192cb933ad4018a",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa864c9293780c0192cb933ad4018a",
+   "question": "市民卡丢失，是否可以将卡内的钱转至新卡内？\n市民卡丢失，是否可以将卡内的钱转至新卡内？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86499204817f01928358c9550390",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86499204817f01928358c9550390",
+   "question": "廉租住房实物分配的条件是什么？\n廉租住房实物分配的条件是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86499204817f01928357f8d7038d",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86499204817f01928357f8d7038d",
+   "question": "廉租住房房租补贴标准是多少？\n廉租住房房租补贴标准是多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86499204817f01928356d2fa038a",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86499204817f01928356d2fa038a",
+   "question": "二院10月请外院专家坐诊时间是什么？\n二院10月请外院专家坐诊时间是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86499204817f01925f4c4e6c0256",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86499204817f01925f4c4e6c0256",
+   "question": "什么人可以享受镇江市灵活就业社会保险补贴？\n什么人可以享受镇江市灵活就业社会保险补贴？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86499204817f01925f4b8b5f0253",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86499204817f01925f4b8b5f0253",
+   "question": "车管所国庆放假吗？\n车管所国庆放假吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86499204817f01925f4ac22e0250",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86499204817f01925f4ac22e0250",
+   "question": "三院门诊国庆节放假吗？\n三院门诊国庆节放假吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86499204817f019237aaff7701ce",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86499204817f019237aaff7701ce",
+   "question": "镇江市第四人民医院眩晕门诊什么时候开诊？\n镇江市第四人民医院眩晕门诊什么时候开诊？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86499204817f019237aa417801cb",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86499204817f019237aa417801cb",
+   "question": "国庆节公交卡充值点休息吗？\n国庆节公交卡充值点休息吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86499204817f019237a965cb01c8",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86499204817f019237a965cb01c8",
+   "question": "申请办理残疾人证可以委托他人代办吗?\n申请办理残疾人证可以委托他人代办吗?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86499204817f0192177814dd009d",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86499204817f0192177814dd009d",
+   "question": "非工作日期间，是否可以办理身份证？\n非工作日期间，是否可以办理身份证？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86499204817f019217776517009a",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86499204817f019217776517009a",
+   "question": "双方都是外地户籍，可以在镇江市办理离婚吗？\n双方都是外地户籍，可以在镇江市办理离婚吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa864891e98b420191f90cdd50006e",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa864891e98b420191f90cdd50006e",
+   "question": "四院门诊中秋放假吗？\n四院门诊中秋放假吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa864891e98b420191f90bbb74006b",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa864891e98b420191f90bbb74006b",
+   "question": "办理“商转公”贴息设立异地贷款账户需携带的材料有哪些？\n办理“商转公”贴息设立异地贷款账户需携带的材料有哪些？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa864691c5b8010191cf2514e30036",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa864691c5b8010191cf2514e30036",
+   "question": "镇江市市区范围如何查询是否缴纳过物业住宅专项维修资金以及如何查询账户余额？\n镇江市市区范围如何查询是否缴纳过物业住宅专项维修资金以及如何查询账户余额？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa864691c5b8010191cf245e1b0033",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa864691c5b8010191cf245e1b0033",
+   "question": "丹徒区户籍如果申请领取特困人员供养证，需要满足哪些条件？\n丹徒区户籍如果申请领取特困人员供养证，需要满足哪些条件？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa864691c5b8010191cf2386ba0030",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa864691c5b8010191cf2386ba0030",
+   "question": "镇江经开区的企业，哪些建筑起重机械设备需要进行产权注销？\n镇江经开区的企业，哪些建筑起重机械设备需要进行产权注销？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa8643918ce7730191ac8d767c0199",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa8643918ce7730191ac8d767c0199",
+   "question": "什么条件可以申请房屋“以旧换新”？如何申请？实施细节是什么？\n什么条件可以申请房屋“以旧换新”？如何申请？实施细节是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa8643918ce7730191ac8facd1019f",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa8643918ce7730191ac8facd1019f",
+   "question": "在定点医疗机构做治疗性辅助生殖类医疗服务项目的报销政策是什么？\n在定点医疗机构做治疗性辅助生殖类医疗服务项目的报销政策是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa8643918ce7730191ac8e9a99019c",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa8643918ce7730191ac8e9a99019c",
+   "question": "公交卡在质保期内，发现质量问题，如何处理？\n公交卡在质保期内，发现质量问题，如何处理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa8642914f232c019186f4a79c01ab",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa8642914f232c019186f4a79c01ab",
+   "question": "咨询镇江市建筑业以什么形式参加工伤保险？\n咨询镇江市建筑业以什么形式参加工伤保险？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa8642914f232c019186f3632101a8",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa8642914f232c019186f3632101a8",
+   "question": "咨询哪些非急救转运单位可以提供服务？\n咨询哪些非急救转运单位可以提供服务？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa8642914f232c0191630c5d9d009e",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa8642914f232c0191630c5d9d009e",
+   "question": "非高新区辖区内企业是否可以异地办理企业投资建设固定资产投资项目备案？\n非高新区辖区内企业是否可以异地办理企业投资建设固定资产投资项目备案？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa8642914f232c0191630b8cad009b",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa8642914f232c0191630b8cad009b",
+   "question": "高新区企业投资建设固定资产投资项目备案审批后可以邮寄吗？\n高新区企业投资建设固定资产投资项目备案审批后可以邮寄吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa864090d2a74801913f0bd7780548",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa864090d2a74801913f0bd7780548",
+   "question": "咨询兄妹共同购房可以办理公积金贷款吗？\n咨询兄妹共同购房可以办理公积金贷款吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa864090d2a74801913f0751b90545",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa864090d2a74801913f0751b90545",
+   "question": "咨询小孩申报户口需要哪些材料?\n咨询小孩申报户口需要哪些材料?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa864090d2a74801911b2b88c103ad",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa864090d2a74801911b2b88c103ad",
+   "question": "镇江公积金贷款资金怎么划拨？\n镇江公积金贷款资金怎么划拨？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa864090d2a74801911b29969303a7",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa864090d2a74801911b29969303a7",
+   "question": "什么条件可以申请房屋“以旧换新”？如何申请？实施细节是什么？\n什么条件可以申请房屋“以旧换新”？如何申请？实施细节是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa864090d2a7480190f86787b301b8",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa864090d2a7480190f86787b301b8",
+   "question": "咨询职工申请公积金贷款时，需要交纳费用吗？\n咨询职工申请公积金贷款时，需要交纳费用吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa864090d2a7480190f86325b801b5",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa864090d2a7480190f86325b801b5",
+   "question": "咨询申领第三代社会保障卡是否收费？\n咨询申领第三代社会保障卡是否收费？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa864090d2a7480190f861dc8701b2",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa864090d2a7480190f861dc8701b2",
+   "question": "咨询三日内复诊，是否需找原接诊医生就诊?\n咨询三日内复诊，是否需找原接诊医生就诊?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa864090d2a7480190d460b32e0006",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa864090d2a7480190d460b32e0006",
+   "question": "咨询涉税机构如何参与竞标\n咨询涉税机构如何参与竞标？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa864090d2a7480190d45b5dc40000",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa864090d2a7480190d45b5dc40000",
+   "question": "咨询一户多残、依老养残家庭残疾人家庭发放标准是多少\n咨询一户多残、依老养残家庭残疾人家庭发放标准是多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86409044df7d0190aebc5f1d03af",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86409044df7d0190aebc5f1d03af",
+   "question": "江苏大学附属医院最近新开了哪些门诊和时间？\n江苏大学附属医院最近新开了哪些门诊和时间？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86409044df7d0190aebb987e03ac",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86409044df7d0190aebb987e03ac",
+   "question": "请问发现儿童漏种时如何补种疫苗？\n请问发现儿童漏种时如何补种疫苗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86409044df7d0190aebac7e403a9",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86409044df7d0190aebac7e403a9",
+   "question": "学生父母或其他法定监护人未购房，也无公有产权租住房，父母、孩子与祖父母（或外祖父母）户籍一直在一起，实际居住在祖父母（或外祖父母）产权房的，如何填报住房信息？\n学生父母或其他法定监护人未购房，也无公有产权租住房，父母、孩子与祖父母（或外祖父",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86409044df7d01908ca12f8c0260",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86409044df7d01908ca12f8c0260",
+   "question": "打算购买市区二手房屋，担心钱支付后买方不过户，咨询是否有资金监管账户可以将费用打入（保障房屋交易），若有，如何操作？\n打算购买市区二手房屋，担心钱支付后买方不过户，咨询是否有资金监管账户可以将费用打入（保障房屋交易），若有，如何操作？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86409044df7d019066ac10b70143",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86409044df7d019066ac10b70143",
+   "question": "咨询旧燃气具移位，如何通气？\n咨询旧燃气具移位，如何通气？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86409044df7d019066a9e4330140",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86409044df7d019066a9e4330140",
+   "question": "咨询非机动车交通违法行为（违章）罚款如何缴纳？\n咨询非机动车交通违法行为（违章）罚款如何缴纳？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86409044df7d019066a3a927013d",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86409044df7d019066a3a927013d",
+   "question": "咨询《江苏省电动自行车管理条例》对电动自行车生产、销售活动作出了哪些规定？\n咨询《江苏省电动自行车管理条例》对电动自行车生产、销售活动作出了哪些规定？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa864090244c55019043f68247013e",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa864090244c55019043f68247013e",
+   "question": "咨询重度残疾人护理补贴的补贴标准是多少？\n咨询重度残疾人护理补贴的补贴标准是多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa864090244c55019024d71d690009",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa864090244c55019024d71d690009",
+   "question": "安装燃气如无法提供“安装合格证二维码”该如何处理？\n安装燃气如无法提供“安装合格证二维码”该如何处理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa864090244c55019024d617280006",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa864090244c55019024d617280006",
+   "question": "如何订阅镇江电视报？\n如何订阅镇江电视报？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86388f938b30018ffbe791930334",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86388f938b30018ffbe791930334",
+   "question": "车管所端午节可以办理业务吗？\n车管所端午节可以办理业务吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86388f938b30018ffbe6b6f20331",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86388f938b30018ffbe6b6f20331",
+   "question": "停领失业金在哪里办，具体地址在哪里\n停领失业金在哪里办，具体地址在哪里",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86388f938b30018ffbe5afac032e",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86388f938b30018ffbe5afac032e",
+   "question": "请问如何变更户口本上的户主信息？要带哪些材料？\n请问如何变更户口本上的户主信息？要带哪些材料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86388f938b30018fd3b31050020b",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86388f938b30018fd3b31050020b",
+   "question": "二院的肺部疾病多学科门诊如何预约？\n二院的肺部疾病多学科门诊如何预约？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86388f938b30018fd3b12f210205",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86388f938b30018fd3b12f210205",
+   "question": "如果复诊时发现其他专科疾病，需要另外挂号就诊吗?\n如果复诊时发现其他专科疾病，需要另外挂号就诊吗?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86388f938b30018f93aa46030007",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86388f938b30018f93aa46030007",
+   "question": "如何查询涉税专业服务机构的信用？\n如何查询涉税专业服务机构的信用？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86388f938b30018fb3bbce040118",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86388f938b30018fb3bbce040118",
+   "question": "咨询今年企业养老保险退休人员可以参加退休人员免费体检吗？\n咨询今年企业养老保险退休人员可以参加退休人员免费体检吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86388f938b30018f93ab0d1d000a",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86388f938b30018f93ab0d1d000a",
+   "question": "乘客在滴滴出行上预约出租车，司机未使用计价器，直接通过软件计费，应如何获取行程发票？\n乘客在滴滴出行上预约出租车，司机未使用计价器，直接通过软件计费，应如何获取行程发票？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86388f938b30018fa5199b7200c8",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86388f938b30018fa5199b7200c8",
+   "question": "目前在市卫健委备案的非急救转运社会化服务单位有哪些，联系方式是什么？是否收费？\n目前在市卫健委备案的非急救转运社会化服务单位有哪些，联系方式是什么？是否收费？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86388f938b30018f93a988680004",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86388f938b30018f93a988680004",
+   "question": "苏税援入驻是否需要注册账号？\n苏税援入驻是否需要注册账号？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86328f5feae2018f6bb1b9dd0084",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86328f5feae2018f6bb1b9dd0084",
+   "question": "公交220路是不是改线了？\n公交220路是不是改线了？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86328f5feae2018f6bb09f150081",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86328f5feae2018f6bb09f150081",
+   "question": "镇江市图书馆阅览室怎么关闭了？\n镇江市图书馆阅览室怎么关闭了？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86328f5feae2018f6bafdfbd007e",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86328f5feae2018f6bafdfbd007e",
+   "question": "如何查询社保卡是否已开通金融功能？\n如何查询社保卡是否已开通金融功能？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86258f437f0f018f47618d190006",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86258f437f0f018f47618d190006",
+   "question": "镇江市皮肤病性病防治中心五一门诊开门吗？\n镇江市皮肤病性病防治中心五一门诊开门吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86258f437f0f018f475ffbc20003",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86258f437f0f018f475ffbc20003",
+   "question": "请问导游资格证什么时候下发？\n请问导游资格证什么时候下发？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86258f437f0f018f475f104c0000",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86258f437f0f018f475f104c0000",
+   "question": "借款人已退休不再缴纳公积金，公积金贷款如何还款？\n借款人已退休不再缴纳公积金，公积金贷款如何还款？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86218f006f4b018f227dd169014b",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86218f006f4b018f227dd169014b",
+   "question": "外省户籍是否可以在镇江办理临时身份证？\n外省户籍是否可以在镇江办理临时身份证？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86218f006f4b018f227d1b130148",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86218f006f4b018f227d1b130148",
+   "question": "劳动节期间哪些公交充值点营业？\n劳动节期间哪些公交充值点营业？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86218f006f4b018f227c64a60145",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86218f006f4b018f227c64a60145",
+   "question": "梦溪广场东站东侧公交站是不是换地方了？\n梦溪广场东站东侧公交站是不是换地方了？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86218ed08a34018eda25e12b0026",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86218ed08a34018eda25e12b0026",
+   "question": "城乡居民养老保险缴费方式有哪些？\n城乡居民养老保险缴费方式有哪些？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86218ed08a34018eda2523170023",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86218ed08a34018eda2523170023",
+   "question": "年初缴、年底缴和后期再补缴城乡居民养老保险有区别吗？\n年初缴、年底缴和后期再补缴城乡居民养老保险有区别吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86218ed08a34018eda245f5d0020",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86218ed08a34018eda245f5d0020",
+   "question": "上游气源价格涨了，居民用天然气价格涨多少？\n上游气源价格涨了，居民用天然气价格涨多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa861b8e85b836018e9336e7740050",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa861b8e85b836018e9336e7740050",
+   "question": "关于单位的数字证书如何年审的问题\n单位的数字证书到期，如何年审？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa861b8e85b836018e926a8353004d",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa861b8e85b836018e926a8353004d",
+   "question": "关于房屋装修是否可以申请公积金贷款的问题\n房屋要装修了，可以申请公积金贷款吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa861b8e85b836018e9267892d004a",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa861b8e85b836018e9267892d004a",
+   "question": "关于钳工四级证书信息可以在哪里查询的问题\n钳工四级证书信息在哪里可以查询到？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86158e616fe7018e7319e8f80066",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86158e616fe7018e7319e8f80066",
+   "question": "非全日制用工终止，用人单位需要向劳动者支付经济补偿吗\n非全日制用工终止，用人单位需要向劳动者支付经济补偿吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86158e616fe7018e73179bbc0063",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86158e616fe7018e73179bbc0063",
+   "question": "如何查询驾驶证交通违法行为\n如何查询驾驶证交通违法行为？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86158e616fe7018e7310e616005e",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86158e616fe7018e7310e616005e",
+   "question": "上游气源价格涨了，居民用天然气价格涨多少\n咨询上游气源价格涨了，居民用天然气价格涨多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86118d5a6cd3018e2637112205ca",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86118d5a6cd3018e2637112205ca",
+   "question": "江大充值点的工作时间是什么？\n江大充值点的工作时间是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86118d5a6cd3018e2635f04905c7",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86118d5a6cd3018e2635f04905c7",
+   "question": "2023年国家医保药品目录有哪些调整？什么时候开始执行？\n2023年国家医保药品目录有哪些调整？什么时候开始执行？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86118d5a6cd3018e263525ff05c4",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86118d5a6cd3018e263525ff05c4",
+   "question": "象山路北侧象山花园三期公交站位置是不是改了？\n象山路北侧象山花园三期公交站位置是不是改了？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86118d5a6cd3018e01cbe9f80449",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86118d5a6cd3018e01cbe9f80449",
+   "question": "购买商品房办理组合贷款，公积金账户多余的钱可以提取还商贷吗？\n购买商品房办理组合贷款，公积金账户多余的钱可以提取还商贷吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86118d5a6cd3018e01ca84e90446",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86118d5a6cd3018e01ca84e90446",
+   "question": "药品的支付标准如何确定和执行？\n药品的支付标准如何确定和执行？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86118d5a6cd3018e01c64ad10443",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86118d5a6cd3018e01c64ad10443",
+   "question": "劳动合同终止的，用人单位是否支付经济补偿？\n劳动合同终止的，用人单位是否支付经济补偿？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86118d5a6cd3018dddced230030d",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86118d5a6cd3018dddced230030d",
+   "question": "如何办理异地就医备案手续？\n咨询如何办理异地就医备案手续？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86118d5a6cd3018dddcd18a9030a",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86118d5a6cd3018dddcd18a9030a",
+   "question": "如何查询个人的狂犬疫苗接种信息？\n咨询如何查询个人的狂犬疫苗接种信息？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86118d5a6cd3018dbb40a7ed021e",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86118d5a6cd3018dbb40a7ed021e",
+   "question": "什么是长期护理保险？\n什么是长期护理保险？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86118d5a6cd3018dbb3e5a32021b",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86118d5a6cd3018dbb3e5a32021b",
+   "question": "​单位申请数字证书后,哪些单位业务可以在网上办？\n单位申请数字证书后,哪些单位业务可以在网上办？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86118d5a6cd3018dbb3c92390218",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86118d5a6cd3018dbb3c92390218",
+   "question": "镇江市金山公园2024年除夕夜敬香祈福时间？\n咨询镇江市金山公园2024年除夕夜敬香祈福时间？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86118d5a6cd3018d95c257ed01e8",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86118d5a6cd3018d95c257ed01e8",
+   "question": "春节期间哪里的公交充值点开门？\n春节期间哪里的公交充值点开门？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86118d5a6cd3018d95c1a19e01e5",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86118d5a6cd3018d95c1a19e01e5",
+   "question": "春节期间路边停车收费吗？\n春节期间路边停车收费吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86118d5a6cd3018d95c0ccd801e2",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86118d5a6cd3018d95c0ccd801e2",
+   "question": "春节寒假期间镇江文化场馆的开放时间\n春节寒假期间镇江文化场馆的开放时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86118d5a6cd3018d76ec75e70177",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86118d5a6cd3018d76ec75e70177",
+   "question": "关于子女购买父母的房产可否办理公积金贷款的问题\n咨询子女购买父母的房产可否办理公积金贷款？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86118d5a6cd3018d76e9eb0c0174",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86118d5a6cd3018d76e9eb0c0174",
+   "question": "关于失能等级评估达到什么级别才能享受长期护理保险的问题\n咨询失能等级评估达到什么级别才能享受长期护理保险？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86118d5a6cd3018d76e743280171",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86118d5a6cd3018d76e743280171",
+   "question": "关于劳动合同终止的问题\n咨询在什么情形下，劳动合同可以终止？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86108c3c9c39018d4e54ecfe0881",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86108c3c9c39018d4e54ecfe0881",
+   "question": "关于如何报考养老护理员的问题\n想要报考养老护理员，不清楚如何报考？需要什么材料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86108c3c9c39018d2affc5bf0783",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86108c3c9c39018d2affc5bf0783",
+   "question": "网约车营运证是否需要年审？\n网约车营运证是否需要年审？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86108c3c9c39018d2afef84c0780",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86108c3c9c39018d2afef84c0780",
+   "question": "能否办理第二次及以上住房公积金贷款？\n能否办理第二次及以上住房公积金贷款？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86108c3c9c39018d05840f29066c",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86108c3c9c39018d05840f29066c",
+   "question": "关于车牌颜色分类的问题\n咨询车牌颜色的分类，分别代表什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86108c3c9c39018d057bbe180669",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86108c3c9c39018d057bbe180669",
+   "question": "关于男女朋友婚前共同购房是否可以提取住房公积金账户余额的问题\n咨询男女朋友婚前共同购房，是否可以提取住房公积金账户余额？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86108c3c9c39018ce2fb0c4f0564",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86108c3c9c39018ce2fb0c4f0564",
+   "question": "关于如何鉴别出租车发票真伪的问题\n想了解在镇江乘坐出租车，司机提供的发票，如何验真伪？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86108c3c9c39018ce30ed33d056a",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86108c3c9c39018ce30ed33d056a",
+   "question": "关于清障车能否办理道路货物运输经营许可证的问题\n咨询清障车能否办理道路货物运输经营许可证？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86108c3c9c39018cc291f1300427",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86108c3c9c39018cc291f1300427",
+   "question": "四院元旦期间门急诊上班吗？\n四院元旦期间门急诊上班吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86108c3c9c39018cc290f3370424",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86108c3c9c39018cc290f3370424",
+   "question": "元旦公交充值点放假吗？\n元旦公交充值点放假吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86108c3c9c39018cc292b715042a",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86108c3c9c39018cc292b715042a",
+   "question": "市区献血地点和工作时间\n市区献血地点和工作时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86108c3c9c39018c9ab9d01702c9",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86108c3c9c39018c9ab9d01702c9",
+   "question": "要不要打XBB疫苗？\n是否有必要接种含XBB变异株抗原成分的疫苗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86108c3c9c39018c9ab832f102c6",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86108c3c9c39018c9ab832f102c6",
+   "question": "要不要打九价？\n已经接种过二价或者四价HPV疫苗，可以再打九价吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86108c3c9c39018c753f17560178",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86108c3c9c39018c753f17560178",
+   "question": "关于哪些人群可以接种含XBB变异株抗原成分疫苗的问题\n咨询哪些人群可以接种含XBB变异株抗原成分疫苗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86108c3c9c39018c7534edfd0172",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86108c3c9c39018c7534edfd0172",
+   "question": "关于租房提取公积金最高额度的问题\n咨询租房提取公积金最高额度是多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86108c3c9c39018c52a36acb0086",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86108c3c9c39018c52a36acb0086",
+   "question": "关于签订劳动合同的问题\n建立劳动关系后，最迟应该在多长时间内订立书面劳动合同？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86108c3c9c39018c52a4be810089",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86108c3c9c39018c52a4be810089",
+   "question": "关于17路公交车改线的问题\n希望17路、42路、33路不要改线路，是否可以保留现有线路？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86108c3c9c39018c52a5e002008c",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86108c3c9c39018c52a5e002008c",
+   "question": "关于公积金还贷的问题\n以等额本息还款方式进行还款，为什么首月还款和次月还款金额会不一样？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86108b7e571a018c2e006e440521",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86108b7e571a018c2e006e440521",
+   "question": "关于计划生育一次性奖励什么时候到账的问题呢\n咨询 计划生育一次性奖励什么时候到账？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86108b7e571a018c2dff513a051e",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86108b7e571a018c2dff513a051e",
+   "question": "关于计划生育一次性奖励需要准备哪些申请材料的问题\n咨询计划生育一次性奖励需要准备哪些申请材料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86108b7e571a018c2df68d45051b",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86108b7e571a018c2df68d45051b",
+   "question": "关于去哪里申请办理计划生育一次性奖励金的问题\n咨询 去哪里申请办理计划生育一次性奖励？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86108b7e571a018c099b5546041a",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86108b7e571a018c099b5546041a",
+   "question": "关于记忆门诊就诊的问题\n出现哪些症状可以到记忆门诊咨询?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86108b7e571a018c099a26680417",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86108b7e571a018c099a26680417",
+   "question": "关于独生子女证丢失的问题\n独生子女父母光荣证丢失或其它一些情况，不知道是否可以申请，可以咨询哪里？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86108b7e571a018c0998bb720414",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86108b7e571a018c0998bb720414",
+   "question": "关于申请独生子女一次性奖励金的问题\n去哪里申请办理计划生育一次性奖励？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86108b7e571a018be5b48c1b032d",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86108b7e571a018be5b48c1b032d",
+   "question": "关于如何网上查询网约车个人从业资格证的问题\n咨询网约车个人从业资格证可以在哪个小程序、微信公众号或APP上查询？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86108b7e571a018bc17754ef0221",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86108b7e571a018bc17754ef0221",
+   "question": "关于公积金贷款对公积金缴存情况要求的问题\n公积金贷款对公积金缴存情况有什么要求？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86108b7e571a018bc175e6dc021e",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86108b7e571a018bc175e6dc021e",
+   "question": "关于购买商业用房申请公积金贷款的问题\n购买商业用房可以申请公积金贷款吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86108b7e571a018bc174828c021b",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86108b7e571a018bc174828c021b",
+   "question": "关于出租车个体户办理服务证所需材料的问题\n咨询出租车个体户办理服务证所需材料有哪些？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86108b7e571a018b9dd7de4400f9",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86108b7e571a018b9dd7de4400f9",
+   "question": "关于购买二手房办理公积金贷款年限的问题\n购买二手房办理公积金贷款，贷款年限如何计算？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86108b7e571a018b9dd1357f00f3",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86108b7e571a018b9dd1357f00f3",
+   "question": "关于镇江市博物馆开放时间的问题\n镇江市博物馆开放的具体时间？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86108a7a62f8018b78e1e88207d6",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86108a7a62f8018b78e1e88207d6",
+   "question": "关于户外广告（临时张挂、张贴宣传品）审批地点和材料的问题\n户外广告（临时张挂、张贴宣传品）的审批地点和材料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86108b7e571a018b9dd3a3bc00f6",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86108b7e571a018b9dd3a3bc00f6",
+   "question": "关于203路公交车何时恢复运行的问题\n请问203路公交车何时恢复运行？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86108a7a62f8018b78e0a24807d3",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86108a7a62f8018b78e0a24807d3",
+   "question": "关于户外广告设置许可办理期限的问题\n镇江市户外广告设置许可办理期限？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86108a7a62f8018b78de2cef07d0",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86108a7a62f8018b78de2cef07d0",
+   "question": "关于提取公积金线上办理的问题\n公积金线上可以办理哪些业务？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86108a7a62f8018b55f0826d06c7",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86108a7a62f8018b55f0826d06c7",
+   "question": "关于改名后儿童疫苗接种证是否需要重新更换的问题\n孩子改名，儿童疫苗接种证是否需要重新更换？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86108a7a62f8018b55e599eb06be",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86108a7a62f8018b55e599eb06be",
+   "question": "关于2024年度镇江市区学生医保参保事项的问题\n2024年度镇江市区学生医保的缴费标准多少？缴费渠道是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86108a7a62f8018b55e9485b06c1",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86108a7a62f8018b55e9485b06c1",
+   "question": "关于镇江市中医院膏方门诊何时开诊的问题\n咨询镇江市中医院膏方门诊何时开诊？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86108a7a62f8018b30cfa2010550",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86108a7a62f8018b30cfa2010550",
+   "question": "关于预防接种证丢失补办的问题\n咨询预防接种证丢失如何补办？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86108a7a62f8018b30cd1ac1054d",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86108a7a62f8018b30cd1ac1054d",
+   "question": "关于高校毕业后继续求学办理医疗保险的问题\n咨询高校毕业后继续求学，该怎么办理医疗保险？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86108a7a62f8018b30c9a2d4054a",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86108a7a62f8018b30c9a2d4054a",
+   "question": "关于新生儿如何参加城乡居民医保的问题\n咨询新生儿如何参加城乡居民医保?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86108a7a62f8018af31429580339",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86108a7a62f8018af31429580339",
+   "question": "关于职工基本医疗保险费缴纳标准的问题\n咨询职工基本医疗保险费缴纳标准？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86108a7a62f8018af31176140336",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86108a7a62f8018af31176140336",
+   "question": "关于孩子出生后去哪里接种疫苗的问题\n咨询孩子出生后，家长应该带孩子到哪里接种疫苗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86108a7a62f8018af30d7e570333",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86108a7a62f8018af30d7e570333",
+   "question": "关于继续教育证书如何打印的问题\n咨询继续教育证书如何打印？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86108a7a62f8018ac645cf540262",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86108a7a62f8018ac645cf540262",
+   "question": "关于2023年度市区企业养老保险退休人员免费健康体检的问题\n咨询2023年度市区企业养老保险退休人员免费健康体检的时间和对象？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-zhenjiang",
+   "id": "8aaa86108a7a62f8018ac64317bf025f",
+   "url": "https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_detail.shtml?id=8aaa86108a7a62f8018ac64317bf025f",
+   "question": "关于居民用户燃气过户办理需要哪些材料的问题\n咨询居民用户燃气过户办理需要哪些材料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

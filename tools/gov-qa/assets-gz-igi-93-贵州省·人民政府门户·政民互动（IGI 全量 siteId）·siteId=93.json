@@ -1,0 +1,1988 @@
+{
+ "A_考卷": [
+  {
+   "source": "gz-igi-93",
+   "id": "27369225",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369225",
+   "question": "北城财富对面 老板拖欠工资",
+   "cited_hits": [
+    {
+     "name": "信访条例",
+     "lib_no": "信访条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "gz-igi-93",
+   "id": "27369231",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369231",
+   "question": "群众举报称：在华馨湾二期河边门面有违章建筑，请派工作人员处理。",
+   "cited_hits": [],
+   "cited_missing": [
+    "责令停止建设通知书",
+    "责令（限期）整改通知书"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "gz-igi-93",
+   "id": "27369253",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369253",
+   "question": "黎女士来电反映：其是都匀市世纪广场13号楼14层09的业主，2015年购买世纪广场商品房，于2016年8月交房领取房屋钥匙，但交房后并未立即装修也未办理水卡电卡业务，但2017年装修时，在都匀市供水公司办理水卡，供水公司工作人员却告知拖欠水",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369252",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369252",
+   "question": "王先生来电反映：2015年6月29日其在都匀市新马踏飞燕“大众4S店”拆围墙玻璃装车时，玻璃掉落压断脚踝和脚跟部，当时立即送往医院并已接受“安装钢板”治疗且4S店支付了有关费用，但目前需拆掉钢板，却因家庭条件困难无法支付剩余费用，故拨打4S",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369251",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369251",
+   "question": "陈女士来电反映：其是都匀市老山可乐夜市一条街一期73号的老板，其的雨棚被车牌号为：贵JGW989的小货车撞坏后逃逸，到都匀市交警大队（伯爵花园小区旁）进行处理，可是已经一个星期了都匀市交警大队都未给予任何的回复，希望相关部门核实后给予解决。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369250",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369250",
+   "question": "冯先生来电反映：都匀市红旗新村社区办事处对小区日常管理混乱，存在外来车辆随意在小区停放还有周边居民占用公共区域种植施肥影响环境卫生，希望相关部门核实后予以解决。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369249",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369249",
+   "question": "河西 五公司片区具体多久才拆迁 是货币补偿还是安置房",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369248",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369248",
+   "question": "夏天到了，文峰园内本是供市民休闲散步的场所，园外也有禁止自行车进入的标识，可是现在在园内散步堪比上下班高峰期过马路，园内很多小孩骑单车，并且没有大人看管，而且速度非常快，到了晚上人流高峰期时，骑车的小孩成群结队的在园内穿行，互相比拼骑车的速",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369247",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369247",
+   "question": "学校提前开学，还有写作业，没有太多时间缓冲",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369245",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369245",
+   "question": "甘塘安置房，有十几个人讨要工资,请前往处置",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369244",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369244",
+   "question": "杨先生来电反映：其是都匀市东方明珠小区的住户，现在已经交房1年多了，可是至今并未安装一户一表，其认为不合理，希望相关部门核实后给予解决。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369243",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369243",
+   "question": "毛先生来电反映：都匀市大西门原邮电报刊亭地址搬迁到了易成家电门口人行道上，严重占道经营而且也影响易成家电生意，现本人要求报刊亭搬移到原来的位置，希望相关部门核实后给予解决。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369242",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369242",
+   "question": "吴先生来电反映：其是都匀市小围寨沙井村村民，在2017年6月其妻子（陈秀琼）在都匀市五月花酒店门口摆摊售卖水果，但该片区城管未劝离解释的情况下，不仅暂扣水果货物且殴打其妻子，并且城管还通知民警进行五天拘留，因对该事情来电不了解事情，故来电希",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369241",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369241",
+   "question": "孙女士来电反映：其是都匀市桃溪园18栋1单元的住户，由于以前改管道安装一户一表，将水管从楼下的门面旁边安置，可是现在楼下的门面装修，就将管道拆除了，导致楼上住户无法使用生活用水，其认为非常不合理，希望相关部门核实后给予解决。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369240",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369240",
+   "question": "某群众来电反映：都匀市百子桥垃圾站每天处理垃圾散发出的恶臭影响了城市的美观和空气，其觉得夏天温度高了是否更换垃圾池地址，希望相关部门核实采纳。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369239",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369239",
+   "question": "绿茵湖公共租赁房面积太小，面积四十平方米左右。里面分为卧室一间，长宽不到两米，放一铺床都放不下。如果住进去，铺床只能铺在客厅，既在客厅吃饭，又在客厅睡觉，只能一个人入住，两个人住都住不了。厨房也小得可怜。老百姓当时没有看到房子，就交老百姓签",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369238",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369238",
+   "question": "雷先生来电反映：都匀市七星未来城安置房，连续几个星期每个星期都是三台酒席，办酒席之风实在是太严重，希望相关部门核实后给予解决。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369237",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369237",
+   "question": "孟先生来电反映：其是都匀市毛尖镇凌湾村1组的村民，很多村民家有车有房的都能申请为贫困户，可是其家什么都没有却不能申请为贫困户，其认为非常的不公平，希望相关部门核实后给予解决。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369236",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369236",
+   "question": "王女士来电反映：都匀市蛤蟆井片区已经停水三天时间，多次拨打供水公司电话，维修人员前来检查只称本人家水管漏水然后就没有结果了，但是本人家里外面水管是完好无损的哪里来水管漏水，而且停水不只是本人一家停水，是整个蛤蟆井片区停水这样工作态度太不负责",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369235",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369235",
+   "question": "王女士来电反映：其居住在都匀市剑锋小区“翠谷苑”7楼，从去年12月份开始入住以来水压经常供水不足，今年2月份向相关部门反映得到答复是水压正常，但是实际情况是水压根本不足，每天的早上7点左右和晚上9点开始水压从来没正常过，而且有时候还有停水的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369234",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369234",
+   "question": "已经持续了半个月的时间了 天天晚上10点下班到家 家里都没有水用 早上7点就起来上班家里也不得水用 炎炎夏日 回家要求又不高 冲个凉 每次给供水公司打电话 都是说明天给领导反映 明天就解决了 可是还是半月天天没得水用 求政府帮忙解决哈",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369233",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369233",
+   "question": "王先生来电反映：其到都匀市云轩影视公司当群众演员，该公司承诺工资一天80块，一个星期一结算工资，但一个月过去了工资依旧没发，其觉得不合理，希望相关部门帮助解决。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369230",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369230",
+   "question": "罗先生来电反映：其是都匀市毛尖镇双新村十组组长，由于该组的道路被毁坏，导致村民进出困难，希望相关部门尽快核实处理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369229",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369229",
+   "question": "廖先生来电反映：都匀市机动车不管斑马线是否有红绿灯显示，都是超速行驶通过，建议相关部门是否管制一下，给市民提供更多的交通安全，希望相关部门核实后给予解决。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369228",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369228",
+   "question": "廖先生来电反映：都匀市17路和27路公交车最近都非常难等，不知道是什么原因，希望相关部门核实后给予解决。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369227",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369227",
+   "question": "廖先生来电反映：都匀市灵智广场入口处交叉路口一直未设置红绿灯，每个星期都会出现一起交通事故，建议相关部门设置红绿灯规划交通秩序，希望相关部门核实后给予解决。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369224",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369224",
+   "question": "北城财富对面 老板拖欠工资",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369223",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369223",
+   "question": "柯女士来电反映：都匀市剑峰小区已经停水几天了，水厂来检查就说是水管堵了，可是至今一直未解决，希望相关部门核实后给予解决。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369222",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369222",
+   "question": "张先生来电反映：其是都匀市“费城100”小区业主，小区内卫生环境长期脏乱差并且向物管反映问题一直得不到解决，其认为这是物管不作为造成的，希望相关部门尽快核实处理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369221",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369221",
+   "question": "匿名女士来电反映：都匀市大十字天桥下面下水道满溢严重，整个路面都是粪水，影响路面环境卫生，希望相关部门核实后尽快给予解决。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369220",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369220",
+   "question": "孙先生来电反映：其是都匀市三道河廉租房住户，最近一个月以来天天停水曾向供水公司反映但一直给不出原因和结果，希望相关部门核实后予以帮助",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369218",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369218",
+   "question": "罗女士来电反映：其是都匀市“原州公安”附近的住户，现在该处被修建围一个休闲广场，而该广场上有一个大屏幕，晚上播放音乐的声音较大，而且时间较晚，严重影响附近住户的正常生活，故来电了解该屏幕晚上播放的时间到什么时候？并且属于哪个部门管辖？希望相",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369217",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369217",
+   "question": "海咬南站 老板拖欠工资",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369216",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369216",
+   "question": "在小围寨九小菜场，有一家商家卖的西瓜都是坏的，希望得到处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369215",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369215",
+   "question": "在天源烟酒店买到假酒，想投诉，希望得到处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369214",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369214",
+   "question": "屈先生反应：在气象局旁边文化小区外人行道上砖松动，有安全隐患，砖下方是排水沟，有积水，希望得到解决。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369213",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369213",
+   "question": "张先生来电反映：都匀市环西大道“原影剧院”门口正在施工中，但是现在施工队开始回填土收工了，为什么下水道没施工完成就开始收工，难道过段时间又要翻工修下水道吗？希望相关部门核实后给予解决。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369212",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369212",
+   "question": "张先生来电反映：都匀市桃溪园附近公园每天白天开灯，到了晚上路灯全部熄灭，给周围夜晚出行散步的市民带来了很大不便，也造成了社会资源的浪费，希望相关部门核实后给予解决。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369211",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369211",
+   "question": "万女士来电反映：其是都匀市西山片区的拆迁户，房屋于2013年征收就要求搬迁的，可是至今都还未回迁，回迁房的修建进度过慢，希望相关部门核实后给予解决。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369210",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369210",
+   "question": "培育巷都匀市计划生育妇幼保健站旁边的工地每天中午施工，噪音污染，严重影响附近居民的午休，希望有关部门能治理！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369209",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369209",
+   "question": "罗先生来电反映：其在都匀市大西门棚户区图书馆片区指挥部上班，但指挥部拖欠3个月工资共6000元不予发放，希望相关部门核实后予以帮助",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369206",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369206",
+   "question": "冯女士来电反映：其是黔南州医院后门“福海商住楼”的住户，该居民楼里长期开设有两家饭店“坛子鱼”与“牛杂火锅”，长期严重污染环境卫生，其曾经反映到民政等相关部门，但一直没有得到相应的解决方案，相关单位只是答复将予以整改，问题一直存在。故再次来",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369205",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369205",
+   "question": "冯女士来电反映：都匀市育英巷综合楼一单元的楼顶有违章建筑，是该单元8楼的住户修建的，刚好修建在楼顶排水的地方，下大雨的话就会导致楼顶全部淹水无法排放，导致楼下都会被淹水，希望相关部门核实后给予解决。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369204",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369204",
+   "question": "汤先生来电反映：都匀市镜湖花园内到处都是地锁，如小区内突发紧急情况救援车都进不来，而且好多应有的绿化带处全部乱搭乱建铁皮房，物业公司已经两年时间未管理小区，导致现在小区内现在乱七八糟，希望相关部门核实后给予解决。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369203",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369203",
+   "question": "李先生来电反映：因都匀市173烈士陵园未修建公厕，导致周边部分市民不便，故来电希望相关部门给予解决。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369202",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369202",
+   "question": "李先生来电反映：从7月15日（星期六）至今因都匀市大西门三中附近拆迁房屋且未进行洒水消尘，导致路面灰尘较大，影响周边的环境质量，希望相关部门核实协调处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369201",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369201",
+   "question": "蒙先生再次来电反映：都匀市“桐州监狱”往石灰窑方向路口下坡路面，有一个40-50公分的高差距离，相关部门只是把坑洞填补并没有把高差距离拉成一个斜面，轿车全部都不能通过，希望相关部门核实后给予解决。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369200",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369200",
+   "question": "文峰广场有一群残疾人在卖艺，噪音扰民请你部门立即处理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369199",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369199",
+   "question": "关乡桥 电线坏损掉落在地上",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369198",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369198",
+   "question": "在新马踏飞燕往甘塘方向的芭蕉林门口，有人打鱼。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369197",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369197",
+   "question": "报警人称已交物管费和停车费，但是小区保安不让其将车停在小区内。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369195",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369195",
+   "question": "灵智广场 买水果因质量问题发生纠纷",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369194",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369194",
+   "question": "新二中文体艺术中心工地 工人讨薪",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369193",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369193",
+   "question": "称做工没有拿到工钱。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369192",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369192",
+   "question": "在大十字哈哈人店铺因为商品质量问题发生纠纷，请你部门前往处理，公安110已到现场。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369191",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369191",
+   "question": "173凤凰温泉 民工讨薪，公安民警已将双方当事人带到广惠派出所，请你部门工作人员立即到广惠派出所调解处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369190",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369190",
+   "question": "行政服务中心楼下的卫生垃圾箱长时间得不到处理，垃圾箱摆放好几年了，也没人反应下，每天来这里办事情那么多人影响太不好了，周围学校学生小孩那么多，臭气熏天的，希望政府能有点作为啊！！！！！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369189",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369189",
+   "question": "行政服务中心楼下的卫生垃圾箱长时间得不到处理，垃圾箱摆放好几年了，也没人反应下，每天来这里办事情那么多人影响太不好了，周围学校学生小孩那么多，臭气熏天的，希望政府能有点作为啊！！！！！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369188",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369188",
+   "question": "汤先生来电反映：都匀市镜湖花园小区没有物管，很多业主私自安装地锁，绿化带私搭乱建围棚，其觉得不合理，希望相关部门帮助解决。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369187",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369187",
+   "question": "任女士来电反映：都匀市十中是否会在近几年内搬迁？如果搬迁会搬迁到什么地方？希望相关单位核实后予以回复。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369186",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369186",
+   "question": "陈女士来电反映：都匀市三道河廉住房小区连续2天停水，居民日常生产生活困难，希望相关部门调查处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369185",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369185",
+   "question": "闵女士来电反映：因都匀市一街的“市法院至三中路段”道路两旁停满车辆，严重影响交通正常通行且极易造成交通堵塞，故来电希望相关部门加大对道路两旁停车的管理力度，保证交通的正常通行。已通知交警处理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369184",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369184",
+   "question": "刘先生来电反映：都匀市文明路88号都匀市教育局后面开了一家餐馆（还未挂牌），餐馆的抽油烟机噪音严重影响周围住户，希望相关部门核实后给予解决。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369183",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369183",
+   "question": "杨女士来电反映：其是都匀市金麒麟小区3号楼403的住户，物管无故将其家的生活用水停了，其到物管部门去缴纳水费，物管称如果不缴纳物管费就不收水费，也不打开水供住户使用，其声称物管费不进行缴纳那是有原因的，至于水费不应该和物管费扯上任何的关系，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369182",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369182",
+   "question": "赵先生来电反映：都匀市南洲国际星岸施工经常从早上一直到晚上12点都不休息，噪音严重影响周围住户休息，希望相关部门核实后给予解决。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369181",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369181",
+   "question": "彭先生来电反映：其是都匀市“金鹏花园”小区的业主，之前该小区门口的路段没有划分停车位，小区的业主停车只需要缴纳一定的管理费用就可以了，而现在该路段被承包给某公司并且划线停车收取费用，现在每月计算下来大概约600元左右，大大增加了经济负担，于",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369180",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369180",
+   "question": "育英巷水果巷小区消防栓漏水",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369179",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369179",
+   "question": "石板街新华书店旁边楼房，楼房漏水。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369177",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369177",
+   "question": "云宫花城公交站台， 玻璃损坏。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369176",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369176",
+   "question": "云宫花城站台旁边楼房，窗子玻璃损坏，随时会掉落。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369175",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369175",
+   "question": "西苑冰杨梅，占道经营。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369174",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369174",
+   "question": "聚林世纪广场9号楼19楼 狗叫声噪音扰民",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369173",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369173",
+   "question": "水岸铭门上上酒吧LED灯太亮，影响居民休息。请立即前往处置。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369171",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369171",
+   "question": "附中围墙倒塌，导致道路堵塞，请你部门立即前往处置。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369170",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369170",
+   "question": "附中围墙倒塌，导致道路堵塞，请你部门立即前往处置。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369169",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369169",
+   "question": "贵阳黔资彩传媒有限公司在南沙洲办理啤酒节活动，通过文体局办理的相关证件，现接到很多群众投诉噪音扰民。（还未处理好，群众投诉电话不断）请你部门再次前往处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369168",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369168",
+   "question": "南沙洲广场，啤酒节噪音扰民。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369167",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369167",
+   "question": "群众反称：薛家堡滨江雅苑小区楼房经常有玻璃破碎，砸到车和行人，请派工作人员处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369166",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369166",
+   "question": "杨先生来电反映：都匀市“州林业局”建设巷道路周边的商家夜间占道经营，影响车辆和行人的通行，希望相关部门尽快核实处理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369165",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369165",
+   "question": "蔡先生来电反映：其是都匀毛尖茶叶有限公司工作人员，由于匀杨大道有排水坝被堵导致该公司车间机器全部被淹无法继续生产，故来电咨询在损失方面政府有什么政策或者补助，希望相关部门核实后予以解释",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369164",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369164",
+   "question": "吴女士来电反映：其是都匀市剑水新村村民，由于修建环西路导致该村的排水沟被堵，给村民的日常生活带来了严重的影响，希望相关部门尽快核实处理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369162",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369162",
+   "question": "朱先生来电反映：都匀市育英巷连续几天有三轮车占用公共道路违章停放，影响车辆通行与周边店主商贩经营，希望相关部门调查处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369161",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369161",
+   "question": "李女士来电反映：其于2017年7月13日早晨8:30分左右在都匀市十中门口斑马线过马路的时候正好有洒水车经过，水量开得过大，导致地上的石子飞起砸到了其的太阳穴上，其认为洒水车在路过人多或者斑马线的路段是否可以将水调小？希望相关部门核实后给予",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369159",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369159",
+   "question": "杨女士来电反映：其是都匀市女人街“卡琪屋”店面的工作人员，“筑匀大厦”三楼的“万璟酒店”每天排放的油烟直接飘散到整条街道，尤其是该店面里，非常的呛人，导致附近的空气严重受到污染，曾反映到相关部门但至今没有得到解决，故来电希望相关部门核实后予",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369157",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369157",
+   "question": "沙坝汽车商贸城4栋17楼63号 物业把住户电断了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369156",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369156",
+   "question": "老板不发工资",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369155",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369155",
+   "question": "西苑阳光足疗店，拿不到工钱。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369154",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369154",
+   "question": "宵夜摊一期靠八小，话费消费纠纷。现双方在丽都酒店门口",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369152",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369152",
+   "question": "车被环卫处的人锁住贵JDR605",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369150",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369150",
+   "question": "南洲国际清华苑",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369149",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369149",
+   "question": "在裤裆街育英巷出口有大量乱摆摊现象，还有大量违停车挡住道路阻碍交通",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369148",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369148",
+   "question": "在裤裆街育英巷出口有大量乱摆摊现象，还有大量违停车挡住道路阻碍交通，请各职能部门立即赶往处置。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369147",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369147",
+   "question": "殷先生来电反映： 都匀市复烤厂附近纬九路有多家搅拌机商家长期占道经营，严重影响行人正常行走，存在一定的交通安全隐患，可是此问题却一直未得到解决，昨晚下大雨由于搅拌机占道经营堵住了排水通道，雨水无法排出聚集在路上，导致路边的车辆被水淹行人难以",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369146",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369146",
+   "question": "毛先生来电反映：其是都匀市小十字“华欣大厦”四楼的住户，该大厦三楼有一家名为“你的故事”音乐餐吧，每天经营生意所产生的噪音严重影响住户的正常生活休息，其曾与其他两位代表（李明慧 陈华宣）找到都匀市工商局与都匀市环保局协商解决，但至今两家单位",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369145",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369145",
+   "question": "某女士来电反映：其是都匀市剑江中路的老三中宿舍住户，因之前从未收取停车费，但自从2016年6月更换保安（莫女士）后便开始收停车费，每部车辆150元/月，且未开具任何收据发票，故来电投诉，希望相关部门查实处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369144",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369144",
+   "question": "蒙先生来电反映：都匀市“桐州监狱”往石灰窑方向路口下坡路面，有一个40-50公分的高差距离，来往通行车辆通过都非常困难，而且每到高峰期时间段堵车现象非常严重，建议相关部门利用沥青或者水泥碎石把高差距离拉平，希望相关部门核实后给予解决。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369142",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369142",
+   "question": "从内贸学校至城南江畔沿河片区，近1个月以来，每隔2、3日，空气中都会弥漫着疑似垃圾焚烧产生的刺激性气体。经本人记录，刺激性气体集中释放时间为凌晨2至4点。由于时间较晚，尚未查到具体焚烧地点。 都匀市已被评为全球绿色城市，空气质量长期位居全国",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369141",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369141",
+   "question": "白女士来电反映：其是都匀市“环西公寓”2单元2楼住户，由于排水管道被堵导致污水流入家中，于是到楼下门面进行协商被告知是居委会工作人员叫他们这么做的，希望相关部门尽快核实处理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369140",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369140",
+   "question": "张先生来电反映：都匀市“四小”附近的“南州国际”施工工地中午施工噪音严重影响附近住户的正常休息，希望相关部门尽快核实处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369138",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369138",
+   "question": "周女士来电反映：都匀市华馨湾后面在修建水岸公馆小区，该小区的后门路面被施工方的大型车辆压坏，压了很大一个坑，导致过往的行人以及车辆通行造成不便，希望相关部门核实后给予解决。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369137",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369137",
+   "question": "某先生来电反映：都匀市缴纳电费的回执单现在都不显示余额了，因为每次缴费出现几块几角的时候都会让其缴纳整数，每次多缴纳的几块几角钱都不知道是怎么消费的，其认为应该将余额打印出来以便查看，希望相关部门核实后给予解决。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369136",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369136",
+   "question": "王女士来电反映：都匀市临江大厦突然停水，物管告知是供水公司将开关关了，由于是供水公司告知是与开发商之间发生矛盾，住户们的水费都是正常缴纳的，供水公司与开发商之间的事情不应该影响到小区供水，其认为非常不合理，希望相关部门核实后给予解决。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369135",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369135",
+   "question": "张先生来电反映：都匀市中鑫大厦“云想装饰公司”为了宣传，每天不定时的轮流换电话号码拨打本人电话，已经严重影响到本人生活、工作，而且本人从来没有到过或者拨打过“云想装饰公司”电话咨询任何业务，不知装饰公司从哪里得到本人电话，希望相关部门核实后",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369134",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369134",
+   "question": "小十字，有电瓶车停在人行道上。请你部门立即前往处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369133",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369133",
+   "question": "大十字文明岗处有电瓶车乱停乱放",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369132",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369132",
+   "question": "水上中心乱停车，请你部门前往处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369131",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369131",
+   "question": "石女士来电反映：都匀市文明路武警支队宿舍长期有车辆在宿舍楼的道路口停放，影响了行人的通行的同时也制造了安全隐患，希望相关部门调查处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369130",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369130",
+   "question": "魏先生来电反映：都匀市老山可乐永辉超市每晚10~12点与凌晨3~4点货物装卸产生的噪音影响周边居民日常生活作息，其认为不合理，希望相关部门调查处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369129",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369129",
+   "question": "江先生来电反映：其本人是外地游客到都匀市游玩乘坐18路公交车时没有零钱就投进了10元钱，然后本人在车门边准备向其他上车乘客收回多投部分的钱时，被公交车司机阻止并说没有这个规定，而且本人也拨打电话到都匀市公交公司咨询过，得到的答复乘客上车投钱",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369127",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369127",
+   "question": "赵先生来电反映：其是都匀市“观天下”小区的住户，裤裆街（原来的房产局）现在在修建停车场，每天都是24小时的施工，噪音严重影响周围住户休息，曾报警处理过，可是被告知办有夜间施工证，就算办理夜间施工证也应该顾忌附近住户的休息时间，其认为非常不合",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369126",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369126",
+   "question": "陈女士来电反映：其是都匀市黎筑金色城邦2号楼的住户，该小区消防验收证都未得到，就交房给住户了，现在家里的大门打开不到几公分就是消防栓，小孩子经常撞到头，安全隐患严重，其希望是否可以移动到其他地方，希望相关部门核实后给予解决。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369125",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369125",
+   "question": "停车问题发生纠纷",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369124",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369124",
+   "question": "群众举报：有一个精神病人在拦车辆",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369122",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369122",
+   "question": "狗叫噪音扰民，请前往处置。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369121",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369121",
+   "question": "谢女士反映：都匀市第六小学对面新起点KTV在2年以来由于经营在居民楼中长期噪音扰民至深夜，且其设置的照明设备穿透力极强常常射到周边居民家中，给周边小区住户日常生活制造了严重的影响，希望相关部门调查处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369120",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369120",
+   "question": "中医院门口有人摆残棋，报警人被骗2600元，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369119",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369119",
+   "question": "汽车站门口因摊位问题发生纠纷，请前往处置。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369118",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369118",
+   "question": "裤裆街育英巷口有乱摆摊设点现象，还有大量违停车辆堵住路，请相关部门立即前往处置。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369117",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369117",
+   "question": "群众报称：在水岸公馆工地施工扰民。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369115",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369115",
+   "question": "杨先生反映： 其是都匀市沙包堡办事处黄丰村4组村民，因灵智广场至黄丰村小学路段长期缺乏维护且坑洼较大，加之近期连续下雨，导致车辆通行不便，该情况持续两年之久，希望相关部门查实给予解决。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369114",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369114",
+   "question": "赵先生来电反映： 都匀市复烤厂旁边红叶路下水道一直堵塞，导致每逢雨天污水全被往路面上蔓延，行人都无法正常通行，希望相关部门核实后给予解决。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369112",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369112",
+   "question": "老年公寓修车喷漆影响小区居民生活环境",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369111",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369111",
+   "question": "甘塘尾气检测站，拿不到工钱",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369110",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369110",
+   "question": "都市龙庭，商贩摆摊阻碍交通",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369109",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369109",
+   "question": "云宫桥头路面凹凸不平",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369106",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369106",
+   "question": "坝固农场清水旁鱼塘被人投毒，该鱼塘的水是牲畜饮用，请前往处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369105",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369105",
+   "question": "坝固甲登村7组，水里有人放毒毒鱼",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369104",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369104",
+   "question": "老板拖欠工资不给，请立即前往处置。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369103",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369103",
+   "question": "在野狗洞买东西，怀疑商家的称有问题。不需要工商局处理了。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369102",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369102",
+   "question": "北部新城售楼部，拖欠工资，老板被锁，请立即前往处置。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369101",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369101",
+   "question": "报警人在金源移动营业厅买手机发生纠纷。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369100",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369100",
+   "question": "西苑丽和酒店，有个精神有问题的人",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369098",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369098",
+   "question": "老汽车站移动公司买手机店主不愿退货",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369097",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369097",
+   "question": "人民广场博物馆旁搭建广告牌、乱丢物品",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369096",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369096",
+   "question": "中医院门口有人摆残棋",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369095",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369095",
+   "question": "育英巷买到臭牛肉",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369094",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369094",
+   "question": "市行政服务中心人行道违停摩托车过多，请前往处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369093",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369093",
+   "question": "水榭花都小区物管与业主之间因为停车费问题，需要求助。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369092",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369092",
+   "question": "都凯大道一号路，在工地开罐车，结不到工钱，请你部门立即处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369091",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369091",
+   "question": "有一名无法核实其身份的男子需要去救助站。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369090",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369090",
+   "question": "报警人称有人跳广场舞扰民",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369089",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369089",
+   "question": "报警人称有狗叫扰民",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369088",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369088",
+   "question": "群众投诉楼下有摊贩烧煤炭，煤炭气味很浓，影响正常生活，请你部门立即处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369087",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369087",
+   "question": "剑锋小区停水。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369086",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369086",
+   "question": "金麒麟烧烤摊，占道经营，油烟污染。群众称昨天已举报过，但今天烧烤摊又继续乱摆，对你部门处理不满意，请你部门立即前往核实该情况。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369085",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369085",
+   "question": "因为工资问题引发纠纷，已先指派公安110前往，请你部门立即受理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369084",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369084",
+   "question": "老板欠其两万余元的工钱",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369083",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369083",
+   "question": "平桥有人摆残棋，请前往处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369081",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369081",
+   "question": "乱摆摊影响通行",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369080",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369080",
+   "question": "二幼对面科委宿舍门面屋顶漏水",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369079",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369079",
+   "question": "剑江小区狗差点咬到人",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369077",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369077",
+   "question": "科委宿舍水从电线上流下有安全隐患",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369076",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369076",
+   "question": "普罗旺斯某KTV包工头拖欠工资",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369075",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369075",
+   "question": "物管准外来人员办酒，业主不满，物管不愿出面处理，请相关部门到现场处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369074",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369074",
+   "question": "城市管理局称：在毛尖大道格拉斯酒店，路面塌方，需要公路管理局协助处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369072",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369072",
+   "question": "虹桥派出所内有一名精神病人，请前往处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369067",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369067",
+   "question": "有一条狗无人认领",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369066",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369066",
+   "question": "城管局称：需公路管理局协助清洗毛尖大道。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369065",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369065",
+   "question": "积水",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369064",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369064",
+   "question": "山体滑坡",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369063",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369063",
+   "question": "剑锋小区小公园有山体滑坡迹象",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369062",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369062",
+   "question": "地质队往119方向地面要塌方",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369061",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369061",
+   "question": "桥梁厂有几户群众被淹",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369060",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369060",
+   "question": "水厂被困",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369059",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369059",
+   "question": "关乡桥，水快进家了。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369058",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369058",
+   "question": "新四小旁南州国际拖欠工人工资。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369057",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369057",
+   "question": "兴亚大厦旁边买格力空调，商家一直没有去装，需要投诉",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369056",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369056",
+   "question": "举报有人摆残棋.请立即前往处理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369055",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369055",
+   "question": "文峰园物业工作人员称在文峰家园有流浪狗伤人，请前往处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369054",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369054",
+   "question": "报警人举报欧亚医院乱收费，请处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369053",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369053",
+   "question": "酱油厂道路路面上有车辆漏油，导致行人摔倒请前往处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369052",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369052",
+   "question": "在宵夜摊消费啤酒收费8元一瓶，报警人觉得收费不合理。已让报警人找宵夜摊主开具收据证明",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369051",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369051",
+   "question": "有人打鱼",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369050",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369050",
+   "question": "情相关部门前往处置",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369049",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369049",
+   "question": "一个老人在灵智广场某小区业主家做工，对方不给工钱。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369047",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369047",
+   "question": "路灯漏电",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369046",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369046",
+   "question": "有人强拆房子。已派公安局",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369045",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369045",
+   "question": "买到假药。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369044",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369044",
+   "question": "414医院有人乱摆摊位，导致堵路",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369043",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369043",
+   "question": "五中门口因修建的钢架棚问题起争执。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369042",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369042",
+   "question": "报警人称在新二中旁边工地施工声音太大，影响休息。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369041",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369041",
+   "question": "老火车站广场旁边，工地施工噪音扰民，请前往处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369040",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369040",
+   "question": "老火车站工地施工噪音扰民。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369039",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369039",
+   "question": "育英巷工行占道经营，请立即前往处置。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369038",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369038",
+   "question": "木表4号桥，举报有人用电打鱼。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369037",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369037",
+   "question": "摩托车漏油，地面污染，请清理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27369036",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27369036",
+   "question": "买家买的衣服不合身，无法换 想要退，店家不同意退货，希望得到合理的处理。请立即前往处置。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27368865",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27368865",
+   "question": "墨冲豪龙水泥厂山上有落石滚到公路上，请立即前往处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27368864",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27368864",
+   "question": "拿不到工钱",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27368862",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27368862",
+   "question": "摆摊占到，影响交通。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27368861",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27368861",
+   "question": "工地施工扰民",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27368860",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27368860",
+   "question": "有人经常将狗放出来，挺吓人。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27368859",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27368859",
+   "question": "在广惠派出所接到一名精神病人，请立即赶往处置。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27368856",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27368856",
+   "question": "老板拖欠工资",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27368855",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27368855",
+   "question": "在工地上受伤",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27368853",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27368853",
+   "question": "八九个工人在要工资",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27368852",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27368852",
+   "question": "称其车子被城管锁住，立即与其联系处置。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27368850",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27368850",
+   "question": "拖欠工资，十多人在信访大厅无人接待",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27368849",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27368849",
+   "question": "有人电鱼。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27368848",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27368848",
+   "question": "同济医院三楼，讨要工资发生纠纷。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27368847",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27368847",
+   "question": "接110报称，在云宫桥头绿化烧衣服，请相关部门前往处置",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27368844",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27368844",
+   "question": "接110报称，在云宫桥头绿化烧衣服，请相关部门前往处置",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27368842",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27368842",
+   "question": "塌方",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27368841",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27368841",
+   "question": "育英巷前面乱摆摊，请立即赶往。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27368840",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27368840",
+   "question": "各单位收到后请签收达到。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27368838",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27368838",
+   "question": "中医院门口有人下残棋，请立即前往处置。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27368837",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27368837",
+   "question": "接群众举报，沙包堡三角岛菜场有小摊贩乱摆摊。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27368836",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27368836",
+   "question": "接群众投诉，育英巷靠宾隆超市有人在人行道上乱摆摊。请你们立即前往处置。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27368835",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27368835",
+   "question": "育英巷菜市乱摆摊",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27368834",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27368834",
+   "question": "平桥莱市场摊子乱摆",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27368833",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27368833",
+   "question": "沙坝三角岛，请前往现场处置",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27368832",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27368832",
+   "question": "都匀某化工厂有浓烟冒出，现场有两名伤员，请通知消防公安和救护车赶到现场。 现在启动全市环境污染突发事故应急预案，请各部门启用应急对讲机，请各部门立即赶往现场，到场后请各部门依次报对讲机。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27368830",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27368830",
+   "question": "同济医院后面小区，因为煤棚产权问题引发纠纷。请立即前往处置",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27368829",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27368829",
+   "question": "育英巷由于人行道小贩摆摊过多，造成群众走路困扰，道路两旁违停车辆过多，造成行驶车辆缓慢，请相关部门前往处置。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27368828",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27368828",
+   "question": "育英巷门口违停乱放过多。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27368826",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27368826",
+   "question": "育英巷有违停车辆与摊贩占用人行道，请前往处置。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27368825",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27368825",
+   "question": "又人在卫校门口焚烧垃圾，请前往处置",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27368824",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27368824",
+   "question": "一名小孩在七街被狗咬。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-igi-93",
+   "id": "27368822",
+   "url": "http://www.guizhou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=27368822",
+   "question": "演练三，广场音乐噪音扰民。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

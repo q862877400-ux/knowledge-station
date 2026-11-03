@@ -1,0 +1,370 @@
+{
+ "A_考卷": [
+  {
+   "source": "nat-nhsa",
+   "id": "13521",
+   "url": "https://cap.nhsa.gov.cn:7903/openDetail.html?id=13521",
+   "question": "领导，您好！医保定点的民营医院的医疗服务价格是不是不能执行市场调节价？《医疗机构医疗保障定点管理暂行办法》第十二条  第（二）项“基本医疗服务未执行医疗保障行政部门制定的医药价格政策的\"对于民营医院该如何执行和规范？",
+   "cited_hits": [
+    {
+     "name": "价格法",
+     "lib_no": "价格法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "nat-nhsa",
+   "id": "911554581785749504",
+   "url": "https://cap.nhsa.gov.cn:7903/openDetail.html?id=911554581785749504",
+   "question": "您好，2025版《中国药典》对部分中药饮片名称进行了规范和变更。对于已经按照药典要求更改了中药饮片名称的品种，没有收录在2026年1月27日发布的《国家医疗保障局办公室关于基本医保药品目录内中药饮片部分名称变更的通知》里面的发布的基金予以支",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家基本医疗保险、生育保险和工伤保险药品目录",
+    "国家医疗保障局办公室关于基本医保药品目录内中药饮片部分名称变更的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-nhsa",
+   "id": "831748725011905024",
+   "url": "https://cap.nhsa.gov.cn:7903/openDetail.html?id=831748725011905024",
+   "question": "查询中国统计年鉴发现，2020年起“生育保险基金支出”一项数据不再发布，新发布数据为“生育保险基金待遇支出”，请问两项数据口径是否一致，两者含义有什么区别？",
+   "cited_hits": [],
+   "cited_missing": [
+    "国务院办公厅关于全面推进生育保险和职工基本医疗保险合并实施的意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-nhsa",
+   "id": "790306804616113664",
+   "url": "https://cap.nhsa.gov.cn:7903/openDetail.html?id=790306804616113664",
+   "question": "国家中医特殊疗法类医疗服务项目价格立项指南规定，针刀疗法计价单位为部位，请问部位如何确认，如颈椎（脊柱）、腰椎（脊柱）、肩关节、膝关节、肘关节等部位、使用中医适宜技术针刀治疗时，一个（关节）可能要从不同的地方进针，一个关节是按一个部位计费还",
+   "cited_hits": [],
+   "cited_missing": [
+    "中医特殊疗法医疗服务价格项目立项指南（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-nhsa",
+   "id": "740304597787576320",
+   "url": "https://cap.nhsa.gov.cn:7903/openDetail.html?id=740304597787576320",
+   "question": "请国家局相关部门解释《医疗机构医疗保障定点管理办法》第五章第四十四条“定点医疗机构请求中止，解除医保协议或不再续签医保协议的，应提前3个月向经办机构提出申请。”是不是可以理解为定点医疗机构从申请之日起医保经办机构3个月内完成中止或解除。或如",
+   "cited_hits": [],
+   "cited_missing": [
+    "医疗机构医疗保障定点管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nat-nhsa",
+   "id": "634343652901443584",
+   "url": "https://cap.nhsa.gov.cn:7903/openDetail.html?id=634343652901443584",
+   "question": "新药定价将采取以自主量化评价为基础的分类办理模式，请问此政策同样适用于新上市的中成药吗？还是必须是新上市的化学药品？期待局长的回复",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于建立新上市化学药品首发价格形成机制 鼓励高质量创新的通知（征求意见稿）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-nhsa",
+   "id": "586845278862478848",
+   "url": "https://cap.nhsa.gov.cn:7903/openDetail.html?id=586845278862478848",
+   "question": "贵单位政府信息依申请公开是否有网上申请渠道？\n在《国家医疗保障局政府信息公开指南》上只有书面申请和口头申请，互联网联系方式是局长信箱，没有看到依申请公开的网上申请渠道。能否告知相关情况，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家医疗保障局政府信息公开指南"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-nhsa",
+   "id": "574608294265914880",
+   "url": "https://cap.nhsa.gov.cn:7903/openDetail.html?id=574608294265914880",
+   "question": "《基本医疗保险用药管理暂行办法》第二十三条，以疾病诊断或治疗为目的可以由医保基金支付，那么在饮片不成方的情况下，可以由医保基金支付嘛？比如轻微贫血，开了枸杞和红枣。",
+   "cited_hits": [],
+   "cited_missing": [
+    "基本医疗保险用药管理暂行办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nat-nhsa",
+   "id": "325321988609799168",
+   "url": "https://cap.nhsa.gov.cn:7903/openDetail.html?id=325321988609799168",
+   "question": "您好，我想咨询一下，国家药品目录，诊疗目录、医疗服务设施目录都是公开的吗?请问能否告知一下相关的法条依据？",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家医保局 人力资源社会保障部关于印发<国家基本医疗保险 工伤保险和生育保险药品目录（2021年）>的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-nhsa",
+   "id": "283655488669078016",
+   "url": "https://cap.nhsa.gov.cn:7903/openDetail.html?id=283655488669078016",
+   "question": "您好，我在咱们网站只能找到2018-2020年的“全国医疗保障事业统计公报”。里面的数据非常详细有研究价值，想请问一下：前些年是否有相关数据，如果有，请问能否提供？或者去哪里找？谢谢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "2021年中国医疗保障统计年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-nhsa",
+   "id": "14521",
+   "url": "https://cap.nhsa.gov.cn:7903/openDetail.html?id=14521",
+   "question": "1.按照现行的医保政策，医保处方是否也需要进行属地化管理？即在某一统筹地的患者持处方到定点药店购买处方药，必须是统筹地定点医院开具处方，医保才能认可？2.患者持由省外互联网医院开具的处方前往某统筹地定点药店购药，与定点药店进行线下结算，是否",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于积极推进“互联网+”医疗服务医保支付工作的指导意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-nhsa",
+   "id": "12741",
+   "url": "https://cap.nhsa.gov.cn:7903/openDetail.html?id=12741",
+   "question": "请问应如何理解：“▲；限器官移植抗排异、肾功能衰竭及肺纤维化。”1.限门诊及药店购药且满足适应症，医保基金才给予支付；2.门诊及药店购药时不需考虑适应症，医保基金都给予支付，而在住院时只要满足了适应症，医保基金就给予支付。请问哪个理解正确呢",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家基本医疗保险、工伤保险和生育保险药品目录（2020年）"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "nat-nhsa",
+   "id": "758396211219106304",
+   "url": "https://cap.nhsa.gov.cn:7903/openDetail.html?id=758396211219106304",
+   "question": "尊敬的局长先生：\r\n您好，作为一名热爱祖国的中国人我拥护党和国家的规定和号召，也理解DRG实施的本意是好的，是想为国家和百姓省钱，是想整治医疗腐败，想给百姓一个更好的医疗环境，但在实际的操作中作为一名经常就医的患者，自从推行DRG之后我深感",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-nhsa",
+   "id": "704991698802403328",
+   "url": "https://cap.nhsa.gov.cn:7903/openDetail.html?id=704991698802403328",
+   "question": "做了很多督脉灸，明明操作都一样，长度一样，宽度也差不多，为什么不同地区不同医院收费在70-500不等？请问有收费标准吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-nhsa",
+   "id": "651041824323338240",
+   "url": "https://cap.nhsa.gov.cn:7903/openDetail.html?id=651041824323338240",
+   "question": "查询统计数据发现，2023年12月起，基本医疗保险和生育保险主要指标从发布基本医疗保险基金收入或支出变更为发布统筹收入或支出，请问是统计口径上发生了变化吗？前后统计范围有什么不同？望答疑，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-nhsa",
+   "id": "580913280486640128",
+   "url": "https://cap.nhsa.gov.cn:7903/openDetail.html?id=580913280486640128",
+   "question": "1、医保App添加了16周岁(4月龄)的子女，但是进入查看需要验证被添加的人的人脸信息，这极度不合理，小宝宝根本无法配合也没有人脸信息。\r\n2、医保App添加家庭账号只能户口本证明关系，但是被添加的家人不一定和我在同一个户口本(比如父母)，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-nhsa",
+   "id": "554561169339607040",
+   "url": "https://cap.nhsa.gov.cn:7903/openDetail.html?id=554561169339607040",
+   "question": "尊敬的医保局领导，我是一名正在根管治疗的患者，根管治疗后牙齿变脆，为防止牙齿劈裂大多需要安装牙冠。根管治疗用牙冠和种植牙用牙冠不是一种，现在价格还是很高，动辄几千元。在种植牙集采后价格下降的情况下，治疗一颗牙的费用比拔牙后种植一颗的费用还高",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-nhsa",
+   "id": "459232166886659584",
+   "url": "https://cap.nhsa.gov.cn:7903/openDetail.html?id=459232166886659584",
+   "question": "9月20日湖南医保局发布湘医保发【2022】46号《关于规范手术机器人辅助操作系统使用和收费行为的通知》关于骨科机器人的收费政策基本采用了2022年3月1日国家医保局价格和招标采购司关于征求《关于完善骨科“手术机器人”“3D打印”等辅助操作",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-nhsa",
+   "id": "432957962151413248",
+   "url": "https://cap.nhsa.gov.cn:7903/openDetail.html?id=432957962151413248",
+   "question": "《女职工劳动保护特别规定》第八条规定“女职工产假期间的生育津贴，对已经参加生育保险的，按照用人单位上年度职工月平均工资的标准由生育保险基金支付；对未参加生育保险的，按照女职工产假前工资的标准由用人单位支付。女职工生育或者流产的医疗费用，按照",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-nhsa",
+   "id": "418002336270927360",
+   "url": "https://cap.nhsa.gov.cn:7903/openDetail.html?id=418002336270927360",
+   "question": "您好，网上查询说2022年上半年可以落实种植牙耗材集中带量采购，如今已7月中旬，还未听到落实消息，想咨询一下大概什么时间可以落实，种植牙要花费整一年工资，希望可以尽快落实，减少人民生活压力，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-nhsa",
+   "id": "373836569090861056",
+   "url": "https://cap.nhsa.gov.cn:7903/openDetail.html?id=373836569090861056",
+   "question": "职工医保个人账户全国通用时代还有多远？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-nhsa",
+   "id": "358328807984604160",
+   "url": "https://cap.nhsa.gov.cn:7903/openDetail.html?id=358328807984604160",
+   "question": "您好！请问使用中的一台医疗设备，设备带有封闭式的专机专用的试剂，如果为了节省成本，擅自更换低品质、低价格的试剂使用于该设备，但仍然按照原有的收费标准来收费。请问是否合理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-nhsa",
+   "id": "330590513322652672",
+   "url": "https://cap.nhsa.gov.cn:7903/openDetail.html?id=330590513322652672",
+   "question": "您好，由于学术研究需要，想要了解目前是否有公认的“因病致贫”的标准？如有，那是怎样的呢？此外，贵局官网之前发布的文件中有提到13个省份层面明确因病致贫家庭重病患者认定标准，请问具体是哪几个省份呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-nhsa",
+   "id": "303700023730102784",
+   "url": "https://cap.nhsa.gov.cn:7903/openDetail.html?id=303700023730102784",
+   "question": "昨天看到新闻，天津的人工关节集采开标了。因为家里有需要更换髋关节的病人，但之前一直苦于更换费用较高没有更换。看到新闻很开心，但因为我们这边是小地方，不知道什么时候我们这里才能用上降价的人工髋关节。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-nhsa",
+   "id": "269758469147838464",
+   "url": "https://cap.nhsa.gov.cn:7903/openDetail.html?id=269758469147838464",
+   "question": "您好！民营医院的医用耗材加价是按照加价率还是自主制定医用耗材销售价格？有没有相关文件规定？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-nhsa",
+   "id": "12366",
+   "url": "https://cap.nhsa.gov.cn:7903/openDetail.html?id=12366",
+   "question": "你好！请问支架集采执行时间是什么时候？网上没看到执行文件，希望早点执行。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-nhsa",
+   "id": "12705",
+   "url": "https://cap.nhsa.gov.cn:7903/openDetail.html?id=12705",
+   "question": "局长您好，国家推行电子社保卡，出发点是好的，但是在落实过程当中有没有考虑到绝大多数老年人的问题，微信要实名认证，很多老的银行卡办理时基本都是固话，固话在微信实名认证过程当中又不认可，根本无法正常认证申领，所以希望在落实过程中，还是需要考虑下",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-nhsa",
+   "id": "11768",
+   "url": "https://cap.nhsa.gov.cn:7903/openDetail.html?id=11768",
+   "question": "想问一下安徽阜阳交的新农合(现在叫城乡居民基本医疗保险),现在在上海门诊看病可以直接慢性病门诊报销结算吗?参见:《国家医疗保障局 财政部关于推进门诊费用跨省直接结算试点工作的通知》。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-nhsa",
+   "id": "11094",
+   "url": "https://cap.nhsa.gov.cn:7903/openDetail.html?id=11094",
+   "question": "领导好，我是一名肺动脉高压患者家属，在网上看到西地那非已经进入医保名录，不知道何时我们才能够买到降价后的药物？特此咨询。给领导带来不便深表歉意。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-nhsa",
+   "id": "11017",
+   "url": "https://cap.nhsa.gov.cn:7903/openDetail.html?id=11017",
+   "question": "您好：《国家医疗保障局对十三届全国人大一次会议第6751号建议的答复》（医保函〔2018〕8号）文中：原劳动和社会保障部等部委制定了《关于印发城镇职工基本医疗保险诊疗项目管理、医疗服务设施范围和支付标准意见的通知》（劳社部发〔1999〕22",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-nhsa",
+   "id": "10388",
+   "url": "https://cap.nhsa.gov.cn:7903/openDetail.html?id=10388",
+   "question": "请问现在是否全国都已经开通了异地医保结算报销？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-nhsa",
+   "id": "10505",
+   "url": "https://cap.nhsa.gov.cn:7903/openDetail.html?id=10505",
+   "question": "您好！民营医院的中草药、西药、中成药的药品加价率是多少？是不是市场调节？有没有文件规定？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-nhsa",
+   "id": "10114",
+   "url": "https://cap.nhsa.gov.cn:7903/openDetail.html?id=10114",
+   "question": "我女儿今年4岁，去年有做先心病大手术进了大病医疗，在我的个税APP上已申请大病医疗扣税并退税到账，现在单位财务复核，要登陆小孩的国家医保服务平台APP查实去年医疗费用并绑定至我的亲情用户，但是实名认证失败，电话和实地找社区，银行及医保局皆没",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-nhsa",
+   "id": "8589",
+   "url": "https://cap.nhsa.gov.cn:7903/openDetail.html?id=8589",
+   "question": "我想了解一下国家门诊慢性疾病的病种范围，相关执行文件内容，文件号。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-nhsa",
+   "id": "7005",
+   "url": "https://cap.nhsa.gov.cn:7903/openDetail.html?id=7005",
+   "question": "您好。在2019年8月份公布的药品目录上，常规准入总数为2643个，11月份谈判准入增加97个。那为什么最终的药品目录为2709，不是2740呢 ?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-nhsa",
+   "id": "7651",
+   "url": "https://cap.nhsa.gov.cn:7903/openDetail.html?id=7651",
+   "question": "医保版的ICD10和ICD-9-CM3的动态数据库维护内容可以提供电子版的吗？比如Excel格式的让有需要的医院和HIT厂商公开下载？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-nhsa",
+   "id": "7044",
+   "url": "https://cap.nhsa.gov.cn:7903/openDetail.html?id=7044",
+   "question": "局长你好，我想询问一下医疗保障信息化的一套标准规范在哪儿获取？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

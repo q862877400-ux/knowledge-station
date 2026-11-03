@@ -1,0 +1,189 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>江苏省生态环境厅_咨询建言</title>
+<link type="text/css" href="./template/143/images/hanweb.css" rel="stylesheet"/>
+<link type="text/css" href="./template/143/images/jact_style.css" rel="stylesheet"/>
+<script type="text/ecmascript" src="./template/143/images/jquery.min.js"></script>
+<script language=JavaScript src="./template/143/images/JS.js"></script>
+<script language=JavaScript src="./template/143/images/mailwrite.js"></script>
+<script language=JavaScript src="./template/143/images/popwin.js"></script>
+<style type="text/css">
+.td_point {
+	font-size: 14px;
+	font-color: grey;
+	padding-right: 20px;
+}
+.contentspan {
+	padding-left: 10px
+}
+.td_width {
+	word-wrap: break-word;
+	word-break: break-all
+}
+</style>
+<script type="text/javascript">
+
+$(function(){
+		var sysname = '江苏省生态环境厅_咨询建言';
+		//切分_
+		var arr_name = sysname.split('_');
+		if(arr_name.length>1){
+			$("#div_head").html(arr_name[1]);
+			$("#div_left").html(arr_name[1]);
+			$("#div_curApartment").html("当前部门："+arr_name[0]);
+		}
+});
+
+	$(document).ready(function(){
+		$(".abc tr:even").css("background-color","#f6f6f6");
+		var handlelogdisplay = $("#handlelogdisplay").val();
+		if(handlelogdisplay.indexOf("none")>-1){
+		}else{
+			$(".jact_main").css('float','left');
+		}
+	});
+
+	function check(){
+		if($.trim($("#content").val()) == ''){
+			alert("请输入追问内容！");
+			$("#content").focus();
+			return;
+		}
+		if($.trim($("#reaskcode").val()) == ''){
+			alert("请输入验证码！");
+			$("#reaskcode").focus();
+			return;
+		}
+		$.ajax({
+			type : "POST",
+			url : "./mailreask_submit.do",
+			data : $("#reask_form").serialize(),
+			success : function(data){
+				if(data == 'success'){
+					$("#content").val('');
+					$("#reaskcode").val('');
+					$("#reask_submit_state").html("追问提交成功，请等待答复");
+				}else{
+					$("#reask_submit_state").html(data);
+				}
+				$("#reaskimg").click();
+				
+			}
+		});
+	}
+</script>
+</head>
+<body>
+<input type="hidden" id="openmobile" value="{openmobile}" />
+<input type="hidden" id="handlelogdisplay" value="display:none" />
+<script language="JavaScript" src="js/mobile.js" type="text/javascript"></script> 
+<!--head start--> 
+<script src="//sthjt.jiangsu.gov.cn/script/0/2406201118521467.js"></script> 
+<div id="div_head" style=" width:1000px; height:95px;margin:0 auto;position:absolute; top:95px; left:0; right:0; text-align:right; font-size:28px; font-weight:bold; color:#369"> - </div>
+<style type="text/css">
+			body {
+				background: #FFFFFF;
+			}
+			
+			.newCur,
+			.newCur a {
+				color: #454545;
+				font-size: 13px;
+			}
+			.jact_box_blueNew{background-color: #FFFFFF;padding: 40px 0;}
+			.abc tr{background:#fff!important;}
+		</style>
+<!--head over-->
+<div style="width: 100%;background: #ededed;" class="newCur">
+  <div style="width: 1200px;margin: 0 auto;line-height: 40px;background: url(./template/143/images/newCur.png) no-repeat 15px center;padding-left: 35px;">
+    <table border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td height="40">当前位置：</td>
+        <td height="40"><a>政民互动</a>> <a>统一咨询投诉</a>> <a>咨询结果</a></td>
+      </tr>
+    </table>
+  </div>
+</div>
+<!--main start-->
+<div class="jact_box_blue jact_box_blueNew" style="width: 1200px;overflow:hidden;margin:0 auto;padding:40px 0;"><!--修改后缀red为blue--> 
+  <!-- main start-->
+  <div class="jact_main" style="width:1200px;float:inherit!important;">
+    <div class="jact_box" style="padding:0;">
+      <div class="jact_box_title" style="height:49px;border:1px solid #e3e3e3;border-bottom:0;"><span style="display:block;height:18px;line-height:18px;padding:0 10px;border-left:3px solid #bb2335;font-weight:bold;font-size:17px;color:#355e92;border-bottom:0;margin:15px 0 0 20px;">详细信息</span></div>
+      <div class="jact_box_font" style="padding:0;">
+        <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" class="abc abcNN" style="width:1200px;">
+          <!--beginunit maildetail-->
+          <tr bgcolor="#FFFFFF" class="trbg02">
+            <td align="center" width="140" valign="middle" class="form_01b newTdOne01" style="height:50px;">标题</td>
+            <td width="1060" align="left" class="td_width"><span class="contentspan">关于固废利用类型归属的问题</span></td>
+          </tr>
+          <tr bgcolor="#FFFFFF" class="trbg02">
+            <td align="center" width="140" valign="middle" class="form_01b newTdOne newTdOne01" ><span style="display:block;">内容</span></td>
+            <td width="1060" align="left" class="td_width td_width01" style="padding:10px"><span class="contentspan" style="padding:0;">我公司经营一家烧结砖厂，利用淤泥、黄土等为原材料隧道窑生产烧结砖。根据《江苏省固体废物污染环境防治条例》第二十三条　鼓励通过工业窑炉协同处置工业废水处理产生的污泥。根据条例内容，我公司拟利用工业污泥代替部分原材料进行烧结砖生产技改，原有产能规模不变。请问这种情况属于“建设工业固体废物集中贮存、利用、处置设施或者场所”，还是属于“协同处置工业污泥“？请给予解惑，谢谢！</span></td>
+            <style type="text/css">
+		.contentspan{font-size:15px;color:#333;}
+		.newTdOne01{font-size:15px;font-weight:bold;color:#333;}
+		</style>
+          </tr>
+   
+          <tr>
+              <td align="center" align="right" class="td_width_02 newTdOne01" width="140" style="height:50px;">
+            提交时间
+              </td>
+            <td width="1060" align="left" class="td_width"><span class="contentspan">2026-10-08 16:49:48</span></td>
+          </tr>
+          
+          <!--endunit maildetail-->
+          
+        </table>
+      </div>
+      <div class="jact_box_font" style="padding:0;margin-top:30px;">
+        <div class="jact_box_title" style="height:49px;border:1px solid #e3e3e3;border-bottom:0;"><span style="display:block;height:18px;line-height:18px;padding:0 10px;border-left:3px solid #bb2335;font-weight:bold;font-size:17px;color:#355e92;border-bottom:0;margin:15px 0 0 20px;">受理回复</span></div>
+        <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" class="abc" style="width:1200px;">
+          <tr>
+              <td align="center" align="right" class="td_width_02 newTdOne01" width="140" style="height:50px;">
+            处理状态
+              </td>
+            <td width="1060" align="left" class="td_width"><span class="contentspan">处理完毕</span></td>
+          </tr>
+          	<tr>	   
+	    <td height="50" class="td_width_02" style="font-weight:bold;text-align:center;font-size:15px;color:#333333;" width="140">回复日期</td>
+	    <td align="left" class="td_width" width="1060" style="line-height:32px;color:#333;font-size:15px;"><span style="padding-left:10px;">2026-10-08 17:38</span></td>
+	</tr>
+	<tr>
+	    <td class="td_width_02 newTdOne newTdOne01" style="font-weight:bold;text-align:center;font-size:15px;color:#333333;" width="140"><span style="display:block;">内容回复</span></td>
+	    <td align="left" class="td_width" width="1060" style="padding:10px;"><span class="contentspan contentspan01" style="display:block;line-height:32px;color:#333;font-size:15px;"><p style=";text-align: justify;font-family: 宋体;font-size: 14px;white-space: normal"><span style="font-size: 14px">您好，关于你公司拟利用工业污泥替代部分原料进行烧结砖生产的技术改造，现就固体废物管理政策层面答复如下：</span></p><p style=";text-align: justify;font-family: 宋体;font-size: 14px;white-space: normal"><span style="font-size: 14px">一、关于“协同处置”与“集中设施”的定性。你公司隧道窑的核心功能为生产烧结砖，属于建材产品生产设施。<strong>若工业污泥仅作为替代原料投入生产，且不配套建设专门用于集中收集、贮存外部污泥的预处理设</strong><strong>施</strong>，则该生产活动在性质上属于《江苏省固体废物污染环境防治条例》所鼓励的 “工业窑炉协同处置” 。若配套建设了专门的污泥贮存、干化等集中预处理设施，则相关配套设施可能被纳入“集中贮存设施”的管理范畴。</span></p><p style=";text-align: justify;font-family: 宋体;font-size: 14px;white-space: normal"><span style="font-size: 14px">二、关于选址限制。《中华人民共和国生态环境法典》第四百八十一条禁止在生态保护红线区域、永久基本农田集中区域等特别保护区域内建设工业固体废物 “集中” 贮存、利用、处置设施。你公司项目是否触及上述选址限制，取决于项目是否被认定为“集中设施”，该认定属于建设项目环境影响评价管理范畴，建议向原环评审批部门进一步咨询确认。</span></p><p style=";text-align: justify;font-family: 宋体;font-size: 14px;white-space: normal"><span style="font-size: 14px">三、关于应履行的程序。该技改涉及原料种类变更及可能新增的污泥贮存、预处理环节，应当依法履行环境影响评价手续。在取得相应环评批复前，不宜将工业污泥投入生产使用。</span></p></span></td>
+	</tr>	
+
+          
+                     <tr>
+              <td align="center" align="right" class="td_width_02 newTdOne01" width="140" style="height:50px;">
+            答复单位
+              </td>
+            <td width="1060" align="left" class="td_width"><span class="contentspan">江苏省生态环境厅</span></td>
+          </tr>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!--main over--> 
+<!--footer start--> 
+<script src="//sthjt.jiangsu.gov.cn/script/102/2111261457221582.js"></script> 
+<!--footer over--> 
+<script type="text/javascript">
+		var newHt =$(".newTdOne span").height();
+		if( newHt < 50){
+			$(".newTdOne span").attr("style","line-height:50px");
+		}else if( newHt  = 50){
+			$(".newTdOne span").attr("style","line-height:50px");
+		}else{
+			$(".newTdOne span").css("line-height",newHt);			
+		}
+		</script>
+</body>
+</html>

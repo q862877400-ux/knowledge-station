@@ -1,0 +1,1348 @@
+{
+ "A_考卷": [
+  {
+   "source": "hb-wuhan-30",
+   "id": "17996",
+   "url": "https://www.wuhan.gov.cn/?id=17996",
+   "question": "我老公是从湖北随县入伍且服役年满12年的士官，我是2019年大学毕业落户武汉高新区同心社区公共户口（户口本上是常住户口)。我也在武汉上班（房子也在高新区因疫情未交房，预计3月交房），结婚满了两年，请问他可以随我安置武汉高新区吗？谢谢",
+   "cited_hits": [
+    {
+     "name": "退役士兵安置条例",
+     "lib_no": "退役士兵安置条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "17523",
+   "url": "https://www.wuhan.gov.cn/?id=17523",
+   "question": "尊敬的武汉市退役军人事务局领导您好： 我是陕西户籍，曾于2013年考入武汉职业技术学院，2014年从武汉市洪山区武装部参军入伍（2016年退伍后划归武汉东湖新技术开发区），2016年服役期满退出现役，继续回到武汉职业技术学院学习，于2018",
+   "cited_hits": [
+    {
+     "name": "退役士兵安置条例",
+     "lib_no": "退役士兵安置条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "退回基金函"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "5753",
+   "url": "https://www.wuhan.gov.cn/?id=5753",
+   "question": "尊敬的领导，很抱歉又一次跟您信箱反应问题。事情是这样的，我于2019年12月接到新政办（2019）17号文件通知转业安置至新洲区城市管理执法局执法队员岗位至今工作已有10个月，首选因为区政府文件编外安置的原因，我无法享受区城市管理执法局正式",
+   "cited_hits": [
+    {
+     "name": "退役士兵安置条例",
+     "lib_no": "退役士兵安置条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "中共中央办公厅 国务院办公厅印发<关于解决部分退役士兵社会保险问题的意见>的通知"
+   ],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "hb-wuhan-30",
+   "id": "65752",
+   "url": "https://www.wuhan.gov.cn/?id=65752",
+   "question": "家里今年6月份毕业的本科大学生9月入伍，请问一次性奖励金需要去申领还是等待发放",
+   "cited_hits": [],
+   "cited_missing": [
+    "武汉市人民政府办公厅关于调整大学生入伍奖励措施的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "62480",
+   "url": "https://www.wuhan.gov.cn/?id=62480",
+   "question": "本人2020年9月份从学校武汉市江夏区人伍，但是本人是湖北省麻城市木子店镇的，当时没有入伍通知书，请问我现在怎么可以拿到光荣之家牌子？",
+   "cited_hits": [],
+   "cited_missing": [
+    "光荣牌悬挂服务管理工作规定（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "59546",
+   "url": "https://www.wuhan.gov.cn/?id=59546",
+   "question": "我是一名退役军人，近期有计划来英雄城武汉游玩，请问贵市对退伍军人这块的优待有哪些，主要咨询景区及交通的优待目录清单",
+   "cited_hits": [],
+   "cited_missing": [
+    "优待证专属优惠使用指南来了",
+    "武汉市退役军人和其他优抚对象第一批优待服务项目公告",
+    "武汉市退役军人和其他优抚对象第二批优待服务项目公告",
+    "武汉市退役军人和其他优抚对象第三批优待服务项目公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "48823",
+   "url": "https://www.wuhan.gov.cn/?id=48823",
+   "question": "为什么没有人通知我去办理退伍军人优待证，退伍军人优待证如何办理",
+   "cited_hits": [],
+   "cited_missing": [
+    "武汉市退役军人、其他优抚对象优待证申领发放工作公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "47385",
+   "url": "https://www.wuhan.gov.cn/?id=47385",
+   "question": "武汉市很多地方对退役军人不够重视，也有很多地方的优待不够重视，也不够完善，现在退役军人在优待这方面很是尴尬，只有去了江苏省，退役军人才能体会到什么叫做真正的重视，和真正的尊重，一个新一线城市，湖北的省会，比不过江苏省其他小城市，其他的城市，",
+   "cited_hits": [],
+   "cited_missing": [
+    "优待证专属优惠使用指南来了",
+    "武汉市退役军人和其他优抚对象第一批优待服务项目公告",
+    "武汉市退役军人和其他优抚对象第二批优待服务项目公告",
+    "武汉市退役军人和其他优抚对象第三批优待服务项目公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "42503",
+   "url": "https://www.wuhan.gov.cn/?id=42503",
+   "question": "退役军人自主创业贷款优惠和补助 贷款流程和贷款方式 在什么银行 所需证件",
+   "cited_hits": [],
+   "cited_missing": [
+    "武汉市个人创业担保贷款申请表",
+    "居民身份证",
+    "合伙协议章程",
+    "营业执照",
+    "营业执照",
+    "营业执照"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "37990",
+   "url": "https://www.wuhan.gov.cn/?id=37990",
+   "question": "本人于2017退伍，想合伙做电商，请问武汉有这方面的金融政策支持吗？是否是贴息贷款？",
+   "cited_hits": [],
+   "cited_missing": [
+    "营业执照"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "37279",
+   "url": "https://www.wuhan.gov.cn/?id=37279",
+   "question": "退役军人优待证在哪里办理，2020年退伍到现在还没办理",
+   "cited_hits": [],
+   "cited_missing": [
+    "武汉市退役军人、其他优抚对象优待证申领发放工作公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "36519",
+   "url": "https://www.wuhan.gov.cn/?id=36519",
+   "question": "我想了解一下退伍军人优待证，既然叫做优待证，目前在武汉有哪些实质性的优惠，公交地铁目前用不了，景区我们能免费的，实际上大家都能免费进去，并不存在什么优待，而收费景区并不承认这个证件，车站，医院排队也并不能因为手持优待证就有优先办理的权益，甚",
+   "cited_hits": [],
+   "cited_missing": [
+    "拥军优抚合作协议",
+    "优待证专属优惠使用指南来了",
+    "武汉市退役军人和其他优抚对象 第一批优待服务项目公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "32096",
+   "url": "https://www.wuhan.gov.cn/?id=32096",
+   "question": "退伍军人优待证有哪些优待？ 湖北省武汉市公交地铁，能否持证免费乘坐？",
+   "cited_hits": [],
+   "cited_missing": [
+    "拥军优抚合作协议",
+    "优待证专属优惠使用指南来了",
+    "武汉市退役军人和其他优抚对象 第一批优待服务项目公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "31171",
+   "url": "https://www.wuhan.gov.cn/?id=31171",
+   "question": "本人2015年退役，今年准备开个夫妻店做小餐饮，是否有金融服务相关政策扶持",
+   "cited_hits": [],
+   "cited_missing": [
+    "营业执照"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "29822",
+   "url": "https://www.wuhan.gov.cn/?id=29822",
+   "question": "我想咨询武汉退伍军人优待证坐高铁有什么政策吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "拥军优抚合作协议",
+    "优待证专属优惠使用指南来了"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "28746",
+   "url": "https://www.wuhan.gov.cn/?id=28746",
+   "question": "一退伍军人，退伍军人优待证，如何办理，办理流程?",
+   "cited_hits": [],
+   "cited_missing": [
+    "武汉市退役军人、其他优抚对象优待证申领发放工作公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "26618",
+   "url": "https://www.wuhan.gov.cn/?id=26618",
+   "question": "建议对持有“湖北省退役军人优待证”的退役军人免费乘坐武汉地铁。",
+   "cited_hits": [],
+   "cited_missing": [
+    "拥军优抚合作协议",
+    "优待证专属优惠使用指南来了"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "26329",
+   "url": "https://www.wuhan.gov.cn/?id=26329",
+   "question": "优待证用途",
+   "cited_hits": [],
+   "cited_missing": [
+    "拥军优抚合作协议",
+    "优待证专属优惠使用指南来了"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "25016",
+   "url": "https://www.wuhan.gov.cn/?id=25016",
+   "question": "关于优待证有哪些优惠政策呢？网上查的都写的不一样，乘坐武汉公共交通（公交，地铁）是否免费，怎么有的公交免费，有的公交司机说没收到政策通知",
+   "cited_hits": [],
+   "cited_missing": [
+    "拥军优抚合作协议",
+    "优待证专属优惠使用指南来了"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "24052",
+   "url": "https://www.wuhan.gov.cn/?id=24052",
+   "question": "军创企业贷款",
+   "cited_hits": [],
+   "cited_missing": [
+    "营业执照"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "23977",
+   "url": "https://www.wuhan.gov.cn/?id=23977",
+   "question": "办理退役军人优待证",
+   "cited_hits": [],
+   "cited_missing": [
+    "武汉市退役军人、其他优抚对象优待证申领发放工作公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "23258",
+   "url": "https://www.wuhan.gov.cn/?id=23258",
+   "question": "请问一下，关于办理退役军人优待证可以在常驻地办理。我户口在湖北沙洋，在武汉市常住，我可以在武汉办理吗？具体在哪里办理？",
+   "cited_hits": [],
+   "cited_missing": [
+    "武汉市退役军人、其他优抚对象优待证申领发放工作公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "20964",
+   "url": "https://www.wuhan.gov.cn/?id=20964",
+   "question": "根据退伍军人优待证享受政策解读，退役家属均可享受退役军人家属优待证（妻子和女儿）？如何办理？",
+   "cited_hits": [],
+   "cited_missing": [
+    "武汉市退役军人、其他优抚对象优待证申领发放工作公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "14194",
+   "url": "https://www.wuhan.gov.cn/?id=14194",
+   "question": "最近有收到一些教育机构打电话，说退伍军人免费读全日制大专，是属于国家政策，请问该情况是否属实？",
+   "cited_hits": [],
+   "cited_missing": [
+    "武汉市促进新时代退役军人就业创业工作实施办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "13143",
+   "url": "https://www.wuhan.gov.cn/?id=13143",
+   "question": "现役家庭可以领取那个牌牌吗？如果可以领取，需要交什么资料吗？家属现居汉阳区，户口随军了，不在本地。但是有住房是武汉人！",
+   "cited_hits": [],
+   "cited_missing": [
+    "光荣牌悬挂服务管理工作规定(试行)"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "7777",
+   "url": "https://www.wuhan.gov.cn/?id=7777",
+   "question": "退伍创业是什么流程 有哪些优惠",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖北省促进新时代退役军人就业创业工作实施意见",
+    "武汉市促进新时代退役军人就业创业工作实施办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "7314",
+   "url": "https://www.wuhan.gov.cn/?id=7314",
+   "question": "我是一名现役军官，驻地安徽，原籍湖北随州，硕士研究生学历。我父母户籍为湖北随州，我对象于2018年12月以留汉大学生政策将户口转移至武汉市洪山区。我们已在武汉买房。请问这种条件下，我和我对象结婚后，我能否转业至武汉，若能，一般是什么类型的岗",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖北省计划分配军队转业干部安置工作答疑"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "6922",
+   "url": "https://www.wuhan.gov.cn/?id=6922",
+   "question": "我是2000年底的退役的退役士兵，于2020年参加武汉高校扩招，考试合格，现在我想申请往年补报名没有2004选项 兵役登记不上 ，请问怎样打印往年报表 请问《应征入伍服兵役高等学校学生国家教育资助申请表∥》怎么打印？",
+   "cited_hits": [],
+   "cited_missing": [
+    " 应征入伍服兵役高等学校学生国家教育资助申请表 ∥"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "3826",
+   "url": "https://www.wuhan.gov.cn/?id=3826",
+   "question": "大一保留学籍服役归来申请的大学生学费补助，现专升本成功，还能继续申请补助吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖北省促进新时代退役军人就业创业工作实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "3071",
+   "url": "https://www.wuhan.gov.cn/?id=3071",
+   "question": "退如何办理成人高考免试手续？役大专生士兵",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖北省促进新时代退役军人就业创业工作实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "2987",
+   "url": "https://www.wuhan.gov.cn/?id=2987",
+   "question": "局长您好，我是2018年转业干部，部队抚恤金发放到2018年底。2018年12月到地方参加工作，2019年3月办理落户手续后，第一时间（4月份）到江岸区退役军人事务局优抚科申请换证，2019年5月拿到市优抚医院评定伤残等级审批表，尔后按照江",
+   "cited_hits": [],
+   "cited_missing": [
+    "伤残抚恤管理办法"
+   ],
+   "has_clause_no": true
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "hb-wuhan-30",
+   "id": "70667",
+   "url": "https://www.wuhan.gov.cn/?id=70667",
+   "question": "请问有计划落实优待证免费乘坐公交车和地铁吗，地铁一趟费用确实很高一个月下来地铁费就要去700左右，有组织开会牵头吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "69901",
+   "url": "https://www.wuhan.gov.cn/?id=69901",
+   "question": "您好，我是驻地于新疆的一名义务兵，我想了解关于本科毕业增发的家庭优待金是不是在入疆翻3倍的优待金的基础上去发的？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "69492",
+   "url": "https://www.wuhan.gov.cn/?id=69492",
+   "question": "但作为中部大市，经济强市。退役军人能免费乘坐公交，地铁吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "68796",
+   "url": "https://www.wuhan.gov.cn/?id=68796",
+   "question": "领导您好，我是驻地于高原地区的义务兵，于24年9月从武汉科技大学征兵至青山区入伍，想了解驻高原地区家庭优待金是否有相关福利政策，如果有，人力资源部开具的证明有无作用？或者说需要人力说明什么情况才可以成功办理该福利政策。感谢您的回答。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "68324",
+   "url": "https://www.wuhan.gov.cn/?id=68324",
+   "question": "我们家是今年三月大学生迎接毕业生走的义务兵，从街道走兵，会有奖励政策么？义务兵优待金会有吗？家属会有什么福利呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "67563",
+   "url": "https://www.wuhan.gov.cn/?id=67563",
+   "question": "根据《退役军人保障法第53条》规定：对持证者，可以享受公共交通、文化和旅游等优惠。我是一个即将退休的退役军人，最近计划去武汉游玩一下，我在网上查询关于乘坐公共交通含地铁，是否可以免费或优惠说法不一，恳请确认是否收费？南昌是免费的。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "66317",
+   "url": "https://www.wuhan.gov.cn/?id=66317",
+   "question": "武汉市退役军人优待证是无法免费乘坐地铁的，证件发下来已经很多年了，周边省份甚至省内的一些市州都实行了公共交通免费乘坐，武汉希望也能尽快实行，学学隔壁南京、南昌，希望武汉对得起双拥、英雄城市的称号，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "66256",
+   "url": "https://www.wuhan.gov.cn/?id=66256",
+   "question": "您好， 我是二零二二年从武汉市江汉区入伍的，想问一下当时咱这个家庭优待金是发了几次",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "65890",
+   "url": "https://www.wuhan.gov.cn/?id=65890",
+   "question": "全国多地都已经施行退役军人免费乘坐公共交通工具，希望我们武汉退役军人事务局能与各方积极协调，争取我们大武汉也能让退役军人感到暖心，希望贵局早日办成惠及广大退役军人的好事，实事！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "64291",
+   "url": "https://www.wuhan.gov.cn/?id=64291",
+   "question": "武汉市退役军人优待证是无法免费乘坐地铁的，其他城市都可以 希望尽快实行",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "64281",
+   "url": "https://www.wuhan.gov.cn/?id=64281",
+   "question": "我想问一下，对于从硚口区入伍的高校学生，在部队评功评奖的，地方上有没有奖励",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "63842",
+   "url": "https://www.wuhan.gov.cn/?id=63842",
+   "question": "退伍军人社保能否补缴，对退伍军人是否有相应的优惠政策",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "61389",
+   "url": "https://www.wuhan.gov.cn/?id=61389",
+   "question": "我是25年3月份江汉区走的兵，我想问一下优待金和一次性大学生入伍补贴大概在什么时候发放？ 请尽快回复",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "59908",
+   "url": "https://www.wuhan.gov.cn/?id=59908",
+   "question": "湖北省那么多城市优待证都可以免费乘坐公交了，武汉市什么时候可以啊",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "58391",
+   "url": "https://www.wuhan.gov.cn/?id=58391",
+   "question": "目前湖北省会武汉都没有落实退役军人免费公共交通的福利，湖北其它部分县市已落实。武汉市在退役军人福利方面是否能加快推进这项政策？计划何时落实这项福利？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "57247",
+   "url": "https://www.wuhan.gov.cn/?id=57247",
+   "question": "请问退役军人医疗救助是不是有政策？有办理渠道吗？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "57178",
+   "url": "https://www.wuhan.gov.cn/?id=57178",
+   "question": "为什么在武汉市不能免费乘公交车？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "56276",
+   "url": "https://www.wuhan.gov.cn/?id=56276",
+   "question": "尊敬的领导您好！我想咨询一下关于《退役军人优待证》免费乘坐公共交通工具的事情，《退役军人优待证》拿了好几年了，每次到武汉，想要享受一下作为退役军人的优待福利，都未能如愿。从大的层面来说，国家是提倡对我们退役军人群体多一些关心关爱的。外省也有",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "55339",
+   "url": "https://www.wuhan.gov.cn/?id=55339",
+   "question": "我是24年3月从东湖高新区入伍的大学生士兵，请问第一次发放优待金是24年10月，请问下一次是什么时候呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "55174",
+   "url": "https://www.wuhan.gov.cn/?id=55174",
+   "question": "退役军人在武汉市能不能享受免费公交，地铁等服务",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "53583",
+   "url": "https://www.wuhan.gov.cn/?id=53583",
+   "question": "退役军人事务局的领导，你们好。据我所知，及我自身体验的经历来讲，湖南长沙、河南郑州、江苏南京、广西南宁、山西太原、新疆等多数省份都在推行退役军人及其他优抚对象免费乘坐公共交通及地铁。请问我们大武汉何时推行此政策呀?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "53380",
+   "url": "https://www.wuhan.gov.cn/?id=53380",
+   "question": "请问武汉市公交对退伍军人优待证持有者免费吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "52987",
+   "url": "https://www.wuhan.gov.cn/?id=52987",
+   "question": "我是23年3月份江汉区走的兵，我想问一下第四次家庭优待金大概在什么时候发放？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "51191",
+   "url": "https://www.wuhan.gov.cn/?id=51191",
+   "question": "好多城市，退伍优待证，可以坐公交，地铁",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "50277",
+   "url": "https://www.wuhan.gov.cn/?id=50277",
+   "question": "局长您好！在武汉有些公交车是可以免费坐，有少数说是不能免费坐，我们不太清楚这退役优待证到底能不能坐公交车？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "50177",
+   "url": "https://www.wuhan.gov.cn/?id=50177",
+   "question": "武汉市公交退伍军人优待证是否可以免费乘坐",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "49154",
+   "url": "https://www.wuhan.gov.cn/?id=49154",
+   "question": "在武汉乘地铁持优待证不可以免费吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "48757",
+   "url": "https://www.wuhan.gov.cn/?id=48757",
+   "question": "多年未回老家，从武汉站乘地铁优待证不免费！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "46756",
+   "url": "https://www.wuhan.gov.cn/?id=46756",
+   "question": "进疆进藏优待金怎么发放，需要什么材料",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "46245",
+   "url": "https://www.wuhan.gov.cn/?id=46245",
+   "question": "武汉什么时候，才能实施针对退役军人乘坐公共交通工具实施免费政策，期待政策能够尽快实施",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "45734",
+   "url": "https://www.wuhan.gov.cn/?id=45734",
+   "question": "地铁公交是否可以免费乘坐，如果可以怎么办理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "45045",
+   "url": "https://www.wuhan.gov.cn/?id=45045",
+   "question": "退役军人优待证可不可以免费乘坐公交车？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "44339",
+   "url": "https://www.wuhan.gov.cn/?id=44339",
+   "question": "退伍军人优待证啥时候才能在武汉公交.地铁上使用？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "44296",
+   "url": "https://www.wuhan.gov.cn/?id=44296",
+   "question": "我是一名即将转业的军士，想转业随配偶易地安置到武汉市，请问是不是要配偶在武汉市落户满两年才可以？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "42712",
+   "url": "https://www.wuhan.gov.cn/?id=42712",
+   "question": "尊敬的领导您好。自和爱人在一起以来，聚少离多，为了长期服役的目标也为了孩子的健康成长，本人郑州市区教师编，能否随调到武汉？需要做哪些准备，谢谢解答。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "41595",
+   "url": "https://www.wuhan.gov.cn/?id=41595",
+   "question": "配偶非武汉户籍，能否通过买房落户，并且结婚满两年安置到武汉市。想了解一下军士异地安置进武汉市的相关要求和条件。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "41568",
+   "url": "https://www.wuhan.gov.cn/?id=41568",
+   "question": "今天乘坐408路公交被司机怒怼退役军人优待证不能免费乘坐公交。叫我打市长热线问能不能免费乘坐公交。热线回复说不能。武汉这大的省会城市，退役军人连基本的公共交通都不能免费乘坐。周边宜昌，黄冈等城市退役军人都可以享受或者减免乘坐公共交通。 希望",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "40660",
+   "url": "https://www.wuhan.gov.cn/?id=40660",
+   "question": "同标题，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "39584",
+   "url": "https://www.wuhan.gov.cn/?id=39584",
+   "question": "局长您好，我想问下退役军人优待证是否能在武汉市境内乘坐所有公交车及地铁。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "39568",
+   "url": "https://www.wuhan.gov.cn/?id=39568",
+   "question": "在部队没有评伤残退伍了，现在回到当地补评",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "38954",
+   "url": "https://www.wuhan.gov.cn/?id=38954",
+   "question": "您好，我于2017年从武汉自主择业，现在武汉一家私营企业上班，公司拟为我缴纳社保，请问可以在享受的参公医保不停的情况下为我缴纳吗？请直接给我答复，不要踢给社保部门，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "38918",
+   "url": "https://www.wuhan.gov.cn/?id=38918",
+   "question": "士官异地安置随配偶结婚满两年，户口有要求满两年吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "38191",
+   "url": "https://www.wuhan.gov.cn/?id=38191",
+   "question": "根据武汉市退役军人优待目录，退役军人持退役军人优待证能不能在武汉免费乘坐地铁等交通工具",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "38169",
+   "url": "https://www.wuhan.gov.cn/?id=38169",
+   "question": "配偶是购房落户武汉，请问军士是否只需与配偶结婚满2年可以异地安置武汉吗？是否还有其他限制条件",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "37615",
+   "url": "https://www.wuhan.gov.cn/?id=37615",
+   "question": "我母亲随我姐姐在武汉生活，已落户武汉(常驻户口)，我现申请病退，是否能投靠父母安置到武汉?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "37177",
+   "url": "https://www.wuhan.gov.cn/?id=37177",
+   "question": "在武汉优待证乘坐地铁公交免费吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "36098",
+   "url": "https://www.wuhan.gov.cn/?id=36098",
+   "question": "在武汉优待证能充费乘公交吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "34856",
+   "url": "https://www.wuhan.gov.cn/?id=34856",
+   "question": "退役军人的优待证什么时候能在武汉市内乘坐公交车及地铁。其它的省市都执行了，为什么湖北不执行，等待你们的回复。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "34834",
+   "url": "https://www.wuhan.gov.cn/?id=34834",
+   "question": "自从退役军人优待证发布以来，已有多个省市完成了退役军人优待证公共交通的免费乘坐，湖北省也先后有神农架、黄石、宜昌等地级市参与退役军人双拥工作，想了解武汉市关于退役军人优待证乘坐公共交通的双拥工作计划和推进进度。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "34070",
+   "url": "https://www.wuhan.gov.cn/?id=34070",
+   "question": "请问服现役满12年，在武汉市有集体户口，能否转业安置到武汉呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "33999",
+   "url": "https://www.wuhan.gov.cn/?id=33999",
+   "question": "退役军人，怎么申请光荣之家的门牌",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "33163",
+   "url": "https://www.wuhan.gov.cn/?id=33163",
+   "question": "本人为现役士兵，配偶婚后通过买房落户武汉，我服役满12年后退役可以随配偶户口安置到武汉吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "32791",
+   "url": "https://www.wuhan.gov.cn/?id=32791",
+   "question": "近日在网上搜武汉市退伍军人优待证可以免费乘坐公交车，地铁，轮渡。结果是乘坐公交车司机告知退伍军人优待证不能使用，不免费。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "32148",
+   "url": "https://www.wuhan.gov.cn/?id=32148",
+   "question": "本人2012年入伍，先评残因公8级，后补评为因病6级，请问能享受转业安置加分待遇吗，江夏区最近两年转业安置情况那有公示，怎么样才能查询到。谢谢，麻烦您了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "31282",
+   "url": "https://www.wuhan.gov.cn/?id=31282",
+   "question": "本人原籍是湖北黄冈的，2012年在上海地方大学以在校大学生入伍（入伍前已把本人户口迁到学校的集体户口），2015年在部队提干，目前是少校，部队驻地属于第一类艰苦边远地区，2022年结婚，妻子在2022年在武汉买房已落户武汉，请问一下2024",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "30151",
+   "url": "https://www.wuhan.gov.cn/?id=30151",
+   "question": "本人为独生子，父母原户籍为省内非武汉市户口，如果办理积分落户于武汉，是否能转业安置回武汉",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "30138",
+   "url": "https://www.wuhan.gov.cn/?id=30138",
+   "question": "请问武汉市内，退役军人持证乘坐公交车免费吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "29023",
+   "url": "https://www.wuhan.gov.cn/?id=29023",
+   "question": "驻汉部队军转干部详细安置政策",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "28341",
+   "url": "https://www.wuhan.gov.cn/?id=28341",
+   "question": "配偶是武汉往届大学生人才落户（集体户口），请问军士结婚满2年可以异地安置武汉吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "27449",
+   "url": "https://www.wuhan.gov.cn/?id=27449",
+   "question": "配偶通过购房落户武汉的军转干部，可以转业到武汉吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "27324",
+   "url": "https://www.wuhan.gov.cn/?id=27324",
+   "question": "我于2017年武汉入伍，现五年军旅生涯结束，但是还有一笔八一津贴未领取，总计八万多，请问该如何解决",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "26268",
+   "url": "https://www.wuhan.gov.cn/?id=26268",
+   "question": "士官转业异地安置到武汉地区需要具备什么条件？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "25015",
+   "url": "https://www.wuhan.gov.cn/?id=25015",
+   "question": "第一次登记退伍军人信息时，不知道什么原因把我的电话号码登记错了，导致我后面补缴社保时走了好多弯路，现在看到别人都能在手机短信上接到军人事务部发的相关信息，而我却什么都收不到，能否把我那个登记错误的电话号码更正过来。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "23514",
+   "url": "https://www.wuhan.gov.cn/?id=23514",
+   "question": "我从通知办理提交手续已经快2个月了，不知道审核取证还要多久。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "22869",
+   "url": "https://www.wuhan.gov.cn/?id=22869",
+   "question": "你好 我是07-08年兵，单位现在需要统计养老保险起缴时间需要证明， 我在武汉人社上只能查到09年中断的这一年我的补缴记录 请问 07-08年的缴费证明我要在哪查询呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "22204",
+   "url": "https://www.wuhan.gov.cn/?id=22204",
+   "question": "我本人入伍前户籍所在地为湖北孝感安陆（军官）。爱人结婚前户口所在地为湖北荆门钟祥，2014年结婚后，爱人户口转至本人入伍前户口所在地湖北安陆，挂在本人父母户口名下。2019年爱人以人才引进（毕业大学生）形式，将户口牵至湖北省武汉市黄陂区盘龙",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "22200",
+   "url": "https://www.wuhan.gov.cn/?id=22200",
+   "question": "我哥于2015年应届大学生落户武汉，2022年母亲投靠落户武汉，我是一名12年军士，由政府安排工作时可否随母亲落户武汉，并由武汉安排工作？烦请领导解答。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "20991",
+   "url": "https://www.wuhan.gov.cn/?id=20991",
+   "question": "去信主要是想了解下现在安置地的政策。假如我未婚，户口原籍是湖北其他地市的，单位在外省非艰苦边远地区，在武汉买套房，把父母户口迁过去，转业能安置到武汉地区吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "19803",
+   "url": "https://www.wuhan.gov.cn/?id=19803",
+   "question": "武汉市汉阳区优待证办理时间，需要准备那些资料Q",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "19774",
+   "url": "https://www.wuhan.gov.cn/?id=19774",
+   "question": "在单位每次发喜报回家不知道有什么样的相关政策，多次优秀士兵嘉奖等喜报，不知有何用，但是本单位这次非要填写武装部地址。我是武昌区14年入伍的兵，因在单位已经7年多期间家中已拆迁至其他区户口未迁，现居住地搬到江夏区。武装部地址和收件人电话姓名",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "18961",
+   "url": "https://www.wuhan.gov.cn/?id=18961",
+   "question": "2017年底河北省退军士兵 当时民政局把档案给到本人手里，后来户籍迁到武汉，想把档案放到人才市场，河北退役军人事务局不负责档案移交人才市场，武汉这也不负责移交，现在不知道该怎么办",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "18350",
+   "url": "https://www.wuhan.gov.cn/?id=18350",
+   "question": "在社区进行信息登记，社区说我的信息在区里，社区操作不了，上报了街道，说等着区里将关系转到社区才能进行，已经等了一个月了，还没能进行信息登记",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "17852",
+   "url": "https://www.wuhan.gov.cn/?id=17852",
+   "question": "老婆是单位的集体户口，户口在武昌，可以转业到武汉吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "17271",
+   "url": "https://www.wuhan.gov.cn/?id=17271",
+   "question": "现单位一名同志立功，需将喜报寄出，其配偶位武汉市硚口区居住，请问是否由硚口区退役军人事务局接收？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "17260",
+   "url": "https://www.wuhan.gov.cn/?id=17260",
+   "question": "现在国家退役军人优待证已经实行了，武汉市的退役军人到哪里可以办理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "16451",
+   "url": "https://www.wuhan.gov.cn/?id=16451",
+   "question": "请问如果军官配偶以大学生落户形式落户到武汉，军官本人可以转业安置到武汉吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "14460",
+   "url": "https://www.wuhan.gov.cn/?id=14460",
+   "question": "因参加成人专升本，退役军人有免试录取优待，但需要提供自主就业证明，因为目前在外地，所以想咨询一下这个证明是在退伍安置地开还是要到户籍地开，或者说在外地也可以开？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "14188",
+   "url": "https://www.wuhan.gov.cn/?id=14188",
+   "question": "请问退役军人优待证什么时候落实下发，河北早就已经落实政策了，对退役军人优待不能停留在嘴上，应该落实在行动上！一样今早能够响应中央号召，切实提高退役军人社会地位！！！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "13021",
+   "url": "https://www.wuhan.gov.cn/?id=13021",
+   "question": "第二年家庭优待金不是应该比第一年多10％吗？为啥还和第一年一样 少了4000元",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "12968",
+   "url": "https://www.wuhan.gov.cn/?id=12968",
+   "question": "各位领导，关于武汉退伍老兵有没有八一建军节发放慰问品的政策。请相关部门解答一下？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "12608",
+   "url": "https://www.wuhan.gov.cn/?id=12608",
+   "question": "我是现役军官，计划今年申请退役，明年安置，请问:如果配偶在婚前以大学毕业生方式落户武汉市，但未满两年，我可以申请安置到武汉市吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "12464",
+   "url": "https://www.wuhan.gov.cn/?id=12464",
+   "question": "本人想在武汉买一套二手房，然后属于军人，配偶(未婚)在武汉交满2年社保，如果配偶落户，我转业安置地能否选择为武汉安置。如果条件不足，能否为我讲述转业安置武汉条件。(配偶结婚满多少年或需要取得什么证明)",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "10424",
+   "url": "https://www.wuhan.gov.cn/?id=10424",
+   "question": "退役军人市局领导你好，我是一名即将服役期满转业士官，我和配偶于2018年在汉南区购买了一套商品房，今年计划以购房落户的政策将配偶的户口从孝感市迁至汉南区，我们结婚有3年多了，我到年底转业是否可以随配偶户口转至汉南区？政策上能否满足条件？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "10268",
+   "url": "https://www.wuhan.gov.cn/?id=10268",
+   "question": "武汉市退役军人优待卡什么时候可以办理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "9994",
+   "url": "https://www.wuhan.gov.cn/?id=9994",
+   "question": "您好，我是20年退伍回来的，22年参加专升本考试，还是专项计划嘛？还是普通考生。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "9914",
+   "url": "https://www.wuhan.gov.cn/?id=9914",
+   "question": "感谢武汉市退役军人事务局的领导和工作人员。感谢你们之前辛劳的付出让我们找到了失联20年战友。此刻的心情十分的激动，对你们的感激之情用任何语言来表达都显的苍白无力。谢谢你们。谢谢！！！！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "9595",
+   "url": "https://www.wuhan.gov.cn/?id=9595",
+   "question": "入伍之前湖北的，现在我想跟我对象婚后在武汉买房，然后她户口落武汉，我两年后能转业到武汉么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "8642",
+   "url": "https://www.wuhan.gov.cn/?id=8642",
+   "question": "请问2021年针对退伍军人免费就读全日制大专， 什么时候可以报名。需要什么手续",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "8434",
+   "url": "https://www.wuhan.gov.cn/?id=8434",
+   "question": "你好，我是武汉文科生态环境有限公司师资部负责人，拟聘一批专职或兼职退役军人，在我司从事实践教育工作，具体工作内容包括但不限于带领中小学生参观景点、组织DIY课程活动、队形队列管理、维护学生安全以及安排学生食宿等，岗位包含研学导师、拓展教练、",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "7647",
+   "url": "https://www.wuhan.gov.cn/?id=7647",
+   "question": "领导、您好！我多次向退役军人事务局反应我父亲的抚恤金问题都没有满意结果，就此问题谈谈我的意见。1、我爷爷是抗战时期烈士，我父亲是1996年由民办教师转为公办教师，这时已经老了。18岁前没有享受抚恤优待，18岁后也没有享受抚恤优待，这时家庭困",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "7049",
+   "url": "https://www.wuhan.gov.cn/?id=7049",
+   "question": "今年，教育部和军委国防动员部联合印发《关于做好2020年大学生征兵工作的通知》（军动〔2020〕485号），自2022年起，普通高等职业院校（专科）大学生士兵可免试入读普通本科，或者根据个人意愿入读成人本科。 请问此文件具体内容 以及申报本",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "6035",
+   "url": "https://www.wuhan.gov.cn/?id=6035",
+   "question": "想咨询下您单位具体的办公时间？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "5953",
+   "url": "https://www.wuhan.gov.cn/?id=5953",
+   "question": "配偶以大学生人才引进方式落户武汉，依据随军前配偶户口所在地这条，干部转业到武汉安置还有没有其他附加条件，需不需要同时满足取得武汉户口满两年的政策？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "5952",
+   "url": "https://www.wuhan.gov.cn/?id=5952",
+   "question": "配偶以大学生人才引进方式落户武汉，依据随军前配偶户口所在地这条，干部转业到武汉安置还有没有其他附加条件，需不需要同时满足取得武汉户口满两年的政策？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "5756",
+   "url": "https://www.wuhan.gov.cn/?id=5756",
+   "question": "我岳父范殿魁，1949年入伍，后在炮二师。1952年入朝，曾参与394.8高地战斗。此次发放纪念章，他归九中汇总名单（上次建国70周年即是九中汇总），但目前档案人员不熟漏报，希能解决。 再一个意见，贵单位不是商业机构，搞什么验证码，制造反映",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "5688",
+   "url": "https://www.wuhan.gov.cn/?id=5688",
+   "question": "我是一名退役军人参加过98江西九江抗洪抢险并多次参加国防光缆施工，09年开始在武汉平煤武钢联合焦化责任有限公司从事劳务工作，手低下有十几名农民工，到19年武汉平煤武钢联合焦化责任有限公司共拖欠劳务费用壹佰多万，经过多次协调都没有解决在没有办",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "5582",
+   "url": "https://www.wuhan.gov.cn/?id=5582",
+   "question": "尊敬的领导，您好。我是2016年9月于武汉职业技术学院入伍的大学生士兵，原籍为山西大同，服役于上海武警消防总队，于2017年12月荣立个人二等功（战功），2018年消防部队进行改革转制，目前我现在是三级消防士第二年等同于原二期士官第二年，明",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "5466",
+   "url": "https://www.wuhan.gov.cn/?id=5466",
+   "question": "转改文职人员出示文职人员证，在地铁站时无法享受免费乘车待遇，像长沙市双拥政策已经加入了转改文职人员，希望武汉市能尽快考虑相关政策",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "5394",
+   "url": "https://www.wuhan.gov.cn/?id=5394",
+   "question": "1、有无创业扶持基金？如有，具体标准是什么？如何申请 2、能否享受税费优待政策？具体标准是什么？ 3、有无贷款政策支持？ 4、免费技能培训如何申请？我是恩施巴东人，目前在武汉就职。巴东只安排了驾驶员的技能培训，该通过什么途径申请省内或者州内",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "5332",
+   "url": "https://www.wuhan.gov.cn/?id=5332",
+   "question": "异地安置到武汉市江汉区，配偶需要在江汉区上班两年吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "5283",
+   "url": "https://www.wuhan.gov.cn/?id=5283",
+   "question": "2020年1月6号根据退役军人事务局的短信缴纳社保欠款26028.66元。一直到现在都还是显示欠缴，多次打电话到江岸区退役军人事务局询问，他们说信息搞错了，防止给我缴纳重了，一直在办理，我想请问，即使更正信息需要多长时间？一年，十年还是更久",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "5219",
+   "url": "https://www.wuhan.gov.cn/?id=5219",
+   "question": "军改期间，士兵随配偶安置还需要结婚满两年么",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "4981",
+   "url": "https://www.wuhan.gov.cn/?id=4981",
+   "question": "今年宝武集团武钢有限退伍军人八一建军节！单位未发任何慰问品！难道单位退伍军人不享受相关慰问？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "4434",
+   "url": "https://www.wuhan.gov.cn/?id=4434",
+   "question": "本人于2019年由95174部队转业到广州，2019年底到新单位报到后原单位派人联系我找我要了本人在广州市住址并告知有服役十年纪念铜章随后寄到。期间联系过原所在基层负责此事的负责人及机关组织科干事，均无下文，目前已2020年9月仍没有收到。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "4331",
+   "url": "https://www.wuhan.gov.cn/?id=4331",
+   "question": "我爱人通过买房落户到武汉已有3年，我在外地服役，想问2020年年底想转业还能转到武汉吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "3912",
+   "url": "https://www.wuhan.gov.cn/?id=3912",
+   "question": "您好，打扰了！非常感谢您们百忙之中查看我填写的信件。我是1999年退伍的，属于武汉市武昌区退伍军人，退伍之后自主就业，我因家境突然出状况，去到外省打工，第一家工作单位没有给我买社保，差不多一直持续有12年都没有参保，后来2011年另一个单位",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-30",
+   "id": "3541",
+   "url": "https://www.wuhan.gov.cn/?id=3541",
+   "question": "我是80年在新疆服役的、82年退伍至今年已20年了，请问局长：除了给我家门上挂一块光荣牌，还有没有其它的福利，每年的“八。一”建军节都没有任何组织慰问一下，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

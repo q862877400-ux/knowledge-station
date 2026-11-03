@@ -1,0 +1,68 @@
+{
+ "A_考卷": [],
+ "B_补料": [
+  {
+   "source": "gx-igi-51",
+   "id": "157814436983",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814436983",
+   "question": "您好，我想了解一下近年来贵港市在委托招商方面出台什么激励措施啊？怎样才能奖励？",
+   "cited_hits": [],
+   "cited_missing": [
+    "贵港市人民政府办公室关于印发贵港市市本级委托招商激励实施办法的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-51",
+   "id": "91257",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=91257",
+   "question": "委托招商（也叫招商中介人、招商代理人）有什么奖励措施？",
+   "cited_hits": [],
+   "cited_missing": [
+    "贵港市人民政府办公室关于印发贵港市委托招商奖励暂行办法的通知",
+    "贵港市委托招商奖励申领表",
+    "贵港市委托招商奖励项目类型资格审核表",
+    "贵港市委托招商投资项目实际投入资金审核表"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "gx-igi-51",
+   "id": "100014101",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=100014101",
+   "question": "我想来贵港创业，请问贵港招商引资方面有什么优惠政策吗？想先了解一下",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-51",
+   "id": "157814403636",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814403636",
+   "question": "请问网站是否开设了政策文件相关栏目？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-51",
+   "id": "1578089723",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=1578089723",
+   "question": "想了解贵港对计划进驻三区工业园区项目的投资强度、税收、产值有什么规定？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-51",
+   "id": "91259",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=91259",
+   "question": "我是一个刚到贵港做实业的投资者，现在项目建设中遇到一些问题，请问如何联系你们？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

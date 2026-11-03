@@ -1,0 +1,199 @@
+{
+ "A_考卷": [
+  {
+   "source": "gx-igi-295",
+   "id": "157830080704",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157830080704",
+   "question": "未成年人满足什么条件才能被收养呢？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国民法典",
+     "lib_no": "中华人民共和国民法典",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gx-igi-295",
+   "id": "157814397318",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814397318",
+   "question": "本人与丈夫在来宾市领取结婚证，现想离婚。但结婚证丢失，现想了解没有结婚证该如何申请办理离婚登记。",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国民法典",
+     "lib_no": "中华人民共和国民法典",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国民法典",
+     "lib_no": "中华人民共和国民法典",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "gx-igi-295",
+   "id": "100212301",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=100212301",
+   "question": "来宾市孤儿、事实无人抚养儿童基本生活费的保障标准是多少.",
+   "cited_hits": [],
+   "cited_missing": [
+    "广西壮族自治区民政厅 广西壮族自治区财政厅 关于提高全区孤儿基本生活最低养育标准和事实无人抚养儿童基本生活补贴标准的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-295",
+   "id": "100053717",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=100053717",
+   "question": "请问男方来宾市兴宾区人，女方越南籍，结婚登记男女双方所需材料，十分感谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "婚姻登记工作规范"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gx-igi-295",
+   "id": "157814445785",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814445785",
+   "question": "请问办理收养登记手续可以只以夫妻其中一方的名义收养吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "中华人民共和国 收养 法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gx-igi-295",
+   "id": "157814195959",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814195959",
+   "question": "请问2021年清明节扫墓防疫防控要求、公墓扫描是否需要预约，能放鞭炮么？",
+   "cited_hits": [],
+   "cited_missing": [
+    "民政部办公厅关于做好2021年清明节祭扫工作的通知",
+    "自治区新冠肺炎疫情防控指挥部关于印发冬春季特别是春节期间疫情防控闭环管理等9项“十严格”措施的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-295",
+   "id": "1578083657",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=1578083657",
+   "question": "&nbsp;来宾市民政局工作人员你们好，我是来宾市忻城县人，我于2018年6月留学越南交了一位越南女朋友，我们双方父母也于今年8月份见过面，双方父母都同意我们结婚，我们在今年9月18号在中国驻越南大使馆拿到了s2的鉴证，我们打算这几天回中国",
+   "cited_hits": [],
+   "cited_missing": [
+    "办理涉外结婚登记须知",
+    "办理涉外结婚登记须知"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "gx-igi-295",
+   "id": "100010457",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=100010457",
+   "question": "请问 现在来宾市的低保保障保准是多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-295",
+   "id": "157830352339",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157830352339",
+   "question": "我和我爱人的是柳州市的，请问我们可以在来宾可以办理结婚证么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-295",
+   "id": "157830197807",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157830197807",
+   "question": "养老机构办理备案应当提交哪些材料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-295",
+   "id": "157814439741",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814439741",
+   "question": "国际劳动节特殊节假日当天，来宾市各县（市、区）婚姻登记处为群众提供结婚登记服务吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-295",
+   "id": "157814415836",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814415836",
+   "question": "请问民政局的上下班时间是几点？周末休息吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-295",
+   "id": "157814410206",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814410206",
+   "question": "本人是来宾的，对象是香港的，想在来宾结婚，需要准备什么材料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-295",
+   "id": "157814408025",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814408025",
+   "question": "来宾市民政局工作人员你们好，我是来宾市兴宾区三五乡人，我于2021年在阿联酋工作认识印尼女朋友，双方都有意向结婚，如今她人还在阿联酋工作，请问她到中国该申请什么签证（流程），我和我女朋友登记结婚需要准备什么材料呢？求告知，万分感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-295",
+   "id": "157814215960",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814215960",
+   "question": "武宣户口可以在兴宾区婚姻登记处登记结婚吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-295",
+   "id": "157814205111",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814205111",
+   "question": "请问一下，我和我女票都不是广西本地户口，但是都在来宾上班，能否在来宾办理结婚",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-295",
+   "id": "157814197717",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814197717",
+   "question": "起诉离婚，已下判决书，如何进行婚姻关系变更？还需要领离婚证么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-295",
+   "id": "1578083655",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=1578083655",
+   "question": "&nbsp;你好，想请问，我们之前已经设立有机构，已获得办学资质、营业执照。现想多增设职业培训，这些材料也要再重新提交一遍么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

@@ -1,0 +1,1380 @@
+{
+ "A_考卷": [
+  {
+   "source": "js-gxt2",
+   "id": "310933",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=310933&sysid=50",
+   "question": "企业投资技术改造项目备案政策咨询\n尊敬的领导你好：关于企业投资技术改造项目备案：1.假如企业在2021年投资建设，2023年才能完成投资，那2022年是否可以申请进行技术改造？技术改造立项是否要在完成投资以后才可以申请？2.企业投资技术改造",
+   "cited_hits": [
+    {
+     "name": "企业投资项目核准和备案管理条例",
+     "lib_no": "企业投资项目核准和备案管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "292221",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=292221&sysid=50",
+   "question": "工程款拖欠\n1、我司（江苏嘉树建设工程有限公司）在2020年6月4日公开招标过程中中标淮安市淮阴区渔沟镇人民政府渔沟镇养老服务中心装修改造工程，中标价为1881101.01元。该工程于2021年1月20日竣工验收合格、2021年6月9日审计",
+   "cited_hits": [
+    {
+     "name": "保障中小企业款项支付条例",
+     "lib_no": "保障中小企业款项支付条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "保障中小企业款项支付投诉处理暂行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "111899",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=111899&sysid=50",
+   "question": "关于外省取得食盐批发许可证的食盐定点生产企业\n关于外省取得食盐批发许可证的食盐定点生产企业（有效期2018年12月31日）在我省申请经营“食盐批发”的分支机构（分公司）是否需要重新核发《食盐批发许可》的请示 省经济和信息化委员会： 根据国发",
+   "cited_hits": [
+    {
+     "name": "公司法",
+     "lib_no": "公司法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "劳动合同法",
+     "lib_no": "劳动合同法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "食盐批发许可证"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "js-gxt2",
+   "id": "442587",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=442587&sysid=50",
+   "question": "咨询充电桩公司在居民小区内建设经营是否需要省工信厅备案公示\n请问某充电桩公司没有在江苏省工信厅新能源汽车充电设施建设运营承诺公示企业名单中，该公司是否可以在南京市居住小区内建设并运营充电设施？",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省新能源汽车充（换）电设施建设运营管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-gxt2",
+   "id": "434927",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=434927&sysid=50",
+   "question": "能评能耗计算的问题\n尊敬的领导，我是一名基层的能评审批人员，我想咨询下企业关于技改项目能评能耗计算的问题，企业在实际项目过程中，会有改扩建项目以及单纯的技改项目，请问下领导，如果是技改或者改扩建项目的能耗，是否按照本次备案项目的能耗计算，还",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省固定资产投资项目节能审查实施办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-gxt2",
+   "id": "432013",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=432013&sysid=50",
+   "question": "船舶产能\n《产业结构调整指导目录（2024年本）》鼓励类船舶项目是不是可以不受《国务院关于化解产能严重过剩矛盾的指导意见》（国发〔2013〕41号）文件要求的产能限制啊？是否能新增鼓励类船舶产能？",
+   "cited_hits": [],
+   "cited_missing": [
+    "国务院关于化解产能严重过剩矛盾的指导意见",
+    "产业结构调整指导目录（2024年本）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "430354",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=430354&sysid=50",
+   "question": "关于新B操作证设置业余无线电台问题\n我想咨询一下，江苏省各地市关于新B类操作证设台，功率可调的电台(最大功率100w),能否办理电台执照。目前咨询过南京市说可以设台，但是需要签署保证书以及为本地常住人口，而本人常住的镇江市、户口所在地泰州市",
+   "cited_hits": [],
+   "cited_missing": [
+    "业余无线电台管理办法",
+    "业余无线电台管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-gxt2",
+   "id": "426534",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=426534&sysid=50",
+   "question": "中兴通讯股份有限公司在江苏销售的路由器存在问题\n2025年2月11日中国移动通信集团江苏有限公司射阳分公司为我安装的Wi-Fi6千兆双频路由器，设备型号：ZXHN E2633,制造商是中兴通讯股份有限公司。经工信部官网查询中兴通讯股份有限公",
+   "cited_hits": [],
+   "cited_missing": [
+    "电信设备进网许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "425190",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=425190&sysid=50",
+   "question": "关于使用建筑弃土、煤矸石等原料生产烧结砖的咨询\n某企业使用建筑弃土、煤矸石、工业污泥(一般固废)、煤渣、粉煤灰等原料，通过破碎、陈化、焙烧等工艺生产烧结保温砌块。根据《国民经济行业分类注释》，“新型烧结砖(空心、利废、生物质建材、节能保温、",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省“两高”项目管理目录（ 2024 年版）",
+    "省政府关于取消行政审批项目和承接国务院下放行政审批项目的通知",
+    "关于完善资源综合利用增值税政策的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "419345",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=419345&sysid=50",
+   "question": "专精特新申报咨询\n领导您好：       我有两件事想咨询：       1.请问2025年度省级专精特新中小企业是否会修改认定办法？       2.请问2025年度省级专精特新中小企业会有几批次申报？盼回复，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省优质中小企业梯度培育实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "398573",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=398573&sysid=50",
+   "question": "新能源汽车充电桩建设问题咨询\n尊敬的省工信厅领导，您好！我是负责项目立项的基层工作人员。现有新能源汽车充电桩项目的问题咨询如下：根据《江苏省新能源汽车充（换）电设施建设运营管理办法》（苏工信规〔2022〕2号），在既有车位安装充电桩，按一般",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于加快电动汽车充电基础设施建设的指导意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "396450",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=396450&sysid=50",
+   "question": "新能源充电桩安全监管\n请问，新能源充电桩的安全监管由哪个部门负责，有无相关文件。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步促进电动汽车充（换）电基础设施健康发展的实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "383575",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=383575&sysid=50",
+   "question": "软考考试合格人员登记表\n你好，我曾参加2020年下半年的软考中级，考试合格获得证书，但是并未收到考试合格人员登记表，请问这个是要单独申请吗？谢谢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "中国人事考试网"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "380470",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=380470&sysid=50",
+   "question": "新的《业余无线电台管理办法》具体怎么实施\n新的《业余无线电台管理办法》将于2024年3月1日实施，但关于未成年设台并无前例，新的表格，关系说明，工信部都没有给出具体的例子，故来此询问江苏省各市如何实施",
+   "cited_hits": [],
+   "cited_missing": [
+    "业余无线电台管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-gxt2",
+   "id": "372425",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=372425&sysid=50",
+   "question": "“专精特新”企业数据咨询\n您好，想咨询一下截至2023年9月省，江苏省一共有多少家专精特新中小企业？他们的行业或产业分布情况是什么样子？每个市区分别有多少家专精特新中小企业？以及江苏省共有多少家专精特新企业完成上市了，有没有详细名单。",
+   "cited_hits": [],
+   "cited_missing": [
+    "省政府政务公开条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "353757",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=353757&sysid=50",
+   "question": "新增铸造项目咨询\n您好！因公司生产经营需要，我公司拟在昆山市建设铸造项目，从事铁、铝压铸件生产，由于工信厅联装〔2019〕44号文已被《关于推动铸造和锻压行业高质量发展的指导意见》（工信部联通装【2023】40号）废止，想咨询一下，江苏省目",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于推动铸造和锻压行业高质量发展的指导意见",
+    "工业和信息化部办公厅 发展改革委办公厅 生态环境部办公厅关于重点区域严禁新增铸造产能的通知",
+    "江苏省铸造产能置换管理暂行办法",
+    "江苏省行政规范性文件管理规定",
+    "江苏省铸造产能置换管理暂行办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-gxt2",
+   "id": "353290",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=353290&sysid=50",
+   "question": "铸造相关咨询\n我是无锡华乾科技有限公司，因公司生产经营需要，我公司拟增加5G射频滤波器铸造及加工生产项目，在咨询办理相关审批手续的过程中，我公司得知工业和信息化部 国家发展和改革委员会 生态环境部发布了《关于推动铸造和锻压行业高质量发展的指",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于推动铸造和锻压行业高质量发展的指导意见",
+    "工业和信息化部办公厅 发展改革委办公厅 生态环境部办公厅关于重点区域严禁新增铸造产能的通知",
+    "江苏省铸造产能置换管理暂行办法",
+    "江苏省行政规范性文件管理规定",
+    "江苏省铸造产能置换管理暂行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "348838",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=348838&sysid=50",
+   "question": "铸造产能置换问题咨询\n领导您好，近日工业和信息化部 国家发展和改革委员会 生态环境部关于推动铸造和锻压行业高质量发展的指导意见已正式实施，我省铸造项目产能置换政策是否继续实施？急盼回复！感谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "工信部、国家发改委、生态环境部关于推动铸造和锻压行业高质量发展的指导意见",
+    "工信部办公厅 发改委办公厅 生态环境部办公厅关于重点区域严禁新增铸造产能的通知",
+    "江苏省铸造产能置换管理暂行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "341072",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=341072&sysid=50",
+   "question": "铸造技改项目咨询\n领导您好，请问企业新上3台热处理炉，一台粗磨机，同时再上一套砂再生系统，在现有的砂再生工序后面在增加一道砂再生处理，用于提高效率，增加砂型优良率，降低废砂产量，请问此类技改项目需要首先履行产能置换手续吗？诚盼答复，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省铸造产能置换管理暂行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "295414",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=295414&sysid=50",
+   "question": "关于公布2019年省级工业企业技术中心评价结果的通知\n尊敬的领导：        我单位参加了2019年省级工业企业技术中心评价工作，但不知道评价结果，也在本网站上查询不到《关于公布2019年省级工业企业技术中心评价结果的通知》苏工信创20",
+   "cited_hits": [],
+   "cited_missing": [
+    " 2019 年省级工业企业技术中心评价结果"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "293557",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=293557&sysid=50",
+   "question": "2022年度江苏省工业和信息产业转型升级专项资金项目指南\n《省工业和信息化厅 省财政厅关于组织2022年度江苏省工业和信息产业转型升级专项资金项目申报的通知》苏工信综合〔2022〕115号，附件1 2022年度江苏省工业和信息产业转型升级专",
+   "cited_hits": [],
+   "cited_missing": [
+    "2022年度江苏省工业和信息产业转型升级专项资金项目指南"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "290844",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=290844&sysid=50",
+   "question": "《江苏省新能源汽车充电设施建设运营管理办法》文件是否有效？\n《江苏省新能源汽车充（换）电设施建设运营管理办法》苏工信规（2022）2号文件出台以后，《江苏省新能源汽车充电设施建设运营管理办法》苏工信产业〔2019〕49号这份文件是否有效？",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省新能源汽车充（换）电设施建设运营管理办法",
+    "江苏省新能源汽车充电设施建设运营管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "273126",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=273126&sysid=50",
+   "question": "铸造技改项目咨询\n领导您好，请问企业对原先铸造生产线的造型和浇注环节进行自动化改造，需要履行产能置换手续吗？主要新增智能固定双臂造型机、智能升降振实台、智能链式合箱机、自动链式翻转起模流涂机等设备，不涉及熔炉，不新增产能，代替人工传输；工艺",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省铸造产能置换管理暂行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "249851",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=249851&sysid=50",
+   "question": "油漆厂转型升级\n领导：     我公司为油漆生产企业，需要领维修化学品生产许可证，结合省里要求对危化品企业数量压缩，我公司积极谋求转型升级，我公司积极淘汰危险化学品生产，转型生产国家鼓励的无危险性、环保水性涂料，请问政府是否允许支持？",
+   "cited_hits": [],
+   "cited_missing": [
+    "危险化学品生产许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "243257",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=243257&sysid=50",
+   "question": "铸造产能置换的问题\n领导您好！请问铸造退出产能的企业和产能置换的企业是否可以为不同家不同地址，例：A企业在B地址的铸造产能退出一部分，然后C企业在D地址等量置换高端产能，这样是否可行，感谢领导的答复！",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省铸造产能置换管理暂行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "150748",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=150748&sysid=50",
+   "question": "铝合金材料制造项目行业类别的咨询\n企业位于江苏省苏州市相城区，拟扩建交通运输轻量化铝合金材料生产项目，采用99.7%纯铝锭作为基料，加入工业硅、铁、铜几类中间金属，通过配料、熔化、冷却结晶、锯切工序，生产铝合金圆柱锭。对照《国民经济行业分类",
+   "cited_hits": [],
+   "cited_missing": [
+    "铸造手册"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "130604",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=130604&sysid=50",
+   "question": "复旦大学工信部领军人才\n国家工信部中小企业经营管理领军人才项目，复旦大学是上海市唯一承担高校，服务于年营业额在1000万以上的中小企业，看能否与江苏省工信厅强强联合，结合高校与政府的优势，响应国家号召，为企业提供培训、人才、技术与政策服务。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好2018-2019年度中小企业经营管理领军人才培训工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "127493",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=127493&sysid=50",
+   "question": "关于如何参与新能源汽车动力蓄电池的回收梯次处理的资质申领认证\n我司是一家专业从事锂电池的组装测试外商公司，针对目前国内市场即将面临的新能源车动力蓄电池的退役潮，我司规划开展针对新能源汽车动力蓄电池回收梯次处理部分业务，但就目前政策法规面如何",
+   "cited_hits": [],
+   "cited_missing": [
+    "新能源动力蓄电池回收利用管理暂行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "124403",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=124403&sysid=50",
+   "question": "关于引导烧结砖瓦行业退出低端低效产能相关问题的咨询\n省工信厅：        为贯彻落实省工信厅《关于扎实做好2019年度去产能工作的通知》（苏工信产业【2019】1号）文件精神，现就烧结砖瓦（年产量3000万块及以下的隧道窑生产线）低端低",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省打赢蓝天保卫战三年行动计划实施方案",
+    "江苏省新型墙体材料产品目录",
+    "江苏省新型墙体材料产业导向",
+    "江苏省打赢蓝天保卫战三年行动计划实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "123763",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=123763&sysid=50",
+   "question": "砖瓦行业企业申请技改扩能是否符合产业政策？\n2018年9月30日省政府《关于印发江苏省打赢蓝天保卫战三年行动计划实施方案的通知》（苏政发〔2018〕122号）规定“烧结砖瓦行业仅保留年产量 3000 万块以上的隧道窑生产线”，但对是否允许通",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省新型墙体材料产品目录",
+    "江苏省新型墙体材料产业导向",
+    "江苏省打赢蓝天保卫战三年行动计划实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "120515",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=120515&sysid=50",
+   "question": "关于建材、砖瓦是否能新增产能？\n尊敬的领导，您好！在《江苏省打赢蓝天保卫战三年行动计划实施方案》（苏政发〔2018〕122号）文件的第二大条的（四）严控“两高”行业产能中第二段、铸造、焦化、建材、电解铝等产能压减力度。想咨询一下，现在新建建",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于严肃产能置换严禁水泥平板玻璃行业新增产能的通知（工信厅联原〔2018〕57号）",
+    "江苏省打赢蓝天保卫战三年行动计划实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "111077",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=111077&sysid=50",
+   "question": "关于铸造新增产能的认定及新材料项目是否属于铸造范畴的问题\n尊敬的经信委领导：我是海门的基层招商人员。我区引进一家新材料类3D打印粉末及精密锻铸件项目，项目于2017年9月已经备案登记，该项目的精密锻铸件主要应用于航空航天、石油石化、舰艇等关",
+   "cited_hits": [],
+   "cited_missing": [
+    "国务院关于印发打赢蓝天保卫战三年行动计划的通知",
+    "工业和信息化部关于印发坚决打好工业和通信业污染防治攻坚战三年行动计划",
+    "江苏省企业投资项目核准和备案管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "110062",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=110062&sysid=50",
+   "question": "关于新增产能的时间节点如何认定\n工信部于7月23日发布《坚决打好工业和通信业污染防治攻坚战三年行动计划》，其中规定在重点区域（包括江苏省）严禁新增铸造等产能，请教在该行动计划发布前已经取得《江苏省投资项目备案证》，但还未开工建设的铸造项目，",
+   "cited_hits": [],
+   "cited_missing": [
+    "国务院关于印发打赢蓝天保卫战三年行动计划的通知",
+    "工业和信息化部关于印发坚决打好工业和通信业污染防治攻坚战三年行动计划",
+    "江苏省企业投资项目核准和备案管理办法"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "js-gxt2",
+   "id": "455001",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=455001&sysid=50",
+   "question": "职称证书什么时候可以下发\n请问25年省工信厅组织评审的石油化工高级评审通过结果什么时候发布，什么时候可以网上下载证书。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "429746",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=429746&sysid=50",
+   "question": "农村居民宅基地上是否可以安装商用充电桩\n农村居民宅基地上是否可以安装商用充电桩,需要哪些手续",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "427592",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=427592&sysid=50",
+   "question": "关于合规园区定义的咨询\n尊敬的省领导，您好，我是基层窗口项目备案人员。请问《省政府关于加快推动化工产业高质量发展的意见》苏政规〔2024〕9号文中，提到的“以物理加工为主要生产方式的非危险化学品生产项目……支持润滑油、涂料等以物理加工为主要",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "414703",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=414703&sysid=50",
+   "question": "关于硫酸铵颗粒挤压加工项目是否属于化工项目的咨询\n领导好！化工项目通常包括石油、煤炭及其他燃料加工业，化学原料和化学制品制造业等。硫酸铵作为烟气脱硫企业的副产品，通过外购电力、焦化、己内酰胺等行业副产硫酸铵，通过物理挤压造粒，主要能源消耗：",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "403034",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=403034&sysid=50",
+   "question": "咨询以旧换新方案关于家装家居改造，支持绿色建材产品消费的问题\n你好，近日，省发展改革委、省财政厅联合印发《江苏省推动超长期特别国债资金支持消费品以旧换新的实施方案》。请问家装家居补贴部分的细则在哪里查看，或是什么时候出台？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "397271",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=397271&sysid=50",
+   "question": "江苏省专精特新中小企业申报\n领导您好：        请问2024年度会有第二批省级专精特新中小企业申报嘛？预计何时呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "394670",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=394670&sysid=50",
+   "question": "关于咨询高新技术企业申报专项报告的事项\n领导您好，我想咨询下《高新技术企业认定管理办法-2016》、《高新技术企业认定管理工作指引-2016》等文件要求：企业可自行选择符合条件的中介机构。同时，江苏省高企认定管理工作协调小组办公室于2024",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "383855",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=383855&sysid=50",
+   "question": "业余无线电台办理相关问题\n1，业余无线电台办理是否需要本人亲自携带设备到场办理（有的市可以在网上直接办理，证件邮寄）2，对于没有网上办理的地区，可不可以将所需材料邮寄至到相关单位要求办理（申请人身份证明（身份证复印件），业余电台操作证书（复",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "379684",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=379684&sysid=50",
+   "question": "爱加健康随身行app没有注销账户功能\n爱加健康随身行app（江苏爱家医疗科技有限公司）没有注销账户功能，希望能提醒能该公司开发注销账户功能。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "379445",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=379445&sysid=50",
+   "question": "关于移动、联通号码归属地无法更改导致异地无法使用新套餐的问题\n尊敬的厅长您好。本人无锡人，因在南京读大学所以两个手机号归属地都是南京，两个手机号绑定了大大小小很多app和银行卡等重要信息，很难注销令起新号。如今因在无锡发展，家人也办理了家庭",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "378417",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=378417&sysid=50",
+   "question": "微信小程序备案的相关问题\n在备案小程序时，本省厅退回，想咨询下退回的具体原因及修改建议。需要提供小程序备案审批的咨询电话。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "377655",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=377655&sysid=50",
+   "question": "咨询数据\n您好，我是一名南京的在读研究生，想请问一下，在哪里可以获得合法合规且不影响国家安全的一些关于基站的频谱占用度\\频谱功率密度数据呢？对研究课题有很大帮助，实在是在网上找不到，所以冒昧咨询，希望回复。感谢帮助。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "376248",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=376248&sysid=50",
+   "question": "个人电动汽车充电桩共享咨询\n各位领导： 现在农村地区充电桩少，电动汽车充电困难，国家正在大力发展新能源，随着新能源汽车的数量日益剧增，而农村公共充电基础设施缺乏。如果个人充电桩可以开放共享，不但能提升个人充电桩利用率，盘活个人充电桩资源，还",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "372824",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=372824&sysid=50",
+   "question": "微信公众号\n请问你们单位有没有官方微信？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "371145",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=371145&sysid=50",
+   "question": "关于企业自营\n苏州企业在抖音开自营店铺或自建网站，店铺内销售自营商品，包括课程、书籍等，需要ICP证吗？之前在浙江省、广东等多地通信管理局网站看到相关通知公告，内容为：“根据有关规定及工业和信息化部要求，下列业务形态无需取得《增值电信业务经",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "353785",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=353785&sysid=50",
+   "question": "国产数据库入围江苏省信创目录相关流程咨询\n领导好，我们是上海市一家做数据库的企业。现在我们刚推出了一款新版国产数据库产品，想在江苏省地区推广应用。我们目前正在上海经信委下属的适配中心做信创入围测试，但是江苏这边不清楚找什么部门办理相关流程，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "353264",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=353264&sysid=50",
+   "question": "铸造项目产业政策咨询\n你好，工信部联通装(2023)40号文出台以后，铸造类项目是否需要产能置换?工艺流程:铝锭–铝水–铝棒–挤压–表面处理；这样的项目是否落户?或者有没有新的文件要求？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "350340",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=350340&sysid=50",
+   "question": "关于开展第四批省级绿色工厂暨第一批省级 绿色工业园区推荐工作\n领导您好，近日我厅发布《关于开展第四批省级绿色工厂暨第一批省级 绿色工业园区推荐工作》，其中提到“已发布绿色工厂评价行业标准的（可登录工业和信息化部节能与综合利用司网站查看），需",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "349891",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=349891&sysid=50",
+   "question": "新建小区地下停车场是否有要求按照100%预留充电设施\n江苏省徐州市新沂市河滨天境雅苑小区的电力验收在即，但是小区地下室停车位并未按照国务院以及省工业和信息化厅以及相关其他部门相关要求按照100%预留相关充电设施，也为预留相关容量，请问是否可",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "347202",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=347202&sysid=50",
+   "question": "江苏省17年以来新能源汽车产量\n您好，我希望能够获得2017-2022年江苏省全年新能源汽车产量。谢谢！目前在网站上只找到了相关文章披露的2018、2020-2022年的。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "345976",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=345976&sysid=50",
+   "question": "徐州丰县李寨电信局多收费\n我在2018年办理的99块钱的套餐，然后李寨电信局在我不知情的情况下，另外开通了高清TV，高清机顶盒，每个月多收55块钱，而且，到现在李寨电信局都说我没有用过，他们说，用不用都是要收费，我明明办理的套餐，当时是没有",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "345214",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=345214&sysid=50",
+   "question": "高级经济师评审\n本人已取得中级经济师，方向是人力资源管理，目前在本单位没有聘任该中级职称。请问像我这样没有聘任中级经济师职称是否可以评审高级经济师？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "342639",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=342639&sysid=50",
+   "question": "关于苏工信规【2022】2号文件第二十四条政策解读。\n我想在小区内投放运营充电桩。每个小区投放5台左右，安装在公共车位上。给小区内所有有充电需求的车主提供充电服务。请问我这种情况在政策内的情况属于集中式经营性充（换）电设施用电还是其他充（换",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "333068",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=333068&sysid=50",
+   "question": "江苏省电力建设征地拆迁补偿现在按哪个文件执行\n苏政办发(2009)4号已经失效，江苏省电网建设征地拆迁补偿，现在执行的省下发的哪个文件，文件号是多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "311807",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=311807&sysid=50",
+   "question": "关于江苏省大数据中心项目纳入国家和江苏省规划布局方案的事宜\n之前回复，根据省委省政府文件要求，对未纳入国家和江苏省规划布局方案及没有落实能耗指标的大数据中心等新型用能项目，不予支持。那咨询一下如何办理纳入国家和江苏省规划布局方案的相关手续",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "309902",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=309902&sysid=50",
+   "question": "软考获得高级职称，如何获取正高级职称\n2017年5月份获得了计算机技术与软件专业技术资格证 （专业：信息系统项目管理师），高级职称，有什么途径 获得  正高级职称？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "309077",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=309077&sysid=50",
+   "question": "江苏省新能源汽车充（换）电设施建设运营 承诺公示企业\n你好，我公司参加了了江苏省新能源汽车充（换）电设施建设运营承诺公示资格申请，请问第二批的名单什么时候公示？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "308715",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=308715&sysid=50",
+   "question": "关于2022年汽车下乡\n领导你好，请问我们江苏省2022年新能源汽车下乡巡展的巡展时间与巡展城市的具体规划是怎么安排的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "307188",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=307188&sysid=50",
+   "question": "铸造技改项目咨询\n领导您好，请问企业对铝轮毂生产线进行节能环保提升改造，具体为对企业的熔铝炉上一套余热利用系统，在配套一套烟气治理系统，同时新购置模具，并淘汰一些模具，不新增产能，工艺流程不变，请问此类技改项目需要首先履行产能置换手续吗？诚",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "281322",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=281322&sysid=50",
+   "question": "江苏省首台套奖励政策\n您好！我想咨询一下咱们江苏省最新的首台套奖励政策。在工信厅的官网未搜索到相关政策文件。烦请告知，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "274841",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=274841&sysid=50",
+   "question": "企业安装分布式光伏发电项目，还有补贴政策吗？\n尊敬的领导：您好！我想咨询一下，我们江苏省企业安装分布式光伏发电项目，现在还有补贴政策吗？如果有具体政策是哪些？在哪里可以查到相关资料，谢谢您！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "272261",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=272261&sysid=50",
+   "question": "财政决算报告\n您好，请问贵单位网站的2020年财政决算报告发布了吗？能否提供网址链接给我？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "263802",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=263802&sysid=50",
+   "question": "“天眼查”网站不经企业同意，发布企业信誉不良信息\n“天眼查”网站（https://www.tianyancha.com/?jsid＝SEM-BAIDU-PZ-SY-2021112-JRGW），未经企业同意，发布登记我单位（南京月茂工贸有限公",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "260091",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=260091&sysid=50",
+   "question": "投诉中国移动违规操作乱扣费\n本人手机号18361914125从2020年6月至2021年8月，移动公司在未经本人同意的情况下开通“智伴会员”服务，每月扣费30元，总计420月。本人于8月7日便与10086沟通协商处理，要求返还本金420元以",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "252310",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=252310&sysid=50",
+   "question": "企业节能改造补贴咨询\n尊敬的江苏省工信厅，您好。这里是肖特玻璃科技（江苏）有限公司的采购部门。本公司在江苏省的工厂位于苏州市新区，主要业务是平板玻璃、微晶玻璃、医药玻管的生产和销售。为了实现碳中和的目标，目前公司计划对工厂的一些生产设备进行",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "251619",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=251619&sysid=50",
+   "question": "关于咨询产业转型升级 专项资金项目的问题\n您好，我是天康生物制药有限公司，我司规划在江苏省苏州市新建工厂生物制药产业，主要生产兽用疫苗，园区预算10亿元，规划打造生物制药智慧物流中心、智能工厂。但是项目计划2021年10月才开始土建施工，请",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "251027",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=251027&sysid=50",
+   "question": "CMMI3补贴\n2020取得CMMI3今年有何政策补贴可以享受？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "245671",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=245671&sysid=50",
+   "question": "投诉南京移动\n我用身份证办理了南京移动号码，13805143138，前天突然电话无法打出，多次拨打10086，总说后台在处理，已经两天不能打电话了。希望移动要么退费，要么开通电话",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "243369",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=243369&sysid=50",
+   "question": "长城宽带断网一直不维修\n家里装的是长城宽带，从5月6日早上开始断网，一直到5月8日都没有维修，期间打了5、6次电话给到长城宽带客服申请维修，客服一直只回复尽快安排技术人员联系并维修，但是一直都没有技术人员 联系我。我在5月7日下午打了123",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "242623",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=242623&sysid=50",
+   "question": "办事处对外电话长时间无法接通\n职称办事处电话，025-83392413  还有另外一个电话，每次打  都是滋滋啦啦的根本听不见人声，一个星期前就这样了，现在还是没整好，一共留三个电话，两个是坏的，一个无人接听",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "240389",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=240389&sysid=50",
+   "question": "关于连铸连轧是否属铸造的咨询\n现有一项目外购铜锭，经过熔融后变为铜水，通过连铸连轧设备，生产成为铜杆，请问该项目属于铸造吗？需要进行铸造产能置换吗？恳请厅长回复，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "228183",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=228183&sysid=50",
+   "question": "咨询江苏省绿色工厂荣誉取到后的统一标识问题\n你好!       根据苏工信节能〔2020〕650号关于公布江苏省绿色工厂名单（第一批）的通知第五条:统一标识:          列入江苏省绿色工厂名单的企业可按我厅规定的样式自行制作标牌，用",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "227022",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=227022&sysid=50",
+   "question": "连云港师范高等专科学校联通办理点未履行其办理承诺\n问题阐述：    本人于2020年10月14号在连云港师范高等专科学校联通营业厅办理一张”校园卡“卡号：13092391168。当时营业厅承诺办理联通校园卡送宽带，进行了相应的登记并承诺在一",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "217328",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=217328&sysid=50",
+   "question": "投诉移动运营商信号覆盖问题\n我们海门翡翠甲第小区今年6月就交房，至今没有手机信号，家里电话都打不出去，我家有老人小孩，如果发生突发情况电话打不出去怎么办。我们交了话费，手机现在就是摆设，多次向本地移动反映，至今没有答复。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "214169",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=214169&sysid=50",
+   "question": "关于外墙保温材料及建筑涂料备案相关问题的咨询\n请问江苏省对于外墙保温材料及建筑涂料是否要求产品备案，该种备案是否属于市场准入性质的备案？若需备案，请问依据性文件是什么？盼回复，感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "204142",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=204142&sysid=50",
+   "question": "投诉中国移动扬州市江都分公司\n本人家属于2017年5月左右与该公司合作，在该公司未出示正式合同的时候要求本人缴纳3万元合作保证金，该公司于当年8月时下发了合作合同，该合同存在多处霸王条款。但是考虑到当时已投资了相当的资金，如若不签合同损失无",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "163262",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=163262&sysid=50",
+   "question": "高级工艺美术师申报\n领导：          您好！          请问江苏省2020年高级工艺美术师啥时候开始申报，谢谢您！          祝好！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "154483",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=154483&sysid=50",
+   "question": "江苏2019年政府网站工作年度报表哪里能看到？\n江苏2019年政府网站工作年度报表哪里能看到？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "154337",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=154337&sysid=50",
+   "question": "高级经济师证书发放事宜\n您好，听闻今年高级经济师不再发放纸质证书改为电子版，请问在何时在何处可以查询下载，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "153225",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=153225&sysid=50",
+   "question": "关于机构改革\n自南京市进行机构改革以来，暂停了业余无线电操作证的考试，至今没有恢复考试，作为一个无线电爱好者使我非常难受，我希望按照国家法律的要求，在南京本地进行考试，但是由于机构改革已经暂停了2019年度的上下半年两次考试，关于考试的公众",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "152370",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=152370&sysid=50",
+   "question": "针对2019年石化高级工程师评定咨询落选原因\n尊敬的厅长：  您好！    针对2019年石化高级工程师评定王世珍想咨询落选原因，以便之后继续努力。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "151702",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=151702&sysid=50",
+   "question": "石油化工高级职称何时评审？\n尊敬的工信局厅长：       您好，麻烦问下2019年江苏省石油化工类的高级职称何时安排评审，今年材料提交比往年提前了一个月，而评审结果却推迟了快一个月都没出结果？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "150167",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=150167&sysid=50",
+   "question": "请问如何认定“新增铸造产能”\n我是基层审批人员，根据三部委印发关于重重点区域严禁新增铸造产能的文件通知，请求咨询如何认定“新增铸造产能”。是否生产过程中有熔炼、压铸环节就可以认定为新增铸造产能？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "149284",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=149284&sysid=50",
+   "question": "请问企业自行开发或购买管理软件和相应服务，是否有补助？\n其他省市如深圳、天津都对企业信息化建设项目都有补助，我们江苏省是否有?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "148457",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=148457&sysid=50",
+   "question": "关于高级经济师论文问题\n我本科专业是财务管理，中级经济师专业是财政税收，从事的工作是房地产国企的会计工作，已发发表了两篇论文，一篇是偏建筑的，还有一篇是偏房地产的，请问这两篇论文可以参加高级经济师评审吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "146387",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=146387&sysid=50",
+   "question": "铸造产能的统计\n尊敬的领导您好：我是宿迁市沭阳县的一个机械厂。最近省里在梳理统计铸造产能，由于我们企业设立的年份是2003年，当时发改局还没有成立，所以没有发改委立项批文，但是有环评建设审批，到档案馆查询早期材料，由于年份长，纸质材料找不到",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "146192",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=146192&sysid=50",
+   "question": "电信无理由停我手机\n今年7月电信以工信部发的公文认为我电话打的比较多、在不知情的情况下就把我手机停机了、在匆忙复机后、也不知道二次被停就不好复机、没几天就又被停机、多次交涉都没结果、我也一直举证、说明自己身份和职业、可电信不经任何调查就一直",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "145485",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=145485&sysid=50",
+   "question": "铸造项目能评以及产能置换咨询\n尊敬的省工信厅领导：我工业园区有一在建项目主要生产沟槽式管接头，在生产工艺中存在有铸造。该项目原本生产于我市另一区镇，于2017年启动搬迁至我处工业园区，同年取得立项批复，次年年底开工建设。在建设过程中企业经过",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "144952",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=144952&sysid=50",
+   "question": "铸造产能的确认\n尊敬的省厅领导好！请教第一个问题现有铸造产能的确认是依据：1、企业备案的产能；2、企业现有设备的设计产能；3、历年实际产量；4、前者综合考虑？并请告知法律或政策依据。第二个问题铸造企业正在建设过程中（如正在厂房建设或是设备安",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "144196",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=144196&sysid=50",
+   "question": "有关中国移动霸王条款的问题\n我与2019年6月10日前往中国移动营业厅，要求办理过户手续。营业厅人员告知我因为我的号码下有中国移动赠送的免费流量活动，因此无法过户。在2019年9月13日我再次前往相同营业时，被告知因为我的号码属于“吉祥号码",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "143637",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=143637&sysid=50",
+   "question": "建立财政支持的免费培训项目的公开发布和报名系统，\n建立财政支持的免费培训项目的公开发布和报名系统，采购培训视频、实操课程和考试问题：1、大量财政支持的培训项目发布，零散发布不利于学员的快速获取；2、报名工作消耗大量的公务员、培训机构的工作时",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "143051",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=143051&sysid=50",
+   "question": "盐城电信恶意收费霸王条款\n开通并且预付了1年宽带费用到期后没有续订，盐城电信私自扣款并延长服务，没有任何理由，并且不予客户提供拆机。请相关部门给与帮助",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "142833",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=142833&sysid=50",
+   "question": "省软件企业技术中心和软件企业转型升级计划\n你好，我想了解下省软件企业技术中心和软件企业转型升级计划有无资金扶持，其政策利好是什么？申报这类项目是否需要先通过“软件企业评估”？另外，省级科技项目里有专门针对软件企业的吗？目前我就了解到工业和信",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "142454",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=142454&sysid=50",
+   "question": "钢铁产能指标买卖\n1、钢铁产能指标买卖后是否需要政府组织验收组实地考察验收？2、验收组的工作流程和内容是什么？（烦请提供相应的法律法规）3、如钢铁生产设备所有者拒绝验收，不拆除核心设备，是否影响整个钢铁产能指标的交易达成？4、如钢铁产能指标",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "142411",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=142411&sysid=50",
+   "question": "企业在线监测设备使用的流量卡为什么一定要注册在个人名下？\n厅长先生：您好！冒昧打扰！随着科技的不断发展，通讯已进入到5G时代，飞速通讯带领很多行业同时兴起，手机卡现在不只是单纯用于人的通讯，在很多领域中都在运用，这将归功于5G的崛起。比如，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "141637",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=141637&sysid=50",
+   "question": "关于业余无线电台增设、变更业务咨询\n尊敬的省厅领导，本人为省内业余无线电爱好者。自今年贵司机构改革以来。我所在的江苏省徐州市因为改革问题一直未开展业余无线电资格能力验证考试及无线电台增设、变更等业务。本人曾多次致电徐州市无线电管理处，得到答",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "139567",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=139567&sysid=50",
+   "question": "职称问题咨询\n本人2003年参加工作，于2012年计算机本科毕业，2013年通过软考（信息系统项目管理师）,请问学历和年限满足今年参加电子信息类正高级工程师的条件吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "138310",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=138310&sysid=50",
+   "question": "依申请公开渠道\n请问贵单位的依申请公开渠道有哪些？是否可以网上提交？提交渠道是？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "138057",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=138057&sysid=50",
+   "question": "《融资性担保公司管理暂行办法》有无废止？\n在《融资性担保公司监督管理条例》及四项配套制度发布后，原2010年七部委发布的《融资性担保公司管理暂行办法》是否废止？还是与现行制度并行？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "138003",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=138003&sysid=50",
+   "question": "关于职称评定有关事宜\n尊敬的领导：一年一度的职称评定工作又开始了，我想向您反映一个问题，就是原来经济师系列涵盖人力资源专业的，只是最近两年划分出去了，把人力资源专业单独列出，作为人社系统的人员，有的人员由于客观因素，并不想评定人力资源专业，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "137402",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=137402&sysid=50",
+   "question": "提交备案变更，结果备案主体却被注销了！\n尊敬的领导，我是南京芸杏堂化妆品有限公司法人，我们公司于2016年备案了一批域名，备案号为：苏ICP备16051981号，其中有一个域名后缀为.eu，后来公司业务调整，于是我们在2019年6月3日做了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "137370",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=137370&sysid=50",
+   "question": "咨询无线电操作证的发放时间\n你好，我于6月1日在南通市参加了无线电操作证a类考试，合格通过。通知是一个月左右拿证。因为马上要外出了，今天打电话咨询了一下，说是证还没有到南通市，还在省里！想咨询一下，还需要多久证能下来。谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "135895",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=135895&sysid=50",
+   "question": "部门职能咨询\n您好，前段时间江苏省机构改革，请问贵单位现在的部门职能是什么？在网站上哪里能找到？能否提供网址给我？谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "133216",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=133216&sysid=50",
+   "question": "求助\n我去年4月在江苏移动续了18年5月1日至19年4月30日一年期的宽带，期间每月从我话费账户扣25元，然后返还25元到我话费账户。经查2018年5月账单，当月扣了25元，但未返还25元。现在南京移动的解释是2018年5月账单超过了半年、",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "132934",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=132934&sysid=50",
+   "question": "关于中国电信南京公司服务不作为的投诉\n本人于2019年5月2日早上九点通过中国电信天翼生活App申请办理同城第二条宽带新装业务（业务号码：18951895018），9:07订单提交成功，根据页面的活动规则显示:当天15点前提交的订单当天完成",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "132922",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=132922&sysid=50",
+   "question": "通过了国家软考，需要参加继续教育吗?\n我前几年分别通过了计算机技术与软件专业技术资格（水平）考试中的数据库工程师和系统架构师，分别是中级和高级，请问，我需要参加继续教育吗？如果需要，在哪儿参加。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "132702",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=132702&sysid=50",
+   "question": "政策咨询\n我司有一套10万吨苯胺装置将于今年年底前停运拆除（装置手续齐全），请问除了可以申请节能量认定外，还有其他相关补贴之类的政策吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "132594",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=132594&sysid=50",
+   "question": "关于移动侵犯公民合法权益问题。\n尊敬的厅长您好，本人移动手机号码已经用了2年多，一直正常使用。在4月27日晚6点被移动强制停机。询问移动客服，告知是响应南京公安部防网络诈骗安全条例，我的手机涉及通讯异常，强制停机。事后我拨打了南京110报警",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "132295",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=132295&sysid=50",
+   "question": "寻找物流省及各市物流指数（2006年以后）\n尊敬的省工信厅的同志，你们好！      我是徐州工程学院的一名教师，目前研究江苏物流发展情况，需要找到2006年—2018年江苏省及各市物流指数。如果可能请发460946996@qq.com,非",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "132205",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=132205&sysid=50",
+   "question": "咨询关于省认定建筑业企业技术中心评价工作事宜\n尊敬的工信厅领导：       根据《江苏省认定建筑业企业技术中心管理办法》（2011年修订，以下简称《办法》）及《江苏省建筑业企业技术中心评价指标体系》，省经信委会同省住房城乡建设厅对江苏省认",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "132054",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=132054&sysid=50",
+   "question": "咨询\n企业用蒸汽，原来使用燃煤锅炉，为响应国家的环保政策，现在欲使用农林废弃物（树枝、秸秆等）生物质原料在气化炉中高温热解气化，产生余热烟气进入锅炉产生蒸汽，请问该项目备案是否按照一般工业项目备案？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "131851",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=131851&sysid=50",
+   "question": "关于软考的职称认定问题\n厅长您好：关于软考证书的中级是否对应中级职称问题，我想得到一个明确的答案。江苏省农林职业技术学院招聘要求中级以上职称，那我的软考中级能不能算有效证件，是不是具有报名资格，如果我具有报名资格，农林职业技术学院拒绝我的报",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "129609",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=129609&sysid=50",
+   "question": "淘宝闲鱼账号被人恶意举报 申诉无效\n3月22号 我的闲鱼账号被通知违规（危及交易安全），可是我并没有任何违规。举报人是一个淘宝名为单逸文的用户，我和这个用户没有发生过交易和聊天记录，可是他却举报我与他有1000元的交易纠纷，闲鱼直接冻结我的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "128174",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=128174&sysid=50",
+   "question": "请问工信部\n你好工信部领导，请问现在提倡李总理的宽带提速降费，我们企业与移动公司合作，在合同期内，请问可以参加提速降费吗？移动公司给我们的一个月宽带费太高了！还请领导在百忙之中回复下我们小企业的心声！在此感谢您。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "127528",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=127528&sysid=50",
+   "question": "地保\n你好；我想问一下关于地保的事；徐州市贾汪区在2018年占用我村两块土地，约二百于亩土地。说给办地保，可是标准不一样，其中东湖一块地说是按2015年的标准办理地保，再给补偿，为什么2018年占用土地要用2015年的标准呢？2015年以前",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "126317",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=126317&sysid=50",
+   "question": "钢渣磁选加工技术改造项目是否涉嫌新增钢铁产能？\n我县一家粒子钢加工企业，拟投资1500万元，新上钢渣磁选加工技术改造项目。该项目建设内容及规模：利用现有厂房，购置输送机、破碎机、细碎机、磁选机、球磨机、滚筒筛、除尘装置等设备，年加工处理钢渣",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "126077",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=126077&sysid=50",
+   "question": "爱又米频繁骚扰\n尊敬的厅长：                 您好！我最近老是收到一个叫爱又米的贷款APP的骚扰电话。每次它都是用网络虚拟号码打来，回拨都是空号，所以向12321网站投诉也无法处理。工信部2018年8月部署的专项治理骚扰电话",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "125872",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=125872&sysid=50",
+   "question": "中国电信境外流量欺诈\n新年好！春节期间开通一带一路流量畅想10日服务抵达目的地后发现当在叫车软件Ola、地图Google、短信WhatsApp全部不能使用，而境内滴滴，百度，也不能用。能用的有微信，微博这些非紧急APP。2月2日跟3日已在网",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "124538",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=124538&sysid=50",
+   "question": "关于2017年度江苏省管理创新优秀企业如何认定的问题\n兴化市经信委推荐江苏华信达特钢科技有限公司申报2017年度江苏省管理创新优秀企业，省经信委已在网站进行公示，华信达公司在公示名单中。但我委没有收到正式公布的文件，经咨询说省里不发文了。因",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "124316",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=124316&sysid=50",
+   "question": "家里没有信号\n我是移动公司的用户，现在住在徐州市贾汪区主城区，但是家里信号太弱，该问题已经反映近一年了，但是一直没有解决。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "124286",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=124286&sysid=50",
+   "question": "咨询\n省经信委领导，您好：       我市有个企业锅炉原先使用煤炭，因环保问题，现准备放弃使用煤炭锅炉，新上生物质气化炉一台；使用秸秆、树木枝杈、稻壳等原料通过气化炉气化，产生一氧化碳，氢气和低分子烃类等可燃气体，进入余热锅炉进行燃烧产生",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "124073",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=124073&sysid=50",
+   "question": "关于新能源汽车小区安装充电桩的政策\n尊敬的厅长：       您好，国家这几年一直在推广新能源汽车，越来越多的人也在转变观念，随着技术的进步，很多人都认识到了新能源汽车的优势，积极响应政策购买新能源汽车，我想咨询关于充电桩安装的有关支持政策",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "123915",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=123915&sysid=50",
+   "question": "生产高品质不锈钢是否需要炼钢产能\n我市一家企业生产属于战略性新兴产业中的高品质不锈钢（3.2.1），是否需要炼钢产能",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "123538",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=123538&sysid=50",
+   "question": "烈士子女有政府批文得不到落实\n本人是革命烈士子女后代，原就职于供电部门，但因为未入编制，现在没有退休补助，在就职期间因工负伤，现在年纪渐老，没有经济来源，拥有政府批文，都是没有落实到实处，希望政府可以帮忙解决问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "123459",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=123459&sysid=50",
+   "question": "江苏苏州移动宽带问题不及时处理\n你好！我是江苏苏州的一位移动用户。办理的宽带业务体验期未满，变更套餐的时间与之前条约不一致，已于2019年1月4日。1月7日。1月9日电话10086，至今仍然无进展。只是说登记后继续等待。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "123071",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=123071&sysid=50",
+   "question": "举报无法无德医疗公司网络医托\n麻烦咱们再过去查下，私下找他们员工问问就清楚了，把所有电脑搬走，他们怕出问题，电脑定期换硬盘。认真查查，他们是隐蔽太好了，在那里已经存在好多年，找那楼物业就能知道，那公司存在好多年了。他们一直就是利用网络推广百",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "123052",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=123052&sysid=50",
+   "question": "找工作被欺骗弄了培训贷款\n2018年8月，在南京新街口东宇大厦的南京珏梵网络科技有限公司求职，这个公司没有说明自己是培训机构，而是伪装用人单位进行招人，公司开出优厚的薪酬，还与我签下“实训与就业”协议，用我手机下载APP，让我提供身份信息，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "122323",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=122323&sysid=50",
+   "question": "关于中国电信镇江公司的侵权行为的申诉\n2016年12月本人在江苏镇江中国电信公司办理“乐享4G”家庭宽带套餐，协议期24个月，2017年本人在江苏电信网上营业厅通过“老用户购机”活动购买华为手机一部，购机协议上写“协议期15个月，若协议期内",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "120471",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=120471&sysid=50",
+   "question": "关于第三届I创杯奖金\n领导您好，我是无锡时柒伍科技有限公司，在第三届I创杯中获得一等奖，想问一下第三届I创杯奖金什么时候发放？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "116568",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=116568&sysid=50",
+   "question": "年产 5万吨大型锻件、3万吨模具钢转型升级技改项目\n尊敬的省领导：      我是一名基层窗口工作人员，我县原一家生产不锈钢锭企业，现转型升级进行技术改造，利用返回金属料、边角金属料、铁合金等作为原料，购置精炼炉2套、电渣重熔炉4套、中频炉",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "116017",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=116017&sysid=50",
+   "question": "投诉电信侵犯个人权益，未经本人统一乱开业务，私开副卡。\n江苏连云港电信在未经本人同意，未与我任何沟通的情况下私下乱开业务，我4个电信号码分别为15366309999./15366656885/17768585955/18936566733，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "113194",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=113194&sysid=50",
+   "question": "“移动互联＋生命急救“”的互联网民生产品需要经信部支持推广\n具体功能：1、求救者利用智能手机GPS定位功能和视频功能，一键发送至120急救中心或110接警中心。缩短了求救者的求救时间，提高了120的出车效率及110的出警响应速度。2、急救导",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "112503",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=112503&sysid=50",
+   "question": "重大公益性装备制造科技成果产业化安排扶持入驻江苏请求\n尊敬的江苏省经济和信息化委员会主任：我是江苏籍的，想把自已近十年艰辛研制，世界首创发明成果无级对辊破碎装备制造项目带回江苏，为江苏新增新兴产业链，为人类贡献同时，为江苏工业腾飞出力。本项",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "112385",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=112385&sysid=50",
+   "question": "关于 的申请事宜\n1、报废汽车回收公司的经营许可证 的申办条件。 2、是否有相关文件规定限制在同一省级、市级或地级区域内该许可证发放的数量？ 3、拥有该许可证的回收企业江苏范围内共有几家？县级市宜兴目前只有一家企业拥有该许可证，在宜兴范围内",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "111245",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=111245&sysid=50",
+   "question": "投诉中国移动镇江分公司诱骗、欺诈消费者\n本人实名办理了手机卡（15262928935），开通了30元流量套餐。后中国移动工作人员主动打电话给我说帮我免费升级为70元套餐，到期后可以自行修改。活动到期后，我致电10086修改套餐，移动以内部活",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "3069",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=3069&sysid=50",
+   "question": "流量计费措施的反映\n江苏联通号卡在月内使用达40G后会关闭上网功能，次月打开，前几天我的号卡因此被关闭上网功能，因移动电信都可以用户本人申请继续使用而打开上网功能，我便联系了联通客服，但是联通客服表示本月无法打开，次月自动打开，这一项规定会",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-gxt2",
+   "id": "2641",
+   "url": "https://gxt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=2641&sysid=50",
+   "question": "中央高度重视网络信息技术自主创新\n中央高度重视网络信息技术自主创新 省经信委党组： 12月6日，李克强总理在国务院常务会议上强调：“要紧紧依靠‘互联网+’，进一步深化‘放管服’改革，力争让群众企业办事像‘网购’一样方便！” “今天我们要主动",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

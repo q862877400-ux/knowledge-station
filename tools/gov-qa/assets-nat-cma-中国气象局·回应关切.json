@@ -1,0 +1,308 @@
+{
+ "A_考卷": [
+  {
+   "source": "nat-cma",
+   "id": "6965066",
+   "url": "http://www.cma.gov.cn/wmhd/gzly/cjwt/202503/t20250331_6965066.html",
+   "question": "1、依据国家标准《风力等级》(GB/T28591-2012)的3,1款和附录A的内容，陆地的风力等级主要的界定依据为空旷平地上标准高度10m 处的风速，但并未指明该风速是何种风速。根据《地面气急观测规范,风向和风速》(GB/T 35227-",
+   "cited_hits": [
+    {
+     "name": "风力等级",
+     "lib_no": "GB/T 28591-2012",
+     "weak": false
+    },
+    {
+     "name": "风力等级",
+     "lib_no": "GB/T 28591-2012",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "地面气象观测规范 风向和风速",
+    "GB/T28591-2012",
+    "GB/T 35227-2017",
+    "GB/T28591-2012"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "nat-cma",
+   "id": "6965061",
+   "url": "http://www.cma.gov.cn/wmhd/gzly/cjwt/202503/t20250331_6965061.html",
+   "question": "尊敬的中国气象局您好！目前我有一项研究需要用到2001-2023年的中国气象灾害年鉴，请问是否能获得电子版呢！期待回复！",
+   "cited_hits": [],
+   "cited_missing": [
+    "中国气象灾害年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-cma",
+   "id": "6749121",
+   "url": "http://www.cma.gov.cn/wmhd/gzly/cjwt/202412/t20241218_6749121.html",
+   "question": "您好，我想获取合肥在2024年11月某一天的光功率变化，请问该去哪里检索？气象数据网并没有查到。谢谢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "中国气象局基本气象数据开放共享目录（第一批，2023年2月）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-cma",
+   "id": "6749109",
+   "url": "http://www.cma.gov.cn/wmhd/gzly/cjwt/202412/t20241218_6749109.html",
+   "question": "您好！我是一名2025年应届硕士毕业生，我的专业是安全科学与工程（学硕），我在最新的专业目录中发现了本科阶段的“安全工程“专业和专业硕士“安全工程*（标*号）”，但是没有发现研究生阶段学硕的“安全科学与工程“专业，我想知道我这个专业是属于气",
+   "cited_hits": [],
+   "cited_missing": [
+    "专业目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-cma",
+   "id": "6749106",
+   "url": "http://www.cma.gov.cn/wmhd/gzly/cjwt/202412/t20241218_6749106.html",
+   "question": "南半球的西风漂流为什么是寒流？",
+   "cited_hits": [],
+   "cited_missing": [
+    "大气科学名词第三版"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-cma",
+   "id": "6749099",
+   "url": "http://www.cma.gov.cn/wmhd/gzly/cjwt/202412/t20241218_6749099.html",
+   "question": "您好，我看咱们网站上七月份说发布了《中国气候变化蓝皮书（2024）》，请问这个蓝皮书的全文在哪里可以看到呢？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "中国气候变化蓝皮书（2024）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-cma",
+   "id": "6385254",
+   "url": "http://www.cma.gov.cn/wmhd/gzly/cjwt/202406/t20240628_6385254.html",
+   "question": "贵单位您好，我是一名正在做内涝灾害的学生，目前我国的极端降雨事件事件频繁发生，但是对于极端降雨的定义却有很多说法，并不统一。我想咨询国家对极端降雨的明确定义及其具体降雨量是多少，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "极端强降雨事件判定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-cma",
+   "id": "5972654",
+   "url": "http://www.cma.gov.cn/wmhd/gzly/cjwt/202312/t20231225_5972654.html",
+   "question": "同一个省份不同地市是否存在入冬标准不一样的问题，有的时候好像南边的城市被相对北边的城市更早入冬，这是为啥？不论是入冬，还是入秋入春入夏，有没有统一标准？看到网上有滑标和简标的区别。另外还有一个问题，相较于节气划分，气象学上季节转换标准的划分",
+   "cited_hits": [],
+   "cited_missing": [
+    "气候季节划分"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "nat-cma",
+   "id": "7798955",
+   "url": "http://www.cma.gov.cn/wmhd/gzly/cjwt/202605/t20260518_7798955.html",
+   "question": "你好，我想了解气温程度划分的问题，{冷有几种程度划分?分别是多少度到多少度?}、凉爽是多少度到多少度?、温暖是多少度到多少度?、{热有几种程度划分?分别是多少度到多少度}.",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-cma",
+   "id": "7798954",
+   "url": "http://www.cma.gov.cn/wmhd/gzly/cjwt/202605/t20260518_7798954.html",
+   "question": "您好，我们幼儿园有一个班级的小朋友想去参观北极阁气象博物馆，想咨询如何预约？是否可以留有联系人号码？可以邮件回复或电话联系",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-cma",
+   "id": "7309411",
+   "url": "http://www.cma.gov.cn/wmhd/gzly/cjwt/202509/t20250902_7309411.html",
+   "question": "咨询一下，这个是什么？看着有点像超级单体，还是一般雷暴，能不能帮忙分辨一下(7月23日晚6点开封市祥符区)",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-cma",
+   "id": "6965055",
+   "url": "http://www.cma.gov.cn/wmhd/gzly/cjwt/202503/t20250331_6965055.html",
+   "question": "目前全球各国已经使用小区广播业务进行气象预警，建议我国加快小区广播（Cell Broadcast）的强制应用与推广，助力我国的预警发布事业进一步提高",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-cma",
+   "id": "6749129",
+   "url": "http://www.cma.gov.cn/wmhd/gzly/cjwt/202412/t20241218_6749129.html",
+   "question": "之前有看到中国气象报社有一遍文章说春分在每年的3月19日-22日，中国气象农业频道一篇文章又说春分在每年3月20日-22日交节，央视又说春分在每年3月21日-22日期间，请问到底春分位于3月的哪几天（最好解释一下为何有几种不同的标准），希望",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-cma",
+   "id": "6749133",
+   "url": "http://www.cma.gov.cn/wmhd/gzly/cjwt/202412/t20241218_6749133.html",
+   "question": "新闻说12月5日发布2023年中国温室气体公报 ，公开文件公开里边没有。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-cma",
+   "id": "6749122",
+   "url": "http://www.cma.gov.cn/wmhd/gzly/cjwt/202412/t20241218_6749122.html",
+   "question": "您好，请问风羽两条长横杠表示的是四级风还是五级风？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-cma",
+   "id": "6749103",
+   "url": "http://www.cma.gov.cn/wmhd/gzly/cjwt/202412/t20241218_6749103.html",
+   "question": "国家气候中心官网最新一期气候预测公报《2024年10月21日-11月5日气候趋势预测》只能显示标题，不能显示内容，希望能予以修复。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-cma",
+   "id": "6749094",
+   "url": "http://www.cma.gov.cn/wmhd/gzly/cjwt/202412/t20241218_6749094.html",
+   "question": "看到新闻说，中国金融气象指数与服务平台已发布，网址是多少？如何查看?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-cma",
+   "id": "6476665",
+   "url": "http://www.cma.gov.cn/wmhd/gzly/cjwt/202408/t20240807_6476665.html",
+   "question": "您好！我是一位对气象有浓厚兴趣的中学生。现在在中央气象台官网上关于雷达数据只能查询到雷达基本反射率图，请问径向速度图和雷暴顶高图可以在哪里查询？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-cma",
+   "id": "6476663",
+   "url": "http://www.cma.gov.cn/wmhd/gzly/cjwt/202408/t20240807_6476663.html",
+   "question": "您好，贵部门对于命名的台风，是否存在一套特定的，可以给其他出版机构沿用的编写规范？例如以台风格美的这个 https://www.cma.gov.cn/2011xwzx/zdbk/jdbkxw/202407/t20240724_6446652",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-cma",
+   "id": "6476662",
+   "url": "http://www.cma.gov.cn/wmhd/gzly/cjwt/202408/t20240807_6476662.html",
+   "question": "您好！找不到中国气象app安卓版官方下载渠道。华为应用商店显示该应用未完成app备案，不能下载。应用宝和360手机助手中找不到中国气象app。请提供中国气象app官方下载网址或者能下载中国气象app的应用商店名称。谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-cma",
+   "id": "6476659",
+   "url": "http://www.cma.gov.cn/wmhd/gzly/cjwt/202408/t20240807_6476659.html",
+   "question": "尊敬的中国气象局领导：您好！我目前正在撰写关于气象学方面的论文，涉及到空气湿度的相关信息。在研究过程中，我发现我缺乏一些基本的气象信息，因此，我希望能得到中国气象局的帮助，获取相关数据以支持我的研究。以下是我需要的数据类型：（以北京地区为例",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-cma",
+   "id": "6385261",
+   "url": "http://www.cma.gov.cn/wmhd/gzly/cjwt/202406/t20240628_6385261.html",
+   "question": "请求提供2023年3月20日8时至10时上海市浦东新区惠南镇的天气情况。谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-cma",
+   "id": "6293972",
+   "url": "http://www.cma.gov.cn/wmhd/gzly/cjwt/202405/t20240527_6293972.html",
+   "question": "亲爱的气象局领导，由于下周一（4月1日）因拟举办关于社会工作周活动及民政政策宣传活动，已经推迟了一次至下周一，能出一个详细版关于那天的天气预报作为参考吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-cma",
+   "id": "6293975",
+   "url": "http://www.cma.gov.cn/wmhd/gzly/cjwt/202405/t20240527_6293975.html",
+   "question": "比如在双鸭山地区，气象部分出具的气象证明显示当天24小时的降水量为44毫米，请问当天的24小时的降雪量多少，降雪厚度是多少，降雪量和降雪厚度是不是一个意思。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-cma",
+   "id": "6293980",
+   "url": "http://www.cma.gov.cn/wmhd/gzly/cjwt/202405/t20240527_6293980.html",
+   "question": "我是一名大学生，我正在进行大学生创业创新项目，我想获取历史的海洋天气情况（具体是看有没有海雾的发生），所以我想查看历史的海洋天气公报，但没有找到方法，希望能给出一个渠道查询历史天气情况，让做研究的人有路可循。谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-cma",
+   "id": "6293985",
+   "url": "http://www.cma.gov.cn/wmhd/gzly/cjwt/202405/t20240527_6293985.html",
+   "question": "想请问一下，如何查询某地区的大气CH4分压，N2O大气分压和CO2大气分压。感谢感谢，麻烦啦。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-cma",
+   "id": "6293992",
+   "url": "http://www.cma.gov.cn/wmhd/gzly/cjwt/202405/t20240527_6293992.html",
+   "question": "您好，想要查询一下2010-2015年期间我国各省份发布的气象预警信息统计，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-cma",
+   "id": "5972688",
+   "url": "http://www.cma.gov.cn/wmhd/gzly/cjwt/202312/t20231225_5972688.html",
+   "question": "你好，请问厄尔尼诺现象发生时会对西太平洋副热带高压产生哪些影响？强度和位置较常年有哪些变化？会对我国气候产生哪些影响？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-cma",
+   "id": "5912138",
+   "url": "http://www.cma.gov.cn/wmhd/gzly/cjwt/202311/t20231127_5912138.html",
+   "question": "气象软件工程规范气和象业务软件组件化开发指南（2023版）在哪里可以在载",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-cma",
+   "id": "5912137",
+   "url": "http://www.cma.gov.cn/wmhd/gzly/cjwt/202311/t20231127_5912137.html",
+   "question": "工作人员您好，我是一名资源利用与植物保护专业的硕士研究生，我在查看您单位招聘公告时发现，气象相关类专业中包含“农业资源利用”专业，而根据农业教指委2016年关于农业硕士专业学位领域设置调整的通知，原“农业资源利用”专业现调整为 “资源利用与",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

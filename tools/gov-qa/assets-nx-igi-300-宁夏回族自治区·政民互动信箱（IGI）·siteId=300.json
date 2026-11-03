@@ -1,0 +1,233 @@
+{
+ "A_考卷": [],
+ "B_补料": [
+  {
+   "source": "nx-igi-300",
+   "id": "10155716",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10155716",
+   "question": "%E5%B8%8C%E6%9C%9B%E7%A7%91%E6%8A%80%E5%8E%85%E8%83%BD%E6%8F%90%E4%BE%9B%E4%B8%8B2022%E5%B9%B4%E5%85%A8%E5%8C%BA%E5%8F%8",
+   "cited_hits": [],
+   "cited_missing": [
+    "科技部关于开展2022年度科技统计调查工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-300",
+   "id": "10153891",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10153891",
+   "question": "%E6%82%A8%E5%A5%BD%EF%BC%8C%E8%AF%B7%E9%97%AE%E4%B8%8B2021%E5%B9%B4%E7%AC%AC%E4%BA%8C%E6%89%B9%E9%AB%98%E6%96%B0%E4%BC%8",
+   "cited_hits": [],
+   "cited_missing": [
+    "宁夏回族自治区国家高新技术企业奖补实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-300",
+   "id": "10149201",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10149201",
+   "question": "%E6%88%91%E4%BA%8E2016%E5%B9%B4%E5%9C%A8%E3%80%8A%E7%A7%91%E6%8A%80%E5%B1%95%E6%9C%9B%E3%80%8B14%E6%9C%9F%E4%B8%8A%E5%8F",
+   "cited_hits": [],
+   "cited_missing": [
+    "科技展望",
+    "中阿科技论坛（中英阿文）",
+    "中阿科技论坛（中英阿文）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-300",
+   "id": "10146783",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10146783",
+   "question": "%E9%A2%86%E5%AF%BC%E5%A5%BD%EF%BC%8C%E8%BF%91%E6%97%A5%E5%9C%A8%E2%80%9C%E5%AE%81%E5%A4%8F%E7%A7%91%E6%8A%80%E5%8E%85%E2",
+   "cited_hits": [],
+   "cited_missing": [
+    "宁夏回族自治区企业购置关键核心设备补助暂行办法"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "nx-igi-300",
+   "id": "10156278",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10156278",
+   "question": "%E8%AF%B7%E9%97%AE%E9%AB%98%E6%A0%A1%E5%9F%BA%E5%B1%82%E6%95%99%E7%A0%94%E5%AE%A4%E6%98%AF%E5%90%A6%E5%B1%9E%E4%BA%8E%E7",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-300",
+   "id": "10155916",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10155916",
+   "question": "%E8%AF%B7%E6%8F%90%E4%BE%9B%E4%B8%80%E4%B8%8B2020%E5%B9%B4%E3%80%812021%E5%B9%B4%E5%85%A8%E5%8C%BA%E3%80%81%E9%93%B6%E5%",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-300",
+   "id": "10155820",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10155820",
+   "question": "%E9%BA%BB%E7%83%A6%E6%8F%90%E4%BE%9B%E4%B8%80%E4%B8%8B2020%E5%B9%B4%E3%80%812021%E5%B9%B4%E8%87%AA%E6%B2%BB%E5%8C%BA%E3%",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-300",
+   "id": "10155761",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10155761",
+   "question": "%E8%AF%B7%E9%97%AE%E8%BF%91%E5%B9%B4%E8%87%AA%E7%84%B6%E7%A7%91%E7%A0%94%E5%92%8C%E5%AE%9E%E9%AA%8C%E7%B3%BB%E5%88%97%E8",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-300",
+   "id": "10155750",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10155750",
+   "question": "%E8%AF%B7%E9%BA%BB%E7%83%A6%E6%8F%90%E4%BE%9B%E4%B8%8B2020%E5%B9%B4%E3%80%812021%E5%B9%B4%E5%85%A8%E5%8C%BA%E5%8F%8A%E9%",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-300",
+   "id": "10155331",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10155331",
+   "question": "%E5%8E%85%E9%95%BF%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%83%B3%E5%92%A8%E8%AF%A2%E5%BB%BA%E8%AE%BE%E9%A2%86%E5%9F%9F%E8%AF%BE%E9",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-300",
+   "id": "10155210",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10155210",
+   "question": "%E6%82%A8%E5%A5%BD%EF%BC%81%E6%88%91%E6%98%AF%E4%B8%80%E5%90%8D%E7%A1%95%E5%A3%AB%E7%A0%94%E7%A9%B6%E7%94%9F%EF%BC%8C%E5",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-300",
+   "id": "10154956",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10154956",
+   "question": "%E6%82%A8%E5%A5%BD%EF%BC%8C%E7%94%B1%E4%BA%8E%E8%AE%BA%E6%96%87%E7%A0%94%E7%A9%B6%E9%9C%80%E8%A6%81%EF%BC%8C%E5%9C%A8%E7",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-300",
+   "id": "10154948",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10154948",
+   "question": "%E6%82%A8%E5%A5%BD%EF%BC%8C%E7%94%B1%E4%BA%8E%E8%AE%BA%E6%96%87%E7%A0%94%E7%A9%B6%E9%9C%80%E8%A6%81%EF%BC%8C%E5%9C%A8%E7",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-300",
+   "id": "10154436",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10154436",
+   "question": "2023%E5%B9%B4%E5%AE%81%E5%A4%8F%E5%9B%9E%E6%97%8F%E8%87%AA%E6%B2%BB%E5%8C%BA%E7%A7%91%E6%8A%80%E5%9E%8B%E4%B8%AD%E5%B0%8",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-300",
+   "id": "10153588",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10153588",
+   "question": "%E6%82%A8%E5%A5%BD%EF%BC%8C%E7%94%B1%E4%BA%8E%E8%AE%BA%E6%96%87%E7%A0%94%E7%A9%B6%E9%9C%80%E8%A6%81%EF%BC%8C%E5%9C%A8%E7",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-300",
+   "id": "10153485",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10153485",
+   "question": "%E6%82%A8%E5%A5%BD%EF%BC%81%E6%88%91%E6%98%AF%E4%B8%80%E5%90%8D%E7%A1%95%E5%A3%AB%E7%A0%94%E7%A9%B6%E7%94%9F%EF%BC%8C%E5",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-300",
+   "id": "10153035",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10153035",
+   "question": "%E6%82%A8%E5%A5%BD%EF%BC%81%E6%88%91%E6%98%AF%E4%B8%80%E5%90%8D%E5%8D%9A%E5%A3%AB%E7%A0%94%E7%A9%B6%E7%94%9F%EF%BC%8C%E5",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-300",
+   "id": "10152172",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10152172",
+   "question": "%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E6%98%AF%E4%B8%80%E5%90%8D%E5%9C%A8%E8%AF%BB%E7%A0%94%E7%A9%B6%E7%94%9F%EF%BC%8C%E5",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-300",
+   "id": "10151133",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10151133",
+   "question": "%E6%83%B3%E5%92%A8%E8%AF%A2%E4%B8%93%E4%B8%9A%E5%90%8D%E8%AF%8D%E2%80%9C%E5%8D%81%E4%BA%8C%E4%BA%94%E2%80%9D%E5%9B%BD%E5",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-300",
+   "id": "10151131",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10151131",
+   "question": "%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E5%8D%95%E4%BD%8D%E6%98%AF%E5%AE%81%E5%A4%8F%E8%AE%A1%E9%87%8F%E8%B4%A8%E9%87%8F%E6",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-300",
+   "id": "10151098",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10151098",
+   "question": "2022%E5%B9%B48%E6%9C%881%E6%97%A5%EF%BC%8C%E7%A7%91%E6%8A%80%E5%8E%85%E5%9C%A8%3C%E8%87%AA%E6%B2%BB%E5%8C%BA%E7%A7%91%E6",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-300",
+   "id": "10150466",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10150466",
+   "question": "%E4%B8%BA%E4%BB%80%E4%B9%88%E5%AE%A1%E8%AE%A1%E5%8F%88%E8%AE%BE%E5%BA%93%E4%BA%86%EF%BC%8C%E9%AB%98%E6%96%B0%E5%8F%AA%E6",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-300",
+   "id": "10150438",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10150438",
+   "question": "%E6%82%A8%E5%A5%BD%EF%BC%8C%E7%94%B1%E4%BA%8E%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87%E6%B6%89%E5%8F%8A%E5%AE%81%E5%A4%8F%E5",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-300",
+   "id": "10150207",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10150207",
+   "question": "%E7%9E%AA%E7%BE%9A%E4%BC%81%E4%B8%9A%E7%94%B3%E6%8A%A5%E8%BF%87%E7%A8%8B%E4%B8%AD%EF%BC%8C%E4%BF%9D%E5%AD%98%E4%BF%A1%E6",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

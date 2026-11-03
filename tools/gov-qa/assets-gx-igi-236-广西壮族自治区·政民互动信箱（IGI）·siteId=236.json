@@ -1,0 +1,33 @@
+{
+ "A_考卷": [],
+ "B_补料": [],
+ "C_无依据": [
+  {
+   "source": "gx-igi-236",
+   "id": "157814412639",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814412639",
+   "question": "请问自治区地方金融监管局网站是否开设了便民查询服务？如果有，如何进入便民查询服务？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-236",
+   "id": "157814405980",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814405980",
+   "question": "请问自治区地方金融监管局网站是否开设了财政信息栏目？如果有，如何进入财政信息栏目？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-236",
+   "id": "157814196292",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814196292",
+   "question": "尊敬的金融监管局领导：&nbsp; &nbsp; &nbsp; &nbsp;您好！我是广西大学的一名大四学生。因论文需要前来咨询以下数据： 一、广西中小型企业的数量 二、广西中小型企业的行业分布、特点 三、广西中小企业融资概况：直接融资与间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

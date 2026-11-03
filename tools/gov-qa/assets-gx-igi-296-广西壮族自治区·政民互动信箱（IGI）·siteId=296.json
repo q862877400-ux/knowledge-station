@@ -1,0 +1,113 @@
+{
+ "A_考卷": [
+  {
+   "source": "gx-igi-296",
+   "id": "157830109813",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157830109813",
+   "question": "《广西壮族自治区人口和计划生育条例》第四十三条 职工接受节育手术的，其工作单位应当凭节育手术证明按照有关规定给予休假；休假期间的工资、津贴、补贴和奖金以及其他福利待遇不予扣减。该条款中说的按照有关规定给予休假具体是什么规定？",
+   "cited_hits": [
+    {
+     "name": "女职工劳动保护特别规定",
+     "lib_no": "女职工劳动保护特别规定(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "女职工劳动保护特别规定",
+     "lib_no": "女职工劳动保护特别规定(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "gx-igi-296",
+   "id": "157814398006",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814398006",
+   "question": "我有一个朋友在医院住院，现在想转到上级医院进行治疗，想咨询一下转院条件是什么？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广西基本医疗保险就医管理暂行办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gx-igi-296",
+   "id": "157814196031",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814196031",
+   "question": "您好！听说现在可以网上预约接种新冠疫苗了，请问怎么预约。另外，我现在居住在兴宾区城区，请问可以在哪里接种，怎么收费？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于开展新冠病毒疫苗接种预约的通告"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "gx-igi-296",
+   "id": "100054007",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=100054007",
+   "question": "尊敬的领导：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;值此第115个“5·12”国际护士节来临之际，首先向全市广大护理工作者致以诚挚的节日问候。&nbsp;&nbsp;&nbsp;&nb",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-296",
+   "id": "157830020793",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157830020793",
+   "question": "由于当年计划人口生育，因为是二胎超生，家里交不起罚款，在人口普查时，工作人员给了一张表，填写出生日期，拿去医院办出生证明（当时在小诊所生的，没有出生证明），因为害怕罚款把年龄报大了5岁，户口本与实际年龄不符，实际年龄是2003年10月25日",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-296",
+   "id": "157814442077",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814442077",
+   "question": "我国多个城市目前已出台生育三胎正确的补贴政策，来宾市是否已也有明确的相关的奖励机制？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-296",
+   "id": "157814419888",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814419888",
+   "question": "来宾市目前生育二胎有哪些补贴或者奖励政策",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-296",
+   "id": "157814213495",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814213495",
+   "question": "请问新修订的《广西壮族自治区人口和计划生育条例》，关于生育休假、育儿假等如何计算？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gx-igi-296",
+   "id": "157814197767",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814197767",
+   "question": "听讲目前一对夫妻可以生3个小孩子，想问一下来宾市现在关于这一政策是否已经开始实施了？什么时候生菜合法？还需要去办准生证吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-296",
+   "id": "157814188537",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814188537",
+   "question": "来宾市卫生健康委员会在哪个位置？什么时候上班啊？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

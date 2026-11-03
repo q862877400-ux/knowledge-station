@@ -1,0 +1,198 @@
+{
+ "A_考卷": [
+  {
+   "source": "js-jtyst2",
+   "id": "473678",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=473678&sysid=43",
+   "question": "关于项目工期顺延安责险保费是否允许据实列支的问题\n公路水运项目工期顺延，续保安责险保费，在安全费总额未超标的前提下，是否允许据实列支？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国安全生产法",
+     "lib_no": "安全生产法(2021修正)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "江苏省公路水运工程安全生产费用管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst2",
+   "id": "449758",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=449758&sysid=43",
+   "question": "咨询三类驾校土地方面的问题\n一块商业用地土地面积产证标注9200平方，可否再租赁或征用周边800平方土地凑足10000平方，申请办理三类驾校？也就是说土地是连在一起，但有两本产证，面积达到10000平方，800平方土地是不是必须也是商业用地",
+   "cited_hits": [
+    {
+     "name": "机动车驾驶员培训机构资格条件",
+     "lib_no": "GB/T 30340-2013",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "机动车驾驶员培训管理规定",
+    "GB/T30340-2013"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-jtyst2",
+   "id": "439155",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=439155&sysid=43",
+   "question": "机动车驾驶员培训经营备案场地面积要求\n尊敬的领导！我想咨询一下，我在县级市行政区域内九个乡镇分别有不超过1200平方米（加起来合计有10000平方米）的硬质化水泥地，请问我这九块场地加起来可不可以申请备案三级机动车驾驶员培训机构？还是按照国",
+   "cited_hits": [
+    {
+     "name": "机动车驾驶员培训机构资格条件",
+     "lib_no": "GB/T 30340-2013",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "机动车驾驶员培训教练场技术要求",
+    "关于机动车驾驶员培训机构另设第二块自备教练场的批复",
+    "关于机动车驾驶员培训机构另设第二块自备教练场的批复",
+    "GB/T30340-2013",
+    "GB/T30341-2013"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "js-jtyst2",
+   "id": "481987",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=481987&sysid=43",
+   "question": "公路工程造价管理暂行办法 （部令2016年第67号）条文疑问\n公路工程造价管理暂行办法 （部令2016年第67号）第十七条 设有标底或者最高投标限价的，标底或者最高投标限价应当根据造价依据并结合市场因素进行编制，并不得超出经批准的设计概算或",
+   "cited_hits": [],
+   "cited_missing": [
+    "公路工程造价管理暂行办法",
+    "江苏省公路水运工程造价管理实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst2",
+   "id": "464347",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=464347&sysid=43",
+   "question": "主要交通干线\n主要交通干线如何定义？县道是否属于主要交通干线。",
+   "cited_hits": [],
+   "cited_missing": [
+    "中华人民共和国公路管理条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-jtyst2",
+   "id": "461583",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=461583&sysid=43",
+   "question": "关于办理“交安C证”事宜\n我们公司资质为“地基基础专业承包一级”，专业承包桩基工程施工，常做为分包单位承担市政道路工程桩基施工，总包单位常要求现场安全员必须要有“交安C证”。现已通过交安C证考试，在申请证书过程审核人员提出我公司没有道路相关",
+   "cited_hits": [],
+   "cited_missing": [
+    "交通运输工程施工单位主要负责人、项目负责人和专职安全生产管理人员安全生产考核管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst2",
+   "id": "456800",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=456800&sysid=43",
+   "question": "劳务合作单位承揽业务时是否需要提供劳务资质和安全生产许可证\n1.劳务合作单位承揽业务时是否需要提供劳务资质和安全生产许可证；2.劳务资质能否承揽以机械费用为主体的工程业务，例如土方开挖及回填",
+   "cited_hits": [],
+   "cited_missing": [
+    "公路工程施工分包管理办法",
+    "江苏省公路水运工程施工分包管理实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst2",
+   "id": "454556",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=454556&sysid=43",
+   "question": "关于水运工程编制概预算采用的人工市场单价\n根据贵厅办件编号（JTT0120260133382）的回复“人工费按定额人工单价乘以定额数量的累加之和计算，定额人工单价按62.47元/工日执行，无需各省单独编制人工单价。”经了解，广东省交通厅粤交",
+   "cited_hits": [],
+   "cited_missing": [
+    "水运建设工程概算预算编制规定",
+    "水运工程工程量清单计价规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst2",
+   "id": "449406",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=449406&sysid=43",
+   "question": "关于公路工程预算及招标限价中的“安全生产费”取费问题\n公路工程预算根据《公路工程建设项目概算预算编制办法及配套定额补充说明》（交路网函（2021）165号）第一项第6条规定“安全生产费按建筑安装工程费（不含安全生产费本身）乘以安全生产费费率",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省公路水运工程安全生产费用管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst2",
+   "id": "446324",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=446324&sysid=43",
+   "question": "合同内工程内容未全部完成可以组织交工验收吗？\n请问，某公路工程项目，主体隧道工程已经完工，附属的人行道约28000平方、非机动车道沥青约37000平方、人行天桥、人行地下通道、3座小跨径桥梁、雨水管道工程还未完工，可以组织交工验收吗？完成合",
+   "cited_hits": [],
+   "cited_missing": [
+    "公路工程竣（交）工验收办法实施细则",
+    "公路工程质量检验评定标准"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-jtyst2",
+   "id": "433519",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=433519&sysid=43",
+   "question": "关于公路水运工程交安B考试\n交安B证到期换证存问题：1.为何现在考试分数比以前提高了十分，而且题型改变，考试内容改变。2.考试预约时间太长基本上要半年左右，导致很多小企业无建造师可用。",
+   "cited_hits": [],
+   "cited_missing": [
+    "交通运输工程施工单位主要负责人、项目负责人和专职安全生产管理人员安全生产考核管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst2",
+   "id": "414353",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=414353&sysid=43",
+   "question": "关于公路桥梁造价工程量计算规则\n目前钢桁架梁在公路桥梁中应用广泛，但2018年公路标准招标文件中及公路预算定额中均未对钢桁架梁计算规则规定，目前有个问题请教:图纸设计中的钢桁架梁中螺栓工程量(单位吨)是否计入钢桁架梁中 ，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "公路桥梁钢结构工程预算定额",
+    "高速公路工程工程量清单计价规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst2",
+   "id": "396714",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=396714&sysid=43",
+   "question": "淮新高铁\n咨询一下，淮新高铁是否已启动可研报告编制及报批工作？当前进度是什么？大概建设周期是什么时间？",
+   "cited_hits": [],
+   "cited_missing": [
+    "长江三角洲地区多层次轨道交通规划",
+    "关于进一步做好铁路规划建设工作意见的通知"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "js-jtyst2",
+   "id": "440328",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=440328&sysid=43",
+   "question": "码头新增钢材装卸项目是否属于码头改建扩建工作范围的认定\n企业港口经营许可业务：为船舶提供码头设施服务、在港区内提供货物装卸服务、在港区内提供普通货物仓储服务，为干散货码头。码头现有产能为年装卸黄沙11万吨、石子15万吨。现计划在现有项目生产",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst2",
+   "id": "396898",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=396898&sysid=43",
+   "question": "公路养护工程人工工日单价\n贵厅关于执行交通运输部第86号公告有关补充规定的通知，其中第四条关于人工（含机械工）工日单价为128.17元/工日，那《公路养护工程预算编制办法及定额》中人工费是否能按照128.17元/工日执行。故此询问，请领导释",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="/cms_files/weblinxiahuizuzizhizhourenminzhengfuwang/tplobject/defaultSet/489e288cda944f3e95dedf70ef832fbe/images/hanweb.css" rel="stylesheet">
+    <link href="/cms_files/weblinxiahuizuzizhizhourenminzhengfuwang/tplobject/defaultSet/489e288cda944f3e95dedf70ef832fbe/images/common.css" rel="stylesheet">
+    <link href="/cms_files/weblinxiahuizuzizhizhourenminzhengfuwang/tplobject/defaultSet/489e288cda944f3e95dedf70ef832fbe/images/zmhd_col.css" rel="stylesheet">
+    <script src="/cms_files/weblinxiahuizuzizhizhourenminzhengfuwang/tplobject/defaultSet/489e288cda944f3e95dedf70ef832fbe/images/jquery-1.8.3.js"></script>
+    <script src="/cms_files/filemanager/156268839/script/20232/eee50b5e81eb45ac9dde9fc6ef811a37.js"></script>
+</link></link></link></meta></meta><script src="/cms_files/default/script/jslib/jquery.js"></script>
+ <script src="/cms_files/default/script/jslib/jquery.cookie.js"></script>
+ <script src="/cms_files/default/script/layui/layui.all.js"></script>
+ <script src="/cms_files/default/script/layui/layer/layer.js"></script>
+ <script src="/script/webglobal.js"></script>
+ <script src="/plugins/libs/require.js"></script>
+ <script src="/plugins/libs/load.js"></script>
+ <script src="/script/webgray.js"></script>
+ <link rel="stylesheet" href="/cms_files/default/css/iconfont.css" />
+<link rel="stylesheet" href="/cms_files/default/script/layui/css/layui.css" />
+<title>书记信件选登</title>
+<meta name="ColId" content="3473cb7a21f84e8781f88ddb256b5baf">
+<meta name="SiteName" content="临夏回族自治州人民政府网">
+<meta name="SiteDomain" content="www.linxia.gov.cnlxz">
+<meta name="SiteIDCode" content="6229000010">
+<meta name="ColumnName" content="书记信件选登">
+<meta name="ColumnType" content="书记信件选登">
+<meta name="ColumnDescription" content="书记信件选登">
+<meta name="ColumnKeywords" content="书记信件选登">
+<meta name="server" content="www.linxia.gov.cn/lxz/zmhd/xjxd/index.html">
+<meta name="MakeTime" content="2026-08-24 11:56:43">
+
+<meta id="pagetype" content="2">
+</meta></meta></meta></meta></meta></meta></meta></meta></meta></meta></meta></head>
+<body><div id='barrierfree_container'>
+<script src="/cms_files/filemanager/156268839/script/20222/d871c35b36064ce6adb2dd803acea65f.js" type="text/javascript" charset="utf-8"></script><!-- 头部结束 -->
+<div class="content">
+    <div class="con">
+        <div class="dqwz">
+            <div class="dqwz_con">
+									<a href="/lxz/index.html">首页</a> >
+									<a href="/lxz/zmhd/index.html">政民互动</a> >
+									<a href="/lxz/zmhd/xjxd/index.html">书记信件选登</a>
+                <div class="sj_an"></div>
+            </div>
+        </div>
+        <div class="con_left">
+            <div class="close"></div>
+            <div class="left_col">· <span>领导之窗</span>
+ ·</div>            <ul>
+<!--<li><a class="xinxiangshuji">书记信箱</a></li><li><a class="xinxiangzhouzhang">州长信箱</a></li>-->
+
+<li><a href="/lxz/zmhd/xjxd/index.html">书记信件选登</a></li>
+
+<li><a href="/lxz/zmhd/zzxjxd/index.html">州长信件选登</a></li>
+
+<li><a href="/lxz/zmhd/myzj/index.html">民意征集</a></li>
+
+<li><a href="/lxz/zmhd/dczj/index.html">问卷调查</a></li>
+            </ul>
+<script>$(".con_left ul li").each(function(){
+ 
+ var aTxt = $(this).children('a').text();
+  if($(".dqwz a").last().text()==aTxt){
+    $(this).addClass('on');
+  }else{
+  $(this).removeClass('on');
+  }
+})
+</script>        </div>
+        <div class="con_right">
+            
+            <ul id="all">
+            </ul>
+            <div class="page">
+                <a id="down" onClick="change1(--pageno)">上一页</a>　　
+                <span id="a3"></span><a id="up" onClick="change1(++pageno)">下一页</a>
+                <span class="ho">第<span id="a2"></span>/<span id="a1"></span>页</span>
+            </div>
+            <div id="p" style="display: none;"> </div>
+<script>    //获取url中的参数
+    function getUrlParam(name) {
+        // 用该属性获取页面 URL 地址从问号 (?) 开始的 URL（查询部分）
+        var url = window.location.search;
+        // 正则筛选地址栏
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+        // 匹配目标参数
+        var result = url.substr(1).match(reg);
+        //返回参数值
+        return result ? decodeURIComponent(result[2]) : null;
+    }
+    var title = getUrlParam('title');
+    if(title!=null){
+       ajaxfun('61cd90cc51d7455b930baf42d28012c5','2','1000',"2",title);
+    }else{
+       ajaxfun('61cd90cc51d7455b930baf42d28012c5','2','1000','2'); 
+    }
+</script>           
+            
+        </div>
+    </div>  
+    <script>
+        $(".sj_an").click(function(){
+            $(".con_left").show();
+        })
+        $(".close").click(function(){
+            $(".con_left").hide();
+        })
+        if($(".dqwz a").length>2){
+            var fnum = $(".dqwz a").length-2;
+            $('.left_col span').text($(".dqwz a").eq(fnum).text());
+        }else{
+            $('.left_col span').text($(".dqwz a").eq(1).text());
+        }
+    </script> 
+</div>
+<div class="attr animated fadeInDown">
+    <div class="attr_con">
+        <div class="attr_title text-tag" tabindex="0"></div>
+        <div class="xj_info">
+            <div class="xj_list xjnr" style="height:auto;max-height: 120px;
+  overflow-y: scroll;
+  width: 100%;
+  overflow-x: hidden;">
+                <span>内容：</span>
+                <div></div>
+            </div>
+            <div class="xj_list hfnr" style="height:auto;max-height: 120px;
+  overflow-y: scroll;
+  width: 100%;
+  overflow-x: hidden;">
+                <span>回复内容：</span>
+                <div></div>
+            </div>
+            <div class="xj_list lycon">
+                <span>留言人：</span>
+                <div></div>
+            </div>
+            <div class="xj_list xj_bh">
+                <span>信件编号：</span>
+                <div></div>
+            </div>
+            <div class="xj_list lysj">
+                <span>留言时间：</span>
+                <div></div>
+            </div>
+          <div class="xj_list hfsj" style="display:none !important;">
+                    <span>回复时间：</span>
+                    <div></div>
+            </div>            
+          <div class="xj_list zdfdw" style="display:none !important;">
+                    <span>回复单位：</span>
+                    <div></div>         
+           </div>
+        </div>
+        <p class="ldzc_close text-tag canRead" tabindex="0">X</p>
+        <div class="ldzc_close text-tag" tabindex="0">关闭</div>
+    </div> 
+</div>
+<script>
+    
+    $('.ldzc_close').click(function(){
+        $('.attr').hide();
+    })
+</script>
+<!-- 内容结束 -->
+<script src="/cms_files/filemanager/156268839/script/20222/1d42828b3a39404baad73b77d274e122.js" type="text/javascript" charset="utf-8"></script><script src="/cms_files/filemanager/156268839/script/juba/jubascript.js?v=4.2.4.5"></script>
+ </div></body>
+</html>

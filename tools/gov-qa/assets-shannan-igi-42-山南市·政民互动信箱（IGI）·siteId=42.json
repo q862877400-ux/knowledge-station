@@ -1,0 +1,42 @@
+{
+ "A_考卷": [],
+ "B_补料": [],
+ "C_无依据": [
+  {
+   "source": "shannan-igi-42",
+   "id": "10023284",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10023284",
+   "question": "统计年鉴求助",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-42",
+   "id": "10022999",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10022999",
+   "question": "你好，我想申请2025年第一季度和2026年第一季度山南市GDP(单位为万元)和增速，仅供个人参考并了解大致经济情况，不对外公开和过度解读，麻烦发到邮箱3866121840@qq.com，谢谢！(政府尚未公开GDP总量和增速，能否提供一份2",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-42",
+   "id": "10021681",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10021681",
+   "question": "统计年鉴数据查询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-42",
+   "id": "10020829",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10020829",
+   "question": "申请统计年鉴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

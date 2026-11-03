@@ -1,0 +1,574 @@
+{
+ "A_考卷": [
+  {
+   "source": "nx-igi-205",
+   "id": "10073025",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10073025",
+   "question": "敬爱的领导您好：由于本人7年前租了十几亩地里种植了很多树这么多年投资了很多钱 家里已经亏空现在付不起地租拖欠了一个村的农民地租很久，实在无能为力支付地租，农民已经催租很久， 树方面找了很多渠道想尽一切办法就是 卖不出去国家也不让焚烧地也腾不",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国种子法",
+     "lib_no": "种子法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "育苗地付不起地租",
+    "林木种子生产经营许可证管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nx-igi-205",
+   "id": "10072755",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072755",
+   "question": "自留地和房前屋后的零星树木不用办理林木采伐许可证，请问宁夏和国家对零星树木有无政策规定，有无文件，如何认定零星树木? 如有文件能否发一下到邮箱570866457@qq.com",
+   "cited_hits": [
+    {
+     "name": "森林法",
+     "lib_no": "森林法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "nx-igi-205",
+   "id": "10155316",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10155316",
+   "question": "尊敬的徐书记: 您好! 我是中南民族大学新闻传播学类的一名学生，我和我的同学们最近在开展有关“生态环境保护与治理防沙治沙篇”的专题实践活动。我们在活动中还有一些问题不太清楚，特此想通过这封信向您请教以下五个问题: 1.与前几年相比，宁夏开展",
+   "cited_hits": [],
+   "cited_missing": [
+    "联合国荒漠化防治公约",
+    "共建国际荒漠化防治知识管理中心备忘录",
+    "宁夏回族自治区防沙治沙条例",
+    "宁夏回族自治区禁牧封育条例",
+    "关于大力发展沙产业推进防沙治沙综合示范区建设的意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-205",
+   "id": "10150684",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10150684",
+   "question": "看了今年国家新开放的一些养殖品种。询问在有证有标志的情况下宁夏是否能个人养殖且不出售，不繁殖的情况下饲养绿颊鹦鹉和和尚鹦鹉。",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家林业和草原局关于妥善解决人工繁育鹦鹉有关问题的函"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-205",
+   "id": "10150174",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10150174",
+   "question": "局长，您好，我于2017年年底取得林业助理工程师资格，2022年申请林业中级工程师，按照《自治区林业和草原局关于做好2022年林草工程专业技术职务任职资格评审工作的通知》宁林发【2022】63号文件继续教育学时要求，申报中级审核2018年至",
+   "cited_hits": [],
+   "cited_missing": [
+    "专业技术人员继续教育规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nx-igi-205",
+   "id": "10073048",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10073048",
+   "question": "尊敬的领导您好，我是一名环评工作者，由于各建设项目在实施前需对项目选址进行核定，考虑到全区湿地公园目前未公布具体分布图，能否以各保护区边界核准坐标的形式公布，便于各评估单位和审批部门对项目选址可行性进行判定",
+   "cited_hits": [],
+   "cited_missing": [
+    "基础测绘成果提供使用管理暂行办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nx-igi-205",
+   "id": "10072916",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072916",
+   "question": "《关于韩建斌王雪琴反映贺兰山管理局拒付租房费用信访事项答复意见的函》提起行政复查的申请书自治区林业和草原局 我们今年四月份曾向宁夏信访局、纪检等部门呈送了《关于宁夏贺兰山管理局拒付租房费用侵害投资商合法权益的举报信》(以下简称：《举报信》)",
+   "cited_hits": [],
+   "cited_missing": [
+    "局长信箱",
+    "固定资产转让协议书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-205",
+   "id": "10072896",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072896",
+   "question": "中卫市盛杰野猪养殖合作社 受疫情影响的诉求 自治区林草局领导： 您好，自新冠病毒爆发后，沙坡头区林草局2月2日对我们野猪养殖场进行了封控隔离，并禁止我们的野猪进行交易出售。现已封控隔离两个多月，至使我们损失非常惨重。 一、饲养成本和压栏问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于全面禁止非法野生动物交易、革除滥食野生动物陋习、切实保障人民群众生命健康安全的决定",
+    "国家畜禽资源遗传目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-205",
+   "id": "10072848",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072848",
+   "question": "尊敬的领导您好： 2018年经过多方考察，我们与宁夏玺赞庄园枸杞有限公司签订了合作合同，在陕西宝鸡开专卖店来销售枸杞宣传咱们宁夏特产，我们初次预付货款10万元，玺赞公司承诺根据当地的政策支持会协助提报政府的补贴5万元，但预付款打完后既没有协",
+   "cited_hits": [],
+   "cited_missing": [
+    "中宁枸杞“百城千店”建设试点方案"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "nx-igi-205",
+   "id": "10155860",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10155860",
+   "question": "相关负责人您好，本人是北民大的一名应届毕业生，我的论文是中宁枸杞直播的，现在急需一些相关数据，最好是近10年的（中宁目前做直播的企业有多少家，以及一些直播相关的数据）。麻烦了，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-205",
+   "id": "10151934",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10151934",
+   "question": "您好，我是一名教师，能否提供一下新中国成立以来到2022年至今宁夏的致力于治沙植树人群数量和个人成果，植树造林数量（面积），修复治理的土地面积、草原改良面积，人工种草面积、湿地修复面积、防沙治沙面积、野生动植物保护种类与数量、森林火灾和草原",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-205",
+   "id": "10149945",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10149945",
+   "question": "我在小区内近期经常投喂一只流浪猫，斑纹非常像网上搜索看到的豹猫的图片，也没有人认领这只猫。我怀疑它是豹猫，在网上搜索说豹猫是保护动物。我现在因为多次投喂它，看到它时招呼它就会跑过来，应该可以帮忙抓住它。请问需要联系动物保护部门来鉴定吗？ 谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-205",
+   "id": "10149372",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10149372",
+   "question": "尊敬的领导，本人是一名环评工作者，在工作开展中遇到以下两个问题，特向自治区林草局咨询。 1、我们正在开展银川市西夏区的犀牛湖水生生态治理项目（河湖治理）的环境影响评价工作，遇到如下问题： 根据《银川市人民政府办公室关于印发银川市湿地保护修复",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-205",
+   "id": "10148345",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10148345",
+   "question": "您好！我是来自北京邮电大学的一名本科生，因所在项目需要，现想向贵局有关防沙治沙市场规模、治沙机械市场等有关数据。我们的项目致力于打造低成本、高效率的智能草方格机器人，现已被学校推荐为国家级项目。先希望能有更多数据支撑，对治沙行业把握更深刻的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-205",
+   "id": "10147541",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10147541",
+   "question": "自然资源厅出了一份《自然资源厅重大行政执法决定法制审核目录清单》，但是里面没有林草有关的内容，想咨询一下自治区林草局是否出过林草局的重大行政执法决定法制审核目录清单？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-205",
+   "id": "10146633",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10146633",
+   "question": "尊敬的宁夏回族自治区林业和草原局工作人员：您好！我是北京林业大学林学院的一名硕士研究生。目前在研究落叶松及其病害相关内容。经历史文献资料查询落叶松分布及其病害发生区，但查询结果不尽完善。于是写信想向贵方了解一些问题：您省大面积的落叶松林分布",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-205",
+   "id": "10146493",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10146493",
+   "question": "我现在就读于河南的一名宁夏本科学生，母亲早些年种植了几亩树苗，想着以后可以售卖对我们家庭生活上有所帮助。可如今，树苗已经长大，也没有剩余的土地进行移植，母亲经常焦急的在朋友圈发着谁要云杉，她有一米五的云杉，看到这些，我觉得挺心酸的。所以，我",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-205",
+   "id": "10146485",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10146485",
+   "question": "您好，请问可以在哪里查询到宁夏各类自然保护地的名录呢？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-205",
+   "id": "10146293",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10146293",
+   "question": "您好！我是宁夏大学的一名研究生，目前在做阅海湖湿地的生态系统功能评价，在网上找到了宁夏湿地保护管理中心，然而没有相关的网址可以进去咨询。同时有关湿地的数据也无法查询，如：阅海湖的鱼类保有量，鸟类检测。烦请贵部门能给予回复",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-205",
+   "id": "10145651",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10145651",
+   "question": "你好，我是一名应届毕业生，我的论文主题是有关枸杞的，想咨询一下能否公开截至到2021年，宁夏枸杞生产情况，种植面积大概有多少等信息，只有种植面积也可以。谢谢谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-205",
+   "id": "10125975",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10125975",
+   "question": "尊敬的领导：我是一名通过现工作单位公开招聘招考进入的聘用编制人员，首先很感谢这份来之不易的工作。我们林草行业工作本身繁多、责任重大且编制紧缺，像我们直属单位的聘用编制人员又在单位负责重要岗位，想全身心的投入工作但是限于聘用编制人员工资待遇较",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-205",
+   "id": "10073050",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10073050",
+   "question": "您好，本人想咨询一下白芨滩国家自然保护区与生态文明教育基地是同一个地方吗，因所在单位举办活动需要前往白芨滩国家生态文明教育基地，但不知道具体地址、路线，麻烦可以告知一下吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-205",
+   "id": "10073046",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10073046",
+   "question": "领导好，我是曾于2014年在原宁夏金沙林场下属的金沙雅兰酒庄工作过的一名员工，姓名王涛，身份证号640381198710060316，现因考取青铜峡市市场监督管理局公务员，青铜峡市委组织部经审查档案，需本人提供以前工作单位的聘用合同及解除聘",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-205",
+   "id": "10073043",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10073043",
+   "question": "因个人兴趣爱好，想要驯养繁殖部分非国家重点保护动物的鹦鹉品种，请问在自己住宅居所，设立合适的笼具，掌握必备的技术，控制在一定规模以内，能提供相应的《引种证明》，能否办理《野生动物驯养繁殖许可证》？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-205",
+   "id": "10073042",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10073042",
+   "question": "关于建设万头牧场项目是否收取草原植被恢复费的问题一是根据国家林业和草原局关于印发《草原征占用审核审批管理规范》的通知（林草规〔2020〕2号），第八条在草原上修建直接为草原保护和畜牧业生产服务的工程设施确需使用草原的，依照下列规定的权限办理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-205",
+   "id": "10073041",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10073041",
+   "question": "请找一份自治区物价局、自治区财政厅《关于草原植被恢复费收费标准的复函》（宁价费发〔2015〕29 号），询问项目所在地的相关政府部门都没找到。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-205",
+   "id": "10073037",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10073037",
+   "question": "尊敬的自治区领导：您好，我们是来自石嘴山市的几位大学生（目前就读于大连海事大学）。抱着试一试的态度参加了第十一届全国大学生电子商务“创新、创意及创业”挑战赛，并自行设计、规划了“宁好”电商服务平台。由于我们的能力实在有限，初稿有很多不完整的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-205",
+   "id": "10073035",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10073035",
+   "question": "您好，我是西安理工大学一名学生，由于科研项目想请求几项数据，方便提供一下吗，我需要的数据是2018年固原市：彭阳县，泾源县，隆德县，西吉县4个县的森林抚育面积和林业总产值，方便提供下吗，感谢！！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-205",
+   "id": "10073031",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10073031",
+   "question": "您好，因项目建设占用临时和永久用地，项目区实地是草原，但是二调数据库是林地和草原，我应该以实地走还是你们有专门的草原数据库呢？谢谢，我需要界定面积。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-205",
+   "id": "10073023",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10073023",
+   "question": "尊敬的领导： 我比较喜欢养宠物，看淘宝上有很多卖各种乌龟的商家，想知道可否购买养殖，以及个人可否二次出售（知道陆龟不能养）品种有剃刀龟，麝香龟，草龟，亚巨龟。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-205",
+   "id": "10073021",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10073021",
+   "question": "有人发布说：宁夏政府在黄河滩有6万亩枣园免费承包。每年每亩地给500元的补助。但是只要外地人才可以参加。说是宁夏政府估计外地人来宁夏给的支持工作。支持西部大开发。怎么回事的。我想问问这个事情是真的吗？在哪里可以联系啊",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-205",
+   "id": "10073018",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10073018",
+   "question": "创新：“2倍风口方案”为三北防护林引入1万亿m³/年绿化需水【1】，三北防护林的绿化需水量”在1万亿m³/年以上造林需水，成功406.9万km²的三北防护林，按最低降雨量250mm/年计（参考胡焕庸线），每年需增加调入绿化用水在1万亿m³/",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-205",
+   "id": "10072999",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072999",
+   "question": "领导好！借此机会推荐CCTV-113套《新闻联播》前18:50媒体资源，借助《新闻联播》的高收视率和影响力助力“宁夏枸杞”形象宣传。《新闻联播》开播至今42年，是中国政治经济的风向标；国内重大政治、经济政策的首发平台，借助《新闻联播》前广泛",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-205",
+   "id": "10072996",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072996",
+   "question": "您好，请问我们这一批事业编体检大致在什么时间，望回复",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-205",
+   "id": "10072977",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072977",
+   "question": "自治区林草局： 全国乡镇林业站岗位在线学习平台是一个很好的平台，但现在无法打开。去年我在该平台上通过在线学习，取得了一些学时，和我一样在该平台上学习的林业同行众多，但作为乡镇基层人员，参加厅局组织的继续教育机会少之又少，这个平台给我们提供了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-205",
+   "id": "10072966",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072966",
+   "question": "尊敬的局长：您好！新修订的森林法今年7月1日开始实施，其中第八十二条规定 公安机关按照国家有关规定，可以依法行使本法第七十四条第一款、第七十六条、第七十七条、第七十八条规定的行政处罚权。请问1、公安机关按照国家有关规定怎么理解，现在是否有规",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-205",
+   "id": "10072963",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072963",
+   "question": "宁夏其他自然保护区都积极向林业厅自然资源局申请收编转为全额单位，唯有白芨滩保护区，既不主动去申请收编，更是拒不收编。原因是现阶段仗着差额单位的名义，克扣工资，体罚员工，大肆敛财。单位每年都有几千万的收入却不给底层基层员工发一分钱，每月收入只",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-205",
+   "id": "10072960",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072960",
+   "question": "本人在宁夏回族自治区林业和草原局官网并未检索到《宁夏林业厅政务信息公开申请表》的下载地址，请尽快告知，如果你机关不愿公开，请公开此项说明，不要给申请人添麻烦！！！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-205",
+   "id": "10072957",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072957",
+   "question": "您好，我们是南京河海大学大二的学生，请问我们去宁夏沙坡头沙漠生态系统国家野外科学观测研究站进行黄河流域防沙治沙的暑期实践活动，应该找什么部门提前报备盖章呢？有没有电话给我们提前联系呢？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-205",
+   "id": "10072954",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072954",
+   "question": "领导您好！ 很抱歉在您百忙之中打扰您，因我们村水库加固，工程取土需要占用我们家林地9.7亩左右，这片林是我父亲种的柠条子，有十多年了，当地水利局说没有补偿，是临时占用一年，一年后恢复，一年后能恢复十多年至二十年的林地吗？我们就想咨询一下国家",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-205",
+   "id": "10072946",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072946",
+   "question": "拒不执行上级人社部门关于工资发放和涨工资的通知文件，将文件原意恶意扣押、故意曲解，美其名曰国家不给涨工资，将财政拨款涨工资专项资金只发放给领导干部，涨工资对于普通员工来说想都别想。可以去暗查白芨滩哪个重要岗位不是资产500万以上。打着差额单",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-205",
+   "id": "10072940",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072940",
+   "question": "我们要共同保护环境(建议)宁夏中卫市在80年代、90年代从小区到公园,树下种的草平约有几千亩,不知谁下的命令经常把草剪短,这不符合当今保护环境的意识,割草机割草时,燃烧汽油,破坏空气,同时发生很大的轰轰噪音,特别是在小区那种轰轰声大的让人无",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-205",
+   "id": "10072937",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072937",
+   "question": "领导您好 我是盐池县十六堡村樟子松苗木基地的一名员工。我叫王斌，来自山东。和一个吉林的叫【孙宏宇】的经过宁夏松鼎生态发展有限公司监事【袁美鹏】介绍在基地给老板【焦殿学】当司机，从业时间2018年11月25日到2019年7月31日。基地去年春",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-205",
+   "id": "10072929",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072929",
+   "question": "近期灵武白芨滩林场有一人肢体被机器严重绞伤，王兴东违反《安全生产法》第一百零六条隐瞒生产安全事故，不立即将人送往医院抢救，反而先开党委会研究能不能送医院，耽误救治、安排人员统一口径、封锁消息、欺上瞒下、分责分锅，不认定工伤。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-205",
+   "id": "10072926",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072926",
+   "question": "我的父亲 李秉忠 身份证 642221195002232777于2009年被六盘山林业局卧羊川林场招聘为护林员直至2019年8月份停止上班，连续从事护林防火工作，这10余年，每逢节假日，正式工休假一个人值班，从没有过福利，这些年每月领着20",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-205",
+   "id": "10072913",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072913",
+   "question": "您好，我想咨询一下宁夏今年在贺兰山六盘山沿脉有没有森林树木病虫害防治的项目。因为我看到陕西甘肃今年政府有这方面的防治项目，所以想咨询一下宁夏本地这边有没类似的。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-205",
+   "id": "10072910",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072910",
+   "question": "亲爱的林业局的人： 你好，我是来自于榆木桥2队的一户人家，我自打小时候起，家乡的树每每到夏天都绿树成荫，槐花的香味和奶奶蒸的槐花糕都成我人生美好的记忆，而现在在秦渠的两边铺了水泥砖，导致大量的树木死亡，不仅没有槐花，就连树叶都寥寥无几。习近",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-205",
+   "id": "10072891",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072891",
+   "question": "国家林业和草原局、宁夏回族自治区林业和草原局: 灵武市狼皮子梁原来是不是都是沙漠？一位四川人在此苦心植树十几年。现在生态环境略有改善。但是，当地养羊户经常到林地放牧。树（林）木遭到极大破坏。孙国友本人多次求助有关部门，该问题一直得不得解决。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-205",
+   "id": "10072886",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072886",
+   "question": "自治区林业和草原局： 宝塔石化集团下属单位宁夏中卫宝塔农林牧生态科技有限公司在中卫市沙坡头区有7.8万亩红枣林地，现面向社会公开招租，欢迎有经营意向者承租。 恳请贵局通过区内、区外相关渠道发布信息，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-205",
+   "id": "10072873",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072873",
+   "question": "疫情期间，办公时间有变化吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-205",
+   "id": "10072828",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072828",
+   "question": "您好！请问在哪可以查到 自治区固原市防护林林地征用补偿标准",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-205",
+   "id": "10072822",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072822",
+   "question": "您好，想问一下林业和草原局的具体位置在哪里？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-205",
+   "id": "10072814",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072814",
+   "question": "局长：您好，森林公安转隶到公安部门后是否还承担林业行政执法职能？如不承担原承担的林业行政执法职能由哪个部门负责?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-205",
+   "id": "10072809",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072809",
+   "question": "您好，请问如何获取贵单位2018年财政决算和2019年财政预算，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-205",
+   "id": "10072802",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072802",
+   "question": "请问如何获取贵单位较为全面、规范、准确的行政权力清单和责任清单？能否提供一份学习研究，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-205",
+   "id": "10072796",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072796",
+   "question": "&quot;领导您好我要举报青铜峡市林业局恶意拖欠本人2013年至2015年滨河大道中滩段绿化带养护费用至今未给三百多亩绿化带没有一条渠全靠柴油发动机水泵扬水灌溉每年花费数十万到现在林业局分文未给希望有关领导予以重视这都是老百姓的血汗钱啊",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-205",
+   "id": "10072769",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072769",
+   "question": "询问绿秀苑经济适用房如何办理，319房间的问询电话",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-205",
+   "id": "10072737",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072737",
+   "question": "我想问牛羊粪便有没有专门的机构处理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-205",
+   "id": "10072726",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072726",
+   "question": "本人就以下3项事宜项自治区林业和草原局进行投诉举报： 1、自2002年我的31亩退耕还林补贴款只补贴了19亩，12亩一直未给补偿，被人冒领； 2、2015年石油勘探公司在鸦儿沟村勘探作业一年，石油公司人员给我写下了一张4400元补偿款欠条，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

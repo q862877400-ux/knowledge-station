@@ -1,0 +1,3258 @@
+[
+ {
+  "province": "天津",
+  "domain": "www.tj.gov.cn",
+  "home_status": 200,
+  "home_len": 182650,
+  "home_links": [
+   {
+    "url": "https://www.tj.gov.cn/zmhd/",
+    "text": "政民互动"
+   },
+   {
+    "url": "https://www.tj.gov.cn/zmhd/szxx/szxxxz/",
+    "text": "市长信箱"
+   }
+  ],
+  "home_fp": {},
+  "hd_paths": [
+   {
+    "path": "/hdjl/",
+    "status": 404,
+    "len": 130733
+   },
+   {
+    "path": "/zmhd/",
+    "status": 200,
+    "len": 160481,
+    "fp": {
+     "api_hint": [
+      "https://www.tj.gov.cn/zmhd/zmljl/jtsj/staticjson_wbjhfl_14291.json",
+      "https://xf.tj.gov.cn/glllm/blqk/data_19677.json"
+     ]
+    },
+    "links": [
+     {
+      "url": "https://www.tj.gov.cn/zmhd/",
+      "text": "政民互动"
+     },
+     {
+      "url": "https://www.tj.gov.cn/zmhd/hygqx/",
+      "text": "回应关切"
+     },
+     {
+      "url": "https://www.tj.gov.cn/zmhd/wmfkxd/",
+      "text": "留言选登"
+     }
+    ]
+   },
+   {
+    "path": "/hd/",
+    "status": 404,
+    "len": 130733
+   },
+   {
+    "path": "/gzhd/",
+    "status": 404,
+    "len": 130733
+   },
+   {
+    "path": "/wzly/",
+    "status": 404,
+    "len": 130733
+   },
+   {
+    "path": "/lyb/",
+    "status": 404,
+    "len": 130733
+   },
+   {
+    "path": "/hdjl/index.html",
+    "status": 404,
+    "len": 130733
+   },
+   {
+    "path": "/zmhd/index.html",
+    "status": 200,
+    "len": 160481,
+    "fp": {
+     "api_hint": [
+      "https://www.tj.gov.cn/zmhd/zmljl/jtsj/staticjson_wbjhfl_14291.json",
+      "https://xf.tj.gov.cn/glllm/blqk/data_19677.json"
+     ]
+    },
+    "links": [
+     {
+      "url": "https://www.tj.gov.cn/zmhd/",
+      "text": "政民互动"
+     },
+     {
+      "url": "https://www.tj.gov.cn/zmhd/hygqx/",
+      "text": "回应关切"
+     },
+     {
+      "url": "https://www.tj.gov.cn/zmhd/wmfkxd/",
+      "text": "留言选登"
+     }
+    ]
+   },
+   {
+    "path": "/hd/index.html",
+    "status": 404,
+    "len": 130733
+   },
+   {
+    "path": "/gzhd/index.html",
+    "status": 404,
+    "len": 130733
+   },
+   {
+    "path": "/wzly/index.html",
+    "status": 404,
+    "len": 130733
+   },
+   {
+    "path": "/hdjlpt",
+    "status": 404,
+    "len": 130733
+   },
+   {
+    "path": "/hdjlpt/",
+    "status": 404,
+    "len": 130733
+   },
+   {
+    "path": "/hzjl/",
+    "status": 404,
+    "len": 130733
+   },
+   {
+    "path": "/wszx/",
+    "status": 404,
+    "len": 130733
+   },
+   {
+    "path": "/zxts/",
+    "status": 404,
+    "len": 130733
+   },
+   {
+    "path": "/zjhd/",
+    "status": 404,
+    "len": 130733
+   }
+  ],
+  "midware_hint": [
+   "api_hint"
+  ]
+ },
+ {
+  "province": "上海",
+  "domain": "www.sh.gov.cn",
+  "home_status": 200,
+  "home_len": 117395,
+  "home_links": [],
+  "home_fp": {},
+  "hd_paths": [
+   {
+    "path": "/hdjl/",
+    "status": 404,
+    "len": 1035
+   },
+   {
+    "path": "/zmhd/",
+    "status": 200,
+    "len": 33733,
+    "fp": {},
+    "links": []
+   },
+   {
+    "path": "/hd/",
+    "status": 404,
+    "len": 1035
+   },
+   {
+    "path": "/gzhd/",
+    "status": 404,
+    "len": 1035
+   },
+   {
+    "path": "/wzly/",
+    "status": 404,
+    "len": 1035
+   },
+   {
+    "path": "/lyb/",
+    "status": 404,
+    "len": 1035
+   },
+   {
+    "path": "/hdjl/index.html",
+    "status": 404,
+    "len": 1035
+   },
+   {
+    "path": "/zmhd/index.html",
+    "status": 200,
+    "len": 33733,
+    "fp": {},
+    "links": []
+   },
+   {
+    "path": "/hd/index.html",
+    "status": 404,
+    "len": 1035
+   },
+   {
+    "path": "/gzhd/index.html",
+    "status": 404,
+    "len": 1035
+   },
+   {
+    "path": "/wzly/index.html",
+    "status": 404,
+    "len": 1035
+   },
+   {
+    "path": "/hdjlpt",
+    "status": 404,
+    "len": 1035
+   },
+   {
+    "path": "/hdjlpt/",
+    "status": 404,
+    "len": 1035
+   },
+   {
+    "path": "/hzjl/",
+    "status": 404,
+    "len": 1035
+   },
+   {
+    "path": "/wszx/",
+    "status": 404,
+    "len": 1035
+   },
+   {
+    "path": "/zxts/",
+    "status": 404,
+    "len": 1035
+   },
+   {
+    "path": "/zjhd/",
+    "status": 404,
+    "len": 1035
+   }
+  ],
+  "midware_hint": []
+ },
+ {
+  "province": "北京",
+  "domain": "www.beijing.gov.cn",
+  "home_status": 200,
+  "home_len": 184811,
+  "home_links": [
+   {
+    "url": "https://www.beijing.gov.cn/aiqa/",
+    "text": "智能问答"
+   },
+   {
+    "url": "https://www.beijing.gov.cn/hudong/",
+    "text": "政民互动"
+   },
+   {
+    "url": "https://www.beijing.gov.cn/shipin/",
+    "text": "在线访谈"
+   },
+   {
+    "url": "https://www.beijing.gov.cn/hudong/tushuo/",
+    "text": "图说互动"
+   },
+   {
+    "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH26091400739",
+    "text": "育儿假相关咨询"
+   }
+  ],
+  "home_fp": {
+   "channelid": [
+    "38662",
+    "38673",
+    "38661",
+    "38672",
+    "38669",
+    "38666"
+   ],
+   "api_hint": [
+    "https://www.gov.cn/pushinfo/v150203/pushinfo.jsonp"
+   ]
+  },
+  "hd_paths": [
+   {
+    "path": "/hdjl/",
+    "status": 404,
+    "len": 10369
+   },
+   {
+    "path": "/zmhd/",
+    "status": 200,
+    "len": 1273
+   },
+   {
+    "path": "/hd/",
+    "status": 404,
+    "len": 10369
+   },
+   {
+    "path": "/gzhd/",
+    "status": 404,
+    "len": 10369
+   },
+   {
+    "path": "/wzly/",
+    "status": 404,
+    "len": 10369
+   },
+   {
+    "path": "/lyb/",
+    "status": 404,
+    "len": 10369
+   },
+   {
+    "path": "/hdjl/index.html",
+    "status": 404,
+    "len": 10369
+   },
+   {
+    "path": "/zmhd/index.html",
+    "status": 200,
+    "len": 1273
+   },
+   {
+    "path": "/hd/index.html",
+    "status": 404,
+    "len": 10369
+   },
+   {
+    "path": "/gzhd/index.html",
+    "status": 404,
+    "len": 10369
+   },
+   {
+    "path": "/wzly/index.html",
+    "status": 404,
+    "len": 10369
+   },
+   {
+    "path": "/hdjlpt",
+    "status": 404,
+    "len": 10369
+   },
+   {
+    "path": "/hdjlpt/",
+    "status": 404,
+    "len": 10369
+   },
+   {
+    "path": "/hzjl/",
+    "status": 404,
+    "len": 10369
+   },
+   {
+    "path": "/wszx/",
+    "status": 404,
+    "len": 10369
+   },
+   {
+    "path": "/zxts/",
+    "status": 404,
+    "len": 10369
+   },
+   {
+    "path": "/zjhd/",
+    "status": 404,
+    "len": 10369
+   }
+  ],
+  "midware_hint": []
+ },
+ {
+  "province": "浙江",
+  "domain": "www.zj.gov.cn",
+  "home_status": 200,
+  "home_len": 143098,
+  "home_links": [],
+  "home_fp": {
+   "api_hint": [
+    "https://search.zj.gov.cn/api-gateway/jpaas-jsearch-web-server/interface/recommend/hotword-list"
+   ]
+  },
+  "hd_paths": [
+   {
+    "path": "/hdjl/",
+    "status": 404,
+    "len": 552
+   },
+   {
+    "path": "/zmhd/",
+    "status": 404,
+    "len": 552
+   },
+   {
+    "path": "/hd/",
+    "status": 404,
+    "len": 552
+   },
+   {
+    "path": "/gzhd/",
+    "status": 404,
+    "len": 552
+   },
+   {
+    "path": "/wzly/",
+    "status": 404,
+    "len": 552
+   },
+   {
+    "path": "/lyb/",
+    "status": 404,
+    "len": 552
+   },
+   {
+    "path": "/hdjl/index.html",
+    "status": 404,
+    "len": 552
+   },
+   {
+    "path": "/zmhd/index.html",
+    "status": 404,
+    "len": 552
+   },
+   {
+    "path": "/hd/index.html",
+    "status": 404,
+    "len": 552
+   },
+   {
+    "path": "/gzhd/index.html",
+    "status": 404,
+    "len": 552
+   },
+   {
+    "path": "/wzly/index.html",
+    "status": 404,
+    "len": 552
+   },
+   {
+    "path": "/hdjlpt",
+    "status": 404,
+    "len": 552
+   },
+   {
+    "path": "/hdjlpt/",
+    "status": 404,
+    "len": 552
+   },
+   {
+    "path": "/hzjl/",
+    "status": 404,
+    "len": 552
+   },
+   {
+    "path": "/wszx/",
+    "status": 404,
+    "len": 552
+   },
+   {
+    "path": "/zxts/",
+    "status": 404,
+    "len": 552
+   },
+   {
+    "path": "/zjhd/",
+    "status": 404,
+    "len": 552
+   }
+  ],
+  "midware_hint": []
+ },
+ {
+  "province": "福建",
+  "domain": "www.fj.gov.cn",
+  "home_status": 200,
+  "home_len": 390534,
+  "home_links": [
+   {
+    "url": "https://www.fj.gov.cn/jdhy/",
+    "text": "解读回应"
+   },
+   {
+    "url": "https://www.fj.gov.cn/jdhy/hygq/",
+    "text": "回应关切"
+   },
+   {
+    "url": "https://www.fj.gov.cn/hdjl/",
+    "text": "互动交流"
+   },
+   {
+    "url": "https://www.fj.gov.cn/hdjl/zxts/",
+    "text": "咨询投诉引导"
+   },
+   {
+    "url": "https://www.fj.gov.cn/hdjl/zxft/",
+    "text": "在线访谈"
+   }
+  ],
+  "home_fp": {
+   "was5": true,
+   "api_hint": [
+    "/static/sybjtj.json",
+    "/static/fztq.json",
+    "/static/fjqx.json",
+    "/ssp/search/api/word",
+    "https://www.gov.cn/pushinfo/v150203/pushinfo.jsonp",
+    "/static/opendata.json"
+   ]
+  },
+  "hd_paths": [
+   {
+    "path": "/hdjl/",
+    "status": 200,
+    "len": 293379,
+    "fp": {
+     "api_hint": [
+      "/static/sybjtj.json",
+      "/static/fztq.json",
+      "/static/fjqx.json",
+      "/ssp/search/api/word",
+      "/staticitp/szf/wsdc/1.json",
+      "/staticitp/szf/myzj_myzj/1.json"
+     ]
+    },
+    "links": [
+     {
+      "url": "https://www.fj.gov.cn/jdhy/",
+      "text": "解读回应"
+     },
+     {
+      "url": "https://www.fj.gov.cn/jdhy/hygq/",
+      "text": "回应关切"
+     },
+     {
+      "url": "https://www.fj.gov.cn/hdjl/",
+      "text": "互动交流"
+     },
+     {
+      "url": "https://www.fj.gov.cn/hdjl/zxts/",
+      "text": "咨询投诉引导"
+     },
+     {
+      "url": "https://www.fj.gov.cn/hdjl/zxft/",
+      "text": "在线访谈"
+     },
+     {
+      "url": "https://www.fj.gov.cn/hdjl/zxts/wyzx/",
+      "text": "我要咨询"
+     },
+     {
+      "url": "https://www.fj.gov.cn/hdjl/zxts/wyts/",
+      "text": "我要投诉"
+     },
+     {
+      "url": "https://www.fj.gov.cn/hdjl/zxts/wycx/szxxDetail.htm?articleId=23740",
+      "text": "工程技术人员中级职称申报咨询"
+     }
+    ]
+   },
+   {
+    "path": "/zmhd/",
+    "status": 404,
+    "len": 3266
+   },
+   {
+    "path": "/hd/",
+    "status": 404,
+    "len": 3266
+   },
+   {
+    "path": "/gzhd/",
+    "status": 404,
+    "len": 3266
+   },
+   {
+    "path": "/wzly/",
+    "status": 404,
+    "len": 3266
+   },
+   {
+    "path": "/lyb/",
+    "status": 404,
+    "len": 3266
+   },
+   {
+    "path": "/hdjl/index.html",
+    "status": 404,
+    "len": 3266
+   },
+   {
+    "path": "/zmhd/index.html",
+    "status": 404,
+    "len": 3266
+   },
+   {
+    "path": "/hd/index.html",
+    "status": 404,
+    "len": 3266
+   },
+   {
+    "path": "/gzhd/index.html",
+    "status": 404,
+    "len": 3266
+   },
+   {
+    "path": "/wzly/index.html",
+    "status": 404,
+    "len": 3266
+   },
+   {
+    "path": "/hdjlpt",
+    "status": 404,
+    "len": 3266
+   },
+   {
+    "path": "/hdjlpt/",
+    "status": 404,
+    "len": 3266
+   },
+   {
+    "path": "/hzjl/",
+    "status": 404,
+    "len": 3266
+   },
+   {
+    "path": "/wszx/",
+    "status": 404,
+    "len": 3266
+   },
+   {
+    "path": "/zxts/",
+    "status": 404,
+    "len": 3266
+   },
+   {
+    "path": "/zjhd/",
+    "status": 404,
+    "len": 3266
+   }
+  ],
+  "midware_hint": [
+   "api_hint"
+  ]
+ },
+ {
+  "province": "宁夏",
+  "domain": "www.nx.gov.cn",
+  "home_status": 200,
+  "home_len": 142681,
+  "home_links": [
+   {
+    "url": "https://www.nx.gov.cn/hdjl/",
+    "text": "互动交流"
+   },
+   {
+    "url": "https://www.nx.gov.cn/hdjl/zxft/",
+    "text": "在线访谈"
+   },
+   {
+    "url": "https://www.nx.gov.cn/hdjl/zxxx/",
+    "text": "信件选登"
+   },
+   {
+    "url": "https://www.nx.gov.cn/zwxx_11337/hygq/",
+    "text": "回应关切"
+   }
+  ],
+  "home_fp": {
+   "igi": true,
+   "api_hint": [
+    "https://www.gov.cn/pushinfo/v150203/pushinfo.jsonp",
+    "emaillist",
+    ");\n      })\n\n\n      GetMailList();\n      GetNewsnum(",
+    ");  \n            }\n     \n                       \n    })\n    function GetMailList() {\n      var status = [{ id: 0, name: ",
+    "#emaillist"
+   ]
+  },
+  "hd_paths": [
+   {
+    "path": "/hdjl/",
+    "status": 200,
+    "len": 97297,
+    "fp": {
+     "igi": true,
+     "api_hint": [
+      "emaillist",
+      ");\n        })\n\n\n        GetMailList();\n        GetNewsnum(",
+      "#emaillist"
+     ]
+    },
+    "links": [
+     {
+      "url": "https://www.nx.gov.cn/hdjl/",
+      "text": "互动交流"
+     },
+     {
+      "url": "https://www.nx.gov.cn/hdjl/zxft/",
+      "text": "在线访谈"
+     },
+     {
+      "url": "https://www.nx.gov.cn/hdjl/zxxx/",
+      "text": "主席信箱"
+     }
+    ]
+   },
+   {
+    "path": "/zmhd/",
+    "status": 404,
+    "len": 1658
+   },
+   {
+    "path": "/hd/",
+    "status": 404,
+    "len": 1658
+   },
+   {
+    "path": "/gzhd/",
+    "status": 404,
+    "len": 1658
+   },
+   {
+    "path": "/wzly/",
+    "status": 404,
+    "len": 1658
+   },
+   {
+    "path": "/lyb/",
+    "status": 404,
+    "len": 1658
+   },
+   {
+    "path": "/hdjl/index.html",
+    "status": 200,
+    "len": 97297,
+    "fp": {
+     "igi": true,
+     "api_hint": [
+      "emaillist",
+      ");\n        })\n\n\n        GetMailList();\n        GetNewsnum(",
+      "#emaillist"
+     ]
+    },
+    "links": [
+     {
+      "url": "https://www.nx.gov.cn/hdjl/",
+      "text": "互动交流"
+     },
+     {
+      "url": "https://www.nx.gov.cn/hdjl/zxft/",
+      "text": "在线访谈"
+     },
+     {
+      "url": "https://www.nx.gov.cn/hdjl/zxxx/",
+      "text": "主席信箱"
+     }
+    ]
+   },
+   {
+    "path": "/zmhd/index.html",
+    "status": 404,
+    "len": 1658
+   },
+   {
+    "path": "/hd/index.html",
+    "status": 404,
+    "len": 1658
+   },
+   {
+    "path": "/gzhd/index.html",
+    "status": 404,
+    "len": 1658
+   },
+   {
+    "path": "/wzly/index.html",
+    "status": 404,
+    "len": 1658
+   },
+   {
+    "path": "/hdjlpt",
+    "status": 404,
+    "len": 1658
+   },
+   {
+    "path": "/hdjlpt/",
+    "status": 404,
+    "len": 1658
+   },
+   {
+    "path": "/hzjl/",
+    "status": 404,
+    "len": 1658
+   },
+   {
+    "path": "/wszx/",
+    "status": 404,
+    "len": 1658
+   },
+   {
+    "path": "/zxts/",
+    "status": 404,
+    "len": 1658
+   },
+   {
+    "path": "/zjhd/",
+    "status": 404,
+    "len": 1658
+   }
+  ],
+  "midware_hint": [
+   "api_hint",
+   "igi"
+  ]
+ },
+ {
+  "province": "云南",
+  "domain": "www.yn.gov.cn",
+  "home_status": 200,
+  "home_len": 132430,
+  "home_links": [
+   {
+    "url": "https://www.yn.gov.cn/hdjl/",
+    "text": "互动交流"
+   },
+   {
+    "url": "https://www.yn.gov.cn/hdjl/zxft1/fthz/",
+    "text": "在线访谈"
+   },
+   {
+    "url": "https://www.yn.gov.cn/hdjl/wlwz/wlwzwyzx/",
+    "text": "我要咨询"
+   },
+   {
+    "url": "https://www.yn.gov.cn/hdjl/wlwz/wlwzwyts/",
+    "text": "我要投诉"
+   }
+  ],
+  "home_fp": {},
+  "hd_paths": [
+   {
+    "path": "/hdjl/",
+    "status": 200,
+    "len": 100394,
+    "fp": {
+     "channelid": [
+      "639"
+     ],
+     "api_hint": [
+      "https://www.yn.gov.cn/zcwjk/html/2023/statistics.json",
+      "https://www.yn.gov.cn/zcwjk/html/case/index.json"
+     ]
+    },
+    "links": [
+     {
+      "url": "https://www.yn.gov.cn/hdjl/",
+      "text": "互动交流"
+     },
+     {
+      "url": "https://www.yn.gov.cn/hdjl/zxft1/fthz/",
+      "text": "在线访谈"
+     },
+     {
+      "url": "https://www.yn.gov.cn/hdjl/wlwz/wlwzwyzx/",
+      "text": "我要咨询"
+     },
+     {
+      "url": "https://www.yn.gov.cn/hdjl/wlwz/wlwzwyts/",
+      "text": "我要投诉"
+     }
+    ]
+   },
+   {
+    "path": "/zmhd/",
+    "status": 404,
+    "len": 76248
+   },
+   {
+    "path": "/hd/",
+    "status": 404,
+    "len": 76248
+   },
+   {
+    "path": "/gzhd/",
+    "status": 404,
+    "len": 76248
+   },
+   {
+    "path": "/wzly/",
+    "status": 404,
+    "len": 76248
+   },
+   {
+    "path": "/lyb/",
+    "status": 404,
+    "len": 76248
+   },
+   {
+    "path": "/hdjl/index.html",
+    "status": 200,
+    "len": 100394,
+    "fp": {
+     "channelid": [
+      "639"
+     ],
+     "api_hint": [
+      "https://www.yn.gov.cn/zcwjk/html/2023/statistics.json",
+      "https://www.yn.gov.cn/zcwjk/html/case/index.json"
+     ]
+    },
+    "links": [
+     {
+      "url": "https://www.yn.gov.cn/hdjl/",
+      "text": "互动交流"
+     },
+     {
+      "url": "https://www.yn.gov.cn/hdjl/zxft1/fthz/",
+      "text": "在线访谈"
+     },
+     {
+      "url": "https://www.yn.gov.cn/hdjl/wlwz/wlwzwyzx/",
+      "text": "我要咨询"
+     },
+     {
+      "url": "https://www.yn.gov.cn/hdjl/wlwz/wlwzwyts/",
+      "text": "我要投诉"
+     }
+    ]
+   },
+   {
+    "path": "/zmhd/index.html",
+    "status": 404,
+    "len": 76248
+   },
+   {
+    "path": "/hd/index.html",
+    "status": 404,
+    "len": 76248
+   },
+   {
+    "path": "/gzhd/index.html",
+    "status": 404,
+    "len": 76248
+   },
+   {
+    "path": "/wzly/index.html",
+    "status": 404,
+    "len": 76248
+   },
+   {
+    "path": "/hdjlpt",
+    "status": 404,
+    "len": 76248
+   },
+   {
+    "path": "/hdjlpt/",
+    "status": 404,
+    "len": 76248
+   },
+   {
+    "path": "/hzjl/",
+    "status": 404,
+    "len": 76248
+   },
+   {
+    "path": "/wszx/",
+    "status": 404,
+    "len": 76248
+   },
+   {
+    "path": "/zxts/",
+    "status": 404,
+    "len": 76248
+   },
+   {
+    "path": "/zjhd/",
+    "status": 404,
+    "len": 76248
+   }
+  ],
+  "midware_hint": [
+   "api_hint",
+   "channelid"
+  ]
+ },
+ {
+  "province": "陕西",
+  "domain": "www.shaanxi.gov.cn",
+  "home_status": 200,
+  "home_len": 81176,
+  "home_links": [
+   {
+    "url": "https://www.shaanxi.gov.cn/hd/",
+    "text": "互动"
+   },
+   {
+    "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/",
+    "text": "留言"
+   },
+   {
+    "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/",
+    "text": "选登"
+   },
+   {
+    "url": "http://www.shaanxi.gov.cn/sxsjczxwyh/",
+    "text": "省决策咨询委员会"
+   }
+  ],
+  "home_fp": {
+   "api_hint": [
+    "https://www.gov.cn/pushinfo/v150203/pushinfo.jsonp"
+   ]
+  },
+  "hd_paths": [
+   {
+    "path": "/hdjl/",
+    "status": 404,
+    "len": 548
+   },
+   {
+    "path": "/zmhd/",
+    "status": 404,
+    "len": 548
+   },
+   {
+    "path": "/hd/",
+    "status": 200,
+    "len": 54524,
+    "fp": {},
+    "links": [
+     {
+      "url": "https://www.shaanxi.gov.cn/hd/",
+      "text": "互动"
+     },
+     {
+      "url": "https://www.shaanxi.gov.cn/hd/sxzswd/sjzswd/",
+      "text": "知识问答"
+     },
+     {
+      "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/wyzx/",
+      "text": "我要咨询"
+     },
+     {
+      "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/wyly/",
+      "text": "我要建言"
+     },
+     {
+      "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/",
+      "text": "信件选登"
+     }
+    ]
+   },
+   {
+    "path": "/gzhd/",
+    "status": 404,
+    "len": 548
+   },
+   {
+    "path": "/wzly/",
+    "status": 404,
+    "len": 548
+   },
+   {
+    "path": "/lyb/",
+    "status": 404,
+    "len": 548
+   },
+   {
+    "path": "/hdjl/index.html",
+    "status": 404,
+    "len": 548
+   },
+   {
+    "path": "/zmhd/index.html",
+    "status": 404,
+    "len": 548
+   },
+   {
+    "path": "/hd/index.html",
+    "status": 200,
+    "len": 54524,
+    "fp": {},
+    "links": [
+     {
+      "url": "https://www.shaanxi.gov.cn/hd/",
+      "text": "互动"
+     },
+     {
+      "url": "https://www.shaanxi.gov.cn/hd/sxzswd/sjzswd/",
+      "text": "知识问答"
+     },
+     {
+      "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/wyzx/",
+      "text": "我要咨询"
+     },
+     {
+      "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/wyly/",
+      "text": "我要建言"
+     },
+     {
+      "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/",
+      "text": "信件选登"
+     }
+    ]
+   },
+   {
+    "path": "/gzhd/index.html",
+    "status": 404,
+    "len": 548
+   },
+   {
+    "path": "/wzly/index.html",
+    "status": 404,
+    "len": 548
+   },
+   {
+    "path": "/hdjlpt",
+    "status": 404,
+    "len": 548
+   },
+   {
+    "path": "/hdjlpt/",
+    "status": 404,
+    "len": 548
+   },
+   {
+    "path": "/hzjl/",
+    "status": 404,
+    "len": 548
+   },
+   {
+    "path": "/wszx/",
+    "status": 404,
+    "len": 548
+   },
+   {
+    "path": "/zxts/",
+    "status": 404,
+    "len": 548
+   },
+   {
+    "path": "/zjhd/",
+    "status": 404,
+    "len": 548
+   }
+  ],
+  "midware_hint": []
+ },
+ {
+  "province": "甘肃",
+  "domain": "www.gansu.gov.cn",
+  "home_status": 412,
+  "home_len": 6399,
+  "stopped": "403/412"
+ },
+ {
+  "province": "青海",
+  "domain": "www.qinghai.gov.cn",
+  "home_status": null,
+  "home_err": "ConnectTimeout"
+ },
+ {
+  "province": "新疆",
+  "domain": "www.xinjiang.gov.cn",
+  "home_status": 200,
+  "home_len": 97183,
+  "home_links": [
+   {
+    "url": "https://www.xinjiang.gov.cn/xinjiang/zmhd/hd.shtml",
+    "text": "政民互动"
+   }
+  ],
+  "home_fp": {},
+  "hd_paths": [
+   {
+    "path": "/hdjl/",
+    "status": 404,
+    "len": 548
+   },
+   {
+    "path": "/zmhd/",
+    "status": 403,
+    "len": 548
+   }
+  ],
+  "midware_hint": []
+ },
+ {
+  "province": "西藏",
+  "domain": "www.xizang.gov.cn",
+  "home_status": 200,
+  "home_len": 116510,
+  "home_links": [
+   {
+    "url": "https://www.xizang.gov.cn/zmhd/",
+    "text": "互动"
+   },
+   {
+    "url": "https://www.xizang.gov.cn/zmhd/hygq/",
+    "text": "回应关切"
+   }
+  ],
+  "home_fp": {
+   "api_hint": [
+    "http://220.182.3.99:8098/entservice/api/v1.0/index"
+   ]
+  },
+  "hd_paths": [
+   {
+    "path": "/hdjl/",
+    "status": 404,
+    "len": 548
+   },
+   {
+    "path": "/zmhd/",
+    "status": 200,
+    "len": 58090,
+    "fp": {},
+    "links": [
+     {
+      "url": "https://www.xizang.gov.cn/zmhd/",
+      "text": "互动"
+     }
+    ]
+   },
+   {
+    "path": "/hd/",
+    "status": 404,
+    "len": 548
+   },
+   {
+    "path": "/gzhd/",
+    "status": 404,
+    "len": 548
+   },
+   {
+    "path": "/wzly/",
+    "status": 404,
+    "len": 548
+   },
+   {
+    "path": "/lyb/",
+    "status": 404,
+    "len": 548
+   },
+   {
+    "path": "/hdjl/index.html",
+    "status": 404,
+    "len": 548
+   },
+   {
+    "path": "/zmhd/index.html",
+    "status": 200,
+    "len": 58090,
+    "fp": {},
+    "links": [
+     {
+      "url": "https://www.xizang.gov.cn/zmhd/",
+      "text": "互动"
+     }
+    ]
+   },
+   {
+    "path": "/hd/index.html",
+    "status": 404,
+    "len": 548
+   },
+   {
+    "path": "/gzhd/index.html",
+    "status": 404,
+    "len": 548
+   },
+   {
+    "path": "/wzly/index.html",
+    "status": 404,
+    "len": 548
+   },
+   {
+    "path": "/hdjlpt",
+    "status": 404,
+    "len": 548
+   },
+   {
+    "path": "/hdjlpt/",
+    "status": 404,
+    "len": 548
+   },
+   {
+    "path": "/hzjl/",
+    "status": 404,
+    "len": 548
+   },
+   {
+    "path": "/wszx/",
+    "status": 404,
+    "len": 548
+   },
+   {
+    "path": "/zxts/",
+    "status": 404,
+    "len": 548
+   },
+   {
+    "path": "/zjhd/",
+    "status": 404,
+    "len": 548
+   }
+  ],
+  "midware_hint": []
+ },
+ {
+  "province": "内蒙古",
+  "domain": "www.nmg.gov.cn",
+  "home_status": 200,
+  "home_len": 129992,
+  "home_links": [],
+  "home_fp": {
+   "api_hint": [
+    "https://www.gov.cn/pushinfo/v150203/pushinfo.jsonp",
+    "https://www.nmg.gov.cn/xinxiang/api/getNewTVList",
+    "https://www.nmg.gov.cn/xinxiang/api/getCaseInfoList"
+   ]
+  },
+  "hd_paths": [
+   {
+    "path": "/hdjl/",
+    "status": 200,
+    "len": 2328,
+    "fp": {},
+    "links": []
+   },
+   {
+    "path": "/zmhd/",
+    "status": 200,
+    "len": 81500,
+    "fp": {
+     "channelid": [
+      "3445"
+     ],
+     "api_hint": [
+      "https://www.nmg.gov.cn/xinxiang/api/getCaseInfoList"
+     ]
+    },
+    "links": [
+     {
+      "url": "https://www.nmg.gov.cn/zmhd/zcwdk/",
+      "text": "政策问答库"
+     }
+    ]
+   },
+   {
+    "path": "/hd/",
+    "status": 200,
+    "len": 2328,
+    "fp": {},
+    "links": []
+   },
+   {
+    "path": "/gzhd/",
+    "status": 200,
+    "len": 2328,
+    "fp": {},
+    "links": []
+   },
+   {
+    "path": "/wzly/",
+    "status": 200,
+    "len": 2328,
+    "fp": {},
+    "links": []
+   },
+   {
+    "path": "/lyb/",
+    "status": 200,
+    "len": 2328,
+    "fp": {},
+    "links": []
+   },
+   {
+    "path": "/hdjl/index.html",
+    "status": 200,
+    "len": 2328,
+    "fp": {},
+    "links": []
+   },
+   {
+    "path": "/zmhd/index.html",
+    "status": 200,
+    "len": 81500,
+    "fp": {
+     "channelid": [
+      "3445"
+     ],
+     "api_hint": [
+      "https://www.nmg.gov.cn/xinxiang/api/getCaseInfoList"
+     ]
+    },
+    "links": [
+     {
+      "url": "https://www.nmg.gov.cn/zmhd/zcwdk/",
+      "text": "政策问答库"
+     }
+    ]
+   },
+   {
+    "path": "/hd/index.html",
+    "status": 200,
+    "len": 2328,
+    "fp": {},
+    "links": []
+   },
+   {
+    "path": "/gzhd/index.html",
+    "status": 200,
+    "len": 2328,
+    "fp": {},
+    "links": []
+   },
+   {
+    "path": "/wzly/index.html",
+    "status": 200,
+    "len": 2328,
+    "fp": {},
+    "links": []
+   },
+   {
+    "path": "/hdjlpt",
+    "status": 200,
+    "len": 2328,
+    "fp": {},
+    "links": []
+   },
+   {
+    "path": "/hdjlpt/",
+    "status": 200,
+    "len": 2328,
+    "fp": {},
+    "links": []
+   },
+   {
+    "path": "/hzjl/",
+    "status": 200,
+    "len": 2328,
+    "fp": {},
+    "links": []
+   },
+   {
+    "path": "/wszx/",
+    "status": 200,
+    "len": 2328,
+    "fp": {},
+    "links": []
+   },
+   {
+    "path": "/zxts/",
+    "status": 200,
+    "len": 2328,
+    "fp": {},
+    "links": []
+   },
+   {
+    "path": "/zjhd/",
+    "status": 200,
+    "len": 2328,
+    "fp": {},
+    "links": []
+   }
+  ],
+  "midware_hint": [
+   "api_hint",
+   "channelid"
+  ]
+ },
+ {
+  "province": "黑龙江",
+  "domain": "www.hlj.gov.cn",
+  "home_status": 200,
+  "home_len": 136155,
+  "home_links": [
+   {
+    "url": "https://www.hlj.gov.cn/hlj/c108467/zmhd.shtml",
+    "text": "政民互动"
+   },
+   {
+    "url": "https://www.hlj.gov.cn/hlj/c115777/dep_list.shtml",
+    "text": "部门互动"
+   },
+   {
+    "url": "https://www.hlj.gov.cn/hlj/c108388/202610/c00_31982203.shtml",
+    "text": "【问答解读】《黑龙江省地震预警管理办法》政策解读"
+   },
+   {
+    "url": "https://www.hlj.gov.cn/hlj/c108388/202610/c00_31982198.shtml",
+    "text": "【问答解读】《黑龙江省地名管理规定》政策解读"
+   },
+   {
+    "url": "https://www.hlj.gov.cn/hlj/c115707/wycx.shtml",
+    "text": "留言选登"
+   },
+   {
+    "url": "https://www.hlj.gov.cn/hlj/hqlmzcwd1118/zl_hqlmzc.shtml",
+    "text": "惠企利民政策问答"
+   }
+  ],
+  "home_fp": {
+   "api_hint": [
+    "https://www.zwfw.hlj.gov.cn/zhcx/service/legal/hot?areaCode=230000000000"
+   ]
+  },
+  "hd_paths": [
+   {
+    "path": "/hdjl/",
+    "status": 200,
+    "len": 136155,
+    "fp": {
+     "api_hint": [
+      "https://www.zwfw.hlj.gov.cn/zhcx/service/legal/hot?areaCode=230000000000"
+     ]
+    },
+    "links": [
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c108467/zmhd.shtml",
+      "text": "政民互动"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c115777/dep_list.shtml",
+      "text": "部门互动"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c108388/202610/c00_31982203.shtml",
+      "text": "【问答解读】《黑龙江省地震预警管理办法》政策解读"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c108388/202610/c00_31982198.shtml",
+      "text": "【问答解读】《黑龙江省地名管理规定》政策解读"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c115707/wycx.shtml",
+      "text": "留言选登"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/hqlmzcwd1118/zl_hqlmzc.shtml",
+      "text": "惠企利民政策问答"
+     }
+    ]
+   },
+   {
+    "path": "/zmhd/",
+    "status": 200,
+    "len": 136155,
+    "fp": {
+     "api_hint": [
+      "https://www.zwfw.hlj.gov.cn/zhcx/service/legal/hot?areaCode=230000000000"
+     ]
+    },
+    "links": [
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c108467/zmhd.shtml",
+      "text": "政民互动"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c115777/dep_list.shtml",
+      "text": "部门互动"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c108388/202610/c00_31982203.shtml",
+      "text": "【问答解读】《黑龙江省地震预警管理办法》政策解读"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c108388/202610/c00_31982198.shtml",
+      "text": "【问答解读】《黑龙江省地名管理规定》政策解读"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c115707/wycx.shtml",
+      "text": "留言选登"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/hqlmzcwd1118/zl_hqlmzc.shtml",
+      "text": "惠企利民政策问答"
+     }
+    ]
+   },
+   {
+    "path": "/hd/",
+    "status": 200,
+    "len": 136155,
+    "fp": {
+     "api_hint": [
+      "https://www.zwfw.hlj.gov.cn/zhcx/service/legal/hot?areaCode=230000000000"
+     ]
+    },
+    "links": [
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c108467/zmhd.shtml",
+      "text": "政民互动"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c115777/dep_list.shtml",
+      "text": "部门互动"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c108388/202610/c00_31982203.shtml",
+      "text": "【问答解读】《黑龙江省地震预警管理办法》政策解读"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c108388/202610/c00_31982198.shtml",
+      "text": "【问答解读】《黑龙江省地名管理规定》政策解读"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c115707/wycx.shtml",
+      "text": "留言选登"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/hqlmzcwd1118/zl_hqlmzc.shtml",
+      "text": "惠企利民政策问答"
+     }
+    ]
+   },
+   {
+    "path": "/gzhd/",
+    "status": 200,
+    "len": 136155,
+    "fp": {
+     "api_hint": [
+      "https://www.zwfw.hlj.gov.cn/zhcx/service/legal/hot?areaCode=230000000000"
+     ]
+    },
+    "links": [
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c108467/zmhd.shtml",
+      "text": "政民互动"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c115777/dep_list.shtml",
+      "text": "部门互动"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c108388/202610/c00_31982203.shtml",
+      "text": "【问答解读】《黑龙江省地震预警管理办法》政策解读"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c108388/202610/c00_31982198.shtml",
+      "text": "【问答解读】《黑龙江省地名管理规定》政策解读"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c115707/wycx.shtml",
+      "text": "留言选登"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/hqlmzcwd1118/zl_hqlmzc.shtml",
+      "text": "惠企利民政策问答"
+     }
+    ]
+   },
+   {
+    "path": "/wzly/",
+    "status": 200,
+    "len": 136155,
+    "fp": {
+     "api_hint": [
+      "https://www.zwfw.hlj.gov.cn/zhcx/service/legal/hot?areaCode=230000000000"
+     ]
+    },
+    "links": [
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c108467/zmhd.shtml",
+      "text": "政民互动"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c115777/dep_list.shtml",
+      "text": "部门互动"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c108388/202610/c00_31982203.shtml",
+      "text": "【问答解读】《黑龙江省地震预警管理办法》政策解读"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c108388/202610/c00_31982198.shtml",
+      "text": "【问答解读】《黑龙江省地名管理规定》政策解读"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c115707/wycx.shtml",
+      "text": "留言选登"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/hqlmzcwd1118/zl_hqlmzc.shtml",
+      "text": "惠企利民政策问答"
+     }
+    ]
+   },
+   {
+    "path": "/lyb/",
+    "status": 200,
+    "len": 136155,
+    "fp": {
+     "api_hint": [
+      "https://www.zwfw.hlj.gov.cn/zhcx/service/legal/hot?areaCode=230000000000"
+     ]
+    },
+    "links": [
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c108467/zmhd.shtml",
+      "text": "政民互动"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c115777/dep_list.shtml",
+      "text": "部门互动"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c108388/202610/c00_31982203.shtml",
+      "text": "【问答解读】《黑龙江省地震预警管理办法》政策解读"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c108388/202610/c00_31982198.shtml",
+      "text": "【问答解读】《黑龙江省地名管理规定》政策解读"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c115707/wycx.shtml",
+      "text": "留言选登"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/hqlmzcwd1118/zl_hqlmzc.shtml",
+      "text": "惠企利民政策问答"
+     }
+    ]
+   },
+   {
+    "path": "/hdjl/index.html",
+    "status": 200,
+    "len": 136155,
+    "fp": {
+     "api_hint": [
+      "https://www.zwfw.hlj.gov.cn/zhcx/service/legal/hot?areaCode=230000000000"
+     ]
+    },
+    "links": [
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c108467/zmhd.shtml",
+      "text": "政民互动"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c115777/dep_list.shtml",
+      "text": "部门互动"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c108388/202610/c00_31982203.shtml",
+      "text": "【问答解读】《黑龙江省地震预警管理办法》政策解读"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c108388/202610/c00_31982198.shtml",
+      "text": "【问答解读】《黑龙江省地名管理规定》政策解读"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c115707/wycx.shtml",
+      "text": "留言选登"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/hqlmzcwd1118/zl_hqlmzc.shtml",
+      "text": "惠企利民政策问答"
+     }
+    ]
+   },
+   {
+    "path": "/zmhd/index.html",
+    "status": 200,
+    "len": 136155,
+    "fp": {
+     "api_hint": [
+      "https://www.zwfw.hlj.gov.cn/zhcx/service/legal/hot?areaCode=230000000000"
+     ]
+    },
+    "links": [
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c108467/zmhd.shtml",
+      "text": "政民互动"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c115777/dep_list.shtml",
+      "text": "部门互动"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c108388/202610/c00_31982203.shtml",
+      "text": "【问答解读】《黑龙江省地震预警管理办法》政策解读"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c108388/202610/c00_31982198.shtml",
+      "text": "【问答解读】《黑龙江省地名管理规定》政策解读"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c115707/wycx.shtml",
+      "text": "留言选登"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/hqlmzcwd1118/zl_hqlmzc.shtml",
+      "text": "惠企利民政策问答"
+     }
+    ]
+   },
+   {
+    "path": "/hd/index.html",
+    "status": 200,
+    "len": 136155,
+    "fp": {
+     "api_hint": [
+      "https://www.zwfw.hlj.gov.cn/zhcx/service/legal/hot?areaCode=230000000000"
+     ]
+    },
+    "links": [
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c108467/zmhd.shtml",
+      "text": "政民互动"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c115777/dep_list.shtml",
+      "text": "部门互动"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c108388/202610/c00_31982203.shtml",
+      "text": "【问答解读】《黑龙江省地震预警管理办法》政策解读"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c108388/202610/c00_31982198.shtml",
+      "text": "【问答解读】《黑龙江省地名管理规定》政策解读"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c115707/wycx.shtml",
+      "text": "留言选登"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/hqlmzcwd1118/zl_hqlmzc.shtml",
+      "text": "惠企利民政策问答"
+     }
+    ]
+   },
+   {
+    "path": "/gzhd/index.html",
+    "status": 200,
+    "len": 136155,
+    "fp": {
+     "api_hint": [
+      "https://www.zwfw.hlj.gov.cn/zhcx/service/legal/hot?areaCode=230000000000"
+     ]
+    },
+    "links": [
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c108467/zmhd.shtml",
+      "text": "政民互动"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c115777/dep_list.shtml",
+      "text": "部门互动"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c108388/202610/c00_31982203.shtml",
+      "text": "【问答解读】《黑龙江省地震预警管理办法》政策解读"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c108388/202610/c00_31982198.shtml",
+      "text": "【问答解读】《黑龙江省地名管理规定》政策解读"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c115707/wycx.shtml",
+      "text": "留言选登"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/hqlmzcwd1118/zl_hqlmzc.shtml",
+      "text": "惠企利民政策问答"
+     }
+    ]
+   },
+   {
+    "path": "/wzly/index.html",
+    "status": 200,
+    "len": 136155,
+    "fp": {
+     "api_hint": [
+      "https://www.zwfw.hlj.gov.cn/zhcx/service/legal/hot?areaCode=230000000000"
+     ]
+    },
+    "links": [
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c108467/zmhd.shtml",
+      "text": "政民互动"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c115777/dep_list.shtml",
+      "text": "部门互动"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c108388/202610/c00_31982203.shtml",
+      "text": "【问答解读】《黑龙江省地震预警管理办法》政策解读"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c108388/202610/c00_31982198.shtml",
+      "text": "【问答解读】《黑龙江省地名管理规定》政策解读"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c115707/wycx.shtml",
+      "text": "留言选登"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/hqlmzcwd1118/zl_hqlmzc.shtml",
+      "text": "惠企利民政策问答"
+     }
+    ]
+   },
+   {
+    "path": "/hdjlpt",
+    "status": 200,
+    "len": 136155,
+    "fp": {
+     "api_hint": [
+      "https://www.zwfw.hlj.gov.cn/zhcx/service/legal/hot?areaCode=230000000000"
+     ]
+    },
+    "links": [
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c108467/zmhd.shtml",
+      "text": "政民互动"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c115777/dep_list.shtml",
+      "text": "部门互动"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c108388/202610/c00_31982203.shtml",
+      "text": "【问答解读】《黑龙江省地震预警管理办法》政策解读"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c108388/202610/c00_31982198.shtml",
+      "text": "【问答解读】《黑龙江省地名管理规定》政策解读"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c115707/wycx.shtml",
+      "text": "留言选登"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/hqlmzcwd1118/zl_hqlmzc.shtml",
+      "text": "惠企利民政策问答"
+     }
+    ]
+   },
+   {
+    "path": "/hdjlpt/",
+    "status": 200,
+    "len": 136155,
+    "fp": {
+     "api_hint": [
+      "https://www.zwfw.hlj.gov.cn/zhcx/service/legal/hot?areaCode=230000000000"
+     ]
+    },
+    "links": [
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c108467/zmhd.shtml",
+      "text": "政民互动"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c115777/dep_list.shtml",
+      "text": "部门互动"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c108388/202610/c00_31982203.shtml",
+      "text": "【问答解读】《黑龙江省地震预警管理办法》政策解读"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c108388/202610/c00_31982198.shtml",
+      "text": "【问答解读】《黑龙江省地名管理规定》政策解读"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c115707/wycx.shtml",
+      "text": "留言选登"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/hqlmzcwd1118/zl_hqlmzc.shtml",
+      "text": "惠企利民政策问答"
+     }
+    ]
+   },
+   {
+    "path": "/hzjl/",
+    "status": 200,
+    "len": 136155,
+    "fp": {
+     "api_hint": [
+      "https://www.zwfw.hlj.gov.cn/zhcx/service/legal/hot?areaCode=230000000000"
+     ]
+    },
+    "links": [
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c108467/zmhd.shtml",
+      "text": "政民互动"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c115777/dep_list.shtml",
+      "text": "部门互动"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c108388/202610/c00_31982203.shtml",
+      "text": "【问答解读】《黑龙江省地震预警管理办法》政策解读"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c108388/202610/c00_31982198.shtml",
+      "text": "【问答解读】《黑龙江省地名管理规定》政策解读"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c115707/wycx.shtml",
+      "text": "留言选登"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/hqlmzcwd1118/zl_hqlmzc.shtml",
+      "text": "惠企利民政策问答"
+     }
+    ]
+   },
+   {
+    "path": "/wszx/",
+    "status": 200,
+    "len": 136155,
+    "fp": {
+     "api_hint": [
+      "https://www.zwfw.hlj.gov.cn/zhcx/service/legal/hot?areaCode=230000000000"
+     ]
+    },
+    "links": [
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c108467/zmhd.shtml",
+      "text": "政民互动"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c115777/dep_list.shtml",
+      "text": "部门互动"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c108388/202610/c00_31982203.shtml",
+      "text": "【问答解读】《黑龙江省地震预警管理办法》政策解读"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c108388/202610/c00_31982198.shtml",
+      "text": "【问答解读】《黑龙江省地名管理规定》政策解读"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c115707/wycx.shtml",
+      "text": "留言选登"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/hqlmzcwd1118/zl_hqlmzc.shtml",
+      "text": "惠企利民政策问答"
+     }
+    ]
+   },
+   {
+    "path": "/zxts/",
+    "status": 200,
+    "len": 136155,
+    "fp": {
+     "api_hint": [
+      "https://www.zwfw.hlj.gov.cn/zhcx/service/legal/hot?areaCode=230000000000"
+     ]
+    },
+    "links": [
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c108467/zmhd.shtml",
+      "text": "政民互动"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c115777/dep_list.shtml",
+      "text": "部门互动"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c108388/202610/c00_31982203.shtml",
+      "text": "【问答解读】《黑龙江省地震预警管理办法》政策解读"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c108388/202610/c00_31982198.shtml",
+      "text": "【问答解读】《黑龙江省地名管理规定》政策解读"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c115707/wycx.shtml",
+      "text": "留言选登"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/hqlmzcwd1118/zl_hqlmzc.shtml",
+      "text": "惠企利民政策问答"
+     }
+    ]
+   },
+   {
+    "path": "/zjhd/",
+    "status": 200,
+    "len": 136155,
+    "fp": {
+     "api_hint": [
+      "https://www.zwfw.hlj.gov.cn/zhcx/service/legal/hot?areaCode=230000000000"
+     ]
+    },
+    "links": [
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c108467/zmhd.shtml",
+      "text": "政民互动"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c115777/dep_list.shtml",
+      "text": "部门互动"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c108388/202610/c00_31982203.shtml",
+      "text": "【问答解读】《黑龙江省地震预警管理办法》政策解读"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c108388/202610/c00_31982198.shtml",
+      "text": "【问答解读】《黑龙江省地名管理规定》政策解读"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/c115707/wycx.shtml",
+      "text": "留言选登"
+     },
+     {
+      "url": "https://www.hlj.gov.cn/hlj/hqlmzcwd1118/zl_hqlmzc.shtml",
+      "text": "惠企利民政策问答"
+     }
+    ]
+   }
+  ],
+  "midware_hint": [
+   "api_hint"
+  ]
+ },
+ {
+  "province": "江西",
+  "domain": "www.jiangxi.gov.cn",
+  "home_status": 200,
+  "home_len": 195506,
+  "home_links": [
+   {
+    "url": "https://www.jiangxi.gov.cn/jxsrmzf/hdjl/pc/list.html",
+    "text": "互动"
+   },
+   {
+    "url": "https://www.jiangxi.gov.cn/jxsrmzf/zxzx/pc/list.html",
+    "text": "我向省长建言"
+   },
+   {
+    "url": "https://www.jiangxi.gov.cn/jxsrmzf/hygz/pc/list.html",
+    "text": "互动回应"
+   },
+   {
+    "url": "https://www.jiangxi.gov.cn/jxsrmzf/zxft/pc/list.html",
+    "text": "在线访谈"
+   },
+   {
+    "url": "http://www.jiangxi.gov.cn/ghwd/znwd/index.html",
+    "text": "智能问答"
+   }
+  ],
+  "home_fp": {
+   "api_hint": [
+    "/jxsrmzf/tt/relation/2108008669809029120-RelationArticle.json",
+    "/jxsrmzf/tt/relation/2105452385486319616-RelationArticle.json",
+    "/jxsrmzf/tt/relation/2105450912580972544-RelationArticle.json",
+    "/jxsrmzf/tt/relation/2105185036002734080-RelationArticle.json",
+    "/jxsrmzf/tt/relation/2104825038181576704-RelationArticle.json",
+    "/jxsrmzf/tt/relation/2104825708703985664-RelationArticle.json"
+   ]
+  },
+  "hd_paths": [
+   {
+    "path": "/hdjl/",
+    "status": 200,
+    "len": 44306,
+    "fp": {
+     "channelid": [
+      "99792302"
+     ]
+    },
+    "links": [
+     {
+      "url": "https://www.jiangxi.gov.cn/jxsrmzf/hdjl/pc/list.html",
+      "text": "互动"
+     }
+    ]
+   },
+   {
+    "path": "/zmhd/",
+    "status": 200,
+    "len": 44304,
+    "fp": {
+     "channelid": [
+      "95325692"
+     ]
+    },
+    "links": [
+     {
+      "url": "https://www.jiangxi.gov.cn/jxsrmzf/hdjl/pc/list.html",
+      "text": "互动"
+     }
+    ]
+   },
+   {
+    "path": "/hd/",
+    "status": 200,
+    "len": 44304,
+    "fp": {
+     "channelid": [
+      "95325692"
+     ]
+    },
+    "links": [
+     {
+      "url": "https://www.jiangxi.gov.cn/jxsrmzf/hdjl/pc/list.html",
+      "text": "互动"
+     }
+    ]
+   },
+   {
+    "path": "/gzhd/",
+    "status": 200,
+    "len": 44304,
+    "fp": {
+     "channelid": [
+      "95325692"
+     ]
+    },
+    "links": [
+     {
+      "url": "https://www.jiangxi.gov.cn/jxsrmzf/hdjl/pc/list.html",
+      "text": "互动"
+     }
+    ]
+   },
+   {
+    "path": "/wzly/",
+    "status": 200,
+    "len": 44304,
+    "fp": {
+     "channelid": [
+      "95325692"
+     ]
+    },
+    "links": [
+     {
+      "url": "https://www.jiangxi.gov.cn/jxsrmzf/hdjl/pc/list.html",
+      "text": "互动"
+     }
+    ]
+   },
+   {
+    "path": "/lyb/",
+    "status": 200,
+    "len": 44304,
+    "fp": {
+     "channelid": [
+      "95325692"
+     ]
+    },
+    "links": [
+     {
+      "url": "https://www.jiangxi.gov.cn/jxsrmzf/hdjl/pc/list.html",
+      "text": "互动"
+     }
+    ]
+   },
+   {
+    "path": "/hdjl/index.html",
+    "status": 200,
+    "len": 44304,
+    "fp": {
+     "channelid": [
+      "95325692"
+     ]
+    },
+    "links": [
+     {
+      "url": "https://www.jiangxi.gov.cn/jxsrmzf/hdjl/pc/list.html",
+      "text": "互动"
+     }
+    ]
+   },
+   {
+    "path": "/zmhd/index.html",
+    "status": 200,
+    "len": 44304,
+    "fp": {
+     "channelid": [
+      "95325692"
+     ]
+    },
+    "links": [
+     {
+      "url": "https://www.jiangxi.gov.cn/jxsrmzf/hdjl/pc/list.html",
+      "text": "互动"
+     }
+    ]
+   },
+   {
+    "path": "/hd/index.html",
+    "status": 200,
+    "len": 44304,
+    "fp": {
+     "channelid": [
+      "95325692"
+     ]
+    },
+    "links": [
+     {
+      "url": "https://www.jiangxi.gov.cn/jxsrmzf/hdjl/pc/list.html",
+      "text": "互动"
+     }
+    ]
+   },
+   {
+    "path": "/gzhd/index.html",
+    "status": 200,
+    "len": 44304,
+    "fp": {
+     "channelid": [
+      "95325692"
+     ]
+    },
+    "links": [
+     {
+      "url": "https://www.jiangxi.gov.cn/jxsrmzf/hdjl/pc/list.html",
+      "text": "互动"
+     }
+    ]
+   },
+   {
+    "path": "/wzly/index.html",
+    "status": 200,
+    "len": 44304,
+    "fp": {
+     "channelid": [
+      "95325692"
+     ]
+    },
+    "links": [
+     {
+      "url": "https://www.jiangxi.gov.cn/jxsrmzf/hdjl/pc/list.html",
+      "text": "互动"
+     }
+    ]
+   },
+   {
+    "path": "/hdjlpt",
+    "status": 200,
+    "len": 44304,
+    "fp": {
+     "channelid": [
+      "95325692"
+     ]
+    },
+    "links": [
+     {
+      "url": "https://www.jiangxi.gov.cn/jxsrmzf/hdjl/pc/list.html",
+      "text": "互动"
+     }
+    ]
+   },
+   {
+    "path": "/hdjlpt/",
+    "status": 200,
+    "len": 44304,
+    "fp": {
+     "channelid": [
+      "95325692"
+     ]
+    },
+    "links": [
+     {
+      "url": "https://www.jiangxi.gov.cn/jxsrmzf/hdjl/pc/list.html",
+      "text": "互动"
+     }
+    ]
+   },
+   {
+    "path": "/hzjl/",
+    "status": 200,
+    "len": 44304,
+    "fp": {
+     "channelid": [
+      "95325692"
+     ]
+    },
+    "links": [
+     {
+      "url": "https://www.jiangxi.gov.cn/jxsrmzf/hdjl/pc/list.html",
+      "text": "互动"
+     }
+    ]
+   },
+   {
+    "path": "/wszx/",
+    "status": 200,
+    "len": 44304,
+    "fp": {
+     "channelid": [
+      "95325692"
+     ]
+    },
+    "links": [
+     {
+      "url": "https://www.jiangxi.gov.cn/jxsrmzf/hdjl/pc/list.html",
+      "text": "互动"
+     }
+    ]
+   },
+   {
+    "path": "/zxts/",
+    "status": 200,
+    "len": 44304,
+    "fp": {
+     "channelid": [
+      "95325692"
+     ]
+    },
+    "links": [
+     {
+      "url": "https://www.jiangxi.gov.cn/jxsrmzf/hdjl/pc/list.html",
+      "text": "互动"
+     }
+    ]
+   },
+   {
+    "path": "/zjhd/",
+    "status": 200,
+    "len": 44304,
+    "fp": {
+     "channelid": [
+      "95325692"
+     ]
+    },
+    "links": [
+     {
+      "url": "https://www.jiangxi.gov.cn/jxsrmzf/hdjl/pc/list.html",
+      "text": "互动"
+     }
+    ]
+   }
+  ],
+  "midware_hint": [
+   "channelid"
+  ]
+ },
+ {
+  "province": "湖北",
+  "domain": "www.hubei.gov.cn",
+  "home_status": 412,
+  "home_len": 3110,
+  "stopped": "403/412"
+ },
+ {
+  "province": "河南",
+  "domain": "www.henan.gov.cn",
+  "home_status": 200,
+  "home_len": 123361,
+  "home_links": [
+   {
+    "url": "https://www.henan.gov.cn/hdjl/zxft/",
+    "text": "在线访谈"
+   },
+   {
+    "url": "https://www.henan.gov.cn/hdjl/hdjl/",
+    "text": "豫政问答"
+   },
+   {
+    "url": "https://www.henan.gov.cn/2026/08-18/3400225.html",
+    "text": "豫政问答丨@准大学生，这份资助政策请查收"
+   }
+  ],
+  "home_fp": {
+   "api_hint": [
+    "https://wenda.henan.gov.cn/api/view/selectsiteconsult?siteId=-1"
+   ]
+  },
+  "hd_paths": [
+   {
+    "path": "/hdjl/",
+    "status": 200,
+    "len": 10975,
+    "fp": {
+     "api_hint": [
+      "https://wenda.henan.gov.cn/api/view/selectsiteconsult"
+     ]
+    },
+    "links": [
+     {
+      "url": "https://www.henan.gov.cn/hdjl/wszx/",
+      "text": "咨询回复"
+     },
+     {
+      "url": "https://www.henan.gov.cn/hdjl/zxft/",
+      "text": "在线访谈"
+     },
+     {
+      "url": "https://www.henan.gov.cn/hdjl/hygq/",
+      "text": "回应关切"
+     },
+     {
+      "url": "https://www.henan.gov.cn/2018/05-21/224806.html",
+      "text": "关于商丘市二级建造师考后资格审核有关问题的回应"
+     },
+     {
+      "url": "https://www.henan.gov.cn/2018/05-21/224804.html",
+      "text": "商丘市民政局关于示范区行政区划方面的问题的回应"
+     },
+     {
+      "url": "https://www.henan.gov.cn/2018/05-21/224790.html",
+      "text": "关于咨询二级运动员等级证书单招报名问题的回复"
+     },
+     {
+      "url": "https://www.henan.gov.cn/hdjl/hdjl/",
+      "text": "豫政问答"
+     },
+     {
+      "url": "https://www.henan.gov.cn/2026/08-18/3400225.html",
+      "text": "豫政问答丨@准大学生，这份资助政策请查收"
+     },
+     {
+      "url": "https://www.henan.gov.cn/2026/07-22/3377951.html",
+      "text": "豫政问答丨事关河南社保“第六险”，解答来了！"
+     }
+    ]
+   },
+   {
+    "path": "/zmhd/",
+    "status": 404,
+    "len": 2112
+   },
+   {
+    "path": "/hd/",
+    "status": 404,
+    "len": 2112
+   },
+   {
+    "path": "/gzhd/",
+    "status": 404,
+    "len": 2112
+   },
+   {
+    "path": "/wzly/",
+    "status": 404,
+    "len": 2112
+   },
+   {
+    "path": "/lyb/",
+    "status": 404,
+    "len": 2112
+   },
+   {
+    "path": "/hdjl/index.html",
+    "status": 200,
+    "len": 10975,
+    "fp": {
+     "api_hint": [
+      "https://wenda.henan.gov.cn/api/view/selectsiteconsult"
+     ]
+    },
+    "links": [
+     {
+      "url": "https://www.henan.gov.cn/hdjl/wszx/",
+      "text": "咨询回复"
+     },
+     {
+      "url": "https://www.henan.gov.cn/hdjl/zxft/",
+      "text": "在线访谈"
+     },
+     {
+      "url": "https://www.henan.gov.cn/hdjl/hygq/",
+      "text": "回应关切"
+     },
+     {
+      "url": "https://www.henan.gov.cn/2018/05-21/224806.html",
+      "text": "关于商丘市二级建造师考后资格审核有关问题的回应"
+     },
+     {
+      "url": "https://www.henan.gov.cn/2018/05-21/224804.html",
+      "text": "商丘市民政局关于示范区行政区划方面的问题的回应"
+     },
+     {
+      "url": "https://www.henan.gov.cn/2018/05-21/224790.html",
+      "text": "关于咨询二级运动员等级证书单招报名问题的回复"
+     },
+     {
+      "url": "https://www.henan.gov.cn/hdjl/hdjl/",
+      "text": "豫政问答"
+     },
+     {
+      "url": "https://www.henan.gov.cn/2026/08-18/3400225.html",
+      "text": "豫政问答丨@准大学生，这份资助政策请查收"
+     },
+     {
+      "url": "https://www.henan.gov.cn/2026/07-22/3377951.html",
+      "text": "豫政问答丨事关河南社保“第六险”，解答来了！"
+     }
+    ]
+   },
+   {
+    "path": "/zmhd/index.html",
+    "status": 404,
+    "len": 2112
+   },
+   {
+    "path": "/hd/index.html",
+    "status": 404,
+    "len": 2112
+   },
+   {
+    "path": "/gzhd/index.html",
+    "status": 404,
+    "len": 2112
+   },
+   {
+    "path": "/wzly/index.html",
+    "status": 404,
+    "len": 2112
+   },
+   {
+    "path": "/hdjlpt",
+    "status": 404,
+    "len": 2112
+   },
+   {
+    "path": "/hdjlpt/",
+    "status": 404,
+    "len": 2112
+   },
+   {
+    "path": "/hzjl/",
+    "status": 404,
+    "len": 2112
+   },
+   {
+    "path": "/wszx/",
+    "status": 404,
+    "len": 2112
+   },
+   {
+    "path": "/zxts/",
+    "status": 404,
+    "len": 2112
+   },
+   {
+    "path": "/zjhd/",
+    "status": 404,
+    "len": 2112
+   }
+  ],
+  "midware_hint": [
+   "api_hint"
+  ]
+ },
+ {
+  "province": "山东",
+  "domain": "www.shandong.gov.cn",
+  "home_status": null,
+  "home_err": "ConnectError"
+ },
+ {
+  "province": "海南",
+  "domain": "www.hainan.gov.cn",
+  "home_status": 200,
+  "home_len": 141414,
+  "home_links": [
+   {
+    "url": "https://www.hainan.gov.cn/hainan/hdjl/hd.shtml?ddtab=true",
+    "text": "互动"
+   },
+   {
+    "url": "https://www.hainan.gov.cn/hainan/newzxft/newzxft.shtml",
+    "text": "在线访谈"
+   },
+   {
+    "url": "https://www.hainan.gov.cn/hainan/zcwd/zcwd.shtml?ddtab=true",
+    "text": "政策问答"
+   },
+   {
+    "url": "https://www.hainan.gov.cn/hainan/jdhy/2022zcjd.shtml",
+    "text": "解读回应"
+   },
+   {
+    "url": "https://www.hainan.gov.cn/hainan/hygq/list3.shtml?ddtab=true",
+    "text": "回应关切"
+   }
+  ],
+  "home_fp": {
+   "api_hint": [
+    "https://www.gov.cn/pushinfo/v150203/pushinfo.jsonp"
+   ]
+  },
+  "hd_paths": [
+   {
+    "path": "/hdjl/",
+    "status": 403,
+    "len": 552
+   }
+  ],
+  "midware_hint": []
+ },
+ {
+  "province": "重庆",
+  "domain": "www.cq.gov.cn",
+  "home_status": 200,
+  "home_len": 96837,
+  "home_links": [
+   {
+    "url": "https://www.cq.gov.cn/hdjl/",
+    "text": "互动交流"
+   },
+   {
+    "url": "https://www.cq.gov.cn/zwgk/zfxxgkml/zcwd/",
+    "text": "政策问答"
+   },
+   {
+    "url": "https://www.cq.gov.cn/hdjl/zxft/",
+    "text": "在线访谈"
+   }
+  ],
+  "home_fp": {
+   "igi": true,
+   "api_hint": [
+    "//www.gov.cn/pushinfo/v150203/pushinfo.jsonp"
+   ]
+  },
+  "hd_paths": [
+   {
+    "path": "/hdjl/",
+    "status": 200,
+    "len": 85176,
+    "fp": {
+     "api_hint": [
+      "https://www.cq.gov.cn/hdjl/cqhlwdc/lyblqktj/hdjllist.json"
+     ]
+    },
+    "links": [
+     {
+      "url": "https://www.cq.gov.cn/hdjl/",
+      "text": "互动交流"
+     },
+     {
+      "url": "https://www.cq.gov.cn/zwgk/zfxxgkml/zcwd/",
+      "text": "政策问答"
+     },
+     {
+      "url": "https://www.cq.gov.cn/hdjl/zxft/",
+      "text": "在线访谈"
+     },
+     {
+      "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/",
+      "text": "留言选登"
+     },
+     {
+      "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyblqktj/",
+      "text": "留言统计"
+     }
+    ]
+   },
+   {
+    "path": "/zmhd/",
+    "status": 404,
+    "len": 2181
+   },
+   {
+    "path": "/hd/",
+    "status": 404,
+    "len": 2181
+   },
+   {
+    "path": "/gzhd/",
+    "status": 404,
+    "len": 2181
+   },
+   {
+    "path": "/wzly/",
+    "status": 404,
+    "len": 2181
+   },
+   {
+    "path": "/lyb/",
+    "status": 404,
+    "len": 2181
+   },
+   {
+    "path": "/hdjl/index.html",
+    "status": 200,
+    "len": 85176,
+    "fp": {
+     "api_hint": [
+      "https://www.cq.gov.cn/hdjl/cqhlwdc/lyblqktj/hdjllist.json"
+     ]
+    },
+    "links": [
+     {
+      "url": "https://www.cq.gov.cn/hdjl/",
+      "text": "互动交流"
+     },
+     {
+      "url": "https://www.cq.gov.cn/zwgk/zfxxgkml/zcwd/",
+      "text": "政策问答"
+     },
+     {
+      "url": "https://www.cq.gov.cn/hdjl/zxft/",
+      "text": "在线访谈"
+     },
+     {
+      "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/",
+      "text": "留言选登"
+     },
+     {
+      "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyblqktj/",
+      "text": "留言统计"
+     }
+    ]
+   },
+   {
+    "path": "/zmhd/index.html",
+    "status": 404,
+    "len": 2181
+   },
+   {
+    "path": "/hd/index.html",
+    "status": 404,
+    "len": 2181
+   },
+   {
+    "path": "/gzhd/index.html",
+    "status": 404,
+    "len": 2181
+   },
+   {
+    "path": "/wzly/index.html",
+    "status": 404,
+    "len": 2181
+   },
+   {
+    "path": "/hdjlpt",
+    "status": 404,
+    "len": 2181
+   },
+   {
+    "path": "/hdjlpt/",
+    "status": 404,
+    "len": 2181
+   },
+   {
+    "path": "/hzjl/",
+    "status": 404,
+    "len": 2181
+   },
+   {
+    "path": "/wszx/",
+    "status": 404,
+    "len": 2181
+   },
+   {
+    "path": "/zxts/",
+    "status": 404,
+    "len": 2181
+   },
+   {
+    "path": "/zjhd/",
+    "status": 404,
+    "len": 2181
+   }
+  ],
+  "midware_hint": [
+   "api_hint"
+  ]
+ },
+ {
+  "province": "广西",
+  "domain": "www.gxzf.gov.cn",
+  "home_status": null,
+  "home_err": "ConnectError"
+ },
+ {
+  "province": "山西",
+  "domain": "www.shanxi.gov.cn",
+  "home_status": 200,
+  "home_len": 210769,
+  "home_links": [
+   {
+    "url": "http://www.shanxi.gov.cn/zmhd/",
+    "text": "政民互动"
+   },
+   {
+    "url": "http://www.shanxi.gov.cn/zmhd/szxx/",
+    "text": "省长信箱"
+   },
+   {
+    "url": "http://www.shanxi.gov.cn/zmhd/hygq/",
+    "text": "回应关切"
+   },
+   {
+    "url": "http://www.shanxi.gov.cn/zmhd/zxft/",
+    "text": "在线访谈"
+   },
+   {
+    "url": "https://www.shanxi.gov.cn/ghwd/znwd/index.html",
+    "text": "智能问答"
+   },
+   {
+    "url": "http://www.shanxi.gov.cn/zmhd/szxx/lxxd/",
+    "text": "来信选登"
+   }
+  ],
+  "home_fp": {
+   "igi": true
+  },
+  "hd_paths": [
+   {
+    "path": "/hdjl/",
+    "status": 404,
+    "len": 548
+   },
+   {
+    "path": "/zmhd/",
+    "status": 200,
+    "len": 131892,
+    "fp": {
+     "igi": true
+    },
+    "links": [
+     {
+      "url": "http://www.shanxi.gov.cn/zmhd/",
+      "text": "政民互动"
+     },
+     {
+      "url": "http://www.shanxi.gov.cn/zmhd/szxx/",
+      "text": "省长信箱"
+     },
+     {
+      "url": "http://www.shanxi.gov.cn/zmhd/hygq/",
+      "text": "回应关切"
+     },
+     {
+      "url": "http://www.shanxi.gov.cn/zmhd/zxft/",
+      "text": "在线访谈"
+     },
+     {
+      "url": "https://www.shanxi.gov.cn/ghwd/znwd/index.html",
+      "text": "智能问答"
+     },
+     {
+      "url": "https://www.shanxi.gov.cn/zmhd/",
+      "text": "政民互动"
+     },
+     {
+      "url": "https://www.shanxi.gov.cn/zmhd/szxx/lxxd/",
+      "text": "省长信箱"
+     },
+     {
+      "url": "https://www.shanxi.gov.cn/zmhd/zxft/",
+      "text": "在线访谈"
+     }
+    ]
+   },
+   {
+    "path": "/hd/",
+    "status": 404,
+    "len": 548
+   },
+   {
+    "path": "/gzhd/",
+    "status": 404,
+    "len": 548
+   },
+   {
+    "path": "/wzly/",
+    "status": 404,
+    "len": 548
+   },
+   {
+    "path": "/lyb/",
+    "status": 404,
+    "len": 548
+   },
+   {
+    "path": "/hdjl/index.html",
+    "status": 404,
+    "len": 548
+   },
+   {
+    "path": "/zmhd/index.html",
+    "status": 404,
+    "len": 548
+   },
+   {
+    "path": "/hd/index.html",
+    "status": 404,
+    "len": 548
+   },
+   {
+    "path": "/gzhd/index.html",
+    "status": 404,
+    "len": 548
+   },
+   {
+    "path": "/wzly/index.html",
+    "status": 404,
+    "len": 548
+   },
+   {
+    "path": "/hdjlpt",
+    "status": 404,
+    "len": 548
+   },
+   {
+    "path": "/hdjlpt/",
+    "status": 404,
+    "len": 548
+   },
+   {
+    "path": "/hzjl/",
+    "status": 404,
+    "len": 548
+   },
+   {
+    "path": "/wszx/",
+    "status": 404,
+    "len": 548
+   },
+   {
+    "path": "/zxts/",
+    "status": 404,
+    "len": 548
+   },
+   {
+    "path": "/zjhd/",
+    "status": 404,
+    "len": 548
+   }
+  ],
+  "midware_hint": [
+   "igi"
+  ]
+ },
+ {
+  "province": "河北",
+  "domain": "www.hebei.gov.cn",
+  "home_status": 200,
+  "home_len": 189781,
+  "home_links": [
+   {
+    "url": "https://www.hebei.gov.cn/columns/da32bd93-8a37-4258-b8d4-0d91283f0f94/index.html",
+    "text": "互动交流"
+   }
+  ],
+  "home_fp": {},
+  "hd_paths": [
+   {
+    "path": "/hdjl/",
+    "status": 404,
+    "len": 100
+   },
+   {
+    "path": "/zmhd/",
+    "status": 404,
+    "len": 100
+   },
+   {
+    "path": "/hd/",
+    "status": 404,
+    "len": 98
+   },
+   {
+    "path": "/gzhd/",
+    "status": 404,
+    "len": 100
+   },
+   {
+    "path": "/wzly/",
+    "status": 404,
+    "len": 100
+   },
+   {
+    "path": "/lyb/",
+    "status": 404,
+    "len": 99
+   },
+   {
+    "path": "/hdjl/index.html",
+    "status": 404,
+    "len": 111
+   },
+   {
+    "path": "/zmhd/index.html",
+    "status": 404,
+    "len": 111
+   },
+   {
+    "path": "/hd/index.html",
+    "status": 404,
+    "len": 109
+   },
+   {
+    "path": "/gzhd/index.html",
+    "status": 404,
+    "len": 111
+   },
+   {
+    "path": "/wzly/index.html",
+    "status": 404,
+    "len": 111
+   },
+   {
+    "path": "/hdjlpt",
+    "status": 404,
+    "len": 102
+   },
+   {
+    "path": "/hdjlpt/",
+    "status": 404,
+    "len": 102
+   },
+   {
+    "path": "/hzjl/",
+    "status": 404,
+    "len": 100
+   },
+   {
+    "path": "/wszx/",
+    "status": 404,
+    "len": 100
+   },
+   {
+    "path": "/zxts/",
+    "status": 404,
+    "len": 100
+   },
+   {
+    "path": "/zjhd/",
+    "status": 404,
+    "len": 100
+   }
+  ],
+  "midware_hint": []
+ },
+ {
+  "province": "江苏",
+  "domain": "www.jiangsu.gov.cn",
+  "home_status": 200,
+  "home_len": 76345,
+  "home_links": [
+   {
+    "url": "https://www.jiangsu.gov.cn/col/col31340/index.html",
+    "text": "在线访谈"
+   },
+   {
+    "url": "https://www.jiangsu.gov.cn/col/col81602/index.html",
+    "text": "咨询建言"
+   },
+   {
+    "url": "https://www.jiangsu.gov.cn/col/col88758/index.html",
+    "text": "回应关切"
+   },
+   {
+    "url": "https://www.jiangsu.gov.cn/art/2026/9/11/art_51839_1106.html",
+    "text": "咨询关于办理新生儿户口的相关政策【详情】"
+   },
+   {
+    "url": "https://www.jiangsu.gov.cn/art/2026/8/19/art_51839_1104.html",
+    "text": "咨询关于村内宅基地流转相关政策【详情】"
+   }
+  ],
+  "home_fp": {},
+  "hd_paths": [
+   {
+    "path": "/hdjl/",
+    "status": 404,
+    "len": 548
+   },
+   {
+    "path": "/zmhd/",
+    "status": 404,
+    "len": 548
+   },
+   {
+    "path": "/hd/",
+    "status": 404,
+    "len": 548
+   },
+   {
+    "path": "/gzhd/",
+    "status": 404,
+    "len": 548
+   },
+   {
+    "path": "/wzly/",
+    "status": 404,
+    "len": 548
+   },
+   {
+    "path": "/lyb/",
+    "status": 404,
+    "len": 548
+   },
+   {
+    "path": "/hdjl/index.html",
+    "status": 404,
+    "len": 548
+   },
+   {
+    "path": "/zmhd/index.html",
+    "status": 404,
+    "len": 548
+   },
+   {
+    "path": "/hd/index.html",
+    "status": 404,
+    "len": 548
+   },
+   {
+    "path": "/gzhd/index.html",
+    "status": 404,
+    "len": 548
+   },
+   {
+    "path": "/wzly/index.html",
+    "status": 404,
+    "len": 548
+   },
+   {
+    "path": "/hdjlpt",
+    "status": 404,
+    "len": 548
+   },
+   {
+    "path": "/hdjlpt/",
+    "status": 404,
+    "len": 548
+   },
+   {
+    "path": "/hzjl/",
+    "status": 404,
+    "len": 548
+   },
+   {
+    "path": "/wszx/",
+    "status": 404,
+    "len": 548
+   },
+   {
+    "path": "/zxts/",
+    "status": 404,
+    "len": 548
+   },
+   {
+    "path": "/zjhd/",
+    "status": 404,
+    "len": 548
+   }
+  ],
+  "midware_hint": []
+ }
+]

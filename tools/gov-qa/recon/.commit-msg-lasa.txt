@@ -1,0 +1,70 @@
+feat(govqa): 打通西藏首个源 —— 拉萨市·来信选登（0 → 1030 条）
+
+## 背景
+
+`coverage-report.py` 报「西藏 0 条（`none` 单元）」—— 硬缺口。
+上一轮探到自治区信访平台 `xzxf.xizang.gov.cn` **需登录，判死**。
+
+## ★ 关键突破：省级不行 ≠ 地市级也不行
+
+本轮换了思路 —— **试地市级门户**：
+
+| 站点 | 结果 |
+|---|---|
+| 甘肃省级 `gansu.gov.cn` | HTTP **412**（WAF，完整头 + Cookie 都拦） |
+| 甘肃·兰州 `lanzhou.gov.cn` | HTTP **412**（也拦） |
+| **甘肃·天水** `tianshui.gov.cn` | **HTTP 200**（WAS5 中间件，有政民互动） |
+| 西藏政务网 `xzzwfw.gov.cn` | HTTP 200 len=1224（太小） |
+| **西藏·拉萨** `lasa.gov.cn` | **HTTP 200** ✅ |
+
+⇒ **省级被 WAF 拦 / 判死时，地市级门户常常还能进。**
+
+## 挖到拉萨的公开 API
+
+从 `lasa.gov.cn/lasa/lxxd/hd_mailbox.shtml` 的 `hd_mailbox.js` 里找到：
+
+```javascript
+function mailList(index, size, id) {
+  var url = ipUrl + "/communication/api-mailbox/frontMail/mailList";
+  var data = {"pageNum": index, "pageSize": size,
+              "sortMap": {"createTime": "desc"},
+              "params": {"phone": "", "searchCode": "",
+                         "selfDeptId": "d548f0a35d60483c8c67bbb86f7a5723"}};
+  // POST application/json
+}
+```
+
+**实测可用**：`POST https://www.lasa.gov.cn/communication/api-mailbox/frontMail/mailList`
+→ `{"status":"success","data":{"total":1031,"rows":[…]}}`
+
+**条目字段**（★ 站方直接给了类型标签）：
+`id / objectiveType（如「求助」）/ contentType / deptName / title /
+createTime / seeTime / status / isPublic`
+
+⇒ **`objectiveType` 直接当 `msg_type_norm` 用**，`msg_type_source="source_label"`
+（比模型预测可信）。
+
+## 实测结果
+
+```
+来信总数 total=1031
+收 1030 条（1 条被去重）｜用时 68s
+落盘：data/xz-lasa-拉萨市·来信选登.jsonl
+```
+
+**西藏：0 → 1,030 条。**
+
+## ★★ 两条通用经验
+
+1. **省级被拦 ≠ 地市级也不行。** WAF 通常只在省级部署。
+   甘肃省级/兰州都 412，但天水 200；西藏信访需登录，但拉萨公开。
+2. **POST + JSON 接口不能复用 `harvest.py` 传入的 `fetch`** ——
+   它是 `client.get` 的包装，**不接受 `method=` 参数**（实测报
+   `Client.get() got an unexpected keyword argument 'method'`）。
+   ⇒ adapter 需**自建 httpx client** 发 POST。
+
+## 踩坑
+
+第一次跑报 `TypeError: Client.get() got an unexpected keyword argument 'method'` ——
+因为 `harvest.py` 传进来的 `fetch` 是 `client.get` 绑定方法。
+改为 adapter 自建 client 后正常。

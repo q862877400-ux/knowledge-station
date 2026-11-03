@@ -1,0 +1,1765 @@
+{
+ "A_考卷": [
+  {
+   "source": "sx-igi-25",
+   "id": "2005486",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2005486",
+   "question": "工作中受伤，如何申请工伤鉴定，具体流程有哪些，填写什么表格单据",
+   "cited_hits": [
+    {
+     "name": "山西省实施〈工伤保险条例〉办法",
+     "lib_no": "工伤保险条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "工伤认定申请表",
+    "劳动能力鉴定申请表"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1959289",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1959289",
+   "question": "由于大同市新荣区水泥厂已破产十余年，十余年未缴付社保，现达到退休年龄，当地让补缴十年滞额金，想咨询这种情况应该向哪个部门反映？请收到回复，谢谢",
+   "cited_hits": [
+    {
+     "name": "实施&lt;中华人民共和国社会保险法&gt;若干规定",
+     "lib_no": "保险法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1956334",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1956334",
+   "question": "公司与工人签订劳动合同必须去所属地人力资源和社会保障局做鉴证吗",
+   "cited_hits": [
+    {
+     "name": "劳动合同法",
+     "lib_no": "劳动合同法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1928354",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1928354",
+   "question": "根据《工伤保险条例》第六十四条，本人工资是指工伤职工因工作遭受事故伤害或者患职业病前12个月平均月缴费工资。本人工资高于统筹地区职工平均工资300%的，按照统筹地区职工平均工资的300%计算；本人工资低于统筹地区职工平均工资60%的，按照统",
+   "cited_hits": [
+    {
+     "name": "工伤保险条例",
+     "lib_no": "工伤保险条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1907070",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1907070",
+   "question": "本人于2021年10月8日发生工伤。经太原市社保中心认定及鉴定为工伤十级。之前并不知道单位以太原市最低基数缴纳社保。本人实际工资为每月一万多。单位无故克扣太原市社保中心对我的一次性伤残补助金。并对未足额缴纳社保造成的工伤赔偿不予赔付。本人于",
+   "cited_hits": [
+    {
+     "name": "山西省实施&lt;工伤保险条例&gt;办法",
+     "lib_no": "工伤保险条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1884480",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1884480",
+   "question": "您好，请问一下伤残津贴是护理费？还是算工资。退休以后工伤职工只有退休金？还是退休金＋护理费。",
+   "cited_hits": [
+    {
+     "name": "工伤保险条例",
+     "lib_no": "工伤保险条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1868893",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1868893",
+   "question": "您好，我是山西省平遥县的一名矿工，2022年7月份工作时受伤，目前正在平遥县进行工伤认定中。我受伤前月平均实发工资是8000多，单位缴费工伤保险基数是5000，后期工伤鉴定后计算一次性医疗补助金赔偿时是按实发工资为基数计算，还是按单位缴费工",
+   "cited_hits": [
+    {
+     "name": " 山西省实施&lt;工伤保险条例&gt;办法",
+     "lib_no": "工伤保险条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "工伤保险条例",
+     "lib_no": "工伤保险条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1868065",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1868065",
+   "question": "家里亲戚在上家工作中交了一段时间的社保，现在换了工作，现单位不给交社保，但给上其他保险，但因为有社保，无法上该保险。 现有两个问题： 1.能否办理退保，需要哪些手续材料； 2.为什么会出现这种问题？就我本人来说除了社保还有其他保险，完全不冲",
+   "cited_hits": [
+    {
+     "name": "实施〈中华人民共和国社会保险法〉若干规定",
+     "lib_no": "保险法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1867125",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1867125",
+   "question": "本人于2022年9月初离职，离职第二天就入职新单位，新单位说必须在他家工作满一年后才有年假，也就是得到2023年9月以后才能开始享受年假，请问政策是怎么规定的，新单位违反政策了吗？",
+   "cited_hits": [
+    {
+     "name": "职工带薪年休假条例",
+     "lib_no": "职工带薪年休假条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1813151",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1813151",
+   "question": "厅长办公室您好： 我是来自山西省吕梁市吕梁学院的一名学生，近期学校开始通知实习，但实习却是为期两周的无工资，不包吃住，需要学生交费的强制实习，这种行为是否违法了劳动法？是否侵犯了学生的人身自由权，劳动权，是否构成强迫职工劳动罪，在我们没有与",
+   "cited_hits": [
+    {
+     "name": "劳动法",
+     "lib_no": "劳动法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "劳动合同法",
+     "lib_no": "劳动合同法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1792252",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1792252",
+   "question": "请问按照规定，员工的日薪应该如何计算",
+   "cited_hits": [
+    {
+     "name": "关于职工全年月平均工作时间和工资折算问题的通知",
+     "lib_no": "关于职工全年月平均工作时间和工资折算问题的通知(OCR采集)",
+     "weak": true
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "sx-igi-25",
+   "id": "2256717",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2256717",
+   "question": "尊敬的山西省人力资源和社会保障局： 我是山西省吕梁市兴县魏家滩镇范家疃村村民，现住太原市小店区南十方铁路宿舍，姓名尹玉琴，男，汉族；身份证号：1****************3；电话：1*********6。 被举报人魏吊梅，女，汉族；身",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省社会保险基金监督举报奖励暂行办法实施细则",
+    "山西省社会保险基金监督举报奖励暂行办法实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "2002792",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2002792",
+   "question": "关于2018年之后取得的一级造价工程师是否可以等同于中级工程师职称作为评定副高级工程师的资格",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于公布&lt;山西省专业技术人员职业资格与职称对应目录&gt;的通知",
+    "山西省专业技术人员职业资格与职称对应目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1915535",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1915535",
+   "question": "考取一级建造师是否对应中级工程师？是否直接免考中级工程师，就可以获取？谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于公布&lt;山西省专业技术人员职业资格与职称对应目录&gt;的通知",
+    "山西省专业技术人员职业资格与职称对应目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1900813",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1900813",
+   "question": "我之前上班的公司地址是小店区，2022年8月与其解除劳动合同，从9月份开始领取失业保险金，一直没有查具体领取标准，本月查了一下失业保险金是1782元，我在网上查了一下这个金额不符合太原市的最低标准呀，我是在万柏林区申主请的失业金， 这178",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人力资源和社会保障厅 山西省财政厅关于调整我省失业保险金标准的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1887304",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1887304",
+   "question": "请问2023年山西婚假标准是什么",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1885045",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1885045",
+   "question": "2023年山西省事业单位招聘考试的考试科目是什么？三支一扶的考试科目是什么？",
+   "cited_hits": [],
+   "cited_missing": [
+    "职业能力倾向测验",
+    "综合应用能力"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1880801",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1880801",
+   "question": "2023年，山西能否一起参加事业单位联考",
+   "cited_hits": [],
+   "cited_missing": [
+    "职业能力倾向测验",
+    "综合应用能力"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1829044",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1829044",
+   "question": "请给广大考生一个机会，让我们上战场吧，如果有部分地区存在疫情停考可以理解但是如果要停考全部停考就说不过去了，请效仿其他省份，要不我们生存都是问题了",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于2022年经济、一级造价工程师专业技术资格考试的温馨提示"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1794655",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1794655",
+   "question": "1：学校发布2022年8月16日返校开学通知，但是还有影视化妆专业的2031、2033、2034、2135等几个班级20多个学生还在学校指定的 东莞市亚士伯电子有限公司 电子厂上班，学生跟老师反映，老师回复说要扣1000元才允许离职，我们也",
+   "cited_hits": [],
+   "cited_missing": [
+    "天下寻宝",
+    "晋阳古城花朝节",
+    "假如我是古代人"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1712177",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1712177",
+   "question": "您好，想问下员工因小区封控、道路被封、健康码非绿码等原因不能正常上班期间，工资如何支付",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好新型冠状病毒疫情防控期间劳动关系有关工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1205927",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1205927",
+   "question": "想了解下咱们山西省2020年高温补贴的政策？有无具体文件可以查阅。",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人力资源和社会保障厅 山西省财政厅关于调整山西省高温津贴标准的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1187152",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1187152",
+   "question": "人力资源和社会保障部要求职业资格证书和职称对应并发文，好多省份都已发文响应，不应重复性评审职称（陕西、河南等省份已发文）。咱山西会响应人社部文件吗，今年马上开始职称评审了，望领导重视！",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于公布 &lt;山西省专业技术人员职业资格与职称对应目录&gt;的通知",
+    "山西省专业技术人员职业资格与职称对应目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1195370",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1195370",
+   "question": "因考试需要填写服务基层岗位审核表，但是找不到在哪里。请告知，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省省直事业单位2019年公开招聘工作人员笔试工作公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1189772",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1189772",
+   "question": "在山西民生app上查不到信息是什么原因，另外原来在社保局留的电话怎么更换，我在外地，请问通过什么方式更换",
+   "cited_hits": [],
+   "cited_missing": [
+    "省直参保信息修改表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1139236",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1139236",
+   "question": "关于2018年退休职工调资情况，12月份退休的可以调资吗。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于2019年调整退休人员基本养老金的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1188882",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1188882",
+   "question": "太原市最低工资标准及实施该标准的文件，谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人民政府办公厅关于调整我省最低工资标准的通知"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "sx-igi-25",
+   "id": "2450114",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2450114",
+   "question": "怎么打不开资格认证了，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "2448254",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2448254",
+   "question": "4月1日早上8点20在民生山西APP上申请䃼换社保卡己经9天，至今查不到制卡进度的任何信息，当时点制卡地点仅显示临汾市，现在因显示银行已经开户成功，已经无法撤销，更无法更换制卡地点，己经影响本人社保卡去医院看病开药，有很多同事上个月18申请",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "2447824",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2447824",
+   "question": "更换了社保照片，但是认证时仍提示人脸与社保预留照片过大",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "2447767",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2447767",
+   "question": "社保卡邮寄申领，目前还没有电子社保卡的信息",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "2429245",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2429245",
+   "question": "民生山西里资格认证的识别功能太差劲了，我家里的长辈弄了半天都识别不了，我以为是长辈不会用，我去帮忙，还是认证不了，我还不信邪，自己资格认证了一下，居然也不成功，试了不下三十次，一次没成功过，严重怀疑资格认证的功能是不是出错了，没连数据库吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "2428240",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2428240",
+   "question": "需要线上办理或电话远程办理实体社保卡注销业务，目前得到工作人员回复只能进行挂失操作。挂失操作后，12333App仍然显示该社保卡，仅状态从正常变为挂失。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "2428232",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2428232",
+   "question": "资格认证 面容不通过 打电话响铃不接",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "2425535",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2425535",
+   "question": "山西省的换发三代社保卡的时间表",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "2425410",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2425410",
+   "question": "老人的认证怎么老是失败",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "2420859",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2420859",
+   "question": "因不慎把社保卡身份证工交卡丢失，就即时进行了证件补办，社保卡从″8月打完退休金，6个月了，至今在未发放，我也去过工行对社保卡进行了确认，资格验证也没有超时，和山西社保平台也进行了好几次友映，和本人原单位也做过情况说明，至今未得到解决，年关将",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "2417171",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2417171",
+   "question": "在当今数字化时代，各类政务服务纷纷向线上迁移，以提高办事效率、方便民众。民生山西 app 便是山西省在这方面的重要举措之一，它为民众提供了便捷的社保服务，其中社保卡申领功能更是备受关注。而在社保卡申领界面，申请人的具体签字环节有着重要的意义",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "2416758",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2416758",
+   "question": "2025年那时候我认证了的所有人随时打开认证记录都能查到！现在为什么就查不到了？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "2415288",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2415288",
+   "question": "我刚刚使用民生山西app进行资格认证几十次，试了不同角度，不同网络，不同光线，都是认证失败，这该怎么办",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "2402623",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2402623",
+   "question": "新身份证更换三个月了，去银行办理更新社保卡，三个月了社保卡头像一直更新不了 更新不了新社保卡头像，无法线上认证，目前社保卡处于挂失状态，去了好几次网点，头像一直没变过来，一直没办理社保卡，去银行也是不知道，打12333工作人员也是不清楚，不",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "2397485",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2397485",
+   "question": "资格认证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "2388081",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2388081",
+   "question": "一认证就弹出此认证人员在图标检查中不存在",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "2384643",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2384643",
+   "question": "每年我们退休人员认证民生山西网特好👌🏻👍👍👍👍👍👍对我今天上午认证了！谢谢民生山西′真棒整挺好👍👍👍整挺好👍👍👍整挺好👍👍👍",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "2383883",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2383883",
+   "question": "请人民支持民生山西网！年年到认证时一定正确进入！我今年刚注册成功❓太感谢民生山西网的工",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "2369907",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2369907",
+   "question": "app社保卡激活进度",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "2369090",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2369090",
+   "question": "查询到本人名下有一张山西社保卡，本人从未领取过，也没使用。请问社保卡现在在哪?怎么注销。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "2339488",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2339488",
+   "question": "我在2015年12月20日，在网上申请的办理的社保卡，费用也交了，等着把社保卡寄回，但是在网上查看一直未办理，现在想了解什么时候能给我把卡办好。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "2334872",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2334872",
+   "question": "失业保险-待遇申领-失业保险待遇申领-在职职工技能提升补贴，界面存在歧义，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "2331803",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2331803",
+   "question": "激活社保卡",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "2322395",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2322395",
+   "question": "前几年在孝义市企业给办的建设银行社保卡，发卡时本人离职了，现在在忻州市想取到原社保卡和就近补办可以？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "2322387",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2322387",
+   "question": "本人在民生山西app上面的城乡居民养老保险登记处做了养老保险参保登记，已经过去快一个月了，一直没反应，也联系不到办理工作人员。点进去一直显示存在在途业务，请及时办理。现在都2025年了，还有这么低效率的政府机构。审核一个简单的城乡居民养老保",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "2285327",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2285327",
+   "question": "尊敬的领导：您好！我叫袁进清，我爱人叫李俊霞，女，乡宁县昌宁镇人，2011年12月经乡宁县人才市场聘用至乡宁县人口和计划生育局，乡宁县城市管理委员会计划生育服务中心工作至2020年3月。签定了劳动聘用合同，在职期间该单位从未给李俊霞缴纳社会",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "2277135",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2277135",
+   "question": "2010月11月-2014年10月，我在山西三盟实业有限公司打工，但企业只给我缴纳了2014年1月至10月的社保，现在我想补缴2011年至2013年的社保，是否能够办理。如何办理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "2270789",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2270789",
+   "question": "请问一下领导，企业劳动关系存续期间未依法缴纳各项社会保险，合法吗？我有生效的确认劳动关系的法律文书，可以补缴吗？职能部门是社保局还是税务局呢？我该找那个职能部门帮我追缴社保，挽回国家社保基金损失。该企业参保地是山西省太原市。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "2220110",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2220110",
+   "question": "这是一封来自日本福冈的表扬信，我叫张爱卿，是一名厨师。我考的厨师证丢失后，前去山西省职业技能中心补办，是一名叫侯小霞的老师接待，当时她们的办公室正在搬家，电脑也封装了，她听到我出国打工很着急需要这个手续，就放下手里的搬家工作，把电脑打开，耐",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1994160",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1994160",
+   "question": "关于报考助理社工证，考过有补贴吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1993634",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1993634",
+   "question": "2023年通过了通信工程师中级考试，是否可以申领技能补贴？如果可以什么程序？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1993632",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1993632",
+   "question": "在21年颁布的国家职业资格目录中有执业药师这一项，但是在技能人才评价证书全国联网查询网页中，查不到该资格证，执业药师资格证是否属于国家职业资格目录，是否有技能补贴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1982269",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1982269",
+   "question": "请问咱们山西考取一级注册消防工程师有人才补贴吗？如有怎么申领，申领流程有哪些？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1981967",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1981967",
+   "question": "山西二级造价师啥时候开始考试啊？啥时候报名？那个网址报名？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1975139",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1975139",
+   "question": "应届985高校硕士研究生，考到山西省直单位，山西省是否有类似太原市人才补贴之类的支持政策？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1972363",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1972363",
+   "question": "如何办理慢性病",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1972235",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1972235",
+   "question": "本人于4月份反映过个人保险存在两个账户的问题，具体保险情况是2008年本人就职于山西世纪海潮能源环保科技开发有限公司，该公司于2008年6月至8月为本人缴纳养老保险和失业保险等，2008年8月份本人从该公司离职，由于无正常工作单位，保险未进",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1971950",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1971950",
+   "question": "二级建造师考过后，都说可以领取补贴，是真的吗，咱们山西长治行不行，如果可以的话怎么领取，在哪里，能发个步骤吗？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1967387",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1967387",
+   "question": "啊你好我家是建档立卡贫困户，现在名义上是不是贫困户了。从电脑立卡贫困户开始。我是家里人，给我再交这个医保。每年都是按正常的交钱。我听说政府是有优惠的。但是也没有给我扫过，也没给我退过钱。今年我交不了，我没有钱。你们政府有没有这种免免交的政策",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1966497",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1966497",
+   "question": "辞职不给发工资",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1959418",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1959418",
+   "question": "您好，请问在山西省通过一级注册结构工程师，当年是否有补贴，如何领取",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1956235",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1956235",
+   "question": "您好，请问2023年考取的初级会计证书，是否有技能补助，在哪里申领？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1950014",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1950014",
+   "question": "我是一名铁路职工，今年10月即将退休，刚刚更换了三代社保卡，社保卡的银行账号与原来的账号发生了变化。三代社保卡与二代社保卡均在农行办理，是否需要去省人社部门变更银行卡账户信息，以免影响到后期养老金的发放？如果需要的话，请问需要带什么证件呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1949881",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1949881",
+   "question": "2022年的二级建造师的的技能补贴怎么领？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1946340",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1946340",
+   "question": "本人：李超 身份证号：1*********10305215 手机号码：1*********1 本人于2022年参加山西省二级建造师考试，报名了公路实务（成绩满足60%）、法规（成绩满足60%）、管理（成绩不够通过线），又在2023年第二次参",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1944698",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1944698",
+   "question": "2023年一级造价师考试，考试公告里写了考点设置在太原市，是只有太原有考点？其他市的考生都要去太原参加考试么？ 我打了人事考试考务中心电话咨询，打了不少于100次都打不通，没人接。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1933276",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1933276",
+   "question": "领导您好，请问一下今年组织考试的二级造价师考试，实务教材是用全国版的还是山西自己编制啊或者是用其他省编制的啊",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1931657",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1931657",
+   "question": "下半年山西省省内会有自己组织的事业单位统一考试吗，如果有的话大概在几月",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1928665",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1928665",
+   "question": "领导，您好！今年领取了法律职业资格证书，依法参加失业保险，累计缴纳失业保险12个月以上，是否可以申领职业技能补贴？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1924725",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1924725",
+   "question": "中级会计师和中级经济师证书能不能领取技能补贴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1919513",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1919513",
+   "question": "尊敬的领导!请问人事考试中心是不是没人上班。因有事需要联系考试中心，连续一周时间拨打电话总打不通。请问您考试中心公布的电话是摆设吗？ 这种情况与习总书记刚刚视察完山西，给予山西厚望的情况严重不符。请领导务必重视。 综合科：0351-7330",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1911831",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1911831",
+   "question": "灵活就业社保交费是省社会保障厅出费率:1.每年交多少。 2.方案，一次性交10年，交29800元，再交5年，55岁退休养老。 霍州社会保障厅只收费，不出方案！ 希望省社会保障厅能出一次性交10年，再交5年的灵活就业社保方案，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1907752",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1907752",
+   "question": "请问一级建造师考试（补考）阅卷时间及成绩公布时间是什么时候？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1898901",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1898901",
+   "question": "补办职业技能资格证书",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1898397",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1898397",
+   "question": "之前的信件编号丢失，重新询问下，省属社会团体组织怎样领取人才补贴？太原市只能市属社会团体组织",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1885207",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1885207",
+   "question": "职工医保和居民医保报销比例都是多少呀？可以给我发一下吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1880051",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1880051",
+   "question": "2022年二级建造师资格证书电子版还是纸质版",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1866794",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1866794",
+   "question": "2022年二建证书何时能发放，能否催促相关部门加快进度。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1865546",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1865546",
+   "question": "之前的通知已经查询不到，请问是否再次推迟或已取消。贵厅7330283考务一科电话一直未有人接，如已变更电话，请在网站中及时更新。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1862666",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1862666",
+   "question": "产妇于11月24日生产，当时因太原疫情严重，产妇被安排至太原市第四人民医院，并于该医院进行生产完成，因该医院无产科，所有住院费用被医院安排从基础医疗保险进行划扣，现无法报销产前检查和产后生育津贴费用，需给出明确说法，为什么产前检查和产后生育",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1858051",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1858051",
+   "question": "我是昨天问我在报名选调生的时候，高考成绩填错了，我今天打了山西省人事招生办，他让我问组织部，我打了两个电话，一个没人接，一个关机，（1*********1，1*********2），我想问一下，招生办不就是山西省人事资源保障厅嘛，还有什么渠",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1856641",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1856641",
+   "question": "请问二建证啥会儿开始发放",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1854979",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1854979",
+   "question": "一年整付出了挺多努力的，请问22年的一建补考还有么，影响到考生的复习计划，麻烦解答。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1847641",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1847641",
+   "question": "居民医保和职工医保交了，后来辞职了没医保了，医保现在是暂停状态怎么办",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1842190",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1842190",
+   "question": "我是一名研究生，父母到了交养老保险的年龄，今晚一直在查询山西省城乡居民养老保险的基本情况。大部分信息都是在知乎平台找的，在各种政府官方机构网站查询关键字“养老保险”均未能找到说明养老保险具体政策，包括政府补贴、养老基本金、社保的基本计算方法",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1833454",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1833454",
+   "question": "灵活就业申报登记里有一项月缴费工资要求填缴费基数，我不知道在哪里，麻烦帮我查询一大，还有我这个已经缴了几年了也帮我查一下",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1823191",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1823191",
+   "question": "在人社局官网上无法查询到我个人信息，请问可以在哪里查询到参保人个人信息",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1822555",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1822555",
+   "question": "关于太原市人社局人才补贴政策，有一条要求。2018年1月1日后首次在并参加工作，其中高校毕业生需在国家规定的择业期内在并参加工作。其中择业期政策不合理。 我拨打政策咨询电话03512366357反馈，择业期的要求之前是3年，2022年9月执",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1807355",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1807355",
+   "question": "你好，推的属院校评价卷让我误操作给作废了能重新把这个卷给推一下吗？快一点谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1756083",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1756083",
+   "question": "我是岢岚县基层乡镇的一名公务员，每个月工资只有四千多，除了这基本工资，精神文明奖、绩效奖金啥的都没有，养活家庭的压力很大.....每每听忻州、太原的公务员朋友说起他们发的各种奖金心里都很不是滋味。也不清楚现在山西省的公务员的工资是怎么规定的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1747437",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1747437",
+   "question": "由于财政局将我电话信息弄错原因导致我超过一年才领到初级会计证，这种情况我还能领到补贴吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1745345",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1745345",
+   "question": "试用期公务员在审批转正前辞职，可以参加第二年省考吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1743262",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1743262",
+   "question": "职业技能提升补贴发放时社保卡没开通金融账户，导致补贴金没完成发放，这种情况应该怎么处理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1736761",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1736761",
+   "question": "山西辛能电力实业有限公司拖欠工资迟迟不发，没人管没人问",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1731247",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1731247",
+   "question": "咨询一下山西省一级造价工程师是否可以领取职业技能补贴，在哪里领取，怎么领取，一级造价工程师证书上的档案号是不是就是编号。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1728723",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1728723",
+   "question": "山西晋南钢铁集团有限公司合同期内裁员，美其名曰“优化”，被优化人员重新选岗、重新开始实习期。今日来，又开始大规模裁员，留下的部分车间成为了两班倒，具有极大的安全隐患，无偿加班、无偿劳动，休息时间严重不足造成很大的安全隐患",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1713154",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1713154",
+   "question": "我于2021年12月22日到达退休年龄，于1991年工作与陵川县总羊场，现因单位欠社保费，导致退休手续无法办理。对生活造成极大影响。多次问询无果。希望给予办理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1708767",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1708767",
+   "question": "领导：您好，我是2021年9月参加全国会计资格考试的中级会计考生，属地是太原阳曲。2021年3月取得中级会计专业技术资格证书。请问一下领导，这种证书能否参与失业保险相关规定的技能补贴款，山西有这种政策吗？我看到的文件是自2017年开始，取得",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1542143",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1542143",
+   "question": "申请电子社保卡时显示未查询到您的社保卡信息，本人职工社保正常缴纳。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1487193",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1487193",
+   "question": "我用之前用的手机号注册过民生山西，注册的手机号已经停用了，又用现在的手机号注册了一下，但是完善里面信息的时候一直提示身份证被另一个手机号绑定了没法完善，而且通过人脸验证也无法通过更改手机号，这该怎么办？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1480257",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1480257",
+   "question": "网上怎么申请办社保卡",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1232276",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1232276",
+   "question": "我是山西师大的退休老师。现在我们学校已经搬到了太原，以后补换社保卡是否就可以在太原的机构或者银行办理了？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1159481",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1159481",
+   "question": "建议太原市社保局尽快与招商银行协调发行第三代招行社保卡。目前全国范围都在推广第三代社保卡，但太原市招商银行仍发行第二代社保卡，没有相应国家社保局的政策要求。在其它城市如上海，招商银行上海分行全力支持上海市新版社保卡集中换发工作，招行上海各网",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1228655",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1228655",
+   "question": "民生山西APP原来的手机号不用了，已经绑定了身份证信息，无法自行更换，需要人工更换手机号码，打12333是让找0351-6990633，打0351-6990633是永远在通话中，请问我该怎么办才能把民生APP原来手机号绑定的身份证信息解绑？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1157433",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1157433",
+   "question": "您好 我想问一下山西省考二次招录具体时间是多会儿 能否把限制条件放宽 多点三不限的岗位 目前，大部分职位倾向于应届毕业生 往届生由于自身专业及其他限制只能报三不限 本身难度及竞争压力就特别大 政策倾斜力度也不大 就业压力也就更大 希望再考虑",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1226184",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1226184",
+   "question": "你好，我之前的养老保险等在晋城缴纳的，也在当地领取并使用过社保卡了，由于工作原因我的保险转移到太原缴纳了，但因为工作性质我工作地仍在晋城，现在是民生山西上显示不出我的参保信息，请问这是怎么回事？还有我在晋城领取的社保卡在当地不能使用，应该怎",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1225944",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1225944",
+   "question": "2017年3月-2018年4月在山西中公教育工作，现在需要打印社保记录，在民生山西-更多-参保证明下载，只查到了“企业养老在职参保证明”，其他的社保类型都没有查到，如何操作能查到完整的社保记录？（有章的社保记录）人不在山西，可以网上都下载吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1225800",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1225800",
+   "question": "您好，我是山西省吕梁市汾阳市居民新农合医保，6月9号于西安出院后，出院医保报销一直无法结算。咨询医保局，说是社保的问题。系统显示：查询基本信息因异常发生错误，错误信息：跨省异地就医接口【1904】返回报文状态错误，请确认报文级错误，部系统业",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1224468",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1224468",
+   "question": "拖欠员工工资 说是每个月15号发工资 但每次都隔月发 还威胁卖东西卖不够不给发工资 还有各种理由拒绝发工资",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1224390",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1224390",
+   "question": "看到网上有政策，毕业未满五年的大学生创业有补贴，是在当地人力资源和社会保障局办理吗？需要提交哪些材料呢？希望相关工作人员解答 谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1223065",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1223065",
+   "question": "没有工作单位的个人如何交社保呢，能否享受一些政策补贴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1223047",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1223047",
+   "question": "本人于1988年8月在企业参加工作，1992年7月开始缴纳养老保险，1997年10月调入现单位（事业单位），2009年现单位按照事业单位合同制工人身份，在省机关事业养老中心开始缴纳养老保险，时间从进入本单位时间开始起算。而原单位养老保险缴至",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1223035",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1223035",
+   "question": "我现在在二个地方二个企业大同和忻州同时缴纳社保，忻州企业为原单位破产后被分流到忻州，分流后就办了内养待岗，然后单位给山西最低工资和缴纳社保；为了生活后在大同这个企业为自谋职业缴纳社保。现在存在二地社保重复缴费的问题，我想咨询一下，我拿上大同",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1220997",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1220997",
+   "question": "因事业单位机构改革，下属几个事业单位被撤销、更名、合并和缩减编制数，一部分人员因改革调整变更了事业单位或变成了超编人员，导致原有职称无法续聘，更无法晋级，改革减少了事业单位数量和编制数量，但是人员该干什么还干什么，那么原聘专业技术人员该如何",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1220967",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1220967",
+   "question": "您好，请问国有企业组织人事部门员工，从事组织工作和考核、人才培养、职称评定等人力资源相关工作是否可以参加高级经济师考评（人力资源管理方向）？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1154384",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1154384",
+   "question": "2020年一级建造师纸质版什么时候领取",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1153382",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1153382",
+   "question": "尊敬的领导： 您好，我是一名某区市场监督管理局的在职工作人员（事业单位编制），主要从事食品药品监管工作，我已取得《执业药师资格证》，现就咨询评定职称的相关问题如下： 1、《执业药师资格证》所对应的职称级别是哪一级？具体需要什么条件？ 2、下",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1153364",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1153364",
+   "question": "2020年过了中级会计职称，请问有相应的补贴吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1153292",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1153292",
+   "question": "你好！我是一煤矿给矿灯充电的充电员、那会充电都是硫酸充电。一干就是十几年、请问算不算特殊工种？@中国青年网 @山西人社 @晋城人社 @头条新闻 ​​​",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1217676",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1217676",
+   "question": "您好，请问 1.产假开始前请过病假和事假共三个月，影响生育保险报销金额吗？（单位的病假给百分之七十工资，事假无工资）。 2.孕期检查和生孩子费用算在报销范围内吗？ 谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1152674",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1152674",
+   "question": "您好,我在网站上看到证书补贴注册会计师,税务师都是有证书补贴发放的,但我去迎泽区社保中心证书补贴窗口递交资料,遭到窗口人员拒绝.",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1216592",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1216592",
+   "question": "网查2012年的高工评审文件及内容，晋人社职字（2012）140号，咨询一下怎么查，从哪儿能查到？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1210526",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1210526",
+   "question": "社保缴纳情况网上怎么查？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1210317",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1210317",
+   "question": "你好。老家在山西运城，村里统一给办过社保卡，那张卡也没激活。现在单位2020年一月开始给交的保险，省中心的，现在要办理一张社保卡。流程是什么，需要携带哪些证件。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1209669",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1209669",
+   "question": "请问：我是省属国企职工，职业技能提升补贴在哪申请办理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1207907",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1207907",
+   "question": "您好，领导们。关于社保卡我有些疑惑，拿我来说，我的户籍是大同市的，但是我的社保卡是在太原办下来的，对我以后有什么影响吗？如果有影响我该怎么解决呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1207211",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1207211",
+   "question": "为什么山西医科大学第一医院的聘用制员工没有高温补贴呢？6-8月每个月240不是国家规定吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1206629",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1206629",
+   "question": "失业保险金线上申领的网址是什么了？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1204956",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1204956",
+   "question": "身份证信息被人注册",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1204806",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1204806",
+   "question": "这个职业技能提升补贴是只针对企业职工的吗？事业单位职工考取了中级职称不可以领取吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1204620",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1204620",
+   "question": "之前是省直事业单位在编人员，辞职之后考入新的事业单位。需要办理社保转移，新单位说需要转出之后才能办理转入。请问社保转出怎么办理呢？需要本人办理还是新单位办理？需要去哪儿办理以及需要什么证件。望早日回复为盼，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1204144",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1204144",
+   "question": "怎么查询社保卡有没有办理好",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1146057",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1146057",
+   "question": "我们是沁源县煤层气（天然气）集输有限公司的职工，一直以来我们每天按时上下班，努力工作，把全部精力奉献于公司的日常经营和全面建设，然而在2020年1月份到现在，已经长达6个月半年之久，公司一直拖欠我们职工工资不发，共计：108.75万元，因为",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1202524",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1202524",
+   "question": "请问，2019年9月通过国家一级建造师，今年还有没有可以领取证书补贴了？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1202242",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1202242",
+   "question": "我的社保卡是2010年在太原，学校给办的，不小心丢失，当时也没有去激活它，最近要绑定“民生山西”APP，申请挂失，可是民生山西里边要先绑定社保卡，我都不知道社保卡卡号，怎么绑定啊？我应该去哪挂失啊？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1200608",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1200608",
+   "question": "你好 想咨询下执业技能提升补贴怎么领取？ 2017年和2018年通过的建造师师和公路水运试验检测师可以领取么？ 谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1144291",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1144291",
+   "question": "你好，之前留言的《山西龙采科技有限公司欠薪问题》已经有了解决，特此表扬山西转型综改示范区学府园区劳动监察执法队的王队，王队执法严效率高，在短短几天就帮助我要回了山西龙采科技有限公司欠我的工资，并且严厉惩罚了山西龙采科技有限公司私自制定七天试",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1200290",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1200290",
+   "question": "如何领取社保卡。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1198827",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1198827",
+   "question": "一级建造师应该有2000的技能提升补贴，请问怎么申请？需要什么手续？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1187049",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1187049",
+   "question": "强烈建议咱们省2020年及以后省公务员考试，申论采用无纸化机考。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1198771",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1198771",
+   "question": "民生山西APP的社保查询中有个人缴费和缴费金额，其中缴费金额具体指的是什么",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1198765",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1198765",
+   "question": "山西省人力资源和社会保障个人网上服务平台个人注册不了，收不到短信验证码是怎么回事？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1143362",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1143362",
+   "question": "各位领导； 我叫牛秀玲，是太原尖草坪下兰村农民，于2009年11月去孝义市楼东大酒店打工，担任客房经理职务，到2017年6月底离职，在酒店工作7年多，离职时酒店累计拖欠我工资16.5万元，按劳动法员工在离职时应一次性结清所欠工资，可宋长宏董",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1142915",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1142915",
+   "question": "尊敬的领导: 我是一名务工人员，现在想学习叉车技术，进行就业。麻烦问一下，咱们山西省社会保障厅有指定的培训机构吗？又不敢盲目找，怕花了钱学不到技术。希望领导百忙之中能给解决一下。谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1197247",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1197247",
+   "question": "疫情期间小店区社保缴纳有无减免政策，政策发布在哪？需要如何办理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1197235",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1197235",
+   "question": "你好，请问怎样查自己的社保卡号呢？实体卡目前找不到了，而且还没有激活",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1197211",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1197211",
+   "question": "找不到相应的申报窗口",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1196270",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1196270",
+   "question": "我是自由职业者，目前没有工作单位。希望学个一技之长，但没有找到职业技能培训的项目、时间以及报名、面试的渠道，请予以解答，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1194308",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1194308",
+   "question": "人社厅颁发的技校毕业证怎么查询？那里能查询到？谢谢~",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1194207",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1194207",
+   "question": "社保卡挂失了在哪儿可以解挂",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1193838",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1193838",
+   "question": "请问下如何在系统打印带签章的社保缴费证明",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1193722",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1193722",
+   "question": "不知道自己办没办过社会保障卡。要怎么查询才知道呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1193464",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1193464",
+   "question": "显示卡已到达所在的地市卡管理中心，不知道去哪里领取卡（吕梁市人）",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1192959",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1192959",
+   "question": "在晋中上学办了社保卡，想转回家里大同，怎么转移？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1140378",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1140378",
+   "question": "因为被山西映派网络科技公司拖欠工资了,但是老板联系不上了,请问该怎么解决了?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1191535",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1191535",
+   "question": "同一地区跨县社保卡如何转移",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1191475",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1191475",
+   "question": "上学时候在朔州的学校给办过社保卡，现在工作了，在太原的单位已经给缴纳了俩年的社保，请问这朔州的社保卡是否现在可以使用？之前没有社保卡是怎么缴纳社保的？可以查到吗？谢谢解答",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1191403",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1191403",
+   "question": "社保卡照片弄错了，而且卡现在也不在了，可以重新办理吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1191305",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1191305",
+   "question": "请问太原有哪些补贴职业培训项目？在哪里查看和报名？是否有技能登记证书？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1191179",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1191179",
+   "question": "原来在晋城办过社保卡，未缴费，现在在大同工作，社保卡该怎么弄？单位管社保的人说应该把原来的注销之后再在大同办。在一个省份能不能转移？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1191059",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1191059",
+   "question": "村里社保每年缴费，但是卡几年了一直没发，希望尽快发卡",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1190800",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1190800",
+   "question": "我的社保卡还没有领取，我想查一下社保卡账号，怎么查",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1190438",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1190438",
+   "question": "公司给交的五险在社保卡里吗？可以去银行查余额吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1190432",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1190432",
+   "question": "本项目部为响应国家政策，给员工发放福利，特向贵部咨询山西省最新的高温补贴政策，烦请指点，并将文件链接发至我的邮箱，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1190318",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1190318",
+   "question": "社保卡丢失，想知道自己的社保卡卡号和电子版的社保信息，现在急用该怎么查询或者知晓这些信息",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1190270",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1190270",
+   "question": "我的社保卡是学校办的，现在要用，不知道在哪里取",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1189910",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1189910",
+   "question": "山西忻州定襄农村有发医保卡，太原公司缴纳五险是直接办理还是用农村社保卡?有什么冲突?还是说直接公司办理重新的社保卡。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1189730",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1189730",
+   "question": "社保卡跨行取养老金收取手续费吗？银行说要收",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1139170",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1139170",
+   "question": "找不到办卡进度在哪查",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1139080",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1139080",
+   "question": "2019年高温津贴文件",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1189028",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1189028",
+   "question": "社保卡金融账户是I类账户，想降级成Ⅱ类账户，但是芯片坏了，需要更换社保卡吗，怎么换？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1138896",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1138896",
+   "question": "如何查询社保信息？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1188766",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1188766",
+   "question": "山西省2019年注册安全工程师什么时候开始报名",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1188658",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1188658",
+   "question": "我想请问一下，山西现在的产假是多少天，哪里有文件可以查",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-25",
+   "id": "1138768",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1138768",
+   "question": "厅长您好 我想咨询关于一级建造师工作年限的事情，本人于2010年中专毕业后一直从事建设工程项目施工管理工作至今。从2013年2月至2016年1月20日经“函授学习”拿到成人大专学历毕业证书（专业为 建筑工程技术），请问我今年能否参加一级建造",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

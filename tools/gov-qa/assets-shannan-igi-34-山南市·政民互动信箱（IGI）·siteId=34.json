@@ -1,0 +1,259 @@
+{
+ "A_考卷": [
+  {
+   "source": "shannan-igi-34",
+   "id": "614",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=614",
+   "question": "电子劳动合同的效力",
+   "cited_hits": [
+    {
+     "name": "劳动合同法",
+     "lib_no": "劳动合同法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "劳动法",
+     "lib_no": "劳动法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "劳动合同法",
+     "lib_no": "劳动合同法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "劳动法",
+     "lib_no": "劳动法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "劳动合同法",
+     "lib_no": "劳动合同法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "合同法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "shannan-igi-34",
+   "id": "354",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=354",
+   "question": "尊敬的贵局领导： 您好，我是一名普通的劳动者。根据《劳动合同法》的有关规定，用人单位与劳动者建立劳动关系应当签订书面的劳动合同。随着社会科技日新月异的发展，同时也基于绿色环保等深入人心，加之用人单位提升企业效率，降低人力、物力、财力成本的考",
+   "cited_hits": [
+    {
+     "name": "劳动合同法",
+     "lib_no": "劳动合同法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "劳动法",
+     "lib_no": "劳动法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "劳动合同法",
+     "lib_no": "劳动合同法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "劳动法",
+     "lib_no": "劳动法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "劳动合同法",
+     "lib_no": "劳动合同法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "合同法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "shannan-igi-34",
+   "id": "353",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=353",
+   "question": "关于农民工工伤单位拒绝理赔，弱势群体该怎么办？",
+   "cited_hits": [
+    {
+     "name": "工伤保险条例",
+     "lib_no": "工伤保险条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "西藏自治区实施〈工伤保险条例〉办法",
+     "lib_no": "工伤保险条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "工伤保险条例",
+     "lib_no": "工伤保险条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [],
+ "C_无依据": [
+  {
+   "source": "shannan-igi-34",
+   "id": "10008257",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10008257",
+   "question": "拖欠农民工工资",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-34",
+   "id": "10008236",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10008236",
+   "question": "讨薪，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-34",
+   "id": "10003103",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10003103",
+   "question": "拖欠农民工工资",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-34",
+   "id": "10001881",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10001881",
+   "question": "乡村振兴专干档案",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-34",
+   "id": "10001635",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10001635",
+   "question": "区外就业补贴申请的时间段",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-34",
+   "id": "10001626",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10001626",
+   "question": "证书补贴事宜",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-34",
+   "id": "10001015",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10001015",
+   "question": "在皖就业援藏职工人员探亲假相关文件咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-34",
+   "id": "10000740",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10000740",
+   "question": "咨询山南市籍高校毕业生区外就业相关",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-34",
+   "id": "10000724",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10000724",
+   "question": "档案",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-34",
+   "id": "10000718",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10000718",
+   "question": "欠薪",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-34",
+   "id": "761",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=761",
+   "question": "大学生创业启动资金",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-34",
+   "id": "658",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=658",
+   "question": "大学生创业启动资金",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-34",
+   "id": "609",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=609",
+   "question": "关于证书补贴的相关问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-34",
+   "id": "491",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=491",
+   "question": "西藏高校毕业区外就业补助",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-34",
+   "id": "450",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=450",
+   "question": "关于山南市社会救助报名问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-34",
+   "id": "356",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=356",
+   "question": "心系百姓，恩重如山-山南人社局夏科长",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-34",
+   "id": "343",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=343",
+   "question": "疫情期间能否通过网上平台或其他非接触式方式办理社保核定、参保证明等业务",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

@@ -1,0 +1,142 @@
+{
+ "A_考卷": [
+  {
+   "source": "sc-ganzi",
+   "id": "ZMHD9951330026061700214",
+   "url": "https://www.gzz.gov.cn/hdjl",
+   "question": "12345：自然保护和登山运动可兼得（省转办件）\n【省转件】【省级意见：请于规定时限前针对群众诉求反馈办理情况及答复口径，并以适当方式反馈群众。】【备注：经与群众核实，同意诉求类型更改为建议。】诉求内容近期贡嘎山自然保护区实施全域登山禁令，",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国自然保护区条例",
+     "lib_no": "自然保护区条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "sc-ganzi",
+   "id": "ZMHD9951330026071800199",
+   "url": "https://www.gzz.gov.cn/hdjl",
+   "question": "政：泸定名称变更【政民互动直派】\n【省转件】诉求内容把运输公司变更为商贸公司，变更名称",
+   "cited_hits": [],
+   "cited_missing": [
+    "公司登记（备案）申请书"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "sc-ganzi",
+   "id": "TFTB9951330026081900394",
+   "url": "https://www.gzz.gov.cn/hdjl",
+   "question": "政：甲根坝镇多个观景垭口国庆是否对外开放【政民互动直派】\n【省转件】诉求内容本人计划国庆前往康定市甲根坝镇自驾旅游，知悉甲根坝镇人民政府2026‑07‑31下发康甲府〔2026〕127号《关于全面关停辖区内所有景观垭口收费点位的通知》，文件",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-ganzi",
+   "id": "TFTB9951330026072100689",
+   "url": "https://www.gzz.gov.cn/hdjl",
+   "question": "政：网办入口登不进去【政民互动直派】\n【省转件】诉求内容康定网办入口进不去",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-ganzi",
+   "id": "TFTB9951330026071300080",
+   "url": "https://www.gzz.gov.cn/hdjl",
+   "question": "政：四川省食品小经营店备案证（餐饮服务）【政民互动直派】\n【省转件】诉求内容怎么在线上申请办理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-ganzi",
+   "id": "ZMHD9951330026061400250",
+   "url": "https://www.gzz.gov.cn/hdjl",
+   "question": "政：顺风车可不可以在甘孜州合法开展【政民互动直派】\n【省转件】诉求内容现在国家倡导顺风车，鼓励合法合乘，以此来降低老百姓出行费用，那么我想问甘孜州是否可以进行合法顺风车活动。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-ganzi",
+   "id": "TFTB9951330026060900430",
+   "url": "https://www.gzz.gov.cn/hdjl",
+   "question": "政：关于上日乌且/勒多曼因区域规范开发、保留户外爱好者自主通行权【政民互动直派】\n【省转件】诉求内容一、背景与核心诉求近期，我关注到上日乌且区域发布公告，将与合作企业开展规范管理，拆除违规经营性设施，周边勒多曼因冰湖也传出开发管控的消息。作",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-ganzi",
+   "id": "ZMHD9951330026060900196",
+   "url": "https://www.gzz.gov.cn/hdjl",
+   "question": "政：注册个体户流程【政民互动直派】（助企纾困）\n【省转件】诉求内容想咨询一下，需要注册一家个体户，具体的步骤和流程是怎么样的，是不是直接可以网上申请，还是需要去线下申请",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-ganzi",
+   "id": "TFTB9951330026052500379",
+   "url": "https://www.gzz.gov.cn/hdjl",
+   "question": "政：产检建档【政民互动直派】\n【省转件】诉求内容本人在康定租房居住，现在因怀孕需要咨询几个问题：1怎么领取母子手册，2如何建档",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-ganzi",
+   "id": "ZMHD9951330026051300400",
+   "url": "https://www.gzz.gov.cn/hdjl",
+   "question": "12345：关于跑马山景区改造疑点（省转办件）\n【省转件】【省级意见：请于规定时限前针对群众诉求反馈办理情况及答复口径，并以适当方式反馈群众。】诉求内容上山步道大量架设护栏，使用水泥浇筑阶梯。砍伐大量树木，半山腰横着那段尤为显著。且不说观感",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-ganzi",
+   "id": "ZMHD9951330026042000091",
+   "url": "https://www.gzz.gov.cn/hdjl",
+   "question": "政：生育津贴申领表格下载【政民互动直派】\n【省转件】诉求内容请问该洲生育津贴申领表格在哪里下载？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-ganzi",
+   "id": "ZMHD9951330026033100119",
+   "url": "https://www.gzz.gov.cn/hdjl",
+   "question": "政：租房如何开发票（政民互动）\n【省转件】诉求内容在泸定县租房，需要房东开具发票，具体该如何办理？需要什么材料？网上办理的网址是多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-ganzi",
+   "id": "ZMHD9951330026032400160",
+   "url": "https://www.gzz.gov.cn/hdjl",
+   "question": "政：西南民族大学赴炉霍县开展建筑营造技艺调研相关事宜（政民互动）\n【省转件】【省级意见：请于规定时限前针对群众诉求反馈办理情况及答复口径，并以适当方式反馈群众。】诉求内容尊敬的四川省政务服务相关部门：\n      您好！我们是西南民族大学高",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-ganzi",
+   "id": "ZMHD9951330026031900013",
+   "url": "https://www.gzz.gov.cn/hdjl",
+   "question": "政：关于对白玉县山区寻找“白玉人”的建议（政民互动）\n【省转件】【省级意见：请于规定时限前针对群众诉求反馈办理情况及答复口径，内容里面有群众隐私（身份证，卡号等）未进行保密件，内容中涉及群众个人信息，请相关部门在处理此信件时，注意防止群众信",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

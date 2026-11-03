@@ -1,0 +1,4489 @@
+{
+ "A_考卷": [
+  {
+   "source": "baotou-igi-40",
+   "id": "128120",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=128120",
+   "question": "您好！请问包头市3年师承的跟师具体要求是什么，找不到对应的跟师明白纸或者跟师要求细则，请问3年内需要写多少篇跟师笔记，有没有字数要求？3年后报名还需要审核哪些跟师资料呢？需要写跟师论文吗？谢谢！",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国中医药法",
+     "lib_no": "中医药法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "传统医学师承和确有专长人员医师资格考核考试办法",
+    "自治区中医（蒙医）医术确有专长人员医师资格考核注册管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127834",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127834",
+   "question": "你好请问，非中医专业想从事中医并考证，有几种方式可以考取？报考条件和网站是什么？",
+   "cited_hits": [
+    {
+     "name": "中国人民共和国中医药法",
+     "lib_no": "中医药法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "传统医学师承和确有专长人员医师资格考核考试办法",
+    "传统医学师承关系合同",
+    "传统医学师承关系合同"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126848",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126848",
+   "question": "您好，我想咨询一下，社区卫生服务站和中心，是否可以提供上门输液服务？老人岁数大了，上下楼很不方便，需要上面输液.",
+   "cited_hits": [
+    {
+     "name": "医疗机构管理条例",
+     "lib_no": "医疗机构管理条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国执业医师法",
+     "lib_no": "医师法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "护士条例",
+     "lib_no": "护士条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126804",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126804",
+   "question": "请问中医确有专长（老的。52号令）的报名时间和报名条件是什么？谢谢",
+   "cited_hits": [
+    {
+     "name": "中国人民共和国中医药法",
+     "lib_no": "中医药法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "传统医学师承和确有专长人员医师资格考核考试办法",
+    "传统医学师承关系合同"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127638",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127638",
+   "question": "你好，婚假是带薪假吧？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国劳动法",
+     "lib_no": "劳动法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126660",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126660",
+   "question": "发现医疗美容医院广告违法去哪里举报？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国广告法",
+     "lib_no": "广告法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127622",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127622",
+   "question": "本人是一名应聘到企业的安全工程师，通过面试后于5月27日到康正体检中心做入职体检，该体检中心仅根据我的胸部X光片，未做其他任何检查及相关问诊，就诊断我患有慢性间质性肺炎并通知入职单位，造成我无法正常入职，我本人从事安全工作多年，对于职业病诊",
+   "cited_hits": [
+    {
+     "name": "国家职业健康监护技术规范",
+     "lib_no": "GBZ 188-2025",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127618",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127618",
+   "question": "您好，公共卫生许可证到期不允许营业，如果闭店不开门，走线上其他总公司的云店可以吗？这样不属于营业吧？",
+   "cited_hits": [
+    {
+     "name": "公共场所卫生管理条例实施细则",
+     "lib_no": "公共场所卫生管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127614",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127614",
+   "question": "您好，我们在高新区现代城有一家302平米的店铺，营业范围是百货零售，主营化妆品，公共卫生许可证2023年6月12日到期，店铺预计一个月后闭店，我们打算申请公共卫生许可证续期，但目前遇到的问题是：执法人员表示，如果要续期，必须要提供新办需要的",
+   "cited_hits": [
+    {
+     "name": "公共场所卫生管理条例实施细则",
+     "lib_no": "公共场所卫生管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126584",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126584",
+   "question": "请问2021年全年包头市布病病例有多少例？",
+   "cited_hits": [
+    {
+     "name": "传染病防治法",
+     "lib_no": "传染病防治法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "传染病信息报告管理规范"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "baotou-igi-40",
+   "id": "137151",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=137151",
+   "question": "包头市第三医院医护奖金分配不合理，不公开不透明",
+   "cited_hits": [],
+   "cited_missing": [
+    "包头市第三医院绩效薪酬制度改革方案（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "137129",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=137129",
+   "question": "包头实行的九所公立医院控制数管理实施方案是否规定控制数人员与编制人员享受同等薪资待遇，是否应当足额缴纳社保和公积金。包头第六医院控制数人员公积金按照最低标准缴纳是否合规？",
+   "cited_hits": [],
+   "cited_missing": [
+    "包头市住房公积金缴存管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127902",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127902",
+   "question": "2023年中医全科转岗培训已经结束1年，全科医师证还没有发放。请问什么时候发放？",
+   "cited_hits": [],
+   "cited_missing": [
+    "内蒙古自治区卫生健康委关于组织参加2023年中医（蒙医）全科医生转岗培训理论培训工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "128068",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=128068",
+   "question": "请问在包头办理互联网医院需要什么流程？需要准备什么材料？",
+   "cited_hits": [],
+   "cited_missing": [
+    "内蒙古自治区卫生健康委关于进一步规范互联网医疗服务准入管理工作的通知",
+    "医疗机构执业许可证",
+    "医疗机构执业许可证",
+    "关于进一步改革完善医疗机构、医师审批工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127890",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127890",
+   "question": "你好！西医临床 学中医的 。已取得广西壮族自治区非中医医师中医药专业知识一年制系统学习培训课程学，已经结业。取得结业证书。咨询一下，可以开展中医药哪些服务？比如只可以开中成药？还是也可以开中药方剂？谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "内蒙古自治区西学中（蒙）医培训合格证书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "128044",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=128044",
+   "question": "您好，针对于2025年全国两会提出的育儿补贴政策，呼市已出台新的针对于一胎、二胎、三胎的育儿补贴政策，请问包头什么时候出台新的育儿补贴政策，请不要以2024年12月出台关于生育二孩、三孩的育儿补贴政策回复。2024年12月出台的政策已不符合",
+   "cited_hits": [],
+   "cited_missing": [
+    "内蒙古自治区人口与计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "128040",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=128040",
+   "question": "您好，呼市育儿补贴政策从2025年3月1号开始，咱们包头从什么时候开始呢？近期有望出政策吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "包头市育儿补贴及托育机构运营奖励补贴政策实施方案（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "128036",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=128036",
+   "question": "尊敬的市领导、卫健卫领导： 包头市打造医疗高地的方案并不是只是一句口号！国家对老百姓看得起病买得起药不断的做出努力，随着科技的不断发展，越来越多高精尖（基因检测项目）的技术运用到了医疗中，成熟的技术在全世界全国都得到了临床的验证，也得到了市",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于加强公立医疗机构外送样本检测管理工作"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "128032",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=128032",
+   "question": "尊敬的领导，我是一家零售药店店主，请问是否可以做基因检测的项目（如；高血压用药基因检测、糖尿病用药基因检测等），外地的实验室已经具备医疗检测机构等相关的手续。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于加强公立医疗机构外送样本检测管理工作"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "128028",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=128028",
+   "question": "你好，领导，持有诊所备案凭证，诊疗科目是中医科，是否可以经营西药？",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家中医药管理局关于印发中医诊所基本标准（2023年版）通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127874",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127874",
+   "question": "2023年九月生的二胎，没有享受到二胎政策，等孩子入园时候是否可以享受入园补贴？去哪儿登记？",
+   "cited_hits": [],
+   "cited_missing": [
+    "包头市育儿补贴及托育机构运营奖励补贴政策实施方案（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127870",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127870",
+   "question": "您好，问下包头为啥二胎政策是从24年开始，不跟呼市，鄂尔多斯一样呢，不都是属于内蒙古吗，三大地区里为啥只有包头不统一这么另类呢",
+   "cited_hits": [],
+   "cited_missing": [
+    "包头市育儿补贴及托育机构运营奖励补贴政策实施方案（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127866",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127866",
+   "question": "二孩补贴政策为啥要从2024年1月1日开始补贴？",
+   "cited_hits": [],
+   "cited_missing": [
+    "包头市育儿补贴及托育机构运营奖励补贴政策实施方案（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127862",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127862",
+   "question": "您好，包头满60岁的老人，城镇户口有独生子女证的家庭，什么时候会有补贴政策。看到现在的政策只有农村户口，城镇户口有计划吗。",
+   "cited_hits": [],
+   "cited_missing": [
+    "内蒙古自治区人口与计划生育条例",
+    "独生子女父母光荣证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "128000",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=128000",
+   "question": "请问包头市多会能储油罐二胎及三胎的政策补贴，现在呼市，鄂尔多斯，兴安盟均已经有了，包头什么时候能出来？",
+   "cited_hits": [],
+   "cited_missing": [
+    "包头市育儿补贴及托育机构运营奖励补贴政策实施方案（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127854",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127854",
+   "question": "包头市目前有二孩和三孩政策补贴吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "包头市育儿补贴及托育机构运营奖励补贴政策实施方案（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127842",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127842",
+   "question": "2024.12.2下午在包头生殖健康服务中心咨询男科疾病，先是低价检查说我身体各项指标存在问题，要进行手术，然后又告我必须每天换药，每一项都是比公立医院高额的收费，想通过该平台反应，寻求帮助",
+   "cited_hits": [],
+   "cited_missing": [
+    "医疗机构内部价格行为管理规定",
+    "关于公布纳入自治区基本医疗服务项目管理的新增医疗服务项目的通知",
+    "医疗机构内部价格行为管理规定",
+    "关于公布纳入自治区基本医疗服务项目管理的新增医疗服务项目的通知",
+    "治疗项目知情同意书",
+    "手术费用知情同意书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127754",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127754",
+   "question": "白云鄂博到包头青山转运救护车一趟，收费10元每公里，路程按往返程算是否合理？收费3500元（单程175公里），有无转运救护车政策价格明细",
+   "cited_hits": [],
+   "cited_missing": [
+    "内蒙古自治区医疗服务项目规范和价格",
+    "内蒙古自治区医疗服务项目规范和价格"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127750",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127750",
+   "question": "咨询一下包头市范围内急救车转院有无收费标准，我在网站只找到了院前急救车收费标准，转院急救车包头市范围内每公里多少钱？陪护医生多少钱每人？谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "内蒙古自治区医疗服务项目规范和价格"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127730",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127730",
+   "question": "包头市肿瘤医院新入职的医护长达1年的试用期（不给定科、不给工号权限、不给发全额绩效）是不是涉嫌违反劳动法，这样违规的行为一直没有解决，希望有关部门关注一下，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "新医师岗前轮岗培训制度"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126784",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126784",
+   "question": "您好，咨询一下中国安全职业安全健康协会颁发的注册职业卫生师证书是国家承认的么？考取这个证书具体有什么作用，前景如何？是否与职称相挂钩？",
+   "cited_hits": [],
+   "cited_missing": [
+    "人力资源社会保障部国家卫生健康委国家中医药局关于深化卫生专业技术人员职称制度改革的指导意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127726",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127726",
+   "question": "您好，我们对包头市肿瘤医院对新入职的员工要求长达一年的轮转十分不理解！首先这期间我们只有基本工资，没有绩效和奖金，对我们的生活造成了很大的困扰！其次在长达的一年的时间里我们没有自己的工号，进行诊疗工作只能使用科室同事或者上级医师的工号（做诊",
+   "cited_hits": [],
+   "cited_missing": [
+    "新医师岗前轮岗培训制度"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127710",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127710",
+   "question": "二孩是否必须进行生育登记，有时限要求吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "内蒙古自治区计划生育条例",
+    "国家卫生健康委办公厅关于完善生育登记制度的指导意见 "
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127690",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127690",
+   "question": "你好，我看到了政策中的第13条关于育儿假的说法，因为我们单位目前没有这个假，单位给的回复是：育儿假的性质及实施细则等方面有没有明确规定。所以我是想问：该假期的实施细则，比如，育儿假的薪资是怎么算的？谢谢回复",
+   "cited_hits": [],
+   "cited_missing": [
+    "内蒙古自治区人口与计划生育条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127686",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127686",
+   "question": "你好，我想问一下包头的育儿假开始实施了吗？育儿假的性质及实施细则等方面有没有明确规定，假期天数和薪资是怎么算的？",
+   "cited_hits": [],
+   "cited_missing": [
+    "包头市关于优化生育政策促进人口长期均衡发展的若干措施"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127674",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127674",
+   "question": "新生儿母亲签字的委托书在哪里下载",
+   "cited_hits": [],
+   "cited_missing": [
+    "出生医学证明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126724",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126724",
+   "question": "你好请问下，包头市的产假是158天，生育津贴只有98天，剩下的60天是用人单位给补发工资吗？ 网民朋友您好，关于您所反映的问题建议您咨询市医保局。 你好，就是咨询了市医保局，医保局说了他只管报销津贴这个，是98天，剩下的60天不清楚，问了人",
+   "cited_hits": [],
+   "cited_missing": [
+    "内蒙古自治区人口与计划生育条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127662",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127662",
+   "question": "您好，我是通过包头市2023年市直事业单位考试，并且已经在包头市肿瘤医院入职的医师，对于医院要求1年的实习期有点不理解，我们有些明明是已经是工作多年并具有经验丰富的中、高级医师，为什么还要有一年的轮转（其实就是实习期）？这一年期间医院不给工",
+   "cited_hits": [],
+   "cited_missing": [
+    "新医师岗前轮岗培训制度"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127634",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127634",
+   "question": "出生医学证明补办申请表在哪里下载",
+   "cited_hits": [],
+   "cited_missing": [
+    "出生医学证明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126684",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126684",
+   "question": "包头市九原区咔乐泡泡国际水育中心（地址：包头市九原区沙河镇黄金小区甲17栋24号），儿童游泳池水质不达标，孩子游泳后眼部红肿感染！",
+   "cited_hits": [],
+   "cited_missing": [
+    "公共场所管理条例",
+    "关于对婴幼儿游泳、戏水场所卫生监督管理有关问题的批复"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127598",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127598",
+   "question": "包头市卫生健康委员会 你们好 我们关注到包头医学杂志 自19年以来 收录的杂志 全是河南作者 包头医学杂志作为一个针对全国性的期刊 确全是河南作者 这中间是不是存在利益输送 希望领导能够调查调查 ，如果一直这样持续 我们将继续向上级部门反应",
+   "cited_hits": [],
+   "cited_missing": [
+    "包头医学",
+    "包头医学",
+    "包头医学",
+    "包头医学",
+    "包头医学",
+    "包头医学",
+    "包头医学",
+    "包头医学"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126652",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126652",
+   "question": "关于包头市第四医院急诊科疫情期间岗位进级和补助问题申诉 在2022.10.01到2022.12.06日期间随着包头市二附院、一机医院、二机医院多家医院逐步停诊，包头市第四医院急诊科，承担着整个青山区急诊、120和新冠患者的诊疗和转运工作，是",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于聚焦一线贯彻落实保护关心爱护医护人员措施的通知",
+    "内蒙古自治区卫生健康委、人力资源社会保障厅、财政厅关于印发进一步加强对一线医务人员身心健康关心关爱具体措施的通知",
+    "内蒙古自治区卫生健康委、人力资源社会保障厅、财政厅关于印发进一步加强对一线医务人员身心健康关心关爱具体措施的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126648",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126648",
+   "question": "对于防疫补贴的计算，第一天早上八点，到第二天早上八点，熬了24小时只算一天。而上正常班的或半天班的，不管上了几个小时，也都算一天。太不公平了，太让人心寒了！",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于聚焦一线贯彻落实保护关心爱护医务人员措施的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126640",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126640",
+   "question": "版主您好，请问包头市居民使用的直饮水（包头市玉泉水业有限责任公司）是归咱们卫建委监督和管理吗？另外我想了解一下包头市关于直饮水的标准以及直饮水管路清洗有没有明确的管理和执行标准",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于分质供水卫生许可证发放问题的批复",
+    "生活饮用水卫生监督管理办法（2016版）",
+    "生活饮用水卫生监督管理办法（2016版）",
+    "饮用净水水质标准",
+    "包头市水务局职能配置、内设机构和人员编制规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126632",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126632",
+   "question": "今年中医医术确有专长人员医师资格考核复审，你们太不负责任了。对于复核，你们认为缺少东西，直接给予审核不通过，连修改补充的机会都不给。报了两年资料了，去年能通过，今年却不行。理由都是已缺少古籍文献，报名资料不完整。你们对待这个工作太随意了。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于开展第三批中医（蒙医）医术确有专长人员医师资格考核工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127542",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127542",
+   "question": "补发出生医学证明申请表为何下载不了？",
+   "cited_hits": [],
+   "cited_missing": [
+    "出生医学证明首次、换发、补发申请表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127526",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127526",
+   "question": "请问有关职工健康体检的相关文件提供一下",
+   "cited_hits": [],
+   "cited_missing": [
+    "用人单位职业健康监护监督管理办法",
+    "职业健康检查管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127482",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127482",
+   "question": "您好，请问既然我市疫情严重、严峻，那么现在社会面已经开放，疫情岂不是一直没完没了，医院岂不是一辈子都要闭环管理？难道医院只进不出就能有效防控了吗？只有医院闭环管理就能解决根本问题吗？医护的后勤保障真的落实到位了吗？七八个人挤在一间不到十平米",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步优化新冠肺炎医疗救治相关工作的通知",
+    "关于进一步加强全市二级及以上医疗机构闭环管理的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127478",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127478",
+   "question": "国药北方医院实行闭环管理，但是机关楼领导和工作人员却可以天天回家，理由是他们不接触病人，临床科室就不行。病人没有核酸都可以收进科室，我们医护人员就不怕被感染吗。一个多月不让回家，不能洗澡，医护人员多还没有住的地方。之前还免费负责三餐，现在因",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于临床医技科室医务人员有序轮岗的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127474",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127474",
+   "question": "尊敬的卫健委领导，您好! 我是一名医务工作者的家属，我的家人在国药北方医院已经闭环管理一月余，从包头市本轮疫情开始到现在进入常态化管理，北方医院医院职工一直要求闭环管理，但是北方医院并没有具备完善的条件供医院职工闭环管理，前半个月一日三餐还",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于临床医技科室医务人员有序轮岗的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127462",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127462",
+   "question": "根据关于国家卫健委进一步加强新冠病毒核酸采样质量管理工作的通知，请问不具备具有卫生相关专业技术职业资格的人员，经培训但未考试人员，是否能上岗进行核酸采样",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于加强全市核酸采样队伍的建设的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127438",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127438",
+   "question": "卫健委同志你好，想咨询一下，在咱们包头市注册的执业医师，注册单位是包头卫健委，注册本上显示的我有规培信息，但实际上我本人并没有规培，现在想注销此次注册，请问需要什么材料？应该如何操作，在网上申请办理，还是需要上交纸质材料？是否需要本人亲自到",
+   "cited_hits": [],
+   "cited_missing": [
+    "内蒙古自治区人民政府办公厅关于印发〈相对集中行政许可权改革试点地区划转行政许可事项指导目录〉的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127426",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127426",
+   "question": "卫健委的同志，疫情当前，作为公民我们愿意服从各级的防疫政策，严格执行城市疫情管理规定！可是，在包头肿瘤医院，不论是在疫情期间，病患和陪护不能离开病区，这个规定可以执行！在10月3日，又通知陪护人员不能换班！作为陪护，已经执行包头肿瘤医院对于",
+   "cited_hits": [],
+   "cited_missing": [
+    "新型冠状病毒肺炎防控方案（第九版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127406",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127406",
+   "question": "本人王莉莉于2021年11月12日在包头市第四医院处待产，当天自然分娩出一男婴。孩子出生后医院诊断为新生儿重度窒息、新生儿缺血缺氧性脑病、新生儿呼吸窘迫综合症、多脏器功能损害等。本人认为，包头市第四医院及其产科医生秦枝在本人生产过程中存在违",
+   "cited_hits": [],
+   "cited_missing": [
+    "包头市医学会医疗损害鉴定意见书",
+    "医疗事故分级标准（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126348",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126348",
+   "question": "你好核酸检测查不到结果怎么办",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步做好核酸检测有关工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126308",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126308",
+   "question": "在包头市蒙医中医医院滨河分院就诊，认为存在乱收费，收费不合理现象，工作人员拿不出公示价格",
+   "cited_hits": [],
+   "cited_missing": [
+    "内蒙古自治区服务及价格",
+    "内蒙古自治区服务及价格"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127174",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127174",
+   "question": "很多地方做核酸收费标准都是15了，为什么一附院还是60，政策已经出来快一个月了，一附院如何解释",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于调整新型冠状病毒核酸检测项目价格有关问题的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126086",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126086",
+   "question": "为什么包头还是60做一次核酸检测呢，鄂尔多斯早就开放了群采自由选择，25一次，石家庄更是低到15一次，需要经常做核酸这也太贵了",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于调整新型冠状病毒核酸检测项目价格的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127072",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127072",
+   "question": "补办护士执业资格证",
+   "cited_hits": [],
+   "cited_missing": [
+    "专业技术资格证书补发（换发）证书审核表",
+    "专业技术资格评审表",
+    "资格考试合格人员登记表",
+    "专业技术资格证书",
+    "护士执业注册证",
+    "专业技术资格证书补发（换发）证书审核表",
+    "专业技术资格证书补发（换发）证书审核表"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "baotou-igi-40",
+   "id": "211896",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=211896",
+   "question": "请问你们单位微信公众号是什么",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "161108",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=161108",
+   "question": "请问一下中医师承公证，备案需要什么资料吗？有没有相关的产考文件或者公示信息呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "137155",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=137155",
+   "question": "2024年底到2025年初，三医院创伤关节一科，医生套用医保，给病人打PRP，从中获利，住院病人，过度医疗，麻烦好好整改下这些没有医德得医生，过度消费患者",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "137153",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=137153",
+   "question": "包头市第三医院骨科病房不是每天都有值班医生，经常去看病时，没有值班医生",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "137131",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=137131",
+   "question": "在办理证需要之前办理过的健康证，上你们的公众号上查询健康证，但是一直维护上不去，我现在需要把之前办理过的健康证调取出来办理其他业务用。我上哪查询之前的二维码？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127952",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127952",
+   "question": "卫健委领导好，我想咨询一下，我市对一些身体不方便移动患者、高龄老人是否有提供居家医疗、治疗的服务计划，如果有，通过什么渠道寻找。谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "128124",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=128124",
+   "question": "我是包头人，复旦大学一名工科博士，中西医执业医师，主要研究医疗语言模型和智能体，研发国内首个中医大模型，拿过国家卫健委一等奖、百川亚马逊云AI医疗大赛亚军，英特尔中国学术峰会最佳展示奖，另有诸多SCI论文发表，请问能否挂靠包头市卫健委，成立",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127946",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127946",
+   "question": "你好，我是国家订单定向生，定向到固阳县，今年通过了中级职称考试。依据国卫科教发（2019）56号：关于做好农村订单定向免费培养医学生就业安置和履约管理工作的通知。其中明文：可直接参加中级职称考试，考试通过的直接聘任中级职称（文件第五页）。六",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127942",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127942",
+   "question": "你好，我想问一下包头市二胎生育补助什么时候能落实下来？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127938",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127938",
+   "question": "国药北方医院急诊科张涛根本就没有领导能力，人员排班问题照顾这个家庭有事，那个年资岁数大，小年轻们几乎天天上班。下夜班都没有休息，还说想干就干，不想干可以走人，多次跟你平台反映得不到解决，节假日补休也没有，告诉我去哪里能解决。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127934",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127934",
+   "question": "您好 ，本人刚入职，因当时不了解政策，执业医师首次注册为全科，现在不能修改，影响执业，多次联系政数局解决不了。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "128116",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=128116",
+   "question": "我想咨询一下，医院的科室开院周会必须要求刚下夜班和当天休息的医生，护士都参加吗？这个有相关规定吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127930",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127930",
+   "question": "您好，想咨询一下梅毒经过治疗后，梅毒单阳（tp阳性、rpr阴性）能否通过公务员、事业编和央国企的入职体检啊？根据2016(140)号公务员体检操作手册文件中梅毒单阳是合格的，但具体情况是这样的吗？能否出一期推文科普一下！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "128112",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=128112",
+   "question": "您好！西医临床 学中医的 已取得 省外 结业证书 ！包头市承认省外的 西医临床学中医的 结业证书 吗？线下到服务大厅现场咨询、请问可以找几号窗口咨询？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "128108",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=128108",
+   "question": "卫健委领导您好，咨询一下，外地西学中证书包头卫健委承认吗？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "128104",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=128104",
+   "question": "信件内容",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "128100",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=128100",
+   "question": "信件内容",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "128096",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=128096",
+   "question": "请问哪个部门负责水净化管理？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "128092",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=128092",
+   "question": "你好，想咨询一下包头市第四医院的住院号的编写规则，是按照年份，日期，床位号第几个病人排列的吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127926",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127926",
+   "question": "您好，我是卫生政策博士，对包头打造医疗高地有所关注，可否有机会到卫健部门调研学习？联系方式为：17854287900。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "128088",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=128088",
+   "question": "您好，护士长可以虚拟排班，每月随意给不上班人员发放绩效马？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "128084",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=128084",
+   "question": "包头市人力资源和社会保障局关于做好2025年全市职称评审工作的通知，包头市妇幼保健所说未接到通知，咨询一下，我也看不太懂，包括12进11吗？包括的话，什么时候下通知？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127922",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127922",
+   "question": "之前内蒙有文件可以初聘11岗，单位说不执行。24年新入职都是11岗，说是执行了包头新文件，我们还在12岗苦苦熬着，以后10岗都比我们先，我们这些老的要等多久？这些文件执行的时间差，是不是不公平，为什么我们就可以不执行，他们就可以？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "128080",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=128080",
+   "question": "你好！问一下，西医行医资质证丢失如何补办？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127918",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127918",
+   "question": "请问，最近位于包头市昆区的东方花园小区内的树上出现大量虫子，感觉已经形成虫害的趋势，有居民在小区群里反映也没有得到处理，请问我应该找哪个政府部门咨询并解决这个问题呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127914",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127914",
+   "question": "你好，儿童预防接种证丢失如何补办？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127910",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127910",
+   "question": "96120在四医院随便停车？堵在急诊科门口上下病人非常不方便，而且一停就是好长时间，问管理人员说是免费车辆，96120的车是非急救车辆，真是停车管理混乱。不接病人也挺着赌着。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "128076",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=128076",
+   "question": "错过了卫生高级职称报名，包头市可以开放报名平台补报名吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127906",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127906",
+   "question": "糖尿病慢性病每次挂号开处方只能在药店购买一个月的药，这样太不方便了。而且申请了慢性病，门诊挂号费用也不给报销，这样每个月挂号就得30，本身慢性病治疗费用昂贵，但现在还要月月开处方，既增加患者经济负担又增加沈铁负担。政府做决策时能不能不要这么",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "128072",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=128072",
+   "question": "您好，包头市妇女儿童健康监测指标数据（2011年到2023年）可以从哪里咨询申请？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127898",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127898",
+   "question": "想下载表格从哪个页面进入？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "128064",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=128064",
+   "question": "您好，想咨询一下一胎生育男方是否有生育津贴补助，在网上看到可领三个月。具体申领需要什么条件。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "128060",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=128060",
+   "question": "你好，我想问一下包头或自治区现在还组织3年中医师承的出师考试吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127894",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127894",
+   "question": "你好： 变更执业范围需要什么资料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "128056",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=128056",
+   "question": "你好想咨询一下现在还可以从社区领取叶酸吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "128052",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=128052",
+   "question": "我是旗县区疾控工作人员，临床专业，目前以本专业面临的情况在单位只能晋升到中级。想咨询还有什么其他可以走的职称系列，或者有什么其他可以考取的资格用于未来的职称晋升。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "128048",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=128048",
+   "question": "您好，去年报考的护士资格证考试，上交的毕业证原件到稀土土高新区人口和计划生育服务中心，一直未归还，去询问过那里的老师一直在外出开会，请问具体去哪里领取，什么时间哪个办公室，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127886",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127886",
+   "question": "请问，我市社会个人取得国家认证的心理健康师、心理咨询类专业证件的途径？对申请或报考人条件要求有哪些？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127882",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127882",
+   "question": "尊敬的武主任您好： 我是中国民族卫生协会郭静敏，协会响应国家卫健委号召，开展医防融合医共体建设相关工作，经了解，贵局已联合各级单位积极开展了医共体的培训学习和会议，协会是否可向贵单位借鉴相关经验或共同联合开展？ 敬盼回复！ 谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127878",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127878",
+   "question": "反映一下精神医院一些部门把一些病历质控、医嘱收费核查汇总的工作也都推到小医生身上，日常看病忙的顾不上弄还被粗口，此项措施确实加大了一线临床大夫们的负担，希望能给大夫们切实做到减负 把更多的精力用在救治病患上，切留出更多的时间投入到卫生健康事",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "128024",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=128024",
+   "question": "想请问一下我听说西医如果想转成中医可以通过西学中培训完成，请问这种情况属实吗，如果属实的话请问能说明一下报名渠道吗，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "128020",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=128020",
+   "question": "包头市稀土高新区腾飞路社区门诊服务态度恶劣，咨询心脏彩超问题，一问三不知、态度不好、散漫、推诿、电话中顶撞患者",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "128016",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=128016",
+   "question": "您好，我想问一下包头市有关中医师承的相关政策",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "128012",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=128012",
+   "question": "您好，我是卫生政策博士，对包头打造医疗高地有所关注，可否有机会到卫健部门调研学习？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127858",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127858",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "128008",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=128008",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "128004",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=128004",
+   "question": "你好！有没有相关规定医院任职护士长的要求，如学历、年龄和工作经历或工作几年以上的要求，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127850",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127850",
+   "question": "我今年申请的独生子女补贴，想问一下多会儿能收到补贴款？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127996",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127996",
+   "question": "今年五六月份从包钢医院打96120去北京看病，带医生护士，路上输液，测血压，心率，当时收费是14000，这也太贵了吧，而且也不知道他们96120有没有急救转运资质，这14000符不符合包头市物价可控范围，有没有收费项目以及明细，市场监督管理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127846",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127846",
+   "question": "你好！西医临床 学中医的 取得外省结业证书 ！包头市承认外省的 西医临床学中医的 结业证书 吗？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127992",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127992",
+   "question": "您好，我想咨询一下 我想认定疫情一线人员 我曾经由包头市第六医院派遣参加（全区境外回国被隔离人员及援鄂返回医务人员心理危机干预工作方案）的援呼心理危机干预任务，请问可以认定吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127988",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127988",
+   "question": "您好，报考2025年中级卫生专业技术资格考试，已经取得硕士研究生学历和规培证书，但是考试要求规培满两年后才可以报考，但是我的执业医师取得已经满5年，报考的时候可以按本科学历报考么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127984",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127984",
+   "question": "您好，全日制药学大专学历报名药士职称需要有工作单位吗？没有工作单位，只有大专学历能否通过报名资格审核？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127980",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127980",
+   "question": "您好，想问一下今年考过中级职称，聘中级的时候必须要求要有规培结业证书吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127838",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127838",
+   "question": "本人想考心理咨询师证书，请问到哪里报名和参加考试？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127976",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127976",
+   "question": "医师注册和护士注册健康体检表从哪里下载",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127830",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127830",
+   "question": "医师注册和护士注册体检表在哪找",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127826",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127826",
+   "question": "请问，出生医学证明补发申请表，从哪里下载",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127972",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127972",
+   "question": "关于 含密封源仪表的放射卫生防护要求 GBZ125 2009 标准相关问题的咨询，标准4.7中 检测仪表在不同场所使用时，见附录A所标示的位置的周围剂量当量率应满足表1的要求，在实际监测工作中，表1内5cm和100cm当量率H值控制是否需要",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127968",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127968",
+   "question": "九原区齿劲口腔门诊部横竖街店聘用无证人员从事医疗服务合规吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127964",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127964",
+   "question": "我在包头市中心医院进行社会人全科规培期间考取医师资格证书，医师执业证书因为是在规培期间注册的，所以主要执业机构和执业范围是空白的，今年规培完成取得全科规培结业证书后考入固阳县妇幼保健所工作，因工作需要且固阳县妇幼保健所在固阳县卫建委登记的诊",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127822",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127822",
+   "question": "你好， 包头市第四医院晚上急诊输液上班就一个人吗？八点多了还有在吃东西的大声说话笑的，换药等不见，就一个人忙，还有个护士说她只是出120的，不负责输液，难道医院分工这么明确吗？也不知道领导怎么排的人上班？闲的吃东西，真是够够的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127818",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127818",
+   "question": "请问医院开设精神科 办理毒麻卡 需要提供什么材料 具体咨询电话是多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127960",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127960",
+   "question": "能否关注下过敏鼻炎患者，有没有治疗方法，低龄化患者也有很多，已经严重影响生活，请相关部门予以重视",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127814",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127814",
+   "question": "现在商场和书店还需要办理卫生许可证吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127810",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127810",
+   "question": "药师注册需要注册申请表吗？从哪个地方下载？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127806",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127806",
+   "question": "护士资格证纸质版今年什么时候发放？？？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127956",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127956",
+   "question": "您好，请问包头市哪里可以做DNA亲子鉴定？？谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126860",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126860",
+   "question": "您好，想问一下中医专长医师资格证的报考条件以及考试时间，考试报名网站",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126856",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126856",
+   "question": "你好，请问目前包头主治医师考试及聘用必须要有规培证吗，本人在一所区级二甲中医院工作，第一学历为中医大专，最高学历为成人本科，按本科时间计算明年即可报考中医类主治医师，我需要规培吗？如果是在规培期间可以报考主治医师考试吗。（我看到内蒙中医院招",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126852",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126852",
+   "question": "包头市三级医院16个(其中三级甲等医院8个)，具体是哪些医院，有明细吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127790",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127790",
+   "question": "职业病认定流程是怎样的？是去到哪个部分申请呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127802",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127802",
+   "question": "您好，我想问一下事业编入职以后，单位不给送去规培怎么处理？如果试用期期间辞职怎么给医院赔偿？以后考包头市事业编会受到限制吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127786",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127786",
+   "question": "您好，请问包头市的执业药师是否可以多点执业？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127782",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127782",
+   "question": "包头市职业卫生健康体检医院有哪几家？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126844",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126844",
+   "question": "你好，我想请问什么时候能够领取健康证，健康证系统什么时候能够修理好，需要一个确切的时间，我很着急用，打卫健委的电话打不通",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127798",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127798",
+   "question": "你好！我想咨询一下新冠住院补助的具体标准等相关信息，希望尽快收到你们的答复，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127794",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127794",
+   "question": "你好，我想要补办孩子的出生医学证明，其中要求在本网站中下载补发申请表，请问这个申请表在哪里下载？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126840",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126840",
+   "question": "你好，慢性病患者去医院开药，但是医院没有患者用的药，医生也不给开处方，就无法去药店买药，请问这样的情况怎么办？医生为什么不给开处方呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127762",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127762",
+   "question": "你好，我怎么没有从网站上找到中医医术确有专长",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127778",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127778",
+   "question": "您好，我是包头昆区开设西医诊所的一名临床执业医师，因临床中需要用到中医药服务，于六年前通过西学中参加了执业医师资格考试考取了中医类别执业医师资格证书，现想诊所申请增加注册中医类别专业作为执业范围，向昆区卫健委提出申请加注中医类别专业作为执业",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127758",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127758",
+   "question": "包头市中心医院控制编制考试面试有4个组，在这样有多组面试的情况下为了体现公平公正是否应对最终面试成绩进行修正。每个人看待事物事情多少 都会存在差异，第三方机构这种多组面试无修正的 做法能体现出公平公正吗?都怀疑第三方机构的专业性，要知道这么",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127774",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127774",
+   "question": "请问师承协议在哪里下载？站内搜索文件，显示404错误。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126836",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126836",
+   "question": "你好，请问包头市城乡居民医疗保险的药品目录、诊疗项目范围、医疗服务设施标准在哪里可以查询到？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126832",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126832",
+   "question": "领导们 我举报的那个华康祥中医院什么时候检查 这几天说是又不让上午输液了 让一群老人半夜等着输液呢 我家老人不听劝说是可管用了 问题是我看见是一点也不正规 半夜开始输液 等输完影响老人休息了 本来老人们睡眠不好 我严重怀疑这个地方就没有输液",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127746",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127746",
+   "question": "你好，近期有一位自称张志杰教授的人在互联网平台开课卖药，自称1984年曾任内蒙古包头市委宣传部党支部书记，1985年5月在内蒙古包头市第四医院代职党委副书记主持全院工作，1996年在内蒙古包头市担任防疫站主任。请问是否属实，如果不是，可否予",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127770",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127770",
+   "question": "尊敬的卫健委领导 你们好 我想举报东河区的华康祥中医院 我家老人不知道从哪儿听说的这么个地方 说是能治病调理身体 住了好几天 期间我去过一回 看见这个护士医生扎针用的这些个东西不经过消毒 而且给我们扎针的护士也没有资格证 给输的金纳多也不知",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127766",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127766",
+   "question": "你好，我想问一下，咱们包头市是否有平急两用类的公共卫生建设项目？有相关的规划吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126816",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126816",
+   "question": "您好，我母亲在包头医学院第二附属医院二次结肠切除手术过程中，输尿管被切断，现在医院告知我们家属，输尿管隔断，属于手术并发症，并承诺会在后续治疗过程中由医院负责后续医保报销后的剩余百分之40的费用，请问这个难道不属于医疗事故吗？做结肠手术把输",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126828",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126828",
+   "question": "您好，我向问下咱们市里对30岁以上妇女的两癌免费筛查，在哪儿免费申请？各个区设置的地点分别在哪儿了呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126824",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126824",
+   "question": "您好，单位回收疫情补贴的认定标准是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126820",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126820",
+   "question": "单位回收疫情补贴是怎么回事？是新政策要求吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126812",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126812",
+   "question": "请问心理治疗师报名条件？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126808",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126808",
+   "question": "您好 包头市卫健委：包头市肿瘤医院是否实行医技科室的收入分配给临床科室百分之30？如果是的话，依据是什么？依据又是否合情合理？实行前是否征询医技科室的同意或者采纳医技科室的意见？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126796",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126796",
+   "question": "卫生健康委您好：现在包头打黄热疫苗在哪打知道吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126800",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126800",
+   "question": "你好，想咨询职业危害申报事宜，需要联系那个部门",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126792",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126792",
+   "question": "您好，为撰写论文需要，我想查询一下，目前我市托育机构数量，公办多少、私营有多少？每千人口拥有3岁以下托位数？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127742",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127742",
+   "question": "卫生健康委您好: 多次多部门反应国药北方急诊科人员班次安排不合理，人员短缺，绩效分配不合理，倒班人员体现不出夜班费的存在，这就是人才流失的根源所在，而且没有节假日补休，严重超出法定工作时间，工作人员身体素质急剧下降。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127738",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127738",
+   "question": "您好，我报名了24年卫生资格考试，上交了毕业证和学位证原件，已经通过审核，我现在就业单位需要提交这两个证件，请问我要找谁去拿我的证件呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127734",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127734",
+   "question": "您好，我是报名中级职称的医生，关于工作年限的算法，我上网查寻的是按照注册当年的1月1日算起，到今年的2023年12.31止，所以我2020年注册的执业医是可以参加24年中级职称考试的，是吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126780",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126780",
+   "question": "2024年中医师承出师考试什么时候开考？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126776",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126776",
+   "question": "请问有献血证不能给直系亲属输血吗？必须得一周内献血才行吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126788",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126788",
+   "question": "你好，请问办理健康证的发票从哪里查看呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126772",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126772",
+   "question": "我想了解包头二级医院名单，并且想问一下为什么在卫健委的网站查询不了所有医院名单？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127714",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127714",
+   "question": "孩子在新生儿科住院9天，收取重症监护9天，暖箱治疗212小时（其中每天在暖箱待24小时），还收取三人间床位费9天，暖箱和床位不是重复收取费用吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126768",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126768",
+   "question": "您好 我 是中医全科副主任医师。近日想报名 超声波技术中级考试，可是考试昆区报名点不让报名。请确认一下，我是不能报名吗？依据是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127706",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127706",
+   "question": "您好，我想咨询一下补办护士执业证书怎么补办？具体哪个部门负责，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127722",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127722",
+   "question": "因为恶性肿瘤每次门诊的靶向药物治疗和放疗可以大病报销吗？具体怎么办理？有其他的报销政策吗？怎么办理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127702",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127702",
+   "question": "因为恶性肿瘤在异地就医，每次门诊需要靶向治疗，这部分报销应该怎么办？之前办理的慢特病在门诊报销有限额，之后后续还要多次靶向治疗，一共需20几万，听说办长期门诊特殊病可以报销大部分，怎么办理，去哪办理，才能长期使用并且没有限额报销",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127718",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127718",
+   "question": "请问包头有资质的医美机构有哪些",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127698",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127698",
+   "question": "关于出生医学证明的补发，办理材料中需要到原签发机构复印出生医学记录等材料，但是原保健站现已倒闭，相关材料无法查询，这样的情况下出生医学证明该如何补办呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126756",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126756",
+   "question": "包头市2023年4月开始，门诊诊疗费（挂号费）对于有医保人群给于统筹或者报销，比例为百分之80，从而各医院也根据相关要求上调了挂号费的金额，现在普通的挂号费也得20到30元。 其他医院（一附院、三医院）已经对于符合要求客户网络挂号给予了自动",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126764",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126764",
+   "question": "最近感冒的多吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126760",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126760",
+   "question": "已经连续三天给市卫健委综合保障中心考务科打电话了，没有人接，想咨询证书领取，怎么办？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127694",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127694",
+   "question": "请问人才引进租房补贴怎么申请",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126752",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126752",
+   "question": "我在包头报名并参加了2023年的卫生资格考试，并且成绩合格，但是现在从包头的医院离职，请问我什么时候可以领取我的证书，从原单位领取还是卫健委领取？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126748",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126748",
+   "question": "请问包头执业医师注册体检指定的医院有哪些，网上查不到",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126744",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126744",
+   "question": "你好，想咨询包头市全部公立医院的名称及等级分类",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127682",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127682",
+   "question": "您好，包头满60岁的老人，有独生子女证的家庭，是否有补贴政策，如何办理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126728",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126728",
+   "question": "包头市有几家医院设立眼科",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127678",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127678",
+   "question": "包头市卫生健康委员会直属单位人才引进非211院校研究生有什么相关待遇",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126740",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126740",
+   "question": "医师执业证书补办流程有哪些？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126736",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126736",
+   "question": "您好，请问包头市卫生健康委员会直属单位2023年第二批人才引进啥时候办理入职上班？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127670",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127670",
+   "question": "2019年到2022年疫情管控包头所有营业娱乐场所停业的公告 在哪里可以看到",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126732",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126732",
+   "question": "2019年到2022年疫情管控包头所有娱乐场所停业的公告有吗？在哪里可以查询？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127666",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127666",
+   "question": "包头市新生儿国产13价肺炎疫苗，玉溪沃生这个厂家的，在哪个社区可以打",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126720",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126720",
+   "question": "单位不给育儿假。说没有接到通知。怎么办。包头西机务段",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126716",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126716",
+   "question": "你好，人才引进公开招聘政策中不是初次就业人员的标准是什么？交过五险的就算吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127658",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127658",
+   "question": "你好请问下，包头市的产假是158天，生育津贴只有98天，剩下的60天是用人单位给补发工资吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126712",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126712",
+   "question": "您好，请问包头市卫生健康委员会直属单位2023年第二批人才引进还要多久才办理入职手续，入职后需要实习期吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127654",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127654",
+   "question": "您好，请问包头市卫生健康委员会直属单位2023年第二批人才引进还要多久公示",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127650",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127650",
+   "question": "包头市医疗单位会参加最近新发布的2024年事业单位联考吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126708",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126708",
+   "question": "唐筛免费了吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127646",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127646",
+   "question": "2023年卫生专业技术资格证书8月14已经运抵机构，请问什么时候发放？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127642",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127642",
+   "question": "您好，请问我是22年通过并注册了助理医师，我是大专学历什么时候能参加执业医师考试",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126704",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126704",
+   "question": "您好 请问父亲满60岁 母亲满55岁 本人已经30岁独生子女 是否满足领取独生子女奖励政策？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126700",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126700",
+   "question": "您好，请问1989年出生，是家里的独生女，但之前父母未办理独生子女证书，现本人已就业，如休独生子女陪护假没有独生子女证书，如何申请休假？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126696",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126696",
+   "question": "护士资格证红本的证书应届生是发到学校吗，或者去哪里领取呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127610",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127610",
+   "question": "您好，请问我是2020年考的执业医师证，现入职单位需要医师资格考试报名暨授予医师资格申请表、授予医师资格审核表，我应该去哪里办理呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126676",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126676",
+   "question": "刘记烧烤家常菜(昆河东路店)他家卫生极差，店内有老鼠虫子，放饮料还有后厨的冰柜啥的都流黑水了。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126692",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126692",
+   "question": "e",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127606",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127606",
+   "question": "e",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127602",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127602",
+   "question": "e",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126688",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126688",
+   "question": "包头市卫生健康委员会直属单位2023年第二批人才引进是正式编制吧",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126672",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126672",
+   "question": "应届毕业生，想问下今年包钢医院还有招聘计划吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126668",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126668",
+   "question": "请问如何对包头市内医疗机构进行行政投诉？有几种投诉方式？需要准备什么材料？是否能够提供接待投诉部门的电话？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126664",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126664",
+   "question": "关于包头市中心医院就诊流程及疑似多收费用问题: 一、产科门诊和产科筛查门诊没有叫号，患者都在医生诊室等着，产科筛查门诊需要产妇自行排队，而不是像其他科室就诊一样，根据叫号一医一患就诊； 二、产科门诊挂号唐筛，取结果需要去产前筛查门诊再次挂号",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126656",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126656",
+   "question": "您好，包头市现在哪里能接种神州四价新冠疫苗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127630",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127630",
+   "question": "您好！请问40年前东河区计生委发放的独生子女证，由于当时字体是连笔书写，母亲的姓氏有点认不出来，现在办理进京入户需要，能否给出个证明，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126680",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126680",
+   "question": "包钢医院包庇老赖医生，漠视百姓生命。医学影像部医生王振宇，作为医护人员，违反职业道德，违反社会公德，失信失德，道德败坏，利用职务工作之便，打着单位旗号，多方举债，发展副业，谋取私利。被多家机构起诉，并且有多笔强制执行，光在外欠款多达100多",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127626",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127626",
+   "question": "如何预约打九价",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126636",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126636",
+   "question": "您好，我在5月20日于包头市第四医院挂号儿童保健科门诊，接诊大夫是张超，首先，医院叫号机器有问题，等了20分钟一直没叫号，进去询问张超大夫，回答说等叫号，10分钟后再次询问，得到的回答是叫过了没人来，但实际情况是机器有问题，陆续有人来问才回",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126644",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126644",
+   "question": "您好，2020年九月考的护士资格十一月成绩合格单通过，2021年官网开通注册渠道，那我三年考护师是以20年为准还是以21年注册时间为准，如果以21年为准那我们为什么平白比别人推迟一年呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127594",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127594",
+   "question": "我是患者家属，包头市东河区铁西街道办事处腾飞社区服务中心法人张树山（13154720831）开出中药 7 服，服用一服后出现严重药物过敏，导致第三天出现呼吸困难住院治疗，沟通后该医生改不承认是药物问题，现向上级主管部门投诉希望督查给与处罚并",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127582",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127582",
+   "question": "请问护资证补办流程及所需手续",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127590",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127590",
+   "question": "我是患者，请问康复治疗师可以给病人做针灸治疗吗？是否与执业权限不符，我在包头第四医院康复科康复治疗师给我做针灸，出了事故，怎么办，希望督查督查",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127586",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127586",
+   "question": "包头市卫生健康委员会直属单位2023年第二批人才引进给编制吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126628",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126628",
+   "question": "领导您好！初级检验师（士）的考试为卫生专业技术资格考试，但是通过在国家卫生健康委人才交流服务中心（原中国卫生人才网）官网上了解，我并没有找到生物技术专业相关人士可以申请参加初级检验师（士）资格考试的途径，请问领导能否告知生物技术专业考生是否",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126624",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126624",
+   "question": "包头市卫生健康委员会直属单位2023年第二批人才引进入选的话会电话或者短信通知吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127578",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127578",
+   "question": "二孩生育，是否需要办理手续？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127574",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127574",
+   "question": "您好，包头市卫生健康委员会直属单位2023年第二批人才引进都有什么给人才的福利，需要具体",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127562",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127562",
+   "question": "2023年卫健系统人才引进是否有编制？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127570",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127570",
+   "question": "领导您好！我想就2023年包头直属事业单位招考中针对卫健系统部分岗位（如包头市中心医院3020106：包头市第四医院3020317、3020318）报考资格条件中的专业（生物技术071002）与其他条件中的具有初级检验师资格证书这个匹配情况",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127566",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127566",
+   "question": "领导您好！我想就2023年包头直属事业单位招考中针对卫健系统部分岗位（如包头市中心医院3020106：包头市第四医院3020317、3020318）报考资格条件中的专业（生物技术071002）与其他条件中的具有初级检验师资格证书这个匹配情况",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126620",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126620",
+   "question": "尊敬的领导您好: 第一国药北方医院部分科室未合理安排倒班人员工作，疲劳上岗，超出法定工作时间，夜班数一个月可达15个，奖金分配不合理，不透明化（非疫情期间也如此，） 第二长期闭环管理未执行轮岗休息，工作人员身心俱疲。 第三部分科室领导管理不",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126608",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126608",
+   "question": "尊敬的领导您好: 第一国药北方医院部分科室未合理安排倒班人员工作，疲劳上岗，超出法定工作时间，夜班数一个月可达15个，奖金分配不合理，不透明化（非疫情期间也如此，） 第二长期闭环管理未执行轮岗休息，工作人员身心俱疲。 第三部分科室领导管理不",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126616",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126616",
+   "question": "领导好，今年中医医术确有专长人员医师资格考核，对包头市的复审结果有异议，请问可以找哪个部门反映解决？经电话沟通，审核部门未给予正面回复，无法给出合理解释，且表示不接受个人申诉，望领导尽快回复。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126612",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126612",
+   "question": "医学考试报名利用伪造学历报名",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127558",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127558",
+   "question": "您好，我现在咨询三孩政策，有补助吗？怎么领取",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126604",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126604",
+   "question": "举报青山区幸南社区卫生服务中心，再九价疫苗摇号过程中明确仅限包头市户籍参与，但在摇号结果中，有外市甚至外省的人中签，如果明确全国人民都能再此社区卫生服务平台参与的也可以，那就根据人口基数增加九价疫苗数量。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127554",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127554",
+   "question": "举报青山区国药北方医院 所在病区护士长不清楚病人血情况给病人置管 导致患者置管地方三四天了 一直淌血 想问问这算不算医疗事故 怎么处理?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127550",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127550",
+   "question": "请问各位卫健委领导 医院内发生医疗事故 责任医生护明确 科主任及护士长却颠倒黑白 避重就轻 将所有责任推给当值护士 让护士背黑锅 请问如此处理该向哪里提出诉讼 该准备哪些手续",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126600",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126600",
+   "question": "请问安宁疗护服务是否开展，联系哪些机构，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127546",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127546",
+   "question": "您好，想咨询安宁疗护服务，如何申请，联系哪些部门",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127538",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127538",
+   "question": "你好，包头市医疗广告审查证明可以在政务服务网线上办理吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126596",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126596",
+   "question": "您好，2023年卫健委人才引进个别单位没有公布进入体检考察的成绩结果，是没出来吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127534",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127534",
+   "question": "您好，2022年护士资格证什么时间派发 什么时间截止",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127530",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127530",
+   "question": "包头市一附院ct结果肺部炎症不注明新冠，且ct明显肺部炎症症状结果标注为正常，是医院在隐藏还是地方政府在隐瞒什么？另外取ct片子的旁边有个机子取一次性袋子（装ct片子的袋子仅能从该机器取），在取袋子时自动购买2个月免费保险试用、后期进行扣费",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127522",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127522",
+   "question": "主页的生育服务功能怎么打不开？是系统有问题吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127518",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127518",
+   "question": "2023事业单位面试名单excel表格下载之后显示文件已损坏",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127514",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127514",
+   "question": "主管护师报名后，去卫健委报名确认告知年限不够不通过，请问卫健委可以让报名网站报名界面显示不通过吗。因为报辅导班需要报名不通过截图才能退费",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127510",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127510",
+   "question": "我家亲戚一侧眼睛看东西有黑点，去年经朋友介绍，在昆区朝聚眼科医院就诊，他们说换晶状体就好了需要住院。住院检查后，大夫不交代患者身体和病情情况（住院期间问大夫尿常规不正常的值是怎么回事，大夫说看不懂），也不交代适合什么样的手术、利弊在哪里，而",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126592",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126592",
+   "question": "我家亲戚一侧眼睛看东西有黑点，去年经朋友介绍，在昆区某眼科医院就诊，他们说换晶状体就好了需要住院。住院检查后，大夫不交代患者身体和病情情况（住院期间问大夫尿常规不正常的值是怎么回事，大夫说看不懂），也不交代适合什么样的手术、利弊在哪里，而是",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127506",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127506",
+   "question": "你好，本人17年11月考的执业医师资格证，18年3月拿到的纸质版证书，当时没有给发 授予医师资格审核表 和 授予医师资格申请表 ，现在用人单位需要，请问在哪里可以领取？或者补办？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126588",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126588",
+   "question": "请问，包头市现在是否可以接种第四针新冠加强疫苗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126568",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126568",
+   "question": "你好，请问卫生专业技术资格证书（中级证书）纸质版什么时候领取？在哪领？因为是个人领取，没有单位，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126564",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126564",
+   "question": "你好，请问卫生专业技术资格证书（中级证书）纸质版什么时候领？在哪领？因为是个人领取，没有单位，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127490",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127490",
+   "question": "包头市博为骨科医院存在非法行医现象，园内专家董乐乐利用其个人职务之便招揽人员，医院院内闭环住院医师有在校学生，有没有执业医师资格证，有些注册地并非该医院。各种违规的人员管理导致医院管理混乱，医嘱下达错误。建议有关部门详查，规范该医院医师执业",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127486",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127486",
+   "question": "本人投诉包头都市妇产医院过度治疗，诱导消费，我在其医院检查，医生没有等到所有检查结果出来之前给我治疗了宫颈糜烂，费用在6315，阴道镜检查时，医生说我的不严重一个星期就可以治好，后主治医生提出建议保守治疗或贴膜，保守治疗宫颈不能恢复到正常状",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127502",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127502",
+   "question": "本人在此投诉包头都市妇产医院过度治疗，诱导消费，请相关部门予以调查 1、开具缴费单据全程本人未看到缴费单的内容未触碰到缴费单，其做法是否涉及乱收费2、宫颈贴膜为什么要给我做心电图，可以不打麻药为什么不先询问我是否需要打麻药而擅自做主给我打了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126560",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126560",
+   "question": "青山区幸福路五号街坊五栋一单元在11月26日转为低风险区域后单元依旧进行隔离封闭单元居民全部进行隔离，此后单元内多次出现阳性病例未提升为高风险区域，单元居民在5次核酸均为阴性后也不解封。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126580",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126580",
+   "question": "医生规培期间的继教学分是怎么拿到？要走什么流程？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127498",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127498",
+   "question": "想问问卫健委同志，医院设立过渡病房我们理解。问题是满足过渡病房要求了，还要在此基础上收病人，收来的病人往哪儿住，而且已经不满足医护人员住宿需求了，能不能麻烦卫健委领导调查一下青山区某三级综合医院的情况，科里病床数有限，又要满足医护人员闭环管",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126556",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126556",
+   "question": "根据国务院联防联控机制于11月22日召开新闻发布会，介绍不折不扣落实疫情防控优化措施、全力抓好当前疫情处置工作。中加大层层加码整治力度中的说明今日九原区麻池镇两个进出口都已被完全封闭，且麻池镇高风险地区为永茂泉村但景富家园与永茂泉阳光小区皆",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126576",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126576",
+   "question": "国务院于11日引发：关于进一步优化新冠肺炎疫情防控措施 科学精准做好防控工作的通知（以下简称通知）。近日自四社区就因几例阳性病例随意扩大封控范围，简直是顶风作案！（详见通知第四条、第十六条）。疫情防控绝不是一封了事，一禁了之！希望有关部门督",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126552",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126552",
+   "question": "请问是全市医院都在闭环管理吗 我怎么听说很多医院已经解除闭环管理了 想问问各位领导 闭环管理是为了疫情不耽误医护上班吗 是这回事吗 二十条政策落地这么些天了 是不是咱们也能落到实处来呀 很多医院门诊都不查验核酸了 想问问这个闭环管理还有必要",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126572",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126572",
+   "question": "我父母亲居住于养老院两年有余，本轮疫情养老院封闭管理时，父亲在院内，母亲因家人带出检查身体被封闭在家中。目前父亲母亲均有家人贴身照顾，但一是常态化下家人需要返岗工作，二是父亲具有老年痴呆性精神阳性症状，母亲不在身边情绪很不稳定。我们希望母亲",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127494",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127494",
+   "question": "您好，了解到包头市为建立集中隔离点、永久性方舱医院建设项目获国家6000万元资金支持，远大活楼公司产品不锈钢工厂化建筑活楼，能在极短工期内高质交付满足集中隔离点的高品质节能环保绿色建筑，询问详细接洽部门沟通推介方案。谢谢。电话：158973",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126548",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126548",
+   "question": "投诉包头市中心医院总值班、影像科 患者于11月10日晚入急诊，肺CT结果至今都没有报告以及该院承诺的微信扫码可用手机查看CT片子。于11日中午给医院总值班打电话，总值班给了2个没有人接的电话，并告知不论是否急诊入院均需等报告审核，并未采取其",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126544",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126544",
+   "question": "您好，我是育才三段十栋的居民，现滞留于呼市，近期想返包，咨询了相关政策符合居家隔离条件，也配合社区提出的所有合理的条件，但是受到网格员各种理由阻碍返包，也拿不出任何文件来证明她的说辞，要求我必须集中隔离，目前本人是居住于低风险区，绿码，可提",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127470",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127470",
+   "question": "您好",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126540",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126540",
+   "question": "请问现在疫情情况好转，商场，超市，饭店甚至娱乐场所都在有序开放，医院为何还要实行闭环管理？另外现在社区招募核酸采样员日薪200元至300元，或入户采样入一户10元的薪资，那么之前支援社区采样的医院医务工作者有没有补贴？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126532",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126532",
+   "question": "呼和浩特学生反包，在东河区被安排到鹿城一号小区门口的毛坯房，6个人一个屋子集中隔离7天，就只有两个暖气片，一起集中隔离的人里还有之前是密接和次密接的，这样不会交叉感染么？跟据第八版的防控规定中的隔离人员住宿基本要求，6个人一间毛胚房，房间内",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127466",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127466",
+   "question": "呼和浩特学生反包，在东河区被安排到鹿城一号小区门口的毛坯房，6个人一个屋子集中隔离7天，就只有两个暖气片，一起集中隔离的人里还有之前是密接和次密接的，这样不会交叉感染么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126528",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126528",
+   "question": "学生从呼和浩特反包集中隔离7天，被安排到6个人一间的毛坯房集中隔离，本来都是之前的密接或者次密接人员，这样不会交叉感染嘛？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126536",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126536",
+   "question": "我是一名在黑龙江省上学的大学生 因为疫情原因 导致回到包头的火车全部停运 预计通车的时间改了又改 现在有可能在我们放假的时候无法顺利返回包头 希望可以得到帮助",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127458",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127458",
+   "question": "现在外地低风险区来的17.5米大货车能进包头吗？能正常下高速吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126516",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126516",
+   "question": "您好，我投诉一名核酸采样人员：哈业胡同镇医院王丽娜 在全员核酸期间，她态度不正，随意对我的父母发脾气，摆脸色，老人家都是农村人，但也都积极配合，并且体谅他们的难处。但是她咄咄逼人，多次给老人家造成了心理上的伤害。我恳求相关部门可以给予她警告",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127454",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127454",
+   "question": "包头青山幸福路幸福九号解放排队领出入卡没有实行一米间隔，简直是人挨人。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127442",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127442",
+   "question": "新冠的处方有很多，covid19寒湿疫期间甘草干姜汤作为预防方河南通许县人民医院医护人员零感染，山西省中医院玉屏风散加连翘金银花芦根也做到了零感染等等。武汉治疗期间经常用到基础处方麻黄葛根汤，三仁汤，达原饮，等等无论用什么处方都离不开湿这个",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126512",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126512",
+   "question": "您好，我想反映一件事，在全员核算期间，我们都很配合，也理解医疗人员的不容易，但是在这期间，总有一个医疗人员无故的摆架子，向我们随意发脾气。我知道他们不容易，但是每天如此，父母都年纪大了，每天被她骂一顿，让他们难以忍受，每天回家郁闷一整天。我",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126508",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126508",
+   "question": "请问什么时候解除静默呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127450",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127450",
+   "question": "桑菊饮加麦冬大锅汤 这回的奥密克戎bm.7在呼市的变种，在中医中是瘟疫夹杂燥金，就像寒湿新冠19主要爆发于武汉一样，这次的BM.7在呼市包头干燥的空气中更有利于传播感染。瘟疫夹杂燥金患者症状一般会有发烧咳嗽，咽喉疼痛，口干鼻干，黄鼻涕黄痰，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127446",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127446",
+   "question": "桑菊饮加麦冬大锅汤 这回的奥密克戎bm.7在呼市的变种，在中医中是瘟疫夹杂燥金，就像寒湿新冠19主要爆发于武汉一样，这次的BM.7在呼市包头干燥的空气中更有利于传播感染。瘟疫夹杂燥金患者症状一般会有发烧咳嗽，咽喉疼痛，口干鼻干，黄鼻涕黄痰，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126524",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126524",
+   "question": "反应一下青山区呼得木林新天地1区核酸检测不规范的问题，主要问题如下：1、没有明显标识区分等候区，登记区和采样区。2、各个区域未施画一米间隔线。3，登记区不规范，不固定（登记人员想站在哪里就站在哪里），距离采样区过近。4，采样区不按照规定放人",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126520",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126520",
+   "question": "能不建一个专栏，内容为近期出入政策，完整的各旗县区流调、风险区设定等疫情相关公告",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127434",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127434",
+   "question": "能不能让一附院尽快解决住院人员生活物资问题，这反映问题两天了还没有方案，卫生纸都没了，生活需求都解决不了了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127430",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127430",
+   "question": "你好，我们是从大连来内蒙包头市 协鑫集团鑫元颗粒硅做项目的，工作地点在 协鑫集团鑫元颗粒硅项目，所属管辖区是包头昆都仑区，昨天10月7日开始我们住的小区 胜利佳苑 受昆都仑区管辖疫情封控只进不出，早上我们从居住小区出来后我们的甲方协鑫集团为",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127422",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127422",
+   "question": "您好，我问一下从外地坐飞机到呼和浩特再高铁转回包头，需要隔离吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126504",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126504",
+   "question": "我于9月12日在东河区向阳景苑社区旁核酸检测点做单人核酸检测，收款方显示为包头康正职业病防治院有限公司，发票至今未开具给我，联系电话（15354953725）无人接听，现场人员不予理采！对方可以不开具发票给我吗？如果不合规，我该找谁处理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126500",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126500",
+   "question": "包头市第八医院妇产科科室王俊霞欠钱不还，请纪检领导严查包头市第八医院是否有包庇王俊霞躲债的嫌疑！还老百姓一个公道！！！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126496",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126496",
+   "question": "包头第四医院发热门诊，小病当作大病治疗，故意诱导要求住院，包头儿科住院部，都存在诱导要求住院，变相开无用检测单。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126492",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126492",
+   "question": "我于2022年9月7日14:45左右致电包头市第八医院妇产科科室电话04726160820，一女接电工作人员态度消极，不听我处寻该科科室王俊霞医士的诉求，态度恶劣，着急挂机.....请问包头第八医院的领导们，医院基层工作人员都是这么在工作的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127418",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127418",
+   "question": "本人王莉莉于2022年8月9日在本网站提交的投诉留言，包头市第四医院宣传科于2022年8月15日进行了回复。本人对该回复不认可，理由如下：第一，本人对于包头市第四医院及其医生秦枝存在的违法违规行为向包头市卫健委网站的留言是属于对违法行为的投",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126488",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126488",
+   "question": "包头二附院皮肤科不按叫号顺序看病，前面的号随意乱插队，过号没来的也能插队看病，后面等的病人从早上九点等到12点也没看上病，全是被前面插队，不按顺序叫号。这种叫号机制就没有尊重过病人，所有人的时间都是宝贵的，凭什么没排队已经过号的病人来了就能",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127414",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127414",
+   "question": "请问新生儿在医院采集足跟血外送公司检测的耳聋基因和遗传代谢病项目开展了多久？会一直持续嘛？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126484",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126484",
+   "question": "京藏高速 东兴下高速口处 说是上级领导有文件通知：没有48小时核酸必须做收费16元的单检，不能做免费的混检，收费全部是个人二维码 全部将费用扫码到个人微信，在手机上根本找不到开具发票的位置？是否存在违规收费？私自收费的情况?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126480",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126480",
+   "question": "请问青山区振华社区卫生服务站是否属于包头市公立性质的医院呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127410",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127410",
+   "question": "请问天津门特的病人回包头可否就医",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126476",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126476",
+   "question": "您好，我需要投诉包头第四人民医院",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126472",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126472",
+   "question": "执业医师资格证考试，需要考生提前几天回包头，本人现在在山东济南",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127402",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127402",
+   "question": "你好，我要举报青山区少先路21号的包头世纪泌尿专科医院，我在7月13号去该医院检查，被他们骗钱了。他们故意夸大我的病情，诱导我消费，并对我进行了过度治疗。 先是800元的激光手术费，然后是146.2的西药费和处置费，又是762的治疗费。可术",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126468",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126468",
+   "question": "你好，我要举报青山区少先路21号的包头世纪泌尿专科医院，我在7月13号去该医院检查，被他们骗钱了。他们故意夸大我的病情，诱导我消费，并对我进行了过度治疗。 先是800元的激光手术费，然后是146.2的西药费和处置费，又是762的治疗费。可术",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127398",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127398",
+   "question": "你好，我要举报青山区少先路21号的包头世纪泌尿专科医院，我在7月13号去该医院检查，被他们骗钱了。他们故意夸大我的病情，诱导我消费，并对我进行了过度治疗。 先是800元的激光手术费，然后是146.2的西药费和处置费，又是762的治疗费。可术",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126464",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126464",
+   "question": "你好，我要举报青山区少先路21号的包头世纪泌尿专科医院，我在7月13号去该医院检查，被他们骗钱了。他们故意夸大我的病情，诱导我消费，并对我进行了过度治疗。 先是800元的激光手术费，然后是146.2的西药费和处置费，又是762的治疗费。可术",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127394",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127394",
+   "question": "您好，我是执业医师的考生。我的情况如下：我于22年在陕西省榆林市考区通过了技能考试，由于个人原因，无法参加22年笔试且23年开始在包头工作，若我在23年执医考试时选择包头考区，那么技能考试我需要在包头重考还是技能免考？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127390",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127390",
+   "question": "您好，我是执业医师的考生。我的情况如下：我于22年在陕西省榆林市考区通过了技能考试，由于个人原因，无法参加22年笔试且23年开始在包头工作，若我在23年执医考试时选择包头考区，那么技能考试我需要在包头重考还是技能免考？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127386",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127386",
+   "question": "您好，请问从医院离职后改就职于其他单位，该单位不具备医疗机构执业许可证，这种情况下所持有的医师执业证怎么注册？如果不能注册，该证书多久会失效？所持有的医师资格证书是否受影响？是否影响职称考试？如果执业证失效了准备在重回医院上班，需要哪些手续",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127382",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127382",
+   "question": "请问北京朝阳区回包头现在是什么政策？需要隔离吗？只待周末两天就出包",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126460",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126460",
+   "question": "请问包头市昆河镇林荫社区卫生服务中心是否属于包头市镇级以上级别的医院呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126452",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126452",
+   "question": "信件内容",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126448",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126448",
+   "question": "尊敬的领导您好，我们是包头市内蒙古科技大学毕业生，目前根据包头市疫情防控相关要求，很多区内和区外的毕业生可以返校，但是学校要求除了内蒙古区内的包头市、乌海市等三四个地级市可以返校外，其他内蒙古区内的地区和内蒙古区外的学生不能返校（除非你在满",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126456",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126456",
+   "question": "信件内容",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126444",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126444",
+   "question": "建议九原区医院核酸检测号多些高峰期放的号很少",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126440",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126440",
+   "question": "您好，我微信和支付宝里的核酸采样时间与实际时间不同，请问受理吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126432",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126432",
+   "question": "您好，请问包头市医疗机构执业许可证在哪里查询？或在哪里提交申请信息公开？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126436",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126436",
+   "question": "包头医学院第一附属医院的外地医保联网系统什么时候能正常，能使用？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126428",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126428",
+   "question": "请问回包头需要几次核酸证明",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127378",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127378",
+   "question": "建议在365小程序防控登记内设立来包人员报备入口内容可以设立两种选项一是提前报备二是在公共交通出口现场扫码报备各项数据要对接到各旗县区有关部门",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126424",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126424",
+   "question": "请问我想提交留言，显示格式不匹配是什么原因，也没有其他提示",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126420",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126420",
+   "question": "包头市准生证从哪里办理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126416",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126416",
+   "question": "可否发下全市混检单检的具体机构名单及相关时间东河混检机构数量太少中心医院核酸号不好挂",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127374",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127374",
+   "question": "有关执法部门查下青年路苗海龙口腔门诊，乱收费现象严重，店里的工作人员没有职业医师资格证，老人看完牙后不能正常吃饭，来回折腾好几次效果不是特别好，希望重视还老百姓一个健康良好的就医环境，打击非法行医的行为，诊所不能因为负责人有证，其他人就可以",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127370",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127370",
+   "question": "青山区振华社区医院夸大病情医疗欺诈，怎么投诉",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126412",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126412",
+   "question": "我要投诉，有没有投诉电话，或者邮箱",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126408",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126408",
+   "question": "请问，美容主诊医师，怎样报考",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127366",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127366",
+   "question": "麻烦你们帮忙投诉一下阿尔丁大街旧的十二号街坊2号楼43号在小区里非法给人针灸疫情现在这严重全是外校区或者外地人员没有街道居委会电话找到一个还是空号在小区楼道里吐痰抽烟实在是担心说了好几次总是让我们自己联系没有渠道也没有电话你们帮助一下有多难",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127362",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127362",
+   "question": "请问PCR上岗证的培训和考试具体内容应该向哪个机构了解具体情况",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126404",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126404",
+   "question": "请问上岗证培训和考试应该去哪个机构了解",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127358",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127358",
+   "question": "鹿城健康365没有手机号注册或者验证码登陆通道，不合理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126400",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126400",
+   "question": "鹿城健康365程序，只能用微信授权登录，如果微信不绑定手机号就无法登录",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126396",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126396",
+   "question": "执业范围加注全科应该填写执业医师注册表还是医师变更表",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126392",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126392",
+   "question": "您好，请问现在可以从呼和浩特市赛罕区搬家到包头市九原区吗，健康码都是绿码但是带星号",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126388",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126388",
+   "question": "你好，我是钢四小学生家长，现在还要求孩子全天都戴口罩上课，但是老师可以不戴，老师们在办公室也都不戴，这样合不合理呀",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126384",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126384",
+   "question": "阿尔丁大街旧十二小区2号楼43号非法行医你们不能帮忙联系一下相关部门吗或者给个卫健委投诉电话",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126380",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126380",
+   "question": "时至今日2022年3月19日，包头市青山区当铺村区域，依旧在实行严格的疫情防控机制，但是由此产生的封堵道路情况到今天依旧存在，给村民的出行带来了极大的不便，请问一下，这个有什么相关规范性的文件做支撑么",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126376",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126376",
+   "question": "卫健委同志，请问一下咱们现在的新冠疫苗全面铺开，儿童疫苗接种时间本就压缩的很少，现在稀土高新区稀土路街道卫生服务中心儿童疫苗接种每周也就一次，而且限号100，上午十点来钟就没号了，下午更别说了，一周就打这么两三个小时，空跑好几趟都打不上，周",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126372",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126372",
+   "question": "请问有关于中医师承公证，申请等具体的文件与表格吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127354",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127354",
+   "question": "你们有心理功能室吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126368",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126368",
+   "question": "为什么包头市昆都仑区卫生局电话打不通，打了一个上午了，一直占线",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126364",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126364",
+   "question": "鹿城健康365居民扫码前几天总是扫码出错，从新认证了百十来遍，就是不行，今天又能扫码，就不能搞一下小程序的稳定性，好好检测一下程序，找个专业写程序的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127350",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127350",
+   "question": "开办中医备案诊所所需，中医备案申请表，信息表从哪下载，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127346",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127346",
+   "question": "小区什么时候可以解封，都不在封控，管控的范围内，为啥就不让出去，三天出去一次工作都没了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127342",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127342",
+   "question": "目前我需要在西安接种加强针，但是必须提供前两针疫苗批号，怎么查疫苗批号",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126356",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126356",
+   "question": "为什么昆北街道的第六次全员核酸始终不进行，导致整个街道的小区全都封锁",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126352",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126352",
+   "question": "请问一岁半宝宝用不用做核酸包头市能不能有个统一标准，有的区三岁以为不用，有的是街道让做，疾控中心也没有明确答复",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127338",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127338",
+   "question": "隔离到期但是不让出去，一问都不知道，到处推脱，请解一下迷惑",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127334",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127334",
+   "question": "包钢三医院剖腹产后，推荐自费止疼麻药两天700元，出院结算时又增加麻药泵390元，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127330",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127330",
+   "question": "投诉一附院互相推诿病人，疫情期间慢性病报销，收费室推医保，后再推收费室，又推院内系统工程师，病人家属70岁从3月1日早上呆到中午下班，下午儿女两点半上班呆到五点互相推诿，医保科收费室，跑了快10趟，院内问题不解决，系统工程师让病人家属加收费",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126344",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126344",
+   "question": "包医二附院异地医保卡无法结算，已经办理了异地医保，跑了好几次都被搪塞，不作为，让我们自己去找郑州医保，现在已经自费出院，但医保卡仍然显示住院状态，一直无法结算，后续住院也无法使用，请帮忙解决，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126340",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126340",
+   "question": "九原区赛罕街道富力社区网格员在3月2日下午发了一条通知，其中关于居民出入小区，返回时进入小区必须持48小时核酸阴性报告，否则禁止进入小区，九原区全员核酸检测，最新一次是2月27日的，我们的核酸检测结果都已超过48小时了，如果必须要48小时的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126336",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126336",
+   "question": "九原的定向医院有哪些",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127326",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127326",
+   "question": "昨天检出一个病例，今天夜店还在营业，里面的人还在聚集，流动，没人管吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126332",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126332",
+   "question": "集中隔离后，为什么被放出去的时间不一样，其他人比我还晚隔离，却比我早出去",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127322",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127322",
+   "question": "婴儿一个多月了需要打乙肝疫苗第二针，咨询社区卫生服务中心告知因疫情防控暂停接种，想知道现在哪能给孩子打疫苗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126328",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126328",
+   "question": "由于疫情原因一附院于2月25日实行完全封闭，院内所有工作人员和住院患者的伙食都由医院食堂统一提供，饭菜价格高，质量差，早餐一个鸡蛋，一个馒头，一碗粥就要8.5元，医护人员的伙食却比患者的好许多，特殊时期出不了院的都是重症，院方是不更应该多给",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126296",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126296",
+   "question": "您好包钢门岗进门必须刷脸现在是疫情防控期间在刷脸时必需摘口罩才能刷上，以上班时的人员密度这要是其中只要有一个那就是一传一片而且还不知道自己是在那被传上的想想都害怕",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127314",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127314",
+   "question": "鹿城365公众号从2月21号以来就没有新闻推送，市民对疫情防控信息和通知消息获知不及时",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126324",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126324",
+   "question": "近几次小区内核酸检测过程中，发现采样人员在采集下一个人员时，未更换手套或对手套进行消毒就对下一个人员进行采样工作，对此心存疑虑，安全性存疑，另一个，采样用的棉签有点儿短，建议采购更长一点儿的棉签，假如小区有有阳性人员张口取样，下一个人员取样",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126320",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126320",
+   "question": "根据现在的防疫政策，次密切接触者究竟居家隔离多少日，为什么所有的疫情指挥中心电话都打不通，举报电话也打不通，那空开电话的意义在哪里，做样子吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126316",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126316",
+   "question": "为啥用我父亲手机号登录365显示的是我的健康码全部信息未关联过未用对方手机登录均实名和都用自己手机号注册",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126292",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126292",
+   "question": "我10号从呼和浩特返回，今天25号了，为什么我的社区还需我继续居家隔离，我不是密接，也不是次接，准备开学了，挺急的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126312",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126312",
+   "question": "我是阳光翠景底店的租户，我想反应一下我们小区不给底店做核酸，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126288",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126288",
+   "question": "2月25日，小区封闭做核酸，别的小区都是做完核酸的居民就给发个昆都仑区第三轮核酸检测标识的标签，但昆区黄河四区小区却要求得出具单位开的证明才给发放",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126304",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126304",
+   "question": "阿尔丁大街旧十二小区2号楼43号非法行医你们不能帮忙联系一下相关部门吗今天还在行医详细地址门牌号都有了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127318",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127318",
+   "question": "登陆自已的账号后发现健康码信息和家人的信息混了，导致我现在用自己的账号自已的手机打开的是家人的信息",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126300",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126300",
+   "question": "呼得木林大街呼六市场院门口垃圾堆积成山已经两三个月了严重影响市容市貌没有人管理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126284",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126284",
+   "question": "你好，核酸结果本地公众号不给上传，国家政务平台等公众号都能查询到，这是为什么",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127302",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127302",
+   "question": "水质检测归哪个机构，可以自己提交样本进行水质检测吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127298",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127298",
+   "question": "包头市九原区扶贫医院夜班护士下班不让休息，继续还的出任务",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127310",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127310",
+   "question": "怎么查询东河区是否有确诊病例",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127306",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127306",
+   "question": "现在疫情突发包头市昆都仑区阿尔丁大街旧的十二号街坊2号楼43号还在给人针灸这样可以吗在小区居民楼里没有任何证件",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127294",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127294",
+   "question": "在包头博华医院2月18日做的核酸检测，截止2月22日都没有检测结果，麻烦督办一下，严重影响出行及工作",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126280",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126280",
+   "question": "包头蒙中医院东河院，疫情期间做核酸中午休息，下去2点30才上班，排队的人慢慢的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126276",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126276",
+   "question": "为什么让没有经过正规培训的人员，例如中学老师，参与核酸检测等相关工作，如果因为防护不严格造成工作人员感染怎么办",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127286",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127286",
+   "question": "你好，香港寄到包头的顺丰特快快递是否会因为收取而健康码变黄",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127290",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127290",
+   "question": "我们昨天在昆区新城乡做的核酸检测，到今天已经24小时了还没出报告，说是设备故障，中午1点",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127282",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127282",
+   "question": "9日从呼和浩特赛罕区返回包头，16日核酸阴性，让我在家隔离14天，为什么",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127270",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127270",
+   "question": "二附院李春雨这个事，其实大夫就和患者好好说，能边核酸边看病治疗，让患者不要着急，问题不就解决了，弄上这么个情商低智商低，业常识也不咋懂的傻子，就彪住发热核酸隔离，病病看不了，就说些和看我们这个病没关系的话题，包头市是不是没人了，有能力好的人",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126252",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126252",
+   "question": "李春雨当天除了吼喊我们，只开了血液和核酸检查，问他能不能吃饭，他说可以吃饭，然后下班走了，之后彩超放射等都是后来的接班大夫来给开的，并且看望病人，并告知做彩超不能吃饭，这李春雨不是害人嘛，不会看病，也说不清个话和人沟通，就不要放在门诊，给大",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126272",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126272",
+   "question": "除了李春雨，在二附院遇到的别的大夫都不错，包括彩超放射和护士们，对比反差特别大，我们看病都着急死了，大家都特别好，就李春雨在那做大爷呢，医患关系医生有很大的责任，自私自利，对救死扶伤也无动于衷，这是没给我们造成严重后果，不然层层上访，但院方",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127278",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127278",
+   "question": "留言由于格式问题不能写很多，事件整体也写不了很详细，只能逐条发，有时网络也不好，二附院应该是给老人电话解释，老人岁数大糊涂好糊弄，谅解，家属要求院方对李春雨有明确的处理意见，感谢卫健委关注，希望问题到真正的解决，不知道有多少患者在二附院发热",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126268",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126268",
+   "question": "李春雨事件，二附院应该给老人电话沟通了，老人岁数大糊涂好糊弄，表示谅解，家属要求二附院对李春雨有明确处理意见，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126264",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126264",
+   "question": "二附院李春雨，当时都没让我们进诊室，就让站在大门口，也不让动，各种恐吓，做核酸测体温，我们是肚子疼去看胆囊炎的，又不是去了公安局，就算阳性，国家也给治疗啊，这都什么大夫，和恶霸一样，最后核酸都做了，还问患者家属一女同志生不生孩子，会影响孩子",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126260",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126260",
+   "question": "建议二附院好好教育李春雨医生吧，这人脑子不会有问题吧，连正常的有逻辑性有条理的和人沟通都做不到，我们抵触核酸还能去做核酸，抵触的是你这不能给看病就去别家看了，幸好遇到的别的大夫都还好，不然这种医院可没法去",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126248",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126248",
+   "question": "医院是救死扶伤的地方，不是去和个不机迷的大夫惹气的，患者疼成那样，那个李春雨大夫就只认核酸，恐吓疫情的后果，别的都不管也不说清楚，我们这看病都急死了，牛的就得追着屁股后面问，二附院李春雨事件，后来的诊断都是后面的几个大夫给处理的，人家都很认",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127266",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127266",
+   "question": "二附院的回复我已看见了，核酸检测我们不是不做，是后来追着李春雨才问出来的，可以同时核酸和检查其他项目该看病不看病，推给会诊大夫，就一直讲疫情的后果，脱离本职救死扶伤职责，怕承担疫情责任",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126244",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126244",
+   "question": "202医院二级门禁管理问题，导致患者去急诊必须步行前往，耽误治疗时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126240",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126240",
+   "question": "医师资格考试马上就要现场审核了，怎么这么晚了还没有通知",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127262",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127262",
+   "question": "你好，职业医考试审核啥时候开始啊",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126256",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126256",
+   "question": "为什么还没通知医师资格考试消息，什么时候有通知，什么时候现场审核",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127274",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127274",
+   "question": "您好，想咨询一下，内蒙古其他低风险地区返包需要隔离吗，在自我监测期间可以上学吗，学校有权利不让在自我监测期间学生上学吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127258",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127258",
+   "question": "包头市第四医院挂号处服务态度差，急诊挂号都磨磨唧唧，建议督促整改",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126236",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126236",
+   "question": "包头市第二附属医院李春雨医生，一切具体事宜要追着他问，不问不说，问一句说一句，把患者推给会诊大夫，患者等待期间不闻不问",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127254",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127254",
+   "question": "包头市第二附属医院李春雨医生没有医德，对待工作只考虑自己疫情期间别担责任，而给患者看病的本职差事确应付差事，也不能正常和患者沟通，非常牛气狂妄，何况我们核酸检测阴性",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127250",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127250",
+   "question": "投诉包头市二附院发热门诊李春雨医生，没有告知具体疫情期间要求和医院看病流程情况，恐吓威胁患者及家属，明知患者长期胆囊炎，还说检查前可以吃东西，差点耽误病情",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127246",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127246",
+   "question": "您好，我想咨询下，我打算1月30号从杭州萧山国际机场坐飞机回内蒙古包头市滨河新区，可以回去吗，有什么要求吗，如果可以的话，隔离是下了飞机就被集中隔离，还是可以自己在家隔离，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126232",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126232",
+   "question": "鹿城健康365运营感受差，核酸检查慢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127242",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127242",
+   "question": "2022年职业医师现场审核地点是哪里",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126228",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126228",
+   "question": "我想问下关于内蒙古自治区规培生定向生的两个同等对待什么时候能落实",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127234",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127234",
+   "question": "单位通知除包头市区外其他低风险地区如萨拉齐等地区也要做核酸检测，这个是统一要吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127238",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127238",
+   "question": "现在从成都回包头需要隔离和核酸吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126224",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126224",
+   "question": "包钢第三医院核酸检测点服务态度很差",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126220",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126220",
+   "question": "从上海浦东新区回去需要隔离吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126216",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126216",
+   "question": "昆区丽日花园社区卫生服务站存在西医非法行医，输液，望有关部门暗访",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126212",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126212",
+   "question": "您好，我想问一下从天津西安回来的集中隔离的费用是自己承担吗，12月底西安回来的就不用自己承担集中隔离费用，这个产生的费用是怎么承担的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127230",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127230",
+   "question": "您好，请问咱们市的集中隔离收费标准是全市统一的吗，如果不统一，想请问一下青山区的收费标准是什么样的，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126200",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126200",
+   "question": "你好，我想问一下从陕西省延安市回包头需要集中隔离吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126196",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126196",
+   "question": "我想问一下.现在疫情防控严峻.西安.郑州.天津相继出现阳性病例.现各地都要求不能大规模聚集活动.那单位要在年底进行大规模的考试.这样是不是违规",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126208",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126208",
+   "question": "为什么从低风险区回包头打过咨询电话04725169938和04722330800都说不要核酸可是社区却要核酸",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126204",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126204",
+   "question": "您好，我是咱们包头市户口，身患银屑病多年，最近获悉有一款名叫可善挺，学名司库奇尤单抗注射液的生物制剂，去三甲医院看了，医院说是自费，但是我看到咱们内蒙发的文件关于印发内蒙古自治区第二批门诊特殊用药目录的通知里有该药，为什么咱们当地不给报销，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127226",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127226",
+   "question": "我是包头考生，准备报考2022年卫生资格考试执业医师考试，但是在国家卫生考试网注册时发现身份证号已经被注册了，网站让我联系考试考点工作人员，我该联系谁",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127222",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127222",
+   "question": "您好，本人参加了21年在内科大的两次新冠疫苗接种，现在回山东打第三针需要前两针的疫苗批号，但所有的查询软件都没有提供批号，昆区当时负责打疫苗的卫生中心打不通电话，请问有什么渠道能查询批号吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127218",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127218",
+   "question": "包头市达茂旗医院元旦假期核酸检测未做出合理安排，中午导致三百多人在寒风中苦苦等待，医务人员却告知要下班休息拒绝继续工作，并扬言爱上哪儿告就去哪儿告，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127202",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127202",
+   "question": "你好，我是2021年考的护士资格证，现在资格证书大部分同学已经从学校领取上了，我们考过没领取上的应该怎么办",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127214",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127214",
+   "question": "您好，我参加2022年卫生资格考试，考中级，医师资格证考取时间是2017年11月，应当年不知什么原因，给我们发证时间延迟，导致我们这届都是2018年4月注册，今天上午审核说我执业时间不够，请问这个错误为什么要我们承担，况且考试都是参考资格证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127210",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127210",
+   "question": "您好，本人拟参加2022年卫生资格考试，2017年11月取得医师资格证，当年不知什么原因晚发证件，导致我们这届2018年四月才注册执业证，按照报名要求，本科毕业后工作四年就可以报考中级，今日提交报名资料，审核说是执业未满四年，请问国家的错误",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127206",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127206",
+   "question": "我我报销生育津贴需要生育登记表，我的户口在达茂旗，工作地点在土右，最近恰好在达茂旗，想问可以达茂旗打这个生育登记表吗，可以的话去什么地方办理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127198",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127198",
+   "question": "您好，2022年卫生技术考试什么时候现场审核",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127194",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127194",
+   "question": "你好，我拟于2022年参加卫生资格考试，康复治疗技士考试，请问需要达到什么条件才可以报考，本人目前属于离职状态",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126192",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126192",
+   "question": "我新冠疫苗第三针尚未接种，但是却显示已接种该如何解决",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126188",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126188",
+   "question": "打字就显示格式不匹配",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126184",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126184",
+   "question": "2022年护考现场确认的时间还有地点都需要带什么资料谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127190",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127190",
+   "question": "尊敬的卫生局你好，我想问一下今年护考报名往届生去盖章有截止日期吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126176",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126176",
+   "question": "您好，本人拟参加22年卫生资格考试，我于2016年毕业后在二附院参加工作至2021年10月，我的执业证注册时间为2018年4月，资格证取得时间为2017年11月，目前尚未办理执业变更，也就是目前我的执业地点和范围没变，请问1，今年报名的话报",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126180",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126180",
+   "question": "我想问一下2021年的护师资格证可以领取了吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126172",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126172",
+   "question": "昆河镇和平社区，不给开返园证明，但已经给昆河镇卫生院打了电话，明确说我们所在的小区归昆河镇和平卫生院，让去那开返园证明，去了以后，里面的工作人员说，他们不负责开返园证明，让我们找幼儿园，说幼儿园让你开返园证明你去找幼儿园，我想问一下，社区卫",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126168",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126168",
+   "question": "在明确咨询了昆河镇卫生院，我们所在的小区，孩子幼儿园的返园证明，归昆河镇和平卫生社区，带着孩子去了，说她们不负责开返园证明，但给昆河镇卫生院打电话，明确告知我们所在的小区就是和平社区给开，让社区开，社区让我去找幼儿园，说幼儿园让你开返园证明",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126164",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126164",
+   "question": "肠胃不舒服发烧请半天假需要做核酸检测才能返校吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127186",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127186",
+   "question": "单位扣押了我的医师证和资格证，要也要不回来，可以不经过单位直接挂失补办吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127182",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127182",
+   "question": "尊敬的领导，您好，现在乘坐公交车依旧需要健康码，很多老年人由于没有手机而无法乘坐，老年人健康码怎么解决，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127178",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127178",
+   "question": "尊敬的卫健委领导，我是一名普通的乡镇卫生院医生，兢兢业业工作10年，我院近20年未有编制录取，如今青黄不接，卫生院没有年轻人继续留守，没有同工同酬，但凡别的地方考编制，人才都留不住，今年我又考取中级，同时参加了额济纳滞留旅客转包头的抗疫一线",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126160",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126160",
+   "question": "职业医师资格证领取时，需提供的体检表，体检指定医院有哪些",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127170",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127170",
+   "question": "请问开设足浴，修脚店需要办理卫生许可证吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127166",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127166",
+   "question": "从乌兰察布到包头需要做核算检测吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127162",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127162",
+   "question": "请问从通辽坐飞机回包头需要隔离吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127158",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127158",
+   "question": "你好，我想咨询一下护师资格证可以邮寄吗怎么申请",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126156",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126156",
+   "question": "从沈阳到包头需要做核酸嘛",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127154",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127154",
+   "question": "请问包头市肿瘤医院的检验士资格证书发放了吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126152",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126152",
+   "question": "你好，包头与达旗的黄河大桥处还查验核酸吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127142",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127142",
+   "question": "您好，请教一个问题，关于新冠疫苗，长春生物和北京生物，是同一个疫苗吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126148",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126148",
+   "question": "进包头还需要48小时核算阴性证明吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127150",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127150",
+   "question": "你好，我是一名住院医师规范化培训医生.2020年修订颁布的住院医师规范化培训内容与标准中关于可申请减免培训时间的第三条明文规定我可以减免培训时间，但包钢医院一直不执行国家规定，导致我目前都无法毕业.望和包钢医院核实.",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127138",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127138",
+   "question": "包头卫生费收费标准是什么啊，按人算吗，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127134",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127134",
+   "question": "卫健动态，第一条，发布日期写错了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126144",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126144",
+   "question": "我是一名大二的大学生，我在暑假得知其他省份有为大学生实习的岗位，我想问一下我们东河有吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126140",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126140",
+   "question": "您好请问表格下载怎么可以打印出来",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126136",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126136",
+   "question": "很想投诉一下，青山区中环国际没有任何的防疫措施",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127122",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127122",
+   "question": "我举报一名医院科教科主任，起初不让职工要孩子，后来这位女职工怀孕了百般刁难至差点流产，就是因为没给送礼吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127130",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127130",
+   "question": "一码通行文件被你们吃了，不认国家健康码，非得扫你们的365，你们比国家的都厉害呀",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127126",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127126",
+   "question": "2021年10月30日中午1点30左右带孩子去包头四医院就诊，挂的急诊，医生安排给孩子做血常规检查，为了尽可能少的在医院逗留，我们急忙到一楼抽血的地方开门进去没有人，打电话说是在做紫外线消毒无法抽血，可是我们一家三口已经误入紫外线消毒的房间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126132",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126132",
+   "question": "包头市阿尔丁大街旧的十二号街坊2号楼43号非法行医每天来来往往超多外地人存在疫情隐患希望相关部门勒令其停止营业保障小区安全",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126128",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126128",
+   "question": "昆都仑区阿尔丁大街旧的十二号街坊2号楼43号非法行医来的都是外区和外地人麻烦相关部门过来核实整顿小区楼房里太危险了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127116",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127116",
+   "question": "心理治疗师的纸质证书发放时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126122",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126122",
+   "question": "非境外入境，但从高风险地区来包头集中隔离需要收费吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126118",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126118",
+   "question": "毕业证丢了12月报卫生资格考试疫情原因无法回母校办咋弄可以报吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126114",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126114",
+   "question": "毕业证丢了疫情原因无法回母校今天的康复卫生资格考试咋办",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127112",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127112",
+   "question": "我的毕业证丢了但疫情原因无法回母校办马上还有两个月就要报考卫生资格考试怎么办啊",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127100",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127100",
+   "question": "毕业证丢了疫情原因无法回校办再有几个月就要报考卫生资格考试了怎么办啊",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127108",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127108",
+   "question": "毕业证丢了疫情原因无法回学校办再有几个月就要报考卫生资格了怎么办啊",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127104",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127104",
+   "question": "我毕业证丢了可是疫情无法回学校办再有几个月就要报考卫生资格考试了怎么办啊",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126106",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126106",
+   "question": "青山区疾控咨询电话多少",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127096",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127096",
+   "question": "青山区疾病预防控制中心联系电话及化验室咨询电话",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126110",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126110",
+   "question": "一直没有离开包头市，但昨天在鹿城365健康码申报时误填了一个信息，这样是否会有影响，若有要如何消除，实在不好意思，麻烦您解答，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126098",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126098",
+   "question": "包头市青山区幸福南路青山基督教堂，大规模人员聚集，以老年人居多，有很大的疫情防控隐患",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126102",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126102",
+   "question": "我媳妇在今天在包钢三医院的检查血型是A型而2016年在呼得木林大街上的二附院检查的血型是O型谁能给我解释一下",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127092",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127092",
+   "question": "包头市中心医院骨科不给患者使用石膏固定，而是诱导患者使用支具固定，现场制作，现场交易，支具费用大，增加患者经济负担，这种作法合理吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126094",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126094",
+   "question": "我想问一下今年因为疫情卫生资格考试提前了，证书我看别的地方的都已经提前发了，而且中国人事考试网已经说给各个地区发放了，8月份已经到了，为什么咱们这还没通知呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127088",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127088",
+   "question": "包头市多家三甲医院骨科使用私人制作支具代替石膏为患者做固定，此支具少则三五百，多则二三千，私人现场制作现场交易，增加患者经济负担，这样的交易合理吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126090",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126090",
+   "question": "希望能对包头医学院第二附属医院慢性病门诊进行调查和整改，慢病开药每天限号100个，而且只是上午能开，这接待量一个月最多2000人，现在慢病必须在医院开，这样是不是有些不负责任",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127084",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127084",
+   "question": "包头市中心医院的大夫专业差素质差态度差!医生看诊在没有其他工作的情况,让实习生开检查不核对,导致检查开错患者诊室退费来回折返,检查单上面的地址与实际做检查地址不一致没人告知,患者找寻无果后医生训斥患者为什么不主动去问!门诊患者就诊做检查在有",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127080",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127080",
+   "question": "包头市医院事业单位的编制，签订的合同是否有服务期，服务期未满离职是否需要支付违约金",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126078",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126078",
+   "question": "包头市石拐区颐康新城小区入户直饮水含大量不明杂质肉眼可见希望能进行相关检查保证居民a饮水安全",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126082",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126082",
+   "question": "请问2021年中级职称证什么时候发，可以自己领取吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127076",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127076",
+   "question": "请问国外入境广州后，回到包头还需要隔离多久",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127064",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127064",
+   "question": "固阳县人人民医院收费不明确，实际收费明细和检查科目不符合",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127068",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127068",
+   "question": "住院陪床，同是家属做一个核酸检测就可以了，为什么都得做，这种前置条件合理吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126074",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126074",
+   "question": "老人突发心脏病心肌坏死随时去世包头东河中心医院强制让家属签字用他们护工不允许家人见面护工我们不满意不想用投诉",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126070",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126070",
+   "question": "包头市肿瘤医院网上预约挂号检查到了时间不给检查让刚做完手术一周的患者坐门口等了三个多小时包头市医院都这样吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127060",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127060",
+   "question": "海富商业街C110底店陈小娟口腔诊所违规招收无证医生诊疗违规刷医保卡",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "127056",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=127056",
+   "question": "你们微信公众号鹿城健康365是不是崩溃了无法出示健康码",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126058",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126058",
+   "question": "强制接种新冠疫苗的情况你们管不管",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126054",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126054",
+   "question": "一附院旁郭家堂鼻炎馆非法行医和非药品虚假宣传需查处",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126050",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126050",
+   "question": "包头市本科学生考康复治疗师初级证的时候还需不需要提前考考康复治疗士的证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-40",
+   "id": "126066",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=126066",
+   "question": "生育服务账号注册验证码发不出去咋回事",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

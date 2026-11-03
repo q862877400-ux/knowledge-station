@@ -1,0 +1,4260 @@
+{
+ "A_考卷": [
+  {
+   "source": "gd-maoming",
+   "id": "3427377",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3427377",
+   "question": "产假\n2026年女职工顺产产假缩短为98天？之前都是178天，鼓励生育的同时，产妇身体不用时间时间来恢复的吗？",
+   "cited_hits": [
+    {
+     "name": "女职工劳动保护特别规定",
+     "lib_no": "女职工劳动保护特别规定(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "广东省实施〈女职工劳动保护特别规定〉办法",
+     "lib_no": "女职工劳动保护特别规定(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "广东省人口与计划生育条例",
+    "广东省人口与计划生育条例",
+    "广东省人力资源和社会保障厅 广东省卫生健康委员会关于进一步做好〈广东省人口与计划生育条例〉相关假期贯彻落实工作的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3363968",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3363968",
+   "question": "如何补办房产证\n我家的楼房大概是90年代左右建的，现有规划证、建筑证、土地证等证件，但是房产证已遗失了，由于当时的证件名字是属于我爸爸的，但现在我爸爸已去世多年，请问该走什么流程去补办回来？应该联系什么政府部门进行补办？",
+   "cited_hits": [
+    {
+     "name": "不动产登记暂行条例实施细则",
+     "lib_no": "不动产登记暂行条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3362149",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3362149",
+   "question": "加快云开大山地区矿产资源的开发，构建千亿矿产金属加工产业。\n当前茂名市正全力构建具有茂名特色的 3336 现代化产业体系，矿产金属加工便属于六大特色优势产业之一。 贯穿高州信宜化州电白的云开大山（包括云雾山），储藏着万亿级别的矿产资源，锡、",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国自然保护区条例",
+     "lib_no": "自然保护区条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "自然资源部&nbsp;生态环境部&nbsp;国家林业和草原局关于加强生态保护红线管理的通知（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3272462",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3272462",
+   "question": "B加油站的行为，是否符合《安全生产法》、《危险化学品安全管理条例》等法律法规？\nA公司和B加油站于几年前签订了《租赁合同》，约定在合同期内，B加油站将其名下的《危险化学品经营许可证》、《成品油零售经营批准证书》等许可证、加油站房产和加油设备",
+   "cited_hits": [
+    {
+     "name": "安全生产法",
+     "lib_no": "安全生产法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "危险化学品安全管理条例",
+     "lib_no": "危险化学品安全管理条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "安全生产法",
+     "lib_no": "安全生产法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "危险化学品经营许可证管理办法",
+     "lib_no": "关于公开征求《危险化学品经营许可证管理办法(修订征求意见稿)》意见的通知",
+     "weak": false
+    },
+    {
+     "name": "危险化学品经营许可证",
+     "lib_no": "关于公开征求《危险化学品经营许可证管理办法(修订征求意见稿)》意见的通知",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "成品油零售经营批准证书"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3228865",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3228865",
+   "question": "2026年1月1日能领结婚证吗？\n现在是广州户籍，但老家是茂名，能在茂名领结婚证么？2026年1月1日元旦节当天能领结婚证吗？",
+   "cited_hits": [
+    {
+     "name": "婚姻登记条例",
+     "lib_no": "婚姻登记条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3156039",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3156039",
+   "question": "公积金提取等相关问题\n1、本人在老家自建房申请加层，如何提取公积金？ 2、租房如何提取公积金缴纳房租？需要什么手续？对租房地点有没有什么限制？我本人在电白区小良镇工作，公积金主管单位是茂名的，但工作地点离吴川地带较近，在吴川租房子是否可以？",
+   "cited_hits": [
+    {
+     "name": "住房公积金管理条例",
+     "lib_no": "住房公积金管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2989834",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2989834",
+   "question": "退役军人资料办理\n我想咨询一下，退役士兵自主就业证明如何开具，到何处办理？",
+   "cited_hits": [
+    {
+     "name": "退役士兵安置条例",
+     "lib_no": "退役士兵安置条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2854989",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2854989",
+   "question": "2024年规定休产假是98天，有奖励假吗？\n茂名市规定产假98天，有奖励假80天吗？跟公司申请奖励假80天不批怎么办？",
+   "cited_hits": [
+    {
+     "name": "广东省实施〈女职工劳动保护特别规定〉办法",
+     "lib_no": "女职工劳动保护特别规定(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "广东省人口与计划生育条例",
+    "计生条例",
+    "计生条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2837156",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2837156",
+   "question": "外地二手车上牌\n1.外地二手车（烧汽油的那种车）上牌需要什么资料？ 2.提前摇号车牌的网址是什么？",
+   "cited_hits": [
+    {
+     "name": "机动车登记规定",
+     "lib_no": "机动车登记规定(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2835043",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2835043",
+   "question": "农村自建房装修\n农村自建房装修临时搭建木排架是否违规定《中华人民共和国乡城乡规划法》第四十四条，是否属于违建？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国乡城乡规划法",
+     "lib_no": "城乡规划法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2785777",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2785777",
+   "question": "关于国有划拨土地转让问题\n您好！ 根据【土地法】，土地所有权归国家和集体，个人或单位要取得国有土地使用权只能通过‘出让’或‘划拨’两种方式。我的问题是：国有划拨土地使用者若想转让其拥有使用权的国有划拨土地，是否必须与当地政府签订‘出让合同’",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国城镇国有土地使用权出让和转让暂行条例",
+     "lib_no": "城镇国有土地使用权出让和转让暂行条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于国有划拨土地转让问题",
+    "协议出让国有土地使用权规范（试行）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2752579",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2752579",
+   "question": "父母修建房屋子女可以提取公积金吗\n父母新建房屋（土地证是我父亲的名字，是市区土地），由于资金不够，我想提取我本人的公积金，与家人共同建房，我名下都没有房屋。需要什么手续证明。",
+   "cited_hits": [
+    {
+     "name": "住房公积金管理条例",
+     "lib_no": "住房公积金管理条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "住房公积金管理条例释义",
+     "lib_no": "住房公积金管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2725868",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2725868",
+   "question": "社保断缴\n尊敬的领导： 您好！现有两个问题希望您能为我解疑答惑，一是社保断缴超一年会有什么影响；二是社保断缴后能否补缴？ 感谢您百忙中答复留言！",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国社会保险法",
+     "lib_no": "保险法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国社会保险法",
+     "lib_no": "保险法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2586797",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2586797",
+   "question": "公路控制区规划前存在的宅基地房子可以翻修吗\n本宅基地房子原来是在普通村道旁边的，后村道升级到县道。请问一下，现在公路边的宅基地房子因为漏水可以翻修吗",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国公路法",
+     "lib_no": "公路法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "公路安全保护条例",
+     "lib_no": "公路安全保护条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "广东省农村公路条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2552996",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2552996",
+   "question": "商业贷转公积金贷\n您好！请问茂名市首套房商业贷转可以转公积金贷款吗？2019年买的房子，当时商业贷利率高达5.64%，要是能转的话可以减轻很多压力。如果能转，需要什么资料，怎么办理？不能转的话茂名市以后会往这个方向考虑吗？现在楼市这种情况，",
+   "cited_hits": [
+    {
+     "name": "住房公积金管理条例",
+     "lib_no": "住房公积金管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "茂名市住房公积金购房贷款管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2428106",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2428106",
+   "question": "村庄建设用地转宅基地问题\n尊敬的省厅领导：您好！我在农村有一处宅基地，两个儿子成年，大儿子未婚已分户。现同村人A想出售或对换一块十多年前村公开竞拍由A拍得的集体建设用地给我大儿子作为宅基地使用，但我害怕买完或对换其它地类的给A之后国家不承认",
+   "cited_hits": [
+    {
+     "name": "土地管理法",
+     "lib_no": "土地管理法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "土地管理法",
+     "lib_no": "土地管理法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "土地管理法",
+     "lib_no": "土地管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "茂名市村庄规划建设管理条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2359128",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2359128",
+   "question": "关于幼儿园入园年龄限制问题\n根据国家教育部门最新规定，今年九月开始小孩入学只要方面12月31日前满6周岁就可以入小学，那上幼儿园小班只要当年12月31日满3周岁就可以入园了，现在怎么茂名地区还是规定9月1日前出生，必须满三周岁啊",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国义务教育法",
+     "lib_no": "义务教育法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于中小学生学籍管理实施细则",
+    "幼儿园工作规程"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2348772",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2348772",
+   "question": "学校\n请问美的置业广场是否有公立学校配套呢？ 以后能读哪个小学呢？",
+   "cited_hits": [
+    {
+     "name": "义务教育法",
+     "lib_no": "义务教育法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2278106",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2278106",
+   "question": "2022年女职工生育期间福利\n请问2022年女职工规定的生育产假休假时间限期是多少？以及休产假期间的工资发放及福利？",
+   "cited_hits": [
+    {
+     "name": "女职工劳动保护特别规定",
+     "lib_no": "女职工劳动保护特别规定(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "广东省人口与计划生育条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2260665",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2260665",
+   "question": "2022年女性工作者产假是多少天？\n2022年广东省女性职工产假增加80天奖励假，茂名的产假具体是多少天？80天生产奖励假茂名有吗？",
+   "cited_hits": [
+    {
+     "name": "女职工劳动保护特别规定",
+     "lib_no": "女职工劳动保护特别规定(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "广东省人口与计划生育条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2245944",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2245944",
+   "question": "住房公积金提取\n您好！如果公司向工作人员提供购买房屋可以无息借款20万的福利政策，即购房者向公司或单位借款或贷款20万后购房，购房者需要在7年内分期向公司或单位还款，（没有向银行或公积金贷款）请问这种情况可以每年提取公积金来返还公司借款或贷",
+   "cited_hits": [
+    {
+     "name": "住房公积金管理条例释义",
+     "lib_no": "住房公积金管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "1104037",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=1104037",
+   "question": "新国标电动车上牌买保险问题\n你好，我最近购买了新国标电动车，在上牌时被告知需要购买保险才能上路。我查了国家的规定并没有这种规定，所以请问这是茂名的规定还是办理点的私自收费？",
+   "cited_hits": [
+    {
+     "name": "机动车登记规定机动车登记规定",
+     "lib_no": "机动车登记规定(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-maoming",
+   "id": "1056976",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=1056976",
+   "question": "绿牌电动车是否可以换牌上黄牌或者蓝牌\n请问绿牌电动车可以上黄牌或者绿牌么，如果可以，需要什么条件或者文件？",
+   "cited_hits": [
+    {
+     "name": "机动车运行安全技术条件",
+     "lib_no": "GB 7258-2017",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "电动摩托车和电动轻便摩托车安全要求"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "gd-maoming",
+   "id": "3510503",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3510503",
+   "question": "事业单位招聘（普通综合类）\n你好，请问2026年茂名市事业单位招聘（普通综合类）是否还会举行？如若举行，是茂名市统一组织还是各区县自行组织，举行时间预计是什么时候？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省事业单位公开招聘人员办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3497550",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3497550",
+   "question": "南宁公积金在茂名贷款买房需要准备什么材料\n我目前在茂名上班，但是公积金属于南宁的，是属于单位职工公积金。 已连续正常缴存6个月多，想在茂名茂南区购买自住商品房，想申请异地公积金贷款。 想确认一些信息:1.是否支持南宁公积金在茂名用公积金贷款",
+   "cited_hits": [],
+   "cited_missing": [
+    "异地贷款职工住房公积金缴存使用证明",
+    "住房公积金业务办理个人信息表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3488653",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3488653",
+   "question": "网络预约出租汽车运输证\n您好，我准备个人申请办理《网络预约出租汽车运输证》，有几个问题向您咨询： 1.我办理茂南区的网络预约出租汽车运输证，许可经营区域是茂南区还是茂名市全域？是否可以申请市级全域许可？ 2. 在茂南区提交申请 网络预约出租",
+   "cited_hits": [],
+   "cited_missing": [
+    "网络预约出租汽车运输证",
+    "网络预约出租汽车运输证",
+    "网络预约出租汽车运输证",
+    "网络预约出租汽车运输证申请表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3474428",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3474428",
+   "question": "农村自建房办理营业执照\n本人是一名回乡创业青年 在此请问一下自建房如何办理营业执照以及相关文件。自建房的户主是我爷爷 开公司的法人是我 所以 我需要什么文件去申请营业执照呢",
+   "cited_hits": [],
+   "cited_missing": [
+    "经营主体登记提交材料规范",
+    "茂名市经营主体住所（经营场所）登记管理规定",
+    "公司登记（备案）申请书",
+    "关于将住宅改变为经营性用房承诺书",
+    "住所（经营场所）使用证明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3464509",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3464509",
+   "question": "关于核实《电白区坡心镇新坡村村庄规定（2018-2035）》\n本人需核实《电白区坡心镇新坡村村庄规划（2018-2035）》的以下信息： 1. 该规划的法定批准文件（包括批准内容、批准机关、批准文号、批准日期）； 2. 该规划的规划范围说明",
+   "cited_hits": [],
+   "cited_missing": [
+    "茂名市电白区人民政府办公室关于电白区坡心镇新坡村等10个行政村村庄规划的批复"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3463160",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3463160",
+   "question": "公积金异地购房\n你好，我的公积金是在广州买的，但是我想在茂名买房。请问办理公积金贷款办理的流程已经需要准备什么材料。公积金贷款金额如何确定？公积金余额有2万多块了。",
+   "cited_hits": [],
+   "cited_missing": [
+    "异地贷款职工住房公积金缴存使用证明",
+    "住房公积金业务办理个人信息表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3458697",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3458697",
+   "question": "关于湛茂阳城际铁路茂名段的咨询\n广东的粤东城际铁路预计2027或2028年通车。据悉，湛江市发展和改革局正积极谋划湛茂阳城际铁路也就是深湛铁路(湛茂阳地区)公交化运营方案。想咨询一下，针对该项目（或湛茂阳城际铁路），茂名市目前有何具体推进计",
+   "cited_hits": [],
+   "cited_missing": [
+    "粤西城市群城际轨道交通网络方案研究（征求意见稿）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3434085",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3434085",
+   "question": "农房建设\n我想咨询一下根据最新政策，电白区农村农房建设规划面积还是在120平方米之内吗，还是有所改动。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发&lt;茂名市农村宅基地和农房建设管控实施意见&gt;的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3429492",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3429492",
+   "question": "茂名市2025年国民经济统计公报何时发布\n现在上半年过啦茂名市2025年国民经济统计公报什么时候发布，还有2025年两区三市常住人口何时公布",
+   "cited_hits": [],
+   "cited_missing": [
+    "2025年茂名市国民经济和社会发展统计公报",
+    "统计公报",
+    "统计公报"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3409681",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3409681",
+   "question": "水污染源在线监测系统验收\n领导，您好！ 请问水污染源在线监测系统验收备案时，需要提交的材料清单包括哪些？是提交纸质材料还是电子材料至茂名市生态环境局茂南分局呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省污染源全过程物联网自动监控平台"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3369363",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3369363",
+   "question": "政策公开问题\n请问1、《茂名市大气污染防治行动计划实施方案（2014-2017年）》废止了吗？是否还执行？2、《茂名市2024年-2025年空气质量持续改善行动方案》是否为公开文件？在茂名市人民政府网无公开原文。",
+   "cited_hits": [],
+   "cited_missing": [
+    "茂名市大气污染防治行动计划实施方案（2014-2017年）",
+    "茂名市2024年-2025年空气质量持续改善行动案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3354979",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3354979",
+   "question": "结算定额咨询\n我方正在进行石化厂区安全水罐工程的结算工作。施工合同约定执行《广东省房屋建筑与装饰工程综合定额（2018）》，明确缺项时可执行相关配套定额。现就施工图纸中以下三项做法的定额套用存在疑问： 一、关于沥青砂绝缘层的定额套用 图纸做",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省市政工程综合定额（2018）",
+    "广东省建设工程计价依据（2018）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3313994",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3313994",
+   "question": "关于房屋旁高压线安全隐患的咨询\n我们村最近在建高压塔，电压等级为220kV，我们家距离高压线很近，担忧有安全隐患，想知道高压线到房屋的安全距离具体是多少？另外住那么近会不会有很大的电磁辐射危害？",
+   "cited_hits": [],
+   "cited_missing": [
+    "110kV-750kV 架空输电线路设计规范",
+    "GB50545-2010"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3310636",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3310636",
+   "question": "农村自建房能否办理个体工商户登记\n农村自建房能否办理个体工商户登记，如果可以，需要提供哪些资料，或者能否相关的咨询电话",
+   "cited_hits": [],
+   "cited_missing": [
+    "个体工商户登记管理规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3310438",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3310438",
+   "question": "关于已取得焊接与热切割作业人员在从业相关工作时是否需要重新考取登高作业证\n已取得焊接与热切割作业人员在从业相关工作时是否需要重新考取登高作业证",
+   "cited_hits": [],
+   "cited_missing": [
+    "熔化焊接与热切割作业人员安全技术培训大纲和考核标准",
+    "熔化焊接与热切割作业人员安全技术培训大纲和考核标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3305624",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3305624",
+   "question": "茂府通〔2024〕2号\n茂府通〔2024〕2号文中茂名市征收农用地区片综合地价表电白区编号2片区地区的综合地价为8.59（万元/亩），在采用征收土地的安置途径：货币安置、社会保障安置、留用地安置三种方式的情况下，综合地价为多少，社会保障安置",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于公布实施征收农用地区片综合地价的公告",
+    "关于公布实施茂名市征收地上附着物和青苗补偿标准的公告",
+    "关于印发&lt;茂名市市辖区集体土地上房屋征收与补偿安置实施办法&gt;的通知",
+    "广东省人民政府办公厅转发省人力资源社会保障厅关于进一步完善我省被征地农民养老保障政策意见的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3300843",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3300843",
+   "question": "灵活就业人员购买职工医保\n灵活就业人员购买职工医保的报销比例，以及购买职工医保之后，多久才能进行医保报销，有没有等待期，等待期多久",
+   "cited_hits": [],
+   "cited_missing": [
+    "茂名市基本医疗保险管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3298123",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3298123",
+   "question": "2025年进入茂名市工作，但没有发现适用的《茂名市高层次人才引进实施细则》\n领导您好，我是今年9月进入茂名就业的，在查询《茂名市高层次人才引进实施细则》时发现自己符合第5类人才，但该文件已经在2023年9月到期，至今还未查询到新版细则的出台",
+   "cited_hits": [],
+   "cited_missing": [
+    "茂名市引进培养高层次人才实施办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3295180",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3295180",
+   "question": "家里的医保暂停怎么办\n我想问一下我去年在外地学校这边读，然后他的医保参保地点不能改，我只能搞到学校这边来，不过现在问题我现在要缴医保我发现我家那边的医保却是暂停参保，我想转到我家那边，应该怎么办，我都不知道这年的医保怎么缴费了",
+   "cited_hits": [],
+   "cited_missing": [
+    "茂名市基本 医疗保险管理办法",
+    "茂名市医疗保障业务经办规程",
+    "城乡居民基本医疗保险参保登记表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3292418",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3292418",
+   "question": "茂名高州医保在广州异地就医门诊能报销吗？怎么报销？报销比例多少？\n茂名高州医保在广州异地就医门诊能报销吗？怎么报销？报销比例多少？",
+   "cited_hits": [],
+   "cited_missing": [
+    "茂名市人民政府关于印发&lt;茂名市基本医疗保险管理办法&gt;的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3257360",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3257360",
+   "question": "城乡养老保险首次参保咨询\n你好!想问下，怎么给父母办理城乡养老保险首次参保呢，是首次参保需要线下开通，后面就可以在app上交？我父母目前56,57岁，目前政策是我父母要一直参保到65岁，才能申请一次性补缴剩余的年限吗？麻烦贵局解答下相关流程",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省人民政府关于〈广东省城乡居民基本养老保险实施办法〉的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3250685",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3250685",
+   "question": "关于网传“茂高信市域轨道快线”的真实性\n茂高信市域轨道快线是茂名市规划的一条连通中心城区与高州、信宜城区的市域轨道交通线路，详细信息如下： 线路概况 线路长度：总长约107公里 线路走向：始于茂名站，沿新修线位经高州站，终于信宜站 站点设置",
+   "cited_hits": [],
+   "cited_missing": [
+    "茂名市综合立体交通网规划(2023-2035年)",
+    "茂名市城市轨道交通线网规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3199279",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3199279",
+   "question": "关于云浮罗定至茂名信宜（粤桂界）高速公路等路线命名编号的问题\n市交通运输局：根据省交通运输厅2017年2月印发的《广东省高速公路网路线命名和编号规则》，云浮罗定至茂名信宜（粤桂界）高速公路命名为“罗定—信宜高速公路”，简称“罗信高速”，编号",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省高速公路网路线命名和编号规则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3193568",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3193568",
+   "question": "城乡养老保险\n我爸已经55岁，购买城乡养老保险的最低档10年了，现在想提档，请问提档后，之前最低档的可以按现在提档后的基数补缴吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省城乡居民基本养老保险经办规程"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3183370",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3183370",
+   "question": "低保问题\n低保户最终拿到的补贴是低保标准还是低保补差水平？为什么高州金山区和石鼓镇的不一样，不是统一标准吗，据了解邻居的每个月有250元，而石鼓的朋友说有五百，到底是怎么算的。",
+   "cited_hits": [],
+   "cited_missing": [
+    "最低生活保障审核确认办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3175680",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3175680",
+   "question": "请问农村宅基地面积如何核算？2楼阳台可以超出吗\n家人想要在农村宅基地建房，了解到不能超过120㎡。我想知道规定的宅基地面积是否以一楼面积为准？即一楼不超过120平方米即可？如果在2楼建一个阳台，阳台突出来，导致2楼面积大于1楼的120平方米",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设用地批准书",
+    "建设用地规划许可证",
+    "乡村建设规划许可证",
+    "建设工程规划许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3168242",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3168242",
+   "question": "农村道路硬化和排水问题\n农村道路主干政府是不是只负责硬化，不负责排水，排水需要村民凑钱嘛？需要怎么申请？望解答！",
+   "cited_hits": [],
+   "cited_missing": [
+    "茂名市电白区农村村内道路（支路、巷路）建设攻坚方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3107937",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3107937",
+   "question": "商转公贷款咨询\n本人在化州购有唯一一套商品房（商业贷款），但在湛江缴存职工公积金，可以办理商转公贷款吗？如果可以，需要准备什么材料？",
+   "cited_hits": [],
+   "cited_missing": [
+    "住房公积金业务办理个人信息表",
+    "异地贷款职工住房公积金缴存使用证明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3107754",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3107754",
+   "question": "异地工作人员，是否可以办理商转公贷款\n您好：3月6日茂名市住房公积金中心发布了关于印发《茂名市商业性个人住房贷款转住房公积金个人住房贷款管理办法》的通知，请问一下，如果本人2020年在茂名地区购买了一套商品房，贷款方式为商业贷，因本人工作地",
+   "cited_hits": [],
+   "cited_missing": [
+    "住房公积金业务办理个人信息表",
+    "异地贷款职工住房公积金缴存使用证明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3087679",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3087679",
+   "question": "应急抢险工程是否需要审核概算和预算\n您好！根据《茂名市应急抢险救灾工程管理办法（试行）》的通知茂府规〔2024〕2号第九条 如不立即组织实施将发生严重危害社会公共利益或者人民生命财产安全的应急抢险救灾工程建设项目，可以在工程验收前或者灾情结",
+   "cited_hits": [],
+   "cited_missing": [
+    "茂名市政府投资项目管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3085198",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3085198",
+   "question": "化州市电工证培训机构查询\n您好，请问目前化州市有官方认可的电工培训机构吗？有哪些机构？在哪里可以看到这些机构名单的公示？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省应急管理厅关于全省“三项岗位”人员培训机构和考试点名单的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3075826",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3075826",
+   "question": "商转公贷款\n请问化州现在能办理商转公贷款了吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "茂名市住房公积金管理委员会关于商业性个人住房贷款转住房公积金个人住房贷款管理办法",
+    "商转公贷款管理办法",
+    "商转公贷款管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3072704",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3072704",
+   "question": "关于2024年汽车置换补贴的问题咨询\n您好，关于2024汽车置换补贴有个问题想咨询下： 本人旧车于2024年12月31日开出二手车交易发票， 新车也是2024年12月31日出的交易发票， 新车注册日期是2025年1月2日， 现在唯一的问题是",
+   "cited_hits": [],
+   "cited_missing": [
+    "机动车登记证书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3066142",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3066142",
+   "question": "请问割户口要什么证件材料？\n请问割户口要什么证件材料？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省户口居民身份证管理工作操作规范（2024年版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3065135",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3065135",
+   "question": "生育登记\n高州办理出生证明需要生育登记吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发〈广东省卫生健康委广东省公安厅关于出生医学证明的管理办法〉的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3059211",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3059211",
+   "question": "新生儿上户口\n请问新生儿上户口，在哪个部门办理，需要什么材料，办理部门上班时间是？",
+   "cited_hits": [],
+   "cited_missing": [
+    "出生医学证明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3029497",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3029497",
+   "question": "幼儿园办证、续证\n现在民办幼儿园办证、续证需要产权证明吗？所在建筑没有竣工验收，能使用吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "房屋租赁合同"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3022883",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3022883",
+   "question": "新生儿入户\n我是高州人，新生儿入户需要什么材料？去哪里办理入户？需不需要父母双方或者户主去办理？",
+   "cited_hits": [],
+   "cited_missing": [
+    "出生医学证明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3017926",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3017926",
+   "question": "改名字\n你好，我的宝宝还未满6个月。给他办理出生入户时仓促起了名字，没留意到普通话的发音不好，现在想帮宝宝改名字。请问未满一周岁，可以改名吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "户口项目变更更正申请审批表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3005950",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3005950",
+   "question": "落户人才引进\n请问落户政策的取得中专及以上学历、初级及以上专业技术职称、初级工及以上职业资格或技能等级的人员三个条件虚同时满足还是满足其一即可,本人是大专学历,有初级工职业资格.目前没有职称",
+   "cited_hits": [],
+   "cited_missing": [
+    "茂名市深化户籍制度改革实施办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3007480",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3007480",
+   "question": "公积金商转公\n你好！最近看到很多地方的住房贷款都可以商转公了，我的住房贷款用的是纯商贷，名下也没有公积金贷款，请问什么时候可以将商业贷款转为公积金贷款呢？需要提供什么资料？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省行政规范性文件管理规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3003949",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3003949",
+   "question": "关于男职工15天陪产假\n领导，你好！有三个问题咨询一下： ①男职工陪产假是一定要从女方分娩之日起开始休还是可以在国家国定的女方产假期间合理安排时间？ ②男职工陪产假是连续休15天还是可以分阶段休？ ③陪产假的15天遇到周末和节假日是怎么计算",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省人口与计划生育条例",
+    "广东省人力资源和社会保障厅广东省卫生健康委员会关于进一步做好〈广东省人口与计划生育条例〉相关假期贯彻落实工作的通知",
+    "计生条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3003034",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3003034",
+   "question": "婚姻登记\n请问10月8号在高州民政局登记的还需要出示户口本吗？另一半是海南户口的没带户口本怎么办",
+   "cited_hits": [],
+   "cited_missing": [
+    "民政部关于印发&lt;婚姻登记工作规范&gt;的通知（民发〔2015〕230号）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2976194",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2976194",
+   "question": "结婚登记问题\n男方户口在广西南宁，女方户口在广东茂名，男方在女方户籍地办理结婚登记业务需要准备什么材料，比如需要办理居住证吗？女方亦需要准备怎么材料？",
+   "cited_hits": [],
+   "cited_missing": [
+    "军人婚姻登记证明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2968011",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2968011",
+   "question": "生育报销问题\n无业无医保的妇女，配偶有职工医保且正常缴费满一年以上，是否可以申领生育津贴？生育期间的产检及各项医疗费用是否可以报销?如果可以，如何报销？希望能提供一份详细的报销指南。",
+   "cited_hits": [],
+   "cited_missing": [
+    " 茂名市人民政府关于印发&lt;茂名市职工生育保险办法&gt;的通知",
+    " 茂名市人民政府关于印发&lt;茂名市职工生育保险办法&gt;的通知",
+    "关于印发&lt;茂名市城乡居民基本医疗保险暂行办法&gt;的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2965445",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2965445",
+   "question": "公积金若干问题的咨询\n你好，想咨询一下关于公积金的若干问题，盼能够对应回复，谢谢。问题具体如下：1、请问省内外地（江门市）的公积金可以在茂名使用公积金贷款吗？如果可以，请问贷款最高额度是和本地缴存公积金的职工相同吗？2、请问是否允许灵活就业",
+   "cited_hits": [],
+   "cited_missing": [
+    "茂名市灵活就业人员住房公积金缴存使用管理办法",
+    "关于调整2024年度茂名市住房公积金缴存基数的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2889086",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2889086",
+   "question": "广东房建省统表\n请问2024年三月至2024年五月新开工的房建项目，资料用省统表2016版的还是2024版的呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省房屋建筑工程竣工验收技术资料统一用表（2024版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2866917",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2866917",
+   "question": "茂名港高速何时开工\n尊敬的领导，请问茂名港高速延长线（阳信高速支线）何时开工建设，据悉该项目已纳入广东省近期项目，请问能否规划将该项目继续向北延长至信宜市贵子边界出罗定市与广西在建的平岑高速相接，辐射更多未通高速的乡镇，形成茂名港北上出省大",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省高速公路网规划（2020-2035年）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2862874",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2862874",
+   "question": "结婚证书面遗失\n结婚证书面遗失怎么写？有没有模板？离婚证需要在结婚证的办理地办理吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "申请补领婚姻登记证声明书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2843354",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2843354",
+   "question": "自建房咨询\n我想了解一下楼顶出檐算不算建筑总面积，如果顶层做超过了批准的总面积应该怎么处理",
+   "cited_hits": [],
+   "cited_missing": [
+    "茂名市国土空间规划技术规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2841276",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2841276",
+   "question": "家用SUV轿车可以使用多少年\n家用SUV轿车可以使用多少年",
+   "cited_hits": [],
+   "cited_missing": [
+    "机动车强制报废标准规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2842687",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2842687",
+   "question": "入户\n请问要想办理人才入户，需要哪些材料？",
+   "cited_hits": [],
+   "cited_missing": [
+    "茂名市公安局深化户籍制度改革实施细则",
+    "入户申请审批表",
+    "茂名市公安局深化户籍制度改革实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2836264",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2836264",
+   "question": "建议大力弘扬茂名潮汕文化\n您好，我们茂名与汕头、揭阳、潮州人文相近，习俗相通，同属广东潮汕文化圈，但是由于缺乏宣传，很多内地人士比如央视 新华社一提到潮汕，就往往忽略掉我们茂名，导致茂名很多弥足珍贵的潮汕文化非遗比如茂名英歌舞，茂名年例等正",
+   "cited_hits": [],
+   "cited_missing": [
+    "八狮献瑞迎新春",
+    "金鼓齐鸣展雄风",
+    "粤西洪拳---十八般武艺各显神通",
+    "雄狮勇闯梅花桩",
+    "笑佛瑞狮送吉祥",
+    "步步高升喜迎",
+    "高脚狮阵图"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2825968",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2825968",
+   "question": "城市管理和综合执法局的立案程序\n您好！ 请问：城市管理和综合执法局接到公民举报后需经过哪些程序来确定是否予以立案？ 谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "住房和城乡建设行政处罚程序规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2790791",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2790791",
+   "question": "关于行政执法案件的【处理结论】\n您好！请问：行政执法案件的【处理结论】是否属于‘行政机关在履行行政管理职能过程中形成的讨论记录、过程稿、磋商信函、请示报告等过程性信息以及行政执法案卷信息’？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省行政执法公示办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2790493",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2790493",
+   "question": "如果购买了职工社保医保，还能购买城乡居民养老保险吗？如果两者有同时购买以后办理退休有什么影\n如果购买了职工社保医保，还能购买城乡居民养老保险吗？如果两者有同时购买以后办理退休有什么影响？还是只能选择一个办理退休？又或者选择一个剩下另外一个是",
+   "cited_hits": [],
+   "cited_missing": [
+    "参保缴费凭证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2763398",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2763398",
+   "question": "网约车人证\n网约车人证怎么办理，谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "出租汽车驾驶员从业资格管理规定",
+    "茂名市出租汽车经营服务管理实施细则",
+    "广东省道路运输从业资格证照片校验回执"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2765956",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2765956",
+   "question": "粤东粤西粤北地区就业补贴问题\n你好！我是2020年6月毕业的高校毕业生，2021年2月至今在茂名参加工作并缴纳社保。参加社保满6个月后，想申请高校毕业生基层就业补贴，咨询相关部门。相关部门告知，由于我是劳务派遣人员，由人力资源公司派遣到市直",
+   "cited_hits": [],
+   "cited_missing": [
+    "根据关于印发广东省就业创业补贴申请办理指导清单（2021年修订版）的通知",
+    "转发关于做好优化调整稳就业政策有序衔接工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2753846",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2753846",
+   "question": "购房补贴\n尊敬的领导： 您好。我是2021年通过了茂名市高层次人才的认定，近期在本市购入商品房。我想咨询一下2023年大概什么时候开始高层次人才购房补贴的申请？ 谢谢您！",
+   "cited_hits": [],
+   "cited_missing": [
+    "茂名市高层次人才引进实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2748220",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2748220",
+   "question": "身份证办理\n你好，请问身份证到期前几个月可以网上申请办理，我24年1月22号左右到期，今天10月9号去派出所办理时，前台叫自己网上申请，但是点到期换证选项，不能办理成功，这是什么问题?麻烦解释下，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省户口居民身份证管理工作操作规范（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2740667",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2740667",
+   "question": "农村自建房修建规定\n领导好！我的问题如下： 一、农村自建房规定是不得超过三层吗？ 二、三层半算三层吗？ 三、三层半的半层，限高多少？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省农业农村厅 广东省自然资源厅关于规范农村宅基地审批管理的通知",
+    "茂名市村庄规划建设管理条例",
+    "广东省城乡规划条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2727855",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2727855",
+   "question": "茂名市高层次人才引进实施\n您好，我是今年毕业的研究生，在网上查询到我符合《茂名市高层次人才引进实施细则》的人才认定规定，请问今年怎么申请认定以及补贴呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "茂名市高层次人才引进实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2722565",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2722565",
+   "question": "国家政策有望执行\n国家发文规定小学上课时间不早于8:20，中学不早于8:00。要求市级教育行政部门要从保证学生充足睡眠需要出发，希望茂名市早日执行。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步加强我市义务教育学校作息时间管理工作的通知",
+    "关于进一步规范义务教育学校作息的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2719966",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2719966",
+   "question": "认房不认贷落实时间\n你好，目前广州市已经开始实施认房不认贷政策，请问茂名市是否执行认房不认贷政策，以及何时决定执行或不执行呢",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于优化个人住房贷款中住房套数认定标准的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2710391",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2710391",
+   "question": "机动车驾驶员培训考试收费管理办法咨询\n机动车驾驶员培训费有没有相关的物价标准？有没有相关的文件？驾校不规范教学，私自并强制收取考场模拟费是否合理？要求退学，驾校不退学费是否合理？",
+   "cited_hits": [],
+   "cited_missing": [
+    "机动车驾驶培训教学与考试大纲"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2708873",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2708873",
+   "question": "达到退休年龄未买满15年社保能否一次性补缴\n女性，今年46岁，在茂名已经买了6年社保，之后要在广州买4年，累计才买10年，达到50岁退休年龄时未买够15年社保，可以在50岁时在茂名办理一次性补缴吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于完善企业职工基本养老保险继续缴费有关规定的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2678835",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2678835",
+   "question": "牛蛙养殖\n请问基本农田可以养殖牛蛙吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "自然资源部 农业农村部 国家林业和草原局关于严格耕地用途管制有关问题的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2678155",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2678155",
+   "question": "青年返乡创业政策支持\n你好，我想咨询一下，现在茂名市对于青少年返乡创业有哪些政策支持，有哪些具体文件，怎么落实，有没有统计有多少青少年选择返乡创业，有什么创业策略和模式，为推动农产品的销售，对于农产品的销售，政府有什么支持与引导",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发&lt;广东省就业创业补贴申请办理指导清单（2021年修订版）&gt;的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2668543",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2668543",
+   "question": "关于《茂名市加快新能源汽车产业创新发展实施方案的通知》茂府办〔2019〕1 号询问函\n一、该通知实施日期是否2019年1月15日起？若在此之前2018年5月规划公示与制图送审的我市新建的住宅小区应按什么文件规定执行建设或预留相关充电设施要求",
+   "cited_hits": [],
+   "cited_missing": [
+    "茂名市加快新能源汽车创新发展实施方案的通知",
+    "茂名市加快新能源汽车创新发展实施方案的通知",
+    "广东省人民政府关于加快新能源汽车产业创新发展的意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2670945",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2670945",
+   "question": "更换工作城市后，公积金被封存了，不能提现吗\n我原来在茂名工作，现在换单位到湛江工作了，我在茂名的公积金就被封存了，说是6个月后转到湛江的公积金账户。我更换了工作城市，原来在茂名的公积金不能直接提现吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "住房城乡建设部 财政部 人民银行 公安部关于开展治理违规提取住房公积金工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2658015",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2658015",
+   "question": "物业管理费用包含的内容\n它包括电梯保养费、消防维护费和二次供水电费吗？如果不包括，希望能解决一下我所在小区出现的问题，为什么要业主出电梯保养、消防及二次供水的分摊费，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "茂名市物业服务收费管理实施细则",
+    "茂名市物业服务收费管理实施细则",
+    "茂名市物业服务收费管理实施细则"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2652599",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2652599",
+   "question": "茂名市城市总体规划图\n你好，本人前段时间在茂名发布公众号看到相关茂名市城市总体规划图等发展指导，对此很感兴趣，但是打开看，因为不是高清图看不清楚，所以过来咨询，想领取一套完整高清茂名市城市总体规划图，麻烦您了！",
+   "cited_hits": [],
+   "cited_missing": [
+    "茂名市城市总体规划（2011—2035）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2651546",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2651546",
+   "question": "公积金开户\n茂名个体工商户可以办理公积金开户缴存吗，需要什么资料办理",
+   "cited_hits": [],
+   "cited_missing": [
+    "住房公积金单位缴存登记及经办人（专管员）注册登记表",
+    "住房公积金委托收款协议",
+    "住房公积金个人账户设立登记表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2641557",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2641557",
+   "question": "海域面积\n你好，我想请问一下茂名市海域总面积是多少?",
+   "cited_hits": [],
+   "cited_missing": [
+    "茂名市海洋功能区划（2015-2020年）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2639412",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2639412",
+   "question": "茂名“第一圈层”（共青河新城、高铁新城）高水平医院规划\n您好，目前茂名市正在大力推进”第一圈层“（共青河新城、高铁新城）的规划建设，但是目前的医疗配套是极大的短板，前几年曾计划引进中山大学附属第三医院到中组团建设三甲医院，但后来就没有下文了",
+   "cited_hits": [],
+   "cited_missing": [
+    "茂名市医疗机构设置规划（2021-2025）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2635094",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2635094",
+   "question": "茂名市能源发展“十四五”规划\n请问，茂名市“十四五”时期能源消费总量增量的控制目标是多少？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省人民政府关于印发广东省“十四五”节能减排实施方案的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2627309",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2627309",
+   "question": "营运证\n为什么化州户口不能办网约车车辆营运证？",
+   "cited_hits": [],
+   "cited_missing": [
+    "网络预约出租汽车运输证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2591366",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2591366",
+   "question": "充电桩补贴以及充电桩建设规划\n各位领导： 你好，我想了解一下茂名市私人安装的直流充电桩现在是否还有政府补贴，补贴政策详情大概是怎样的。 安装充电桩是否有位置要求，政府后期有没有对充电桩的安装位置问题进行规划。",
+   "cited_hits": [],
+   "cited_missing": [
+    "茂名市新能源汽车充电基础设施发展规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2585682",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2585682",
+   "question": "营运证\n本人最近失业了，想买台车，“传祺m6”跑顺风车，专跑的那种。不知道要不要办证，要的话，不知道要办什么证，到那里去办。",
+   "cited_hits": [],
+   "cited_missing": [
+    "茂名市交通运输局关于私人小客车合乘认定问题的意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2586922",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2586922",
+   "question": "关于顺风车问题\n本人最近失业了，想买台车，“传祺m6”跑顺风车，专跑的那种。不知道要不要办证，要的话，不知道要办什么证，到那里去办。",
+   "cited_hits": [],
+   "cited_missing": [
+    "茂名市交通运输局关于私人小客车合乘认定问题的意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2578437",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2578437",
+   "question": "电动自行车出售后的过户问题\n我的电动自行车在校内出售给了其他同学，但是电动车上的牌照是我的身份证件注册的，现在我想把电动车过户给卖家，请问具体的流程以及费用有哪些，还有西城校区距离市区的车辆管理所比较远，车子本体带过去十分不方便，有没有什么",
+   "cited_hits": [],
+   "cited_missing": [
+    "电动自行车查验记录表"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2467696",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2467696",
+   "question": "关于优待金增发问题\n你好，我想问一下我这里属于二类海岛，可以申请优待金增发吗，可以的话，需要什么材料，什么流程。谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "茂名市人民政府 广东省茂名军分区关于进一步完善落实义务兵及士官优抚安置政策的通知",
+    " 广东省民政厅 广东省财政厅 广东省军区动员局 关于做好我省义务兵家庭优待金发放工作的通知 "
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2469448",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2469448",
+   "question": "退役军人可以报读大专吗\n我2014年高中毕业没去上大专，然后去当兵了，2016年9月退伍回来，那时候不知道能继续读大专，现在还可以报读吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好广东省2023年普通高等学校招收中等职业学校毕业生统一考试招生工作的通知",
+    "关于做好广东省2022年成人高考报名工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2465825",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2465825",
+   "question": "优待金\n关于什么时候发放优待金，而且多少钱",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省民政厅 广东省财政厅 广东省军区动员局 关于做好我省义务兵家庭优待金发放工作的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2445321",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2445321",
+   "question": "农村户口通过人才入户深圳之后，后面如果想转回来还可以转回原籍吗？\n我是一名刚毕业的大学生，现在通过应届生毕业政策落户深圳，想问一下如果落户深圳之后，后面想转回爸妈的户口还可以转吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "入户申请审批表",
+    "居民身份证",
+    "居民户口簿",
+    "出生医学证明",
+    "未婚声明书",
+    "居民身份证",
+    "居民户口簿",
+    "结婚证",
+    "离婚证",
+    "非婚生育说明",
+    "入户申请审批表",
+    "居民身份证",
+    "居民户口簿",
+    "出生医学证明",
+    "离婚证",
+    "居民身份证",
+    "居民户口簿"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2418754",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2418754",
+   "question": "社保卡使用\n19年以前在韶关办理社保卡，但19年后在茂名上班缴纳社保。原韶关社保卡在茂名不能使用，必须要注销之前的后进行办理。其他城市早就已经支持划拨其他地市的社保卡，为何茂名到现在还未推行全省范围内互认互用。是因为社保局不作为吗？各种制度",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省社会保障卡数字相片采集回执"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2410167",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2410167",
+   "question": "在退役军人事务部门登记的信息需要补充完善\n一、本人已经完成退役军人信息釆集，为何在退役军人事务部政务服务平台上申领优待证时还需补充完善？ 二、如何查询缺失哪些信息，要如何完善？ 三、个人能否可以查看本人信息釆集的完整内容？",
+   "cited_hits": [],
+   "cited_missing": [
+    "退役军人事务部关于印发＜退役军人、其他优抚对象优待证管理办法（试行）＞的通知",
+    "退役军人基础电子档案信息表"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2365371",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2365371",
+   "question": "社保申领\n一卡一清，然后网上不小心把社保卡清理了，现在网上农行重新申领需要多久才能拿到卡，是不是线下网点申领能直接拿卡，咨询下。",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省社会保障卡业务经办规程"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2352697",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2352697",
+   "question": "公积金提取\n您好，我目前已在广州工作和缴纳公积金，茂名的公积金账户已封存，能否办理茂名公积金全部提取？",
+   "cited_hits": [],
+   "cited_missing": [
+    "住房城乡建设部 财政部 人民银行 公安部&nbsp;关于开展治理违规提取住房公积金工作的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2338284",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2338284",
+   "question": "职业技能等级证书\n请问育婴师和早教师这些证书该怎么报考和领取补贴呢？ 市面上很多家政公司感觉很不靠谱，不是职业技能等级证书呢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省劳动力职业技能提升补贴申领管理信息系统"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2294752",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2294752",
+   "question": "身份证办理时间长\n身份证补办要三个月，怎么要那么久的时间？办理身份证的时间能不能缩短？",
+   "cited_hits": [],
+   "cited_missing": [
+    "居民身份证申领登记表",
+    "居民身份证异地受理登记表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2279418",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2279418",
+   "question": "请问一下有没有这两份文件的公开？\n《茂名市实施乡村振兴战略规划2018-2022》以及《茂名市农业农村现代化“十四五”规划（2021-2025）》麻烦你们了，希望不管能不能公开都早点回复，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "茂名市实施乡村振兴战略规划2018-2022",
+    "茂名市农业农村现代化“十四五”规划（2021-2025）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2255036",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2255036",
+   "question": "人才引进问题\n请问现在医学博士回茂名工作，是否有相应的人才补贴？具体可以参考哪份文件呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发&lt;茂名市高层次人才引进实施细则&gt;的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2216608",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2216608",
+   "question": "分户资料\n领导您好，我想问一下分户口要什么资料，和办理流程，谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省户口居民身份证管理工作操作规范（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2210846",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2210846",
+   "question": "最新茂名2022年物业管理条例\n请问一下2022年茂名最新的物业管理条例办法",
+   "cited_hits": [],
+   "cited_missing": [
+    "茂名市物业管理办法",
+    "茂名市物业管理办法（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2200965",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2200965",
+   "question": "身份证异地遗失\n身份证在家中遗失但已前往异地上学，能否异地补办？需要哪些证明材料？",
+   "cited_hits": [],
+   "cited_missing": [
+    "居民身份证异地受理登记表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "1882319",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=1882319",
+   "question": "社保卡使用\n刚从珠三角回来茂名，我在茂名交社保了，在其他城市开的社保卡能使用么？还是要重新开茂名归属地的社保卡……手上已经三四张社保卡了……一个城市一张，现在搞便民了，社保卡是否可以全省通用了呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省社会保障卡数字相片采集回执"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "1074926",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=1074926",
+   "question": "子女户口如何申请投靠父母\n本人户口是茂名市区城镇户口，男，30岁，未婚，父母户口在茂南区农村，请问如何申请户口投靠父母？需要具备什么条件和资料？望有关部门详细解答一下，万分感谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "入户申请审批表",
+    "居民身份证",
+    "居民户口簿",
+    "出生医学证明",
+    "未婚声明书",
+    "居民身份证",
+    "居民户口簿",
+    "结婚证",
+    "离婚证",
+    "非婚生育说明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "1044434",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=1044434",
+   "question": "异地就医医院让转院怎么备案\n我单位一员工在茂名参保，因工作派遣到省外已超过半年，此前未办理异地就医备案，现突发疾病到附近医院就医，然后医院建议转院治疗，但是两个医院不在同一个区，请问应该如何办理备案。且该员工未办理社保卡，费用是需要先自费么",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省医疗保障局广东省社会保险基金管理局关于进一步规范我省异地就医直接结算备案工作的通知",
+    "广东省医疗保障局关于印发全省医疗保障经办政务服务事项清单的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "1025835",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=1025835",
+   "question": "退役军人\n请问2020年退役军人补助什么时候发放",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省人民政府关于做好2020年退役士兵接收安置工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "1020496",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=1020496",
+   "question": "新农合和医保\n已办理新农合，母亲有糖尿病，只能住院报销部分，经常复诊拿药，这些都没报销但听别人说医保会报的，难道是只买了新农合的原因？1.不了解新农合和医保的报销比例等区别（有文件可发我），是否需要两者都买或购买城镇医保？ 2.现有糖尿病引",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省医疗保障局关于印发全省医疗保障经办政务服务事项清单的通知",
+    "茂名市基本医疗保险门诊特定病种申请表",
+    "茂名市基本医疗保险门诊特定病种申请表",
+    "关于印发〈茂名市医疗保险业务经办规程（暂行）〉的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "1011761",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=1011761",
+   "question": "这样做是否可以？\n在工商注册时有一项经营范围是：中小学生校外托管服务（不含餐饮、住宿、文化教育培训）。想了解一下进行此经营时是否不需要办学许可？中小学生是否可以在托管机构做作业？是否可以通过课本记英语单词？我们有电脑辅助记英语单词软件，学生",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步减轻义务教育阶段学生作业负担和校外培训负担的意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "1008267",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=1008267",
+   "question": "这个是否算学科培训？\n去年我孩子三年级英语总是考70多分，半个学期都没办法提高，经过到处咨询，给孩子提供一个记单词软件，孩子根据那个软件进行记单词后，下半学期成绩得到比较大的提升，一般95左右。由此感觉这软件对孩子记单词比较重要，想在茂名推",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省面向中小学生校园学习类APP管理暂行办法",
+    "关于进一步减轻义务教育阶级学生作业负担和校外培训负担的意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "996741",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=996741",
+   "question": "暑假返回高州的防疫政策\n我暑假到低风险地区，但学校要求在开学前14天回到高州，并要做核酸检查。现在不是坐高铁都不用做核酸了吗？还要隔离14天？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好暑期学校新冠肺炎疫情防控工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "995327",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=995327",
+   "question": "医保异地报备\n人现在在异地住院 如何网上报备 现在在广东省中山市南朗镇人民医院南朗分院",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省医疗保障局 广东省社会保险基金管理局关于进一步规范我省异地就医直接结算备案工作的通知",
+    "广东省医疗保障局关于印发全省医疗保障经办政务服务事项清单的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "992745",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=992745",
+   "question": "村居集体资产处置问题\n您好！ 我们社区需要处置一批房产（估值超百万以上，集体已同意处置），但目前对处置程序有较多疑问。 经到信宜市有关部门了解，村居集体资产需经“四议两公示”、职能部门或第三方评估定价、公开招投标的形式处置。 问题： 1、是",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省农村集体资产管理条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-maoming",
+   "id": "949712",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=949712",
+   "question": "事业单位招聘\n您好，想咨询一下关于广东茂名森林公园管理处，岗位代码21C03的要求：通过大学六级考试。因为专业英语四级等级应该算比大学六级高，那本人商务英语本科是否可以凭专业英语四级报考该岗位？",
+   "cited_hits": [],
+   "cited_missing": [
+    "2021年茂名市直属事业单位公开招聘人员公告",
+    "茂名市直属事业单位公开招聘人员岗位表（综合类）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "932777",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=932777",
+   "question": "广州的社保怎么和茂名的社保合拼？\n还有工作了几年从来没有办过社保实体卡，一直都是使用电子卡。现在想重新办理新社保卡和社保卡里的银行卡需要怎么处理？",
+   "cited_hits": [],
+   "cited_missing": [
+    "参保凭证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "926743",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=926743",
+   "question": "关于退伍军人升学教育咨询\n我是2019年09月的一名退伍军人，现在学历是属于成人自考大专的学历。我想请问一下现在是否还能享受到退伍军人学历提升的一个政策？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省人民政府办公厅关于印发广东省促进退役军人就业创业若干政策措施的通知",
+    "学生资助资金管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "926778",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=926778",
+   "question": "户口迁移了医保要怎么办理\n小孩子户口从广州迁移回茂名，请问医保如何购买？",
+   "cited_hits": [],
+   "cited_missing": [
+    "参保信息确认表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "922750",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=922750",
+   "question": "户口迁移\n领导你们：本人原户籍是茂名市电白县麻岗镇，应父亲是韶关煤矿工人，小时候也应父亲的情况从小把户口迁在韶关，读书，后来也结婚了，留下母亲独自一人在老家，现我也离婚了，也在97年开始己回到母亲家中（农村）居住至今，现想把户口迁入母亲的名",
+   "cited_hits": [],
+   "cited_missing": [
+    "入户申请审批表",
+    "居民身份证",
+    "居民户口簿",
+    "出生医学证明",
+    "离婚证",
+    "居民身份证",
+    "居民户口簿"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "900774",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=900774",
+   "question": "关于茂名地区血友病医保政策建议\n各位医保局的领导你们好!这次给你们留言希望你们抽出宝贵的时间看完!因为这对于我们来说至关重要!我是一名血友病患者，现居茂名信宜我们是一群特殊的人，通常人们叫我们”瓷娃娃、玻璃人”这属于一种世界性的罕见病，发病",
+   "cited_hits": [],
+   "cited_missing": [
+    "茂名市医疗保障局茂名市财政局关于调整我市基本医疗保险门诊特定病种有关政策的通知",
+    "茂名市城乡居民基本医疗保险暂行办法",
+    "茂名市人民政府办公室关于提高我市基本医疗保险待遇的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "875563",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=875563",
+   "question": "广州公积金什么时候能在茂名办理互认互贷\n请问广州公积金什么时候能在茂名办理互认互贷",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省住房和城乡建设厅关于印发&lt;广东省住房公积金资金流动性风险预警和管理的指导意见&gt;的通知"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "gd-maoming",
+   "id": "3516795",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3516795",
+   "question": "建议进一步加大对茂名海滩的宣传推广工作\n文旅局的领导们，你们好，我是佛山人，先生是茂名高州人。这两三年亲眼见证了茂名的发展和变化。在这里，我由衷地表扬和点赞茂名文旅，本人省内的海滨城市基本都去过了，但对比后发现这两年茂名的海滩建设越来越好，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3514528",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3514528",
+   "question": "茂南区官渡公园、茂南区财富市场的所属社区\n茂南区官渡公园、茂南区财富市场分别属于哪个社区居委会的辖区范围内？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3511393",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3511393",
+   "question": "城乡居民基本养老保险个人缴费信息\n请问城乡居民基本养老保险个人缴费信息如何查询？文字回答即可",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3510083",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3510083",
+   "question": "茂我西粤南路南往北方向，未进入铁路涵洞前，右转进入下塘村的道路，是否为公路？\n请贵局查询确认，茂南区西粤南路南往北方向，未进入铁路涵路前，右转进入下塘村的道路（紧邻化州笪桥叶记正宗隔水蒸鸡饭店露天停车场，经纬度110.9393527777，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3504958",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3504958",
+   "question": "2026年茂名汽车报废补贴额度\n请问截止到2026年9月5日，茂名市的汽车报废更新补贴还有多少额度，汽车置换更新补贴还有多少额度？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3498101",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3498101",
+   "question": "贷款条件和审批额度\n领导们 你们好 我现在在深圳买住房公积金 连续买半年后能直接申请商转公吗 现在是我一人名下首套房商业贷款给月供 如果这个条件允许 根据目前政策 我能申请多少额度",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3497524",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3497524",
+   "question": "高州市石仔岭蒲康工业园是高州产业转移工业园的一部分\n网上没有找到能直接说明高州市石仔岭蒲康工业园是属于高州产业转移工业园一部分的政府公开信息，请问高州市石仔岭蒲康工业园是否归属于高州产业转移工业园？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3494963",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3494963",
+   "question": "咨询河茂铁路提速改造项目进度\n您好，我想咨询河茂铁路提速改造，可研报告是否已获得国铁集团批复？项目目前处于哪个阶段，预计何时开工？谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3481949",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3481949",
+   "question": "城乡居民基本养老\n您好，我父亲66年生茂名电白籍，今年快满60，想询问一下城乡居民养老保险，其中我父亲的新农保只缴纳了12年，查过电白区城乡居民养老保险制度于2012年7月开始实施，年龄方面应该是符合政策要求可以一次性缴纳若干年的养老保险费",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3480340",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3480340",
+   "question": "茂名市2026年上半年GDP何时公布，增速为多少\n我最近比较关注老家经济发展，是一位数据爱好者",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3478350",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3478350",
+   "question": "异地公积金贷款问题\n您好，咨询异地公积金贷款问题： 我目前在广州参加【灵活就业自愿缴存住房公积金】，不属于单位职工公积金。 计划连续正常缴存6个月后，在茂名电白区购买自住商品房，申请异地公积金贷款。 想确认两点： 1、广州灵活就业缴存的公积",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3448890",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3448890",
+   "question": "想考三级篮球裁判证\n想知道在哪报名 具体要准备哪些材料 有没有统一培训的班",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3448924",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3448924",
+   "question": "文旅宣传语\n您好，我最近在完成一篇课程论文，是关于城市文旅宣传语的，想了解茂名市近几年使用过的或者过去比较常用的官方文旅宣传语，希望能提供帮助，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3441961",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3441961",
+   "question": "关于罗茂铁路进度情况的咨询\n你好。近日湛江市发改委召开张海高铁玉林至湛江段预可行性评审会，会议通过了预可研报告评审。目前来看，作为平行竞争线路，其进度要比我市北上通道罗茂铁路更快。罗茂铁路（罗定至茂名）是强化我市十字交通枢纽地位，沟通中部城",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3427947",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3427947",
+   "question": "打造茂名绿色园林城市建议\n感觉茂名现在的绿化还是太少了，茂名地处南方，夏天炎热，建议可以在道路两边和道路中间多种植高大的树木，一方面可以遮阴，也可以防污染，还可以美化城市环境。特别是茂名甲子大道一带，树木太少了，可以种多点高大的多叶子的树木",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3421510",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3421510",
+   "question": "工业数据\n您好亲爱的工作人员，我想了解一下2026年1-2月和一季度茂名市规模以上工业企业营业收入和利润总额的绝对数以及增速。感谢您的回复，祝您工作顺利，生活愉快！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3424109",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3424109",
+   "question": "茂名市退役军人事务局详细地址\n你好，请问茂名市退役军人事务局的详细地址",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3412715",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3412715",
+   "question": "引进知名歌手个人演唱会，打造粤西最大的演艺经济首选地\n希望2026年省运会结束后引进陈奕迅个人演唱会，作为巨星的陈奕迅歌手，在茂名开个人演唱会能够很好地提升茂名的知名度，促进茂名的演艺经济。演唱会不一定是体育场，体育馆一样可以好好利用进行个",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3412578",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3412578",
+   "question": "茂名2026年一季度规工增速多少\n茂名2026年一季度规工增速多少",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3410787",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3410787",
+   "question": "公积金贷款\n一方婚前已个人名义买房，有商贷和公积金贷款，且未结清。婚后另一方伴侣新买房子，也是只有自己个人名字的，那 还可以贷公积金贷款吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3405891",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3405891",
+   "question": "统计年鉴咨询\n您好，想请问一下茂名统计年鉴2025大概什么时候发布呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3401092",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3401092",
+   "question": "“广东优品购”汽车优品消费券活动审核通过名单及资金安排（第四批）\n“广东优品购”汽车优品消费券活动审核通过名单及资金安排（第四批）什么时候到账呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3389659",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3389659",
+   "question": "数据咨询\n请问茂名市2026年1-2月规上工业增加值总量、增速及全省排位是多少？感谢答复。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3388819",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3388819",
+   "question": "咨询茂名市企业电子印章办理点及所需材料\n致茂名市人民政府/市政务服务数据管理局： 您好。 我司是在茂名市注册的企业。因业务发展需要，现计划申领企业电子印章，以便于办理各类线上政务和商务事宜。 特此留言咨询，希望了解： 1.办理地点：在茂名市",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3376013",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3376013",
+   "question": "茂名市水质断面名称\n我写毕业设计需要用到水质考核断面名称，我不知道茂名市所有水质考核断面的名称在哪里可以查询。麻烦回复一下水质考核断面的名称在哪里可以查询到或者发一下水质考核断面目录给我，非常感谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3376026",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3376026",
+   "question": "想咨询一下羊角镇的这四个社区的管理范围\n想咨询一下羊角镇的这四个社区的管理范围：羊角社区、黄塘社区、香塘社区、文才社区。分别管理那些小区？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3375099",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3375099",
+   "question": "2026年茂名奥体中心体育馆会举办多少场演唱会呀！\n2026年茂名奥体中心体育馆会举办多少场演唱会呀！能不能邀请十个勤天十个人或者他们其他一个来我们广东大茂名开一次呀！每次我们都奔赴到其他城市看，要其他歌手来开，让更多粉丝朋友们了解我们茂名",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3370883",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3370883",
+   "question": "规划变更\n财富悦府二期楼盘的南面是万达三期的空地，按照2022年的规划，万达三期地块有建设垃圾压缩站。现在万达停工了，这个地块的规划是否有变更，未来这个万达三期地块还会不会建设垃圾压缩站",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3370162",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3370162",
+   "question": "省运会奖牌等文化产品设计建议\n你好，为增强省运会宣传茂名效果，本人提出奖牌设计建议。建议参考2008年北京奥运会奖牌的“金银铜包玉”设计，将省运会奖牌设计成金银铜包南玉，信宜南玉相对知名，且有北京奥运的经典在前，能激发群众的回忆和情怀，在线",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3367736",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3367736",
+   "question": "2025年购车首购补贴到账时间是什么时候呢\n2月14日已公示完人员补贴名单，具体到账时间是什么时候呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3366678",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3366678",
+   "question": "关于化州城区个人自建房报建的限制？\n你好，化州城区自建房报建有四个问题想要咨询下 1.目前城区个人自建房最高能建几层呢？ 2.每一层的高度是否有限制呢？ 3.建筑总高度是否有限制呢？ 4.每层楼房间和客厅的数量、布局是否有限制呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3348090",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3348090",
+   "question": "关于茂南区西城三所高等院校往返茂名南站问题\n尊敬的领导，茂南区西城共有三所高等院校（广石油西城校区，广茂农林，广茂幼师）和一所普通教育学校。目前连接学校与茂名南站的公交只有 H1B 路，该线路的车很难等，发车间隔较大。并且通勤时间较长，对于",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3338172",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3338172",
+   "question": "2024年发放公积金贷款的目前还显示利率2.85%，想问下几时更新？\n2024年发放公积金贷款的目前还显示利率2.85%，想问下几时更新可以查得到？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3337549",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3337549",
+   "question": "开馆时间\n想咨询茂名市图书馆开馆时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3337610",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3337610",
+   "question": "数据咨询\n您好，我是一名高校教师，目前正在做县域城镇化方面的研究工作，想要咨询贵市各区县2010-2023年常住人口、常住人口城镇化率数据，如方便请发邮箱,急求,万分感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3323672",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3323672",
+   "question": "焊工操作证新取证\n2025年12月是否有焊工操作证新取证培训",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3317216",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3317216",
+   "question": "请问茂名市有没有建筑渣土、土方消纳费用的相关规定\n请问茂名市有没有建筑渣土、土方消纳费用的相关规定，如何收费，收费多少呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3310623",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3310623",
+   "question": "化州城区报建的垃圾处理费和挖掘修复费的收费标准？\n请问化州城区自建房报建，这两项的收费标准是怎么样的呢？按建筑面积吗？1、建设工程垃圾处理费，2、城市道路占用挖掘修复费",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3309329",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3309329",
+   "question": "2026年会举办茂名马拉松吗？\n希望26年能举办一场马拉松，马拉松对城市形象宣传、文化旅游推广、商业与经济拉动（如酒店、餐饮、旅游） 等方面的积极影响。茂名本身也在大力发展“体育+文化+旅游”的模式。茂名将在2026年举办第十七届广东省运动",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3288962",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3288962",
+   "question": "蓝色海湾政策详细信息\n您好， 我对“蓝色海湾”这个政策非常感兴趣，想对这方面做学术研究。但经多方检索，暂未查询到详细的信息，想咨询： 蓝色海湾政策是否在我们市实施过，具体实施区县和年份是哪些。 以及蓝色海湾之后的政策“海洋生态保护修复项目”",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3279529",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3279529",
+   "question": "焊工操作证\n焊工操作证报名取新证，交完培训费了，现在暂时还没有通知参加培训，是否可以申请退费，不参加培训",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3276235",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3276235",
+   "question": "茂名市第二人民医院/茂名市中心医院进展询问\n你好，去年我曾经见过要以茂名市职业病防治院为基础建设茂名市中心医院（暨南大学附属第一医院粤西分院），后来又听说变成要引进广州华侨医院（暨南大学附属第一医院）建设茂名市第二人民医院，但是都没有了后续",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3270365",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3270365",
+   "question": "医保钱包什么时候开通？\n医保局领导您好，请问茂名地区医保钱包什么时候可以开通？见到公众号已经推送了，实际上还没开通？如何开通？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3267858",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3267858",
+   "question": "危险区返回基孔肯亚热病毒核酸检测\n教育局国庆通知，从危险城市返回的师生应做基孔肯亚热病毒的核酸检测，持阴性证明才能复课，但茂名市人民医院说没有核酸检测点，应该去哪里做检测",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3263329",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3263329",
+   "question": "上岗退费\n依据广东省教育厅政策，今年八月前就需要发放上岗退费至农村教师个人账号。想问下2023年入职，2024年申请的上岗退费大约什么时候可以到账?还想问下，是哪个部门负责发放的?感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3259814",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3259814",
+   "question": "商转公\n公积金余额的15倍不足20万的可贷额度按20万计算。多子女的话是多少？24万？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3245428",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3245428",
+   "question": "茂名市工业数据及价格指数\n茂名市2025年1-7月规模以上工业增加值绝对值及工业生产者出厂价格指数（PPI）是多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3245302",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3245302",
+   "question": "2025年国庆假期期间民政局是否上班\n请问2025年10月3日可以去民政局领证吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3238355",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3238355",
+   "question": "残疾证问题\n想问一下四级残疾证能享受什么待遇",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3233806",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3233806",
+   "question": "失业金与退休医保\n1、请问茂名现在的失业金是多少。 2、请问现在茂名的医保要购多少年才不用缴纳， 3、在缴够医保的年限，退休的时候要连续购多少年才可以不用交医保也可以享受医保服务。 4、茂名是否有40、50的就业困难补贴，如有，具体是怎样申",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3232730",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3232730",
+   "question": "非全日制毕业档案\n请问非全日制大专毕业档案属于哪个部门管理？是否要收费？收费标准是多少？应该拿去那个部门保存？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3232581",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3232581",
+   "question": "茂名市育儿补贴申请\n请问茂名市育儿补贴何时落实可以申请？线下何时可以申请，线上又何时开始申请？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3222642",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3222642",
+   "question": "询问白电区事业编准考证打印时间\n什么时候会出打印准考证的公告呢，具体在哪里看呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3216522",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3216522",
+   "question": "茂名市的养老金政策\n茂名市的养老金政策",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3214964",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3214964",
+   "question": "关于2025年度茂南区事业单位公开招聘事宜\n根据2021、23、24年度茂南区都有事业单位公开招聘计划，请问2025年下半年是否有事业单位公开招聘，有无具体计划和时间安排，如阅请告知。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3211133",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3211133",
+   "question": "咨询广湛高铁事宜\n你好，现在广湛高铁会引入既有深湛铁路的马踏高铁站，请问在马踏高铁站，深湛铁路和广湛高铁有联络线吗？广湛高铁广州方向的车能不能跨线行驶上深湛铁路去往茂名站呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3208049",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3208049",
+   "question": "咨询商转公政策 多子女的上浮额度\n《茂名市商业性个人住房贷款转住房公积金个人住房贷款管理办法》规定：最高贷款额度不超过申请时借款人（含共同借款人、配偶）公积金账户余额的15倍，公积金余额的15倍不足20万的可贷额度按20万计算。 假设我的公",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3203905",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3203905",
+   "question": "经济数据\n你好，我是一位来自茂名市的城市数据爱好者，我想问一下茂名市各区县2025年1-5月规上工业增加值数据和2024年1-5月规上工业增加值数据，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3197178",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3197178",
+   "question": "如何用公积金供房\n您好！请问两人现在为情侣，还没有拿结婚证，但是现在想供房了，两个人都是公职人员，没有拿结婚证两个人可以同时用公积金一套房吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3193411",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3193411",
+   "question": "社保卡如何领取？医保和社保有什么不同？深圳社保如何和茂名社保合并\n本人之前在深圳工作，后回来茂名工作，有几年时间没买社保，曾在茂名买城乡居民保险。请问如何领取茂名社保卡？是否有了茂名社保卡，才能看到医保中的个人医保账户余额？才能使用个人医保",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3181517",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3181517",
+   "question": "如何撤销申请营业执照\n如何撤销申请营业执照",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3174632",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3174632",
+   "question": "茂名新城建设项目进展\n你好，2025年差不多过去一半时间了，请问： 1、现在中央公园、茂名市中心医院、茂名文化中心项目进展如何？特别是中央公园，很多市民都盼望这个项目。 2、前段时间了解到茂名新城正在谋划引进山姆，这是非常给力的项目，请问一",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3164015",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3164015",
+   "question": "关于咨询包茂大道大昌口至茂名市区是否建设道路\n你好！我想咨询一下：包茂大道大昌口互通，是否有规划建设一条道路直通茂名市区，目前大昌口包茂出口已有包茂大道南直通电白城区，大昌口北侧如有规划道路，途径林头、坡心直通茂名市区，是否更加完善路网，请",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3163191",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3163191",
+   "question": "职工参保证明\n请问职工参保证明在哪里打印？文字回复即可，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3159951",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3159951",
+   "question": "唐朝风格临展\n这个活动是真的吗 唐朝风格的临展【由茂名文旅局举办】现需招100个大学生体验唐服 有偿 包车包餐 时间：5月21号10点-17点 工作内容：穿唐服，只需集中管控半小时其他时间自由活动，中午休息大约2小时，包餐包车 报酬：90元",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3152906",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3152906",
+   "question": "请问家装行业国补什么时候可以报名呢？\n请问高州市家装行业国补什么时候可以报名呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3151814",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3151814",
+   "question": "报废摩托车以旧换新购买电动车\n请问可以将老旧摩托车报废，参加以旧换新购买电动自行车活动吗？如果可以，具体补贴政策是如何的？怎么办理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3146153",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3146153",
+   "question": "关于2024年数据的询问\n你好 我是一名高校学生 由于科研需要 我需要以下数据： 1.2024年茂名市游客总人数 2.2024年茂名市旅游总收入 3.2024年茂名市酒店营业收入 谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3112011",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3112011",
+   "question": "网约车退出营运\n我想知道网约车如何退出营运，流程怎么走，办理需要多长时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3107727",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3107727",
+   "question": "深圳茂名公积金互认\n我是化州人，在深圳工作。请问在深圳缴纳的公积金，回化州买房能够申请公积金贷款吗？如果要想在化州申请公积金贷款买房，需要满足什么条件呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3101319",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3101319",
+   "question": "公积金提取\n请问个人名下已全款购房，没有租房，没有任何贷款，公积金还可以怎样提取出来使用呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3088615",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3088615",
+   "question": "公积金贷款额度计算公式是怎样的？\n请问茂名市住房公积金贷款额度计算公式是怎样的？省内异动公积金是否可在茂名市高州贷款买房？额度为多少？最重要的是公式如何计算？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3081096",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3081096",
+   "question": "茂南区袂花镇北斗小学新建工程\n目前茂南区袂花镇北斗小学新建工程进度如何？何时能建成开学？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3070235",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3070235",
+   "question": "国家将实施手机等数码产品的购机补贴\n请问茂名市会有这个国家购机补贴吗？大概啥时候实行？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3057247",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3057247",
+   "question": "公租房是否可以购买？\n你好，茂名市公租房是否可以购买？如果可以购买，需要什么条件？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3056675",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3056675",
+   "question": "公积金提取\n请问已经不是第一次提取还房贷的公积金了，去前台办理也还要提交还款证明材料吗？还是只带身份证就可以了？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3053511",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3053511",
+   "question": "个人办理保安员证（保安上岗证）流程\n领导们好：想问下，申请办理保安员证，具体需要到哪里申请，什么手续呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3047374",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3047374",
+   "question": "婚姻登记\n2025年1月1日元旦节电白区民政局放假？可以登记结婚证？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3046706",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3046706",
+   "question": "以旧换新\n请问今年的家电以旧换新补贴申请结束了吗？领取补贴资格后到茂名各商户却无法使用？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3026017",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3026017",
+   "question": "户籍地址查询\n事业单位可以查询本单位职工干部的户口地址吗？该如何办理？用人单位手上只有员工身份证复印件在有效期内，签发机关为茂名市公安局茂南分局。用人单位需要带什么证件？去哪里办理？员工本人无法到现场。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3017766",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3017766",
+   "question": "信宜2024统计年鉴\n您好，请问信宜2024年统计年鉴出了吗？因工作需要查询年鉴信息，但目前各个平台暂未能查询到2024年统计年鉴。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3013772",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3013772",
+   "question": "身份证办理\n请问五个月的婴儿可以办理身份证吗？多久能拿到证？可以加急吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3006993",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3006993",
+   "question": "不动产权\n农村办理不动产权证，需要交费办理？15元/平方？300元/平方？收费依据是什么？ 以前记得说农村不动产权证是统一免费发放的？怎么突然要收费了？ 除以上费用外，已装修盖好的房子多年了，如要办理不动产权证书，还要交5元/平方的排栅保险",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "3004427",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=3004427",
+   "question": "根据公积金问题给予答复\n咨询公积金问题:(1)公积金贷款发放后，借款人从什么时候开始归还贷款本息？(2)约定还款日忘记存款，没扣款成功怎么办？(3)借款合同约定扣款日遇上节假日，贷款如何扣收？(4)存款后间隔几天二次扣款？(5)公积金还款余",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2992002",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2992002",
+   "question": "结婚登记\n茂南区民政局10月1号可以预约登记领证吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2990273",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2990273",
+   "question": "汽车置换更新活动\n审核通过之后，大概是什么时候到账呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2986292",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2986292",
+   "question": "公积金作为首付的问题\n暂定实施时间为一年的《阶段性执行预提住房公积金支付购买新建商品房首付的通知》就要到期了，茂名住房公积金管理中心是否会继续将这个政策进行延期？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2979047",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2979047",
+   "question": "驾驶证\n贵局你好，原有C证，增驾摩托证期间原证还能否使用，增驾期间会不会被认为无证驾驶呢？望贵局解答，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2964616",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2964616",
+   "question": "职业证书补贴\n领导您好！想问一下，我今年获得了法律职业资格证书，有无相关的补贴呢？有的话，在哪里申请呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2958007",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2958007",
+   "question": "婚姻登记\n今年的七夕是周六，可以登记领证吗，在什么平台可以预约，在信宜的怎么预约七夕当天的婚姻登记业务办理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2950392",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2950392",
+   "question": "高铁乘务员招聘公告在哪里发布\n高铁乘务员招聘公告在哪里发布",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2946772",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2946772",
+   "question": "双百社工招聘问题\n您好，我想咨询一个问题，2024年茂名地区会招聘双百社工吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2939969",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2939969",
+   "question": "2024三支一扶\n2024三支一扶上岗前培训具体时间是什么时候？持续多久？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2923916",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2923916",
+   "question": "社工证补贴\n社工证有没有补贴怎么申请",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2910074",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2910074",
+   "question": "茂名教招\n您好，请问一下今年大概什么时候出教招公告呀，想提前了解一下好复习，还会像去年那样以联考的形式开始吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2900136",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2900136",
+   "question": "《不动产权证》登记面积问题\n最近配合村委进行《不动产权证》办理，对于《不动产权证》目前复核的宗地面积有异议，常规的宗地面积应为土地红线内的用地面积，但目前复核的宗地面积，是按房子首层外墙外边线的投影面积(占地面积)计算。现在有以下疑问：①实",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2888882",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2888882",
+   "question": "预提住房公积金作为新建商品房首付之后，会影响公积金贷款额度吗？\n预提住房公积金作为新建商品房首付之后，会影响公积金贷款额度吗？公积金贷款和这个预提之间的先后是什么样子的？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2882654",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2882654",
+   "question": "茂名全市为什么没有共享电动车\n随着社会发展，越来越多打工人喜欢便捷生活方式，目前我市没有出现共享电动车，希望有关部门研究出合理方案，推动共享电动车发展！（为什么我市之前有共享电动车，现在共享电动车反而没有了，请问这是怎么回事）",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2881223",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2881223",
+   "question": "公积金贷款额度占房价比例\n领导你好 我最近准备购买一套二手房，准备办理组合贷款，想请问一下组合贷里面的公积金贷款部分最高可以占到房子总价比例的多少？ 组合贷里面的公积金贷款部分是占到房子总价的50%？还是80%呢？ 感谢领导解答，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2879940",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2879940",
+   "question": "城乡养老保险咨询\n你好，想咨询下电白区的城乡养老保险怎么补缴？补缴可以提档吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2877964",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2877964",
+   "question": "2024年教资认定\n您好！请问一下高州市教资认定官网体检时间是22号，我可以19号体检吗，这样现场认定还会有效吗？因为个人原因官网体检时间赶不回来，所以想咨询一下！期待及时回复，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2876383",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2876383",
+   "question": "公积金贷款额度\n为了促进房地产市场的健康发展和销售，广州、湛江等地方都提高了公积金的贷款额度，茂名什么时候提高呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2864367",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2864367",
+   "question": "教师资格证认定申请表补办\n教师资格证认定申请表补办",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2854282",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2854282",
+   "question": "公积金购房提取\n购买商品房已网签合同，采用组合贷的方式贷款，是否需要等放款后才能一次性提取公积金余额?目前余额不足五万，如果放款前一次性提取了是否影响公积金贷款额度?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2849288",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2849288",
+   "question": "金融局\n请问金融工作局办公地址",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2848102",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2848102",
+   "question": "茂名市公安局微信公众号\n您好，平时想了解下贵单位的资讯，请问一下茂名市公安局有没有开设官方的微信公众号？麻烦直接在网上回复，谢谢！！！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2849177",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2849177",
+   "question": "茂名市地志办联系方式\n你好，请问茂名市地志办的联系方式",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2848350",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2848350",
+   "question": "茂名市生态环境局\n你好，平时想了解下贵单位的相关资讯，请问一下茂名市生态环境局有没有开设官方的微信公众号?麻烦直接网上回复，谢谢！！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2848960",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2848960",
+   "question": "联系方式\n请问茂名市林业局的联系方式是多少？网上回复我即可",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2838075",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2838075",
+   "question": "关于公积金提取问题\n你好，假设我的房贷是组合贷的方式，公积金按每年提取一次的方式提取，如果公积金月缴存额大于组合贷月供，那么每年的提取额是否可以全部提取，还是只能提取月供数*12个月的总额呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2837954",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2837954",
+   "question": "结婚证\n已满法定年龄父母不给户口本去派出所开户籍证明能领结婚证吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2833294",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2833294",
+   "question": "关于变更姓名的咨询\n尊敬的领导： 您好，本人目前在外地工作，有意向变更姓名，因此想了解下变更姓名的流程和所需材料，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2834369",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2834369",
+   "question": "施工现场使用挖掘机是否需要办理牌照，如何办理？\n施工建设项目地址在茂名市电白区，听说现在施工现场使用挖掘机需要办理牌照，是否需要办理？以及如何办理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2831634",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2831634",
+   "question": "职能\n茂名市文化广电旅游体育局机构职能",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2819671",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2819671",
+   "question": "茂名市交通运输局\n请问茂名市交通运输局有无微信公众号",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2815020",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2815020",
+   "question": "公积金贷款\n本年度已经通过租房提取了一部分公积金余额出来，会影响接下来的买房使用公积金贷款吗？（指其他条件均符合贷款条件，有提取记录能否正常审批通过贷款）",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2809736",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2809736",
+   "question": "广州缴纳公积金可以在茂名化州公积金贷款吗\n广州缴纳公积金可以在茂名化州公积金贷款吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2797792",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2797792",
+   "question": "咨询奥体中心场馆的选址和建设问题\n请问茂名奥体中心场馆是怎么选址的，为何选址在电白区?还有茂南区占有一百多万人，何时能建设大型体 育运动场，那种能开演唱会，几万人观赛的场馆?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2794299",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2794299",
+   "question": "城乡居民基本养老待遇伸领问题\n1、关于茂名市电白区城乡居民养老保险制度是何时开始实施，1963年出生的人，是否满足城乡居民基本养老保险待遇申领条件中的：“当地实施原新型农村社会养老保险或城镇居民社会养老保险制度时距年满60周岁不足15年，按",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2787154",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2787154",
+   "question": "如何办理社保养老退休\n请问61岁高州市灵活就业人员个人缴满社保，而且是退伍军人身份是否可以减去兵龄达到退休条件，是否需要在缴费满期前两个月提前办理？办理退休时可以减兵龄，需要提交什么资料，需要提前准备到军人事务局搞相关退休材料？如何走流程？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2782771",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2782771",
+   "question": "公积金贷款咨询\n在广州已经连续缴满6个月的公积金，能够在茂名申请公积金贷款购买个人第一套住房？如果可以，需要提交哪些材料进行办理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2780639",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2780639",
+   "question": "关于用公积金购买一手商品房的若干问题\n一、用公积金给首付购买商品房，是否只局限于预售房？在开发商处购买现房时能否给首付？ 二、将全部公积金提取出来后，再作为首付的一部分去购买商品房时，是否会有影响贷款购买该商品房的公积金贷款额度？ 三、若第",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2775067",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2775067",
+   "question": "公积金贷款\n广州公积金，可以在茂名买房贷款吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2763107",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2763107",
+   "question": "茂名市人民防空办公室网站\n网上无法查找茂名市人民防空办公室网站，想向人民防空办公室查询息息公开，无法在网上提交申请资料，请问如何在上提交人防办政府信息公开申请",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2759406",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2759406",
+   "question": "冬种补贴\n1.农户个人冬种是否可申请冬种补贴，申请补贴要求及相关手续流程 2.是否可申请免息惠农贷款，申请要求及流程 3.是否可购买农业保险，如何购买",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2754761",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2754761",
+   "question": "人事档案存放单位查询\n你好，本人是2015年本科毕业，毕业后人事档案是由学校寄回户口所在地，多年来没有查询过，请问现在我的人事档案存放单位是哪里？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2751210",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2751210",
+   "question": "高校毕业生基层就业补贴\n您好，我想咨询一下，茂名的高校毕业生基层补贴是没有了吗，发现8月9月的名单没有公示，自己是8月申请的，一直没有信息，打电话咨询也是回答已经递交上去，想了解一下是什么情况，或者说是政策是否有变动，申请的流程大概需要多久",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2749851",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2749851",
+   "question": "住房公积金贷款问题\n2023年5月份之前单位都缴纳了公积金，且5月份之前连续缴纳时间超过1年，但是单位暂未在6、7、8、9月缴纳公积金，这样买房可以申请公积金贷款吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2744403",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2744403",
+   "question": "新能源汽车购置补贴\n今年还有新能源车购置补贴么",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2737405",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2737405",
+   "question": "2023年还会实施新能源汽车补贴吗？\n2023年还会实施新能源汽车补贴吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2735263",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2735263",
+   "question": "法院\n如何查询茂名各个法院公开审理，去进行旁听？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2728778",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2728778",
+   "question": "急需紧缺人才引进\n您好，本人是21届硕士研究生，留意到茂名市2021年到2023年的急需紧缺人才引进要求的都是近三年的毕业生，请问2024年人才引进是否要求是2022届，2023届，2024届的毕业生?或者毕业生要求近三届其依据的文件是什么",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2725824",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2725824",
+   "question": "购车补贴\n今年茂名地区购车是否还会有汽车补贴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2722270",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2722270",
+   "question": "事业单位考试\n1.请问2023年度茂名地区的事业单位单独招聘什么时候举行，各县区的招聘公告大约什么时候会发布？在哪里发布？ 2.谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2717723",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2717723",
+   "question": "茂名市工业和信息化局临聘成绩如何查询\n2023年茂名市工业和信息化局临聘成绩如何查询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2715812",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2715812",
+   "question": "公积金的提取\n您好！夫妻两方分别在婚前使用过一次公积金贷款，男方已在婚前还清公积金贷款；女方亦在婚前还清公积金贷款，并把房产转让卖买。两人婚后纯商贷购买房产，请问，可以提取公积金余额偿还商业贷款吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2707935",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2707935",
+   "question": "大学生创业有什么政策，大学生创业贷款\n尊敬的各位政府领导们，你们好！我想咨询一下以下问题： 1.现在普通本科应届毕业生创业有什么政策和优惠？ 2.如果我想申请大学生创业贷款，有什么政策支持吗？需要准备哪些材料呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2696569",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2696569",
+   "question": "会计继续教育\n您好，请问为什么无法在会计信息服务平台查看到2023年会计继续教育的课程？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2694501",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2694501",
+   "question": "社会工作者证书邮寄服务\n诉求：想要知道茂名市社会工作者证书邮寄服务的申请方式（具体流程）。 问题：之前电话咨询0668-3916623（茂名市人事考试管理办公室）、0668-2898771（茂名市行政服务中心发证窗口）询问社会工作者证书的邮",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2692967",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2692967",
+   "question": "免费摊点\n毕业生想尝试创业，本金少，想找免费摊点试营小吃，茂名有没有免费摊点？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2691869",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2691869",
+   "question": "城乡居民医疗保险报销比例\n请问，我父亲属于退役军人，医疗保险是政府缴纳的城乡居民医保，现在是尿毒症需要再深圳做腹透，我也办理了异地就医备案，请问这种保险比例是多少，我问了化州医保局说是65%，但这个属于特殊门诊，大病类的，其他城市反馈报销比",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2691637",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2691637",
+   "question": "关于餐饮店风机、水泵噪声风机扰民的执法问题咨询\n某餐饮店距离居民楼约10m，餐饮店的风机、水泵噪声长期维持在65分贝以上排放，属于超标排放，违反《中华人民共和国噪声污染防治法》，是否由贵局开展噪声超标排放执法工作？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2674950",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2674950",
+   "question": "查房问题\n2023年7月7日晚上11点50分左右，有四名警察到我出租房查身份证，对本人身份证进行了拍照，但未查询警察真实身份，想询问下，在电白警察这边是有过这种行动吗？ 事后本人害怕不是真实警察，拍取本人身份证利用其违法犯罪，所以特在此咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2669806",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2669806",
+   "question": "关于异地公积金账户封存并重新开具账户是否影响在茂名购房问题\n你好！本人2015-2021年在湛江工作，期间一直在湛江缴纳了公积金。2022年由于本人因工作原因到茂名工作，之前的公积金账户已封存，并已新开立一个茂名公积金账户（中间时间有接续，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2647270",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2647270",
+   "question": "在粤省事申请无犯罪记录证明\n一个星期都还没审核过吗 到现在都还没发出来给我",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2643442",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2643442",
+   "question": "社保换银行\n尊敬领导： 我想问一下办理社保卡换银行，是先把旧的社保卡注销掉，再到办新的社保卡，还是想到新的银行办理新的社保卡，在注销掉旧社保卡，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2637385",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2637385",
+   "question": "电信业务收入、互联网宽带接入用户数\n1.请问茂名市2021年统计年鉴为什么没有电信业务收入和互联网宽带接入用户数？ 2.还有为什么茂名市的统计年鉴下载是rar版本，很不方便也，而且电子书也不方便，太小了，根本看不见，又放不大，放大看完了下一",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2632543",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2632543",
+   "question": "户口迁入\n我的房产没了，我和小孩的户口能迁入父母的户口吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2631688",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2631688",
+   "question": "2023茂名汽车补贴\n已经过了快三个月了，一直不见补贴发放的信息。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2620064",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2620064",
+   "question": "老旧汽车报废补贴问题\n请问一下，2023年老旧汽车提前报废的补贴准标和处理流程，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2622676",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2622676",
+   "question": "2023茂名汽车补贴\n400万汽车补贴怎么这么久还没发放？审核通过了是以什么方式通知，信息通知还是没有通知？怎么知道自己是否在名单之内？如果通过或者没通过是不是应该信息通知一下已经买了车申请了的车主们呢，干等了这么久一点消息的都没有，是否还",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2616044",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2616044",
+   "question": "关于修改农村居民户籍地址的建议\n茂名农村居民的户籍地址多数登记为广东省XX市XX镇XX村XX村X号，这前后两个村，一个是行政村，一个是自然村，在外地工作经常被人质疑怎么前面有了一个村后面还有一个村，建议政府把农村居民的户籍地址修改为像湖南、",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2613533",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2613533",
+   "question": "居住证\n请问外地户口的学生能办理茂名的居住证吗，如果有，请问有什么要求",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2614032",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2614032",
+   "question": "茂名市公园体系规划（2023-2035）（公示稿）\n公示稿的公园规划图是否有更清晰的图片？现在的图片放大看不清。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2608201",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2608201",
+   "question": "关于广东省拆旧复垦办理进度的查询\n根据广东省复垦指标网上交易平台成交结果公告（第28期），茂名市电白区自然资源局出售的2019年电白区黄岭镇大村村委会农村建设用地拆旧复垦项目（备案号44090420190234C），该项目于2022年1月公",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2611375",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2611375",
+   "question": "有关灵活就业社保补贴\n本人毕业两年内毕业生，就业困难，通过灵活就业方式缴社保，如何申领相关补贴？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2605428",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2605428",
+   "question": "大学生三下乡\n您好！我是一名来自佛山科学技术学院一所公办本科大学的一名大一新生。在暑期三下乡活动中，我们队伍非常想要去茂名进行乡村振兴调研和支教，想咨询一下哪里需要我们。我们真的有些些无措。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2603017",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2603017",
+   "question": "2023年汽车补贴\n请问 2023年3月茂名市的汽车消费的购车补贴是否已经发放？ 具体发放时间？ 补贴资金有具体公示吗？ 在补贴期内购车的消费者如何查询自己是否在补贴名单内？ 以上，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2586521",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2586521",
+   "question": "万达东茂湾私自改规划图\n1.投诉的主要内容:开发商私自改变小区内规划，包括但不限于绿化率、小区便道、泳池面积，私加地上停车位。 2.投诉的主要事实:根据2022年购买时万达提供的规划效果图（见图1，人车分流没有规划停车位），到现在2023年",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2588132",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2588132",
+   "question": "关于茂名市光伏项目开发指导意见\n现茂名茂南区电白区发改局均已暂停了光伏项目建设的备案，告知需等待光伏项目开发指导意见，请问指导意见需要多长时间出台。另问茂名市各区是否都无意支持国家大的碳中和碳达峰的相关政策，以后不打算支持光伏项目的建设？劳",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2589694",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2589694",
+   "question": "公租房\n电白鼎威幸福园公租房什么时候开始搬迁",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2585536",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2585536",
+   "question": "居住证申报办理\n本人为大四学生，在茂名实习和居住已超过半年，有稳定的居住地，并且打算以后在这里就业。因参加教师资格证面试需要申领居住证，已在粤省事提交材料，望尽快审核，以便能顺利在茂名参加面试。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2583041",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2583041",
+   "question": "数字经济+道路运输安全生产监管\n尊敬的茂名市交通局林熹局长： 您好！ 我是粤道运协〔2023〕9号--广东省道路运输协会关于推荐道路运输行业网络远程教学平台之一的重庆替比网络科技有限公司项目经理阳鑫，我司深耕交通运输安全领域10余年，除日常",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2586904",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2586904",
+   "question": "教师招聘\n您好，根据人力资源和社会保障部、教育部近日联合印发《关于做好2023年中小学幼儿园教师公开招聘工作的通知》，各地要尽快启动教师公开招聘工作，广泛推介招聘信息，要明确时间表，在4月份组织笔试。我想问一下今年茂名市直教师招聘是否会提前",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2573216",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2573216",
+   "question": "数据咨询\n您好，我在您们官网上没有查询到2022年上半年数据，因个人课题研究，烦请告知以下数据：1.茂名市、茂南区、电白区、高州市、化州市、信宜市2022年人均GDP、2022年常住人口绝对量和增速；2.茂名市、茂南区、电白区、高州市、化州",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2565120",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2565120",
+   "question": "请问政府购买服务的工资待遇是多少？\n到底一个月的工资是多少，工资水平也是应聘的条件之一啊",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2560713",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2560713",
+   "question": "电白教师招聘\n23年电白教师招聘是否参加广东省事业单位集中招聘",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2546634",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2546634",
+   "question": "咨询跨县办证\n我想咨询一下，户籍在信宜，是否可以在茂名市公安局补办身份证，和办理港澳通行证，如果可以的话，需要哪些材料",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2504475",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2504475",
+   "question": "引进汽车产业制造业，加快产业结构转型升级\n茂名近年来的发展取得的成就和招商引资工作有目共睹。让茂名经济总量突破3500亿大关，接近4000亿门槛。长年排在广东第七、非珠地区第一。但产业结构依然比较单一。缺乏高质量制造业，在同级别城市中缺乏竞",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2503060",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2503060",
+   "question": "2010第六次人口普查数据\n需要茂名市2010第六次人口普查详细数据辅助写论文！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2494549",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2494549",
+   "question": "公积金提取\n在茂名全款购买二手房后，公积金余额只能提取一次吗，还是能多次提取直至达到购房额？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2487097",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2487097",
+   "question": "交通出行\n尊敬的领导您好 就关于博贺镇片区学子 和有需要的市民去茂名市一中和茂名职业学院的出行困难。因出行或回一次都需要转车困难 而且无论是返程还是去都需要去到那楼转盘 还要步行一两公里才能在三角区站台换乘D25路城乡公交回程而造成困扰 和",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2489675",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2489675",
+   "question": "统计年鉴2022\n你好，我想请问一下茂名市统计年鉴2022大概什么时候能出啊？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2487202",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2487202",
+   "question": "2022年高州市部分事业单位公开招聘工作人员资格审核时间\n你好，我想问问2022年高州市部分事业单位公开招聘工作人员资格审核会在2022年完成吗？大概什么时候可以开展？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2483597",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2483597",
+   "question": "公务员休哺乳期是否还可以休年假\n单位的女性公务员按照相关规定在孩子未满一周岁时，在工作时间每天享受了1个小时的哺乳假。因需想申请休年假时，干部管理部门拿出一份2018年文件说，该文件明确表明女干部职工已休哺乳假，则该年度不能再申请休年假。请",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2459793",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2459793",
+   "question": "具体位置\n请问茂名市人民政府办公室的具体位置在哪？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2440966",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2440966",
+   "question": "父母购买房子，子女能否取公积金还贷款\n父母购买房子，办理了公积金和商业混合贷款，父母即将退休，子女能否取自己的公积金代为还贷款。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2438421",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2438421",
+   "question": "数据咨询\n您好，我是一名高校学生，因论文需要，现向您咨询一些统计年鉴中缺失的2019年茂名市分行业用电量数据，具体为第三产业、交通运输业、农村居民及城市居民用电量。非常感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2431058",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2431058",
+   "question": "农产品物价查询\n因工作需要，需经常查询茂名农产品情况，但发现网站更新的信息非周期定时，请问是否还有其他查询渠道？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2421906",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2421906",
+   "question": "咨询茂名市部分农业数据\n工作人员你们好，我是一名地理研究生，最近在撰写和农业发展有关的论文，我想咨询 1.茂名市2010年-2020年的农业机械总动力数据 2.2010年-2020年茂名市农业技术人员（公有经济企业、事业单位）年末人数 3.",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2418478",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2418478",
+   "question": "首套房认定\n请问茂名地区的首套房认定标准是什么？认贷还是认房？比如我全款或商贷买了一套房，第二套房用公积金或组合贷能不能享受首套房利率？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2417978",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2417978",
+   "question": "公积金贷款\n我婚前贷款买房了，自己的名字，结婚后，夫妻双方都提取公积金出来使用，那么现在离异了的话，前妻再按揭买房，公积金贷款算首套嘛",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2415864",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2415864",
+   "question": "公积金提取\n请问如何进行公积金提取",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2409874",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2409874",
+   "question": "关于退役军人优待证办理的问题\n尊敬的退役军人事务局领导:我想咨询一下咱们茂名市关于退役军人优待证办理是否有通知？何时启动办理流程？退役军人要如何办理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2397395",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2397395",
+   "question": "2022年信宜双百社工体检复检\n你好，请问一下信宜的双百社工体检复检是不是通过信宜民政局的固定电话06688877883通知的？没有其它的固定电话号码通知的吧？请回复下，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2395813",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2395813",
+   "question": "退伍优待证\n尊敬的领导： 你好！我是高州市镇江镇福石泊水村的一名退伍人员，两个月前退伍优待证申请表已申请，请问什么时候可以申领，微信询问镇江镇镇政府工作人员回复不知道，想咨询茂名市退役军人事务局。退伍优待证什么时候下发。谢谢😊",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2387091",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2387091",
+   "question": "房地一体，不动产权登记\n房地一体的不动产权登记已经完成了，不动产权证什么时候可以下发阿？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2382726",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2382726",
+   "question": "家庭优代金\n你好，我想问一下化州市的义务兵第二笔优代金什么时候发。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2376655",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2376655",
+   "question": "新能源汽车申请专用电表\n农村自建房没有房产证！需要申请充电桩专用电表，家用电表入户线太细，充电桩安装工作人员说怕线承受不起用电压力会经常跳闸太危险了，要申请一个独立充电桩电表，没有房产证供电局需要镇级以上城建部门盖章的文件才能安装！镇级城建",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2371669",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2371669",
+   "question": "档案存放问题\n我想咨询一下第一学历是普通高中，第二学历是函授大专，可以把档案存放在人力资源局吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2372099",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2372099",
+   "question": "公积金提取\n您好，本人在去年的8月份用公积金贷款买了一套房，买房的时候没有办理公积金对冲还贷，这一年期间都是我爱人准时还款，请问我还可以把公积金提取出来吗？（去年8月份办理贷款的时候有提取过一次）如果可以提取需要间隔多久？需要准备什么资料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2370673",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2370673",
+   "question": "高职扩招\n你好，领导，我想问一下有没有2022年的退伍军人的高职扩招",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2362534",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2362534",
+   "question": "数据咨询\n因论文撰写需要，我想咨询一下2010年茂名市空气质量优良天数数据，感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2360223",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2360223",
+   "question": "数据咨询\n因论文撰写需要茂名市2010年空气质量优良天数、2020年少数民族人口占总人口比重数据，我已查阅相关年份统计年鉴，未找到上述数据，希望贵局可以提供相关数据，感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2355628",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2355628",
+   "question": "事业单位招聘\n请问今年茂名还会有事业单位公开招聘考试吗？请问大概什么时候出招考信息呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2350684",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2350684",
+   "question": "高层次人才补贴发放\n尊敬的领导，您好。我是2021年12月的时候，进入了茂名市高层次人才第六期的公示。想请问一下，相关的补贴大概什么时候开始发放呢？谢谢您。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2348514",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2348514",
+   "question": "2021年度职称何时出结果\n2022年评审2021年度职称，广东各地级市已陆续出结果，茂名的何时能出呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2338277",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2338277",
+   "question": "茂名市数据开放时间\n请问茂名市是哪年哪月在开放广东上开放本市数据的？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2337982",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2337982",
+   "question": "中考\n你好！请问电白区、高州市、信宜市、化州市已经恢复中考评卷工作，请问是否属实呢？中考评卷工作大概还需要多久？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2327724",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2327724",
+   "question": "2022年茂名三支一扶\n你好，我是今年的茂名三支一扶人员。请问什么时候能够有具体的通知下来呢？广东省的公告说是7月18号前要到各地方的三支一扶办公室报道。但是我们茂名是怎么样安排的呢？体验要求什么医院、什么时间，报道是不是统一时间报道还是自",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2325309",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2325309",
+   "question": "高校毕业生档案接收\n你好，我的档案现在在学校，需要将档案迁到茂名市茂南区人力资源和社会保障局，毕业生电子报到证已经拿到了，请问网上如何办理？谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2322634",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2322634",
+   "question": "近十年高州荔枝销售收入或产值\n尊敬的领导您好，目前在网络上或年鉴上仅可以查到高州荔枝2020年的销售收入，如何查询高州荔枝近十年的销售收入或产值呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2311234",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2311234",
+   "question": "统计年鉴咨询\n您好，我是一名高校教师，现需要统计制造业细分行业的就业人数，通过统计年鉴查询，2021统计年鉴，2021（129）和2021（130）表格是不是重复了呀，是不是搞错了，按照其他年份的统计年鉴，2021（130）应该是2021（",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2307896",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2307896",
+   "question": "大学生实习\n我从网上看到大学生可以通过当地人社局帮忙找假期实习工作，请问是真的有这个政策吗？如果有那么请问需要准备什么资料办什么手续呢？期待回复",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2283917",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2283917",
+   "question": "关于城乡养老保险补缴的咨询\n前一两次 由于我所在当地村委会工作人员的疏忽导致我父亲错过了一次性缴纳养老保险的机会 导致现在只能延迟到65岁才能领取 最近我在粤省事里面的办理事项看到未满60岁 缴费不足15年的 还是可以补缴的 但是点击进去却",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2270146",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2270146",
+   "question": "档案查询\n您好，我是14届大专毕业生，我毕业后虽然一直在广州工作，但是档案从没理会过，当时班主任说会按照学生户籍地会自动返回当地人社局，我在14年9月还能在茂名市人力资源和社会保障局网上查询到档案已从我们学校转到了贵局，之后我就不理会过了，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2263893",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2263893",
+   "question": "hpv疫苗\n如何预约hpv疫苗？22岁大学生可以打几价？费用多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2260800",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2260800",
+   "question": "政府信息公开工作年度报告\n请问茂名市人民政府的2021年政府信息公开工作年度报告在哪里查看或下载？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2249766",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2249766",
+   "question": "2022年茂名市或高州市社会人员教师招聘考试什么时候进行？\n您好，我是外市在职教师，很想回家乡工作，请问2022年茂名市或高州市教师招聘考试什么时候进行？有什么报考限制条件？在职教师可以报考吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2248804",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2248804",
+   "question": "请问茂名市是哪一年开始在“开放广东”平台上开放政府数据？\n工作人员您好，我们是清华大学政府数据开放课题组。请问茂名市是哪一年开始在“开放广东”平台上开放政府数据？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2243651",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2243651",
+   "question": "关于2022年广东省普通专升本考场安排是否合理\n网传教育局暂定广东石油化工学院西城校区作为考点，但是周围酒店极其少，而且消息一出，全满了。最近的酒店也要9公里左右。是否合理。望教育局回复。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2242842",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2242842",
+   "question": "2022普通专升本考试\n2022普通专升本考试茂名考场安排在那个学校",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2243078",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2243078",
+   "question": "专升本校考\n您好！我想问一下专升本仅校考的同学会被安排在哪个考场？校考会跟统考分开考场吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2221235",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2221235",
+   "question": "自然村建办公室有哪些手续？\n村里打算建一间办公室，使村集体有一个管理村务、开会议事的场所。我们村是村委会管理下的自然村，属于村民小组级别，有个集体经济组织是经济合作社，长期没有办公场地。由于我们村没有多少集体用地，打算购买外村村民在村中的土",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2213342",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2213342",
+   "question": "公积金提取\n领导好！ 我在茂名工作并缴纳住房公积金（账户余额有几十万），孩子在珠海工作，我们想和孩子合资在珠海买商品房，如果在珠海买房子，以下两种情况： 一、房子户名是孩子和我两个人。 这样我在茂名的公积金账户里的余额可以提取吗？如果我们贷",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2209052",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2209052",
+   "question": "身份证办理时效\n领导你好 本人2022年1月27日办理居民身份证，选择邮递方式到深圳地址。在粤省事查询到3月15日已被本人领取，现我没有收到证件，也查不到邮递信息。曾电话咨询过办理所在地，3月18日让亲属带回根前往办理所在地查询，回复：他们",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2203852",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2203852",
+   "question": "广州公积金转移问题\n广州公积金余额需要转移回茂名公积金账户，在茂名开户并购买公积金满6个月后，办理转移手续，公积金是直接可以办理贷款了吗？还是需要再等待一段时间，有没有相关的发文给出具体时间节点，请明确相应的时间节点，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2189326",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2189326",
+   "question": "地址\n你好，请问茂名市统计局的地址是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2182983",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2182983",
+   "question": "茂名市住房公积金管理中心电话\n你好，请问茂名市住房公积金管理中心的联系方式",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2182207",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2182207",
+   "question": "具体位置\n请问茂名市医疗保障局的具体位置在哪呀？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2173033",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2173033",
+   "question": "茂名汽车制造业数据咨询\n您好，根据历年广东及茂名统计年鉴，暂未查得2011-2020年茂名汽车制造业规模以上企业产值（如《茂名统计年鉴2021》129页的3-5续表，分行业呈现数据时无汽车制造业），万望提供！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2149714",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2149714",
+   "question": "退役军人法律援助\n我父亲黄仕仁,是一位越战复员退役军人兼老党员。现在由于将1984年建造的旧危房,拆旧建新,已向所属地有关部门、单位申报审批,新房在建造施工过程中,遭遇到了本村村民黄同文的恫吓、霸气十足抯挠和欺压,无理取闹！在镇政府有关部门",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2146559",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2146559",
+   "question": "关于军人父母军队医疗机构就医备案问题\n军人父母生病想享受相应就医优惠政策，遇到各种办理困难，军队医疗机构就医必须要到参保地备案，参保地要求提供本人或者直系亲属的居住证、暂住证或者居住街道办(村)的证明，其中一个即可，军人医疗机构又不在驻地，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2140435",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2140435",
+   "question": "公积金交在惠州，是否可以在用公积金贷款买房\n女方在茂名就业并在茂名交公积金，男方在惠州缴纳公积金，是否可以共同用公积金贷款买房？现在不是推全省公积金互通的政策，茂名何时可以推出来。广东许多省份已退出各种的人性化异地公积金贷款的政策。茂名何时",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2142529",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2142529",
+   "question": "高校毕业生档案查询\n您好，我是广东海洋大学18级的一名应届毕业生，由于我的户籍是广东高州，而高州是茂名的县级市，我想问一下毕业之后我的档案接受地是在茂名还是在高州？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2142232",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2142232",
+   "question": "我被诈骗\n被诈骗集团欺骗6000美金",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2138478",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2138478",
+   "question": "HPV（进口）二价疫苗为什么一直都是缺苗状态？\n您好！HPV（进口）二价疫苗我之前已经打了二针了，到2021年10月8日可打第三针，但是从9月底开始，HPV（进口）二价疫苗一直处于缺苗状态，想问下什么时候能有苗？如果一直缺苗状态下去，那我前",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2138088",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2138088",
+   "question": "2017年茂南区人民法院的离婚判决书行丢失了，该怎么补办\n2017年在茂南区人民法院办理了离婚手续，但是判决书丢失了，该怎么补办？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2125551",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2125551",
+   "question": "农村合作医疗缴费时间\n农村合作医疗已经以家庭为单位进行申报，账户也有足够的余额，最迟会是什么时候进行扣费呢？因为在网上查询到还是未缴费状态呢。另外，如果现在公司有交社保的情况，农村医疗还会另外扣费吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2120383",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2120383",
+   "question": "茂名市城乡居民医保\n我父母2022的城乡居民医保缴费记录是已缴费的，为什么查不到我自己的缴费记录？不是家庭为单位统一从绑定银行代扣的吗。打了很多咨询电话一直解决不了，联系信宜市当地电话0668-8827156永远是通话中......麻烦确认",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "2118339",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=2118339",
+   "question": "医疗卫生职称报考问题\n12年卫校毕业，18年考取了药士，2020年大专药学毕业，医院药房工作8年，可以报考2022年初级药师吗（今年12月份的中国卫生人才网的初级药师）",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "1886075",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=1886075",
+   "question": "新生儿医保办理问题\n新生儿六个月，户籍茂名化州中垌镇，新生儿已入户，父母户籍也在茂名化州。问题4个:1、现在怎么办理医保卡？2、需要什么材料？3、去哪部门或者银行办理？4、父母都在深圳可以在深圳办理吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "1884009",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=1884009",
+   "question": "能否办理农村独生子女父母光荣证\n2010年出生，农村户口，能否办理独生子女父母光荣证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "1878474",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=1878474",
+   "question": "为什么离职不能提取公积金？\n我离职了，怎样才可以提取公积金啊？因为我朋友在广州买到公积金可以半年提取一次，茂名就不可以呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "1098620",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=1098620",
+   "question": "无犯罪证明\n你好，请问开具无犯罪证明需要什么材料",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "1095740",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=1095740",
+   "question": "公积金提取\n茂名公积金何时才可以离职提取？不说广州深圳可以半年提取一次，就连邻市阳江湛江等地都可以离职后提取公积金，为什么茂名就不可以？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "1092131",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=1092131",
+   "question": "查询纪委联系方式\n尊敬的领导您好，本人因去政府办事遇到有关部门推委踢皮球，这算不算不作为呢？请告知一下是不是可以到纪委投诉，还有纪委电话联系方式",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "1089870",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=1089870",
+   "question": "高校劳务派遣如何职称评定？\n你好，我是由茂名市兴华人力资源公司派遣到茂名职业技术学院计算机工程系担任实训室管理员，2018年8月任职至今。今年9月我已满足职称评定基本条件，曾询问我校人事处，人事处回应因无法给我开通高校系统继续教育账号而无法",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "1086345",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=1086345",
+   "question": "户口由茂名迁出到佛山，现在佛山购买合作医疗出现问题\n户口由茂名迁出到佛山，现在佛山购买合作医疗出现问题，本人为小孩办理合作医疗，递交了资料，数日 后收到电话通知，说佛山这边的系统显示小孩原本在茂名茂南区买过医保，没取消，所以需要茂名茂南区取",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "1082061",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=1082061",
+   "question": "办理《犬类免疫证》\n根据《茂名市市区犬类管理办法》，畜牧部门负责犬类预防注射、疫情监测、检疫、《犬类免疫证》和免疫牌的制发。现在化州暂时没有该业务办理，在茂名办理是否有效，办理需要提供什么资料",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "1075983",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=1075983",
+   "question": "关于非农户口农村房屋拆旧建新和宅基地继承问题\n1、全家户口迁出，能否回家拆旧建新，新建（2020年建成）房屋能否进行房屋一体确权。 2、全家户口迁出，能都继续使用农村宅基地。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "1072553",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=1072553",
+   "question": "新农村建设，农村不动产登记面积问题\n亲爱的政府领导： 政府最近在落实新农村建设相关方针，农村自建住宅地发放中华人民共和国不动产权证书，大家都愿意配合政府落实相关政策。我家宅居地从卫星图金村一路片00747李寨庚俯视图（附图）可以清晰看到右上",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "1069855",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=1069855",
+   "question": "全家三口残疾人能否申请低保\n本人老婆，岳父岳母，均是精神方面残疾人，有残疾证。岳母和老婆都不能正常与人交流，无法工作。 请问如何申请低保",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "1067926",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=1067926",
+   "question": "补课问题\n茂名市崇文学校违规占用2021年10月10日（周日）学生的合法休息时间，进行补课，请教育局进行调查，惩处他们的行为",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "1064330",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=1064330",
+   "question": "电动车换牌缓冲期\n网上流传一份题为“茂名市公安局关于对非标电动自行车有序退市设置三个月缓冲期的通告”的文件，是一张有点模糊的图片，不知道是真实存在的还是谣言？如果是真实的，为什么到现在才公布呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "1064183",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=1064183",
+   "question": "换领身份证\n身份证临近到期了，近期又到国庆期间了，不知国庆期间是否可以办理身份证呢？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "1061503",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=1061503",
+   "question": "深圳茂名公积金互认\n我是信宜人，在深圳工作。请问在深圳缴纳的公积金，回信宜买房能够申请公积金贷款吗？如果要想在信宜申请公积金贷款买房，需要什么条件呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "1053448",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=1053448",
+   "question": "电动摩托车上牌\n您好我想问一下上牌需要哪些材料啊？需要购买保险吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "1051627",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=1051627",
+   "question": "电动车上牌\n想问一下电动车上牌需要什么资料，不是茂名本地户口的学生需要暂住证吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "1038235",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=1038235",
+   "question": "请问市直属小学何时可以提供午休服务\n根据《广东省教育厅关于进一步做好义务教育校内课后服务工作的通知》“三、明确课后服务时间……即学校每周5天都要开展课后服务，课后服务包括早、午餐，午休及下午课后服务……”的规定，学校对有特殊需要的学生，应提",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "1030783",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=1030783",
+   "question": "办理了特定门诊之后是否可以直接凭身份证联网直报？\n请问：我母亲是电白城乡居民医保参保人，今年8月份办理成功特定门诊业务(高血压病种)之后，是否可以在茂名市人民医院凭身份证直接联网报销了？另外这次办理了高血压特定门诊之后，以后还需要每年都跑医",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "1005288",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=1005288",
+   "question": "社区业务咨询\n你好，本人有业务需要咨询霞洞镇军屯村委会，请问有业务咨询电话吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "1002638",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=1002638",
+   "question": "跨省通办户口迁移高州可以办理了吗？\n跨省通办户口迁移高州可以办理了吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "989464",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=989464",
+   "question": "更改名字办理，县区户籍工作人员答复满18岁不予办理\n我是茂名市电白区那霍镇派出所管辖居民，我于2021年3月1号去那霍镇派出所户籍窗口提交名字更改资料，由于父辈文化水平不高，给本人取名读起来带有谐音，由于本人名字中间字寓意不好，经常被别人误",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "985251",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=985251",
+   "question": "档案转移是否可以线上办理？\n你好，因为升学需要，需要把档案调入学校，档案在化州人才管理办公室，请问是否可以通过线上申请调档案或者代办？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "984135",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=984135",
+   "question": "关于普通话考试\n干部，您好！冒昧的打扰一下，我是今年的应届毕业生，由于欠缺普通话证书，错失了较多的应聘。在此想想询问一下生源地归属于茂名信宜的，大概什么时候可以报考今年的普通话考试呢？感谢您的回答，祝君工作顺利",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "976443",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=976443",
+   "question": "关于外省学生暑假返茂名注意的问题\n外省学生所在地为低风险地区，返茂名路线为湖北武汉-广东广州-广东茂名。在广州高铁站内换乘，返茂名时需要隔离14天吗？需要提供72小时阴性核酸检查证明吗？需要提供绿色健康码吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "953789",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=953789",
+   "question": "关于提取住房公积金\n尊敬的领导： 您好！我是一名准研究生，因个人选择脱产继续求学无收入了，也不想为家里的老母亲增添经济压力。现请教一下是否可以提取住房公积金，用作学费及住宿费 这一用途？期待领导的答复。 此敬！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "950376",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=950376",
+   "question": "请问茂名市交通运输局在哪？\n请问茂名市交通运输局在哪？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "948880",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=948880",
+   "question": "地点查询\n想问下茂名市医疗保障局的详细地址是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "945228",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=945228",
+   "question": "幼升小区外怎么办\n户口地在禾里村，现在居住地在三合口这边了，禾里村里的老家也拆了，老家没地方住了，分配小孩的学校在七小，离现在居住地七公里多，想孩子入读九小，没有房产证之类的怎么办，我两夫妻要上班，我妈身体不好，我爸前些年也癌症不在了，根本",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "942373",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=942373",
+   "question": "农村住房拆旧建新\n户口外迁了，老家的旧泥房拆开可以申请重建吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "940939",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=940939",
+   "question": "数据咨询\n您好，因论文撰写需要，想咨询茂名2006-2019年第一产业用电量数据，十分感谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "942178",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=942178",
+   "question": "三支一扶\n您好，本人想问已经在网上报名三支一扶了，是不是要把相关的资料交去地级市人社部门才开始初审？资料可以通过快递提交吗？快递时只寄相关证件复印件就可以了吗？还是要把原件也上交，本人在县级城市，体检表可以等到自己可以参加三支一扶才交可以吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "939386",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=939386",
+   "question": "生育险\n我两夫妻户籍信宜，也在信宜机关事业单位工作。老婆政策内怀孕在高州人民医院建档，产检和生育可以直接在高州人民医院报销？跟在信宜地区报销比例一样？在高州人民医院报销手续和资料是怎样？需要异地备案？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "933803",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=933803",
+   "question": "数据咨询\n您好，因论文撰写需要，特向贵局咨询如下数据： （1）茂名市2006-2019年规模以上电力、热力生产和供应业用水量以及规模以上工业企业总用水量数据 （2）茂名市2006-2007年城镇居民恩格尔系数 （3）茂名市2006-2019",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "930548",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=930548",
+   "question": "人才引进补贴\n作为大学本科毕业十来年的高级技术人才（取得相关国家证书），准备进驻茂名某一私人企业，因为不是单位机关的私人企业背景下，此类人才有没有相关政策补贴或者优惠？具体文件哪里可以查询，请具体，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "929548",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=929548",
+   "question": "住房公积金贷款额度计算\n我市住房公积金贷款额度怎么计算？个人和双职工的额度分别是多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "927698",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=927698",
+   "question": "信宜缴纳了公积金可以提取出来还惠州的房贷吗？\n公积金中心领导你好，请问我在信宜缴纳了公积金可以提取出来还惠州的商住房商业贷款吗？买的不是普通住宅而是公寓，办理的是商业贷款。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "926483",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=926483",
+   "question": "地点查询\n想问下茂名市人民政府办公室的详细地址是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "920090",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=920090",
+   "question": "驻村干部关于职称评审的咨询\n我们是驻村干部，同时也是市直、区直中小学教师，我们响应市委、区委的号召，服从本单位的工作安排，从2016年开始便投身于扶贫攻坚工作。我们和其他行政单位人员一样，遵守同样的工作纪录，从事同样繁重的工作，我们其中有些",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "917776",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=917776",
+   "question": "数据咨询\n您好！我想咨询茂名市所有区县市2014-2018年的常住人口城镇化率数据？（因相应的统计年鉴只有户籍城镇率所以需求您的帮助）",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "905345",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=905345",
+   "question": "关于茂名市水果的数据咨询\n您好！我是一名大四的学生，因毕业论文研究需要，想咨询茂名市水果的相关数据，主要包括：2020年茂名市水果的种植面积和总产量，以及2015-2020年这五年间，茂名市出口的水果品种有哪些，这些出口水果的出口数量、出口",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "897030",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=897030",
+   "question": "福地小学建设问题\n福地小学已批文建设，学校效果图也已经出来，之前说2021年可以建好招生，但是一直没有动工，想咨询什么时候可以建好？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "885306",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=885306",
+   "question": "两天两夜的停水，严重影响村民生活\n电白区七迳镇柏坡狮子岭村已经停水两天两夜了，严重影响村民的生活，现在又是临近过年，外出务工的村民和小孩都陆续回来了，饭都煮不了来吃，水费是一分不少的交了，换来的却是没水用，希望有关领导能重视，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-maoming",
+   "id": "870836",
+   "url": "http://www.maoming.gov.cn/hdjlpt/detail?pid=870836",
+   "question": "咨询我市疫情防控政策要求\n尊敬的领导，请问从广州回茂名过春节，需要提供核酸检测证明吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

@@ -1,0 +1,81 @@
+{
+ "A_考卷": [
+  {
+   "source": "gx-igi-270",
+   "id": "157814203204",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814203204",
+   "question": "网购商品花费300元，商家发的货物是一盒保健品，而且我购买的是3件，而且我购买的不是同一样东西，商家发的保健品的批准文号是冒充别的保健品的，查询到的批准文号是别的保健品。通过批准文号查询，商家发的保健品和查到的保健品，除了批准文号一致别的所",
+   "cited_hits": [
+    {
+     "name": "市场监督管理投诉举报处理暂行办法",
+     "lib_no": "市场监督管理投诉举报处理暂行办法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "gx-igi-270",
+   "id": "157814187856",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814187856",
+   "question": "投 &nbsp;诉 &nbsp;书请求事项：请求百色恒大福地房地产开发有限公司全额退还就广西百色市右江区莲塘路33号百色恒大悦澜湾1栋2901号房所支付的购房定金2万元整。投诉事由：1、涉嫌擅自更改所认购的房屋房号存在欺诈及侵犯我的合法权益",
+   "cited_hits": [],
+   "cited_missing": [
+    "商品房销售明码标价规定",
+    "禁止价格欺诈行为的规定",
+    "最高人民法院关于贯彻执行《中华人民共和国民法通则"
+   ],
+   "has_clause_no": true
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "gx-igi-270",
+   "id": "157814399605",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814399605",
+   "question": "百色市右江区阿辉五金店（统一社会信用代码：92451002MA5M57GA6J）该企业在本人未知的情况下，在 国家企业信用信息公示系统 的年报中冒用了本人的手机号码(18777605060) 且登记多年，近期骚扰电话及短信频频，给本人造成了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-270",
+   "id": "157814223976",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814223976",
+   "question": "地址就位于龙景西路鼎盛天街的红绿灯路口广告牌",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-270",
+   "id": "157814214764",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814214764",
+   "question": "本人在百色市右江区闽盛二期一楼大自然地板专卖店共花费19000块人民币定购了一款&nbsp;栎木 DJX01Z规格:15x126x910。的木地板，现商家到货的是规格（mm）：910x126x12的木地板，比我们预定的要薄了3mm，而且木板",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-270",
+   "id": "157814212202",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814212202",
+   "question": "本人2022年4月25号在百色市右江区龙川镇（家家乐购物中心）买了一瓶体验装洗发水160g的洗发水！想问一下两个问题：问题：1：体验装的商品可以售卖吗？问题：2：体验装的商品没有条码可以在超市售卖吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-270",
+   "id": "1578141545",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=1578141545",
+   "question": "本人隆旺辰，在芦仙湖小镇认购了5栋1单元7层05号的房，签合同交定金之前，明确表示过本人名下有两套房了，如果办理按揭需要6成首付我们就不买了，可是开发商表示可以帮我们降低成数解决问题，可是到银行按揭的时候，银行表示要交6成首付才能办理贷款，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

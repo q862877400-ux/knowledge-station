@@ -1,0 +1,5 @@
+=== 上海/浙江 采集 19:35:11 ===
+### sh-12345
+[harvest] 全部完成，新增合计 600 条。
+[harvest] 下一步：跑 `measure-locate-rate.py` 看这些条目能不能当考卷。
+### zj-mhww

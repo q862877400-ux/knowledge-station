@@ -1,0 +1,4802 @@
+{
+ "A_考卷": [
+  {
+   "source": "cq-hdjl",
+   "id": "t20260622_15768942",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202606/t20260622_15768942.html",
+   "question": "渝中区龙湖时代天街一店铺未经审批，每日聘请歌手开展演唱活动。",
+   "cited_hits": [
+    {
+     "name": "营业性演出管理条例实施细则",
+     "lib_no": "营业性演出管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260826_15980494",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202608/t20260826_15980494.html",
+   "question": "合川区太和镇一超市销售的部分瓶装啤酒已过期，请相关部门查处。",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国食品安全法",
+     "lib_no": "食品安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260622_15768914",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202606/t20260622_15768914.html",
+   "question": "綦江区隆盛镇隆盛中学附近一副食店，违规向未成年人售卖卷烟。",
+   "cited_hits": [
+    {
+     "name": "未成年人保护法",
+     "lib_no": "未成年人保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260605_15733729",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202606/t20260605_15733729.html",
+   "question": "巴南区一建材厂在五布河边堆放炉渣，遇雨水冲刷或水位上涨时，炉渣中的有害物质可能渗入河道，污染河水。",
+   "cited_hits": [
+    {
+     "name": "重庆市河道管理条例",
+     "lib_no": "河道管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "责令改正通知书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260605_15733669",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202606/t20260605_15733669.html",
+   "question": "秀山县中和街道一家具经营店，拒绝向消费者开具发票。",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国发票管理办法",
+     "lib_no": "发票管理办法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "川渝地区税务行政处罚裁量权实施办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260421_15625208",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202604/t20260421_15625208.html",
+   "question": "涪陵区白涛街道一加油站以消费时间超过3个月为由，拒绝补开发票，涉嫌偷税漏税。",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国发票管理办法",
+     "lib_no": "发票管理办法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260421_15624977",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202604/t20260421_15624977.html",
+   "question": "位于南岸区南坪街道的某宾馆，未登记旅客信息即安排入住，违反旅馆业治安管理相关规定。",
+   "cited_hits": [
+    {
+     "name": "旅馆业治安管理办法",
+     "lib_no": "旅馆业治安管理办法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260317_15538548",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202603/t20260317_15538548.html",
+   "question": "潼南区体育馆附近一杂货店未取得烟花爆竹经营（零售）许可证，违规售卖烟花爆竹。",
+   "cited_hits": [
+    {
+     "name": "烟花爆竹安全管理条例",
+     "lib_no": "烟花爆竹安全管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260317_15538421",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202603/t20260317_15538421.html",
+   "question": "铜梁区南城街道白龙花园小区一住户在楼道堆放旧家具，堵塞消防通道。",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国消防法",
+     "lib_no": "消防法(2021修正全本)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260317_15538190",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202603/t20260317_15538190.html",
+   "question": "北碚区柳荫镇柳荫街一药房售卖的药品没有价格签，违反明码标价相关规定。",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国价格法",
+     "lib_no": "价格法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260130_15369537",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202601/t20260130_15369537.html",
+   "question": "南岸区上新街涂山路37号居民楼底楼的KTV，经常营业至深夜，产生较大噪声，影响附近居民休息。",
+   "cited_hits": [
+    {
+     "name": "娱乐场所管理条例",
+     "lib_no": "娱乐场所管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260130_15369528",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202601/t20260130_15369528.html",
+   "question": "云阳县双江街道原莲花车站附近一家旅行社，无营业执照和经营许可证，涉嫌无证经营。",
+   "cited_hits": [
+    {
+     "name": "旅行社条例实施细则",
+     "lib_no": "旅行社条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260130_15369504",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202601/t20260130_15369504.html",
+   "question": "酉阳县桃花源大道南段一杂货店未取得烟花爆竹经营（零售）许可证，违规售卖烟花爆竹。",
+   "cited_hits": [
+    {
+     "name": "烟花爆竹安全管理条例",
+     "lib_no": "烟花爆竹安全管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260106_15295244",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202601/t20260106_15295244.html",
+   "question": "近期，垫江县桂溪街道鼎峰世纪名苑小区内，有居民违规熏制香肠腊肉，不仅油烟扰民，还易引发火灾。",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国大气污染防治法",
+     "lib_no": "大气污染防治法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20251208_15220546",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202512/t20251208_15220546.html",
+   "question": "云阳县一超市私自在室内墙上开孔，用于餐饮油烟排放，影响周边居民生活。",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国环境保护法",
+     "lib_no": "环境保护法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国大气污染防治法",
+     "lib_no": "大气污染防治法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20251208_15220438",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202512/t20251208_15220438.html",
+   "question": "某运输公司未经审批，擅自在重庆高新区中帆国际石材城楼顶安装户外广告牌。",
+   "cited_hits": [
+    {
+     "name": "重庆市户外广告管理条例",
+     "lib_no": "广告管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "重庆市户外招牌管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20251114_15163808",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202511/t20251114_15163808.html",
+   "question": "近期，南岸区铜元局街道金辉城春上南滨小区1栋1楼开设一家养老院，该养老院在未取得养老机构设立许可证及经营资质的情况下违规运营。",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国市场主体登记管理条例",
+     "lib_no": "市场主体登记管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250801_14869812",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202508/t20250801_14869812.html",
+   "question": "江北区渝江大道格力地产段为科目三考试路段，个别驾校教练车在该路段违规开展教学活动。",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国道路交通安全法实施条例",
+     "lib_no": "道路交通安全法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "机动车驾驶证申领和使用规定",
+     "lib_no": "机动车驾驶证申领和使用规定(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250616_14717341",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202506/t20250616_14717341.html",
+   "question": "渝北区紫荆广场一棋牌室包间门未安装可视玻璃窗，不符合相关规定。",
+   "cited_hits": [
+    {
+     "name": "娱乐场所管理条例",
+     "lib_no": "娱乐场所管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250519_14631886",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202505/t20250519_14631886.html",
+   "question": "近日，市民乘坐从秀山县龙池镇小浩村开往秀山县汽车总站的城乡公交车时，发现驾驶员在行车过程中使用手机观看视频，存在安全隐患。",
+   "cited_hits": [
+    {
+     "name": "道路交通安全法实施条例",
+     "lib_no": "道路交通安全法实施条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250519_14631875",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202505/t20250519_14631875.html",
+   "question": "某养殖公司在未取得用地许可的情况下，擅自在潼南区别口镇科郎村修建养猪场。",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国土地管理法",
+     "lib_no": "土地管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250423_14548828",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202504/t20250423_14548828.html",
+   "question": "渝中区大坪街道和泓江山国际小区附近某商户违规设置游戏、游艺设备，吸引未成年人玩耍。",
+   "cited_hits": [
+    {
+     "name": "娱乐场所管理条例",
+     "lib_no": "娱乐场所管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250407_14496732",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202504/t20250407_14496732.html",
+   "question": "渝北区仁安龙城国际2期小区内的新能源汽车充电桩未公示收费明细。",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国价格法",
+     "lib_no": "价格法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250407_14496357",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202504/t20250407_14496357.html",
+   "question": "开州区丰乐街道某粮油公司违规堆放危化品醇基燃料，存在安全隐患。",
+   "cited_hits": [
+    {
+     "name": "危险化学品安全管理条例",
+     "lib_no": "危险化学品安全管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250219_14319986",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202502/t20250219_14319986.html",
+   "question": "梁平区福禄镇福禄村拱桥街一商铺无证售卖烟花爆竹产品，扰乱市场经营秩序，存在安全隐患。",
+   "cited_hits": [
+    {
+     "name": "烟花爆竹安全管理条例",
+     "lib_no": "烟花爆竹安全管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250219_14319347",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202502/t20250219_14319347.html",
+   "question": "涪陵区稻香路一福利彩票店违规向未成年人售卖彩票。",
+   "cited_hits": [
+    {
+     "name": "彩票管理条例",
+     "lib_no": "彩票管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240802_13456611",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202408/t20240802_13456611.html",
+   "question": "万州区双河口菜市场附近一网吧违规接纳未成年人上网。",
+   "cited_hits": [
+    {
+     "name": "互联网上网服务营业场所管理条例",
+     "lib_no": "互联网上网服务营业场所管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240511_13197207",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202405/t20240511_13197207.html",
+   "question": "石柱县西沱镇某药房工作人员违规向患者销售处方药。",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国药品管理法",
+     "lib_no": "药品管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "药品经营和使用质量监督管理办法"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "cq-hdjl",
+   "id": "t20260605_15733850",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202606/t20260605_15733850.html",
+   "question": "九龙坡区一培训机构，违规在四川外国语大学九龙坡区附属小学大门正对面的外墙上悬挂培训广告牌。",
+   "cited_hits": [],
+   "cited_missing": [
+    "校外培训机构广告发布指引"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260605_15733748",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202606/t20260605_15733748.html",
+   "question": "垫江县人民路690号附近一住户违规砌筑砖墙，侵占公共通行空间。",
+   "cited_hits": [],
+   "cited_missing": [
+    "重庆市城乡规划条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260421_15625279",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202604/t20260421_15625279.html",
+   "question": "孩子就读于两江新区某中学初三年级，即将参加2026年中考。因身体残疾无法参加体育考试，咨询此类情况的体育考试成绩如何计算。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好2026年初中学业水平暨高中招生体育考试工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260317_15538684",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202603/t20260317_15538684.html",
+   "question": "大渡口区钢花小学附近一文具店违规设置游戏机，吸引未成年人玩耍。",
+   "cited_hits": [],
+   "cited_missing": [
+    "游戏游艺设备管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260421_15624959",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202604/t20260421_15624959.html",
+   "question": "个别商户使用物品占用大足区三驱镇农贸市场附近路内公共停车位，影响其他车辆正常停放。",
+   "cited_hits": [],
+   "cited_missing": [
+    "重庆市停车管理条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260317_15538668",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202603/t20260317_15538668.html",
+   "question": "荣昌区百竹园公园北侧入口未配备无障碍通道，残障人士和老年人通行不便。",
+   "cited_hits": [],
+   "cited_missing": [
+    "建筑与市政工程无障碍通用规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260317_15538630",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202603/t20260317_15538630.html",
+   "question": "黔江区冯家街道一建材批发商户违规硬化仓库周边城市园林绿地，将其用作经营场地。",
+   "cited_hits": [],
+   "cited_missing": [
+    "重庆市城市园林绿化条例",
+    "责令停止违法行为通知书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260317_15538276",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202603/t20260317_15538276.html",
+   "question": "住在两江新区空港大道附近的市民，是否可以饲养杜宾犬？",
+   "cited_hits": [],
+   "cited_missing": [
+    "重庆市养犬管理条例",
+    "重庆市禁养烈性犬、攻击性犬种类目录和大型犬标准（试行）的通告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260130_15369625",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202601/t20260130_15369625.html",
+   "question": "大足区滨河公园内公共厕所入口处阶梯两侧未安装扶手，老年人、儿童等人员上下阶梯不便。",
+   "cited_hits": [],
+   "cited_missing": [
+    "无障碍设计规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260106_15295294",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202601/t20260106_15295294.html",
+   "question": "忠县一商业建筑室内个别消火栓内无水带，影响消防设备正常使用。",
+   "cited_hits": [],
+   "cited_missing": [
+    "责令限期改正通知书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260106_15295204",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202601/t20260106_15295204.html",
+   "question": "江津区一商户在双福街道金科集美郡小区附近临街的墙上，擅自设置户外招牌。",
+   "cited_hits": [],
+   "cited_missing": [
+    "重庆市户外招牌管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20251219_15257971",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202512/t20251219_15257971.html",
+   "question": "万州区重庆三峡医药专科学校附近个别商户，在店铺门口人行道上摆放广告牌，影响行人通行。",
+   "cited_hits": [],
+   "cited_missing": [
+    "重庆市市容环境管理条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20251219_15257927",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202512/t20251219_15257927.html",
+   "question": "荣昌区迎宾大道人行道上，多家烧烤摊占道搭棚经营，油烟直排污染环境。",
+   "cited_hits": [],
+   "cited_missing": [
+    "重庆市市容环境卫生管理条例",
+    "重庆市大气污染防治条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260106_15295084",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202601/t20260106_15295084.html",
+   "question": "城口县水晶郦城3栋2楼正在装修，拟开设一家KTV，营业后可能产生噪声，影响居民生活。",
+   "cited_hits": [],
+   "cited_missing": [
+    "娱乐场所经营许可证",
+    "娱乐场所管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20251208_15220502",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202512/t20251208_15220502.html",
+   "question": "城口县葛城街道北大街农贸市场部分菜农占用消防通道卖菜。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于规范北大街菜市场秩序的通告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20251219_15257724",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202512/t20251219_15257724.html",
+   "question": "2025年11月8日晚，两江新区石子山体育公园附近有人违规燃放烟花。",
+   "cited_hits": [],
+   "cited_missing": [
+    "重庆市燃放烟花爆竹管理条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20251208_15220452",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202512/t20251208_15220452.html",
+   "question": "璧山区河边镇盐井河村一商户无证售卖烟花爆竹产品，违反相关规定。",
+   "cited_hits": [],
+   "cited_missing": [
+    "重庆市烟花爆竹管理条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20251208_15220376",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202512/t20251208_15220376.html",
+   "question": "两江新区铁山坪街道一火锅店，存在向附近生活垃圾桶倾倒餐厨垃圾的情况，散发异味。",
+   "cited_hits": [],
+   "cited_missing": [
+    "重庆市生活垃圾管理条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20251114_15163809",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202511/t20251114_15163809.html",
+   "question": "南川区西城街道尹子南路一商户擅自硬化其门店前的市政公共绿化带，将其用于餐饮经营场地，破坏、侵占公共绿地。",
+   "cited_hits": [],
+   "cited_missing": [
+    "重庆市城市园林绿化条例",
+    "责令停止违法行为通知书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20251114_15163805",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202511/t20251114_15163805.html",
+   "question": "G42沪蓉高速巫山收费站出口处，有2名商户在路边设置ETC办理摊点，该路段车流量较大，存在安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [
+    "重庆市市容环境卫生管理条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250801_14869851",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202508/t20250801_14869851.html",
+   "question": "大渡口区某游乐场违规设置游戏机，吸引未成年人玩耍。",
+   "cited_hits": [],
+   "cited_missing": [
+    "游戏游艺设备管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250801_14869821",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202508/t20250801_14869821.html",
+   "question": "位于九龙坡区的某教育科技公司无证开展学科类辅导活动。",
+   "cited_hits": [],
+   "cited_missing": [
+    "校外培训行政处罚暂行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250616_14717343",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202506/t20250616_14717343.html",
+   "question": "丰都县三合街道龙城华府小区某商户违规设置游戏机，吸引未成年人玩耍。",
+   "cited_hits": [],
+   "cited_missing": [
+    "游戏游艺设备管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250519_14631970",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202505/t20250519_14631970.html",
+   "question": "5月4日9时左右，患者在涪陵区马武中心卫生院西药房取药时发现，一名工作人员在配发药品期间违规吸烟。",
+   "cited_hits": [],
+   "cited_missing": [
+    "重庆市公共场所控制吸烟条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250423_14548834",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202504/t20250423_14548834.html",
+   "question": "巴南区万达广场E区附近一生活垃圾回收站距居民楼较近，臭味严重扰民。",
+   "cited_hits": [],
+   "cited_missing": [
+    "重庆市生活垃圾管理条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250423_14548819",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202504/t20250423_14548819.html",
+   "question": "黔江区文汇路某教育咨询公司未取得办学许可证，违规开设美术、口才等培训班。",
+   "cited_hits": [],
+   "cited_missing": [
+    "校外培训行政处罚暂行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250320_14424069",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202503/t20250320_14424069.html",
+   "question": "荣昌区汇宇建材市场内某商铺设置了多个户外店招，违反相关规定。",
+   "cited_hits": [],
+   "cited_missing": [
+    "重庆市户外招牌管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250219_14319993",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202502/t20250219_14319993.html",
+   "question": "巫山县翠屏长途汽车站至曲尺乡的客车票价为14元/人，但春节期间乘坐该线路某辆客车，被驾驶员收取19元。",
+   "cited_hits": [],
+   "cited_missing": [
+    "重庆市公共汽车客运条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250127_14245043",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202501/t20250127_14245043.html",
+   "question": "渝北区桂馥东路7号附近商铺门上被频繁粘贴小广告，影响市容市貌。",
+   "cited_hits": [],
+   "cited_missing": [
+    "重庆市市容环境卫生管理条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250114_14157335",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202501/t20250114_14157335.html",
+   "question": "开州区某中学初一年级部分班级向学生收取空调电费，涉嫌乱收费。",
+   "cited_hits": [],
+   "cited_missing": [
+    "重庆市教委关于进一步加强教育收费管理的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250114_14156638",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202501/t20250114_14156638.html",
+   "question": "万州区百安坝街道某酒店承办丧事，存在违规搭棚、播放高音喇叭、放鞭炮等不文明治丧行为，影响居民生活。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于划定城市文明治丧示范区的通告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20241231_14036748",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202412/t20241231_14036748.html",
+   "question": "西部科学城重庆高新区新州大道与高新大道十字路口的安全岛上设置了一块某楼盘的广告牌，驾驶员视线受阻，存在安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [
+    "重庆市大型户外广告设置审批管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20241202_13849727",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202412/t20241202_13849727.html",
+   "question": "渝北区人民医院附近多家沿街商铺占用人行道摆放广告牌，影响市民正常出行。",
+   "cited_hits": [],
+   "cited_missing": [
+    "重庆市市政设施管理条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20241202_13849681",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202412/t20241202_13849681.html",
+   "question": "荣昌区玉屏实验小学周边文具店销售印刷劣质、内容粗俗、涉及鬼怪迷信等有害书籍，影响未成年人身心健康。",
+   "cited_hits": [],
+   "cited_missing": [
+    "出版物市场管理规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20241113_13794724",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202411/t20241113_13794724.html",
+   "question": "城口县南大街一药房在执业药师不在岗的情况下，违规售卖处方药。",
+   "cited_hits": [],
+   "cited_missing": [
+    "药品经营和使用质量监督管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20241113_13794718",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202411/t20241113_13794718.html",
+   "question": "綦江区某摩托车驾校未办理备案手续，违规开展培训业务。",
+   "cited_hits": [],
+   "cited_missing": [
+    "机动车驾驶员培训管理规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20241022_13727314",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202410/t20241022_13727314.html",
+   "question": "巴南区某幼儿园要求家长支付680元/学期的蒙氏课程费，且拒绝提供收费明细。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步规范我市幼儿园收费行为的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20241022_13727312",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202410/t20241022_13727312.html",
+   "question": "近期，长寿区的危险货物运输企业通过交运安APP申报电子运单，提示每天必须观看10条广告或按月支付9.9元才能正常使用，影响企业经营。",
+   "cited_hits": [],
+   "cited_missing": [
+    "危险货物道路运输安全管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20241022_13727310",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202410/t20241022_13727310.html",
+   "question": "为避免占用学生学习时间，江津区某小学一班级要求家长交卫生清洁费，以聘请工人打扫班级公共区域卫生。",
+   "cited_hits": [],
+   "cited_missing": [
+    "重庆市教委关于进一步加强教育收费管理的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20241011_13695773",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202410/t20241011_13695773.html",
+   "question": "垫江县某健身中心游泳池水质较差，影响市民健康。",
+   "cited_hits": [],
+   "cited_missing": [
+    "公共场所卫生指标及限值要求",
+    "卫生监督意见书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240926_13660408",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202409/t20240926_13660408.html",
+   "question": "九龙坡区龙湖新壹城个别商户未经许可，在商住楼外墙设置店招字牌，影响建筑外立面景观。",
+   "cited_hits": [],
+   "cited_missing": [
+    "重庆市户外招牌管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240802_13456645",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202408/t20240802_13456645.html",
+   "question": "沙坪坝区土主街道西盛社区某汽车维修服务部未备案违规开展汽车维修服务。",
+   "cited_hits": [],
+   "cited_missing": [
+    "机动车维修管理规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240802_13456586",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202408/t20240802_13456586.html",
+   "question": "沙坪坝区凤天大道万科金色悦城5期某培训机构在未取得办学许可的情况下，违规开展学科类培训活动。",
+   "cited_hits": [],
+   "cited_missing": [
+    "校外培训行政处罚暂行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240802_13456301",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202408/t20240802_13456301.html",
+   "question": "酉阳县桃花源街道某便利店无证经营游戏机，不少小学生前去玩耍。",
+   "cited_hits": [],
+   "cited_missing": [
+    "娱乐经营许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240717_13378565",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202407/t20240717_13378565.html",
+   "question": "开州区文峰街道某幼儿园在门口设置围栏，占用人行道作为活动区域，影响行人正常通行。",
+   "cited_hits": [],
+   "cited_missing": [
+    "重庆市市政设施管理条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240626_13325920",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202406/t20240626_13325920.html",
+   "question": "石柱县城东路天尧山水别院小区附近一便利店未取得烟草专卖许可证，违规售卖卷烟。",
+   "cited_hits": [],
+   "cited_missing": [
+    "重庆市烟草专卖管理条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240614_13295571",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202406/t20240614_13295571.html",
+   "question": "开州区某中学个别班级组织学生统一订购图书资料，违反相关规定。",
+   "cited_hits": [],
+   "cited_missing": [
+    "区域地理整合教材",
+    "地图册",
+    "重庆市教育委员会等五部门关于进一步规范中小学收费管理的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240511_13197265",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202405/t20240511_13197265.html",
+   "question": "云阳县开往万州区的一辆客运班车未按规定线路停靠重庆大学附属三峡医院站点，耽误乘客行程。",
+   "cited_hits": [],
+   "cited_missing": [
+    "重庆市道路运输管理条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240511_13197176",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202405/t20240511_13197176.html",
+   "question": "南川区南城街道硫磺小区有个别业主占用小区公共绿地建设私家花园。",
+   "cited_hits": [],
+   "cited_missing": [
+    "重庆市城市园林绿化条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240422_13147921",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202404/t20240422_13147921.html",
+   "question": "南川区某公司在南园路占道摆摊办理ETC，影响群众出行。",
+   "cited_hits": [],
+   "cited_missing": [
+    "重庆市市容环境卫生管理条例"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "cq-hdjl",
+   "id": "t20260826_15980785",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202608/t20260826_15980785.html",
+   "question": "秀山县膏田镇川阡洞景区部分漫水步道被溪水冲垮出现缺口，游客通行受阻。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260826_15980774",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202608/t20260826_15980774.html",
+   "question": "重庆高新区走马镇白鹤支路附近一工程施工车辆在运输过程中，车轮夹带泥土上路，造成扬尘污染。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260826_15980762",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202608/t20260826_15980762.html",
+   "question": "璧山区璧永路90号附近行道树发生虫害，大量树叶出现褐色斑块，影响城市景观。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260826_15980743",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202608/t20260826_15980743.html",
+   "question": "南岸区某商场内一家健身房将瑜伽垫、泡沫轴等健身器材堆放于消防通道，一旦发生火情，将阻碍人员疏散和消防救援。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260826_15980722",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202608/t20260826_15980722.html",
+   "question": "万盛经开区黑山镇黑山谷游客接待中心附近健身步道塑胶层脱落、开裂，易绊倒行人。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260826_15980707",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202608/t20260826_15980707.html",
+   "question": "大足区龙水镇群益市场一商户将建筑材料堆放在人行道上，影响行人安全通行。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260826_15980698",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202608/t20260826_15980698.html",
+   "question": "巴南区鱼洞街道鱼新街9号居民楼外立面部分外墙砖松动，存在高空坠物隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260826_15980676",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202608/t20260826_15980676.html",
+   "question": "巫山县长江和大宁河部分河段水面存在塑料、枯枝等漂浮物，影响河道水质，破坏岸线环境整洁。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260826_15980664",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202608/t20260826_15980664.html",
+   "question": "永川区陈食街道复兴村村公路排水沟因树叶、淤泥堆积堵塞，造成积水隐患，影响道路交通安全。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260826_15980656",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202608/t20260826_15980656.html",
+   "question": "轨道交通5号线冉家坝站5号出入口附近，一台便民直饮水机设备故障，无法出水，给群众饮水带来不便。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260826_15980646",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202608/t20260826_15980646.html",
+   "question": "铜梁区西郭水库部分水域被蓝藻覆盖，造成水体发臭。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260826_15980636",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202608/t20260826_15980636.html",
+   "question": "荣昌区南城家园公租房1栋自来水供应时断时续，影响居民生活。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260826_15980626",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202608/t20260826_15980626.html",
+   "question": "渝中区东水门老街附近一公共扶梯出现故障停运，影响居民通行。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260826_15980617",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202608/t20260826_15980617.html",
+   "question": "忠县新立镇文昌街一小区污水管道堵塞，导致污水外溢至路面，影响群众出行。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260826_15980596",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202608/t20260826_15980596.html",
+   "question": "开州区中和镇小学附近，垃圾清运车辆每日17时左右占道作业，与放学时段重叠，引发交通拥堵。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260826_15980565",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202608/t20260826_15980565.html",
+   "question": "綦江区通惠河国家湿地公园步道上有树枝、竹子等杂物，挤占通行空间，影响市民正常通行。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260826_15980553",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202608/t20260826_15980553.html",
+   "question": "九龙坡区九龙星光小区部分业主私拉电线为电动摩托车充电，存在消防安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260622_15768945",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202606/t20260622_15768945.html",
+   "question": "万盛经开区万新社区万盛街83号楼栋门口一井盖破损，形成坑洞，该处儿童往来频繁，存在踏空安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260826_15980541",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202608/t20260826_15980541.html",
+   "question": "每逢赶集日，丰都县树人镇太和场路段车辆乱停乱放现象突出，交通秩序混乱，行人和车辆通行困难。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260826_15980524",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202608/t20260826_15980524.html",
+   "question": "长寿区凤城街道寿城水岸小区附近一工程项目施工噪声较大，建议中高考期间停止施工。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260622_15768944",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202606/t20260622_15768944.html",
+   "question": "万州区宁波路413号附近加油站内的自助洗车机，紧邻居民小区，语音播报音量较大，干扰中高考学生备考。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260622_15768943",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202606/t20260622_15768943.html",
+   "question": "梁平区安胜镇龙印村3组和10组自来水时断时续，导致群众无稳定饮用水。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260622_15768941",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202606/t20260622_15768941.html",
+   "question": "省道S102丰都县马良大桥附近路段发生山体落石，碎石散落路面，导致双向交通中断，希望相关部门尽快处置。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260826_15980512",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202608/t20260826_15980512.html",
+   "question": "黔江区杉岭乡枫香村3组一处生活垃圾投放点的垃圾未及时清运，部分垃圾被雨水冲至附近居民房屋附近，影响居住环境。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260622_15768939",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202606/t20260622_15768939.html",
+   "question": "近期气温较高，大渡口区图书馆未开启空调，室内闷热，读者难以静心阅读。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260826_15980504",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202608/t20260826_15980504.html",
+   "question": "江津区四面山寻龙道徒步线路沿线，纸屑、食品包装袋、塑料瓶等生活垃圾散落，未及时清理，影响景区环境卫生。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260622_15768937",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202606/t20260622_15768937.html",
+   "question": "荣昌区一小学运动场跑道磨损严重，局部出现鼓包、坑洼，学生运动时易绊倒摔伤。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260826_15980470",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202608/t20260826_15980470.html",
+   "question": "北碚区兴隆镇永兴村7组部分居民家中自来水出水量较小，影响正常用水。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260622_15768936",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202606/t20260622_15768936.html",
+   "question": "永川区人民大道往灵龙路方向仅设置1条左转车道，高峰时段车流量较大、排队时间长，建议增设左转车道。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260622_15768935",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202606/t20260622_15768935.html",
+   "question": "在云阳县五同路179号附近地面发现一只幼鸟，全身被雨水浸湿，无法飞行。该幼鸟疑似为保护动物，担心其受伤，请求相关部门予以救助。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260622_15768934",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202606/t20260622_15768934.html",
+   "question": "巴南区圣灯山镇圣灯山村圣牛路多处边坡垮塌，滑落的土石占据半幅路面，车辆通行受阻。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260622_15768933",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202606/t20260622_15768933.html",
+   "question": "黔江区河滨东路北段附近人行道多盏路灯不亮，影响群众夜间出行。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260622_15768931",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202606/t20260622_15768931.html",
+   "question": "近期连日降雨，枯枝、塑料袋等杂物被冲入酉阳县龙潭镇顺河街一处排水涵洞，造成堵塞，影响排水。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260622_15768929",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202606/t20260622_15768929.html",
+   "question": "大足区昌州隧道内照明亮度不足，导致驾驶员视线不清，易引发交通事故。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260622_15768927",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202606/t20260622_15768927.html",
+   "question": "江津区圣泉寺湿地公园一人行桥桥面木板松动破损，游客通行存在绊倒摔伤风险。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260622_15768926",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202606/t20260622_15768926.html",
+   "question": "建议在秀山县体育公园足球场增设5人制足球门，方便青少年踢球锻炼。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260622_15768924",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202606/t20260622_15768924.html",
+   "question": "省道S202开州区厚茂石油加油站附近发生山体落石，石块滚落路面，阻碍车辆安全通行。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260622_15768923",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202606/t20260622_15768923.html",
+   "question": "江津区慈云镇慈音寺社区一公厕洗手台水龙头无法关严，持续漏水，浪费水资源。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260622_15768922",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202606/t20260622_15768922.html",
+   "question": "合川区古楼镇骑龙村防洪护岸个别区域出现滑坡，若遇涨水，水流冲刷可能导致滑坡范围进一步扩大，影响防洪安全。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260622_15768921",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202606/t20260622_15768921.html",
+   "question": "秀山县凤凰新城公园池塘内浮萍和绿藻过度繁殖，完全覆盖水面，水体浑浊发臭。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260622_15768920",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202606/t20260622_15768920.html",
+   "question": "南岸区峡口镇柏林路6号附近，道路中央隔离护栏钢管脱落至路面，影响车辆通行安全。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260622_15768919",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202606/t20260622_15768919.html",
+   "question": "重庆高新区青年广场滑板公园内多盏路灯不亮，影响群众夜间开展滑板、健身等活动。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260622_15768917",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202606/t20260622_15768917.html",
+   "question": "长寿区新市街道堰耳沱村一处灌溉管道破损漏水，导致管道水压不足，影响农田灌溉。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260622_15768915",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202606/t20260622_15768915.html",
+   "question": "北碚区静观镇王朴村美丽湖附近发现红火蚁巢穴，存在蜇伤行人的安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260622_15768911",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202606/t20260622_15768911.html",
+   "question": "两江新区石船镇关兴村九社乡村道路上堆放条石，占用车行道，影响会车。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260605_15733859",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202606/t20260605_15733859.html",
+   "question": "酉阳县泔溪镇重庆农村商业银行附近道路路面坑洼不平，车辆经过时易引发爆胎。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260605_15733846",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202606/t20260605_15733846.html",
+   "question": "梁平区明达镇明兴社区263号店招框架锈蚀松动，存在掉落风险。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260605_15733837",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202606/t20260605_15733837.html",
+   "question": "涪陵区黄金海岸公交车站台线路指示牌的玻璃破损，地面散落部分碎片，易划伤候车乘客。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260605_15733832",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202606/t20260605_15733832.html",
+   "question": "潼南区崇龛镇古泥村灌溉管网建成后未投入使用，影响农田灌溉。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260605_15733822",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202606/t20260605_15733822.html",
+   "question": "“五一”期间，奉节至巫山航线的小红船较少，导致已购票乘客等待1小时无法登船。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260605_15733806",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202606/t20260605_15733806.html",
+   "question": "酉阳县汽车北站内的公厕冲水设施损坏无法使用，气味刺鼻、卫生状况较差。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260605_15733788",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202606/t20260605_15733788.html",
+   "question": "两江新区玉峰山镇玉峰村大面积种植的樱桃已成熟，但面临滞销，影响农户收入。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260605_15733776",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202606/t20260605_15733776.html",
+   "question": "合川区文峰塔公园叠水池有大量福寿螺，破坏水生态环境。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260605_15733763",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202606/t20260605_15733763.html",
+   "question": "永川区华贸中心附近一银行LED广告牌昼夜开启，且灯光过亮，影响周边居民夜间休息。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260605_15733757",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202606/t20260605_15733757.html",
+   "question": "江北机场经常在凌晨两三点使用驱鸟炮驱鸟，产生较大噪声，影响周边居民休息。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260605_15733752",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202606/t20260605_15733752.html",
+   "question": "长寿区菩提古镇景区部分道路指示牌褪色、字迹不清，游客难以准确辨识方向。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260605_15733742",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202606/t20260605_15733742.html",
+   "question": "重庆高新区科学谷公园生活垃圾未及时清扫，影响市容环境。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260605_15733736",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202606/t20260605_15733736.html",
+   "question": "南岸区晨峰路一长约17米的中央隔离墩出现偏移，占用部分车行道，影响车辆安全通行。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260605_15733723",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202606/t20260605_15733723.html",
+   "question": "南岸区黄葛古道沿线行道树滋生青虫，虫体垂丝、虫粪掉落，影响群众正常通行。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260421_15625301",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202604/t20260421_15625301.html",
+   "question": "巫山县神女溪景区画舫船配备的救生衣有污渍和异味，建议及时清洗消杀。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260605_15733718",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202606/t20260605_15733718.html",
+   "question": "九龙坡区二郎街道金辉彩湖云璟小区附近人行道青苔较多，行人通行时易滑倒摔伤。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260605_15733710",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202606/t20260605_15733710.html",
+   "question": "万州区陈家坝街道卫生服务中心采血窗口排队人员多、等候时间较长。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260605_15733702",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202606/t20260605_15733702.html",
+   "question": "两江新区一购物中心的消防通道堆放废旧家电等杂物，一旦发生火情，将阻碍人员疏散和消防救援。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260605_15733688",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202606/t20260605_15733688.html",
+   "question": "江津区珞璜镇陈鹏汽车空调电器修理厂附近一棵行道树倒伏，侵占部分车行道，影响车辆安全通行。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260421_15625284",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202604/t20260421_15625284.html",
+   "question": "大渡口区双溪隧道内车行道路边停放一辆共享电动车，影响机动车安全通行。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260605_15733680",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202606/t20260605_15733680.html",
+   "question": "垫江县工农南路路面交通标线模糊，驾驶员难以清晰识别车道。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260605_15733586",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202606/t20260605_15733586.html",
+   "question": "丰都县社坛镇龙门村1组供水管网铺设过程中，施工单位将弃土堆放在车行道上，阻碍车辆通行。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260421_15625272",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202604/t20260421_15625272.html",
+   "question": "国网重庆铜梁玉泉充电站有多个充电桩发生故障，无法为新能源车充电。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260421_15625263",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202604/t20260421_15625263.html",
+   "question": "开州区九龙山镇部分农户喷洒农药防治油菜病虫害时，未避让周边蜂群，导致养蜂户的蜜蜂死亡。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260421_15625255",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202604/t20260421_15625255.html",
+   "question": "巴南区银竹路千江凌云小区附近道路上的井盖松动，车辆经过时产生较大噪声，影响附近居民生活。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260421_15625249",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202604/t20260421_15625249.html",
+   "question": "渝中区龙湖时代天街时代汇6栋附近一处公共洗手台水龙头漏水，浪费水资源。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260421_15625238",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202604/t20260421_15625238.html",
+   "question": "大足区龙水湖一露营地未公示收费区域，游客质疑乱收费。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260421_15625231",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202604/t20260421_15625231.html",
+   "question": "城口县河鱼乡两扇门村3组旅游度假区游客增多，但生活垃圾桶较少，游客丢弃垃圾不便。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260421_15625224",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202604/t20260421_15625224.html",
+   "question": "永川区人民大道灵猴广场部分健身设施损坏，影响正常使用。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260421_15625196",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202604/t20260421_15625196.html",
+   "question": "云阳县石门乡清溪村3组自来水水压过高，导致水管、水龙头等设施破损，影响居民正常生活用水。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260421_15625184",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202604/t20260421_15625184.html",
+   "question": "北碚区三圣镇石坝社区多棵行道树树干被钉入钉子用于挂放杂物，影响城市形象。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260421_15625164",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202604/t20260421_15625164.html",
+   "question": "璧山区公安局大路派出所身份证换证排队人员多、等候时间较长。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260421_15625121",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202604/t20260421_15625121.html",
+   "question": "两江新区观音桥步行街一商户未取得烟草专卖零售许可证，涉嫌违规销售卷烟。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260421_15625108",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202604/t20260421_15625108.html",
+   "question": "南岸区融侨公园内多盏路灯不亮，影响居民夜间散步。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260421_15625103",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202604/t20260421_15625103.html",
+   "question": "梁平区虎城镇大兴村2组高标准农田建设过程中，施工人员将清理出的香椿树堆放在农田内，影响春耕生产。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260421_15625094",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202604/t20260421_15625094.html",
+   "question": "轨道交通鱼洞站5号出入口附近，人行道与人行横道衔接处有路缘石，轮椅、婴儿车等过街通行不便。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260421_15625087",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202604/t20260421_15625087.html",
+   "question": "巫溪县柏杨河湿地公园网球场的铁门锈蚀，存在松动脱落风险。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260317_15538599",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202603/t20260317_15538599.html",
+   "question": "个别车主将机动车停放至北碚区竹溪河湿地公园一期步道上，影响市民通行。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260317_15538570",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202603/t20260317_15538570.html",
+   "question": "南岸区米兰路多盏路灯不亮，影响居民夜间出行。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260317_15538528",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202603/t20260317_15538528.html",
+   "question": "渝中区桂花园83号楼下有居民露天烧木柴取暖，产生大量烟尘，影响附近住户生活。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260317_15538498",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202603/t20260317_15538498.html",
+   "question": "巴南区龙洲湾街道中交锦悦二期小区6幢楼下，一门店招牌上的装饰彩灯通宵开启，灯光闪烁，影响附近居民休息。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260317_15538473",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202603/t20260317_15538473.html",
+   "question": "梁平区和林镇一工程项目施工车辆在运输过程中未采取密闭措施，抛冒撒漏产生扬尘，污染空气。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260317_15538303",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202603/t20260317_15538303.html",
+   "question": "潼南区北城天骄小区1栋个别楼道的消火栓无水枪、水带，影响正常使用。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260130_15369686",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202601/t20260130_15369686.html",
+   "question": "奉节县奉利路大风垭路段于2026年1月19日晚出现道路结冰现象，车辆通行极易打滑，行人也存在滑倒摔伤风险。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260130_15369672",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202601/t20260130_15369672.html",
+   "question": "九龙坡区民安华福小区的民德路路段个别路灯损坏，夜间无照明，居民出行不便。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260130_15369655",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202601/t20260130_15369655.html",
+   "question": "秀山县南龙村湾里组至平障组的乡村道路一弯道未设置防护栏，夜间行车存在坠入路边沟渠的安全风险。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260130_15369640",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202601/t20260130_15369640.html",
+   "question": "重庆西站部分卫生间隔板上的挂钩脱落后未及时补充，乘客放置随身物品不便。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260130_15369602",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202601/t20260130_15369602.html",
+   "question": "南川区南城街道香格里拉小区附近人行道上堆放大量水管，影响行人通行。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260130_15369593",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202601/t20260130_15369593.html",
+   "question": "江津区双福皮草城附近一便民夜市内，个别经营者私自拉接电线用于摊位照明。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260130_15369577",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202601/t20260130_15369577.html",
+   "question": "江津区白沙镇危旧房改造项目的施工单位未采取降尘措施，扬尘污染严重。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260130_15369560",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202601/t20260130_15369560.html",
+   "question": "两江新区建新东路部分路段未设置生活垃圾箱，行人丢垃圾不便。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260130_15369550",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202601/t20260130_15369550.html",
+   "question": "酉阳县酉水河镇后溪村汽车客运站附近公共停车场车位紧张，无法满足停车需求。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260130_15369519",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202601/t20260130_15369519.html",
+   "question": "丰都县名山街道白沙沱社区五社移民点附近行道树枝干贴近高压线，易发生线路短路、漏电事故。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260130_15369481",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202601/t20260130_15369481.html",
+   "question": "云阳县凤鸣镇民主村乡村道路附近有一个马蜂窝，马蜂活动频繁，威胁过往行人安全。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260106_15295300",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202601/t20260106_15295300.html",
+   "question": "近期，轨道交通谢家湾站5号出入口附近一部电扶梯停运，该扶梯是九龙坡区万象城商场通往谢家湾站的主要通行工具，客流量较大，停运对乘客出行造成不便。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260130_15369462",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202601/t20260130_15369462.html",
+   "question": "有居民在两江新区翠云街道东衡槟城小区附近空地露天熏制腊肉，产生的烟气对周边环境造成影响。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260130_15369447",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202601/t20260130_15369447.html",
+   "question": "有居民私自在黔江区气象路车行道上安装地锁用于停车，影响其他车辆正常通行。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260130_15369430",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202601/t20260130_15369430.html",
+   "question": "忠县新立镇龙井村部分乡村道路路面坑洼不平，村民日常出行及农资运输受影响。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260106_15295277",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202601/t20260106_15295277.html",
+   "question": "合川区三庙镇戴花村个别电线杆高度约6米，电线架设高度不足，距离地面较近，影响大型农机通行安全。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260130_15369410",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202601/t20260130_15369410.html",
+   "question": "秀山县兴源黄杨郡小区6栋底楼临街超市的排风机运行时产生较大噪声，影响楼上住户休息。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260106_15295262",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202601/t20260106_15295262.html",
+   "question": "丰都县龙河镇一大米加工企业生产用电电压不稳定，加工设备无法平稳运行。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260106_15295223",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202601/t20260106_15295223.html",
+   "question": "黔江区二环路人行道路面部分地砖松动，雨天易积水溅污，影响行人通行。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260106_15295191",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202601/t20260106_15295191.html",
+   "question": "近期，大足区玉龙镇部分耕地上出现白色固体颗粒，担心影响农作物种植。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260106_15295183",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202601/t20260106_15295183.html",
+   "question": "丰都县许明寺镇梨园村5组至佳苑社区3组的农村公路，部分急弯陡坡路段未安装防护栏，存在交通安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260106_15295172",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202601/t20260106_15295172.html",
+   "question": "大足区香国公园公交站站牌上101路公交车标注的末班时间与实际不符，希望尽快更正。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20251219_15257981",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202512/t20251219_15257981.html",
+   "question": "大足区棠香街道国兴三期小区绿化带内有外来入侵物种马缨丹，请相关部门及时清理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260106_15295155",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202601/t20260106_15295155.html",
+   "question": "江津区马南大道与温新路交叉路口处的斑马线磨损褪色，行人和驾驶员难以清晰辨认。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260106_15295141",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202601/t20260106_15295141.html",
+   "question": "渝中区学田湾正街93号3单元加装电梯施工过程中，电焊火星溅入居民房屋内，易引发火灾。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20251219_15257962",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202512/t20251219_15257962.html",
+   "question": "巴南区康李路未设置生活垃圾桶，个别群众随意丢弃垃圾影响城市环境。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20251219_15257944",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202512/t20251219_15257944.html",
+   "question": "铜梁区虎峰镇老粮站附近一家超市和卤菜加工作坊，将生活污水直排至雨水沟，异味扰民。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260106_15295126",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202601/t20260106_15295126.html",
+   "question": "云阳县路阳镇迎瑞村部分村民家中自来水水压较小，日常生活用水受影响。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20251219_15257932",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202512/t20251219_15257932.html",
+   "question": "南岸区江南水岸公租房小区五组团西门附近，人行道与公路衔接处未设置无障碍坡道，婴儿车、轮椅等通行不便。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20251219_15257911",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202512/t20251219_15257911.html",
+   "question": "璧山区CBD商圈停车场出入口的道闸车牌识别系统存在反应迟滞、识别不准的问题，部分车辆出入时无法识别，导致通道出现拥堵。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260106_15295105",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202601/t20260106_15295105.html",
+   "question": "沙坪坝区陈家桥街道一金属加工门店，占用人行道堆放半成品金属物件，影响行人通行安全。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20251219_15257894",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202512/t20251219_15257894.html",
+   "question": "两江新区蔡家岗街道巨恒天和苑小区1楼部分业主，从家里接线至楼栋公共区域为电动车充电，存在安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20251219_15257885",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202512/t20251219_15257885.html",
+   "question": "垫江县沙坪镇沙复路陈家石板段为长下坡弯道路段，路面未设置减速设施，下坡车辆速度较快，存在交通安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260106_15295092",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202601/t20260106_15295092.html",
+   "question": "两江新区一小学校门的门头灯整晚开启，影响周边居民夜间休息。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20251219_15257874",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202512/t20251219_15257874.html",
+   "question": "云阳县人民医院急诊科开水间没有提供一次性水杯，群众饮水不便。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20251219_15257862",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202512/t20251219_15257862.html",
+   "question": "丰都县出租车顶灯灯光过亮，夜间行驶时影响后方车辆驾驶员视线。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20251219_15257849",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202512/t20251219_15257849.html",
+   "question": "垫江县渝东建材市场附近的公共区域，堆放纸板、塑料、废弃木板等垃圾，影响环境卫生。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20251219_15257836",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202512/t20251219_15257836.html",
+   "question": "永川至大足客运班车每天17:00后只有1班，2025年11月30日国家公务员考试结束后，永川至大足的考生返程需求集中，建议增加客运班次，保障出行。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20251219_15257803",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202512/t20251219_15257803.html",
+   "question": "G85银昆高速永川收费站至重庆高新收费站路段，中央分隔带绿植未及时修剪，部分枝条过度生长，遮挡驾驶人视线。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20251219_15257795",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202512/t20251219_15257795.html",
+   "question": "万州区高梁镇新店子社区6组近期频繁停水，影响居民生活。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20251208_15220573",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202512/t20251208_15220573.html",
+   "question": "云阳县泥溪镇长柏村1组农村公路排水沟堵塞，积水外溢流入邻近村民房屋内。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20251208_15220562",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202512/t20251208_15220562.html",
+   "question": "酉阳县龙潭镇堰堤村大中桥的桥面木板多处破损，行人通行易绊倒。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20251219_15257789",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202512/t20251219_15257789.html",
+   "question": "近期，梁平区新盛镇黄桷社区天然气突然出现气压不足的情况，影响居民生活。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20251208_15220552",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202512/t20251208_15220552.html",
+   "question": "梁平区屏锦镇天生村四组一临河村民便道的堡坎局部塌陷，路面悬空存在垮塌安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20260106_15295069",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202601/t20260106_15295069.html",
+   "question": "垫江县图书馆二楼的自助存包柜未通电，读者无法寄存物品。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20251219_15257779",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202512/t20251219_15257779.html",
+   "question": "江津区柏林镇复兴村9组一养猪场粪污外溢至附近小河沟，影响环境卫生。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20251208_15220535",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202512/t20251208_15220535.html",
+   "question": "两江新区两河项目重光水库水环境整治工程施工期间，施工人员在工地出入口冲洗工程车辆，泥浆外溢至附近道路，影响环境卫生。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20251219_15257768",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202512/t20251219_15257768.html",
+   "question": "重庆高新区曾家镇农安村矿石沟社水压不足，影响日常生活。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20251219_15257762",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202512/t20251219_15257762.html",
+   "question": "綦江区金福大道五彩尚城小区附近路段，车行道与人行道之间的隔离护栏多处破损缺失，有行人横穿车道，存在安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20251208_15220525",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202512/t20251208_15220525.html",
+   "question": "轨道交通18号线电厂站至重庆市铁路中学校C区路段，道路两侧的大部分路灯未开启，学生上学放学出行不便。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20251208_15220514",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202512/t20251208_15220514.html",
+   "question": "巴南区界石镇一酒店停车场车辆出入语音播报系统声音较大，影响附近居民休息。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20251208_15220486",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202512/t20251208_15220486.html",
+   "question": "綦江区丁山镇观佛村7社一村民在邻居房屋附近焚烧枯枝、塑料制品等垃圾，易引发火灾。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20251208_15220472",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202512/t20251208_15220472.html",
+   "question": "轨道交通5号线歇台子站的站台直行线路图、屏蔽门上方列车运行方向信息，均未标注需站外换乘1号线和18号线，易误导乘客。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20251219_15257754",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202512/t20251219_15257754.html",
+   "question": "两江新区两江新宸云澜小区26栋B6层楼道堆放了废旧家具、沙发等杂物，堵塞安全出口。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20251219_15257734",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202512/t20251219_15257734.html",
+   "question": "万州区桑树坪公租房小区车库出入口的车牌识别语音播报器音量较大，影响附近居民休息。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20251208_15220462",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202512/t20251208_15220462.html",
+   "question": "鱼洞长江大桥北桥头附近道路路面存在多处坑槽，导致途经车辆爆胎。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20251208_15220404",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202512/t20251208_15220404.html",
+   "question": "两江新区协信柠檬郡小区附近人行道上安装的4盏大型射灯通宵开启，灯光亮度较大，影响附近居民休息。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20251208_15220366",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202512/t20251208_15220366.html",
+   "question": "两江新区宝圣湖街道金石路社区一砂石销售企业，每日6:00装卸货物产生较大噪声，影响附近居民休息。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20251114_15163814",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202511/t20251114_15163814.html",
+   "question": "万州区陈家坝街道晒网村晒网坝的长江岸边出现大量红蚂蚁，影响市民日常散步，希望相关部门及时治理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20251114_15163812",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202511/t20251114_15163812.html",
+   "question": "永川区棠城公园附近部分文化宣传装饰柱底座锈蚀，影响装饰柱稳固。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20251114_15163810",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202511/t20251114_15163810.html",
+   "question": "巴南区花溪街道磨滩河石桥至学堂湾学校的人行便道路面有多处坑洼，影响约200余名师生及上千居民出行。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20251114_15163802",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202511/t20251114_15163802.html",
+   "question": "万州区巴蜀花园小区附近有一处生活垃圾集中清运点，环卫工人每天3:00开始清运作业，产生较大噪声，影响居民休息。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20251114_15163800",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202511/t20251114_15163800.html",
+   "question": "南岸区新盛路1号沁芳园小区一业主私自将燃气管道由厨房迁改至露台，存在安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20251114_15163797",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202511/t20251114_15163797.html",
+   "question": "巴南区花溪街道渝汇小学附近的公路较宽，但人行交通信号灯绿灯配时仅28秒，在上学放学高峰期，部分学生难以在绿灯时长内通过马路。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20251114_15163795",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202511/t20251114_15163795.html",
+   "question": "铜梁区一中学晚自习下课时间为21:00，学生宿舍关灯时间为21:15，洗漱时间不足。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20251114_15163788",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202511/t20251114_15163788.html",
+   "question": "荣昌区荣昌中学黄金坡校区北门附近路段路灯不亮，学生晚自习放学后回家不便。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250909_14988853",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202509/t20250909_14988853.html",
+   "question": "巴南区融汇第二小学校部分教室课桌使用时摇晃、凳子破损，影响学生学习。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250909_14988834",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202509/t20250909_14988834.html",
+   "question": "长寿区江南街道龙山社区湿地公园附近出现大量蚂蚁，咬伤散步市民，希望相关部门及时治理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250909_14988822",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202509/t20250909_14988822.html",
+   "question": "北碚区静观镇华静路至集真小学路段路灯开启时间为20:00，开灯时间较晚影响出行。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250909_14988809",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202509/t20250909_14988809.html",
+   "question": "大足区国梁镇阳光村龙盘路路边树木倒伏、杂草生长茂盛，遮挡行车视线。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250909_14988794",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202509/t20250909_14988794.html",
+   "question": "沙坪坝区联芳街道富州新城·兰亭小区近期频繁停水，影响居民生活。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250909_14988729",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202509/t20250909_14988729.html",
+   "question": "万州区望江公园一处直饮水机无法使用。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250909_14988717",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202509/t20250909_14988717.html",
+   "question": "彭水县靛水街道洋藿村摩围山景区一处人行道上遗留多个树坑，影响行人出行。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250909_14988682",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202509/t20250909_14988682.html",
+   "question": "2025年8月5日、6日两天，江津区支坪镇津坪社区、花铺社区连续停水3次，给居民生活带来不便。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250909_14988667",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202509/t20250909_14988667.html",
+   "question": "暑假期间，江津区图书馆读者增多，出现一座难求的情况。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250909_14988653",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202509/t20250909_14988653.html",
+   "question": "两江新区金开大道附近一塑料制品公司24小时发出低频噪声，影响周边多个小区居民休息。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250909_14988626",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202509/t20250909_14988626.html",
+   "question": "北碚区缙云山黛湖附近有一个马蜂窝，此处位于缙云山风景区内，人流量较大，马蜂活动频繁影响居民生活。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250801_14869888",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202508/t20250801_14869888.html",
+   "question": "大足区双路街道四方社区7组近期正在进行城区污水管网维修改造施工，施工方未做好污水排放应急处置措施，导致部分泥污随雨水排放到河道。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250801_14869882",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202508/t20250801_14869882.html",
+   "question": "受强降雨影响，南川区三泉镇往金佛山北坡方向的公路被冲毁，无法通行。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250801_14869865",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202508/t20250801_14869865.html",
+   "question": "发现近期有人在永川区南瓜山水库游泳，希望加强管理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250801_14869844",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202508/t20250801_14869844.html",
+   "question": "开州区中和镇Y023乡道白水至凤顶路段存在路面塌陷及落石隐患，影响出行安全。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250801_14869798",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202508/t20250801_14869798.html",
+   "question": "彭水县润溪乡肖家沟村河道便民漫水桥桥洞被泥沙、树叶堵塞，导致河水流通不畅。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250801_14869769",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202508/t20250801_14869769.html",
+   "question": "渝北区百合林幼儿园门口新设的3个停车位，距离幼儿园大门太近，存在安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250801_14869732",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202508/t20250801_14869732.html",
+   "question": "G242国道巫溪县白鹿镇路段山体垮塌导致交通中断，影响出行。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250717_14823700",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202507/t20250717_14823700.html",
+   "question": "武隆区双河镇木根村至石坝村临崖公路未安装防护栏，存在安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250717_14823695",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202507/t20250717_14823695.html",
+   "question": "近期，连日暴雨致万州区长坪乡金福村至大树村的村公路发生泥石滑落险情，大量泥石覆盖路面，导致交通中断。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250717_14823691",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202507/t20250717_14823691.html",
+   "question": "近期，沙坪坝区凤中路路段路灯白天未关闭，浪费电力资源。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250717_14823687",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202507/t20250717_14823687.html",
+   "question": "北碚区澄江镇北泉村石河堰桥护栏被车辆撞毁后未修复，存在安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250717_14823675",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202507/t20250717_14823675.html",
+   "question": "夏季到来，大渡口区计划开放哪些人防工程纳凉点？开放时间有无变化？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250717_14823670",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202507/t20250717_14823670.html",
+   "question": "大足区智凤街道阮家庙村普阮路路边杂草丛生，部分已接近成人身高高度，导致弯道会车时驾驶员视线受阻，无法看清路况。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250717_14823654",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202507/t20250717_14823654.html",
+   "question": "潼南区梓潼街道李台村8组提灌站水泵功率太低，无法抽水灌溉农田。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250717_14823645",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202507/t20250717_14823645.html",
+   "question": "梁平区梁山街道某商户在人行道搭建帐篷开展经营活动，影响群众正常通行。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250717_14823637",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202507/t20250717_14823637.html",
+   "question": "渝北区山顶道国宾城小区附近人行横道红绿灯半夜反复播报盲音安全提示，且音量较大，影响周边居民休息。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250717_14823629",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202507/t20250717_14823629.html",
+   "question": "大足区邮亭镇洒水车早高峰期间作业，加剧交通拥堵。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250717_14823620",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202507/t20250717_14823620.html",
+   "question": "潼南区福山公园内仅有1座公共卫生间，群众如厕不便。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250717_14823600",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202507/t20250717_14823600.html",
+   "question": "江北区国奥村附近劳动者港湾的空调未开启，天气炎热影响使用。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250616_14717344",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202506/t20250616_14717344.html",
+   "question": "南岸区“铜元之光”观景台配套的4部电梯均无法正常使用，影响游客体验，也给附近群众出行带来不便。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250616_14717339",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202506/t20250616_14717339.html",
+   "question": "开州区郭家镇盆丰村4组仅有1个饮水池，无法满足村民日常用水需求。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250616_14717337",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202506/t20250616_14717337.html",
+   "question": "涪陵北站附近公交车站候车室多个不锈钢座椅破损，影响乘客使用。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250616_14717335",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202506/t20250616_14717335.html",
+   "question": "S206省道涪陵区百胜镇桂花村路段，有多棵行道树树枝折断掉落至路面，影响车辆通行。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250616_14717334",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202506/t20250616_14717334.html",
+   "question": "长寿区菩提街道中央公园1组团2栋居民楼内的灭火器过期，存在消防安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250616_14717333",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202506/t20250616_14717333.html",
+   "question": "近期，轨道交通2号线金家湾站附近桥墩正在开展彩绘作业，施工单位早晚高峰时段占用主干道施工，导致周边交通拥堵。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250616_14717332",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202506/t20250616_14717332.html",
+   "question": "铜梁区福果镇场镇路灯亮灯时段为18时至次日8时，现已进入夏季昼长夜短，路灯开关时间未相应调整，浪费电力资源。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250616_14717331",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202506/t20250616_14717331.html",
+   "question": "云阳县三亚湾智慧生鲜农贸市场附近LED广告牌通宵开启，强光直射附近居民楼，影响夜间休息。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250616_14717328",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202506/t20250616_14717328.html",
+   "question": "5月17日上午开车途经北碚区歇马隧道时，隧道内路灯不亮，存在交通安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250519_14632049",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202505/t20250519_14632049.html",
+   "question": "大足区国梁镇小桥河河道的水生植物过于茂盛，枯枝、落叶等漂浮物堆积较多，影响泄洪安全。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250519_14632030",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202505/t20250519_14632030.html",
+   "question": "北碚区童家溪镇重煤小区3号楼长期有居民从10楼以上“飞线”给电瓶车充电，存在消防安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250519_14632014",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202505/t20250519_14632014.html",
+   "question": "永川区何埂镇部分老旧房屋外墙瓷砖脱落，存在安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250519_14631986",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202505/t20250519_14631986.html",
+   "question": "开州区渠口镇巨屏社区一处防洪排水沟存在淤泥沉积、杂草丛生现象，汛期临近，可能对防洪排涝造成不利影响。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250519_14631948",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202505/t20250519_14631948.html",
+   "question": "“五一”期间，永川区松溉古镇景区夜间生活垃圾清理不及时，发出刺鼻气味。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250519_14631933",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202505/t20250519_14631933.html",
+   "question": "巫溪县康宁小区部分楼栋的灭火器缺失、过期，存在消防安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250519_14631921",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202505/t20250519_14631921.html",
+   "question": "受4月21日晚大风天气影响，渝中区凯旋路复旦中学附近行道树树枝掉落至车行道，存在交通安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250519_14631912",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202505/t20250519_14631912.html",
+   "question": "长寿区双龙镇飞石村灌溉水渠渗漏严重，影响输水灌溉。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250519_14631905",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202505/t20250519_14631905.html",
+   "question": "大足区棠香街道某小区外墙景观灯线路老化，存在坠落风险。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250519_14631898",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202505/t20250519_14631898.html",
+   "question": "近日，在江北区五里店街道星耀天地小区3栋附近，经常有车辆违规停放至人行道上，影响行人正常通行。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250519_14631863",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202505/t20250519_14631863.html",
+   "question": "万州区高笋塘街道某高楼顶部广告牌松动，存在掉落风险。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250519_14631847",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202505/t20250519_14631847.html",
+   "question": "目前正值“金三银四”就业季，高校毕业生等青年如何申请机关企事业单位的就业见习岗位？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250519_14631837",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202505/t20250519_14631837.html",
+   "question": "近期，永川区金龙镇灯坪村正在对九龙河河道开展整治，为便于施工作业，施工单位将河水全部抽排，影响春耕灌溉。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250519_14631830",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202505/t20250519_14631830.html",
+   "question": "近期，渝北区花石沟公园湖水发黑发臭，影响居民生活。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250423_14548849",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202504/t20250423_14548849.html",
+   "question": "长寿区新市街道红土地村提灌站设备故障，影响农作物灌溉。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250423_14548846",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202504/t20250423_14548846.html",
+   "question": "受近期强风天气影响，大渡口区迁禧花园小区一锈蚀路灯杆根部松动，存在倾倒风险。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250423_14548840",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202504/t20250423_14548840.html",
+   "question": "近期，綦江区石角镇坪上村部分区域居民生活用水短缺，影响正常生活。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250423_14548836",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202504/t20250423_14548836.html",
+   "question": "荣昌区电力部门计划于4月10日8—20时期间，对昌州故里片区配电设施开展检修，停电时间较长，影响餐饮商户经营。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250423_14548832",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202504/t20250423_14548832.html",
+   "question": "目前正处于禁渔期，个别人员在荣昌区濑溪河漫水桥附近非法捕鱼。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250423_14548831",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202504/t20250423_14548831.html",
+   "question": "巫山县大昌镇双胜村生活用水短缺，影响村民正常生活。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250423_14548829",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202504/t20250423_14548829.html",
+   "question": "大渡口区迎宾大道桥梓塘路段行道树枝叶茂盛，遮挡路灯影响照明。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250423_14548827",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202504/t20250423_14548827.html",
+   "question": "北碚区东阳街道黄桷幼儿园附近多棵行道树枯死多日未清理，枯枝易掉落砸中行人，存在安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250423_14548823",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202504/t20250423_14548823.html",
+   "question": "长寿区万顺镇院子村部分村民家中水压不足，洗衣机、热水器等家用电器无法正常使用。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250423_14548821",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202504/t20250423_14548821.html",
+   "question": "近日，酉阳县某网民通过网络平台发布“酉阳小坝高铁站已动工建设”的不实信息，误导他人。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250423_14548817",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202504/t20250423_14548817.html",
+   "question": "铜梁区安居镇龙兴村石家堰河沟漂浮大量青苔，影响灌溉用水。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250423_14548814",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202504/t20250423_14548814.html",
+   "question": "铜梁区原乡中央公园儿童游玩区域部分木地板翘边起拱，存在安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250407_14496758",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202504/t20250407_14496758.html",
+   "question": "目前为禁渔期，合川区官渡镇梭子村个别村民在渠江捕鱼，破坏水域生态环境。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250407_14496752",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202504/t20250407_14496752.html",
+   "question": "梁平区荫平镇双寨村垃圾站清运不及时，影响环境卫生。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250407_14496745",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202504/t20250407_14496745.html",
+   "question": "秀山县凤凰外滩小区违章搭建问题突出，部分业主圈占公共绿化区域修建花园，占用顶楼搭建房屋，影响房屋安全。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250407_14496737",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202504/t20250407_14496737.html",
+   "question": "大足区双路街道龙塘社区富茂小区的微型消防站灭火器瓶压力不足，影响正常使用。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250407_14496652",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202504/t20250407_14496652.html",
+   "question": "涪陵区李渡街道龙岭岗公路堆放大量碎石，部分碎石已散落至道路中央，存在交通安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250407_14496494",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202504/t20250407_14496494.html",
+   "question": "近期，北碚区椿萱大道正在进行道路施工，施工单位未设置安全指示牌，存在安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250407_14496477",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202504/t20250407_14496477.html",
+   "question": "汛期即将来临，开州区渠口镇巨屏社区一防洪排水沟堵塞，无法正常排水，影响防洪排涝和农田灌溉。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250407_14496454",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202504/t20250407_14496454.html",
+   "question": "大渡口区跳蹬镇某小区物业公司违规在盲道设置隔离桩，盲人通行存在安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250407_14496433",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202504/t20250407_14496433.html",
+   "question": "渝北区兴科二路一茶馆消防设施配备不齐、楼道堆放罐装水桶，存在消防安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250407_14496407",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202504/t20250407_14496407.html",
+   "question": "璧山区璧泉街道秋实学府小区一业主在阳台养殖蜜蜂，影响其他业主正常生活。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250407_14496394",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202504/t20250407_14496394.html",
+   "question": "大足区雍溪镇新农贸市场路段赶集日交通秩序混乱，行人车辆通行困难。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250320_14424072",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202503/t20250320_14424072.html",
+   "question": "涪陵区堡子小学附近污水管网破裂，污染环境，影响学生通行安全。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250320_14424070",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202503/t20250320_14424070.html",
+   "question": "南岸区南坪镇南滨西路万科金域学府附近边坡绿化带被部分居民开垦用于种菜，影响市容市貌。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250320_14424068",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202503/t20250320_14424068.html",
+   "question": "荣昌区植物科普园内部分植物的标签损坏，科普信息不全，恐误导游客。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250320_14424067",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202503/t20250320_14424067.html",
+   "question": "国道G242巫溪县徐家镇路段有巨型落石，影响安全通行。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250311_14394477",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202503/t20250311_14394477.html",
+   "question": "九龙坡区某运动中心游泳池水质不达标，影响身体健康。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250311_14394464",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202503/t20250311_14394464.html",
+   "question": "两江新区某幼儿园向每位学生收取300元材料费，违反相关规定。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250311_14394448",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202503/t20250311_14394448.html",
+   "question": "大足区石马镇白光村一空置房屋成危房，存在倒塌安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250311_14394440",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202503/t20250311_14394440.html",
+   "question": "石柱县龙沙镇永丰村长时间停水，村中高龄老人较多无法取水，影响日常生活。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250311_14394426",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202503/t20250311_14394426.html",
+   "question": "长寿区八颗街道曙光村沈家河河堤垮塌，无法蓄水，影响春耕灌溉。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250311_14394296",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202503/t20250311_14394296.html",
+   "question": "璧山区大兴镇石鼻村三官桥路段的公路安全护栏、路基损坏，存在安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250311_14394261",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202503/t20250311_14394261.html",
+   "question": "涪陵区蔺市街道渝巴路正在进行老旧路灯升级改造施工，但施工单位将电线放在道路中间，现场未设置安全警示牌，存在安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250311_14394248",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202503/t20250311_14394248.html",
+   "question": "开州区体育馆羽毛球场的照明设施损坏，影响群众锻炼。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250311_14394239",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202503/t20250311_14394239.html",
+   "question": "合川区名人街58号楼栋外墙一块广告牌的钢架生锈腐蚀严重，存在掉落风险。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250311_14394220",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202503/t20250311_14394220.html",
+   "question": "大足区三驱镇佛会村排水沟渠没有加装盖板，老人小孩出行存在安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250311_14394210",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202503/t20250311_14394210.html",
+   "question": "新学期已开学，丰都县第一小学的校车没有恢复运营，学生上下学不方便。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250311_14394179",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202503/t20250311_14394179.html",
+   "question": "长寿区中央公园附近某超市占用人行道杀鱼，污水横流、臭气熏人，影响市容市貌。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250311_14394160",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202503/t20250311_14394160.html",
+   "question": "万州区龙驹镇一液化石油气经营点在人行道上堆放液化气罐，存在安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250311_14394140",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202503/t20250311_14394140.html",
+   "question": "开州区凤凰广场的直饮水设备损坏，市民饮水不便。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250311_14394111",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202503/t20250311_14394111.html",
+   "question": "万州区万川大道至五桥互通立交路段的隔离护栏未安装反光标识，夜间行车难以辨别护栏位置，存在安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250219_14320041",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202502/t20250219_14320041.html",
+   "question": "长寿区石堰镇大塘村沟渠堵塞，影响春耕灌溉。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250219_14320018",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202502/t20250219_14320018.html",
+   "question": "江津区先锋镇车管所体检中心人流高峰期秩序混乱，没有工作人员维持秩序，影响驾驶证办理效率。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250219_14320017",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202502/t20250219_14320017.html",
+   "question": "合川区义乌大道沿线多处公交车站的站牌损坏、缺失，影响群众出行。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250219_14320014",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202502/t20250219_14320014.html",
+   "question": "沙坪坝区联芳街道富州新城兰亭小区附近没有电动自行车充电桩，部分业主带车乘坐电梯回家充电，存在消防隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250219_14320007",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202502/t20250219_14320007.html",
+   "question": "永川区三教镇永乐佳苑小区13栋水压不足，热水器无法正常使用，影响居民生活。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250219_14320001",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202502/t20250219_14320001.html",
+   "question": "潼南区梓潼街道贵博翡翠城小区附近某汽修厂将多桶废弃机油堆放在厕所附近，担心引发火灾。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250219_14319518",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202502/t20250219_14319518.html",
+   "question": "近日，群众开车经过南岸区真武山隧道时，发现隧道里的路灯全部不亮，存在安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250127_14245061",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202501/t20250127_14245061.html",
+   "question": "巫溪县城区部分公交车语音播报系统无到站语音提醒，影响乘客出行。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250127_14245052",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202501/t20250127_14245052.html",
+   "question": "云阳县蔈草镇蔈草社区岳家湾乡村路段未设置垃圾桶，影响环境卫生。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250127_14245038",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202501/t20250127_14245038.html",
+   "question": "巴南区石滩社区公园内的休闲座椅损坏，影响正常使用。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250127_14245026",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202501/t20250127_14245026.html",
+   "question": "重庆科技大学家属区附近的行道树生长茂盛，部分树枝遮挡路灯，影响夜间照明。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250127_14245019",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202501/t20250127_14245019.html",
+   "question": "某烟花爆竹零售商在长寿区八颗街道梓潼村九组朱家大湾附近的仓库内存放烟花爆竹产品，该仓库距居民区较近，存在安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250114_14158626",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202501/t20250114_14158626.html",
+   "question": "两江新区康美街道互联网产业园三期附近有居民设置熏肉点熏肉，污染空气。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250114_14158426",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202501/t20250114_14158426.html",
+   "question": "目前，沙坪坝区沙坪坝街道新华村社区正在实施供水管网改造施工，人行道开挖后未设置安全警示标牌，存在安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250114_14158250",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202501/t20250114_14158250.html",
+   "question": "近期天气较冷，永川区图书馆闭馆前1小时关闭暖气，导致供暖不足，影响市民阅读。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250114_14158029",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202501/t20250114_14158029.html",
+   "question": "荣昌区昌州街道小康路231号附近人行道占道施工，公示的完工时间为2024年12月15日，但直到2024年12月24日仍未完工，且现场处于停工状态，影响居民出行。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250114_14157854",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202501/t20250114_14157854.html",
+   "question": "南岸区学府大道一超市违规经营电子游戏机，吸引多位未成年人前往玩耍。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250114_14157575",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202501/t20250114_14157575.html",
+   "question": "西部科学城重庆高新区滨河公园内的座椅损坏，影响正常使用。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250114_14157113",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202501/t20250114_14157113.html",
+   "question": "九龙坡区华岩镇某摩托车配件加工厂未配备足够的消防设施，厂房大门处还堆放了很多纸箱和杂物，存在安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20250114_14156834",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202501/t20250114_14156834.html",
+   "question": "近期，涪陵城区多辆公交车行驶过程中，驾驶员均在无人通行的斑马线前停车观察，车辆运行速度太慢，造成交通拥堵。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20241231_14036965",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202412/t20241231_14036965.html",
+   "question": "轨道交通3号线列车部分座椅不防滑，乘客容易从座椅上滑落，存在安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20241231_14036946",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202412/t20241231_14036946.html",
+   "question": "荣昌区启昌财富广场小区经常停水，影响居民正常生活。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20241231_14036931",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202412/t20241231_14036931.html",
+   "question": "北碚区三圣镇板桥二组的堰沟垮塌，影响耕种灌溉。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20241231_14036814",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202412/t20241231_14036814.html",
+   "question": "南岸区弹子石街道卫国路有两栋房屋正在拆除，现场防尘措施不到位，扬尘污染严重。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20241231_14036804",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202412/t20241231_14036804.html",
+   "question": "梁平区龙门镇三官村8组一村民在农田上违规搭建钢棚。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20241231_14036801",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202412/t20241231_14036801.html",
+   "question": "万盛城区至金桥镇道路正在施工，但未设置安全指示标牌，过往车辆及行人存在安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20241231_14036787",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202412/t20241231_14036787.html",
+   "question": "渝北区绣湖路一商户在人行道上焚烧炭火取暖，污染空气。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20241231_14036770",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202412/t20241231_14036770.html",
+   "question": "万盛经开区黑山镇紫薇九路一处新能源汽车充电站的充电桩损坏，车辆充电不便。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20241217_13896835",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202412/t20241217_13896835.html",
+   "question": "近期，石柱县冷水镇气温骤降，建议开放公共服务大厅供市民取暖。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20241217_13896809",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202412/t20241217_13896809.html",
+   "question": "渝北区龙脊路奔力建筑材料市场附近一盏路灯位于盲道上，影响盲人正常通行。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20241217_13896769",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202412/t20241217_13896769.html",
+   "question": "酉阳县酉兴路斑竹园隧道内灯光昏暗，存在安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20241217_13896756",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202412/t20241217_13896756.html",
+   "question": "两江新区大竹林街道壹号院小区2期东门附近道路堆满了垃圾，影响市容市貌。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20241217_13896730",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202412/t20241217_13896730.html",
+   "question": "丰都县平东路三支路20号1单元旁的空地上，有居民熏制腊肉香肠，产生浓烟粉尘，污染环境。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20241217_13896710",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202412/t20241217_13896710.html",
+   "question": "石柱县龙沙镇油房社区一栋无主房屋破烂，存在倒塌风险。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20241217_13896693",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202412/t20241217_13896693.html",
+   "question": "巫溪县红池坝景区个别路段路面有落石，影响行车安全。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20241217_13896677",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202412/t20241217_13896677.html",
+   "question": "万盛经开区黑山镇南门村公共厕所的无障碍卫生间被环卫工人堆放了清洁工具，残障人士如厕不便。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20241217_13896625",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202412/t20241217_13896625.html",
+   "question": "九龙坡区九渡口江边公园车位较少，游玩市民车辆停放不便。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20241217_13896568",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202412/t20241217_13896568.html",
+   "question": "位于长寿区的某大型国有施工企业，拖欠65名工人工资185万余元。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20241217_13896547",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202412/t20241217_13896547.html",
+   "question": "綦江区石壕镇紫龙村设置的地灾安全隐患标识牌破损，未能起到安全警示作用。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20241217_13896531",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202412/t20241217_13896531.html",
+   "question": "江津区白沙镇高速公路下道口转盘处有多辆私家车从事非法营运活动。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20241217_13896523",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202412/t20241217_13896523.html",
+   "question": "石柱县万安街道银杏苑小区的排污管道污水渗漏，导致小区生活污水流入附近河道，污染水源。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20241217_13896402",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202412/t20241217_13896402.html",
+   "question": "渝北区长安锦绣城小学旁一便利店违规设置电子游戏机，吸引未成年人前往玩耍。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20241202_13849777",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202412/t20241202_13849777.html",
+   "question": "万州北站未设置网约车乘车点，网约车接送乘客经常被交巡警、运管执法人员驱赶，存在安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20241202_13849765",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202412/t20241202_13849765.html",
+   "question": "永川区卫星湖街道南华村在修建饮水工程期间，施工损坏道路未及时修复，影响群众出行。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20241202_13849757",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202412/t20241202_13849757.html",
+   "question": "武隆区大木桥公租房小区车库的新能源充电桩损坏，车主充电不便。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20241202_13849751",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202412/t20241202_13849751.html",
+   "question": "北碚区蔡家金科博翠山麓附近人行道多个井盖损坏，影响通行安全。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20241202_13849747",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202412/t20241202_13849747.html",
+   "question": "现已进入冬季，早上7点出门发现，渝北区红石路、松牌路等区域路灯已熄灭，道路昏暗，存在安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20241202_13849739",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202412/t20241202_13849739.html",
+   "question": "长寿区但渡镇场镇至楠木院村的客运班车近日停运，群众出行不便。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20241202_13849736",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202412/t20241202_13849736.html",
+   "question": "南川区东城街道北郊村五组转山路沿线自来水水压不足，影响上百户村民正常生活。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20241202_13849720",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202412/t20241202_13849720.html",
+   "question": "北碚区三溪口还房附近的园区二路公厕位于露天停车场内，驾车的市民如厕需支付停车费。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20241202_13849710",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202412/t20241202_13849710.html",
+   "question": "万盛经开区黑山镇鱼子岗村白水溪到黑山谷景区北门的公路坡度大、弯道多，缺少安全指示标牌，存在安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20241202_13849702",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202412/t20241202_13849702.html",
+   "question": "丰都县平都东路5支路停车位本就紧张，而附近个别商家私自安装地锁占用部分车位，进一步加剧了停车难题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20241202_13849693",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202412/t20241202_13849693.html",
+   "question": "江津区雍山郡小区自来水管频繁爆管停水，影响业主生活。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20241202_13849673",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202412/t20241202_13849673.html",
+   "question": "梁平区福禄镇天塔村汝溪河河堤边有大量建筑废渣，污染生态环境。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20241202_13849668",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202412/t20241202_13849668.html",
+   "question": "菜园坝长江大桥南桥头部分景观灯不亮，影响城市景观。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20241202_13849665",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202412/t20241202_13849665.html",
+   "question": "某新能源公司在垫江县三溪镇箐口社区正街一居民楼顶安装了光伏发电板，其宽度超过了屋檐，影响居民采光。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20241113_13794751",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202411/t20241113_13794751.html",
+   "question": "大足区中敖镇金盆村4组王家长田坎公路旁岩石垮塌，车辆无法通行。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20241113_13794749",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202411/t20241113_13794749.html",
+   "question": "西部科学城重庆高新区上花园水库公园的步行栈道木板损坏、缺失，存在安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20241113_13794744",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202411/t20241113_13794744.html",
+   "question": "北碚区李子坡公园公交车站往万寿公租房方向的道路正在施工，但现场未设置人行通道，行人只能借车行道通行，存在安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20241113_13794736",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202411/t20241113_13794736.html",
+   "question": "大足区三驱镇玉金河河面长满水葫芦，影响河道水生态环境。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20241113_13794729",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202411/t20241113_13794729.html",
+   "question": "璧山区黛山大道某工程项目部拖欠20多名工人工资30余万元。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20241113_13794710",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202411/t20241113_13794710.html",
+   "question": "两江新区金安路多盏路灯长期不亮，附近有一所学校和多个居民小区，群众夜间出行不便。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20241022_13727321",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202410/t20241022_13727321.html",
+   "question": "云阳县盘龙街道石楼村6组自来水管爆裂，影响居民正常用水。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20241022_13727320",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202410/t20241022_13727320.html",
+   "question": "酉阳县某小学的路灯不分昼夜常亮，影响周边居民生活，浪费电力资源。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20241022_13727319",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202410/t20241022_13727319.html",
+   "question": "长寿区201路公交车班次少，市民候车时间太长。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20241022_13727317",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202410/t20241022_13727317.html",
+   "question": "江津区贾嗣镇长新路近期实施管网施工改造，现场未设置安全警示牌，存在安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20241022_13727316",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202410/t20241022_13727316.html",
+   "question": "G318国道梁平区仁贤镇路段多处车行道标线模糊不清，影响车辆通行安全。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20241022_13727315",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202410/t20241022_13727315.html",
+   "question": "万州区文德初级中学附近的星光路多盏路灯不亮，学生出行存在安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20241022_13727313",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202410/t20241022_13727313.html",
+   "question": "武隆区某景区检票口宣传展板有错别字，影响景区形象。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20241022_13727311",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202410/t20241022_13727311.html",
+   "question": "南川区水江镇场镇多个商铺经营者利用废旧摩托车占用公共停车位，导致其他车辆无处停放。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20241022_13727308",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202410/t20241022_13727308.html",
+   "question": "秀山县迎春路存在私自占用人行道安装地锁、增设停车位的现象，影响行人正常通行。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20241022_13727305",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202410/t20241022_13727305.html",
+   "question": "巫溪县兰英乡通往兰英村的道路弯道较多，路边设置的交通安全警示牌字迹模糊、凸面镜位置偏移，未能起到安全警示作用。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20241011_13695828",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202410/t20241011_13695828.html",
+   "question": "忠县兴峰乡场镇多处下水道井盖破损、缺失，存在安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20241011_13695819",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202410/t20241011_13695819.html",
+   "question": "丰都县渝建路三王隧道内照明昏暗，存在交通安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20241011_13695811",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202410/t20241011_13695811.html",
+   "question": "万盛经开区东林街道新工区附近没有新能源汽车充电桩，电动车车主充电不便。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20241011_13695805",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202410/t20241011_13695805.html",
+   "question": "綦江区隆盛镇顺山村天坪岚垭山坪塘的救生竹竿和警示标识，因大风受损严重无法正常使用。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20241011_13695799",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202410/t20241011_13695799.html",
+   "question": "今年8月以来，丰都县仁沙镇李家坪村自来水供应不足，影响村民正常生活。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20241011_13695794",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202410/t20241011_13695794.html",
+   "question": "九龙坡区西彭镇育才中学校门口未设置红绿灯，路面也未施划斑马线，存在安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20241011_13695788",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202410/t20241011_13695788.html",
+   "question": "万州区江南健身中心停车场道闸收费系统二维码补光灯太亮，车主扫码时非常刺眼。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20241011_13695779",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202410/t20241011_13695779.html",
+   "question": "永川区某小学学生使用的部分桌椅损坏，存在安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20241011_13695730",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202410/t20241011_13695730.html",
+   "question": "江津区敏华公交车站候车亭顶棚破损，下雨天乘客无法避雨。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240926_13660413",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202409/t20240926_13660413.html",
+   "question": "忠县香山湖小区多个灭火器过期无法使用，存在安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20241011_13695725",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202410/t20241011_13695725.html",
+   "question": "南川区东城街道仙龙塘福苑小区A栋一业主在楼顶搭建钢架棚，存在安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240926_13660411",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202409/t20240926_13660411.html",
+   "question": "近期，由于连晴高温天气，江津区德感街道长冲社区石埂组水压不足，影响村民正常生活。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20241011_13695722",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202410/t20241011_13695722.html",
+   "question": "九龙坡区大鼎世纪滨江小区附近开设了一家成人用品店，该店距离小学、幼儿园较近，影响未成年人身心健康。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240926_13660405",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202409/t20240926_13660405.html",
+   "question": "重庆某职业学校学生宿舍空调制冷效果较差，影响学生休息。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20241011_13695717",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202410/t20241011_13695717.html",
+   "question": "江津区双福街道国家电网附近一处新能源汽车充电站的充电桩全部损坏，车辆充电不便。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240926_13660403",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202409/t20240926_13660403.html",
+   "question": "开州区开州大道正在实施电线迁改工程，人行道上新建的电力集装箱占用了盲道，影响盲人正常通行。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240926_13660398",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202409/t20240926_13660398.html",
+   "question": "大足北山石刻景区内，个别导游在讲解时使用激光笔，可能损害石刻文物。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240926_13660397",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202409/t20240926_13660397.html",
+   "question": "江津区石门镇多座公共厕所设施损坏，影响居民使用。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240926_13660390",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202409/t20240926_13660390.html",
+   "question": "江北区渝澳大道往蚂蟥梁立交方向道路有多处坑洼，车辆通行存在安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240926_13660381",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202409/t20240926_13660381.html",
+   "question": "黔江区黔江中学附近一临街商铺“飞线”为电瓶车充电，存在安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240926_13660375",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202409/t20240926_13660375.html",
+   "question": "两江新区博翠大道多盏路灯不亮，居民出行不便。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240926_13660372",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202409/t20240926_13660372.html",
+   "question": "南川区石溪镇翠丰村不通客运车，当地500多名村民出行不便。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240926_13660366",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202409/t20240926_13660366.html",
+   "question": "近期连续高温天气，南川区水江镇乐村兴茂康养度假区供水不足，居民生活不便。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240926_13660346",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202409/t20240926_13660346.html",
+   "question": "江津区双福街道迪鑫阳光天城小区门口的电动摩托车充电桩较少，无法满足车主充电需求。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240926_13660339",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202409/t20240926_13660339.html",
+   "question": "南川区头渡镇玉台村电压不足，家用电器无法正常使用。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240904_13591821",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202409/t20240904_13591821.html",
+   "question": "近期，铜梁区南城街道马滩村14组至砖厂路段，个别村民占用行车道晾晒谷子，存在安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240904_13591819",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202409/t20240904_13591819.html",
+   "question": "荣昌区观胜镇云峰村近期存在电力供应不足的情况，影响村民正常生产生活。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240904_13591816",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202409/t20240904_13591816.html",
+   "question": "近期久旱不下雨，黔江区黄溪镇三羊村村民饮水困难。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240904_13591812",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202409/t20240904_13591812.html",
+   "question": "江津区四屏镇场镇多座公厕设施设备损坏，影响正常使用。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240904_13591810",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202409/t20240904_13591810.html",
+   "question": "近期高温天气，铜梁区白羊镇水碾村和平桥下的白羊河里，有不少小孩下河游泳，存在安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240904_13591797",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202409/t20240904_13591797.html",
+   "question": "巫山县曲尺乡三峡云岭江山小区自来水浑浊，影响正常饮用。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240904_13591795",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202409/t20240904_13591795.html",
+   "question": "北碚区三圣镇德龙村艾家山公路坡度大、弯道多，但未安装护栏，存在安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240904_13591792",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202409/t20240904_13591792.html",
+   "question": "江津区四屏镇春三里小区附近道路，经常有摩托车驾驶员行驶中未佩戴头盔，存在安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240904_13591789",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202409/t20240904_13591789.html",
+   "question": "大渡口区晨花公园内的儿童游乐设施老旧、破损，存在安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240904_13591788",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202409/t20240904_13591788.html",
+   "question": "当前正值水稻收割季节，铜梁区双山镇双河社区广场路转盘附近，多台水稻收割机乱停乱放，影响正常交通。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240828_13567586",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202408/t20240828_13567586.html",
+   "question": "沙坪坝区沙北街附近一便民饮水机故障，无法出水。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240828_13567582",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202408/t20240828_13567582.html",
+   "question": "江津区恒大金碧天下二期小区多栋居民楼1楼大厅内，电动摩托车随意停放，阻碍居民正常通行。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240904_13591787",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202409/t20240904_13591787.html",
+   "question": "酉阳县龙潭镇中学至龙潭镇一中的多辆客运车不按规定线路行驶，违规绕行至酉阳火车站、酉阳县城、龚滩古镇景区等地接送乘客，影响营运秩序。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240904_13591781",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202409/t20240904_13591781.html",
+   "question": "巴南区莲花街道大中村的农业用水水管损坏，影响农作物灌溉。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240828_13567577",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202408/t20240828_13567577.html",
+   "question": "沙坪坝区土主街道一餐馆多名服务员未办理健康证，存在食品安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240828_13567570",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202408/t20240828_13567570.html",
+   "question": "秀山县溪口镇五龙社区潮水1组84号附近多盏路灯不亮，影响15户62人出行安全。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240828_13567566",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202408/t20240828_13567566.html",
+   "question": "大足区高坪镇高峰村一铁路项目工地混凝土罐车长期超载运输，存在安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240828_13567565",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202408/t20240828_13567565.html",
+   "question": "南川区德隆镇洪湖村一村民未经许可，擅自在柏枝溪河道边开展沙滩越野车经营活动。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240828_13567563",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202408/t20240828_13567563.html",
+   "question": "暑假期间，巴南区图书馆入馆读者较多，馆内座位紧缺，经常上午8点30分后便无空位。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240828_13567553",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202408/t20240828_13567553.html",
+   "question": "西部科学城重庆高新区龙湖U城至大学城南二路之间为学校和商业区，人流量较大，但附近没有公厕，群众如厕困难。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240828_13567544",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202408/t20240828_13567544.html",
+   "question": "近期，重庆中国三峡博物馆游客较多，排队入馆现象普遍。但排队区域遮阳设施不足，游客被迫在烈日下长时间等待。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240828_13567540",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202408/t20240828_13567540.html",
+   "question": "彭水县滨江路人行道上近期出现很多蟑螂，影响环境卫生。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240802_13456658",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202408/t20240802_13456658.html",
+   "question": "南岸区弹子石新街某小区游泳池未办理卫生许可证，违规开展经营活动。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240802_13456637",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202408/t20240802_13456637.html",
+   "question": "巴南区莲花街道万泉街社区服务中心附近设置有方便快递人员休息的“小哥驿站”，有个别车主私自从驿站接线为电动自行车充电，存在安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240802_13456628",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202408/t20240802_13456628.html",
+   "question": "丰都县社坛镇文汇村8组一村民私自砍伐多棵松树，破坏生态环境。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240802_13456622",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202408/t20240802_13456622.html",
+   "question": "北碚区一室内攀岩馆未办理相关证照违规经营。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240802_13456603",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202408/t20240802_13456603.html",
+   "question": "秀山县乌杨街道贵图社区的平江河段河面漂浮大量生活垃圾，影响市容市貌。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240802_13456593",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202408/t20240802_13456593.html",
+   "question": "江津区德感街道德兴路某安乐堂在未办理相关证照的情况下，违规开展丧葬经营活动。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240802_13456568",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202408/t20240802_13456568.html",
+   "question": "合川区云门街道天龙村河湖塘较多，近期气温升高，学生私自下河游泳现象频发，存在安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240802_13456544",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202408/t20240802_13456544.html",
+   "question": "北碚区童家溪镇建设村通村公路坡度大、弯道多，缺少安全指示标牌，存在安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240802_13456536",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202408/t20240802_13456536.html",
+   "question": "奉节县石岗乡天星村一发电项目拖欠14名工人工资。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240802_13456518",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202408/t20240802_13456518.html",
+   "question": "涪陵区崇义街道景天龙珠小区居民楼大部分楼层没有灭火器，存在安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240802_13456503",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202408/t20240802_13456503.html",
+   "question": "江津区某景区游船超载情况严重，致部分游客无救生衣可穿，存在安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240802_13456475",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202408/t20240802_13456475.html",
+   "question": "垫江县澄溪镇某培训机构违规开展奥数、英语等学科类培训活动。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240717_13378601",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202407/t20240717_13378601.html",
+   "question": "石柱县冷水镇一小区物业服务企业违规设置建筑垃圾堆放点，影响周边居民生活环境。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240717_13378598",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202407/t20240717_13378598.html",
+   "question": "永川区中山路街道人民东路133号星光小区居民楼外墙瓷砖掉落，存在安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240717_13378596",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202407/t20240717_13378596.html",
+   "question": "江津珞璜工业园B区某机械加工厂特种作业人员，在未取得电焊工操作证的情况下违规开展电焊作业。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240717_13378590",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202407/t20240717_13378590.html",
+   "question": "永川区中山路街道某商场的消防通道被集装箱占用，存在安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240717_13378585",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202407/t20240717_13378585.html",
+   "question": "綦江区隆盛镇葫芦村石朝门组通村公路因暴雨出现滑坡险情，道路被大量落石和泥土覆盖，影响车辆通行。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240717_13378582",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202407/t20240717_13378582.html",
+   "question": "重庆高新区富力城倾城里和富力城繁华里小区之间道路多盏路灯不亮，附近上万名业主摸黑回家，存在安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240717_13378573",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202407/t20240717_13378573.html",
+   "question": "轨道交通4号线唐家沱站4A出口附近人行道上，长期有机动车违规停放，影响行人通行。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240717_13378558",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202407/t20240717_13378558.html",
+   "question": "两江新区翠云街道一公园环境整治项目施工单位拖欠35名工人工资50万元。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240717_13378532",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202407/t20240717_13378532.html",
+   "question": "潼南区潼樾府和福江名城小区附近设置的多个停车位占用盲道，影响盲人通行。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240626_13325924",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202406/t20240626_13325924.html",
+   "question": "沙坪坝区富洲新城D街区小区东门右侧人行道上有1个路灯底座，行人经过容易绊倒，存在安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240626_13325913",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202406/t20240626_13325913.html",
+   "question": "石柱县冷水镇河源村龙洞坪的生活垃圾转运不及时，垃圾桶冒装外溢，影响居民生活。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240626_13325910",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202406/t20240626_13325910.html",
+   "question": "省道S202开州区中和镇至三汇口乡路段改造工程已开工3个月，施工进度缓慢，长时间占道施工影响群众出行。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240626_13325907",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202406/t20240626_13325907.html",
+   "question": "荣昌区昌元街道康宁广场附近某游戏厅违规经营带有赌博功能的游戏机。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240626_13325904",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202406/t20240626_13325904.html",
+   "question": "合川区南津街街道江城丽景小区居民楼道内部分灭火器压力不足，存在消防安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240626_13325900",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202406/t20240626_13325900.html",
+   "question": "垫江县渝东建材综合市场附近一商铺长期占用邻近3个市政停车位装卸货物，影响其它车辆停放。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240626_13325899",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202406/t20240626_13325899.html",
+   "question": "南川区头渡镇一露营基地未办理停车收费备案登记，向游客违规收取停车费。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240626_13325895",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202406/t20240626_13325895.html",
+   "question": "北碚区协和路路灯早上7:30仍然开启，浪费资源。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240626_13325892",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202406/t20240626_13325892.html",
+   "question": "九龙坡区黄杨路鹅皋路路口车流量较大，但鹅皋路左转至黄杨路的车行绿灯仅27秒，经常发生交通拥堵。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240614_13295594",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202406/t20240614_13295594.html",
+   "question": "城口县葛城街道腾宇中央新城小区附近某网吧违规接纳未成年人上网。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240614_13295591",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202406/t20240614_13295591.html",
+   "question": "城口县双河乡柳河村一沙场进出大货车较多，但沙场附近公路弯道处未设置警示标识，存在安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240614_13295585",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202406/t20240614_13295585.html",
+   "question": "忠县某高铁项目劳务公司拖欠50多名农民工工资142万元。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240614_13295559",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202406/t20240614_13295559.html",
+   "question": "北碚区碚青路与灵犀大道交叉路口左转车行绿灯时长较短，早晚高峰易发生拥堵。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240614_13295546",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202406/t20240614_13295546.html",
+   "question": "南岸区城南家园六组团小区休闲广场被车辆违停占用，影响群众锻炼身体。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240614_13295535",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202406/t20240614_13295535.html",
+   "question": "酉阳县某幼儿园向符合资助政策的幼儿收取保教费和生活费，违反相关规定。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240614_13295527",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202406/t20240614_13295527.html",
+   "question": "铜梁区巴川河阳光水岸小区河段的安全防护栏腐朽损坏，存在安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240614_13295518",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202406/t20240614_13295518.html",
+   "question": "九龙坡区冶金一村25栋附近道路坡度较大，路边约1米高的花台遮挡驾驶员视线，存在交通安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240614_13295507",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202406/t20240614_13295507.html",
+   "question": "潼南区江北菜市场附近道路长期存在车辆乱停乱放情况。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240511_13197256",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202405/t20240511_13197256.html",
+   "question": "綦江区安稳镇上坝村4社饮用水供水不足，影响正常生活。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240511_13197252",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202405/t20240511_13197252.html",
+   "question": "九龙坡区黄桷坪街道邮局支路附近一药房违规将绘画材料与药品摆放在同一位置销售。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240511_13197250",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202405/t20240511_13197250.html",
+   "question": "南岸区南坪东路83号老旧小区改造已完工，施工方未清运施工产生的建筑垃圾，影响居民生活。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240511_13197243",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202405/t20240511_13197243.html",
+   "question": "南岸区花园路街道明佳园小区电梯安装施工现场用纱布作围挡，存在安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240511_13197237",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202405/t20240511_13197237.html",
+   "question": "江北区洋河体育场附近一十字路口人行绿灯仅15秒，道路较宽行人无法正常通行，存在交通安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240511_13197227",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202405/t20240511_13197227.html",
+   "question": "丰都县保合镇余家坝村4组高标准农田改造已完工，施工单位在机耕道上堆放大量淤泥，导致插秧机无法下田插秧。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240511_13197217",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202405/t20240511_13197217.html",
+   "question": "市民反映，江津区圣泉街道半山府邸小区地下车库堆放油漆、泡沫板、塑料口袋等易燃易爆物品，存在安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240511_13197213",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202405/t20240511_13197213.html",
+   "question": "渝北区兴隆镇兴隆社区东城公交车站附近的便民饮水机出现故障，无法正常使用。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240511_13197197",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202405/t20240511_13197197.html",
+   "question": "巴南区李家沱街道林荫村5幢附近一卤菜店使用的瓶装液化气罐已过期，存在安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240511_13197190",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202405/t20240511_13197190.html",
+   "question": "渝北区紫荆路某酒店通宵开启招牌灯箱，光线刺眼影响附近居民生活。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240511_13197182",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202405/t20240511_13197182.html",
+   "question": "开州区桔乡路258号附近设置的福利彩票亭占用盲道，人行道变窄，影响正常通行。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240511_13197168",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202405/t20240511_13197168.html",
+   "question": "涪陵区黎明转盘至翔正丽都小区路段中间隔离栏缺失，个别车辆违规调头、部分行人横穿公路，存在交通安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240511_13197165",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202405/t20240511_13197165.html",
+   "question": "大足区万古镇三元村农田改造后无法蓄水，影响耕种。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240422_13147928",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202404/t20240422_13147928.html",
+   "question": "汛期将至，云阳县凤鸣镇院庄社区上游水库周边没有设置安全警示标识标牌，存在安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "cq-hdjl",
+   "id": "t20240422_13147923",
+   "url": "https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/202404/t20240422_13147923.html",
+   "question": "南岸区涂山路一商铺门口长期摆放游戏机，吸引多位未成年人游玩。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

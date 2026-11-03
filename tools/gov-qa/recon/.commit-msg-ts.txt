@@ -1,0 +1,52 @@
+fix(govqa): 天水只采 60 条的根因 —— `totalpage` 是回显参数不是真实页数
+
+## 现象
+
+`gs-tianshui` 只采到 **60 条**，但并行 agent 的模块注释写「约 2444 条」。
+日志：
+
+```
+[gs-tianshui] 各栏 totalpage=[] → 遍历 1..1     ← 只翻了 1 页！
+[gs-tianshui] 列表第 1/1 页：新增 60 条
+```
+
+## 根因（探针实测）
+
+写 `recon/probe-tianshui-page.py` 对比 `tp=1` 与 `tp=99`：
+
+```
+tp=1:   totalPage = 0          分页链接 0 个
+tp=99:  totalPage = 99         分页链接 5 个
+两次「共 N 条」都是 ['404','202','656','1182']   ← ★ 不变
+```
+
+**结论：`totalpage` 是 URL 传入参数，页面只是「回显」它** ——
+传 1 就显示 1（甚至 0），传 99 就显示 99。**它不是真实页数。**
+
+**真实的各栏条数在「共 N 条」里**：404 / 202 / 656 / 1182
+（正好是并行 agent 注释里的数字，它也观察到了这几个数，但用错了地方）。
+
+## 修法
+
+```python
+COUNTS_RE = re.compile(r"共\s*(\d+)\s*条")     # ★ 真实条数
+ROWS_PER_PAGE = 15                              # 每栏每页 15 行
+
+counts = [int(x) for x in COUNTS_RE.findall(first.text or "")]
+if counts:
+    maxpage = -(-max(counts) // ROWS_PER_PAGE)  # 向上取整 ⇒ ceil(1182/15) = 79
+```
+
+79 页正好对上并行 agent 注释里的「栏目页数 27/14/44/79」。
+
+## ★ 通用教训
+
+> **URL 参数被页面「回显」时，别把它当成真实值。**
+> `totalpage=99` 返回的页面里写着 `totalPage=99` —— 这只是 echo，不是数据。
+>
+> **判断依据要看「不变的那个数」**：两次请求里 `totalpage` 变了（0→99），
+> 而「共 N 条」没变（404/202/656/1182）⇒ 后者才是真数据。
+
+## 验证
+
+后台重跑中（`gs-tianshui-full.log`），预计 79 页 × 4 栏 ≈ 2,444 条。

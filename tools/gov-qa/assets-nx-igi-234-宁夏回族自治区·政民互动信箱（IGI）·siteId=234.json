@@ -1,0 +1,115 @@
+{
+ "A_考卷": [],
+ "B_补料": [
+  {
+   "source": "nx-igi-234",
+   "id": "10072248",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072248",
+   "question": "您好，我想咨询下人防车位可否安装充电桩，有什么要求没",
+   "cited_hits": [],
+   "cited_missing": [
+    "中华人民共和国人防法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-234",
+   "id": "10072246",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072246",
+   "question": "天下川人防工程地下车库内重要要素房间内倾倒垃圾和放置杂物，请问这种情况什么部门监管。有具体的处罚措施吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "中华人民共和国人民放空法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nx-igi-234",
+   "id": "10072244",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072244",
+   "question": "领导您好。请问租赁20年的人防车位能够加地锁吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "中华人民共和国人防法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-234",
+   "id": "10072238",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072238",
+   "question": "京能天下川小区二期底下车库为人防工程车库，请问人防工程车库物业有权出售吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "人民防空工程平时开发利用管理办法",
+    "宁夏回族自治区人民防空工程建设管理规定",
+    "城市地下空间开发利用管理规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nx-igi-234",
+   "id": "10072236",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072236",
+   "question": "我是宁夏人防生，现就读与陆军工程大学，我想问一下，每年有没有指标招聘我们这些人防生呢？我们毕业有规定，必须和具有人防资质的单位签三方协议，所以我想请问宁夏那些单位具有人防资质？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于加强 2020 届人防本科毕业生 就业工作的指导意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-234",
+   "id": "10072230",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072230",
+   "question": "尊敬的领导你们好！ 我是银川市金凤区棚户区项目的施工单位的项目技术负责人，我们项目地下车库本次首次涉及到人防工程，关于战时的设备采购安装这块儿内容是否在平时施工时候购买并放置在相应位置，在不同地区有不同要求，我们通过查找相关规范也暂无明确说",
+   "cited_hits": [],
+   "cited_missing": [
+    "人民防空工程质量验收与评价标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-234",
+   "id": "10072228",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072228",
+   "question": "宁夏对工程上人防标示标牌有具体的规格，样式要求吗？有具体的文件吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "人民防空工程设备设施标志和着色标准",
+    "宁夏回族自治区人防工程标识制作及安装要求",
+    "自治区人民防空办公室关于规范设置人防工程标牌的通知"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "nx-igi-234",
+   "id": "10072227",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072227",
+   "question": "办公时间会因为疫情而变化",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-234",
+   "id": "10072225",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072225",
+   "question": "请问人防工程与普通地下室的区别是什么",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-234",
+   "id": "10072224",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072224",
+   "question": "请问办理人防工程报监都需要准备那些资料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

@@ -1,0 +1,248 @@
+{
+ "A_考卷": [
+  {
+   "source": "rd-jl",
+   "id": "v_cn_gzjl_fgcayjzj_202608_t20260820_9685246_html",
+   "url": "https://www.jlrd.gov.cn/gzjl/fgcayjzj/202608/t20260820_9685246.html",
+   "question": "关于公开征求《吉林省实施〈中华人民共和国档案法〉办法（草案修改稿）》修改意见的通知",
+   "cited_hits": [
+    {
+     "name": "吉林省实施〈中华人民共和国档案法〉办法（草案修改稿）",
+     "lib_no": "档案法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "吉林省实施〈中华人民共和国档案法〉办法（草案修改稿）",
+     "lib_no": "档案法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "吉林省实施〈中华人民共和国档案法〉办法（草案）",
+     "lib_no": "档案法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国档案法",
+     "lib_no": "档案法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "rd-jl",
+   "id": "v_cn_gzjl_fgcayjzj_202606_t20260623_9651747_html",
+   "url": "https://www.jlrd.gov.cn/gzjl/fgcayjzj/202606/t20260623_9651747.html",
+   "question": "关于公开征求《吉林省历史文化名城名镇名村保护条例（草案修改稿征求意见稿）》 修改意见的通知",
+   "cited_hits": [
+    {
+     "name": "吉林省历史文化名城名镇名村保护条例（草案修改稿征求意见稿）",
+     "lib_no": "历史文化名城名镇名村保护条例(OCR采集)",
+     "weak": true
+    },
+    {
+     "name": "吉林省历史文化名城名镇名村保护条例（草案修改稿征求意见稿）",
+     "lib_no": "历史文化名城名镇名村保护条例(OCR采集)",
+     "weak": true
+    },
+    {
+     "name": "吉林省历史文化名城名镇名村保护条例（草案）",
+     "lib_no": "历史文化名城名镇名村保护条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "rd-jl",
+   "id": "v_cn_gzjl_fgcayjzj_202604_t20260413_9506518_html",
+   "url": "https://www.jlrd.gov.cn/gzjl/fgcayjzj/202604/t20260413_9506518.html",
+   "question": "关于公开征求《吉林省实施若干规定（修订草案修改稿征求意见稿）》修...",
+   "cited_hits": [
+    {
+     "name": "吉林省实施<中华人民共和国工会法>若干规定（修订草案）",
+     "lib_no": "工会法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "吉林省实施若干规定（修订草案修改稿征求意见稿）",
+    "吉林省实施若干规定（修订草案修改稿征求意见稿）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "rd-jl",
+   "id": "v_cn_gzjl_fgcayjzj_202510_t20251021_9339926_html",
+   "url": "https://www.jlrd.gov.cn/gzjl/fgcayjzj/202510/t20251021_9339926.html",
+   "question": "关于公开征求《吉林省优化营商环境条例（修订草案修改稿征求意见稿）》修改意见的通知",
+   "cited_hits": [
+    {
+     "name": "吉林省优化营商环境条例（修订草案修改稿征求意见稿）",
+     "lib_no": "优化营商环境条例(OCR采集)",
+     "weak": true
+    },
+    {
+     "name": "吉林省优化营商环境条例（修订草案修改稿征求意见稿）",
+     "lib_no": "优化营商环境条例(OCR采集)",
+     "weak": true
+    },
+    {
+     "name": "吉林省优化营商环境条例（修订草案）",
+     "lib_no": "优化营商环境条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "rd-jl",
+   "id": "v_cn_gzjl_fgcayjzj_202610_t20261009_9727338_html",
+   "url": "https://www.jlrd.gov.cn/gzjl/fgcayjzj/202610/t20261009_9727338.html",
+   "question": "关于公开征求《吉林省气候资源保护和开发利用条例（草案修改稿）》修改意见的通知",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省气候资源保护和开发利用条例（草案修改稿）",
+    "吉林省气候资源保护和开发利用条例（草案修改稿）",
+    "吉林省气候资源保护和开发利用条例（草案）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "rd-jl",
+   "id": "v_cn_gzjl_fgcayjzj_202608_t20260828_9691200_html",
+   "url": "https://www.jlrd.gov.cn/gzjl/fgcayjzj/202608/t20260828_9691200.html",
+   "question": "关于公开征求《吉林省财会监督条例（草案修改稿征求意见稿）》修改意见的通知",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省财会监督条例（草案修改稿征求意见稿）",
+    "吉林省财会监督条例（草案修改稿征求意见稿）",
+    "吉林省财会监督条例（草案）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "rd-jl",
+   "id": "v_cn_gzjl_fgcayjzj_202608_t20260827_9689575_html",
+   "url": "https://www.jlrd.gov.cn/gzjl/fgcayjzj/202608/t20260827_9689575.html",
+   "question": "关于公开征求《吉林省民营经济促进条例 （草案修改稿征求意见稿）》 修改意见的通知",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省民营经济促进条例 （草案修改稿征求意见稿）",
+    "吉林省民营经济促进条例 （草案修改稿征求意见稿）",
+    "吉林省民营经济促进条例（草案）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "rd-jl",
+   "id": "v_cn_gzjl_fgcayjzj_202608_t20260825_9687487_html",
+   "url": "https://www.jlrd.gov.cn/gzjl/fgcayjzj/202608/t20260825_9687487.html",
+   "question": "关于公开征求《吉林省红十字会条例（草案修改稿）》修改意见的通知",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省红十字会条例（草案修改稿）",
+    "吉林省红十字会条例（草案修改稿）",
+    "吉林省红十字会条例（草案）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "rd-jl",
+   "id": "v_cn_gzjl_fgcayjzj_202606_t20260603_9644904_html",
+   "url": "https://www.jlrd.gov.cn/gzjl/fgcayjzj/202606/t20260603_9644904.html",
+   "question": "关于公开征求《吉林省民族团结进步 条例（草案修改稿征求意见稿）》 修改意见的通知",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省民族团结进步 条例（草案修改稿征求意见稿）",
+    "吉林省民族团结进步 条例（草案修改稿征求意见稿）",
+    "吉林省民族团结进步条例（草案）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "rd-jl",
+   "id": "v_cn_gzjl_fgcayjzj_202605_t20260507_9583153_html",
+   "url": "https://www.jlrd.gov.cn/gzjl/fgcayjzj/202605/t20260507_9583153.html",
+   "question": "关于公开征求《吉林省湿地保护条例（修订草案修改稿）》修改意见的通知",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省湿地保护条例（修订草案修改稿）",
+    "吉林省湿地保护条例（修订草案修改稿）",
+    "吉林省湿地保护条例（修订草案）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "rd-jl",
+   "id": "v_cn_gzjl_fgcayjzj_202604_t20260422_9538365_html",
+   "url": "https://www.jlrd.gov.cn/gzjl/fgcayjzj/202604/t20260422_9538365.html",
+   "question": "关于公开征求《吉林省乡镇和街道综合行政执法条例（草案修改稿）》修改意见的通知",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省乡镇和街道综合行政执法条例（草案修改稿）",
+    "吉林省乡镇和街道综合行政执法条例（草案修改稿）",
+    "吉林省乡镇和街道综合行政执法条例（草案）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "rd-jl",
+   "id": "v_cn_gzjl_fgcayjzj_202601_t20260123_9404329_html",
+   "url": "https://www.jlrd.gov.cn/gzjl/fgcayjzj/202601/t20260123_9404329.html",
+   "question": "关于公开征求《吉林省农作物种子条例（修订草案修改稿征求意见稿）》修改意见的通知",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省农作物种子条例（修订草案修改稿征求意见稿）",
+    "吉林省农作物种子条例（修订草案修改稿征求意见稿）",
+    "吉林省农作物种子条例（修订草案）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "rd-jl",
+   "id": "v_cn_gzjl_fgcayjzj_202601_t20260109_9392584_html",
+   "url": "https://www.jlrd.gov.cn/gzjl/fgcayjzj/202601/t20260109_9392584.html",
+   "question": "关于公开征求《吉林省未成年人保护条例（草案修改稿）》修改意见的通知",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省未成年人保护条例（草案修改稿）",
+    "吉林省未成年人保护条例（草案修改稿）",
+    "吉林省未成年人保护条例（草案）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "rd-jl",
+   "id": "v_cn_gzjl_fgcayjzj_202510_t20251020_9338826_html",
+   "url": "https://www.jlrd.gov.cn/gzjl/fgcayjzj/202510/t20251020_9338826.html",
+   "question": "关于公开征求《吉林省人参产业条例（修订草案修改稿征求意见稿）》修改意见的通知",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省人参产业条例（修订草案修改稿征求意见稿）",
+    "吉林省人参产业条例（修订草案修改稿征求意见稿）",
+    "吉林省人参产业条例（修订草案）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "rd-jl",
+   "id": "v_cn_gzjl_fgcayjzj_202509_t20250930_9330954_html",
+   "url": "https://www.jlrd.gov.cn/gzjl/fgcayjzj/202509/t20250930_9330954.html",
+   "question": "关于公开征求《吉林省边境管理条例 （修订草案修改稿征求意见稿）》 修改意见的通知",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省边境管理条例 （修订草案修改稿征求意见稿）",
+    "吉林省边境管理条例 （修订草案修改稿征求意见稿）",
+    "吉林省边境管理条例（修订草案）"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": []
+}

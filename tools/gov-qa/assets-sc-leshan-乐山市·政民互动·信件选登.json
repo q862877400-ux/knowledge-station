@@ -1,0 +1,4370 @@
+{
+ "A_考卷": [
+  {
+   "source": "sc-leshan",
+   "id": "854517350903880",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854517350903880.html",
+   "question": "反映井研出租车危险驾驶\n周先生反映：9月26日14:23左右川LT****出租车在井研研溪湿地公园往乐山方向2KM处危险变道不打灯，望部门查处。诉求：望交警部门查处其危险驾驶行为。",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国道路交通安全法",
+     "lib_no": "道路交通安全法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国道路交通安全法实施条例",
+     "lib_no": "道路交通安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "854517350903881",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854517350903881.html",
+   "question": "希望井研县维曼丝干洗店赔偿\n龚女士9月20日把一双白色运动鞋拿到井研县城西街维曼丝干洗店去清洗，洗完之后鞋子变成了黄色，现在干洗店不处理。诉求：希望协调干洗店赔偿。",
+   "cited_hits": [
+    {
+     "name": "市场监督管理投诉举报处理暂行办法",
+     "lib_no": "市场监督管理投诉举报处理暂行办法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559371846",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559371846.html",
+   "question": "咨询法律问题\n查询个人开房记录的问题",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国个人信息保护法",
+     "lib_no": "个人信息保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559388232",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559388232.html",
+   "question": "咨询法律事宜\n宅基地被占用，邻居建房施工侵犯自身权益的问题",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国民法典",
+     "lib_no": "中华人民共和国民法典",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "854148702703685",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854148702703685.html",
+   "question": "井研县研溪华府小区噪音与油烟扰民\n反映井研县研溪华府小区5栋有业主长期在家经营麻将馆，每天打麻将声响严重噪音扰民，且麻将馆经常深夜在阳台烧烤，油烟很大严重扰民。诉求：望部门彻底处理噪音与油烟扰民问题。",
+   "cited_hits": [
+    {
+     "name": "四川省物业管理条例",
+     "lib_no": "物业管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "民法典",
+    "生态环境法典"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559388231",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559388231.html",
+   "question": "咨询法律问题\n买二手车前挡风玻璃破损要求退车",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国民法典",
+     "lib_no": "中华人民共和国民法典",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851966355521608",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851966355521608.html",
+   "question": "咨询法律问题\n咨询不认可交通事故责任认定如何申请复核",
+   "cited_hits": [
+    {
+     "name": "道路交通事故处理程序规定",
+     "lib_no": "道路交通事故处理程序规定(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852010592923717",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852010592923717.html",
+   "question": "咨询法律问题\n咨询被电话骚扰如何维权",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国民法典",
+     "lib_no": "中华人民共和国民法典",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559318597",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559318597.html",
+   "question": "井研县自然资源局更改房产权属事宜\n舒先生向井研县自然资源局提交了一份申请，想要更改房产权属，是自己父亲去世的时候房产未做分配，在其他子女不知情的情况下被登记到了自己兄弟的名下，其认为是不合规的，但是至今未得到回复。诉求：望尽快办理此事。",
+   "cited_hits": [
+    {
+     "name": "不动产登记暂行条例",
+     "lib_no": "不动产登记暂行条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-leshan",
+   "id": "854502606536773",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854502606536773.html",
+   "question": "反映井研县幸福海岸屋顶漏水\n井研县幸福海岸8栋1单元业主徐先生反映，9月2日发现房屋楼顶有裂缝，雨水顺着裂缝就流入自己家中，多次反馈给物业一直未处理。诉求：望物业尽快修补楼顶的裂缝，避免再次漏水。",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国民法典",
+     "lib_no": "中华人民共和国民法典",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "住宅专项维修资金管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851966355521606",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851966355521606.html",
+   "question": "咨询法律问题\n咨询未签订劳动合同的法律规定",
+   "cited_hits": [
+    {
+     "name": "劳动合同法",
+     "lib_no": "劳动合同法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559351368",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559351368.html",
+   "question": "咨询市中区木材加工公司是否需要缴纳排污登记费用\n市中区某木材加工的公司负责人来电咨询，最近收到自称财税局的工作人员电话，说要缴纳企业排污登记费用，来电人表示不知道是否是真的，诉求：望部门告知是否需要缴纳该费用。",
+   "cited_hits": [
+    {
+     "name": "排污许可管理条例",
+     "lib_no": "排污许可管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "854502606569545",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854502606569545.html",
+   "question": "反映沐川县沐溪镇雅竹苑小区后方美龙健身中心在播放音乐噪音扰民\n反映沐川县沐溪镇雅竹苑小区后方美龙健身中心在播放音乐，声音特别大，噪音扰民。诉求：望尽快处理噪音扰民问题。",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国环境噪声污染防治法",
+     "lib_no": "噪声污染防治法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "生态环境法典"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559359561",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559359561.html",
+   "question": "反映井研县马踏镇马踏村8组退出土地承包事宜\n章女士反映其因曾在井研县马踏镇马踏村8组有过短暂婚姻，被在不知情的情况下登记为当地土地承包共有人，现因需要在户籍地（青神）登记办理土地承包事宜，需要退出马踏村土地承包共有人才可以办理，但马踏村要求",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国农村土地承包法",
+     "lib_no": "农村土地承包法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "农村土地承包合同管理办法",
+    "农村土地承包合同管理办法",
+    "自愿放弃土地承包经营权申请书"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851302811811914",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851302811811914.html",
+   "question": "咨询市中区孩子入学报备问题\n反映人自己孩子今年就到了入学的年龄，但因各种问题只能明年入学，询问是否需要和市中区教育局报备。诉求：望告知是否需要报备。",
+   "cited_hits": [
+    {
+     "name": "四川省＜中华人民共和国义务教育法＞实施办法",
+     "lib_no": "义务教育法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "854487852777541",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854487852777541.html",
+   "question": "群众反映在马边新城滨河帝景做保洁被克扣工资\n群众反映自己在马边新城滨河帝景做保洁，但是物业发放8月的工资只发了700元，本来应该是1600元/月，8月做了24天，望部门协调物业按实际工资进行补发。",
+   "cited_hits": [
+    {
+     "name": "劳动保障监察条例",
+     "lib_no": "劳动保障监察条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851332303835206",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851332303835206.html",
+   "question": "反映井研县顺河街113号小区外墙存在部分脱落\n罗先生反映井研县顺河街小区外墙存在部分脱落，目前社区安排了人只把正面修缮了，侧面就没有整，来电人表示侧面也存在脱落，且下面是过道，存在安全隐患，自己找到社区处理，社区说要找住建局安排，诉求：望部",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国民法典",
+     "lib_no": "中华人民共和国民法典",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559351367",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559351367.html",
+   "question": "群众反映在马边县民建镇希望田园笋业做工被拖欠工资\n群众于7月-9月，在马边县民建镇希望田园笋业做装修工作，望督促尽快发放工资。",
+   "cited_hits": [
+    {
+     "name": "劳动保障监察条例",
+     "lib_no": "劳动保障监察条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851951608565829",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851951608565829.html",
+   "question": "群众反映光明大道彝媳鲜果店无证售卖烟草的问题\n群众反映光明大道彝媳鲜果店无证售卖烟草，望部门核实处理",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国烟草专卖法",
+     "lib_no": "烟草专卖法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "850267635122254",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/850267635122254.html",
+   "question": "建议五通桥区交警考虑市政施工占道无处停车能人性化执法\n某群众反映五通桥区中心路（体育馆至法院路段）正在占道施工，导致该路段200个车位被占，附近市民车辆无处停放，只能在附近路边停放，交警在此区域频繁贴罚单，其认为交警执法不够人性化，希望交警",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国道路交通安全法",
+     "lib_no": "道路交通安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "847690130382926",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/847690130382926.html",
+   "question": "咨询法律问题\n咨询工伤如何维权",
+   "cited_hits": [
+    {
+     "name": "工伤保险条例",
+     "lib_no": "工伤保险条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国劳动法",
+     "lib_no": "劳动法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851966355525701",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851966355525701.html",
+   "question": "反映五通桥区车管所无故注销摩托车驾驶证\n群众反映称其父亲是肢体四级残疾人，9月7日接到五通桥区竹根镇车管所电话让其父亲到车管所注销摩托车驾驶证，表示注销后父亲就不能驾驶摩托车，故来电反映五通桥区竹根镇车管所无故联系父亲注销摩托车驾驶证，希望",
+   "cited_hits": [
+    {
+     "name": "机动车驾驶证申领和使用规定",
+     "lib_no": "机动车驾驶证申领和使用规定(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "850267642585160",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/850267642585160.html",
+   "question": "反映近期夜间凌晨沐川县城市明珠2期对面有大型狼狗狂叫噪音扰民\n来电人反映近期夜间凌晨沐川县城市明珠2期对面有大型狼狗狂叫，声音大严重影响附近居民休息，来电人怀疑是腊肉制品厂养的，诉求：希望相关部门核查并让养狗人约束好狗，不要在休息时间狂叫。",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国环境噪声污染防治法",
+     "lib_no": "噪声污染防治法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851302811897925",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851302811897925.html",
+   "question": "马边彝族自治县民建镇马家嘴加油站拖欠工资\n群众在马边彝族自治县民建镇马家嘴加油站做工，现被拖欠8月31日至9月5日工资250元，望帮助尽快拿到工资。",
+   "cited_hits": [
+    {
+     "name": "劳动保障监察条例",
+     "lib_no": "劳动保障监察条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "850267642585161",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/850267642585161.html",
+   "question": "沐川县服装店音响声音很大噪音扰民\n沐川县梨园街阳光丽港小区旁边的服装店音响声音很大噪音扰民。诉求：望处理噪音扰民问题。",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国环境噪声污染防治法",
+     "lib_no": "噪声污染防治法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "生态环境法典"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "sc-leshan",
+   "id": "857260024668229",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/857260024668229.html",
+   "question": "咨询就读市中区乐山市嘉州学校事宜\n反映人户籍在沙湾区，现居市中区柏杨苑，办理了暂住证。诉求：咨询2027年孩子能否凭暂住证就读乐山市嘉州学校。",
+   "cited_hits": [],
+   "cited_missing": [
+    "乐山市市中区教育局关于做好2026年公办义务教育招生入学工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "854502606569546",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854502606569546.html",
+   "question": "望告知市中区食品许可证在哪里办理\n反映人准备在市中区蟠龙农贸市场开一个面点食品经营店，想了解市中区食品许可证在哪里办理，需要什么条件和手续。诉求：望告知市中区食品许可证在哪里办理，需要什么条件和手续。",
+   "cited_hits": [],
+   "cited_missing": [
+    "四川省食品小作坊管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "854502606569544",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854502606569544.html",
+   "question": "咨询市中区大佛街道邓庵村五保户住院就医报销事宜\n咨询市中区大佛街道邓庵村的五保户去市中区人民医院住院，但是不清楚具体怎么报销，诉求：咨询是先由五保户垫付治疗费用后期报销，还是医院直接免除医疗费用。\n备注：因为赶着去就医，希望尽快回复。",
+   "cited_hits": [],
+   "cited_missing": [
+    "乐山市特困人员救助供养工作实施细则"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-leshan",
+   "id": "854517350903887",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854517350903887.html",
+   "question": "反映井研县独生子女证问题\n曾先生反映其母亲办理养老保险需乡政府出具独生子女证明，但曾探的独生子女证信息登记错误且未加盖公章，现需要乡政府出示相关盖章证明，去部门工作人员告知休假需待10月10日再办，来电人不认可。诉求：希望部门尽快出具相关证",
+   "cited_hits": [],
+   "cited_missing": [
+    "独生子女父母光荣证",
+    "独生子女父母光荣证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "854517350899788",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854517350899788.html",
+   "question": "反映井研县林二哥活水兔不明码标价\n李先生反映9月25日13:10左右在井研县林二哥活水兔吃饭，菜单上标注130元一只兔子，结账时商家是按照140元算的，咨询商家，商家就将菜单上的价格直接划掉，属于不明码标价。诉求：望部门按规定查处商家不明码",
+   "cited_hits": [],
+   "cited_missing": [
+    "市场监督管理行政处罚程序规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559355471",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559355471.html",
+   "question": "咨询市中区离婚分割转让股份是否需要缴税\n在市中区夫妻共同持股两家公司，现在离婚分割，转让股份是否缴税。诉求：咨询离婚分割转让股份是否需要缴税，有没有政策依据文件规定。",
+   "cited_hits": [],
+   "cited_missing": [
+    "股权转让个人所得税管理办法（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "854502606536775",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854502606536775.html",
+   "question": "询问政务网独生子女补贴申请问题\n井研县三江镇原新华村周先生反映通过四川政务网申请乐山独生子女补贴，但未找到独生子女补贴入口，故来电。诉求：望部门回电指导如何通过四川政务网申请独生子女补贴。",
+   "cited_hits": [],
+   "cited_missing": [
+    "四川省卫生健康委员会关于农村部分计划生育家庭奖励扶助政策的实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559355470",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559355470.html",
+   "question": "咨询市中区入学问题\n反映人的孩子（6岁）户籍在市中区苏稽镇，但现因买了房子在市中区嘉州春天小区并长期居住（已办居住证），想咨询2027年9月小孩是否可以在乐山八中或通江小学入学。诉求：望告知。",
+   "cited_hits": [],
+   "cited_missing": [
+    "乐山市市中区教育局关于做好2026年公办义务教育招生入学工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559355467",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559355467.html",
+   "question": "咨询如何申请市中区的廉租房，不知道需要什么条件才能申请廉租房，有哪个片区的廉租房。诉求：望部门告知。",
+   "cited_hits": [],
+   "cited_missing": [
+    "乐山市市中区公共租赁住房管理实施细则"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559355466",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559355466.html",
+   "question": "咨询户籍市中区竹公溪街紫气东升小孩就读中学问题\n咨询小孩子户籍在市中区竹公溪街紫气东升小区，2027年9月可以按户口就读乐山市实验中学还是乐山五中。诉求：望告知小孩具体可在哪所中学就读。",
+   "cited_hits": [],
+   "cited_missing": [
+    "乐山市市中区教育局关于做好2026年公办义务教育招生入学工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559355464",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559355464.html",
+   "question": "咨询孩子能否在乐山七中就读\n来电人反映在市中区领地国际公馆办理了居住证，想将孩子送到乐山七中就读。诉求：咨询孩子能否在乐山七中就读。",
+   "cited_hits": [],
+   "cited_missing": [
+    "乐山市市中区教育局关于做好2026年公办义务教育招生入学工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852290757632069",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852290757632069.html",
+   "question": "咨询退休人员是否有独生子女相关补助的问题\n反映人是市中区/绿心街道/肖坝社区的市民，已退休咨询是否有独生子女相关补助，诉求：望告知退休人员是否有独生子女补助。",
+   "cited_hits": [],
+   "cited_missing": [
+    "四川省人口与计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851966355521609",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851966355521609.html",
+   "question": "咨询法律问题\n咨询质押的车辆如何取回",
+   "cited_hits": [],
+   "cited_missing": [
+    "民法典"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559359563",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559359563.html",
+   "question": "望帮助硬化井研县/周坡镇/玉皇顶村入户路\n王女士的房屋位于井研县/周坡镇/玉皇顶村，反映房屋外的入户路一直未硬化，给出行带来不便。诉求：望帮助硬化入户路。",
+   "cited_hits": [],
+   "cited_missing": [
+    "四川省农村公路条例",
+    "四川省农村公路建设管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559355462",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559355462.html",
+   "question": "咨询独生子女证办理问题\n反映人是市中区陕西街半山枫景小区的业主，自己有47岁了，还有几年就要退休，只养育了一个子女，不知道在哪里办理独生子女证，需要什么资料，担心影响退休待遇，所以来电咨询。诉求：望部门告知在哪里办理独生子女证，需要什么资料",
+   "cited_hits": [],
+   "cited_missing": [
+    "四川省卫生和计划生育委员会关于实施全面两孩政策有关事项的通知",
+    "独生子女父母光荣证",
+    "独生子女父母光荣证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559359560",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559359560.html",
+   "question": "咨询关于农村独生子女补贴政策问题\n井研县宝五镇曙光村张先生想咨询关于农村独生子女补贴政策，如父母未满60岁去世是否还可享受补贴。诉求：咨询关于农村独生子女补贴政策问题。",
+   "cited_hits": [],
+   "cited_missing": [
+    "独生子女父母光荣证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851966355521607",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851966355521607.html",
+   "question": "咨询法律问题\n咨询抵押贷款车辆被他人占有使用如何收回",
+   "cited_hits": [],
+   "cited_missing": [
+    "民法典"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851014860386373",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851014860386373.html",
+   "question": "申请提供乐山市沐川县各批次县级非物质文化遗产代表性项目名录\n您好！ 我是成都中医药大学学生，正在开展四川省各地区非物质文化遗产资源学术调研工作。目前在公开渠道暂未检索到乐山市沐川县完整的县级非遗项目名录，特此留言咨询。 恳请贵单位提供本区各",
+   "cited_hits": [],
+   "cited_missing": [
+    "沐川县县级非物质文化遗产代表性项目及传承人（传承群体）名录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852010592903240",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852010592903240.html",
+   "question": "咨询法律问题\n咨询代理行为发生的法律后果及责任划分",
+   "cited_hits": [],
+   "cited_missing": [
+    "民法典"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559355461",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559355461.html",
+   "question": "咨询消防设施操作员中级证如何申请补贴\n来电人反映自己在内江考取了消防设施操作员中级证，最近听说有补贴可以领取，诉求：望部门告知是否可以在市中区申请补贴，及如何申请。",
+   "cited_hits": [],
+   "cited_missing": [
+    "四川省就业服务管理局关于印发2026年失业保险技能提升补贴申领指南和经办流程的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559355472",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559355472.html",
+   "question": "井研县王村镇梅旺村18组村民反映原拆原建补贴政策\n梅远胜是井研县王村镇梅旺村18组村民，现打算将旧房原拆原建，不知是否有补贴政策支持，故来电反映，诉求：望告知是否有原拆原建补贴政策。",
+   "cited_hits": [],
+   "cited_missing": [
+    "井研县2025年农村危房改造工作实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851966355501126",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851966355501126.html",
+   "question": "井研县/研城街道/白塔街社区修剪树木问题\n反映井研县研城街道白塔街社区地磅站附近道路两侧树木茂盛，影响通行及安全，曾多次向社区反映未果，诉求：望尽快安排修剪。",
+   "cited_hits": [],
+   "cited_missing": [
+    "城市园林绿化管理条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852010592952395",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852010592952395.html",
+   "question": "希望有关部门帮助安装电梯\n蔡女士家住井研县研城街道锦宏巷，现来电反映该楼栋的住户已经向井研县国土局申请安装电梯，但是国土局拒绝审批，也没有告知理由，故来电求助。\n诉求：希望有关部门帮助安装电梯。",
+   "cited_hits": [],
+   "cited_missing": [
+    "井研县既有住宅增设电梯实施方案"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559359558",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559359558.html",
+   "question": "反映井研县千佛派出所办理户籍迁移事宜\n张先生反映准备给小孩办理户籍迁移，从井研县竹园镇迁移至井研县千佛镇，因离婚协议中孩子的出生年份与实际年份不一致，被告知需要提供亲子鉴定等资料，还需要对离婚协议进行公证，但早已无法联系上前妻，导致迟迟无法",
+   "cited_hits": [],
+   "cited_missing": [
+    "乐山市公安局户政管理工作规定",
+    "乐山市公安局户政管理工作规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559351366",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559351366.html",
+   "question": "咨询如何预约办理健康证体检\n来电反映去乐山市中区人民医院万达院区办理健康证，工作人员告知需要先预约才能体检， 但不清楚具体预约渠道。诉求：咨询如何预约办理健康证体检。",
+   "cited_hits": [],
+   "cited_missing": [
+    "从业人员预防性体检预约资格审查单",
+    "申请开展从业人员预防性体检人员清单",
+    "四川省从业人员预防性体检项目表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559351365",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559351365.html",
+   "question": "咨询报考市中区社区公益性岗位需要哪些条件\n反映人咨询报考市中区社区公益性岗位需要哪些条件，望回复。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发《四川省就业困难人员认定管理办法",
+    "残疾人证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852025339981896",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852025339981896.html",
+   "question": "反映井研县研城街道民主街社区东门新村楼顶漏水问题\n宋女士是井研县研城街道民主街社区东门新村的居民，反映当地在进行旧城改造工程，希望施工方可以将楼顶漏水问题一并处理了，其表示该问题长期困扰居民，却一直无人处理。诉求：望协调处理楼顶漏水问题。",
+   "cited_hits": [],
+   "cited_missing": [
+    "井研县城镇老旧小区改造项目施工方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559334984",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559334984.html",
+   "question": "咨询市中区考取母婴生活护理职业资格证能否申领补贴\n2026年6月在市中区考取母婴生活护理职业资格证，来电咨询凭借该证领取职业技能补贴。诉求：望核实告知。",
+   "cited_hits": [],
+   "cited_missing": [
+    "四川省就业服务管理局关于印发2026年失业保险技能提升补贴申领指南和经办流程的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852010592948294",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852010592948294.html",
+   "question": "反映在井研县身份证异地办理后邮寄困难求助\n吴女士反映自己的孩子，现居住在山东，在2025年到井研县旅游身份证遗失后，在井研县办证大厅补办了身份证，当时以为会邮寄到山东，但部门电话告知办理的身份证需要到窗口领取，自己的孩子在山东无法前往乐山，",
+   "cited_hits": [],
+   "cited_missing": [
+    "四川省居民身份证管理操作规程",
+    "居民身份证领取凭证",
+    "居民身份证申领登记表",
+    "居民身份证领取登记薄",
+    "居民身份证领取凭证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852305504100421",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852305504100421.html",
+   "question": "乐山市体育馆新能源汽车收费问题\n乐山市体育馆地下停车场一小时被收费3元，了解到国家有规定新能源汽车停车可享受两小时免费停车政策，且自己平时在此停车两小时内也未收费，现场也未有相关新能源汽车收费公示，故来电反映。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于调整乐山主城区政府定价管理停车泊位收费标准并实行差别化收费的通知",
+    "四川省人民政府关于印发四川省支持新能源与智能汽车产业发展若干政策措施的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "854502606569552",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854502606569552.html",
+   "question": "反映沐川县紫阳街残疾人证办理事宜\n李女士反映：1、其父亲李国林是沐川县紫阳街的居民，目前瘫痪无法自理，来电想咨询如何申请残疾人证，能否代为办理及办理流程所需资料。2、其父亲李国林的户口本遗失需要补办，因身体原因无法亲自前往窗口办理，想了解能",
+   "cited_hits": [],
+   "cited_missing": [
+    "四川省中华人民共和国残疾人证管理办法实施细则",
+    "乐山市公安机关户籍业务“全域通办”操作规程",
+    "户口簿遗失补办委托书"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-leshan",
+   "id": "854502606573637",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854502606573637.html",
+   "question": "望告知是否可以将户口迁回武圣乡罗山村1组\n李女士原户籍在武圣乡罗山村，后婚迁到沐川县武圣乡白凤村，现在因为要回娘家赡养父母，想把户籍迁回娘家，都是农村户籍。诉求：望告知是否可以将户口迁回武圣乡罗山村1组。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于规范农村地区户籍登记管理工作的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851966355501132",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851966355501132.html",
+   "question": "反映井研县锦弘巷49号安装电梯事宜\n周先生是井研县锦弘巷49号的业主，反映小区总共有8层楼高，多数居住的是老年人，现小区业主想要安装电梯，但资料已上交到自然资源局，一直没有回复，诉求：望协助安装电梯。",
+   "cited_hits": [],
+   "cited_missing": [
+    "井研县既有住宅增设电梯实施方案"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851302811791436",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851302811791436.html",
+   "question": "反映井研县马踏镇桥咡井村8组村民更改户口本信息的问题\n廖女士户籍是井研县马踏镇桥咡井村8组的，一直都是未婚，但户口本上登记的是已婚，前往井研县民政局查询也是未婚，马踏镇派出所告知，如果要更改信息，必须要民政局出具未婚证明才能更改，但民政局称",
+   "cited_hits": [],
+   "cited_missing": [
+    "全省公安户政管理工作规程（试行）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852040087044166",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852040087044166.html",
+   "question": "反映在井研县研城街道做工被拖欠工资\n廖先生于2025年3月-11月在井研县研城街道幸福来村公园壹号楼盘项目中做木工，被拖欠工资13000元左右。诉求：望拿回工资。",
+   "cited_hits": [],
+   "cited_missing": [
+    "农民工工资支付保障条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851302811811912",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851302811811912.html",
+   "question": "咨询电梯走廊能否使用泡沫材质做顶棚\n反映人是市中区翡翠二期住户，和邻居们一起安装了电梯，现在想在电梯走廊使用泡沫材质来做雨棚，又怕消防资质过不了，诉求：咨询能否使用泡沫材质来做雨棚。",
+   "cited_hits": [],
+   "cited_missing": [
+    "GB50016-2014"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851302811811911",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851302811811911.html",
+   "question": "咨询市中区小学招生政策\n反映人的孙子和孙子母亲户籍在五通桥区冠英镇，反映人和儿子（孩子父亲）户籍在井研县，反映人名下的房子在市中区嘉州长卷天玺，孙子明年要读小学一年级。诉求：咨询能否在市中区就读小学，如果可以就读需要什么手续，可以就读哪些小",
+   "cited_hits": [],
+   "cited_missing": [
+    "乐山市市中区教育局关于做好2026年公办义务教育招生入学工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851332303839302",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851332303839302.html",
+   "question": "反映井研县研城街道新道路村低保申请问题\n井研县研城街道新道路村曾女士反映生活困难，无经济来源。诉求：望部门帮助申请低保。",
+   "cited_hits": [],
+   "cited_missing": [
+    "乐山市城乡低保工作实施细则"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851302811811910",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851302811811910.html",
+   "question": "咨询市中区公共停车场新能源车的收费标准（收费方：乐城资源）\n反映人9月14日将新能源车停放在市中区演武街临时停车场（收费方：乐城资源），之前2小时内免费，现在停放40分钟就被收取了3元停车费。诉求：望告知新能源车停车收费的具体标准。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于调整乐山主城区政府定价管理停车泊位收费标准并实行差别化收费的通知",
+    "四川省人民政府关于印发四川省支持新能源与智能汽车产业发展若干政策措施的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851302811811909",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851302811811909.html",
+   "question": "咨询失业情况下市中区公租房年审流程\n反映人在市中区苏稽镇顺江小区租公租房已经6年了，现在因失业无法进行年审，来电咨询是要先找工作才能年审，还是直接缴纳房租续租？诉求：望核实告知失业公租房年审流程。",
+   "cited_hits": [],
+   "cited_missing": [
+    "乐山市市中区公共租赁住房管理实施细则"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851302811791445",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851302811791445.html",
+   "question": "补贴相关咨询\n咨询考取了护士资格证的毕业年度大学生能申请什么补贴吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "四川省就业服务管理局关于印发2026年失业保险技能提升补贴申领指南和经办流程的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "848840287326279",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/848840287326279.html",
+   "question": "咨询市中区苏稽新区是否有公租房\n反映人咨询市中区苏稽新区是否有公租房，并且想要核实自己是否符合申请条件，望回复。",
+   "cited_hits": [],
+   "cited_missing": [
+    "乐山市市中区公共租赁住房管理实施细则"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852025340006473",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852025340006473.html",
+   "question": "反映沐川县臭味扰民问题\n来电人沐川县东门集市靠近河边位置，有人在门市内养鸡，臭味扰民。诉求：希望处理臭味扰民问题。",
+   "cited_hits": [],
+   "cited_missing": [
+    "四川省城乡环境综合治理条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852025340006471",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852025340006471.html",
+   "question": "反映沐川县东门市场外门市养鸡臭味扰民\n反映沐川县东门市场靠河边的出口外面准备拆迁的有几间门市在养鸡，味道非常臭，并且容易招蚊虫。诉求：望部门告知在此处养鸡是否合规，如果不合规，希望责令搬离",
+   "cited_hits": [],
+   "cited_missing": [
+    "四川省城乡环境综合治理条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-leshan",
+   "id": "848840287330377",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/848840287330377.html",
+   "question": "咨询市中区提前退休相关政策\n咨询市中区员工患上肌萎缩侧索硬化症（渐冻症）的相关政策：\n1. 计划员工医疗期结束后解除劳动关系，咨询是否需要支付医疗补助费，以及该笔费用是由企业还是社保承担。\n2. 咨询该员工是否需要做伤残鉴定，若评定伤残等级",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发企业职工基本养老保险病残津贴暂行办法的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-leshan",
+   "id": "848840287330376",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/848840287330376.html",
+   "question": "望核实后告知汽车维修等级高级证书是否在乐山市中区有补贴\n反映自己考取了汽车维修等级高级证书，想咨询此证在乐山市中区是否可以领取补贴。诉求：望核实后告知汽车维修等级高级证书是否在乐山市中区有补贴。",
+   "cited_hits": [],
+   "cited_missing": [
+    "四川省就业服务管理局关于印发2026年失业保险技能提升补贴申领指南和经办流程的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852025339990085",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852025339990085.html",
+   "question": "反映沐川县东门市场河边待拆迁房区有人饲养家禽臭味扰民问题\n陈先生反映沐川县东门市场河边待拆迁旧房区里，有人饲养家禽，臭味扰民，且担心传播疾病，故来电反映，诉求：望核实并制止饲养，处理臭味扰民问题。",
+   "cited_hits": [],
+   "cited_missing": [
+    "四川省城乡环境综合治理条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-leshan",
+   "id": "848840287330374",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/848840287330374.html",
+   "question": "咨询市中区城南小学小升初体检问题\n来电人反映自己孩子就读于市中区城南小学中学部，在小学升初中做体检时检查出结核菌显示为一般阳性，学校现要求来电人将孩子接到医院重新拍胸片，确认无病后才能回到学校就读，想咨询是否有相关文件对此情况要求必须重新检",
+   "cited_hits": [],
+   "cited_missing": [
+    "中国结核病防治工作技术指南（2026年版）",
+    "中国学校结核病防控指南（2020年版）",
+    "省卫生健康委省教育厅关于切实落实学校结核病防控措施进一步提升工作质量的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "848840287330373",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/848840287330373.html",
+   "question": "望核实后告知市中区哪里可以办理失业证明\n反映自己的老公是部队内的，现部队需要提供自己的失业证明，户籍地是凉山的，但自己最后一次工作地是乐山，想知道市中区哪里可以办理失业证明。诉求：望核实后告知市中区哪里可以办理失业证明，需要什么手续和材料。",
+   "cited_hits": [],
+   "cited_missing": [
+    "四川省人力资源和社会保障厅关于印发四川省就业和失业登记办法和四川省就业创业证管理办法的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852025339985990",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852025339985990.html",
+   "question": "咨询五通桥区人社局病残津贴申请进度\n反映人因病生活无法自理，8月向五通桥区人社局申请了病残津贴，现不清楚申请进度，望告知申请的进度。",
+   "cited_hits": [],
+   "cited_missing": [
+    "2026年8月批准领取病残津贴人员名单"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "850267635118151",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/850267635118151.html",
+   "question": "咨询市中区有无见习岗位\n反映人户籍在市中区警官新城，自己是大专学历，目前是失业状态，诉求：咨询市中区目前有无见习岗位。",
+   "cited_hits": [],
+   "cited_missing": [
+    "四川省人力资源和社会保障厅关于进一步做好就业见习工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "849533330657349",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/849533330657349.html",
+   "question": "望告知五通桥区中药加工厂烘干药材能否申请电费优惠\n某群众是五通桥区西坝镇某中药材加工厂负责人，反映了解到中药材加工厂对中药材清洗和晾晒产生的电费可申请电费优惠，但当地供电部门称烘干中药材不属于晾晒，不能申请电费优惠，群众认为不合理，希望告知",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步明确我省农业生产用电价格有关事项的通知",
+    "国民经济行业分类",
+    "GB/T 4754-2017"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "850267635118150",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/850267635118150.html",
+   "question": "市中区剑锋镇东旗村7组的村民咨询五保户的认定标准是什么\n市中区剑锋镇东旗村7组的村民，咨询五保户的认定标准是什么，什么样的条件可以认定为五保户。诉求：望部门告知。",
+   "cited_hits": [],
+   "cited_missing": [
+    "乐山市民政局关于印发〈乐山市特困人员救助供养工作实施细则〉的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-leshan",
+   "id": "850267635114062",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/850267635114062.html",
+   "question": "咨询市中区申请公租房需要什么材料\n来电人想在市中区申请公租房，但是不知道需要什么材料，以及到什么部门办理。诉求：咨询市中区申请公租房需要什么材料，以及到哪个部门办理。",
+   "cited_hits": [],
+   "cited_missing": [
+    "乐山市市中区公共租赁住房管理实施细则"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-leshan",
+   "id": "850267635114060",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/850267635114060.html",
+   "question": "咨询可到市中区哪里申请职业技能等级证书补贴\n来电人反映有汽车救援员证，得知职业技能等级证书补贴政策已出，诉求：咨询可到市中区哪里申请补贴。",
+   "cited_hits": [],
+   "cited_missing": [
+    "四川省就业服务管理局关于印发2026年失业保险技能提升补贴申领指南和经办流程的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851302811959366",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851302811959366.html",
+   "question": "反映因有炎症无法发放健康证是否合规\n某群众于8月31日在五通桥区人民医院体检完后，被告知有炎症无法发放健康证，需吃药半个月复查后没问题才可发放健康证，故不认可，希望告知是否合规。",
+   "cited_hits": [],
+   "cited_missing": [
+    "托儿所幼儿园卫生保健管理办法",
+    "托儿所幼儿园卫生保健工作规范",
+    "托幼机构工作人员健康合格证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851302811832390",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851302811832390.html",
+   "question": "反映五通桥人社部门拒绝执行高海拔退伍军人优抚政策\n某群众自称是高原退伍军人，已患高原慢性病（肺气肿等），现来电反映按照人社部颁布的2014年64号文件关于高海拔退伍军人优抚待遇，可以享受服役时间转为工龄认定优待，但是五通桥区人社部门却拒绝执",
+   "cited_hits": [],
+   "cited_missing": [
+    "人力资源社会保障部关于企业年金基金股权和优先股投资试点的通知",
+    "关于印发改革基本养老金计发办法若干政策问题的意见的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "850267642576966",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/850267642576966.html",
+   "question": "反映五通桥区子女就读问题\n某群众反映自己在五通桥区阳光·天樾国际城购买的房子，其子女将于2027年入读小学三年级，但杨家小学称学位已满，冠英小学称不在招生范围内，无法入学，希望帮忙解决子女义务教育阶段入学问题。",
+   "cited_hits": [],
+   "cited_missing": [
+    "四川省中小学学籍管理实施细则"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "sc-leshan",
+   "id": "854517350903898",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854517350903898.html",
+   "question": "反映天府通办无犯罪记录证明开具问题\n陈女士反映通过天府通办申请了无犯罪记录证明，但一直未审核通过。户籍在井研县周坡镇。诉求：望部门核实尽快审核。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "857274770001989",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/857274770001989.html",
+   "question": "咨询市中区邦泰国际社区旁边新建的农贸市场何时启用\n来电称市中区邦泰国际社区旁边新建了农贸市场，但是朱先生不清楚何时启用，诉求：咨询何时能启用，朱先生想租摊位做卖水果经营。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "854517350903896",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854517350903896.html",
+   "question": "反映井研县养殖场卫生问题\n李女士反映井研县高凤镇同力村存在兔子养殖场（只有一家养殖场），但是该养殖场将粪便胡乱排放，并且死掉的兔子尸体也胡乱丢弃，导致村上环境污染，苍蝇滋生，严重影响周边居民生活，并且多次向环保局反映无人处理。诉求：希望部门",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "854502606540872",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854502606540872.html",
+   "question": "反映井研县迎宾大道违停严重\n反映现在在井研县时代大厦外的迎宾大道上的道路两旁，停满了违停车辆，导致大货车无法运输材料到小区旁的时代天街工地。诉求：望交警尽快到现场处理违停车辆。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "854517350903894",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854517350903894.html",
+   "question": "反映井研县幸福名门附近夜宵店扰民\n反映井研县幸福名门附近商家食客经常在半夜发出很大噪音，影响居民休息，向综治中心反映也没得到处理，诉求：望处理噪音扰民问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "854517350903893",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854517350903893.html",
+   "question": "咨询井研县凌晨噪声问题管辖部门\n反映井研县幸福名门小区楼下的夜宵店食客噪声长期持续到凌晨，拨打井研县派出所电话被告知需综合执法局处理，来电人表示综合执法局夜班人员只执勤到晚上22点。诉求：望核实井研县22点以后到次日早上的夜宵店食客噪声扰民",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "854517350903891",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854517350903891.html",
+   "question": "望井研县机械厂补发架子\n朱先生在井研县机械厂购买农谷机花费6080元，反映商家未发架子，要求补发被拒绝，诉求：望补发架子。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "854517350903889",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854517350903889.html",
+   "question": "反映井研县时代大厦外汽车违停导致交通拥堵\n邓先生反映井研县时代大厦外有很多汽车违停导致非常交通拥堵。诉求：望尽快处理汽车违停问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "854502606536785",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854502606536785.html",
+   "question": "井研县书台街10号柱头升起挡路\n来电人的车开进井研县书台街10号，几分钟后出口的柱头升起，导致现在车辆无法驶出。来电人称进入时无此障碍，仅停留几分钟。诉求：望帮助将车开出。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "854502606540870",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854502606540870.html",
+   "question": "反映在井研县周坡镇超市购物未使用到消费券需退款退货\n田女士在井研县周坡镇浙联优选生活超市购物消费了500余元，结账时因不知道该超市未开通碰一碰，故直接扣了500余元现金，未使用到红包券。现场让商家退款退货被拒。诉求：望协调商家退货退款。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "854517350903885",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854517350903885.html",
+   "question": "反映井研县马踏中学附近占道经营问题\n反映井研县马踏中学正对面的路口长期有很多游商在机动车道上占道经营，严重影响通行安全，诉求：望加强占道经营管理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "854502606540869",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854502606540869.html",
+   "question": "反映井研县王村镇G348国道有落石存在安全隐患\n井研县王村镇G348国道往乐山方向200百米左右的拐弯处右侧道路上有一块大约两三立方米的落石，旁边还散落了很多碎石，疑似山体塌方，存在安全隐患。诉求：望部门尽快派人到现场处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "854502606536782",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854502606536782.html",
+   "question": "范女士是井研县云上时光12栋的业主反映补贴款未到账\n范女士是井研县云上时光12栋的业主，当时买房的时候告知是有政府补贴的，但是该补贴一直未发放。诉求：望部门尽快发放补贴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "854502606536794",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854502606536794.html",
+   "question": "建议井研县调整开路灯时间\n陈先生反映井研县城北街老长河医院外路灯开灯时间为19点43分，陈先生称现天黑的时间较早，开灯时间迟，影响群众出行，诉求:建议调整开灯时间，提前至18点50分左右，方便群众出行。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "854502606569543",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854502606569543.html",
+   "question": "咨询市中区餐饮店能否让宠物进入\n市中区上中顺叶婆婆总店9月26人有人带狗进入就餐，来电人表示四川省有发布公告场合不得有宠物出没。诉求：望告知市中区是否有相关规定，宠物不得进入餐馆的公共区域。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "854502606536781",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854502606536781.html",
+   "question": "游客反映湿地公园管理人员态度恶劣\n刘先生是游客，反映现在在研溪湿地公园游玩，自己孩子在河边玩水捞鱼，但是管理人员未文明劝阻，态度很恶劣驱赶游客，先生认为不合理，故来电。诉求：希望部门查处管理人员态度恶劣等不当行为。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "854517350903883",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854517350903883.html",
+   "question": "反映井研县研城街道和美家园A区有车辆乱停车停在小区里面的通道，堵住市民正常通行，车辆全部无法进出，社区也没有办法，对方也不接电话，诉求：望部门联系车主挪车。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "854517350899786",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854517350899786.html",
+   "question": "希望有关部门尽快解决村道被封问题\n井研县/竹园镇举办花节活动将通往烈士村的村道给封闭了， 影响当地村民通行，希望部门尽快处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "854502606536778",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854502606536778.html",
+   "question": "反映井研县宝五镇三教村户籍登记事宜\n李先生因当地合乡并镇后现被误登记为三教村2组，导致无法在原址修缮房屋，联系当地政府处理告知需支付3000元才可以更正户籍信息，其表示登记错误是部门工作人员工作失误所致。诉求：望协调尽快更正户籍信息。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "854517350903878",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854517350903878.html",
+   "question": "井研县川派新卤店外经营问题\n井研县金家湾市场后门的川派新卤店现在在店外经营，严重影响通行，自己刚刚路过差点摔倒。诉求：望马上处理其店外经营问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "854502606536793",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854502606536793.html",
+   "question": "井研县金家湾市场内电动三轮车经常乱停乱放，市场管理员也不管理。诉求：反映市场管理员不处理车辆乱停乱放问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "854517350903877",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854517350903877.html",
+   "question": "匿名反映井研县蒲亭烧烤店油烟扰民\n匿名反映井研县研城镇街道锦尚峰华小区蒲亭烧烤店，现在油烟扰民严重。之前部门告知店铺已经安装了油烟净化器，但怀疑店铺并未打开净化设备。诉求：望尽快处理油烟扰民问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "857260024647749",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/857260024647749.html",
+   "question": "咨询医保局公司未缴纳医保期间做手术报销问题\n反映人是市中区参保人员，公司未缴8月医保。假期期间准备做手术，担心手术无法报销。因假期无法联系医保局，诉求：咨询医保局是否可先自费手术后补缴凭资料申请报销。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "854502606536792",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854502606536792.html",
+   "question": "望尽快加宽硬化井研县千佛镇瓦子坝村7组道路\n胡先生是井研县千佛镇瓦子坝村村民，反映的村组道路之前村民集资修了2米宽的道路，5年前因土地改革政府答应加宽道路并硬化，但至今迟迟未实施。诉求：望协调部门尽快实施加宽并硬化道路。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "854517350903879",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854517350903879.html",
+   "question": "反映井研县永福家园高音喇叭噪音扰民\n杜女士反映井研县永福家园有居民在小区办丧事，从早上5点开始。使用高音喇叭，声音太大。诉求：望部门协调降低音量。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "854502606536790",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854502606536790.html",
+   "question": "反映井研县城南广场跳广场舞声音噪音扰民\n反映井研县城南晶座小区外的城南广场跳广场舞声音噪音扰民，诉求：望协调尽快处理噪音扰民问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "854502606536788",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854502606536788.html",
+   "question": "反映井研县噪音扰民问题\n井研县迎宾大道城南晶座小区楼下广场存在跳广场舞，唱歌的噪音扰民。诉求：希望部门尽快处理噪音扰民问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "854502606536776",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854502606536776.html",
+   "question": "井研县/宝五镇/塘湾村9组邻里纠纷\n李先生反映井研县/宝五镇/塘湾村9组六井田鱼塘水位过高导致溢出，浸泡其家竹林及坡地造成损失。诉求：望协调进行赔偿。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "854517350903882",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854517350903882.html",
+   "question": "反映井研县黄钵井村邻里纠纷\n井研县/马踏镇/黄钵井村欧女士来电称旁边区域是周进承包的鱼塘，鱼塘涨水将自己的竹林淹没了。诉求：望协调邻居尽快清塘，并把竹林还原。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "854517350903884",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854517350903884.html",
+   "question": "反映井研县新兴街井研县教育局到皇家花苑车辆乱停乱放问题\n刘先生反映井研县新兴街井研县教育局办公楼到皇家花苑前大门两边人行道经常被车辆占用，导致行人通行不便需从马路上绕行，存在安全隐患。诉求：望交警处理乱停乱放问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "854517350903888",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854517350903888.html",
+   "question": "井研县建设路体育场面馆食客噪音扰民\n反映井研县建设路体育场面馆食客噪音扰民。诉求：望部门及时处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "854502606536786",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854502606536786.html",
+   "question": "望帮助修复井研县纯复镇/红庙村村道\n井研县纯复镇红庙村村民李先生反映，自家门前的公路坑坑凼凼很多，出行存在安全隐患。诉求：望帮助修复道路。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "854517350903892",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854517350903892.html",
+   "question": "反映井研县乐山玉彬物流有限公司欠缴五险事宜\n张先生以前是井研县集益乡集益街乐山玉彬物流有限公司的办公人员，2024年该公司停止营业，但现在还处于开业状态。公司在自己工作期间欠缴了2024年3月-9月的五险，导致自己后续无法续保和购买医保，自",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "854502606536783",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854502606536783.html",
+   "question": "反映井研县希望大道外摊贩占道问题\n反映井研县希望大道外路边每天早上4点至8点，下午13点至19点全是游商占道经营，非常危险，摊贩在路边墙角随地小便也导环境脏乱差。诉求：望部门杜绝摊贩在此处占道经营。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "854517350903890",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854517350903890.html",
+   "question": "反映井研县三江镇新胜村长期受火车站噪音影响\n井研县/三江镇/新胜村谢敏反映自己家离火车站只有十几米，每次火车一经过就会产生很大的噪音，并且房屋还会抖动，多年来长期受影响，诉求：望部门实地考察检测噪音，排查设备故障、优化运行调度或采取降噪措施",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "854502606536780",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854502606536780.html",
+   "question": "反映井研县马踏镇镇上街道车辆乱停乱放现象严重\n反映井研县马踏镇场镇街道上的车辆乱停乱放现象严重，特别是赶集日，且商铺不让市民在门市前的公共停车位上停车。诉求：望处理以上问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "854502606536777",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854502606536777.html",
+   "question": "反映井研县罗家巷原房东不迁户口\n姜女士买了一套二手房，地址在井研县罗家巷，是通过恒居房产买的，过户时间是5月，买之前房东答应迁户口，但现在还未迁走，诉求：望协调房东迁户口。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559318608",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559318608.html",
+   "question": "反映在井研县/周坡镇/大佛村修村道被拖欠工资\n廖先生等3人2025年7月在井研县/周坡镇/大佛村11组修建村道项目中负责开挖机，被拖欠十多天的工资共计2万多元。诉求：望帮助拿回工资。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "854502606569542",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854502606569542.html",
+   "question": "咨询沐川县退役军人优抚每月发放时间\n沐川县退役军人反映每个月优抚之前是十几号发放，九月的二十多号了还未发放，不清楚每月发放时间是否固定，咨询沐川县退役军人优抚每月发放时间。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559355469",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559355469.html",
+   "question": "咨询部门是否有临时护工类的救助服务\n来电人是市中区电力花苑70岁以上的老年人，因子女不在家中生活，现在一个人遇上困难时生活不便，若遇上特殊情况需要人帮忙照顾，希望有临时陪护、助医及短时接送服务，来电人称可以支付报酬。诉求：咨询部门是否有临时",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "854517350903895",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854517350903895.html",
+   "question": "反映在井研县兴盛路凌曜半导体有限公司做工被拖欠工资\n孙先生一行八人在井研县兴盛路凌曜半导体有限公司做洁净板装修，共被拖欠2026年2月份工资30000元左右。诉求：望帮助尽快拿到工资。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "854502606569541",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854502606569541.html",
+   "question": "望沐川县告知如何申请职业技能补贴\n朱女士是沐川县城区居民，反映自己考取消防设施监控证，了解到国家对考取该证件有补贴，但不清楚如何申请，望沐川县告知如何申请职业技能补贴，具体所需资料。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "854517350903897",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854517350903897.html",
+   "question": "对反映井研县三江镇新胜村4组公路存在安全隐患处理结果不满意\n9月23日再次来电反映现在都9月底了还未开始修复。诉求：望尽快对道路进行修复。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559318601",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559318601.html",
+   "question": "反映井研县四川凌曜半导体有限公司拖欠费用事宜\n熊先生是井研县魅力紫晶国际商娱汇的工作人员，他反映井研县四川凌曜半导体有限公司从2026年6月17日左右开始，以ktv发票报不了为由，拖延支付费用时间。总共拖欠了1500元左右。诉求：望部门协调",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "854163449258053",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854163449258053.html",
+   "question": "井研县研经镇商户反映水费异常问题\n熊先生是井研县研经镇商户，称平时每个月水费均在80元左右，多次向供水公司反馈未解决，现已被关停供水，故来电反映，诉求：望供水尽快核实处理水费异常问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559355468",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559355468.html",
+   "question": "咨询市中区肖公嘴到上中顺的滨江路常态化不允许车辆通行\n市中区肖公嘴到上中顺的滨江路设置了很多石桩禁止车辆通行，反映人想知道是不是以后一直保持原状。诉求：咨询市中区肖公嘴到上中顺的滨江路常态化不允许车辆通行。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559314501",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559314501.html",
+   "question": "反映在井研县大佛水库钓鱼被没收鱼竿事宜\n徐先生在井研县周坡镇大佛水库禁止钓鱼区域使用鱼竿钓鱼，被工作人员抓了以后没收了鱼竿，工作人员未开具暂扣鱼竿的单据，自己也愿意接受批评教育。诉求：望核实告知到哪里办手续申请拿回鱼竿。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559314510",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559314510.html",
+   "question": "反映井研县民主街旧城改造搭建外墙架子影响生意\n毛女士是井研县民主街门市老板，反映旧城改造搭建外墙架子，已经两三个月了都未施工完成，非常影响生意。诉求：希望尽快施工，拆除架子。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "854502606565445",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854502606565445.html",
+   "question": "望告知如何在线上查询不动产登记信息及下载打印方式\n沐川县金丰置业金悦湾的户主，现在在西藏，无法在线下查询信息，不知在线上是否可以查询不动产登记信息及下载打印方式，望告知如何在线上查询不动产登记信息及下载打印方式。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852290757619781",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852290757619781.html",
+   "question": "咨询市中区在哪进行汽修三类备案\n反映人在市中区苏稽镇开设汽修厂，想要进行运管部门的三类备案。诉求：咨询在哪办理汽修三类备案。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852025339924549",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852025339924549.html",
+   "question": "反映申请五通桥区失业保险技能提升补贴问题\n群众反映在五通桥区工作，考取了中级消防设施操作员证，现想要申请失业保险技能提升补贴，可以领取1500元，但是不知道应该如何申请，希望部门告知应该如何办理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559314503",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559314503.html",
+   "question": "反映特困人员城乡居民医保费用未退还的问题\n谭先生是井研县集益镇金峰村的村民，来电反映自己是残疾人，缴纳城乡居民医保是政府缴纳，但自己垫付的2026年的城乡居民医保政府还没有退还，诉求：望核实何时退还已交的2026年城乡居民医保费用。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559261253",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559261253.html",
+   "question": "反映井研县天府南变电站拖欠工资\n陈先生反映于2026年3月27日-4月8日在井研县镇阳镇两河村天府南变电站从事登高作业，拖欠工资1000多元左右。诉求：望尽快发放工资。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559314507",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559314507.html",
+   "question": "反映对井研县G213违停存疑\n9月22日10:00左右，张先生驾驶车辆在井研县G213行驶，只是刹车没有停车，但收到了违停罚单，对此存疑。诉求：望部门核实是否是误拍违章。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559318610",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559318610.html",
+   "question": "井研县马踏镇马踏村村民反映耕地被邻居损坏问题\n杨先生是井研县马踏镇马踏村的村民，反映邻居修房子挖地基导致杨先生家的耕地下沉，已经垮塌。诉求：希望相关部门协调，让杨青海给杨先生耕地修堡坎，防止继续垮塌。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "854502606504017",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854502606504017.html",
+   "question": "希望井研县金家湾农贸市场退还摊位费\n刘先生月16日在井研县金家湾农贸市场租了摊位，缴费900元，当时工作人员未开具发票，也未签合同，现在只摆摊四天，有事无法继续摆摊，希望农贸市场管理方退费。诉求：希望扣除一周费用，退还剩余费用。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852025339850821",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852025339850821.html",
+   "question": "反映五通桥区冠英镇名驹管家服务中心空压机夜间异响扰民问题\n某群众反映五通桥区冠英镇冠玉津花城2期斜对面篮球场旁边的名驹管家服务中心（汽修厂）空压机夜间未关闭，导致夜间间隔一段时间就会发出很大异响噪音扰民，严重影响附近居民休息，群众称该现象前",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "854502606536784",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854502606536784.html",
+   "question": "井研县99公园业主反映水费异常\n井研县99公园业主王女士反映，之前每个月水费40-60元，但是从2025年开始，水费就不正常，有时候水费100多元，有时候又是40多元，有时候又是80多元，来电人表示自己每个月家里的人口和生活方式都未变，不知",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559314508",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559314508.html",
+   "question": "井研县西门广场跳广场舞噪音扰民\n井研县研城西门广场跳广场舞噪音扰民，诉求：望尽快解决噪音问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559314505",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559314505.html",
+   "question": "反映井研县研城镇购买玉米剥皮机问题\n李先生反映在井研县研城镇希望大道宇昇机械 （价值1398）玉米剥皮机，9月20日收到玉米剥皮机设备但是没有电源线，后发现自己购买的设备机身是不锈钢，但实际收到是带锈的设备机身，商家告知机器设备本身就不配备",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559314509",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559314509.html",
+   "question": "拼多多购物退货运费争议\n来电人在拼多多商家张惠林农业机械经营部购买了机械设备，因配件问题申请退货，商家要求其承担往返运费。诉求：望部门协调商家承担运费。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559318605",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559318605.html",
+   "question": "反映井研县希望大公路上游商占道经营问题\n反映井研县希望大道的公路上每天早上4点至8点，下午13点至19点全是游商占道经营，非常危险，也导致此处环境很脏乱。诉求：望部门尽快处理此处占道经营问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559314506",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559314506.html",
+   "question": "井研县希望大道4号附近摊贩占道经营\n井研县希望大道附近道路上有很多摊贩占道经营，影响车辆通行。诉求：望处理占道经营问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559359564",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559359564.html",
+   "question": "井研县田家沟村村民反映水库使用网箱养鱼污染水质\n井研县纯复镇田家沟村胡先生反映，其居住地附近水库因正大集团饲料公司设置100余个网箱养鱼，导致水库水质被污染，其饮用的井水也来源于水库。而该公司以前采用的是生态养殖。诉求：望禁止网箱养鱼恢复为",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559355463",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559355463.html",
+   "question": "咨询中秋国庆期间是否允许在张公桥美食街临时摆摊\n来电人想咨询中秋、国庆期间是否可以在市中区张公桥美食街里面临时摆摊卖美食，是否需要登记。诉求：咨询中秋国庆期间是否允许在张公桥美食街里面临时摆摊卖美食。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559318599",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559318599.html",
+   "question": "反映井研县三江镇农贸市场及周边摊贩违规使用液化气\n井研县三江镇农贸市场及周边卖肉和卖鸡鸭的摊贩违规使用液化气，未安装减压阀、使用老旧白色管子，存在安全隐患。诉求：反映这些摊贩违规使用液化气，望查处整改。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852010592952396",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852010592952396.html",
+   "question": "望帮助联系井研县车主挪车\n井研百威电器反映一辆银色大众停放在店铺门口，影响店铺营业。诉求：望帮助联系车主挪车。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852290757668936",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852290757668936.html",
+   "question": "表扬沐川县利店镇政府\n王女士是沐川县利店镇的一名市民，来电反映利店镇环境很好，干净卫生，诉求：表扬沐川县利店镇政府。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559359567",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559359567.html",
+   "question": "反映乐山高新区实验小学校门口占道经营问题\n市民反映乐山高新区实验小学校门口每日放学时段有摊贩摆摊，把路都堵完了，影响家长接孩子。虽综合执法局工作人员每日值守，但工作人员走后摊贩即移至校门口。建议值守工作人员晚一点再走。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "854502606540873",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854502606540873.html",
+   "question": "望告知沐川县在哪里做伤残鉴定\n胡先生在成都受伤摔跤，现在高位截瘫，在沐川的家里休养，望告知在哪里做伤残鉴定，需要什么资料。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852025340010567",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852025340010567.html",
+   "question": "反映五通桥交警大队工作人员工作态度不好事宜\n某群众反映9月21日在五通桥区竹根镇街道收到一张违章停车的手开罚单，且在12123上无法查到。所以群众随后直接到五通桥交警大队办公室处理违章处申诉。但办公室的唯一男性工作人员，不愿意处理申诉并告知",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559359557",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559359557.html",
+   "question": "反映井研县宏泰广场房产证及过渡费问题\n邓先生现是井研县宏泰广场的住户，来电称现居住的房子是2013年拆迁重建的，但开发商至今未办理房产证及结算过渡费一万元，邓先生称其他住户房产证及过渡费都已经办理，唯独自己还未办理。诉求：望督促开发商尽快办",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559318603",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559318603.html",
+   "question": "反映井研县解放街69号违停严重\n宋先生反映，每逢赶场日，就有大量车辆停放在井研县解放街69号的巷子内，影响这里住户的正常出行。诉求：望处理此处违停情况。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559318607",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559318607.html",
+   "question": "匿名反映井研县高级职业中学校园食堂的问题\n匿名反映，井研县高级职业中学校园食堂早饭7:40分就没有包子馒头，准备的早餐份量少。诉求：望食堂增加早餐份量。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559318611",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559318611.html",
+   "question": "反映井研县银座购物中心附近占道经营的问题\n来电人反映，井研县银座购物中心附近长期有占道经营的商贩，影响通行。诉求：望加强巡查，禁止占道经营。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "854502606536787",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854502606536787.html",
+   "question": "反映井研县幸福名门外有人使用音响唱歌扰民\n刘女士反映井研县幸福名门外有人使用音响唱歌，声音很大，噪音扰民。诉求：望部门查处噪音扰民问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851966355505221",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851966355505221.html",
+   "question": "望告知井研县居民档案是否在井研县人才中心\n陈先生反映大学毕业后，档案邮寄回户籍地人才中心，户籍地在乐山市井研县，该档案两个月以前已经显示签收，但是陈先生在全国政务平台上查询不到。诉求：望部门核实并告知档案是否在井研县人才中心。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559314502",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559314502.html",
+   "question": "反映井研县锦弘巷水压小和加装电梯问题\n胡女士是井研县锦弘巷住户，该片区水压小，影响日常生活，诉求：望解决水压小的问题。\n业主们想加装电梯，钱都收齐了，但国土局审批没通过，诉求：望告知审批不通过原因，望同意业主们加装电梯。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "854502606536774",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854502606536774.html",
+   "question": "反映井研县研城街道用人单位未给员工购买失业险的问题\n卢先生于2007年11月-2022年5月在井研县研城街道综治巡逻大队做队员，因用人单位未给其购买2007年-2015的失业保险，造成其在2022年6月离职申请失业补贴时少领取了9个月的失业",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852010592948295",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852010592948295.html",
+   "question": "井研县民主街施工方堆放材料影响门市出入\n来电人是井研县民主街门市老板，反映因城市维修施工，堆放的原材料挡住门市的出入口。诉求：望核实尽快挪开维修材料。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852010592948293",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852010592948293.html",
+   "question": "井研县书院街2号附近旧房改造把材料堆放在路口影响路人通行\n井研县书院街附近在进行旧房改造，施工方把材料堆放在道路进出口，影响路人通行。诉求：望禁止将材料堆放在路口。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "854502606536789",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854502606536789.html",
+   "question": "反映井研县阳光云玺小区私家车位被非机动车占用\n井研县阳光云玺小区业主王女士反映，地下车库内设有非机动车专用停车位，但还是有很多三轮车和电动车占用私家车位，影响车主停车，也存在消防安全隐患。诉求：望物业加强停车管理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559355476",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559355476.html",
+   "question": "井研县集益镇界牌村入户路硬化的问题\n杨先生是井研县集益镇界牌村的村民，反映家外的入户路一直未硬化，村民出行不方便，村上一直在推拖，诉求：望尽快硬化道路。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559314511",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559314511.html",
+   "question": "匿名反映井研县金桂苑外无人机运输木材问题\n匿名反映井研县桂花巷金桂苑小区外有工地近期中午使用无人机运送木材，无人机在居民楼上飞行，运输木材存在安全隐患，诉求：望无人机绕道运输避免人群多的地方。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851966355501127",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851966355501127.html",
+   "question": "反映望井研县兴盛路12号外面路口增设交通信号灯\n反映井研县兴盛路外面路口无信号灯，导致该路口频繁发生交通事故，存在安全隐患。诉求：望该路口增设交通信号灯。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559314512",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559314512.html",
+   "question": "反映井研县乐景井高速项目总包拖欠工资\n江先生反映自2026年3月1日至7月31日在井研县乐景井高速项目中从事吊车工作，被四川华瑞霖峰建筑有限公司（总承包方）拖欠工资20000多元。诉求：望尽快发放拖欠工资。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559314513",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559314513.html",
+   "question": "反映井研县马踏镇黄钵街市政监控扰民\n反映井研县马踏镇黄钵街新桥桥上有一个市政监控，频繁语音播报，你已进入监控区域请尽快离开，影响周边门市做生意还噪音扰民。诉求：望尽快处理噪音扰民问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "854502606536791",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854502606536791.html",
+   "question": "井研县希望大道门市商家望协调尽快施工\n漆女士是井研县希望大道门市商家，反映门前道路9月10日已加装围档准备施工，但迟迟没有施工队进场施工，严重影响经营，且现场未张贴施工公示，也不知完工时间，故来电反映，诉求：望协调施工队尽快进场施工，或拆除",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559314504",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559314504.html",
+   "question": "对反映井研县石家桥村道路维修问题处理结果不满意\n来电人于9月20日来电反映，当时协商好了要修建堡坎，但现只修了一半就没有修了，诉求：望尽快修建堡坎。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559355475",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559355475.html",
+   "question": "反映井研县财政局桂花巷僵尸车停放事宜\n来电人反映井研县财政局桂花巷里停放了一辆僵尸车 ，已近一年未开走，且该路段时禁停路段，诉求：望部门核实联系车主驶离或是拖走。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559314514",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559314514.html",
+   "question": "井研县研城派出所来电称有群众反映井研县河道污染问题\n井研县研城派出所来电称有群众反映井研县西门广场对面河边有一大片白色污水污染河道。诉求：望部门及时处理河道污染。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559318598",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559318598.html",
+   "question": "反映井研县小区物业费问题\n王女士反映小区物业告知住户2024年和2025年的物业费未缴，但是王女士称家里一直缴纳了物业费，而且还留存缴费记录，不认可物业说法，现在物业向其催收物业费。诉求：希望部门协调处理物业费问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559318600",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559318600.html",
+   "question": "反映井研县御檀府扰民问题\n井研县御檀府茶楼有很多人员在公共场合抽烟，现有法律规定禁止在公共场合抽烟，且夜间存在扰民情况，诉求1：望处理公共场合抽烟问题，诉求2：望处理噪音问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851966355521605",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851966355521605.html",
+   "question": "咨询律师摔伤赔偿法律问题\n咨询学生在校期间受伤的法律责任",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559355474",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559355474.html",
+   "question": "望井研县城南晶座对外出租空余车位给无车位的业主使用\n井研县城南晶座业主称今日驾车回家时，物业告知其未购买车位不允许其进入，而地下车库还有很多空余车位，孙先生表示愿意出停车费，但物业却称空余车位是开发商的他们无权处理，诉求：望对外出租空余车位",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559355473",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559355473.html",
+   "question": "反映井研县马踏镇石泉村道路事宜\n井研县马踏镇石泉村老桥桥头到石花岩的路段被挖坏一个多星期了，目前停工状态，影响市民出行，诉求：望尽快完工。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559318602",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559318602.html",
+   "question": "反映井研县井研体育场有人使用大音响唱歌扰民\n反映井研县井研体育场有人使用大音响唱歌，噪音扰民严重，影响附近居民休息，其表示每天8:00就开始一直持续不断扰民。诉求：望核实处理噪音扰民问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559355478",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559355478.html",
+   "question": "反映井研县宝五镇五龙场村村民占用公路问题\n来电人反映井研县宝五镇五龙场村的村民吕先生将鸡养在公路中间，在路中间修建了栅栏，导致很多村民回家很不方便。诉求：望部门尽快帮助让其搬开鸡圈。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851966355505224",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851966355505224.html",
+   "question": "咨询法律事宜\n咨询工作期间未签劳动合同如何维权",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559355480",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559355480.html",
+   "question": "井研县门坎镇白合村村民反映住户附近有马蜂窝\n井研县门坎镇白合村村民反映，家门口的电线杆上，有一个很大的马蜂窝， 已经有人被蛰了，诉求：望部门能够安排人员进行移除。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852305504149574",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852305504149574.html",
+   "question": "咨询法律问题\n咨询在医院治疗的过程中发生坠楼如何处理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852305504149573",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852305504149573.html",
+   "question": "咨询法律问题\n咨询别人借钱不还如何维权",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559318604",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559318604.html",
+   "question": "反映井研县小区停车场滴水问题\n胡先生是井研县建设路蒲亭乐居小区业主，反映地下停车场上方的水管因暴雨后持续漏水，导致小区地下停车场积水严重，物业仅用铝合金盘接水并未彻底修复漏水点。最近又有多处出现漏水情况，认为是开发商修建的质量问题。诉求：1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852010592952390",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852010592952390.html",
+   "question": "望协调在井研县幸福名门学府路停车场出口路边两侧增设固定石墩以阻止车辆停放\n李先生反映井研县幸福名门学府路方向停车场出口的路边两侧，原本是有公共停车位的，但因视线存在盲区，部门取消了该处停车位，仍有很多车辆乱停乱放，存在安全隐患。诉求：望部门",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852305504100423",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852305504100423.html",
+   "question": "了解市中区围挡的施工工期及通行问题\n乐山太和盛世大酒店嘉兴路美食街店对面路段打围后在进行污水管道整治，但施工方将道路封闭，导致其他住户通行不畅，并且很多车辆会乱停乱放在出入口处，挡住其他车辆正常通行。诉求：1、希望施工方加强劝导，避免市民不",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559355477",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559355477.html",
+   "question": "对工单井研县研城街道新道路村村民望帮助申请低保处理结果不满意\n9月18号再次来电反映称自己9月17日下午已经把卖房获得的5.2万元财产收入的支出情况资料交给了新道路村负责低保的工作人员，但是到现在还未告知申请是否通过。诉求：望再次审核自己是",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559359562",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559359562.html",
+   "question": "反映井研县研城街道民主街35号摩托车乱停乱放\n林女士反映井研县研城街道民主街35号有很多摩托车乱停乱放，影响行人通行，诉求：望处理摩托车乱停乱放的问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "854502606536779",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854502606536779.html",
+   "question": "咨询市中区民政部门80周岁高龄补贴标准\n反映人想了解市中区民政部门80周岁高龄补贴标准。诉求：咨询市中区民政部门80周岁高龄补贴标准。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852305504133189",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852305504133189.html",
+   "question": "咨询法律问题\n咨询被造谣诽谤如何维权",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559359559",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559359559.html",
+   "question": "反映井研县圣景·公园一号售楼部旁边广场舞扰民问题\n刘女士反映井研县圣景·公园一号售楼部旁边有人在跳广场舞，且有人使用喇叭大喊大叫，已对周围居民生活造成影响，多次反映并未得到解决，认为部门并未按照依法依规进行处置，导致噪音问题没得到解决，诉求",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559318606",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559318606.html",
+   "question": "反映井研县和谐街公园内广场舞噪声扰民\n反映现在在井研县香佰里鲜货火锅对面的公园内，有很多市民在跳广场舞，噪声太大严重扰民。诉求：望处理广场舞噪声扰民问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559355479",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559355479.html",
+   "question": "反映井研县飞跃村道路上货车掉落的小石子问题\n反映井研县飞跃村（从井研县到仁寿道路，飞跃门处），全是大货车经过时掉落的小石子，一直也无人处理，来电人害怕对过路的行人和车辆造成安全隐患，故来电求助。诉求：望尽快处理该处道路上掉落的小石子。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "854502606569550",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854502606569550.html",
+   "question": "感谢沐川县交通局等部门为群众解决出行困难的问题\n沐川县箭板镇行路村3组道路狭窄，存在严重安全隐患，今年通过政府关怀帮扶将村道从3.5米扩宽至4.5米，消除了安全隐患，解决群众出行困难的问题，为下一步乡村振兴建设奠定基础，感谢交通局和发改局和",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559318609",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559318609.html",
+   "question": "再次对井研县门坎镇以工代赈项目未整改处理结果不满意\n9月18日来电反映部门回复存在形式主义，项目施工问题长期未整改，并表示当地群众施工前期已多次提出施工路面未夯实、存在松土等问题，施工方不为所动，且多次向有关部门反馈后仅得到形式主义回复，实",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852040087044168",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852040087044168.html",
+   "question": "建议乐山竹园烈士纪念园改造施工方使用完好的石块铺设地面\n程先生反映井研县竹园镇的乐山竹园烈士纪念园正在改造，施工方使用破损的大理石砖块去铺设地面，引发不满。诉求：建议施工方使用完好的石块铺设地面。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852290757648453",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852290757648453.html",
+   "question": "望告知井研县纯复镇田家沟村如何申请五保户\n井研县纯复镇村民雷女士，来电称其经济困难，且没有生育小孩，想申请五保户。诉求：望告知如何申请五保户。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852305504100422",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852305504100422.html",
+   "question": "反映市中区龙游路东段道路施工导致商铺经营困难问题\n龙游路东段220号，现修路施工导致两边人行道全封闭，影响正常经营及客户车辆出入。诉求：望在酒店门口保留通道，以便客人通行，保障酒店正常经营。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "854502606569553",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854502606569553.html",
+   "question": "反映沐川县醉氧天街附近的停车场抬杆问题\n王女士将车辆停在沐川县醉氧天街附近的停车场，抬杆坏了，车辆出不来，现场也没有管理人员。诉求：望部门帮助离开停车场。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "854502606569547",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854502606569547.html",
+   "question": "反映沐川县大楠镇旧厂坳处有占道施工情况\n反映沐川县大楠镇旧厂坳处一辆拖挂车载着支架在道路上占道施工，还有吊车也在该处占道施工，道路被占导致其他车辆无法通行。诉求：希望及时处理占道施工行为导致交通拥堵问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852040087044167",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852040087044167.html",
+   "question": "望井研县廉租房的电梯尽快完成安装\n丁先生是井研县廉租房的住户，现来电反映所有楼栋的电梯都于2025年只安装了一半就突然结束了，不知原因，现小区居住的多数为老年人，腿脚不方便，出行困难。诉求：望尽快完成电梯安装",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851966355501129",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851966355501129.html",
+   "question": "反映井研县宝五镇塘湾村村道硬化问题\n井研县宝五镇塘湾村村道加宽后一直未硬化，导致村民出行不便。诉求：望部门协调尽快硬化道路。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851966355501125",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851966355501125.html",
+   "question": "反映井研县研经镇通往石堰村的道路损毁未修缮问题\n来电人反映，井研县研经镇通往石堰村的道路，因资乐高速施工，被大货车碾压损坏，至今未修复。降雨导致淤泥堆积严重，影响通行并存在安全隐患。诉求：望尽快修复该路段。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852040087048275",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852040087048275.html",
+   "question": "反映在井研县家家福超市水亭佳苑店做工被拖欠工资\n朱女士于9月16日-18日在井研县/研城街道水亭巷家家福超市水亭佳苑店做收银员，被拖欠工资170元左右。诉求：望拿回工资。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852010592952394",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852010592952394.html",
+   "question": "井研县龙申村夜间施工噪音扰民并扬言闹事\n吴先生是井研县镇阳镇龙申村的村民，反映村里修建高压线的施工方半夜还在施工，挖机施工声音很大噪音扰民，诉求：望部门处理尽快噪音扰民问题，并且晚上22:00后不要在施工。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852025340006475",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852025340006475.html",
+   "question": "法律咨询\n咨询恋爱期间转账的性质",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559318612",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559318612.html",
+   "question": "反映中石化公司在井研县马踏镇四合村昼夜作业严重扰民\n井研县马踏镇四合村陈先生反映中石化公司在当地开采天然气，持续昼夜作业近两个月，钻井的声音非常大严重影响周围住户休息。多次向政府部门反映无果。诉求：望环保局介入处理并整改噪音问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852010592948297",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852010592948297.html",
+   "question": "反映井研县镇阳镇原天云乡天湖村村支书修建养猪场事宜\n郑女士反映井研县镇阳镇原天云乡天湖村的村支书把自己爱人的父亲方俊清坟山四周挖了很多地方要修建养猪场。9月18日还要动工挖左边，然后在坟墓四周留水坑。其不认可，表示有水坑后续自家公公的坟墓受",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "854487852707909",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854487852707909.html",
+   "question": "望核实告知市中区哪里可以为个人自费办理健康证\n反映人在乐山市中区以个人名义自费办理健康证以赴外地工作，因担心无证影响外地就业而焦虑，询问是市中区否有医院或机构可办理。诉求：望核实告知市中区哪里可以为个人自费办理健康证。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851966355501128",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851966355501128.html",
+   "question": "询问井研县创业补贴发放问题\n王女士反映申请了井研县创业补贴，询问就业部门告知审核已经完毕，但并未告知何时发放补贴。诉求：望部门告知创业补贴何时发放。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852305504084037",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852305504084037.html",
+   "question": "咨询市中区乐山体育中心地下停车场停车收费政策\n反映市中区乐山体育中心地下停车场之前每天下午5点半后家长停车接孩子40分钟都是免费的，但现在发现停车不到30分钟就开始收费了，不清楚是否更改了政策。诉求：咨询市中区乐山体育中心地下停车场停车收费",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852025340010565",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852025340010565.html",
+   "question": "井研县集益镇赛功村未办理退耕还林证\n杨女士是井研县集益镇赛功村村民，反映村上全都办理退耕还林证，只有自家没有办理，向村上反映无果。诉求：望帮助核实具体什么原因未办理退耕还林证，协调帮助办理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851966355484741",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851966355484741.html",
+   "question": "反映井研县云上时光小区住户水费问题\n廖先生是井研县云上时光小区的住户，反映从2026年3月起至今家中无人居住，但8月份时收到自来水公司的短信让缴费5元左右，廖军称家中一直无人居住为什么会有水费产生。诉求：望告知廖先生家中的产生水费的原因。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851966355501130",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851966355501130.html",
+   "question": "反映井研县供水公司乱收费问题\n王女士是井研县幸福大道与来凤路交叉路口往东南约380米阳光云玺住户，供水公司未兴业水业公司水卡号908225，刚才查询收费清单发现6月份显示用水量8水费27.2,7月份用水量显示7水费24.05,8月份显示用水",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851302811811915",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851302811811915.html",
+   "question": "市中区苏稽镇杨湾水泥厂家属区住户咨询残疾人补贴问题\n反映人是市中区苏稽镇杨湾水泥厂家属区的住户，反映人称其三级残疾，社区打电话询问其是否是办理的智力残疾，询问过后未告知询问来具体做什么？反映人称应该是有智力残疾的相关补贴，诉求：咨询是否要发",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852290757632070",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852290757632070.html",
+   "question": "匿名反映井研县周坡镇周坡村停电\n反映井研县周坡镇周坡村9月17日早上6点开始停电，并未接到任何停电通知。诉求：望尽快恢复供电。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "854502606569551",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854502606569551.html",
+   "question": "望沐川县消防救援大队取消提示短信\n袁先生新办理的手机号频繁收到沐川县消防救援大队的提示短信，如“清明严禁祭祀、使用明火”等内容，疑似上一任机主在沐川县消防系统里有登记，故来电希望消防部门能取消该提示短信。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559359565",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559359565.html",
+   "question": "反映井研县天宫巷原来的人民医院拖欠工资的问题\n王先生在井研县天宫巷原来的老人民医院现改为康养中心做水电工作，至今有1万多元的工资没有发放，表示其工友多次反映没得到解决，诉求：望相关部门协助尽快发放工资。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851966355501131",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851966355501131.html",
+   "question": "反映井研县研城街道魏家坳乐石路坡度陡峭\n来电人反映井研县研城街道魏家坳乐石路加宽后，平路与上坡衔接处坡度陡峭，底盘低车辆难以通过。\n诉求：希望重新整改过渡点，减缓坡度。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852040087048261",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852040087048261.html",
+   "question": "反映井研县研城街道研城小学外有很多流动摊贩占道经营\n反映井研县研城街道研城小学外每天工作日下午有很多流动摊贩占道经营，严重影响交通和通行。诉求：望部门加强监管。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852010592948296",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852010592948296.html",
+   "question": "反映井研县研经镇居民办理无犯罪记录证明问题\n徐女士是井研县研经镇大团村11组村民，现人在外地，从天府通办app申请无犯罪记录证明，系统显示未查询到相关信息，现徐女士来电求助，诉求：望井研县公安部门尽快进行处理，在9月17日联系徐女士提供帮助",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852040087044169",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852040087044169.html",
+   "question": "匿名反映井研县滨河小区外麦哈哈KTV噪音扰民\n反映井研县滨河小区外麦哈哈KTV现顾客唱歌的声音很大，严重影响周围市民休息，诉求：望部门处理噪音扰民问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852025340006472",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852025340006472.html",
+   "question": "咨询民事纠纷法律问题\n咨询被网暴如何维权",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851302811791437",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851302811791437.html",
+   "question": "公园墅楼下夜宵店占道经营，喝酒大吵大闹到深夜，对面小区业主无法入睡，\n位于公园墅楼下夜宵店，反映人八月份都反映投诉过因为占道经营，喝酒大吵大闹到深夜，对面小区业主无法入睡，根本没有解决根本问题，后来几次店主一样大半夜把桌子摆外面，喝酒的大吵",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851302811791435",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851302811791435.html",
+   "question": "反映井研县圣景公园一号售楼部旁边广场舞噪音扰民问题\n刘女士反映9月16日在井研县圣景·公园一号售楼部旁边有人在跳广场舞，且有人使用喇叭大喊大叫，已对周围居民生活造成影响。刘女士有联系过派出所，但派出所称那个小区没住多少人不处理。诉求：望处理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "854502606569549",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854502606569549.html",
+   "question": "反映沐川县金星幼儿园（虎溪中路）附近近期聚集大量流浪狗\n彭女士反映沐川县金星幼儿园（虎溪中路）附近近期聚集大量流浪狗，存在安全隐患，呼吁相关部门处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851302811791432",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851302811791432.html",
+   "question": "反映井研县小区外广场舞噪音扰民\n井研县雍景蓝庭御檀府的业主韩女士，反映小区外马路旁的小广场，经常有人员跳广场舞及开展活动，噪音扰民，诉求：希望部门查处噪音扰民问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852025340010566",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852025340010566.html",
+   "question": "反映井研县公园墅后门的肖辣辣自助烤肉占道经营\n李先生反映井研县公园墅后门的肖辣辣自助烤肉长期占道经营，影响通行。诉求：望部门处理占道经营的问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851302811791429",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851302811791429.html",
+   "question": "反映井研县纯复镇田家沟村道路问题\n李先生是井研县纯复镇田家沟村的村民，反映村中黄马沟的道路一直未修建水泥路，至今都还是泥土路，村民出行很不方便。诉求：望修建水泥路。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851302811791430",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851302811791430.html",
+   "question": "井研县京东洗车店欺骗消费\n饶先生在井研县壹号公园附近京东洗车店充值199元成为会员，商家告知成为会员后初次洗车免费，后面洗车每次只需15元，目前洗车时商家告知需额外支付15元的费用，并不是扣除会员卡的费用，认为商家欺骗消费，诉求：反映井研县",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851302811791431",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851302811791431.html",
+   "question": "反映井研县梵境SPA拒绝退款问题\n9月16日再次来电表示联系了对方，对方让加微信处理，但是后续一直不通过好友申请。周先生希望消协掌握该商家不退款的违规行为，如果其再开设门店，部门要依法查处。诉求：望部门掌握商家违规行为，并且后续依法查处。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851302811791433",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851302811791433.html",
+   "question": "咨询井研县有没有失能老人单人低保政策\n王女士反映：井研县/王村镇/梅旺村16组肖先生今年73岁，其患有阿尔茨海默病已完全丧失劳动能力，来电咨询当地有没有失能老人单人低保政策。诉求：望核实告知。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851302811791434",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851302811791434.html",
+   "question": "对反映在井研县旭东机械厂上班被拖欠工资处理结果不满意\n诉求：望部门再次督促尽快支付工钱。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851302811791442",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851302811791442.html",
+   "question": "反映井研县北城-一号购房补贴问题\n殷女士2016年购买了井研县研城街道北城-一号13栋的房子，2018年提交了购房补贴资料，殷敏称在2025年陆续发放了大概5次购房补贴（每次约1000多元），2026年就未收到购房补贴款项，现还剩余1万多元",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852025339981895",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852025339981895.html",
+   "question": "井研县宝五镇曙光村铺设水泥路问题\n反映井研县宝五镇曙光村村民李先生家外面的乡村公路已经拓宽了，但还是泥土路，一直都还没有铺水泥路，出行十分不便。诉求：望尽快铺设水泥路。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851302811791438",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851302811791438.html",
+   "question": "反映井研县四川省旭东机械制造有限公司拖欠工资\n任先生2025年6月份-9月份在井研县四川省旭东机械制造有限公司做钢结构技术工作，总共工作29天，有1万元左右的工资没有发放，诉求：望协助尽快发放工资。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852010592952397",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852010592952397.html",
+   "question": "反映井研县皇家花苑小区10栋用水异常\n周女士是井研县皇家花苑小区10栋的住户，7月所有人在家才使用了9吨水，8月无人在家，竟然产生了13吨水，不知原因。诉求：望自来水公司核实水费异常原因。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852010592952393",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852010592952393.html",
+   "question": "对反映井研县研城街道高滩村5组晒场被修建成公路的问题处理结果不满意\n9月16日再次来电称该问题至今未解决，村上也未组织开会，且实际是梅女士爱人租用的。诉求：望村委的上级部门再次组织协调。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851302811811913",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851302811811913.html",
+   "question": "咨询自建房门面办理营业执照所需材料\n反映人的自建房门面在市中区平江中街，咨询自建房门面办理营业执照所需材料。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851302811791439",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851302811791439.html",
+   "question": "反映井研县书台街巷子里有一个污水管盖子损坏\n廖女士反映井研县书台街巷子里有一个污水管盖子损坏，有一定的安全隐患。诉求：望核实后尽快维修污水管盖子。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852025339981893",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852025339981893.html",
+   "question": "反映井研县交通局退休职工抚恤金问题\n左先生父亲是1991年在井研县交通局办理退休，退休金由单位发放，过世后咨询单位抚恤金问题，被告知没有火化没有该费用，诉求：望告知没有抚恤金是否属实。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852010592952389",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852010592952389.html",
+   "question": "反映井研县新兴街住户未居住仍产生水费的事宜\n张先生的房屋位于井研县新兴街61号，已有两年没有居住，但每月仍会产生水费，向自来水公司反映后仍存在该情况且拨打自来水公司电话3737157无法接通。诉求：望部门尽快核实并停止收费。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851966355505223",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851966355505223.html",
+   "question": "反映井研县旭东机械制造有限公司拖欠工资问题\n胡先生在井研县希望大道旭东机械制造有限公司做安装钢结构做厂房加固工作，被拖欠工资两万余元。诉求：希望尽快发放拖欠工资。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851302811791440",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851302811791440.html",
+   "question": "望改造井研县解放街这栋楼\n井研县解放街这栋楼没有旧城改造，井研县绝大多数楼房都已经改造了，现在这栋楼存在的问题是：底楼的商户扩建违建，造成下水道堵塞，且底楼没有卫生间，商户一般去这栋楼背后随地大小便，非常臭，诉求：望改造这栋楼。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851302811926599",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851302811926599.html",
+   "question": "井研县御檀府小区楼下一家卖药的店铺喇叭声噪音扰民\n井研县御檀府小区楼下一家卖药的店铺使用喇叭叫卖，声音大严重扰民。诉求：望处理噪音扰民问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851302811791441",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851302811791441.html",
+   "question": "井研县邮政公司员工反映工伤认定多次受阻\n朱先生是井研县邮政公司的员工，21年因工作时导致身体偏瘫残疾，向井研县人社局申请工伤认定，被人社局要求做司法鉴定，到底是伤引起的还是病引起的身体残疾，并撤销了其工伤认定书。后通过法院诉讼恢复其工伤认定",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851302811791443",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851302811791443.html",
+   "question": "对反映井研县阳光云玺4栋17-1号水费异常处理结果不满意\n反映这个月水费又有异常花费了14.6元的水费，认为家中无人居住且反映了很多次至今都未解决。诉求：望核实水费异常事宜并彻底解决此异常。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852040087044165",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852040087044165.html",
+   "question": "望告知何时开通井研县经过门坎镇到石牛的公交线路\n反映井研县经过门坎镇到石牛还没有开通公交线路，村民非常不便利，乘坐其他车很贵，且是私人的车辆不安全。诉求：望告知何时开通井研县经过门坎镇到石牛的公交线路。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851302811791444",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851302811791444.html",
+   "question": "乐山市井研县城南小学操场路段积水问题\n城南小学的各位领导您们好，作为本校学生的家长，向您们提一下学校大门口到操场路段的整改意见，学校大门到操场那段地面，一到下雨天，地面全是大大小小的水坑，积水很多，这段路是学生们上学到教室楼的必经之路，绝大",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851332303839310",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851332303839310.html",
+   "question": "井研县幸福大道海风屿海鲜店旁边徐烧烤食客噪音扰民\n曾先生反映井研县幸福大道海风屿海鲜店旁边徐烧烤食客噪音扰民，诉求：望部门及时到场处理噪音问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852054833041480",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852054833041480.html",
+   "question": "反映井研县王村社区医院流感疫苗缺货\n来电人是井研县王村镇村民，反映9月15日到镇上社区医院打流感疫苗，但医院说要月底才有货，来电人认为太晚了，怕感染流感，诉求：望督促疫苗尽快送达。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852054833041477",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852054833041477.html",
+   "question": "井研县富瑞明珠住户刘先生反映楼上邻居家漏水问题\n井研县迎宾大道8号“富瑞明珠”刘先生反映，楼上住户家卫生间漏水严重，刘先生和物业均和邻居协商无果。诉求：望社区帮助和邻居协商处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852054833041478",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852054833041478.html",
+   "question": "望井研兴业供水公司核实告知水费异常原因\n谭女士是井研领丰铜雀台住户，反映2026年4月份水费异常，之前都几十元的，4月水费就一百多元，联系不上井研兴业供水公司故来电。诉求：望井研兴业供水公司核实告知水费异常原因。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "854502606569548",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854502606569548.html",
+   "question": "反映沐川县乌蒙沐歌门口广场上噪音扰民\n彭女士反映，沐川县乌蒙沐歌门口广场上，喷泉声音分贝过大，噪音严重影响到附近居民及学生休息，希望将喷泉声音分贝降低或只在周末播放。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852040087048274",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852040087048274.html",
+   "question": "反映井研县宝五镇曙光村队长在选举时存在拉票、刷票行为等问题\n井研县宝五镇曙光村村民宋先生，反映队长在上一任选举时存在拉票、刷票行为，且工作能力有限。 诉求：希望下一任选队长时酌情考虑。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851302811643973",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851302811643973.html",
+   "question": "匿名表扬井研县城南小学外执勤交警乐于帮助小孩\n9月15日16:40左右来电人的小孩在井研县来凤路幸福海岸东南侧井研县城南小学放学，因来电人未及时接，小孩找到交警寻求帮助，交警及时致电来电人，帮助及时接到小孩，非常感谢交警及时的帮忙保障了小孩",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852010592952391",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852010592952391.html",
+   "question": "井研县夏家桥街21号丧葬店老板占用公共区域摆放冰棺\n王女士家住井研县夏家桥街21号，反映1栋1单元楼下有一家丧葬店，但是老板将冰棺放到了小区里面的公共空地上。诉求：望协调老板不要将冰棺放到公共区域。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852305504116806",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852305504116806.html",
+   "question": "咨询乐山市人力资源网账号密码忘记如何找回\n来电人在乐山市人力资源网的账号密码忘记了，咨询如何找回。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851302811926605",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851302811926605.html",
+   "question": "反映井研县交警执法不够人性化\n林先生反映在9月14日早上9点40分左右把车停在井研宾馆门口下货，停了不到五分钟就被电子监控抓拍，认为交警执法不够人性化，所以来电反映。诉求：反映交警执法不够人性化。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851332303839309",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851332303839309.html",
+   "question": "建议关闭井研县千佛镇新群村1组河道增氧机\n严先生反映井研县千佛镇新群村与民建村之间的河道，前期生态环境局在河道内安装了增氧机，来电人表示近期气候适宜，不需要再供氧，认为继续开启电机浪费电力资源，诉求：建议关闭河道增氧机。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852290757668934",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852290757668934.html",
+   "question": "表扬沐川县水务局等部门为沐川县茨竹乡西门村村民解决饮水困难的难题\n罗先生是沐川县茨竹乡西门村村民，来电表扬沐川县水务局、茨竹乡党委政府、西门村村干部为村民解决了饮水困难的难题，让村民们喝上了卫生的饮用水，使自己的生活变得很幸福。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851332303839308",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851332303839308.html",
+   "question": "反映井研县马踏初中周边施工垃圾的问题\n叶先生来电反映井研县马踏初中周边在埋中医院下水管道施工，施工方将施工垃圾对放在路边，影响环境与通行，诉求：望施工方尽快处理施工垃圾。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851332303839307",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851332303839307.html",
+   "question": "反映井研县锦绣华庭燃气异常的问题\n许女士是井研县锦绣华庭住户，反映每个月正常使用燃气但一直没有产生燃气费，不清楚什么原因，多次拨打井研县燃气公司电话都无人接听，故来电反映，诉求：望相关部门核实是否存在异常。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "854502606573639",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854502606573639.html",
+   "question": "群众咨询马边县金叶路道路施工何时完工\n群众咨询马边县民建镇光明社区金叶路（供电公司外面）修路工程进度，该工程原定9月初完工，但截至9月中旬仍未结束，咨询马边县金叶路道路施工何时完工。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851347048497222",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851347048497222.html",
+   "question": "表扬高新区车子社区卫生院的工作人员热心帮助市民\n来电人9月15日上午到高新区车子社区卫生院办理疫苗信息转移业务。值班室一名工作人员热心帮助其想办法并告知流程，公共卫生科一名工作人员也热心帮助其办成了该项业务。来电人表扬该社区卫生院两名工作人",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851966355505222",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851966355505222.html",
+   "question": "反映井研县迎宾大道的中驰时代天街工地施工噪音扰民\n井研县迎宾大道的中驰时代天街在建工地每天早上从5点开始施工，施工噪音严重影响周围居民休息。诉求：望工地按照国家规定时间施工。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852040087048273",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852040087048273.html",
+   "question": "井研县人民医院医养结合服务能力建设项目拖欠工资\n宋先生在修建井研县人民医院医养结合服务能力建设项目做普工，承包商是华西公司，分包商四川省建筑机械化工程有限公司，7月和8月的工资还未发放。诉求：望尽快发放工资。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852040087048271",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852040087048271.html",
+   "question": "井研县华泰·幸福里业主反映水费问题\n诉求：希望水厂自行纠正错误，如果因为工作人员抄错表导致要多缴纳阶梯水费她也不会认可。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852040087048269",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852040087048269.html",
+   "question": "井研县研溪华府小区1栋701号的业主反映水表异常\n李女士是井研县研溪华府小区1栋的业主，反映自来水公司更换智能水表后水费大幅上涨，从每月20-30元增至90多元，怀疑水表存在问题。诉求：望部门核实是否水表存在问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851302811902046",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851302811902046.html",
+   "question": "乐井路公路旁边护栏安装事宜\n李先生反映乐井路乐山往井研方向金丝堰公交车站处道路右边有一个路口，现在安装的护栏多出了两节，导致需要右转进路口就需要占用其他车道才能转入，非常危险，其表示若减少两节护栏，车辆直接就可以转入，提高安全性。诉求：建议",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "854502606573638",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854502606573638.html",
+   "question": "马边县民建镇村民望尽快通过异地补办身份证申请审核\n群众是马边县民建镇户籍，现本人在西安，已在当地申请异地补办身份证，信息已上传，因着急使用身份证，望尽快通过异地补办身份证申请审核。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851332303839306",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851332303839306.html",
+   "question": "反映井研县研经镇油菜种子统一发苗事宜\n周先生是井研县研经镇的村民，他反映镇里面统一通知，村干部已经公告今年的油菜种子，不直接发种子，先统一发苗出来再发到每个人手里。周先生认为不应该统一发苗，应该直接发种子，周先生怕以后发苗出来后交钱才能领苗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851332303839303",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851332303839303.html",
+   "question": "反映井研县门坎镇富民小区臭味扰民\n胡先生反映井研县门坎镇富民小区住户养狗和养鸡臭味扰民，影响正常生活，故来电反映，诉求：望协调处理臭味扰民的问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852040087048266",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852040087048266.html",
+   "question": "希望井研县云上时光小区开发商退还订金\n金女士反映订购了井研县云上时光小区的房屋，缴纳8000订金，后9月实地看房时才发现时槽钢层，有漏水风险，事先销售员并未告知，诉求：希望开发商退还订金。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "849533330632776",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/849533330632776.html",
+   "question": "咨询法律问题\n咨询工作期间受伤如何维权",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852025340006476",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852025340006476.html",
+   "question": "反映沐川县底堡乡龙沱村水质浑浊问题\n沐川县底堡乡龙沱村村民来电村中自来水长期浑浊，影响正常饮用。诉求：望核查水质浑浊原因，想办法解决水质浑浊问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851332303839301",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851332303839301.html",
+   "question": "希望有关部门尽快处理占道经营问题\n来电人反映井研县人民医院侧门旁边人行道盲道被商家占用，希望有关部门调查处理。诉求：希望有关部门尽快处理占道经营问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "854487852793925",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854487852793925.html",
+   "question": "群众反映马边县时代东光一期酒吧噪声扰民\n群众反映马边县时代东光一期正大门旁边2楼的酒吧音响噪声很大，严重扰民，且每晚都存在同样的情况，希望部门进行彻底整治，望部门尽快到现场处理噪声扰民问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851332303835210",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851332303835210.html",
+   "question": "反映井研县虹米烧烤店噪音扰民问题\n来电人反映，井研县虹米烧烤店夜间营业存在大声喧哗噪音扰民，影响居民休息。 诉求;望处理噪音扰民问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "844884447748165",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/844884447748165.html",
+   "question": "公办小学针对食物有过敏的儿童如何处理\n反映人的孩子有食物方面的过敏情况，明年即将读小学，所以很想了解一下针对食物过敏的孩子，小学午饭是如何解决呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "849533330632775",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/849533330632775.html",
+   "question": "咨询法律问题\n咨询单位未及时为自己购买社保如何维权",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852040087048267",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852040087048267.html",
+   "question": "反映井研县华泰·幸福里小区水费异常的问题\n井研县幸福大道与翰林大道交叉口西南150米华泰·幸福里业主李先生反映整个小区的水费都存在异常。诉求：望供水公司与其联系，处理水费异常的问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852305504100425",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852305504100425.html",
+   "question": "匿名反映高新区安谷镇便民服务中心旁广场舞噪音扰民\n匿名反映安谷镇便民服务中心旁很多人使用音响跳舞，噪音扰民严重。望有关部门尽快处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852025339985989",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852025339985989.html",
+   "question": "井研县市民反映水费异常\n王女士反映房屋及店铺水费异常问题：\n1.王女士房屋在井研县幸福里小区1栋2单元，平时每个月水费30元左右，但9月份水费突然猛增至80多元，王女士表示小区很多业主家都有水费猛增情况。诉求：望核实水费猛增原因，是否存在乱",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852025339981894",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852025339981894.html",
+   "question": "对反映井研县黄梨桥掉落电线导致群众受伤赔偿问题处理结果不满意\n反映人表示电信公司只愿意赔付2000元，不愿意对医疗费、误工费、车辆损坏所产生的实际损失费用进行赔付。诉求：望部门协调按照实际损失和实际医疗费进行赔付。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "854502606573641",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854502606573641.html",
+   "question": "群众反映马边县华地学府小区每层楼道间安装柜体事宜\n马边县华地学府小区群众反映，小区基本上每栋的楼道间，都存在有业主把鞋柜、衣柜安装在过道上，存在占用公共地段，该现象严重影响日常通行，木质柜属于易燃物，楼道属于消防疏散公共通道，也存在消防安全",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852040087048270",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852040087048270.html",
+   "question": "井研县业主反映水费异常飙升至1000元\n井研县阳光研溪华府业主刘先生，反映其水费从每月5元突增至1000多元，怀疑计费异常，诉求：希望核实水费问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852040087048272",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852040087048272.html",
+   "question": "井研县华泰·幸福里业主反映水费异常\n井研县华泰·幸福里业主陈女士反映，之前每个月水费就是30-50之间，本月水费却高达130多元，家里日常作息也没有改变，认为水费异常，且小区很多业主都反映最近水费不正常，诉求：望部门现场核实水费异常的原因。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "854502606569554",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854502606569554.html",
+   "question": "反映沐川县富新镇牛郎坪与快速通道交界处的草木茂盛遮挡视线\n张先生来电反映沐川县富新镇牛郎坪与快速通道交界处左侧的草木茂盛，灌木丛比较高，开车转弯的时候遮挡视线，由于路段货车较多，存在安全隐患，望部门能及时清理灌木丛。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "854502606573640",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/854502606573640.html",
+   "question": "群众反映马边县金马村村民独生子女证丢失事宜\n群众是马边县下溪镇的村民，以前有下溪镇政府发放的独生子女证，后面这个独生子女证丢了，望部门告知能否补办独生子女证。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851332303835207",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851332303835207.html",
+   "question": "反映在井研县宝五镇修建高标准农田水渠护坡工程被拖欠工资\n李先生等13个班组几百人2023年在井研县宝五镇、千佛镇、周坡镇修建高标准农田水渠护坡工程中做泥工，共计被拖欠200万元工资。诉求：望帮讨回工资。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559318613",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559318613.html",
+   "question": "群众反映马边县华西大道2段施工架子未拆影响做生意\n群众是马边县华西大道2段门市经营者，反映门市外搭架子做风貌改造，之前称八月底结束施工，但目前施工已经完成架子却留一半未拆，影响门市做生意，望部门协调尽快拆除架子。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852290757668935",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852290757668935.html",
+   "question": "表扬沐川县底堡乡龙沱村9组村干部\n方先生是沐川县底堡乡龙沱村的村民，反映村上有座桥桥的两边有破损和坑洼，9月13日看到村干部王先根和队长邓仕奇在此处修补道路破损，方先生咨询村干部被告知是政府的杨雄杨主任带领村干部和施工队协商后免费提供的材料",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852040087048263",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852040087048263.html",
+   "question": "望告知如何报销川工之家女职工大病互助保险\n陈先生的母亲于2019年6月29日通过井研县某工厂参保了川工之家的女职工大病互助保障计划，缴费100元保障10年，2026年7月母亲刘女士因脑溢血进行了手术，现想咨询相关报销事宜。诉求：望告知如何报",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852290757668933",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852290757668933.html",
+   "question": "表扬沐川县农村农业局对创业人员提供帮助\n严女士是沐川县茨竹乡茶坪村的返乡创业人员（养牛），特来电感谢农村农业局对其提供的帮助和关心。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852040087048262",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852040087048262.html",
+   "question": "井研县公园墅7栋401号业主李先生反映水费异常\n井研县公园墅业主李先生反映，之前每个月水费40-60左右，最近两个月（8-9月）没有来抄表，就乱计算的水费高达230元，来电人表示十分不合理，存在乱收费，诉求：望部门核实水费异常的问题，及望减",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559371845",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559371845.html",
+   "question": "望部门告知马边县城区该怎么处理建筑垃圾\n群众是马边县城区的新商家，现在刚开始拆门市准备新装修，产生了建筑垃圾，但不知道该怎么处理这些建筑垃圾，望部门告知马边县城区该怎么处理建筑垃圾。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559359566",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559359566.html",
+   "question": "群众反映马边县中坝流动摊贩占道经营问题\n群众反映马边县中坝街街上经常有流动商贩占道经营，影响幼儿园和卫生院救护车进出，望部门增强巡查彻底解决流动摊贩占道经营问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852040087048265",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852040087048265.html",
+   "question": "井研县迎宾大道领丰铜雀台户主反映未居住产生水费问题\n贾先生的父亲是井研县迎宾大道领丰铜雀台3栋业主，2026年5月份开始家里无人居住，且关闭水闸，但9月发现水费欠费30多元，反馈给井研县兴业供水有限公司，供水公司称是水管内空余有气体导致排水",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851332303835205",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851332303835205.html",
+   "question": "井研县领丰公园墅小区空气中弥漫着饲料味\n侯先生是井研县领丰公园墅小区居民，反映小区夜间经常弥漫一股饲料的味道，疑似有工厂在排放废气，故来电反映。诉求：望部门核实小区的夜间空气中的饲料味来源并解决。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851332303822917",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851332303822917.html",
+   "question": "井研县解放街邮政宿舍漏水问题\n陈女士是井研县解放街邮政宿舍居民，反映邻居家漏水到自家客厅，之前向社区反映告知会处理，但一直未处理，故来电反映，诉求：望社区再次帮助协调处理漏水问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "849533330632774",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/849533330632774.html",
+   "question": "咨询法律问题\n咨询房屋装修合同纠纷如何维权",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "849533330632773",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/849533330632773.html",
+   "question": "询问法律问题\n咨询对方长期赊账自己如何维权",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852040087048264",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852040087048264.html",
+   "question": "井研县王村镇梅旺村村民反映村上拿走房产证和土地使用证办理不动产证迟迟未归还\n彭先生是井研县王村镇梅旺村村民，反映2023年村上队长拿走房产证和土地使用证办理不动产证，至今三年未归还，询问队长和村长都说还在办理。诉求：望核实告知何时退还房产证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559388230",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559388230.html",
+   "question": "群众反映马边县梅林镇鄢家碉村收垃圾问题\n群众反映马边县梅林镇鄢家碉村附近，近期没有环卫收垃圾，垃圾在路边堆积严重，影响生活环境，望安排环卫收垃圾。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852305503973445",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852305503973445.html",
+   "question": "群众反映马边县西门花园附近老旧小区改造周末施工噪音扰民，影响住户休息，望处理噪音问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559388229",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559388229.html",
+   "question": "群众反映在马边县三九广场公交车站旁游商购物纠纷\n群众于9月12日下午6点左右，在马边县三九广场公交车站旁游商处购买切糕，反映让商家少称点尝尝，但切出的价格是250元，不给钱还不让走，郭女士支付了费用，现认为受骗，望部门工作人员到场协调退货退",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852025340006474",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852025340006474.html",
+   "question": "反映沐川外滩假日酒店外的河边上噪音扰民问题\n彭先生反映沐川外滩假日酒店外的河边上有很多人拿着音响和喇叭在唱歌，一条街都是产生的噪音，严重影响了居民的正常生活和休息。诉求：望尽快处理噪音扰民问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559384133",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559384133.html",
+   "question": "望督促马边县人民医院尽快退款挂号费3元\n群众于9月9日挂了马边县人民医院肺结核科的号3元钱，当日去就诊时医生已经下班未就诊，群众次日到科室再次挂号。望督促医院尽快退款挂号费3元，反映医院让患者重复挂号。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559334983",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559334983.html",
+   "question": "群众反映马边县东方富居4栋公共区域被住户堆放了许多杂物，不清楚是哪个住户堆放的，影响小区的环境卫生，也存在安全隐患，望相关部门协调处理小区公共区域被住户堆放杂物的问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559334982",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559334982.html",
+   "question": "群众反映马边县滨河东路122号磷都KTV拖欠工资\n群众在马边县滨河东路122号磷都大酒店旁边磷都KTV做服务生，现被拖欠8月19日-22日工资500元左右，望帮助拿到工资。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852025340006470",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852025340006470.html",
+   "question": "建议沐川县交警人性化执法并撤销罚单\n何先生反映9月4日早上8点左右驾车在沐川县梨园街869号红绿灯处被抓拍不按导向行驶，何先生在绿灯直行时因左前方车辆在行驶中突然停止，自己的车辆才往右边偏移，故不认可该罚单。诉求：建议交警人性化执法并撤销罚",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559334981",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559334981.html",
+   "question": "群众反映马边县人民医院门口三轮车乱停放\n群众反映马边县人民医院门口存在三轮车乱停放，影响正常通行，望部门核实处理车辆乱停放问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852040087048268",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852040087048268.html",
+   "question": "反映井研县村道损坏问题\n何先生是井研县东林镇红花村的村民，反映村民集资修建的村道被中石化钻天燃气的施工车压坏了，多次向中石化反映无果，如今道路损坏存在安全隐患。诉求：希望部门尽快修复破损道路。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852025339924550",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852025339924550.html",
+   "question": "群众反映马边县民建镇JIZZ酒馆噪声扰民\n群众反映马边县民建镇马边广场1期小区对面JIZZ酒馆，每天晚上10点到凌晨，声音很大，噪声扰民，望解决噪声问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852054832967749",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852054832967749.html",
+   "question": "群众反映马边观澜国际6栋楼下的酒吧噪声扰民，望及时处理噪声问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852054832967750",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852054832967750.html",
+   "question": "群众反映马边县阿妈烧烤店噪音扰民\n群众反映马边县一号城邦2期小区楼下的阿妈烧烤店噪音扰民，望处理噪音问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852290757562437",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852290757562437.html",
+   "question": "群众反映观澜国际小区门口商铺长期占用人行道，乱停车堵塞通行\n恳请平台分派给综合行政执法局到现场实地核查：\n①责令商户立刻停止占用人行道经营，把烧烤架、货物全部清理，归还人行公共通道；\n②核查烧烤店油烟净化设备使用情况，整治油烟无序排放问题，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852054832951365",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852054832951365.html",
+   "question": "群众反映马边县南门大桥下广场舞噪音扰民\n群众反映马边县南门大桥下面的法制广场有很多跳广场舞的，声音大严重扰民，望彻底解决噪音扰民问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852025340006469",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852025340006469.html",
+   "question": "沐川县新城国际小区风尚儿童乐园楼下音响唱歌噪音扰民\n沐川县新城国际小区风尚儿童乐园楼下，每天都有一个男性用音响唱歌，噪音扰民。诉求：望处理噪音问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852054833041479",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852054833041479.html",
+   "question": "希望部门核实用户水表度数异常问题\n欧先生是井研幸福里的业主，欧先生来电称小区业主出现大批水表度数异常，有的住户家里没人居住都会出现10多吨的水，业主们找自来水公司就推诿不处理，有邻居打了自来水公司电话回复之前是系统读取数据，现在人工复核有差",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "853809559355465",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/853809559355465.html",
+   "question": "马边县群众望告知育儿补贴审核进度\n马边县烟峰镇群众反映8月31日已提交育儿补贴申请资料，一直显示受理中，故来电反映，望告知审核进度。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "848840287326278",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/848840287326278.html",
+   "question": "咨询乐山市中区是否有免费养老护理培训班\n咨询乐山市中区是否有免费的养老护理培训班，需要什么条件以及材料。诉求：望部门解答。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852054833045573",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852054833045573.html",
+   "question": "井研县华泰幸福里小区用水异常\n熊女士是井研县研城街道华泰幸福里小区居民，反映自家平时用水只有几吨，人员固定的情况下8月无故产生用水10多吨，认为用水异常，故来电反映。诉求：反映井研县华泰幸福里小区用水异常，请部门核实并解决。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852010592903237",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852010592903237.html",
+   "question": "群众想了解马边县梅林镇348国道通往美姑县的道路上是否封路\n群众反映马边县梅林镇348国道通往美姑县的地图上显示封路（属于梅林镇），不知道能否通行，希望部门核实告知是否封路。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852010592841797",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852010592841797.html",
+   "question": "群众反映马边县滨河帝景一期9栋2单元电梯故障未维修\n群众反映马边县滨河帝景一期9栋2单元电梯故障已经一个多月，物业也未安排人员维修，导致所有住户走楼梯出行，非常不便，望协调物业尽快维修电梯。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "849533330657351",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/849533330657351.html",
+   "question": "反映五通桥区甜甜大排档外井盖破损问题\n某群众反映五通桥区甜甜大排档钟楼街店外面的下水道井盖经常破损，过往存在安全隐患，望部门核实尽快维修。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "848840287326277",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/848840287326277.html",
+   "question": "咨询市中区集体经济组织身份迁移需要什么材料\n反映人因婚姻集体经济组织身份迁移至井研，现在想将身份转回市中区青平镇。诉求：咨询市中区集体经济组织身份迁移需要什么材料。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "849533330657350",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/849533330657350.html",
+   "question": "反映五通桥区竹根镇红军村水表户头迁移费用问题\n某群众是五通桥区竹根镇红军村4组村民，反映房屋因在半山腰无水，现新建房屋并申请将原水表户头迁移至新址，但供水公司要求支付户头费，其认为自己已有户头，不应重复收费，望部门告知是否需再次缴纳户头费。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851302811889733",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851302811889733.html",
+   "question": "感谢沐川县水务局和沐川县政府加装自来水净化系统\n沐川县舟坝镇先锋村刘女士反映，近期村上加装了自来水的净化系统，让村里的自来水水质得到了很大的改善。诉求：感谢沐川县水务局和沐川县政府加装自来水净化系统，让村民吃上更干净的自来水。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852025339940933",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852025339940933.html",
+   "question": "群众反映东方富居4栋1单元二楼麻将馆子噪音扰民，能找到老板处理这个事吗？安装隔音措施？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852054833045574",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852054833045574.html",
+   "question": "反映在井研县东林镇水井冲附近中国石化钻井队装货货车被损坏\n莫女士的丈夫驾驶货车前往井研县东林镇乱石冲附近装货，装货施工单位是中国石化钻井队的工地，由于工作人员在装货过程中损坏了货车栏杆，对方仅愿意赔偿350元，莫女士表示350元不足以修车，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851966355464261",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851966355464261.html",
+   "question": "群众反映马边县华地学府铺面水费无法刷卡问题\n群众是马边县华地学府铺面的老板，反映现在刷卡充值水费刷不上，联系自来水公司也没有得到处理，望尽快派工作人员处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852010592903239",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852010592903239.html",
+   "question": "群众反映马边县南河名城-公交车站前面一点移动商贩喇叭扰民问题\n群众反映马边县南河名城-公交车站前面一点，有一个开车卖水果的移动商贩，使用喇叭叫卖的声音大，严重影响周边居民休息，望尽快处理喇叭声扰民问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851302811873349",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851302811873349.html",
+   "question": "沐川县沐溪镇月坝村入党申请事宜\n沐川县沐溪镇月坝村的村民，反映自己想向月坝村党支部提交入党申请，不清楚具体流程。诉求：望告知入党申请的整个流程。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851302811889736",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851302811889736.html",
+   "question": "沐川县永福镇群众望告知育儿补贴审核进度\n沐川县永福镇群众反映，8月23日已提交育儿补贴申请资料，不知审核进度，故来电反映，诉求：望告知审核进度。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "848855033008197",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/848855033008197.html",
+   "question": "咨询市中区婚姻登记处十月一日当天上班吗，能否登记结婚\n乐山市中区婚姻登记处十月一日当天上班吗，能否登记结婚，有值班人员吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852010592952392",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852010592952392.html",
+   "question": "群众反映马边县苏坝镇胜利社区有通讯线杆倒了，不清楚属于哪个运营商，望尽快修复通讯线杆。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "848855033008198",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/848855033008198.html",
+   "question": "望告知五通桥区哪里有招聘相关信息发布\n某群众持有土木工程师专业，目前失业状态，不清楚五通桥区哪里有招聘相关信息发布，故来电反映，望告知五通桥区哪里有招聘相关信息发布或就业推荐。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852010592903238",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852010592903238.html",
+   "question": "群众反映马边县荍坝镇村民身份证未办理申请临时救助问题\n马边县荍坝镇村民在2026年8月刑满释放，现申请临时救助，但群众才办理身份证，需要一个多月才能拿到，暂无法提交申请临时救助材料，群众非常着急，望部门尽快给群众办理临时救助。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "849533330571333",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/849533330571333.html",
+   "question": "五通桥区西坝镇前丰村5组村民反映征地社保问题\n某群众反映其丈夫是五通桥区西坝镇前丰村5组村民，现征地享受购买征地社保待遇 ，不知征地社保与职工社保是否可以合并年限，故来电反映，望告知征地社保与职工社保是否可以合并年限。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "848840287330375",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/848840287330375.html",
+   "question": "咨询市中区陪诊服务专项职业技能培训正规机构问题\n想了解乐山市中区人社局是否有备案的陪诊服务专项职业技能培训机构，询问是否可申请政府补贴及培训后颁发人社专项职业技能培训证书。诉求：希望部门解答。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851347048497221",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851347048497221.html",
+   "question": "群众反映马边县北门桥农贸市场占道经营的问题\n群众反映北门桥农贸市场固定摊贩卖小东西占道经营，影响市民通行，并且其他摊贩在她旁边摆摊，她要收取别人的摊位费，望处理占道经营的行为和乱收摊位费的问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852290757648454",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852290757648454.html",
+   "question": "反映沐川县交通街小区外占道经营\n来电人反映沐川县交通街小区外店铺，将电动车摆在外面经营，挡住小区内的住户出行。诉求：望部门尽快处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "848840287322181",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/848840287322181.html",
+   "question": "咨询商家参加市中区蜀里安逸餐饮消费劵活动事宜\n反映人是市中区万达文星后街的商家，反映现在云闪付有2026年蜀里安逸餐饮消费劵活动。诉求：咨询自己店铺怎么加入参加此活动。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851332303806533",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851332303806533.html",
+   "question": "群众反映在马边县篝火晚会跳舞被拖欠工资\n群众于2026年2月17日-2月19日在马边县篝火晚会跳舞被拖欠工资600多元工资，望协调尽快支付工资。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851951608635461",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851951608635461.html",
+   "question": "群众反映在马边县篝火晚会活动中做舞蹈表演工作被拖欠工资\n群众反映和同事一共15人，2026年2月17日-19号在马边县广播电视台和旅游局承办的篝火晚会活动中做舞蹈表演工作，共计9000元（600元/人）未发，希望尽快发放。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851302811906120",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851302811906120.html",
+   "question": "反映乐山公共招聘网注册的问题\n来电人反映自己要找工作，社区告知可登陆乐山公共招聘网查询招聘信息。但来电人注册登录时，账号密码不符，无法完成注册。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851332303749189",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851332303749189.html",
+   "question": "群众反映马边县丁家磷矿单位修建办公楼拖欠工资\n群众反映，7月在马边县丁家磷矿办公楼项目从事封胶工作，尚有 3000 元务工报酬未支付，望相关部门协调督促单位结清欠款。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851302811926603",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851302811926603.html",
+   "question": "反映沐川县黄丹镇乡镇便民中心能否打印个人社保明细清单\n夏先生反映沐川县黄丹镇乡镇便民中心，因公司业务需要打印个人社保明细清单，不知道能否可以在乡镇便民中心能否打印到个人社保明细清单。诉求：望告知能否打印。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851332303806534",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851332303806534.html",
+   "question": "群众反映马边县商家漏交2025年工商年报问题\n群众反映自2025年开店以来未缴纳工商年报（营业资金等资料），现工作人员提醒告知后才清楚情况，故来电，希望部门解答如何补缴工商年报等资料，望解答流程。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851302811889740",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851302811889740.html",
+   "question": "反映沐川县沐溪镇白果村停水\n沐川县沐溪镇白果村的村民反映9月6日8点左右停水了，未提前通知，诉求：望告知停水原因和恢复时间。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "847778604060742",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/847778604060742.html",
+   "question": "反映五通桥区牛华镇中心街农贸市场外摊贩噪声扰民\n某群众反映每天早上四点多五通桥区牛华镇中心街农贸市场外就有流动摊贩摆摊，占道经营且声音很大，影响周边学生休息，希望解决占道经营、噪声扰民问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851332303806535",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851332303806535.html",
+   "question": "群众咨询马边县如何办理三民服务的经营执照（涉及更换水箱，水龙头和水管等业务），希望部门告知办理营业执照后是否能够给客户开具发票，望回复相关部门回复。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852305504116805",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852305504116805.html",
+   "question": "群众反映马边县苏坝镇348国道交通堵塞的问题\n群众反映在马边县348国道大风顶派出所附近路段堵塞约3个多小时，双向路段都不能通行，货车及小汽车均严重拥堵，望尽快疏通解决交通拥堵问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852305504100424",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852305504100424.html",
+   "question": "希望部门处理长期违规停放的小货车\n群众反映马边县2公里三叉路口有一辆蓝牌小型货车长期违规停放，希望部门处理长期违规停放的小货车。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851332303806536",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851332303806536.html",
+   "question": "群众反映马边和谐矿业有限公司管理不当\n群众给马边和谐矿业有限公司安装水箱，公司给自己在矿区内安排了一间房屋居住，矿区的工人未经过自己允许自称是要洗衣服擅自进入房间打开门，导致群众的狗丢失，工人召集矿区工人聚集闹事，并且矿区管理层也到场辱骂自",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852305504165957",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852305504165957.html",
+   "question": "望对马边县民建镇建设街366号外排水沟进行修复\n8月22日洪水过境冲垮了房屋外排水沟，担心后期大雨排水沟溢水倒灌至居民家中故来电反馈，望对该处损坏排水沟进行修复。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852305504165958",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852305504165958.html",
+   "question": "群众反映马边新城滨河帝景二期2栋3单元电梯因进水停用一个月\n马边新城滨河帝景二期2栋3单元的电梯（老旧小区加装电梯），因暴雨时电箱进水停用近一个月，群众反映多次联系电梯公司未果，尽快安排维修电梯并恢复使用。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "848840287326280",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/848840287326280.html",
+   "question": "咨询市中区在哪补办车位税票\n反映人的车位在市中区凤凰国际，现准备出售车位办理车位过户，但车位税票丢失，诉求：咨询在哪补办税票。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "852305504165959",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/852305504165959.html",
+   "question": "群众反映马边央金玛酒吧夜间噪音扰民等问题\n群众反映马边县民建镇滨河东路202号马边央金玛酒吧每天晚上夜间甚至凌晨音响声音很大，噪音扰民，且该酒吧无消防证，无消防通道，存在安全隐患。1、望处理噪音扰民问题；2、望商家整改消防问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851302811852869",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851302811852869.html",
+   "question": "群众反映马边县央金玛演艺中心噪音扰民等问题\n马边县廊桥1楼央金玛演艺中心里面，每天晚上8点-早上6点唱歌跳舞，噪声扰民，且该处无消防通道。1.望解决噪声问题，2.望查处消防通道、设施缺失问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851302811832391",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851302811832391.html",
+   "question": "群众反映四川中泰华翔建设工程有限公司拖欠工资，还有14670元工资未结清，望尽快发放工资。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851332303839304",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851332303839304.html",
+   "question": "群众反映马边县民建镇农贸市场摊贩占道经营的问题\n群众反映马边县民建镇农贸市场外长期有很多摊贩占道经营，造成道路拥堵，望综合执法局整治和取缔占道经营的问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851302811889739",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851302811889739.html",
+   "question": "了解沐川县到富新镇公交发车时间\n王先生反映要从沐川县县城到富新镇乘坐5路和3路公交车，但是不清楚发车时间。诉求：希望部门告知5路和3路公交车发班时间。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851332303835209",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851332303835209.html",
+   "question": "群众反映房屋安全隐患及排水治理\n群众反映受8.22洪水影响房屋被淹，群众称因为修建龙桥夜市导致雨水往家里流，并且洪水将房屋后冲来导致形成了一个沟渠，存在安全隐患，望整治沟渠和完善排水系统以消除隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851332303835208",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851332303835208.html",
+   "question": "群众反映马边县连瑞街烧烤摊顾客噪音扰民\n群众反映马边县连瑞街烧烤摊摆放在邻家超市至念恩电器街道处，占道经营，每天晚上顾客在烧烤摊摆放处大声喧哗，噪音扰民，严重影响居民正常休息，望处理噪音扰民问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851302811852873",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851302811852873.html",
+   "question": "群众反映马边县民建镇滨河西路旧城改造问题\n群众反映之前马边旧城改造装修导致家中水电被切断，现在家中各种线路是乱的且室内瓷砖损坏严重，无法正常入住，希望部门尽快修复破损处，并恢复供水供电。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851302811852870",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851302811852870.html",
+   "question": "咨询马边县到美姑县通行道路\n群众反映马边县建设镇通往美姑县的G348国道及高速均无法通行，导致群众现在在建设镇滞留无法前往美姑县，因急需送货担心变质，咨询部门是否还有另外道路。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851302811889738",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851302811889738.html",
+   "question": "反映沐川县梨园街农贸市场对面停车场进入口斜坡面凹凸不平\n辜女士反映沐川县梨园街农贸市场对面“百丽丝家纺”的门口有个电单车和电动车的停车场，停车场进入口斜坡面凹凸不平，容易造成行人及电瓶车通行时摔倒。诉求：望尽快修复地面。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851332303806537",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851332303806537.html",
+   "question": "反映丧葬费尽快通过审核的问题\n来电人的父亲去世，在异地向市人社局提交了丧葬费申领，但未通过审核。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851302811926597",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851302811926597.html",
+   "question": "咨询病患陪护专项技能证书查询渠道\n来电人2023年在乐山考取了病患陪护专项技能证书，现证书遗失，不知是否有渠道可以查询该证书。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "849533330645061",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/849533330645061.html",
+   "question": "感谢沐川县政府修路改善大楠镇新场村的柑橘运输条件\n大楠镇新场村的村民反映，之前的村道是没有硬化的，都是泥巴路村民运输柑橘出去非常困难，8月底政府将8组的柑橘园区道路全部修建水泥路实现全线贯通，极大改善了运输条件，让村民把柑橘都顺利卖出去了。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851302811852875",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851302811852875.html",
+   "question": "群众反映马边县荣丁镇反映车辆被剐蹭事宜\n马边县荣丁镇村民反映9月3日自己车停在家里的坝子上，被其他车辆经过时剐蹭了，家里安装了监控，望部门回电告知具体该情况归谁管，并希望能够联系对方车辆进行处理事故。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "850267642585168",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/850267642585168.html",
+   "question": "表扬沐川县人民医院的医护团队艺术精湛、服务极佳\n反映其母亲于8月30日在沐川县人民医院做胆结石手术，9月7日顺利出院，表扬外三科郭凯主任、所有医护团队及康复科杨超医生艺术精湛、服务极佳，对其母照看的很好，很快就康复顺利出院了。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851302811852874",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851302811852874.html",
+   "question": "群众反映马边县地磅缺斤少两问题\n群众反映马边县苏坝镇白杨槽村一路边场地地磅被老板私自安装地磅收木材，该地磅被老板调试过，涉嫌缺斤少两，希望部门核查地磅是否缺斤少两。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "850267642585167",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/850267642585167.html",
+   "question": "表扬沐川县体育局快速修复健身设施\n陈先生是菜园巷2号（靠近文化广场）的市民，反映县体育局快速修复菜园巷2号健身器材，并新增象棋、擦背等设施，提升群众生活质量，表扬体育局高效服务。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "850267642585166",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/850267642585166.html",
+   "question": "反映沐川县安家园小区挨着沐源路有人焚烧树干\n反映目前沐川县安家园小区挨着沐源路有人焚烧树干玉米杆等农作物，影响空气，诉求：望部门及时到场制止。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851332303851589",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851332303851589.html",
+   "question": "群众反映马边县杨坝附近混凝土施工车辆放行的问题\n群众来电反映马边县杨坝中心小学附近，因混凝土互喷施工，导致车辆堵塞一两个小时没有放行，望尽快放行。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851302811889735",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851302811889735.html",
+   "question": "反映沐川县新城国际停水\n市民反映沐川县新城国际小区突发停水，不清楚停水原因。诉求：望核实频繁停水原因，并尽快恢复供水。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851302811889734",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851302811889734.html",
+   "question": "反映沐川县新城国际B区停水问题\n沐川县新城国际B区业主反映，近期晚上没有自来水，导致热水器也打不燃。不清楚是停水原因还是水压低的原因，诉求：望核实每晚停水是什么原因，并解决该问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851302811893833",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851302811893833.html",
+   "question": "群众反映马边县鄢家坝路固定售卖榴莲的摊贩的售后问题\n群众于9月6日在马边县鄢家坝路对面路口长期固定售卖榴莲的摊贩处购买了一个榴莲，刚开始称出来是130多元，第二次上称又是110多元，认为商家的称有问题，由此双方发生纠纷，望帮助退货退款。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851302811889742",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851302811889742.html",
+   "question": "群众反映马边县东方富居6栋2单元的商铺油烟机油烟扰民问题\n群众是马边县东方富居的业主，反映小区内6栋2单元的商铺油烟机油烟味严重，影响通行及周边绿化，望尽快处理油烟扰民问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851332303839305",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851332303839305.html",
+   "question": "群众反映中阳小区小区内的主水管道漏水\n群众反映东光大道681号中阳小区小区内的主水管道漏水，联系供水公司未处理，望尽快维修水管。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851302811889741",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851302811889741.html",
+   "question": "群众希望施工方把马边县人大宿舍内的材料拿走\n群众反映马边县滨河路人大宿舍进行了风貌改造之后，施工方把钢管、板子堆放在小区内，影响业主出行，希望施工方尽快把钢管等材料拿走。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851302811856967",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851302811856967.html",
+   "question": "望马边县告知是否可以正常年审摩托车\n群众是马边县荣丁镇居民，反映当地因洪水问题造成网络中断，望马边县告知是否可以正常年审摩托车。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "850267642585165",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/850267642585165.html",
+   "question": "反映沐川县电瓶车乱停乱放问题\n曾女士反映沐川县沐溪镇沐源路店铺外停放了许多电瓶车，影响自己店铺经营。诉求：望部门查处电瓶车乱停乱放问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "850267642585164",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/850267642585164.html",
+   "question": "反映沐川县裕和电影院外摊贩占道经营\n反映现在在沐川县裕和电影院正门外的智能车库旁，有2家摊贩占道经营影响通行。诉求：望部门尽快到现场处理占道经营问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "850267642581062",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/850267642581062.html",
+   "question": "群众反映马边县西门花园水果摊贩喇叭噪音扰民\n群众反映马边县民建镇滨河西路西门花园公厕旁，经常有开着皮卡车卖水果的摊贩，用喇叭叫卖，噪音扰民，望处理噪音扰民问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851332303851590",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851332303851590.html",
+   "question": "群众反映马边福马磷化有限公司不允许货车卸货\n群众是马边福马磷化有限公司的货车司机，给公司运输了物品，但公司不让卸货，一直让停在路上等着，但是未说明原因，反映公司不允许卸货，严重耽误员工时间。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851302811926602",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851302811926602.html",
+   "question": "群众反映马边县龙桥停车场水淹之后无人清扫问题\n群众反映马边县张坝下面的龙桥停车场被水淹之后无人清扫，泥土多灰尘大，希望相关部门尽快清扫停车场。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851302811926601",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851302811926601.html",
+   "question": "群众反映马边县彩虹桥红绿灯处交通事故相关事宜\n群众反映在马边彝族自治县彩虹桥红绿灯处，其与朋友乘坐三轮车被酒驾、无证驾驶且肇事逃逸的车辆撞伤，现两人在医院治疗。望部门加快事故处理进度，并协调肇事者支付医疗费。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851302811889737",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851302811889737.html",
+   "question": "反映沐川县公安局交警队门口的井盖扰民问题\n来电人反映，沐川县公安局交警队（交通街168号）门口的井盖车辆经过时有噪音，严重影响居民生活。诉求：望核实处理井盖噪音扰民问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851302811926600",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851302811926600.html",
+   "question": "群众反映马边县东方富居对面草坪堆积了垃圾\n群众反映马边县东方富居对面草坪被居民们堆积了垃圾无人清理，望核实尽快清理垃圾。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "850267642585163",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/850267642585163.html",
+   "question": "原沐川县舟坝镇企业代办人望部门协助修改营业执照名字和经营范围\n原沐川县舟坝镇鸿企业代办人胡女士需要办理更改营业执照名字和经营范围，提交资料后审核未通过也联系不到部门故来电。诉求：望部门协助修改营业执照名字和经营范围。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "850267642585162",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/850267642585162.html",
+   "question": "反映沐川县底堡乡五通村自来水无法使用的问题\n郑女士来电反映家里的自来水水管已经很久没有供水，诉求：望尽快处理自来水供水的问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851302811869253",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851302811869253.html",
+   "question": "群众反映马边县大湾货场噪音和灰尘扰民的问题\n群众反映马边县苏坝镇大湾货场存在施工噪音扰民及灰尘大的问题，之前反映过，现在灰尘又变大了，噪音也依旧存在，望部门尽快处理大湾货场的噪音及灰尘问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "850267635114061",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/850267635114061.html",
+   "question": "咨询市中区占用土地的赔偿标准以及相关政策\n来电人是市中区关庙乡苏坪村的村民，因安装自来水管道占用了土地，但是不清楚相关的赔偿政策。诉求：咨询市中区占用土地的赔偿标准以及相关政策。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "850267642581067",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/850267642581067.html",
+   "question": "群众反映滨河帝景楼下的连瑞街有卖烧烤的摊贩占道经营和噪音扰民\n群众是马边县滨河帝景业主，反映小区楼下的连瑞街每天晚上有卖烧烤的摊贩占道经营、噪音扰民，望核实后尽快处理噪音扰民和占道经营问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851302811897943",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851302811897943.html",
+   "question": "望核实马边县市场监管部门电话真实性\n群众反映，9月4日9点过接到号码，自称是市场监管部门，要求安装监控设备，望核实该电话号码是否是市场监管部门。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851302811811916",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851302811811916.html",
+   "question": "反映五通桥区新华苑垃圾清运车噪音扰民的问题\n某群众是五通桥区新华苑的业主，反映每天早上垃圾清运车早上不到六点就来清运垃圾，机械声音很大，严重影响市民休息，现希望协调更改清运垃圾时间。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "850267642581064",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/850267642581064.html",
+   "question": "群众反映马边县348国道靠近梅林镇街道违停严重\n群众反映马边县348国道靠近梅林镇街道的一条路上车辆违停严重，现场还有施工，阻碍正常通行，望协调尽快对违停车辆进行管理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "849208927268933",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/849208927268933.html",
+   "question": "反映五通桥政府后的城市驿站周边车辆乱停乱放致交通拥堵\n某群众反映五通桥区人民政府的后面有一个城市驿站，因该处车辆乱停乱放，导致道路通行困难、交通拥堵，易引发剐蹭事故，希望部门整治乱停乱放问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "849208927268934",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/849208927268934.html",
+   "question": "反映五通桥七星街4号处有人在焚烧秸秆\n某群众反映2026年9月3日19:06:55，在五通桥七星街4号处有人在焚烧秸秆，臭味很大，希望部门尽快处理焚烧秸秆问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "847056069652555",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/847056069652555.html",
+   "question": "望协调不要拆除五通桥区金山镇辉山医院住院部\n群众来电反映五通桥区金山镇（原辉山镇）劳动街辉山医院的住院部马上就要拆了，拆后对于高血压、糖尿病的慢性病患者非常不便利，望协调不要拆除辉山医院的住院部。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "850267635109962",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/850267635109962.html",
+   "question": "表扬沐川县箭板镇政府对待工作认真\n沐川县箭板镇庆元村的村民反映村上乌龟石公路已经12年了，今年公路被政府硬化了，来电表扬箭板镇政府对待工作认真。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "849120453947469",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/849120453947469.html",
+   "question": "咨询孩子读研是否有相关资助或补贴\n张女士反映家庭困难，丈夫有残疾，现22岁孩子刚读研究生，咨询是否相关资助或补贴。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "847056069652552",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/847056069652552.html",
+   "question": "咨询五通桥区营业执照办理进度\n某群众反映9月3日上午在五通桥行政审批中心申请办理营业执照，现咨询办理进度。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "850267635109961",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/850267635109961.html",
+   "question": "望核实后告知沐川县哪里可以考电工等级证\n文先生想了解沐川县哪里可以考电工等级证，故来电咨询，望核实后告知。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "850267642576965",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/850267642576965.html",
+   "question": "反映五通桥区金粟镇人民医院过度治疗申请退费事宜\n某群众于9月1日到五通桥区金粟镇人民医院就诊，医生在未看当日拍的X光片后即开药治疗，今天再次到该院，医生告知9月1日拍的片现已无法查看且无效，群众认为该拍片行为多余，涉嫌过度治疗，现反映医生不",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "847690130382925",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/847690130382925.html",
+   "question": "咨询法律援助工作人员可以上门服务\n反映人自己有视力残障，出门不便，现想申请法律援助帮忙解决离婚问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "849208927268935",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/849208927268935.html",
+   "question": "求助为马边县雪口山镇村民办理低保\n群众反映家中共六姐弟，姐姐离异且精神二级残疾，望帮助为群众的姐姐办理低保。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "850267642585158",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/850267642585158.html",
+   "question": "群众反映马边县民建镇廊桥往县委方向下游约200米处井盖异响问题\n群众反映马边县民建镇廊桥往县委方向下游约200米处井盖年久失修不平整，夜间车辆经过碾压时会发出响声，望维修或更换井盖。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "850267642581070",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/850267642581070.html",
+   "question": "群众反映马边县梦星家纺喇叭宣传扰民\n群众反映马边县梦星家纺每天早上8点半开始使用喇叭宣传，噪音扰民，望协调其将喇叭声音调小一点。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "850267635109960",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/850267635109960.html",
+   "question": "表扬沐川县单位硬化道路解决出行问题\n牟先生反映村组道路烂了很久了，现在政府准备给道路硬化，解决了出行问题，特来电感谢，表扬箭板镇政府硬化道路，解决了出行问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "850267642581069",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/850267642581069.html",
+   "question": "群众反映马边县荣丁镇村民农作物被猴子损坏\n群众是马边县荣丁镇的村民，反映村里的猴子将村民的农作物损坏，望协调将猴子带走并赔偿村民损失。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "849120453947468",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/849120453947468.html",
+   "question": "望消防等部门收养小狗\n张先生因工作原因要到外地去及父母年迈无法继续照顾6个月大的狩猎型史宾格犬，目前小狗训练到已有服从性，该犬种嗅觉灵敏，适合搜毒、搜救等任务，希望联系消防等机构接收，可免费赠送。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851302811832389",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851302811832389.html",
+   "question": "反映五通桥区冠英镇新居路公共停车位收费等问题\n某群众反映近期将车辆停放在五通桥区冠英镇新居路路边的公共停车位，被收取了停车费，认为路边临时停放几分钟被收费不合理，而且在8月份的时候，车辆停放在玉津魅力港城没有停车位的地方，也被张贴了停车收费",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "849120453947467",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/849120453947467.html",
+   "question": "咨询沐川县箭板镇有没有让残疾人读书的特殊学校\n管先生来电称自己孩子7岁左右，是残疾人（不能说话），咨询沐川县/箭板镇有没有让残疾人读书的特殊学校。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "850267642576969",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/850267642576969.html",
+   "question": "希望有关部门协调商家退款\n群众在马边县荍坝镇的商铺购买了一条双喜烟，总计花费了170元，但是在抽时烟燃烧很快，并且味道不对，希望有关部门协调商家退款。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "849120453947466",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/849120453947466.html",
+   "question": "反映沐川县交通街水压小的问题\n沐川县交通街住户反映家中水压太小，导致水管内不出水，无法洗澡，影响正常生活，望核实水压小的问题并进行处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "849208927268936",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/849208927268936.html",
+   "question": "望告知马边县车管所是否恢复办理业务\n群众听闻因近期马边县暴雨涨水，导致马边县车管所停止办理业务，望告知马边县车管所是否恢复办理业务。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "849208927268937",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/849208927268937.html",
+   "question": "群众反映马边县新华村农产品精深加工园区灰尘大问题\n群众是马边县荣丁镇新华村的村民，反映新华村的农产品精深加工园区平时灰尘很大，望部门协调该园区处理灰尘问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "845330834534473",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/845330834534473.html",
+   "question": "望提供五通桥区行政区划图\n某群众为便于了解五通桥行政区划、物产分布、交通格局，望能提供一份五通桥区行政区划图.pdf的电子版。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "844932703379526",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/844932703379526.html",
+   "question": "咨询没有高中学历是否能报考乐山的事业单位\n来电人是市中区的市民，没有就读高中，现自考的专科和本科学历，诉求：咨询没有高中学历是否能报考乐山的事业单位。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "850267635114056",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/850267635114056.html",
+   "question": "反映沐川县箭板镇尹久村问题\n沐川县箭板镇尹久村的住户，反映自己妻子因丧失劳动能力，村上干部得知后积极帮助其妻子办理低保，非常关心自己及家人，特来电表扬村干部。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "849208927268938",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/849208927268938.html",
+   "question": "群众反映在马边县建设镇乐西高速做工被拖欠工资问题\n群众于2025年11月到1月在马边县建设镇乐西高速隧道做减速带和彩坡，共计工资9600元至今未发放，望尽快发放工资。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "844858975596617",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/844858975596617.html",
+   "question": "咨询法律问题\n咨询拖欠工资如何维权",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "845330834534472",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/845330834534472.html",
+   "question": "望告知五通桥区金山镇辉山卫生院搬迁问题\n群众反映五通桥区金山镇辉山卫生院通知要搬迁，表示搬迁后很多老人就医很不方便，故来电反映，望帮助协调不要搬迁辉山卫生院。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851302811897935",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851302811897935.html",
+   "question": "反映五通桥区钟楼街钟楼下有移动摊贩用喇叭叫卖扰民\n某群众反映五通桥区钟楼街钟楼下有移动摊贩用喇叭叫卖，噪音过大影响居民生活和孩子学习，希望处理喇叭声扰民问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "850267639443547",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/850267639443547.html",
+   "question": "群众反映光明大道红绿灯路口下水道堵塞\n群众反映马边彝族自治县光明大道红绿灯路口，因山洪导致下水道堵塞，请处理下水道堵塞问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "850267639443545",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/850267639443545.html",
+   "question": "群众反映零食有鸣喇叭噪音扰民\n群众反映马边县南门桥的零食有鸣喇叭噪音扰民，望协调处理噪音扰民问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "850267635109959",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/850267635109959.html",
+   "question": "匿名反映沐川县领地海纳公馆旁的城北路尾段处的大桥桥头围墙上贴的小广告问题\n反映沐川县领地海纳公馆旁的城北路尾段处的大桥桥头围墙上（不清楚大桥名字）贴了很多公积金、信用卡套现的小广告，严重影响墙面卫生，希望尽快清理。诉求：望协调部门尽快清理小",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "850267639443535",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/850267639443535.html",
+   "question": "群众反映马边县红旗大道马边之约和叁叁得酒馆噪音扰民\n群众反映马边县红旗大道马边之约和叁叁得酒馆，音响声音很大，噪音严重扰民，望处理噪音扰民问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "850267639439434",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/850267639439434.html",
+   "question": "群众反映残疾补贴未到账问题\n群众是马边县下溪镇村民，反映8月份和9月份的残疾补贴（90元）未到账，称中途因手机遗失在银行更换过银行卡预留手机号码，但未更改过账户号码，望核实补发残疾补贴。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "850267635114058",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/850267635114058.html",
+   "question": "表扬沐川县武圣乡新来的党委书记陈建明\n武圣乡新店村5组的村民，来电表扬武圣乡新来的党委书记陈建明（音）。该书记一来就解决了多年的高速公路两家村民土地纠纷问题，该书记还私人垫钱为村民修缮漏水的房屋。该书记对群众很热情，能为群众解决实事，故来电",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "850267639439429",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/850267639439429.html",
+   "question": "群众反映马边县民建镇光明社区增加水户口一事\n群众是马边县民建镇光明社区的住户，反映于2025年9月和自来水厂申请开户，望部门督促尽快办理开户一事。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "850267635114057",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/850267635114057.html",
+   "question": "表扬沐川县文化广电体育旅游局积极作为\n曾先生反映上午10点左右拨打中心电话反映相关问题后，县文旅局当天下午即完成处置。市民对文旅局工作人员表示感谢，表扬沐川县文化广电体育旅游局积极作为、为民服务的态度。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "849120453947462",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/849120453947462.html",
+   "question": "群众反映在马边县做工被拖欠工资\n群众反映7月至8月在马边县无穷矿业磷化工厂做外墙工，拖欠工资19000元左右至今未发放，望部门协调尽快发放拖欠工资。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "849120453947464",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/849120453947464.html",
+   "question": "群众反映马边县民建镇南方茗苑小区2栋电梯问题\n群众反映马边县民建镇南方茗苑小区2栋和1栋的电梯频繁发生故障，要求电梯原厂家的工作人员来检测电梯是否存在质量问题，或者由部门出具电梯无质量问题的相关报告。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "849120453947463",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/849120453947463.html",
+   "question": "群众反映马边县中坝街批发菜摊位占道经营问题\n群众反映马边县中坝街有很多批发菜摊占道经营，影响居民正常通行与安全，望部门尽快处理占道经营问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "845330834538568",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/845330834538568.html",
+   "question": "咨询交通事故理赔相关法律问题\n咨询交通事故赔偿问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "850267635118149",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/850267635118149.html",
+   "question": "群众反映马边县廊桥2楼嗨啤酒吧噪音扰民\n群众反映马边县廊桥2楼嗨啤酒吧现仍噪音扰民，故来电求助，望协调尽快处理噪音扰民的问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "845330834534474",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/845330834534474.html",
+   "question": "咨询法律问题\n变更抚养权问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "851302811856968",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/851302811856968.html",
+   "question": "反映高新区新安里小区外烧烤油烟问题\n反映高新区新安里小区外25路公交车站台斜对面，烧烤摊油烟扰民，影响住户生活，望处理油烟扰民问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "845330834538565",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/845330834538565.html",
+   "question": "咨询法律问题\n婚姻存续期间一方借款是否属于共同债务，借款服务费是否合理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "845330834538567",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/845330834538567.html",
+   "question": "咨询房产纠纷法律问题\n咨询房产继承问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-leshan",
+   "id": "850267635114059",
+   "url": "https://www.leshan.gov.cn/lsswszf/xlxxx/850267635114059.html",
+   "question": "群众反映马边县李再见夜宵店油烟机噪音扰民\n群众反映马边县鄢家巷李再见夜宵店长期存在油烟机作业期间噪音很大，严重影响家里学生学习，望部门及时处理油烟机噪音扰民问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

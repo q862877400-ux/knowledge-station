@@ -1,0 +1,4611 @@
+{
+ "A_考卷": [
+  {
+   "source": "sc-guangyuan",
+   "id": "7abf535e85b248d29dec8210897defd0",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/7abf535e85b248d29dec8210897defd0",
+   "question": "大学生创业就业\nQ1：大学生创业有哪些补贴，应该如何办理？\nQ2：灵活就业大学生如何自行购买社保/公积金？",
+   "cited_hits": [
+    {
+     "name": "社会保险法",
+     "lib_no": "社会保险法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "dc724d99b2bf475ebffa1a731619671d",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/dc724d99b2bf475ebffa1a731619671d",
+   "question": "办证\n领导你好\n       东坝电子路公园街原地税局灾后重建住宿楼于2012年原址拆除重建，现长达10余年未能给重建户办证，住户反映了多次，去年来有所进展，税务局说正在办理争取去年底办结，但时至今年住户至今没有办证，现再次反映，望领导重视",
+   "cited_hits": [
+    {
+     "name": "不动产登记暂行条例实施细则",
+     "lib_no": "不动产登记暂行条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "不动产登记规程"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "5e5081aedb464958b2446c3d04fe245c",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/5e5081aedb464958b2446c3d04fe245c",
+   "question": "关于广元市城区禁止鸣笛的建议\n营商环境的优化体现在方方面面，城区安静舒适的环境尤为重要。我是刚来广元，准备在此地长久发展的外省市民，广元的城市建设各方面都很美好，甚是喜欢。\n但经过三个月的深入体验，城区的交通环境确实让人头疼，特别是汽车、摩",
+   "cited_hits": [
+    {
+     "name": "道路交通安全法",
+     "lib_no": "道路交通安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "汽车定量噪音限值",
+    "摩托车和轻便摩托车噪音限值",
+    "广元文明行为促进条例",
+    "GB16170-96",
+    "GB16169-96"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "5fc7ffc238624e35bcbb2360da912668",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/5fc7ffc238624e35bcbb2360da912668",
+   "question": "关于广元共享车车无牌车泛滥的问题\n广元女儿节期间，人多车挤交通拥堵，堵车就准备骑共享电动车。在扫码的时候发现没有牌照，心里当时有点疑虑但只有这一辆空闲车也就骑了。后来心里还是有很多疑虑：明明崭新的车怎么会没有牌照？是不是歪的？个人信息会不会",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国道路交通安全法",
+     "lib_no": "道路交通安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "四川省公安机关非机动车登记工作规范",
+    "四川省非机动车行驶证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "4bacba8cd6af447589ba5f97a7a42f4c",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/4bacba8cd6af447589ba5f97a7a42f4c",
+   "question": "关于电子废物的处置相关问题咨询\n尊敬的广元市生态环境局\n    根据广元市第一人医院发布西门子PrimusM型医用直线加速器报废处置公告。\n特向贵单位求证及咨询几个问题\n第一，根据电子废物污染环境防治管理办法（国家环境保护总局令40号），第",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国固体废物污染环境防治法",
+     "lib_no": "固体废物污染环境防治法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国固体废物污染环境防治法",
+     "lib_no": "固体废物污染环境防治法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "废弃电器电子产品处理名录",
+    "一般固体废物分类与代码",
+    "电子废物污染环境防治管理办法",
+    "GB/T39198-2020"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "6da910330b384fb5b2818b5d7ed963e9",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/6da910330b384fb5b2818b5d7ed963e9",
+   "question": "占用人行道过道违章搭建棚布库房及重大消防安全隐患\n苍溪县解放路原百货公司院内“好风景”“好迪”两家家具店多年占用院内的人行过道，违章搭建棚布库房，不仅让院内脏乱差，还严重影响了院内100多家住家人户的生活，严重影响了消防通道，同时给楼上的住",
+   "cited_hits": [
+    {
+     "name": "城市市容和环境卫生管理条例",
+     "lib_no": "城市市容和环境卫生管理条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "城市市容和环境卫生管理条例",
+     "lib_no": "城市市容和环境卫生管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "b2b2923a300544d5a28bf0751458a077",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/b2b2923a300544d5a28bf0751458a077",
+   "question": "电瓶车驾照考试希望能手机预约练车和考试\n你好，我骑了十多年的电瓶车，应交管部门的要求，报考了相关的驾照考试。科一、科四的理论尽管是一把过的，但是过得很心酸。为了考个理论，我跑了3趟石龙，市长热线投诉交管部门2次。现在科二科三的实操搁置了一个",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国道路交通安全法",
+     "lib_no": "道路交通安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于加强电动自行车国家标准实施监督的意见"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "efa383f489274f9d808219d492e752ae",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/efa383f489274f9d808219d492e752ae",
+   "question": "学区划分咨询\n尊敬的领导:\n       你好！\n咨询一下，华北星城小区是否属于北街小区本校区，由于划分表上写的不是很清楚。家中有小孩需上学，急需解决。",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国义务教育法",
+     "lib_no": "义务教育法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于2022年市城区义务教育招生入学工作的通告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "0c5847e4151140e48b3f50606fb034a9",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/0c5847e4151140e48b3f50606fb034a9",
+   "question": "咨询随迁子女上学问题\n市长：\n       你好！我居住于雪峰欧景城小区，今天雪峰小学开始一年级新生报名，我家小朋友今年10月就到7岁了，我们打算按政策就近入学，以往欧景城划的学区属于雪峰小学  ，于是我们就到雪峰小学报名，但是雪峰小学招办",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国义务教育法",
+     "lib_no": "义务教育法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于2022年市城区义务教育招生入学工作的通告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "1b5d1eff73114393962bcb8c020da9d6",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/1b5d1eff73114393962bcb8c020da9d6",
+   "question": "咨询产假和产检费用报销\n尊敬的领导：很抱歉，占用您宝贵的时间咨询一下事情;1. 我们广元产假是休多少天2.生育津贴和产检费用能报销？能报销；需要准备什么东西？大概能报多少？流程是什么？\n事情是这样：我老婆马上就要生小孩了（我们第一胎），在网",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国社会保险法",
+     "lib_no": "保险法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "女职工劳动保护特别规定",
+     "lib_no": "女职工劳动保护特别规定(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "四川省人口与计划生育条例",
+    "关于调整部分医保政策的通知",
+    "关于生育保险和职工基本医疗保险合并实施的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "15a2246b1090432c885598addc2e7ef5",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/15a2246b1090432c885598addc2e7ef5",
+   "question": "广元自来水水垢多的问题\n尊敬的市长，你好！\n       广元自来水水垢问题很严重，每次烧开后的水，都有明显的悬浮物，烧水壶底清理干净几天后马上又是厚厚一层水垢。此情况已经多年，请关注，帮帮老百姓，我们想有一个健康干净的自来水，谢谢？？",
+   "cited_hits": [
+    {
+     "name": "生活饮用水卫生标准",
+     "lib_no": "GB 5749-2006",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "GB5749-2006"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "50140be6143a4b7189af5dbfd4ca4fb0",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/50140be6143a4b7189af5dbfd4ca4fb0",
+   "question": "关于交警陈旧案件误判的问题\n尊敬的董市长：\n      您好！我叫熊利军，今年53岁，四川昭化人，初中文化，家住昭化区元坝红垭路22号。事情是这样的，2007年10月15日本人因喝开民用车致使高均山当场死亡，后被法院判处系自首交通肇事罪，有",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国道路交通安全法",
+     "lib_no": "道路交通安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "117bf9fcec224dfe95227dae934c3f5a",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/117bf9fcec224dfe95227dae934c3f5a",
+   "question": "广元市利州区大石镇大稻坝迫切请求通天然气\n市长您好：\n        大稻坝（原五一村）作为城区近郊，离主城区不足十公里的地方，到现在不能通天然气。村组领导也多次向上申请，但是一直没有实现，说大稻坝处于待开发范围，为避免以后管线改动，所以只",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国铁路法",
+     "lib_no": "铁路法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "b82c4e9e40e44fe8881d46c54ab51806",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/b82c4e9e40e44fe8881d46c54ab51806",
+   "question": "道路拥堵\n各位领导\n       随着国道G108广元至朝天段，路面维修后，过往大货车日益增加，每天造成很长时间的拥堵，大大增加了朝天镇，沙河镇人民出行时间与安全因素，存在严重安全隐患。强烈建议过境大货车，从中子到上西站下高速。减少朝天镇，",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国道路交通安全法",
+     "lib_no": "道路交通安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "99cb62344c82429991ec068989f53f9e",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/99cb62344c82429991ec068989f53f9e",
+   "question": "请问剑阁县近几年事业单位和公务员为啥不招专科生？\n近一两年，剑阁县一个县城，为什么公务员和事业单位招考不招专科生，限制本科生？为什么要限制本科生？为什么限制30岁以下？说好的公平在哪里？赤裸裸的文凭歧视！以后干脆设置公务员量身定制的大学专业",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国公务员法",
+     "lib_no": "公务员法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "事业单位人事管理条例",
+     "lib_no": "事业单位人事管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "公务员录用规定",
+    "四川省事业单位工作人员招聘工作试行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "538c9a3ed1534b748ef94696e9d95fad",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/538c9a3ed1534b748ef94696e9d95fad",
+   "question": "成年人姓名变更\n本人于2021年8月16日前往广元市政务大厅咨询姓名变更事务，被告知成年后不允许更改，说上面没有这个政策。 本人因名字违反公共秩序，被取谐音嘲笑，加之本人内向，现在的名字导致日常与他人的交流产生严重障碍，且我之前从未更名，根",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国民法典",
+     "lib_no": "中华人民共和国民法典",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "四川省户政管理工作规范(试行)"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "fed6efe142164009b1ab528666753088",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/fed6efe142164009b1ab528666753088",
+   "question": "咨询广元购买汽车的服务费和上户费用。\n请问下在广元4s店购买SUV汽车，所产生的的服务费和上户费的标准是多少？请列出依据，谢谢。",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国道路交通安全法",
+     "lib_no": "道路交通安全法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "机动车登记规定",
+     "lib_no": "机动车登记规定(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "91b9031aaeaf4b5abe5c03858f6d7a2d",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/91b9031aaeaf4b5abe5c03858f6d7a2d",
+   "question": "广元电瓶车上户400元\n在广元买了一辆电瓶车上户被告知上户费400元。卖家说广元电瓶车上户市场被垄断。这个价格太是不是太合理了。其他城市上户都只需要10元工本费，如果高一点也可以接受。但是400是不是太多了点。",
+   "cited_hits": [
+    {
+     "name": "机动车登记规定",
+     "lib_no": "机动车登记规定(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "c346be66bc104ec2b49983f6433be432",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/c346be66bc104ec2b49983f6433be432",
+   "question": "人行道堵塞无法正常通行\n尊敬的市长，您好！\n    广元万源新区，托斯卡纳和南郡之间有条东西走向的马路（没有路名），马路两边停满了汽车，有很多汽车都超过的停车线，导致人路边红色砖的人行道不足一米宽，还有一些电瓶车和自行车也经常停在紧靠马路边",
+   "cited_hits": [
+    {
+     "name": "城市道路管理条例",
+     "lib_no": "城市道路管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "四川省城乡环境综合治理条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "372c9d7011664b518c843c6ceb099ebe",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/372c9d7011664b518c843c6ceb099ebe",
+   "question": "关于万缘200吨垃圾中转站建设问题答复的疑问\n尊敬的邹自景书记：\n6月10左右，万缘片区水岸华府等小区业主就万缘水岸华府旁200吨垃圾中转站建设提出了三点意见。2021年6月21日广元市自然资源局就市民提出意见给出答复，并公开于市长信箱网站",
+   "cited_hits": [
+    {
+     "name": "环境影响评价法",
+     "lib_no": "环境影响评价法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "环境影响评价法",
+     "lib_no": "环境影响评价法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "919709574b6f49ba9bc8669fe4c14228",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/919709574b6f49ba9bc8669fe4c14228",
+   "question": "为什么在多年的撂荒地上建设的养殖场或生产管理房会被强拆\n广元市巾帼创业互助会目前收到诸多会员反映：为什么在多年的撂荒地上建设的养殖场或生产管理房会被强拆？\n1、为什么荒了多年的土地一下就变成了基本农田？\n2、种养户建设的时候是否应该有相关部",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国土地管理法",
+     "lib_no": "土地管理法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国土地管理法",
+     "lib_no": "土地管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "3c51e7cb0e754c0f8e5901de5be3544b",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/3c51e7cb0e754c0f8e5901de5be3544b",
+   "question": "违法撤销申请求助！\n尊敬的王书记：你好!\r\n    我的车子川HN2162于2021-04-04 11:10在广元利州东路一段被技术监控记录【人行道不停车让行的】被扣3分，罚款50元。我觉得处罚不当，显示公平。应以教育为主，正如一人大代表在",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国道路交通安全法",
+     "lib_no": "道路交通安全法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "四川省<中华人民共和国道路交通安全法>实施办法",
+     "lib_no": "道路交通安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "84ed38856cac4ee696afcb2cf93fef2d",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/84ed38856cac4ee696afcb2cf93fef2d",
+   "question": "咨询小孩上学问题\n咨询一下购买梧桐路，天立凤凰唐城一期的房子，小孩上公办初中在哪里？？？划片区是否可上东城实验中学？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国义务教育法",
+     "lib_no": "义务教育法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "广元市利州区人民政府关于2021年市城区义务教育招生入学工作的通告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "fb31c5acbeb14fe7a48864b832bdb4c2",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/fb31c5acbeb14fe7a48864b832bdb4c2",
+   "question": "南京路玉树家园大门口违停太多\n去年每天下午六点都有城管在南河南京路玉树家园段贴罚单。今年却一次没看见，每天饭点大量车辆违停。\r\n   比如今天2020-12-29日。多达50台车乱停，旁边停车场大量空位甚至一辆车横在路中间，留下宽度不到2.",
+   "cited_hits": [
+    {
+     "name": "道路交通安全法",
+     "lib_no": "道路交通安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "道路停车记录告知单"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "1d2919b066a24526a2f2a08319c6aedc",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/1d2919b066a24526a2f2a08319c6aedc",
+   "question": "广元上西西江月小区居民用水问题\n你好，我是上西西江月小区居民，现在我举报，我们小区生活用水质量非常的差，严重不合格，经常出现浑浊.带有黄色的水，这严重影响居民身体健康，此时一家有一年多时间，多次向有关部门咨询都无过，希望领导视察。",
+   "cited_hits": [
+    {
+     "name": "生活饮用水卫生标准",
+     "lib_no": "GB 5749-2006",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "GB5749-2006"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "7ec2aef5163b40f08114cf9a47c3fe43",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/7ec2aef5163b40f08114cf9a47c3fe43",
+   "question": "物业不作为\n尊敬的市领导:我现居住在西凤社区的锦粼逸园公租房，现我有问题想像领导投诉，我们房钱交了，物管费交了，还有啥电力服务费也交了，现在我们楼层路灯3个月不亮，进出都是些老人，小孩，问他们一直推托，不管，如果有天哪个因为晚上摔着，由哪个",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国消防法",
+     "lib_no": "消防法(2021修正全本)",
+     "weak": false
+    },
+    {
+     "name": "四川省物业管理条例",
+     "lib_no": "物业管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "中华人民共和国合同法",
+    "四川省物业服务企业信用信息管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "38a9b5df24ad4834ad9b574e24508f4f",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/38a9b5df24ad4834ad9b574e24508f4f",
+   "question": "咨询咨询农村可以买城市户口的社保\n咨询一下农村户口可以买，城市户口的社保不？",
+   "cited_hits": [
+    {
+     "name": "社会保险法",
+     "lib_no": "社会保险法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "83c2ceb92ef44193821da9a25e3bc296",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/83c2ceb92ef44193821da9a25e3bc296",
+   "question": "房屋渗漏维权\n尊敬的领导您好，感谢您在百忙之中阅读来信。我们是开云世家二期3栋一和二单元因外墙渗漏导致内墙受损的住户，御都物业在今年上半年进行了一次外墙维修，直接导致在7月的雨季外墙渗漏，内墙浸湿，在我们三番五次催促下，物管才答应申请维修基",
+   "cited_hits": [
+    {
+     "name": "四川省物业管理条例",
+     "lib_no": "物业管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "中华人民共和国物权法",
+    "住宅专项维修资金管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "b1a405a72e1345dd945da3efe69e3944",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/b1a405a72e1345dd945da3efe69e3944",
+   "question": "野猪成灾怎么办？\n我是青川县房石镇白兴村的，2008年地震后，异地搬迁政策部分村民搬走，整个村子人少60%以上，近几年又退耕还林，整个生态好起来了，但野猪也就多起来了。特别是每年到了庄稼快成熟的季节，野猪成群肆意损毁庄稼。为了口粮的收成，不",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国野生动物保护法",
+     "lib_no": "野生动物保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "a13eb9aa1e054b838984a312640473ce",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/a13eb9aa1e054b838984a312640473ce",
+   "question": "乡镇快递取件二次收费合法吗？\n尊敬的市长\r\n  我想了解一下广元市剑阁县元山镇快递代理点取件二次收费是合法的吗？（除邮政和顺丰快递不收费）不论大小包裹一律收费2元，这是不是合法的啊？是否有关部门该核查一下。\r\n此致\r\n           ",
+   "cited_hits": [
+    {
+     "name": "邮政法",
+     "lib_no": "邮政法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国价格法",
+     "lib_no": "价格法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "快递服务"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "da0f9f2945c346388cf4c6e03c3b6474",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/da0f9f2945c346388cf4c6e03c3b6474",
+   "question": "关于严应秀工伤相关部门拖延处理事件说明\n事件已经拖延很久，实在是投诉无门，请市长查阅，",
+   "cited_hits": [
+    {
+     "name": "工伤保险条例",
+     "lib_no": "工伤保险条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "887b63dad0c241b38f4e85bf7a32c420",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/887b63dad0c241b38f4e85bf7a32c420",
+   "question": "申请解决新民社区詹凤路以北趋于居民人行通道被截断长期未恢复问题\n尊敬的邹市长您好！\r\n我们市利州区东坝办事处新民社区詹凤路以北的居民，此区域有区民小区、阳光小区、本地自建小区、世达家苑、广元市青春创业园等千余户。由于此区域没有学校、幼稚园、",
+   "cited_hits": [
+    {
+     "name": "铁路安全管理条例",
+     "lib_no": "铁路安全管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "5172d2b47e8c4c779a9dea12fabe46d8",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/5172d2b47e8c4c779a9dea12fabe46d8",
+   "question": "非法占用土地违法修建私人別墅\n利州区龙潭乡曙光村；（银杏山庄）存在非法破坏占用林地，耕地。非法私下卖买土地且违法大面积修建私人庄园",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国土地管理法",
+     "lib_no": "土地管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "02bac86acb3d4266ba1d17a2a53ee860",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/02bac86acb3d4266ba1d17a2a53ee860",
+   "question": "体育局领导高考期间喝酒到凌晨并打人闹事\n2020年7月6日高考前一天凌晨12点，我已经睡觉，一伙人喝醉酒把我们万达华城二期小区侧门踢坏冲到小区内大吼要殴打业主把我吵醒，其中有一人自称自己是公务员谁都不怕(后得知是体育局领导)，我下去准备劝其",
+   "cited_hits": [
+    {
+     "name": "治安管理处罚法",
+     "lib_no": "治安管理处罚法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "da42e01f73024b3ebae60ec8a96340db",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/da42e01f73024b3ebae60ec8a96340db",
+   "question": "新房出现贯穿裂痕\n尊敬的邹市长：\r\n您好，我是广元煜宏奥城小区的业主，房号12栋11层1号。6月19日，我们收房时，发现屋内地板出现贯穿裂痕。我强烈要求看其他楼层一号房，物业仅打开10楼1号，同一位置出现同样的裂痕，天花板的贯穿裂痕清晰可见",
+   "cited_hits": [
+    {
+     "name": "建筑工程施工质量验收统一标准",
+     "lib_no": "GB 50300-2013",
+     "weak": false
+    },
+    {
+     "name": "建设工程质量管理条例",
+     "lib_no": "建设工程质量管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "2129638766164df0abfebbdaab10d512",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/2129638766164df0abfebbdaab10d512",
+   "question": "广元血小板来的慢并且贵\n我妈为重症再障，血小板一般＜3，一个要输几次血小板续命，对于我们低保家庭来说本来就是透支支出了。\r\n一、血小板贵，输一次2980，但是其他省可能只有1千多，不上2千元；\r\n二、血小板来的慢，通常要4-5天才能来，有的",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国献血法",
+     "lib_no": "献血法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "61c85fa4a5e74b2ca10ddcde13b7b40b",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/61c85fa4a5e74b2ca10ddcde13b7b40b",
+   "question": "帮帮我\n我母亲在回家的乡村路上被半挂车碰到，造成小腿粉碎性骨折，半个月呢交警只出具呢证明证明这个事，不出责任认定书，就叫我打官\r\n司，我到司法所去咨询，没有认定书起诉就没有意义，一边让起诉，一边起诉没有意义，我该怎么办，",
+   "cited_hits": [
+    {
+     "name": "道路交通事故处理程序规定",
+     "lib_no": "道路交通事故处理程序规定(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "道路交通事故证明"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "6d12523ef1df407b9aee35dc0101edd4",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/6d12523ef1df407b9aee35dc0101edd4",
+   "question": "蜀门市场噪音通宵扰民\n您好，我是居住于市场街紧挨蜀门市场的一名居民。近日，蜀门市场自晚上七点左右开始产生噪音，持续至第二天早上，影响周围居民晚上的正常作息，无法入睡。本人无法判断噪音来源，不知是否由某项设备或其他引起。望相关部门能早日进行询",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国环境噪声污染防治法",
+     "lib_no": "噪声污染防治法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "1301f12db5d444709594fe4f4b09a3b0",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/1301f12db5d444709594fe4f4b09a3b0",
+   "question": "危房改建\n尊敬的邹市长您好；      \r\n      我叫伊伟，家住苍溪县白驿镇青石村二组，老家房子1992年修建，现在公路高过房子2米多，夏天下大雨时公路的排水就往房子里进，在加上08年地震，造成基础和屋顶多处裂缝，去年夏天下大雨时房子",
+   "cited_hits": [
+    {
+     "name": "城乡规划法",
+     "lib_no": "城乡规划法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "白驿镇总体规划(2013-2025)"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "8bd4d716354f4cee9ffecdf353a62fe6",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/8bd4d716354f4cee9ffecdf353a62fe6",
+   "question": "城管暴力执法乱收费\n亲爱的市长您好，我是一个托斯卡纳的商业业主，本人在托斯卡纳做生意已经有3年了，之前刚开店的时候装修店铺已经给城管部门交过一次罚款了，是因为安装招牌交的钱，现在招牌坏掉了我想重新做一个招牌现在城管又要喊我交钱，以前交的30",
+   "cited_hits": [
+    {
+     "name": "城市道路管理条例",
+     "lib_no": "城市道路管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "e880da98e79847499d7685a66a415851",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/e880da98e79847499d7685a66a415851",
+   "question": "求助信\n我们是苍溪县进县城务工、创业的一批农民，本事件涉及十几户民工家庭。都是被承建商牛平以修建房屋资金链断缺为由，低价出售位于苍溪县陵江镇光明社区在建房屋，成功骗取我们血汗钱共约200万元（每户多则三四十万，少则八九万，大部分是十几万元每",
+   "cited_hits": [
+    {
+     "name": "信访条例",
+     "lib_no": "信访条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "afe8fe8b581642a39eeb4403feef30b4",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/afe8fe8b581642a39eeb4403feef30b4",
+   "question": "工地施工扰民\n位于南河的城投丹桂园，每天早上6点就开始施工，敲的叮叮咚咚的，严重影响睡眠，影响正常工作生活，望协调",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国环境噪声污染防治法",
+     "lib_no": "噪声污染防治法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "sc-guangyuan",
+   "id": "ef7a7f7196554062ab42f23ff776325b",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/ef7a7f7196554062ab42f23ff776325b",
+   "question": "关于家电3C以旧换新补贴券发放的一点建议\n尊敬的袁市长你好：\n      我是广元市一名从事家电销售的从业人员，从一月份开始，商务局开展的以旧换新补贴活动，在老百姓中反响良好，用户享受了实实在在的优惠，也对我们销售提升起到非常大的助力。但是",
+   "cited_hits": [],
+   "cited_missing": [
+    "四川省2026年家电以旧换新、数码和智能产品购新补贴实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "bca6489d040a494b9dedb9c5ebac8d29",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/bca6489d040a494b9dedb9c5ebac8d29",
+   "question": "投诉广元城投智慧城市产业发展有限公司停车收费系统有乱计费乱收费的现象\n尊敬的领导，抱歉以此种方式打扰到您。我是一名返乡创业大学生，从事网络技术相关工作；本人亲身经历，发现广元城投智慧城市产业发展有限公司停车收费系统有乱计费乱收费的现象。具体",
+   "cited_hits": [],
+   "cited_missing": [
+    "广元市人民政府办公室关于印发〈广元市城区机动车停放服务差别化收费标准调整方案〉的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "909a9aa621984e5eac958d3e725e976c",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/909a9aa621984e5eac958d3e725e976c",
+   "question": "预警利州区多所学校酝酿暑假违规办学和群众监督计划\n详情见附件。谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "教育部办公厅关于支持探索开展暑期托管服务的通知",
+    "广元市利州区教育局关于 2024—2025学年度中小学开学放假时间安排的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "a205f4336565409698814ed09e6aa310",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/a205f4336565409698814ed09e6aa310",
+   "question": "何时出台省内代际购房提取公积金，切实解决人民群众困难？\n尊敬的领导：\n我与妻子在广元工作并缴纳公积金20余年，2023年贷款为在成都租房上班的女儿买了一套刚需房，因成都限购故以女儿名字购房及贷款，但实际每月是我们夫妻的工资用于归还成都工行房",
+   "cited_hits": [],
+   "cited_missing": [
+    "广元市促进房地产市场平稳健康发展十七条措施"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "d4bc4fb5e3fd44d49d2c25be0a3d637d",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/d4bc4fb5e3fd44d49d2c25be0a3d637d",
+   "question": "建议制定冬季上班作息时间\n您好：建议制定冬季上班作息时间",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于调整机关作息时间的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "ae7b53d6370d4a37bafa2235536e92bd",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/ae7b53d6370d4a37bafa2235536e92bd",
+   "question": "咨询城乡居民养老保险缴费档次和城乡居民养老保险资助缴费问题\n广元市领导\n您好！\n本人为剑阁县普安镇的村民咨询以下问题\n1、城乡居民养老保险缴费档次问题\n现在缴费档次是200元-6000元的档次，经了解在其他很多城市，城乡居民养老保险的档次很",
+   "cited_hits": [],
+   "cited_missing": [
+    "市长信箱",
+    "四川省人社厅 四川省财政厅关于进一步完善城乡居民基本养老保险制度的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "2654e9f7678a45348c2a8e5c266ea39c",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/2654e9f7678a45348c2a8e5c266ea39c",
+   "question": "农村户口考上公务员必须要转户口吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于加强和规范人口登记管理工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "043c245fc9d44fcd8a18d27d28d29cfc",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/043c245fc9d44fcd8a18d27d28d29cfc",
+   "question": "夜间潮汐停车问题\n我8月7日夜间8点50分将车停在东苑路（恒星城二期），按照今年7月8日市城市管理行政执法局发布的潮汐停车通知，此路段从7月1日开始为潮汐停车位，当时居然被要求其缴费，网上申诉的结果是按照2022年的时段收费标准，潮汐停车难",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于优化调整市城区潮汐停车路段的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "a13c4dd10e814dd4a9f373507a20d367",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/a13c4dd10e814dd4a9f373507a20d367",
+   "question": "幼升小报名\n尊敬的市长：\n    您好！我是吴家濠村幼升小家长。本来不想打扰你，但是我们反应的诉求一直未得到解决，我们是普通老百姓又不知道具体能找谁能解决。我家孩子今年幼升小，一直在则天路小学上学，老大也在则天路小学上，则天路小学原名吴家濠",
+   "cited_hits": [],
+   "cited_missing": [
+    "广元市利州区教育局关于调整公办义务教育学校招生服务片区范围的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "1deee636a6a148b1a13b7eb734199e60",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/1deee636a6a148b1a13b7eb734199e60",
+   "question": "9岁儿童无学可上义务教育如何保证\n我家女儿目前就读广元天立学校小学二年级，户籍为广元市利州区古堰路恒星城，家庭房产也在该处。\n由于疫情原因，家庭经济条件严重恶化，如今已无力继续供女儿在天立学校就读，因此准备将女儿就近转入公立学校就读。按照广",
+   "cited_hits": [],
+   "cited_missing": [
+    "四川省中小学生学籍信息管理系统（义务教育阶段）运行使用办法（试行）",
+    "关于利用全国中小学生学籍信息管理系统做好学生转学等学籍管理工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "becd2d3b59bf45318d6fd18a72256765",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/becd2d3b59bf45318d6fd18a72256765",
+   "question": "广巴铁路城区段今年会不会搬迁\n领导，我是一名普通市民，几乎每天上班都要穿过广巴铁路，高峰时候堵车严重，想咨询一下广巴铁路城区段2023年能不能够搬迁",
+   "cited_hits": [],
+   "cited_missing": [
+    "成渝地区双城经济圈综合交通运输发展规划",
+    "四川省国民经济和社会发展第十四个五年规划和二〇三五年远景目标纲要",
+    "四川省“十四五”川陕革命老区发展规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "44c013882b454bc0bf15325dd772272b",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/44c013882b454bc0bf15325dd772272b",
+   "question": "2023年购房补贴\n市长，你好，我想问两个问题。\n一、听说2023年在广元购买新建商品房（住房、商业房、产权车位）继续执行财政购房补贴政策，但是在市政府和市建设局的官方网站都没有主动公开相关信息，听说到时候找关系就有，不找关系就没有，我想求",
+   "cited_hits": [],
+   "cited_missing": [
+    "广元市促进房地产市场平稳健康发展工作措施"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "de2f1095972246e989c2993f1fb630fe",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/de2f1095972246e989c2993f1fb630fe",
+   "question": "异地职工广元市购房商业贷款转公积金贷款\n因商业贷款比公积金贷款速度快，开发商为了更快回笼资金，不希望职工进行公积金贷款，所以开发商会宣传：异地职工不能在广元进行公积金异地贷款。又因异地职工一般只会咨询公积金缴存地政策，故对广元公积金政策不会",
+   "cited_hits": [],
+   "cited_missing": [
+    "广元市住房公积金贷款实施细则"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "e8bf5348aca24352a2702dfb701424b0",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/e8bf5348aca24352a2702dfb701424b0",
+   "question": "请问断头路何时动工\n位于万源汉硕幼儿园和博源丽都酒店之间的断头路好久才修，这么多年了，民生问题还要拖多少年呢？已经快十年了！",
+   "cited_hits": [],
+   "cited_missing": [
+    "广元市中心城区智慧停车场项目解除合同协议书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "c87a9f5ef38a44d088e688c644d0009b",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/c87a9f5ef38a44d088e688c644d0009b",
+   "question": "关于农村天然气安装的咨询\n尊敬的人民政府：\n\n     近几年，在党和政府的领导下，我国在清洁能源开发和普及上取得了卓越的成效，得益于我市天然气资源丰富，我县农村地区开始进行天然气安装，但按照费用从3000-5000-7500元逐年上升，广",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于清理规范城镇供水供电供气供暖行业收费促进行业高质量发展实施方案的通知",
+    "关于放开水电气工程安装及检查维修价格的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "b28df668745d48b49825f1c08a7601ba",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/b28df668745d48b49825f1c08a7601ba",
+   "question": "关于城管贴罚单的问题\n政府好！针对城管贴单的行为有以下问题汇报：第一，城管执法的主体是什么？依据的法律是什么？根据城管部门贴违法告知单上明确适用的法律是《道路交通安全法》，此法律规定的执法主体是交通警察部门，不应该是城管部门。第二，广元城管",
+   "cited_hits": [],
+   "cited_missing": [
+    "研究公安交通管理部分职能移交有关事宜的会议纪要"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "f032e22cf35d4e26b4cd0913d5a93012",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/f032e22cf35d4e26b4cd0913d5a93012",
+   "question": "关于广元市图书馆疫情防控政策的疑问\n市长您好，本人于近日（2022年9月21日）前往广元市图书馆读书，被工作人员告知需48小时内核酸检测阴性报告方可入内，但我询问该要求所依据的文件时对方未予正面回应，而是说“文件还未下来，但后续省里会下发文",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于从严从紧抓好当前疫情防控工作的紧急通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "132731e5480143f5889d7cf2687831e4",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/132731e5480143f5889d7cf2687831e4",
+   "question": "政策咨询：阳台是否能安装防护栏\n尊敬的董市长：\n      您好！\n      我是雪峰寺社区阳光·利州公馆的居民。想咨询下城管、住建等相关部门，我们小区的厨房阳台那里能否安装防护栏。一是为了家人安全，二是为了晾衣方便。我们许多住户均向小区",
+   "cited_hits": [],
+   "cited_missing": [
+    "广元市城区建筑物外立面管理暂行办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "717418cb6327415f83ee4fd0ea2b5f09",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/717418cb6327415f83ee4fd0ea2b5f09",
+   "question": "澳体中心风雨篮球场对外免费事宜\n董市长您好：\n   抱歉再次写信给你，但所反馈事情并未得到理想的解决方案，深表歉意！\n   我于2022年7月14去信向广元市体育局反映澳体中心风雨篮球场对市民免费开放事宜，目前市体育局已给我相关回复，根据其",
+   "cited_hits": [],
+   "cited_missing": [
+    "广元市人民政府关于划入市文化旅游投资集团有限公司国有资产经营管理方案的批复"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "854ca34dab2b44c9a3738295f8afe95f",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/854ca34dab2b44c9a3738295f8afe95f",
+   "question": "请问董市长广元有没有人才回引计划\n尊敬的董市长\n       您好！\n       我是一名在外工作的广元人，大学毕业公考到外地（四川省其他市州参公人员）。近年来，随着父母年岁已高，加之在广元安家，本人现在迫切想回广元工作，为家乡建设贡献绵",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于实施广元籍人才回引计划的公告",
+    "广元籍人才回引报名表",
+    "关于实施“青年优秀人才引进计划”的公告",
+    "朝天区“青年优秀人才引进计划”报名表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "69c89d02a228433b962bcf43a9b808eb",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/69c89d02a228433b962bcf43a9b808eb",
+   "question": "住房公积金政策\n市长你好：\n       个人想咨询下住房公积金以下政策：1.个人于2020年底购房并办理公积金贷款对冲业务，现交房在即准备提取部分公积金用于装修，是否可行。2.若在已办理对冲业务的前提下无法提取公积金，是否可以取消对冲业务",
+   "cited_hits": [],
+   "cited_missing": [
+    "广元市住房公积金管理中心住房公积金提取实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "8253e1f9be694a409ce7a917bc73eff6",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/8253e1f9be694a409ce7a917bc73eff6",
+   "question": "个人设立涉碳排放企业的政策咨询\n市长你好，我是苍溪县运山镇二龙村十组人马朴亭，现年56岁。现为中国中铁二局东莞地铁1号线项目党委书记。希望了解一下我们广元市在碳达峰碳中和行动中，个人涉及相关行业企业的设立政策相关事宜。盼百忙中抽空回复。\n1",
+   "cited_hits": [],
+   "cited_missing": [
+    "中共中央 国务院关于完整准确全面贯彻新发展理念做好碳达峰碳中和工作的意见",
+    "国务院关于印发2030年前碳达峰行动方案的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "d2d25d9af5ce43289c097431c955591f",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/d2d25d9af5ce43289c097431c955591f",
+   "question": "广元市定向乡镇公务员服务期问题\n尊敬的领导您好，我是2018年考入的广元市定向乡镇公务员，目前已在乡镇服务3年，还有5年乡镇服务期。但是我由于因家庭原因确需回到家乡，请问可以在服务期限内跨市遴选到其他市州乡镇吗？依然是服务乡镇，希望领导可以",
+   "cited_hits": [],
+   "cited_missing": [
+    "公务员公开遴选办法",
+    "公务员公开遴选办法",
+    "关于公务员异地交流有关问题的答复"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "5cf55c7bd0b2415f9405ba8ae8f60ddf",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/5cf55c7bd0b2415f9405ba8ae8f60ddf",
+   "question": "广元市卫生健康委员会请对国务院文件关于深化卫生专业技术人员职称制度改革的指导意见做出说明\n相关问题：2022年卫生人员中级职称现场审核条件 ，广元市卫健委要求是：6.以本科及以上学位报考中级职称的考生，须提供住院医师规范化培训合格证书原件及",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于加强卫生人才队伍建设的实施意见",
+    "广元市卫生和计划生育委员会关于做好2016年全市贫困县区住院医师规范化培训工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "b8225dfd79a24f6c8161ea91317d8f91",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/b8225dfd79a24f6c8161ea91317d8f91",
+   "question": "育儿假\n修改后的《四川省人口与计划生育条例》已于2021年9月29日通过并实施，“子女三周岁以下的夫妻，每年分别可享受累计十天的育儿假，育儿假视为出勤”，请问育儿假广元是否还会出台相关文件，还是直接按照四川省条例享受。",
+   "cited_hits": [],
+   "cited_missing": [
+    "四川省人口与计划生育条例",
+    "关于〈四川省人口与计划生育条例〉实施中“育儿假”有关问题的指导意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "5047eb8c0ac54b70802c5e3f4a83964c",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/5047eb8c0ac54b70802c5e3f4a83964c",
+   "question": "关于鸿宇时代房产开发诸多问题\n尊敬的董市长：\n感谢您在百忙之中查看来信，现反映东坝鸿宇时代房产开发项目的诸多问题，问题如下：1、该小区于2019年销售，应于2021年5月31日交付，但目前已长达5个月未完成交房，小区业主多次与开发商协商、交",
+   "cited_hits": [],
+   "cited_missing": [
+    "住宅专项维修资金管理办法",
+    "交房手续办理须知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "3bc75c5a39244dd480df1f3a64b02a7a",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/3bc75c5a39244dd480df1f3a64b02a7a",
+   "question": "严格把控学前教育问题\n学前教育这个问题，有必要，但又不应该太过于。目前我亲身经历的情况：1、我姐姐小孩在南鹰幼儿园读大班，我同事小孩在北街幼儿园读大班，反应出来一个问题就是幼儿园竟然开始教小学一年级的部分内容了。2、通过进一步了解身边朋友小",
+   "cited_hits": [],
+   "cited_missing": [
+    "教育部办公厅关于开展幼儿园“小学化”专项治理工作的通知",
+    "四川省教育厅关于开展幼儿园“小学化”专项治理工作的通知",
+    "广元市利州区教育局关于印发广元市利州区幼儿园小学化专项治理方案的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "dc4dfeef72054cae8c18ffab335baf27",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/dc4dfeef72054cae8c18ffab335baf27",
+   "question": "关于2021年高职扩招报名的咨询\n老师您好，我叫何园，今年27岁，2020年以社会考生参加了2021年的高考报名并于2021年年初参加了单招，遗憾落榜，放弃高考，想参加下半年的高职扩招。然而9月底省教育网发文：已参加2021年高考报名无法参",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好2021年高职扩招专项工作的通知",
+    "四川省2021年高职扩招专项工作方案",
+    "四川省2021年高职扩招专项工作招生考试及录取办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "da12f94e0fce4455abba8199b6280f82",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/da12f94e0fce4455abba8199b6280f82",
+   "question": "本地区是否编制了基层政务公开标准指引\n您好，本地区是否编制了基层政务公开标准指引？",
+   "cited_hits": [],
+   "cited_missing": [
+    "国务院办公厅关于全面推进基层政务公开标准化规范化工作的指导意见",
+    "四川省人民政府办公厅关于全面推进基层政务公开标准化规范化工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "babbefb3cde442939e7a3d308d3295a6",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/babbefb3cde442939e7a3d308d3295a6",
+   "question": "关于天然气安装费用高反馈\n尊敬的市长:\n          您好！\n        我们系广元市昭化区昭化镇城关村农民，现居住地址在昭化西市G院落里,我们院内共居住有12户村民,于2021年8月份统一申请安装了天燃气;但是天然气公司的收费明",
+   "cited_hits": [],
+   "cited_missing": [
+    "广元市发展和改革委员会关于规范市天然气有限责任公司天然气入网费有关事项的通知",
+    "四川省发展和改革委员会 四川省住房和城乡建设厅 四川省市场监督管理局关于规范四川省燃气工程安装收费的通知",
+    "四川省燃气工程安装收费指南",
+    "关于规范燃气工程安装价格的方案",
+    "广元市天然气有限责任公司关于燃气工程安装价格的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "32223caf7ad142f6adb8da3c847e71d7",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/32223caf7ad142f6adb8da3c847e71d7",
+   "question": "苍溪县房管局不按既定政策文件执行小区电梯安装事宜处理纠纷以人情为主不作为乱作为\n尊敬的广元市委邹书记：\n我是苍溪县陵江镇“景上人家”二期业主，我们小区极少数业主私下找苍溪县相关部门办理了老旧小区电梯安装审批手续。并在小区的消防通道上进行了开",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发苍溪县城镇老旧小区改造加装电梯实施方案的通知",
+    "关于印发<关于实施既有住宅电梯增设三年计划（2019-2021）的指导意见>的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "d2c8a2158f5b47c5859ece8d38388d8d",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/d2c8a2158f5b47c5859ece8d38388d8d",
+   "question": "广元城市亮化\n你好领导，广元近几年的各个方面发展建设是越来越好，城市道路宽敞，到处都是高楼耸立，城市的面貌变化之大，就是该好好的把城市的夜景打超规划一下，到了晚上有城市的夜景气氛，夜景是忙碌一天的人们的休闲，娱乐，夜景亮化呢是为为城市添加一",
+   "cited_hits": [],
+   "cited_missing": [
+    "广元市城市总体规划",
+    "广元市城市照明专项规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "ac104c6f470d4702b554cd2b3dc97fba",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/ac104c6f470d4702b554cd2b3dc97fba",
+   "question": "退役军人下岗职工居无定所急需各级领导协助解决住房困难\n本人王彦成，男，现年60岁，身份证号：510802196107020014, 1980年入伍，服役于中国人民解放军88614部队，1983年退役分配到广元县针织厂工作，1990年企业亏损",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于调整公共租赁住房筹集计划的通知",
+    "关于调整公共租赁住房筹集计划的紧急通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "0914bcade2404649bdbae5412d39f903",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/0914bcade2404649bdbae5412d39f903",
+   "question": "咨询公积金贷款买房事宜\n领导，你好。想咨询下在目前广元市内买房，用公积金贷款的话最多可以贷多少年？最多可以贷多少钱？是不是单职工和双职工的贷款政策不一样？麻烦相关部门详细解答下吗，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "广元市住房公积金贷款实施细则"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "99e049a22b5d4b6ea5635a8946db47ae",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/99e049a22b5d4b6ea5635a8946db47ae",
+   "question": "关于广元市市长信箱优化的几点建议\n尊敬的市长先生：\n      您好！市长信箱在老百姓和政府之间架起了一座很好的沟通桥梁，公众对政府工作提出的建议和批评，可以受到政府的关注，成为政府改进工作和决策的重要参考。本人有几点建议：\n     其一",
+   "cited_hits": [],
+   "cited_missing": [
+    "广元市书记市长信箱来信办理规则（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "8c33cb66ee3448fc91b912a02c1adef3",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/8c33cb66ee3448fc91b912a02c1adef3",
+   "question": "巴黎时光小区环境卫生脏乱差\n巴黎时光小区地下室，从入住到现在，一直是脏乱差的环境，给物业反映过至少十次，一直没有整改，夏天到了，地下室每天去都一股恶臭味，还有一堆一直未清理过的垃圾，每天都要生活的环境，真的是脏乱差，有人病毒传播比较快的季节",
+   "cited_hits": [],
+   "cited_missing": [
+    "小区临时管理规约"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "bbb38d0e87fd4fe4adb02d6d7e0ce604",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/bbb38d0e87fd4fe4adb02d6d7e0ce604",
+   "question": "噪音扰民\n尊敬的市长:您好，我叫韩小梅家住环城路阳光小区A栋202的居民，房子是我们两代人省吃俭用于2004年买下的，楼下乔一乔烧烤店违章搭建和噪音扰民，长期以来严重影响我们小孩和大人的学习和工作，昨年晚上一点过我们直接给老板的妈说声音小点",
+   "cited_hits": [],
+   "cited_missing": [
+    "行政执法责令限期改正通知书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "30ae1d849874415aab658eab0b3baa75",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/30ae1d849874415aab658eab0b3baa75",
+   "question": "移动端办事与企业注册咨询\n1、请问我想要通过手机等移动端办事可以通过哪些渠道？每个渠道有什么区别？\n\n2、请问办理企业注册开办业务如何申请，需要跑几次，花费几个工作日可以完成？",
+   "cited_hits": [],
+   "cited_missing": [
+    "公司登记（备案）申请书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "980605385a1e4a9bb13b386636be1aa9",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/980605385a1e4a9bb13b386636be1aa9",
+   "question": "谁给的特权\n好好的人行道，怎么就被占了",
+   "cited_hits": [],
+   "cited_missing": [
+    "行政执法责令限期改正通知书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "b4a6ba082eba41208b267d4999efda79",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/b4a6ba082eba41208b267d4999efda79",
+   "question": "关于广元建设的规划的一点建议\n尊敬的董市长\n       我做为一名下岗工人，现在外打工，平时很关心广元的建设，看见广元新闻说的广巴铁路改线，火车南站搬建，机场扩建，听到这些消息，感到广元建设一天更比一天好。这些建设还没有开始，我想提下我个",
+   "cited_hits": [],
+   "cited_missing": [
+    "广元铁路枢纽总图规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "cdd33ebc7099448e92dc155a42aff5b1",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/cdd33ebc7099448e92dc155a42aff5b1",
+   "question": "四川省广元市惠民保咨询\n尊敬的领导，\n\n近年来，全国各地大力推行引进惠民医疗政策，在基本医疗保险之外，联合商业保险推出了‘惠民保’医疗补充保险。该保险为地方政府联合商业保险公司一同推出的‘普惠型’医疗保险，作为医保补充报销一些大额或者大病医",
+   "cited_hits": [],
+   "cited_missing": [
+    "中共四川省委 四川省人民政府关于深化医疗保障制度改革的实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "5f91689d8397417ab37ac5c5f9259a0d",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/5f91689d8397417ab37ac5c5f9259a0d",
+   "question": "关于卫生宾馆出现频繁电流声扰民的投诉\n尊敬的市长先生：\n     您好！我家住在东坝市委宿舍9号楼，与卫生宾馆仅一墙之隔。自今年5月中旬卫生宾馆重新装修后，出现24小时不间断的电流声，噪音较大，让人心神不宁，无法安静，严重影响我小区附近几栋",
+   "cited_hits": [],
+   "cited_missing": [
+    "行政执法责令限期改正通知书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "96e3641c56a5437f8a633d159bf29d63",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/96e3641c56a5437f8a633d159bf29d63",
+   "question": "举报利州区轮滑运动协会煌家轮滑专卖店法人沈勇违法圈地占地数十年谋取私利举报后仍在违法占地圈地\n广元市利州区老城嘉陵广场是公共广场本是给市民娱乐休闲之用，然而近年煌家轮滑专卖店每天晚18点30到20点30点在嘉陵广场舞台旁边违法圈地占地开展旱",
+   "cited_hits": [],
+   "cited_missing": [
+    "行政执法责令限期改正通知书",
+    "四川省城乡环境综合治理条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "df0097993c614c83843bf4947cd6a3a1",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/df0097993c614c83843bf4947cd6a3a1",
+   "question": "安全\n南河皇都首座小区院内房屋属于多层建筑未安装电梯，单元入户楼梯口常年被放在楼梯口充电的电瓶车堵塞，存在严重安全隐患，多年来一直向大同物业和12345反映该问题，利州区物管办虽然回复过，但是该事情一直为解决。我只想在每天回家时能正常入户，",
+   "cited_hits": [],
+   "cited_missing": [
+    "小区临时管理规约"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "f30672fb648246f4969e1fe52c3f8526",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/f30672fb648246f4969e1fe52c3f8526",
+   "question": "广元会推出惠民性的医疗险吗\n劳烦咨询一下我们广元市会不会推出类似于成都的惠蓉保，达州的达惠保，宜宾的惠宜保这样的惠民性的医疗保险呢？很多上了年纪的老年人以及身体有异常买不到商业保险的这类人群，如果出台了这样的惠民保险政策会是一件利国利民的大",
+   "cited_hits": [],
+   "cited_missing": [
+    "中共四川省委 四川省人民政府关于深化医疗保障制度改革的实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "bf63adb422ae47cabb636907ad73d4c0",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/bf63adb422ae47cabb636907ad73d4c0",
+   "question": "关于室内公共场所禁烟问题\n我想询问一下广元市政府是否有关于室内公共场所禁烟的有关文件，以及文件有无被严格执行？我发现现在无论是在没有贴禁烟标志的餐馆，还是有禁烟标志的电梯、商场甚至医院都还是有很多人吸烟，如果你上前劝阻，部分人还会对你恶语相",
+   "cited_hits": [],
+   "cited_missing": [
+    "四川省公共场所卫生管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "cba3cd4e4dc9476881abe9ad461a835f",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/cba3cd4e4dc9476881abe9ad461a835f",
+   "question": "为求医疗救助申请书\n本年三月十五日，小民所呈送《泣陈政府救援书》一文，三月十九日，据市政府转述之旺苍县民政局之答复称：“可携带作证资料前往县医保局办理。”\r\n四月一日，小民携带所有资料前赴县政务中心四楼医保局408办公室办理，却被告知因无旺",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于持续做好医疗救助工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "146922c69d854b2998536f5ea4c54e2f",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/146922c69d854b2998536f5ea4c54e2f",
+   "question": "关于2021年3月27日公务员考试考场布置的问题\n本人为3月27日公务员考试广元市实验小学考场一名考生，考场为小学，教室本来就狭小，所有桌椅均被反过摆放，桌下还有自带置物篮，导致考生无法正常入座，上午到下午全程需要以叉开腿的姿势答题，并且桌",
+   "cited_hits": [],
+   "cited_missing": [
+    "四川省人事考试笔试考务工作细则（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "398d8c90e9ea465e85396df5a6208278",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/398d8c90e9ea465e85396df5a6208278",
+   "question": "孤人住房保障政策咨询\n尊敬的领导：\r\n      我市九十年代原广元市糖酒公司买断工龄人员，户籍地为广元利州区嘉陵派出所 ，下岗后一直在外地打散工，后与妻子离异，子跟随女方，年纪大后变成都做保安 到今年正式在广元市办理了退休手续（实际年龄已",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于调整公共租赁住房筹集计划的通知",
+    "关于调整公共租赁住房筹集计划的紧急通知",
+    "广元市利州区公共租赁住房租赁补贴发放管理办法（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "4ba5398419894bca9b5ae5369156a348",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/4ba5398419894bca9b5ae5369156a348",
+   "question": "关于对利州广场电信东侧规划调整的意见\n尊敬的邹市长：\r\n        根据市国土空间规划编制研究中心《关于雪峰片区A-a-03-06地块控制性详细规划局部调整方案的公示》内容，拟将利州广场电信大楼东侧地块由邮电设施用地调整为商业用地，并开",
+   "cited_hits": [],
+   "cited_missing": [
+    "雪峰片区A-a-03-06地块控制性详细规划局部调整方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "b4088acb47ae4049b3f720fc32a7b644",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/b4088acb47ae4049b3f720fc32a7b644",
+   "question": "咨询东山半岛风琴蓝湾学区划分在哪\n小孩即将上学，咨询东山半岛、风琴蓝湾学区划分在广师附小没？如果没在，请告知属于那个小学就读。",
+   "cited_hits": [],
+   "cited_missing": [
+    "广元市利州区人民政府关于2020年市城区义务教育招生入学工作的通告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "cd94b1b2d3934e2eb02e9005bf3ef689",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/cd94b1b2d3934e2eb02e9005bf3ef689",
+   "question": "苍溪县城管执法不按规定执法存在选择性执法现象\n尊敬的市长：您好！我是广元市苍溪县一普通市民，来信打扰，只为反映一事：苍溪县城管执法不按规定执法，存在选择性执法现象。\r\n2021年2月7日下午4点左右，我因有急事临时耽搁几分钟，将私家车停在红",
+   "cited_hits": [],
+   "cited_missing": [
+    "苍溪县人民政府2021年春节城区治堵保畅暨疫情防控工作方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "0b81a906b8bb4674b55f3568324463d8",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/0b81a906b8bb4674b55f3568324463d8",
+   "question": "建筑面积包含哪些内容\n在房产测绘中，一共有三个面积分别是：套内面积、公摊面积和建筑面积。据我对法律的了解及对字面意思的理解，建筑面积是建（构）筑物结构内的面积，也就是说建筑面积包括套内面积和建（构）筑物墙体的面积，不包括公摊面积。现对该理解",
+   "cited_hits": [],
+   "cited_missing": [
+    "建筑工程建筑面积计算规范",
+    "GB/T50353-2013"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "553ecb1ca83246fd8d6003c486866243",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/553ecb1ca83246fd8d6003c486866243",
+   "question": "写给广元市融媒体中心和广元市剑门关蜀道文化旅游管理委员会的建议信\n广元市融媒体中心、广元市剑门关蜀道文化旅游管理委员会、剑阁县融媒体中心:李白登高曰剑阁峥嵘而崔嵬一夫当关万夫莫开四川剑门关猿猱道世皆谓之天险道中迷雾冰滑磴几不可登及既上苍山负",
+   "cited_hits": [],
+   "cited_missing": [
+    "摄影师镜头下的剑门关",
+    "不一样的剑门关",
+    "航拍壮美剑阁"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "dd9292723fa74205b45bf45e2a6b9cd0",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/dd9292723fa74205b45bf45e2a6b9cd0",
+   "question": "投诉国企开发商的不作为\n尊敬的邹市长\r\n   您好。\r\n     我是东山半岛小区（东山半岛楼盘是由广元市隆晟房地产开发有限公司承建）的一名业主，2020年12月29日我们迎来了交房日期，原本是怀着激动而又高兴的心情去接房，但接房验收时发现",
+   "cited_hits": [],
+   "cited_missing": [
+    "专题研究凤凰山南侧棚户区安置还建房物业管理费有关事宜会议纪要"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "cdb9829e0c0e4b3c984f5adf99b45525",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/cdb9829e0c0e4b3c984f5adf99b45525",
+   "question": "关于利州东路气象局门口过街通道阻断的问题。\n利州东路二段气象局门口，人行横道过街通道为什么阻断，两边人员过往不便，阻断未见到相关公示或者公告，请告知为什么要阻断，是谁决定的。",
+   "cited_hits": [],
+   "cited_missing": [
+    "城市道路交通标志标线设置指南",
+    "道路交通标志和标线第三部分：道路交通标线"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "2eb1d66dd0d84724a36e52a57db40184",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/2eb1d66dd0d84724a36e52a57db40184",
+   "question": "咨询广元市红军小学建设问题\n尊敬的邹市长你好：\r\n       我想咨询一下南河红军小学完工时间、招生、开学时间和学校班级设置计划等一些情况，听周围群众说没得一二三年级，孩子马上要上一年级了，一直很关注这个学校的施工进度和其他信息。麻烦工作",
+   "cited_hits": [],
+   "cited_missing": [
+    "广元市利州区人民政府义务教育招生入学工作的通告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "cdc4a86194534ff0974e8f0032ab4a2d",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/cdc4a86194534ff0974e8f0032ab4a2d",
+   "question": "旅行社责任保险求助\n依法在广元市成立的旅行社，是否必须在广元市旅游局指定的保险公司或保险经纪公司购买旅行社责任保险？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好旅行社责任保险统保示范项目续保投保工作的通知",
+    "关于做好2020年旅行社责任保险统保示范项目续保投保工作的通知",
+    "关于做好2021年旅行社责任保险统保示范项目续保投保工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "9efbc42c121a4c5189dbebff78cd3d7f",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/9efbc42c121a4c5189dbebff78cd3d7f",
+   "question": "关于广元市政务服务和公共资源交易中心综合楼物业管理服务采购项目招标结果的投诉第二次\n尊敬的市长：您好！本人于2020年11月20日针对广元市政务服务和公共资源交易中心综合楼物业管理服务采购项目招标结果进行了投诉，具体内容为：广元市政务服务和",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于关于印发<广元市物业管理办法>的通知",
+    "关于印发<四川省物业服务企业信用信息管理办法>的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "4e271f8680ea4c2ba2a709b60b26a81c",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/4e271f8680ea4c2ba2a709b60b26a81c",
+   "question": "居民养老保险购买者的退休年龄问题\n我爱人在2017年，因户籍所在地政府占地，办理了居民养老保险，政府认购了11年，至今自己已续交了3年，请问像我爱人这种没有在单位上班购买过职工养老保险，而是一直缴纳居民养老保险的人，在女性年满50岁的法定退",
+   "cited_hits": [],
+   "cited_missing": [
+    "四川省劳动和社会保障厅关于印发<四川省完善企业职工基本养老保险制度实施办法的实施细则>的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "a742b05c06324bdcb0b0d8bad395a585",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/a742b05c06324bdcb0b0d8bad395a585",
+   "question": "天然气涨价\n市长您好，我想问一下天然气涨价不是公布的现在价格1.86元要2020年12月1日才涨价到2.06元吗？为什么现在就已经2.06元了呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广元市发展和改革委员会关于理顺广元市天然气有限责任公司居民用气销售价格的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "f209bd3ffebf4af99293bd70dc1b758e",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/f209bd3ffebf4af99293bd70dc1b758e",
+   "question": "福康花园住宅小区什么时候能安装电梯？\n市长先生：\r\n       您好！雪峰福康花园小区一些大爷大妈反映说，小区大多数楼房都是7层楼来高，每天上下楼十分不便！特别是家里有行动不便的老人和小孩，或有危重病人的时候。当下一些旧楼院小区都在升级改",
+   "cited_hits": [],
+   "cited_missing": [
+    "中华人民共和国物权法",
+    "关于实施既有住宅电梯增设三年计划（2019－2021年）的指导意见",
+    "关于既有住宅电梯增设的实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "c00c12a636d24e358a0d60f1baf11a90",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/c00c12a636d24e358a0d60f1baf11a90",
+   "question": "棚户区改造安置房高额收取停车费用及违规售卖停车位卖\n棚户区改造项目~嘉陵办事处将军桥社区云栈园小区 的开发商~广元广曌置业有限公司(以下简称广曌公司)在没有任何法律依据的情况下高额收取小区业主的地下车库停车费(320元/月)，而同为棚户区改",
+   "cited_hits": [],
+   "cited_missing": [
+    "广元市商品房预售管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "a38552779ebc4ee59d3d6075db6dd2ed",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/a38552779ebc4ee59d3d6075db6dd2ed",
+   "question": "小孩就学\n小孩作为国家及家庭的未来，小学教育是一生学习的开始，广师附小、东城实验小学及其它一些学校，在广元市也算排名靠前的学校，小学生大部分班级一个班60--70人，甚至更多，（就算在大学，都是成年人，除非公共科目几个班级一起学习有这么多人",
+   "cited_hits": [],
+   "cited_missing": [
+    "消除义务教育学校大班额三年攻坚计划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "287cf6a2a9d64e17b46a29b1b25c5a3f",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/287cf6a2a9d64e17b46a29b1b25c5a3f",
+   "question": "关于问题楼盘难办理房产证一事\n尊敬的广元市市长:\r\n         您好:\r\n        希望你能在百忙之中看完我们的诉求，并能为我们作主。\r\n     我们是剑阁县、普安镇剑门路春林花园住宿楼27户居民，2013年已有26户入住，入",
+   "cited_hits": [],
+   "cited_missing": [
+    "市长信箱",
+    "剑阁县问题楼盘不动产权证办理处置工作实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "78287d8ef847430d9e7c2029ead3ecde",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/78287d8ef847430d9e7c2029ead3ecde",
+   "question": "咨询农村户口进城买房要不要迁移户口\n农村户口想进城买房，要不要迁移农村户口到城里，想咨询咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "全省公安机关户政管理工作规程",
+    "房地产权证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "18709e7b579a4c0088daa66423c8ee00",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/18709e7b579a4c0088daa66423c8ee00",
+   "question": "小区后门长期封锁\n亲爱的市长，您好！\r\n     我是托斯卡纳一名业主，我们托斯卡纳b区后门长期封锁导致我们业主出行非常不方便，和物业了解了一下，物业解释是疫情反弹，第二波疫情防控，对于疫情防控我们业主是相当支持工作的，但是小区有几个门，为",
+   "cited_hits": [],
+   "cited_missing": [
+    "中华人民共和国物权法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "d186ea60d1104d849235b5074657880e",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/d186ea60d1104d849235b5074657880e",
+   "question": "金穗苑小区是否属于老旧小区改造范围？\n你好！\r\n      我是金穗苑小区住户，金穗苑小区位于广元市利州东路二段404号，紧邻利州广场，周围有商场、医院、学校、广场，小区位置极佳，该小区建成于1999年，属于2000年前建成的小区。小区也经",
+   "cited_hits": [],
+   "cited_missing": [
+    "住房和城乡建设部办公厅国家发展改革委办公厅 财政部办公厅关于做好2019年老旧小区改造工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "d516a1112d5346fdb3dfb7d0722e10bc",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/d516a1112d5346fdb3dfb7d0722e10bc",
+   "question": "120厂停水近一个月\n120厂隔三差五就停水，近期更是停水近一个月，自来水公司说不归他们管，厂区没能力管，自来水网整了几年也整不进来，应急送水车也不是每天都来送水，普通老百姓并不关心到底归哪个管不归哪个管，只想知道这个水还打算停好久，这边的",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于研究081集团发展存在的困难与问题专题会议的纪要"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "6e26d387081d46ec8132a135fe66126a",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/6e26d387081d46ec8132a135fe66126a",
+   "question": "苴国广场噪音问题\n尊敬的市领导：\r\n  我是居住在苴国广场附近的居民，由于家有小孩处于读书阶段，每天回家18--21点期间需要学习，但由于广场音乐太大，常常不容易集中精力。\r\n  这是个倡导全民健身的时代，我绝无反对市民健身的想法，只是希望",
+   "cited_hits": [],
+   "cited_missing": [
+    "广元市城区广场舞噪声污染防治管理暂行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "030d321181c94dc4bb401be6aa840c8e",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/030d321181c94dc4bb401be6aa840c8e",
+   "question": "120厂区能否尽快通自来水\n虽然厂里的用水是不收费的，可是供水时间的问题，水质的问题。。。。。。让人头痛\r\n装了蓄水罐，没有多久，水管已经有堵塞症状，需要清洗。这些费用，已经超过用水量的水费了。\r\n难到厂区里的人，都只能养老，不用上班吗？天",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于研究081集团发展存在的困难与问题专题会议的纪要"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "6ffb649cd5ea4762bcfc2fc3fed9152d",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/6ffb649cd5ea4762bcfc2fc3fed9152d",
+   "question": "广元市东坝城管执法问题\n您好，我是一名普通的市民，于2013年在东坝科兴园2期买房，在此地居住已有8年，并且在天源街科兴园1期与2期之间原利州公馆侧边停车已有8年之久，在此之前从未被贴过罚单，并且曾得到城管亲口告知树的右侧开始不会罚款，可是",
+   "cited_hits": [],
+   "cited_missing": [
+    "交通安全警示卡"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "f74e4fd171e64ce7b93504b5c76cfd5c",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/f74e4fd171e64ce7b93504b5c76cfd5c",
+   "question": "建筑工程特殊人员职称评定冲突问题反馈\n尊敬的市长您好！我是一位来广的建筑管理人员，就今年广元市开展的建筑职称评定相关手续以及建筑培训课程讲解学习过后，按照相关手续准备过后广元人社局认定资料合格并加盖公章，但是到建设局办公室过后就不认可资料的",
+   "cited_hits": [],
+   "cited_missing": [
+    "中华人民共和国人力资源和社会保障部第25令号",
+    "专业技术人员继续教育规定",
+    "四川省专业技术人员继续教育登记证书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "4451524671324964a8ac1a007f1108b0",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/4451524671324964a8ac1a007f1108b0",
+   "question": "关于三支一扶服务期将满人员的下一步安排处理\n本人长期居住并工作在利州区，丈夫于16年通过三支一扶考试进入昭化区乡镇府工作，由于乡镇偏远，基本平均只有周末回家，三个月前本人怀孕，丈夫服务期也将满，想咨询了解一下他们服务期满人员的下一步安置情况",
+   "cited_hits": [],
+   "cited_missing": [
+    "广元市“三支一扶”协调管理办公室关于做好“三支一扶”大学生招聘等工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "c60ee6e722df4172986bbef6141a0312",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/c60ee6e722df4172986bbef6141a0312",
+   "question": "云盘粱环城北路非机动车和行人借道通行问题\n市领导同志您好：\r\n       因为近期经常经环城北路一线骑车从老城前往东坝，我注意到环城北路一线并未给非机动车留下骑行的通道，尽管这一线车流量不高、但车速不低，骑车时经常是与高速上坡和下坡的汽车",
+   "cited_hits": [],
+   "cited_missing": [
+    "城市道路设计规范",
+    "城市交通总体规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "dcd46e6cb505413f91cf51c562135bfb",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/dcd46e6cb505413f91cf51c562135bfb",
+   "question": "关于请督促广元外囯语学校处理多收学费退费等问题\n1.本学期因受疫情影响，学生到校比以往学期少2个月左右，该校多收的住宿及餐费均未退还家长；2.该学校违反国家及省市相关部门要求不得跨学期收费相关要求，提前收取学费。请回复处理意见。谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于疫情防控期间学校收费有关问题的预警",
+    "关于做好疫情防控期间学校收费管理工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "b3d22e9153bc4617819dbc0cfab1c572",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/b3d22e9153bc4617819dbc0cfab1c572",
+   "question": "恒昌如意湖畔收房问题\n市长您好：我是恒昌如意湖畔小区的业主，按照合同约定本小区于2020年6月30日前交房，由于疫情的影响开发商于2020年7月22日通知2020年7月27日交房，交房过程中，物业和开放商不提供竣工验收备案表，房屋面积实测报",
+   "cited_hits": [],
+   "cited_missing": [
+    "商品房买卖合同",
+    "住宅使用说明书",
+    "住宅质量保证书",
+    "住宅室内装饰装修管理办法",
+    "建设工程消防验收意见书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "bc207d9f21584eea8b363eed61de9ac3",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/bc207d9f21584eea8b363eed61de9ac3",
+   "question": "技能补贴申请处处碰壁\n我跟我哥，李军，分别于2020.4.27日.6.19日，在广元凤凰驾校取得B2，及A1驾驶证，根据2020.4.13日下发补贴政策，我们是否满足该补贴政策。\r\n         我这两天四处咨询了解，需要我们到朝天秦川",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于职业培训补贴办法有关事项的补充通知",
+    "驾驶技能培训补贴协议",
+    "驾驶技能培训补贴协议"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "fbf3303d1156482299540b2b6080f5bc",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/fbf3303d1156482299540b2b6080f5bc",
+   "question": "关于连续工龄是否可以调整工资级别问题的咨询\n尊敬的领导您好：\r\n      我2014年大学毕业，毕业后一直在企业上班，2018年参加公务员考试进入公务员队伍，2019年转正。今年我向组织部提出连续工龄认定，根据组织部连续文件认定我的参加工",
+   "cited_hits": [],
+   "cited_missing": [
+    "咨询连续工龄是否可以调整级别工资",
+    "关于机关工作人员按年度考核结果晋升级别（岗位）工资档次的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "102eb1ee2b9545c0849ea59efd91363f",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/102eb1ee2b9545c0849ea59efd91363f",
+   "question": "千佛崖景区消防员不免费\n尊敬的市长：\r\n        您好！我前两天去千佛崖景区，当我拿出消防员证时，工作人员却说，广元市景区目前没有针对消防员免费的政策，可是根据应急管理部《印发关于做好国家综合性消防救援队伍人员有关优待工作的通知》，通",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好国家综合性消防救援队伍人员有关优待工作的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "ea64fc3d86d44f1fb4bd2f24243a800a",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/ea64fc3d86d44f1fb4bd2f24243a800a",
+   "question": "占道经营和噪声投诉\n尊敬的市长先生：\r\n          我再次给你来信反映投诉万源南岸阳光小区靠近西北门的“深夜烧烤”店，长达几个月在深更半夜占道经营和严重噪声扰民的问题（除了高考期间和下雨天大风天等），曾多次向万源城管大队反映投诉，但",
+   "cited_hits": [],
+   "cited_missing": [
+    "行政执法调查通知书",
+    "行政执法责令限期改正通知书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "4584407abecc4ff0ac989ebd14af02f0",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/4584407abecc4ff0ac989ebd14af02f0",
+   "question": "关于白龙镇摇铃乡狮子村风力发电扰民的问题\n请人民的父母官能在百忙之中抽出宝贵的时间听听民众的心声！\r\n万分感谢！\r\n民众心声详见后附件。",
+   "cited_hits": [],
+   "cited_missing": [
+    "工业企业长街环境噪音排放标准",
+    "GB12348-2008"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "d1625214535e4069b1d739e28372a882",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/d1625214535e4069b1d739e28372a882",
+   "question": "关于剑阁县交警隐蔽流动测速执法的问题\n剑阁县交警在下普快速通道设置违法违规的隐蔽流动测速设备，设置地点与剑阁县政府网上公布地点不一致，且设置在道路护栏以外，隐蔽拍摄。且未按相关规定在拍摄处前200米范围设置提醒提示标识。提供的违法照片也仅能",
+   "cited_hits": [],
+   "cited_missing": [
+    "道路交通安全违法行为处理规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "ce31f87b60064250aa260f855263e651",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/ce31f87b60064250aa260f855263e651",
+   "question": "迫于无奈就读大中专学校迁出的户口要迁回农村\n上世纪九十年代就读大中专学校时将户口从农村迁移到学校（城镇户口），毕业后一直无稳定工作单位，户口一直挂在所属乡镇临时户口（城镇户口），在城区也无固定居所，现在农村父母年老，本人只能回农村照顾老人，",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于积极稳妥推进户籍管理制度改革的通知",
+    "四川省公安厅服务新型城镇化建设改进户政管理工作的实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "6b3558039afc409ea5df2aa383f2471b",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/6b3558039afc409ea5df2aa383f2471b",
+   "question": "关于落实父亲张国雄乡村医生退休待遇的来信\n我父亲张国雄，剑阁县涂山镇涂山村四组村民，现年71岁，1974年即成为赤脚医生，后转为乡村医生，2009年患脑溢血，染上残疾，生活困难。同村同镇其他乡村医生均有退休待遇并领取多年，但我父亲一直未领取",
+   "cited_hits": [],
+   "cited_missing": [
+    "村卫生室管理办法（试行）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "2b74aad840584a93929e6a198917ca8d",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/2b74aad840584a93929e6a198917ca8d",
+   "question": "酒店老板刘单拖欠工资\n因为疫情原因放假了，后面到发工资的时候问老板工资，他说等上班的时候给，我就又等了一个多月，结果他就把酒店转出去了，所以也没有来得及问老板打工资欠条，打了多次电话也不接，我问劳动局他们说没有欠条他们也没有办法，到现在把我",
+   "cited_hits": [],
+   "cited_missing": [
+    "营业执照"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "8d31cb3851204f57b190b8abc110f02a",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/8d31cb3851204f57b190b8abc110f02a",
+   "question": "请求解决养老保险\n我是何万满，55岁，现住朝天区曾家镇。本人于1986年元月，被广元市工商局招为合同工，并签订了劳动合同，后属朝天工商局管辖，工作地点86—90年在曾家工商所，由于工作需要，91年—97年调中子工商所工作。在97年11月朝天",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于调整个协人员工资标准的有关规定",
+    "关于对解聘个协人员给予经济补偿的通知",
+    "解聘个协人员和补偿金额花名册",
+    "关于对解聘个协人员给予经济补偿的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "722853e7d25048a797072fbd4da47632",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/722853e7d25048a797072fbd4da47632",
+   "question": "开发商代收契税是否合法\n请问买房时开发商代收契税是否合法？ 不知道具体咨询哪个部门，烦请解答一下，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "广元市商品房预售管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "5d35811f893c436b811b6248effdd88e",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/5d35811f893c436b811b6248effdd88e",
+   "question": "澳城相关问题\n市领导你好，我想就澳城相关问题进行咨询。\r\n1、我们购买该商品房，合同交付时间是2020年4月30日之前，目前已到6月底才开始进行交房（前提是目前交房是达到交付条件下），开发商以新冠疫情作为借口而延期交付，但广元市建设局于2月",
+   "cited_hits": [],
+   "cited_missing": [
+    "商品房买卖合同",
+    "商品房买卖合同"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "a9cc9237166b499397f6f570fdb66276",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/a9cc9237166b499397f6f570fdb66276",
+   "question": "关于滨江一号延期交房事宜\n尊敬的市长您好！\r\n我是滨江一号二期购房业主，根据购房合同，滨江一号开发商承诺商品房交房期限是2020年6月30号，现因疫情影响，广元市政府及时出台了相关文件，允许在建开发商延期两月交房，可是滨江一号开发商最近给我",
+   "cited_hits": [],
+   "cited_missing": [
+    "广元市应对新冠肺炎疫情影响促进房地产业平稳健康发展措施",
+    "商品房买卖合同",
+    "广元市应对新冠肺炎疫情影响促进房地产业平稳健康发展措施"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "c7f215c3e56746e9b88f0cc6d574f94f",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/c7f215c3e56746e9b88f0cc6d574f94f",
+   "question": "土坯房改建新房申请书\n尊敬的邹市长：\r\n      您好！利州区荣山镇二重岩村地处深山巨谷之中，土贫地瘠，经济极为落后，是典型的贫困村。二重岩村一组又是利州区荣山镇通往旺苍县燕子乡的门户，可公路沿线的土坯房与危房林立，严重影响村容村貌。由于",
+   "cited_hits": [],
+   "cited_missing": [
+    "广元市利州区人民政府办公室关于印发<广元市利州区农户提升改造行动实施方案>的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "6b12e2d619ac4beea79f4f842a8a43f6",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/6b12e2d619ac4beea79f4f842a8a43f6",
+   "question": "关于剑阁县下寺镇强拆问题\n市长\r\n    您好，我是剑阁县下寺镇人员，因拆迁问题与下寺镇拆迁办产生纠纷，原因如下：\r\n    1.在拆迁中，拆迁办因家庭成员工作性质进行差异化补偿，后通过相关法律渠道了解到该条目在法律上并不成立，拆迁办需提供",
+   "cited_hits": [],
+   "cited_missing": [
+    "剑阁县下寺镇棚改规划区内农房拆迁及地上附着物补偿标准的方案的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "691b06362ff846e4827bb7e4c340b475",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/691b06362ff846e4827bb7e4c340b475",
+   "question": "苍溪歧坪镇万宝村村干部侵占村民土地和粮食直补和退耕还林款项\n市领导：\r\n      您好！\r\n      我是原苍溪歧坪南阳万宝村三组村民谭昌益，男，中共党员。现住苍溪县陵江镇龙江国际（廉租房5-10-5）。曾于1973年应征入伍，1981",
+   "cited_hits": [],
+   "cited_missing": [
+    "土地承包法",
+    "土地承包法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "f189e02fe1eb410baf37eeb8b1cecf21",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/f189e02fe1eb410baf37eeb8b1cecf21",
+   "question": "投诉\n尊敬的邹市长：\r\n         您好！\r\n    我在2020年一月份在中国农业银行上西支行存款，当时他们工作人员说现在有个产品，一年交4万，交三年，每年有利息，如果满一年你不想交可以把4万退出来，但是今天我们去办事，其他工作人员",
+   "cited_hits": [],
+   "cited_missing": [
+    "银行业保险业消费投诉处理管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "ea7f82f42f6a48109f8b979aa0a2c419",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/ea7f82f42f6a48109f8b979aa0a2c419",
+   "question": "噪音油烟扰民\n尊敬的邹市长：\r\n              您好！\r\n我是广元市利州区南河街道体育场社区居民，自4月份楼下的烧烤店（利州区南河街道北京路西段614号【双娃子烧烤】）开业以来，经常性的营业到凌晨三四点，每天晚上客人的喧闹声，啤",
+   "cited_hits": [],
+   "cited_missing": [
+    "行政执法责令限期改正通知书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "723704bf51124ad38845ac7791e1cde1",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/723704bf51124ad38845ac7791e1cde1",
+   "question": "青川县滨江华府何时才交得了房\n尊敬的市领导你好，我们购买青川县滨江华府的商品房，合同上签订的交房时间为2019年8月，可是开发商因为各种原因一直拖到现在都交不了房，业主找到青川县住建局，住建局答复了三次交房时间，每次交房时间点到了都是不了了",
+   "cited_hits": [],
+   "cited_missing": [
+    "商品房预售合同",
+    "商品房买卖合同"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "14096f61d3034c99ba535c0e482dc67c",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/14096f61d3034c99ba535c0e482dc67c",
+   "question": "中医院救护车撞死人不愿承担\n尊敬的邹自景市长:\r\n       我们的父亲唐克荣是广元116厂一名退休教师，因家庭生活负担，退休后开了一家摩托车维修店，2020年5月5日13点22分骑着要给别人修的电瓶车回修车店，经电子路北延线邦泰挪威森林",
+   "cited_hits": [],
+   "cited_missing": [
+    "道路交通事故认定书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "98da4d956e5d44709def6baba18f1fce",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/98da4d956e5d44709def6baba18f1fce",
+   "question": "关于明珠园停车收费管理问题\n投诉\r\n尊敬的书记\r\n投诉关于停车位乱收费的问题，万育街的停车位收费工作人员，每天早上六点半左右到场，超出规定时间段（7：00—22：00）收费。曾投诉到城管局，回复调查处理，但一直不了了之，问题依然存在。后拨打",
+   "cited_hits": [],
+   "cited_missing": [
+    "广元市城区机动车停放服务收费实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "78d44db8e58a48e1ac6eff55906e563b",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/78d44db8e58a48e1ac6eff55906e563b",
+   "question": "求助信\n尊敬的邹市长：\r\n  您好！\r\n     我叫唐春燕，是苍溪县龙山镇农民。几年前，通过培训后，我在广元从事个体经营打字复印和展板制作。2016年12月，我给苍溪县彭店乡小学做了9万元的校园文化建设的展板等相关资料。我与工人们一起整日",
+   "cited_hits": [],
+   "cited_missing": [
+    "校园文化建设合同"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "aee352a3f34145d6a399ebd32a580605",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/aee352a3f34145d6a399ebd32a580605",
+   "question": "求助信\n尊敬的邹自景市长：\r\n我叫王先沛，早年因车祸造成四级伤残。2009年7月，我自筹资金100万，创办“广元和丰汽贸公司”，从事二类机动车维修。2011年被评为市“返乡创业明星”和市社会福利企业。先后解决20多名社会青年及10多名残疾人",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于开展残疾人“双创”示范基地建设的意见（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "64f16598b97e488c9344dea03f2c9ff2",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/64f16598b97e488c9344dea03f2c9ff2",
+   "question": "路面严重损坏致使村民出行不便何时才能动工整改\n尊敬的市政府领导你好：\r\n    我是四川省广元市苍溪县龙山镇金斗乡赵家岭村的一名普通老百姓，我想要反应的问题是：\r\n    从龙山镇政府至金斗乡公社的082乡道路段，全长约15公里，我印象里十",
+   "cited_hits": [],
+   "cited_missing": [
+    "2020年广元市基础设施建设"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "c45b78cfd22d46fa8bae35a9e217d897",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/c45b78cfd22d46fa8bae35a9e217d897",
+   "question": "质疑广元茶叶集团主办虚假征集\n您好! 广元茶叶集团（联系电话 0839-3271150）于2020年3月12日开始主办“一品剑门”茶广告语征集 \r\nhttps://www.1zj.com/2020/xuanchuan_0313/67210.",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于广元茶业集团征集茶广告语涉嫌虚假征集"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "78a315d0d1144495a92a038110e93e91",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/78a315d0d1144495a92a038110e93e91",
+   "question": "金橄榄广场开发商私藏全体业主12000余平米公摊！\n尊敬的邹市长您好，我们是金橄榄小区的业主。\r\n1、开发商无故拖延4年不给业主办理房屋所有权证书，除去合同约定的1年外，以办证遇到不可抗力因素再次对每户减去365天违约金（3650元/户，合",
+   "cited_hits": [],
+   "cited_missing": [
+    "商品房买卖合同"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "66c0157064424a39bc801b7281a188b9",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/66c0157064424a39bc801b7281a188b9",
+   "question": "广元市利州区食品药品和工商局不作为\n本人身份证于2014年12月底遗失，并于2015年2月16日重新申领了新身份证。遗失身份证被不法分子于2015年7月13日在广元市利州区食品药品和工商局注册了“广元昌顺商贸有限公司”，该公司并非本人和本人",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于撤销非法注册“广元昌顺商贸有限公司”的诉求",
+    "四川省市场监督管理局关于撤销冒用他人身份信息取得公司登记暂行办法",
+    "撤销冒用他人身份信息取得公司登记的工作方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "c46e1828a49c4122b0b2a17d68ec4bea",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/c46e1828a49c4122b0b2a17d68ec4bea",
+   "question": "实名举报广元城管东城大队行政执法不作为乱作为徇私枉法\n你好， 在此我有一件事情想向你们进行实名举报。 2020年5月25日 我准备去翠屏路停车，看见翠屏路一侧停有很多车辆，我见路边立有交警二大队的提示牌罚款100扣3分，于是我将车辆开到了档",
+   "cited_hits": [],
+   "cited_missing": [
+    "市长信箱"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "aad1a7ef2f804e65adf92099b470d5bf",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/aad1a7ef2f804e65adf92099b470d5bf",
+   "question": "雪峰兴安路乱摆地摊导致交通拥堵\n市长您好，\r\n我是居住雪峰居民，明天上下班，从兴安路青林医院至雪峰路口810超市路段，每天都是马路上乱摆地毯现象情况，导致上下班车辆行驶困难，交通拥堵，而且又害怕把人撞了，车辆让行也困难，两旁又呈现摆摊现象，",
+   "cited_hits": [],
+   "cited_missing": [
+    "市长信箱"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "7822274e4d7c4e61b20bb2aa2a391cfa",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/7822274e4d7c4e61b20bb2aa2a391cfa",
+   "question": "关于昭化区朝阳乡齐坎河沙石堆场情况\n关于昭化区朝阳乡齐坎河砂石堆场的情况\r\n\r\n报告\r\n\r\n本人向东，2014年3月24日接到昭化区水务局负责人的电话，征询我愿不愿意参加朝阳乡齐坎河段砂石抢采。因为2015年水库就要蓄水了，是最后一次抢采机",
+   "cited_hits": [],
+   "cited_missing": [
+    "缴款通知书",
+    "缴款通知书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "af428ef9b9c446238b0d3660b5de372a",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/af428ef9b9c446238b0d3660b5de372a",
+   "question": "宜民居小区业主车辆无法进入小区\n市长你好，我是宜民居小区的一名业主，该小区华宇物管公司在5月6日张贴了一份霸王条款且未加盖公章，小区内只允许50辆汽车停放，但是50个车位在张贴告示的当天上午就已经被确定，其余业主车辆不允许进入小区，多次小区",
+   "cited_hits": [],
+   "cited_missing": [
+    "广元市公共租赁住房管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "fa72350fa7e9420eaa30f4c7fdbd8948",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/fa72350fa7e9420eaa30f4c7fdbd8948",
+   "question": "住宅房屋转让给他人被要求按商业用房交税\n位于旺苍县东河镇清江怡苑A2栋一楼住房，产权证登记用途为住宅用地/住宅，权利其他状态栏登记为“该宗地实际用途为车库”，这是由于开发商把本来为8楼的建筑的一楼改为负一楼，其实一楼几十套房屋都是住宅而不是",
+   "cited_hits": [],
+   "cited_missing": [
+    "商品房买卖合同",
+    "房地产买卖申请审批表",
+    "旺苍县房屋产权转移申请表"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "c81abe07532049f1af37032eb5492a3d",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/c81abe07532049f1af37032eb5492a3d",
+   "question": "关于广元市昭化区王家镇更新村二社22户生猪被强埋一事\n尊敬的政府领导、父母官：你们好\r\n今天我们依据《非洲猪瘟疫情应急实施方案（2019年版）》的疫情防控措施及应急处置办法相关内容，就2019年7月政府在广元市昭化区王家镇更新二社强埋生猪一",
+   "cited_hits": [],
+   "cited_missing": [
+    "广元市昭化区非洲猪瘟应急预案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "f7f692cf81224e14be726ec6608fa7f4",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/f7f692cf81224e14be726ec6608fa7f4",
+   "question": "翡翠城小区路边停车问题\n翡翠城小区至小区交房入住以来，十多年的时间，由于小区内停车位不能满足小区居民停车的需求，都是把车辆停放在小区周边，以前这也是规定停车位，一段时间还曾要求车头必须向外停放，大家习惯了也便默认了。2020.5.19，早上",
+   "cited_hits": [],
+   "cited_missing": [
+    "市长信箱",
+    "交通安全警示卡",
+    "违法停车告知单"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "30a0b329c9d04c0da37dbde50b3f8010",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/30a0b329c9d04c0da37dbde50b3f8010",
+   "question": "旺苍县农业局违法违规批建旺苍县洪峰农业有公司养猪场\n尊敬的广元市长：\r\n旺苍县洪峰农业有限公司于2020年1月在旺苍县白水镇同心村一、二社，离广巴高速公路40米，离范家塆42户、200余人人口集中区近100米，远的不超190米。建成中大型养",
+   "cited_hits": [],
+   "cited_missing": [
+    "旺苍县人民政府办公室关于印发旺苍县畜禽养殖区域划定方案的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "50963fa3f075453f844eccb02b90c8d7",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/50963fa3f075453f844eccb02b90c8d7",
+   "question": "红星商业广场一期商品房纠纷的法律及政策求助\n本人于2015年购买广元市利州区雪峰《红星商业广场一期》住宅楼，开发商为广元市民兴建设工程有限公司（现更名为四川荣国建设有限责任公司）。现将有关情况说明如下：\r\n1、该公司在2017年初交房时违规",
+   "cited_hits": [],
+   "cited_missing": [
+    "商品房买卖合同"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "34ebe06c5fb64f0f9152bb4737075031",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/34ebe06c5fb64f0f9152bb4737075031",
+   "question": "政府对罕见病的救助政策\n你好，小孩四岁了，检查是雷特综合症（罕见病的一种），我想咨询下在就医或者生活中政府对此有什么样的救助或补助政策，以减轻我们的负担，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "罕见病目录",
+    "关于公布第一批罕见病目录的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "cb6e36dfefe44efa9bcaf3f4aee1b3a9",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/cb6e36dfefe44efa9bcaf3f4aee1b3a9",
+   "question": "公积金政策的合理性建议\n我是才来几年工作的大学生，5年前在广元通过公积金贷款买了一套二居室，后听窗口说可以办理公积金装修贷款，当时问了以后卖了换大三居还可以公积金贷款不，回复可以，今年5月得知不能公积金贷款，说的不能贷款三次，请问制定规则的",
+   "cited_hits": [],
+   "cited_missing": [
+    "广元公积金贷款实施细则"
+   ],
+   "has_clause_no": true
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "sc-guangyuan",
+   "id": "1da851b88e374a2fb3b4e8c74d28ab08",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/1da851b88e374a2fb3b4e8c74d28ab08",
+   "question": "关于申请广元翠云廊相关资料用于学术毕业论文的政府信息公开申请\n尊敬的广元市人民政府：\n        您好！\n        我现在是一名大四的学生，目前正在撰写关于广元翠云廊景区商业模式创新研究的毕业论文。翠云廊作为剑门蜀道重要组成部分，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "7fe4bcc270404ed3a71d8e49662453ed",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/7fe4bcc270404ed3a71d8e49662453ed",
+   "question": "建议新建过街人行天桥\n尊敬的袁市长：\n        随着万缘片区明月路南侧邦泰天誉、富南山居等一系列小区住户逐步入住，每天穿过明月路的人员越来越多。明月路是重要过境道路，机动车流量很大，尤其是有大量货车、重型货车通过，对行人来说存在较大安",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "847b05f6429d462f85b71f9193745225",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/847b05f6429d462f85b71f9193745225",
+   "question": "关于优化“三线记忆”文旅项目夜景灯光设计、提升文化表达品质的建议\n我是一名广元本地市民，现就职于中国市政工程西南设计研究总院有限公司，户籍在利州区，老家在柜北社区三组（120厂中区）。今年端午回家，母亲极力推荐我到“三线记忆”街区逛一逛，说",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "d7d6e307648d4b2986d4f910e363ea84",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/d7d6e307648d4b2986d4f910e363ea84",
+   "question": "广元国际大酒店路口交通事故频发\n市长：你好！向你报告：广元国际大酒店（苴国路）路口处既没有设置红绿灯，又没有设置相关安全设施，近几年来造成多起人员、车辆事故，为了减少交通事故发生，建议将该路口处尽快设置为绿化带进行有效隔离。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "cac00ccc4c094762a31d541c6039359f",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/cac00ccc4c094762a31d541c6039359f",
+   "question": "就业创业领域政策举措\n您好，请问本地在就业创业领域出台了哪些政策举措？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "11103ed38caa4ef6a06014ba74b95f86",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/11103ed38caa4ef6a06014ba74b95f86",
+   "question": "广元市住房公积金中心查询系统长时间无法连接，给广大贷款市民带来极大不便。\n广元市住房公积金中心查询系统从今年3月以来，一直无法与银行贷款系统连接，该中心长时间不作为、不解决，给广大贷款市民带来极大不便。本无意打扰百忙中的市长同志，但该中心的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "9faed838d98549e0b552b730b6e52fad",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/9faed838d98549e0b552b730b6e52fad",
+   "question": "恳请支持建设公共硬排球场，为城市注入更多活力与健康\n尊敬的市长，您好！\n         我是一名市民，同时也是排球运动的爱好者。每当周末或傍晚有空时，总想和朋友约一场酣畅淋漓的排球赛。然而，我们常常苦恼地发现，市区内专供大众使用的标准硬排",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "12b7e237feef45a38d1eeefff3239ba7",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/12b7e237feef45a38d1eeefff3239ba7",
+   "question": "致广元市长信箱的感谢信（请转市公安局并表扬东坝派出所相关民警）\n我是市民小姜，借市长信箱平台，向东坝派出所全体办案民警致谢，并恳请转达市公安局。\n 2025年最后一天，我收到被诈骗后追回的钱款，心绪难平。这是我首次报警，此前对警察的印象停留",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "f8a8631ffaf94493b7621612acc08d70",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/f8a8631ffaf94493b7621612acc08d70",
+   "question": "请将14路公交车延长一站到汤山云景台\n市长您好，现目前东坝方向前往汤山云景台的公交路线没有开通，该小区如果往东坝方向出行极其不便，申请将14路公交车延长一站路线就可以到达云景台，现在14路公交车的终点站在阳光云玺，再往前过一个田坝子大桥路程",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "ee41206d194443058c8f47ea521a150a",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/ee41206d194443058c8f47ea521a150a",
+   "question": "农业生产投入数据求助\n尊敬的广元市人民政府工作人员：\n    您好！我是华中农业大学经济管理学院农业经济管理专业的一名研究生，现因学位论文以及课题研究需要，特向您求助广元市2005-2023年的农用塑料薄膜使用量、农用柴油使用量、农药使用量",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "d8121804a54c4400bddf5f411fd02500",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/d8121804a54c4400bddf5f411fd02500",
+   "question": "广元博物馆建设建议\n近期广元市博物馆迁建工程正如火如荼的建设中，很高兴广元博物馆能从拥挤的利州广场搬迁至河西，有一个独立的地方向市内外参观者展示广元悠久深厚的历史文化。我于近期才看到博物馆的概念设计图，对于新博物馆的建设布局我有个建议。博物",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "27045568fafd4697b2abc207a9b0e424",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/27045568fafd4697b2abc207a9b0e424",
+   "question": "广元中学后门兴安路晚上施工问题\n9月14日广元中学后门兴安路晚上11点半后仍然使用大型机械施工，影响附近学生和居民正常休息。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "176490eb24184eb08c76d8ba6cdad751",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/176490eb24184eb08c76d8ba6cdad751",
+   "question": "广元女儿节的灯谜文化建议\n我很喜欢广元女儿节，已经联系广元女儿节几年。建议，九月份的2025年广元女儿节，能否融入原创灯谜，把广元题材名词，女性文化题材，婚恋文化题材，原创灯谜，举办灯谜比赛，展示竞技性互动性很强的灯谜比赛，展示广元的力量，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "9a425e5eb91d49c8b174d1839571594a",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/9a425e5eb91d49c8b174d1839571594a",
+   "question": "金橄榄广场外沿的非机动车停放问题\n尊敬的市长，您好，近期金橄榄外沿进行施工，加装非机动车隔离桩，造成金橄榄整片的非机动车停放混乱，盲道全部被非机动车占用，尤其是在通往第一人民医院那边的人行道口，行人通行都变得很困难，在上学放学的高峰期，行人",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "bc4addaa793e48438e51185c60764ddf",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/bc4addaa793e48438e51185c60764ddf",
+   "question": "关于优化朝天区新能源汽车充电设施的建议\n尊敬的市长：\n您好！朝天区作为“天府旅游名县”，曾家山、明月峡等景区已成为全国游客向往的热门目的地。随着新能源车占比大幅提升，游客及居民对充电设施的需求日益迫切。然而，当前朝天区充电桩建设仍存在短板，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "fb0b3c91c97b4912a2ed05b248373cef",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/fb0b3c91c97b4912a2ed05b248373cef",
+   "question": "关于北二环阳光云麓一期处公交站点的设立申请。\n尊敬的市长：\n       关于北二环阳光云麓一期处公交站点的设立，因云麓位于两个站点（九路公交车，东屏社区站和天立国际学校）的交界处，对于云麓居住的业主们实在不便利，两个站点的距离过长，居住在",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "9313bba4ec8349b3bf3ac2dd45f91dae",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/9313bba4ec8349b3bf3ac2dd45f91dae",
+   "question": "关于城乡居民基本养老保险中的“集体补助”办理\n苍溪县城乡居民基本养老保险政策宣传资料中有项“集体补助”(即缴费资助），之前咨询苍溪县城乡居民养老保险工作人员，告知没有该项政策,无法办理，近日咨询广元市内其他区县相关工作人员，告知可以办理，若",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "a0ce3b0c7d9a49a3bde8d0923e18792b",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/a0ce3b0c7d9a49a3bde8d0923e18792b",
+   "question": "上学问题咨询\n尊敬的领导，你好！想咨询一下北二环后期还会修建公立小学嘛？目前按上学片区划分，公立小学就只有莲花村小学，现在北二环建设了那么多新小区，后期学校是否能够容纳，特咨询一下",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "b7f043d1b9c2447dbcaf074b6edc478c",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/b7f043d1b9c2447dbcaf074b6edc478c",
+   "question": "人才引进\n您好，请问本地在人才引进方面制定了哪些政策措施？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "d028707564c645b5b47845548e4aa82d",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/d028707564c645b5b47845548e4aa82d",
+   "question": "关于咨询解家岩棚改事宜\n尊敬的董市长，您好！\n我是居住在解家岩的市民，之前向您写信咨询过解家岩棚改事宜的情况，根据广元市住建局工作人员反馈，解家岩二期是否继续推进棚户区改造及改造拆迁时间不属于住建局工作职责。现再次向您写信，希望在百忙之中，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "8f153c3f170249729d70c9b8ca87cad8",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/8f153c3f170249729d70c9b8ca87cad8",
+   "question": "关于邀请周杰伦来广元召开演唱会的建议书\n《关于邀请周杰伦来广元召开演唱会的建议书》\n尊敬的市委何书记，市政府董市长，敬启：\n\n前言：\n首先向市委市政府领导问好！作为一个土生土长的广元青年，吃着白龙湖的水、女皇蒸凉面长大的热爱祖国热爱家乡广元",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "344a0fcd74c54d41ab8fc7f7f9751fc9",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/344a0fcd74c54d41ab8fc7f7f9751fc9",
+   "question": "关于“湿地公园”全园闭园改造需改进的一建议\n市长：\n       您好！\n       自“五.一”假期前以来，广元市“湿地公园”已全园关闭改造，这本是一件利民的大好事。但施工单位鲁莽地、一刀切地全园关闭且没有全园施工，极为欠妥；既严重减少",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "6c2a1465b602445eb4fd45b79bd0304c",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/6c2a1465b602445eb4fd45b79bd0304c",
+   "question": "利州区招小学美术老师的专业限制有失公允\n利州区2024年上半年公招小学美术老师对专业限制有失公允。\n1.对专业有偏见，对各专业所学课程调查研究不专业。\n2.同为设计学，为什么产品设计和视觉传达设计专业复合美术老师报告条件，而服装设计和环境设",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "ff22c2076f3c4c31accd517f82769f58",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/ff22c2076f3c4c31accd517f82769f58",
+   "question": "邦泰天誉南区区域开通公交车\n邦泰天誉南区位于利州区万缘街道万龙路口至雷家桥区域，该区域附近有万达中学、万缘医院、农科院、城发富南山居等单位和大型居民小区，还是小南山公园入口，仅天誉南区就有居民1200余户。该区域多为上班和上学人口，交通需求",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "feeb637471064bb4a1e5663482197844",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/feeb637471064bb4a1e5663482197844",
+   "question": "关于广元市利州区建设城市智慧书房的建议\n广元市利州区老城为首等其余地区急需城市智慧书房，大学生返乡寒暑假备考没有适宜的学习场所，尤其是老城地区没有免费的图书馆，只有为数不多昂贵的自习室，迫于学习研究等需求，急需建立城市智慧书房，打造文化城市",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "fea09218ced94103b7d53a0329288a19",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/fea09218ced94103b7d53a0329288a19",
+   "question": "关于绵广高速二专线沿路安全隐患的建议（大车多灯光晃眼，加上弯道多，未设置弯道反光贴隐患极大）\n安全隐患！安全隐患！安全隐患！从千佛崖至朝天区羊木镇沿路，途径绵广高速二专线，该路段安全隐患极大，由于该路段弯道特别多，加上广元海螺的运输大车特别",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "84e5db19f1014882af3080c7066421fa",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/84e5db19f1014882af3080c7066421fa",
+   "question": "噪音扰民\n老城南街都市广场小区居民楼下开了一家洗浴房（水沐年华）里面设备发出噪音严重影响到生活，导致夜晚大人娃儿通夜通夜不能睡觉，白天不能正常工作和学习，给物业也反映过这个问题，甚至还打过110，警察也还上门来过，之后说交给社区处理，到现在",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "68d85a3059ea4546b520e3b0e41132ad",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/68d85a3059ea4546b520e3b0e41132ad",
+   "question": "没有独子证是否能享受独子补贴\n我是独生女，母亲在我两岁左右病世。父亲没有再婚再育，独自一人将我抚养大。由于忙于生计，一直没有办理独子证，现在马上面临办理退休，想咨询一下这种情况可不可以享受独子补贴。据我了解，my等地可以开具三级证明（村社区",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "2da5632cd6c14d13a35ff381249188e7",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/2da5632cd6c14d13a35ff381249188e7",
+   "question": "关于延长利州区图书馆开馆时间的建议\n利州区图书馆的位置满足东坝片区的读者需求，时值考公务员、考研、考法等的关键时期，虽按国家规定区级图书馆开馆达标时间是至少56小时，但人们日益增长的读书、阅览需求与2018年颁布的《中华人民共和国公共图书馆",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "665e7aa754a24491aa0f84bde17e0673",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/665e7aa754a24491aa0f84bde17e0673",
+   "question": "关于广元碧桂园3号门前国道设置交通信号灯的建议\n尊敬的市领导，我是广元一市民，广元碧桂园3号门前经常有很多大型车辆经过，往返于利州与昭化区，碧桂园小区及快乐人家小区居住着较多居民，很多居民朋友喜欢到河边玩耍，要经过马路，但是至今路口无交通信",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "13c865b475fe438087aa6f0d77fc6134",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/13c865b475fe438087aa6f0d77fc6134",
+   "question": "关于广元旅游的一点建议\n近期习主席来广元剑门关景区视察，这应该对广元的旅游业有促进作用，但是目前广元的旅游业，还有很多不足之处，和需要完善的地方。广元的旅游在全国范围内不太出名，应该充分利用这次机会，打响广元的旅游名片。提高广元旅游的知名度",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "2b70001a7d8047278deb4a0b05319032",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/2b70001a7d8047278deb4a0b05319032",
+   "question": "统计年鉴数据咨询\n尊敬的领导：您好！我是一名在读博士，现进行绿色发展相关研究，诚挚地向您求助，请问能否提供：（1）广元市2000-2002年地质勘察、水利管理业固定资产投资额，2003、2006年水利、环境和公共设施管理业固定资产投资额的数",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "3d3ed7c08de24d858a7d16251ba80e3b",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/3d3ed7c08de24d858a7d16251ba80e3b",
+   "question": "希望每个校园能装上挂钟\n尊敬的领导您好：\n       本人在广元城区很多学校参加过考试，发现除了广元中学，其他学校的教室内都没有挂钟。一般考试过安检又不允许戴手表进考场，所以想知道考场时间还剩多少，就只能询问监考老师。记得前段时间参加某个",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "90f59ae626ef443998c7a34c9878a8e5",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/90f59ae626ef443998c7a34c9878a8e5",
+   "question": "建议在南河湿地公园增设200个左右的凳子\n何书记您好！每天到广元南河湿地公园的人很多，而且有相当一部分是老年人，他们有的年岁已高，有的腿脚不便，走一段就想休息一下。但是由于路边的凳子有限，往往好不容易走到有凳子的地方又有人坐着，实在坚持不住",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "8f3c6c54410348b694276f0dffc12960",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/8f3c6c54410348b694276f0dffc12960",
+   "question": "关于在利州区万缘水岸华府临河路段两侧三岔路口启用交通信号灯的建议\n领导好！\n得益于利州区万缘街道水岸华府至碧桂园滨河廊道打造，周边碧桂园、水岸华府和邦泰天誉等小区居民有了非常好的锻炼、休闲场所。但在人员往返途中，水岸华府东侧临河路段交通安全",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "c15ae5c3f4464f1f8cc0ce5535803d60",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/c15ae5c3f4464f1f8cc0ce5535803d60",
+   "question": "咨询广元市级人才回引还要实施吗？\n经前段时间咨询，广元市级人才回引暂停，请问下一步还要实施吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "0c04700197ad4e748babc3e1834367d7",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/0c04700197ad4e748babc3e1834367d7",
+   "question": "咨询广元市老年人福利政策\n您好，请问哪里可以查询到广元市老年人福利政策？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "ac4a96f3a20643189a8e60b656ca0b15",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/ac4a96f3a20643189a8e60b656ca0b15",
+   "question": "蜀门南路与南环路口由东向西处地面行车引导标识存在问题\n2023年5月17日，本人驾驶小汽车车牌为川H23A41从南环路前往东坝，09时09分在蜀门南路与南环路口由东向西处，被电子眼拍照说是“不按导向车道行驶”，通过提供的图片，我认为该处地面",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "36de1cedfbf84025aa574c916d98d369",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/36de1cedfbf84025aa574c916d98d369",
+   "question": "关于东山半岛小区进出道路合理规范修建的建议\n尊款的董里市长:您好! 东山半岛小区位于利州区凤琴岗湾北(丝绸街西)，系广元市隆房地产开发有限公司修建，于2020年12月30日交房(此时并不具备交房条件)。东山半岛小区居民交通出行的必经之路经过",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "486dd7ca143148e78c36b81156ca3751",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/486dd7ca143148e78c36b81156ca3751",
+   "question": "驾驶证到期换证\n广元利州区南河驾驶证到期换证有2个问题：1.流程是什么样的，需要哪些材料，2.是否可以网上办理，网上办理流程",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "f538e93b49e14b1f922618c6abf70456",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/f538e93b49e14b1f922618c6abf70456",
+   "question": "建议皇泽寺广元府记碑加装玻璃保护罩\n您好！本人于大年初三游玩上西皇泽寺，发现寺庙内广元府记碑未加装玻璃护罩，而周边明清书画作品均已加装保护罩。广元府记碑设立于元代至元年间，是记录、考察、研究广元城历史的重要实证，有一定的保护价值。经岁月流迁",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "09586a8c48bc4d91a53a0010f211d06b",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/09586a8c48bc4d91a53a0010f211d06b",
+   "question": "广元市文化产业统计工作已开展多年仍无法查询到相关数据。\n在互联网、云计算、大数据技术高速发展的时代，政务公开工作在“互联网”开放共享、融合创新等理念的影响下应逐渐打破信息孤岛、促进信息流通共享。广元市文化产业统计工作已开展多年，但大数据时代",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "597bc9de571f4e80bda1027ffe009b32",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/597bc9de571f4e80bda1027ffe009b32",
+   "question": "关于学校午睡的建议\n市长您好：\n      现在小学生都在教室内午休，都是趴在课桌上睡觉。外省市很多学校都采购的专门的午睡椅，平常上课的时候，跟正常椅子一样，午休的时候直接将椅子放倒，学生就可以躺着午休了，这样更有利于学生午休。我市学校是否",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "b2e634eeb6f94e78a38f8127d0ea2d9f",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/b2e634eeb6f94e78a38f8127d0ea2d9f",
+   "question": "建议下挖修建下河街地下停车场\n尊敬的市长：近日听说河街要开始两江四岸改造，不再保留下河街停车场。本人居住在河街，深刻体会了河街住户和商户停车难的问题，这次改造如果再取消河街停车场，将会导致河街住户和商户停车更加困难，造成生产生活的更大不便。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "628fef8512d54417aadf89c8a9ba08bd",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/628fef8512d54417aadf89c8a9ba08bd",
+   "question": "关于2022年下半年教师资格认定有关问题\n市长您好，我是广元市的一名毕业大学生，常居住在成都市。近期，教师资格认定由10月24日开始现场认定，但我25号电话咨询市教育局时，被告知在封控中暂时不能进行认定工作。于是我打算本周自行去到广元市进行",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "f147167edfdb4cd0b8451b3e63f3e1d1",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/f147167edfdb4cd0b8451b3e63f3e1d1",
+   "question": "广元开通广元至长沙的航班的建议\n尊敬的董市长:\n      您好！我是一名在广元工作和生活了20年的湖南人，亲身经历了广元在遭受特大自然灾害后涅槃重生飞速发展的20年。广元的基础设施也得到了全面的发展，高铁、航空和航运大大方便了广大人民群众",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "dea6d0a19af44f889510125ea50b5fe5",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/dea6d0a19af44f889510125ea50b5fe5",
+   "question": "关于增设斑马线的建议\n为改善市民出行方便，市委市政府在南河皇都首座北门设立了2个公交站（出城/进城），此站人员流动较大，很多市民经常穿梭于海口路之间，对行人及车辆埋线了很大的安全隐患。近期，市委市政府在对南河四号桥至南河加气站路段进行改造升",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "1871a0cc137f43f18192a21ce35b2edc",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/1871a0cc137f43f18192a21ce35b2edc",
+   "question": "广元大学毕业生返乡就业政策的咨询\n领导你好，我是一名大学毕业生，想咨询一下目前广元市有无鼓励大学生返乡就业的相关政策及人才吸引计划以及关于大学毕业生在广元找工作的相关渠道，希望领导帮忙答疑解惑。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "c4f23b6f1e46489fb856b787e43cb8ac",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/c4f23b6f1e46489fb856b787e43cb8ac",
+   "question": "关于市图书馆延长开馆时间和增加晚间自习室数量问题\n尊敬的董里市长你好，一是市图书馆自习室日常人员较多，自习室数量较少不满足日常需求，希望增加自习室数量；二是市图书馆每天闭馆时间为下午6点，闭馆时间太早，希望能延长至晚上10点，以满足想学习和",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "9376b7b944854e80b4bcf35efd0ab56c",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/9376b7b944854e80b4bcf35efd0ab56c",
+   "question": "利州东路三段改造计划\n咨询下利州东路三段改造工程计划多久完工，后期是否会封闭断道施工？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "52f00e8ae7ca46cb99d20ad4db753e37",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/52f00e8ae7ca46cb99d20ad4db753e37",
+   "question": "广元高铁建设\n尊敬的市长\n       您好\n\n    我在网上看到各地都在规划建设高铁，但是没看到我们大广元的消息，我想咨询一下，兰渝高铁，兰州经广元至长沙福州高铁和西成二线高铁是否经过我们大广元，如果我们广元失去了这几条高铁，广元的交通",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "b0509fb4b7604098b91aec1f45458d6e",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/b0509fb4b7604098b91aec1f45458d6e",
+   "question": "利州广场增加健走绿道\n希望在利州广场外围树林增加一道贯通的绿道，方便市民健走，跑步！全民健身。特别是部队门口被游乐设施阻断了。参考绵阳人民公园做法。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "1cafa9215bda430082636f620395041c",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/1cafa9215bda430082636f620395041c",
+   "question": "广元市上半年是否有事业单位招录计划\n尊敬的市长先生：\n     我想询问广元上半年是否有事业单位的招考呀？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "15f8ebcb435446f8921b38d85d41c105",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/15f8ebcb435446f8921b38d85d41c105",
+   "question": "关于在人社部官网www.12333.gov.cn无法查询到个人职称情况的咨询\n尊敬的领导您好：\n       本人于2018年8月在广元市人力资源和社会保障局通过了中级工程师的职称评审。根据国家统一要求，2021年将实现职称的全国联网查询，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "07c598b100174d0a9ac090e20977c517",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/07c598b100174d0a9ac090e20977c517",
+   "question": "教室安装空调\n尊敬的市长您好！\n    首先道声抱歉，为一点小事还打扰您，我是广元市实验小学三年级学生的家长，有个建议不知合理不，就是关于教室里安装空调之事，现在广元市实验小学每个班大概都有60个学生左右加上老师，现在才三月份气温已经很高了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "285d7ec3d5fe4748ad30e2332216c56b",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/285d7ec3d5fe4748ad30e2332216c56b",
+   "question": "关于图书馆智慧书屋空气质量差的建议\n尊敬的市长先生：\n       您好！图书馆智慧书屋的看书的同学很多，三台内拖空调（时而还会出问题）无法排出整个图书室里屁臭、汗臭、脚臭以及其他腐烂异味。各位领导抽空可以来感受一下。\n       建议图",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "7125c1e4802f4ac095df8608961a2586",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/7125c1e4802f4ac095df8608961a2586",
+   "question": "关于广元城区公交车是否可以上线公交实时到站查询的问题\n领导您好！麻烦请问下广元城区公交车是否可以上线公交实时到站查询？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "4e978882b0cf4ca0a4b2e38761397786",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/4e978882b0cf4ca0a4b2e38761397786",
+   "question": "希望加大广元对棋牌赌博的执法力度\n希望政府相关部门能对本市的麻将棋牌活动加大监督规范执法的力度。很多时候已不再是单纯的棋牌娱乐 是恶性赌博。 赌博不仅影响着每个小家庭的家庭生活幸福，也会给社会带来众多危害。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "1edf42b908dd4114b5133e3c5dadd5b6",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/1edf42b908dd4114b5133e3c5dadd5b6",
+   "question": "感谢信\n市长您好，\n本人于23日通过市长信箱反馈关于各地返广人员疫情防控措施的问题，据了解当晚已及时发出新的措施，本人也于今日收到卫健委工作人员专门的电话解释新政策，特此对各卫健系统全体工作人员表示感谢，及时解答了本人的疑惑。\n疫情当下，各",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "63d0cf88bca946718826b6224f7a4f5d",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/63d0cf88bca946718826b6224f7a4f5d",
+   "question": "问什么低风险地区要集中隔离！\n我女儿从广东花都区离开18到白云区，20号座飞机回到广元，做了核酸，一切正常，电话到大滩居委会被告知，要集中隔离，但花都区，白云区都是低风险地区，并且文件说自离开花都区算起为隔离！花都区在这段时间是底风险区，为",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "27b0091a47874c73b6c19ecf87430169",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/27b0091a47874c73b6c19ecf87430169",
+   "question": "北二环在发展广元公交22路14路却在拖后腿\n近年，广元正不断拓宽城市骨架，带来一片发展的欣荣。作为发展的排头兵——北二环，目前已有不少小区竣工，有不少居民入住。\n与之不匹配的是，广元公交22路、14路的收车时间停留在18：20分。这不得不说",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "1e72099595f0458892eb532745d4877b",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/1e72099595f0458892eb532745d4877b",
+   "question": "关于利州区大石镇前进村青岩村路口临时红绿灯存在安全隐患问题。\n尊敬的书记：\n          您好：滨河南路是我区与相邻县区县通行的重要交通要道，车流量特大、车速特快，交通安全事故易发。特别是在大石镇前进村、青岩村路口处安装的临时太阳能红",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "0f32b0fc6c0e4e08b6665d5ceb984527",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/0f32b0fc6c0e4e08b6665d5ceb984527",
+   "question": "请求市长帮忙处理拖欠农民工工资\n本人于2021年2月28日在龙潭乡鲲鹏小镇上班 塔吊司机 上到2021年11月3日 中途一直出现拖欠工资的情况 到最后还欠我2万2千多 一直得不到处理 现在恒昌公司也处于稳起的状态 一直让我们等 可是我们真的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "023e9694d1f14192b2fa66c4f758aaab",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/023e9694d1f14192b2fa66c4f758aaab",
+   "question": "咨询云栈园3期棚户区房屋搬迁时间\n广元市政府领导\n        您们好！\n     我是将军桥云栈园第三期搬迁的居民，我们3月份签订了协议后，就没下文了，目前我们的住房已经严重损毁，屋顶、墙面、门窗均不同程度的损坏，想维修，又要花钱，不维",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "205a3954d30d40ab8acc8f2161a8ea72",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/205a3954d30d40ab8acc8f2161a8ea72",
+   "question": "关于9路路线未辐射御景湾启明星广旺花园等小区的建议\n9路是连接雪峰到老城的重要路线，由国贸广场南到天立学校方向的9路车辆没有兼顾住户大区御景湾、启明星广场及广旺花园等住户的赶车迫切性。沿途的10路能满足要求，但是车次很少，给住在附近的居民坐",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "fc9edb599c894207b73aefee98685ec3",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/fc9edb599c894207b73aefee98685ec3",
+   "question": "确认一下剑州中学明年高考的体育生还能艺考吗\n市长你好，我是2022年一名参加高考学生的家长，他从老师口中得知，他们高考时只能走文化考试 ，没有艺考了，别的学校同一届的艺体生，还是正常艺考和文化考   想要确认一下是否属实 ，他们学校是什么原",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "e65dfed2d8af4e41a658d2ea2c7cd01c",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/e65dfed2d8af4e41a658d2ea2c7cd01c",
+   "question": "雪峰小学严重扰民\n尊敬的领导：\n利州区雪峰小学每天（除节假日外）中午12点至14点，组织学生开展活动，严重影响学校周边居民午休！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "137575648a394226bced691ab7cb5350",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/137575648a394226bced691ab7cb5350",
+   "question": "为什么公交卡丢了不能补办？\n孩子实名制办的公交卡丢了，今天我拿着户口本去公交公司公交卡服务窗口去补办，工作人员告诉我没法补办，以前可以持失现在也没法挂失，如果卡丢了就等于里面的钱也一起丢了，只有重新办卡充费。请问实名制公交卡丢失为什么不能挂",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "070d730a402e4343af5d95585c2c01a9",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/070d730a402e4343af5d95585c2c01a9",
+   "question": "安全隐患问题\n尊敬的市领导：\n            您好！\n            我是南河皇都首座小区的一名业主。我们小区的住户比较多，小区西门有个小学，北门有个幼儿园。恰好北门是个主大门，很多孩子们上学放学都需要到马路对面的公交车站坐",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "7374f50cad4247b3bcf71d5d230b4873",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/7374f50cad4247b3bcf71d5d230b4873",
+   "question": "关于利州区事业单位招聘考试时间的询问\n尊敬的市政领导：\n        因为一些特殊原因，目前我已经开始备考下半年利州区的事业单位公开招聘考试，我想咨询一下2021年下半年广元市利州区的招考计划和考试时间。\n        此致\n     ",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "2de1ee7c380c4e13991f3bd810467262",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/2de1ee7c380c4e13991f3bd810467262",
+   "question": "医保退休清算划门诊不公道权利义务不对等\n希望医保局修改退休人员以本人工资作为划门诊费的政策。以市平工资作为下线依据为妥",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "c0c223dcc8bd4a9581d95f89e92f82d3",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/c0c223dcc8bd4a9581d95f89e92f82d3",
+   "question": "咨询2022年广元市普通选调招考计划与考试时间\n尊敬的市政领导：\n        我是2022届应届毕业生，我准备参加2022年四川省普通选调优秀大学生到基层工作考试，我想咨询一下2022年广元市普通选调的招考计划和考试时间。\n      ",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "bda8296ec1224d919bdcba411d3a2445",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/bda8296ec1224d919bdcba411d3a2445",
+   "question": "建议恢复城区公交实时查询服务\n尊敬的市领导：您好，冒昧来信，主要反映的问题是广元公交公司和广运集团关闭公交车实时查询服务很久了，以前可以通过“兜兜公交”“美团”“掌上公交”等软件查询到公交车实时到站情况，如今该项服务已经停止了大约1年了，给",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "423897c722a24c9fb14d3a008ef2a378",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/423897c722a24c9fb14d3a008ef2a378",
+   "question": "关于广元市遴选中遴选条件的问题\n我市从2020年遴选开始，遴选条件中有一条增加了一个附加条件：具有全日制大学本科及以上文化程度，具体条件要求见职位表，年龄在35周岁以下（1985年9月1日以后出生）。以前2017年、2018年两次遴选中均是",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "5072b8a924c34d368c950631c192d469",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/5072b8a924c34d368c950631c192d469",
+   "question": "建议开通广元至哈尔滨的航线\n尊敬的市领导同志:\n        为了方便市民出行，提升广元康养旅游城市形象，打造川陕甘结合部交通中心枢纽城市。在此，我提议开通广元至哈尔滨航线。\n1.首先，广元周边省市除了绵阳有一条直达沈阳的航线，再无其他地",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "5173938a6fb64be4be86810b4897d8c6",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/5173938a6fb64be4be86810b4897d8c6",
+   "question": "城市公交的建议\n领导你好，建议还是管理一下城区的公交车哦，部分车旧就算了，司机开车的时候好像赶时间一样，到站了还没停稳就开车门了，出站的时候车已经启动了才关车门，另外部分司机素质极低，乘客一上车就启动，导致很多顾客还没站稳可能一个踉跄就倒过",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "d1e1ef416c79431cb03fd984128260cd",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/d1e1ef416c79431cb03fd984128260cd",
+   "question": "原迎水乡党员群众代表关于保留迎水乡卫生院建制的请示\n川卫发【2021】3号文件宣布将迎水乡卫生院合并到开封镇卫生院，在群众中引起了强烈反应，纷纷要求保留迎水乡卫生院建制，理由如下∶\n1、原迎水乡政府所在地仅有一班车去开封镇，朝发夕返，去普安",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "fe52a479db9943688e4a74d721f6978b",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/fe52a479db9943688e4a74d721f6978b",
+   "question": "建议广元公交车上也应该安装体温检测仪\n尊敬的领导您好，就是现目前我发现其他城市的公交车为了做好疫情防控工作，在公交车上安装了体温检测仪，建议我们广元公交车也应该安装体温检测仪让上车的乘客接受体温检测；另外建议我们广元在节假日时也可以安排公交",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "2fa4c161178f4c65856b68e3e937d964",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/2fa4c161178f4c65856b68e3e937d964",
+   "question": "广元城区道路以及人行道井盖也应该全部检查一下\n尊敬的领导您好，就是我们广元应该对城区的井盖全部检查一下，对损坏的井盖应该及时更换；\n\n另外，建议我们广元城区可以适当的再增加一些公共卫生间；\n\n还有建议我们广元的环卫工人也应该配备警示灯，这样",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "5da824ee1dae4a13b960ad48e5a88b7d",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/5da824ee1dae4a13b960ad48e5a88b7d",
+   "question": "广元汽车站的旅游集散中心是干什么的呢\n尊敬的领导您好，现目前我发现我们广元汽车站外面写了一个旅游集散中心，这个旅游集散中心是干什么的呢\n\n\n另外，我们广元几个汽车站里面的自助售票机也应该全部开启使用",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "3492cad559714564ad8ebf693364f37d",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/3492cad559714564ad8ebf693364f37d",
+   "question": "广元城区的共享单车目前有点少了\n尊敬的领导您好，就是现目前我发现我们广元城区的两家共享单车数量跟以前比有点少了，建议可以让两家单车企业适当的增加一些数量；另外也应该让两家单车企业对城区的单车进行置换，目前城区的共享单车有些太老旧了，其他城市",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "bcb7f2e9bc9240dc875dbea569e2abcc",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/bcb7f2e9bc9240dc875dbea569e2abcc",
+   "question": "建议我们广元的人行天桥也可以考虑安装电梯\n尊敬的领导您好，现目前我在绵阳那边看见，绵阳城区的天桥都安装了升降电梯，这样方便了老弱病残孕妇过天桥，建议我们广元市的人行天桥以后也可以考虑安装电梯，这样可以方便老弱病残孕妇过天桥；另外建议我们广元",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "87e3289c535743ce8a129d1054f7780b",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/87e3289c535743ce8a129d1054f7780b",
+   "question": "广元火车站出站口的黑车喊客拉客还是管一下\n尊敬的领导您好，就是现目前我发现我们广元火车站出站口还是有司机喊客拉客，看见你来了就问你走不走，建议多应该管一下火车站出站口和汽车站的黑车喊客拉客现象，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "40459dc3d51844ab964539c7d20ac44f",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/40459dc3d51844ab964539c7d20ac44f",
+   "question": "关于广元城区集中杀蚊的建议\n董市长：您好！\n近期广元城区蚊子很多，常常看到大人、小孩被咬，且毒性较大，给市民的出行和锻炼带来了很大的困扰。建议环卫部门加大卫生整治，特别是卫生死角的清理，同时全城集中开展2一3次消杀，让广元城市更加美丽！让市",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "648c797594804dc8abff242bde6a9a30",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/648c797594804dc8abff242bde6a9a30",
+   "question": "希望领导考虑加强雪峰片区公立教育配套建设\n尊敬的市长，您好。我是雪峰街道附近住户，也是一名孩子的母亲。写信主要是想咨询一下，雪峰片区是否有有公立教育配套建设相关规划及具体情况。个人了解，随着新楼盘不断开发，该街道人口正在井喷式增长，教育需求",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "17e88038e26d4ded93d024b1d36e5f03",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/17e88038e26d4ded93d024b1d36e5f03",
+   "question": "咨询下半年广元是否有公务员招考考试\n尊敬的市长先生：您好。我想咨询一下2021年下半年广元市有没有计划招录公务员呢？除了公检法的岗位外还有没有普通公务员的招录呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "2c24b31b996a4f3aabb858b06766216e",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/2c24b31b996a4f3aabb858b06766216e",
+   "question": "论新冠疫苗接种工作的不到位\n市长您好，我是一名16岁的高中生。为了响应新冠疫苗接种政策，我妈妈带着我在8月3日上午去了市第二人民医院(新冠疫苗接种点)接种疫苗，但是市第二人民医院的工作人员告知我们他们没有疫苗了，让我去嘉陵小学接种疫苗。可是",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "ad72c2af02bd4b769d0e6392b4a8babc",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/ad72c2af02bd4b769d0e6392b4a8babc",
+   "question": "广元市下半年公务员招录\n市长您好：\n    我想参加公务员考试，请问广元下半年公务员招录笔试时间是什么时候？除了公检法司还会有其他普通岗位的招录么？\n    谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "ab6bce3b596443d0b8d820a7cb72e942",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/ab6bce3b596443d0b8d820a7cb72e942",
+   "question": "请求协调解决限价商品房按揭的问题\n尊敬的董市长：我是黑石坡片区改造项目（领地项目）的拆迁户，去年11月初，我们拆掉了位于雪峰村的自建房，自己租房等待落实限价房。今年5月初通知了选房，最近市投资控股公司才通知交房款，但必须要全款才可以拿钥匙，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "3c670ad421e8464c9e60406168f41acf",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/3c670ad421e8464c9e60406168f41acf",
+   "question": "广汇花园维修基金何时能还\n尊敬的邹书记，您好！\n我们是利州区南河办事处广汇花园小区的业主，非常抱歉，再次因“小区房屋维修基金”之事打扰您，实属无奈！\n去年，我们小区因“房屋维修基金被开放商挪用长达10年之久”和“小区存在重大问题”分别致信于",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "568eb222f6224c04a685765800cc4a04",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/568eb222f6224c04a685765800cc4a04",
+   "question": "赤化大桥不能成为吃人大桥\n赤化大桥建成后为交通要道，南来北往人流量车流量较大，为十字路口，不到一年时间出现交通事故四起，死人四人，重伤一人，但是还没有引起重视，此处没有红绿灯和摄像头，最近有一个临时红绿灯又是经常出故障，没有摄像头的约束，大",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "d0f7a2b484574ec59e282bf0367d2065",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/d0f7a2b484574ec59e282bf0367d2065",
+   "question": "衷心感谢广元市城市管理执法局嘉陵大队对天立凤凰唐城棚户区改造项目的大力支持\n衷心感谢广元市城市管理执法局嘉陵大队\n天立凤凰唐城棚户区改造项目2021年2月1日开工以来，当地居民为了个人利益要求我公司拆除未在红线范围的房屋多次找各种理由恶意投",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "cdfeb4b1cf274588bb3eee391385dad2",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/cdfeb4b1cf274588bb3eee391385dad2",
+   "question": "兰渝高铁走向\n尊敬的市长\n             您好\n          我是长期在外打工的广元人，非常关心我们大广元的铁路建设，以前我看到过广元新闻报道过广元的高铁规划，广元高铁规划是要达到县县通高铁。不过，从目前来看，如果兰渝高铁不",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "6cffc595e639467b8847aa39c3458d0b",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/6cffc595e639467b8847aa39c3458d0b",
+   "question": "广元动车所建设\n尊敬的市长\n       您好\n\n      我们广元人民期盼已久的动车所目前没消息了，我想咨询一下广元动车所一期建设的怎么样了？大约什么时候能用？二期大约什么时候开工呀？\n\n谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "286154e27ee040b790ecd65c9ccd4010",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/286154e27ee040b790ecd65c9ccd4010",
+   "question": "请改革政府采购电子招投标程序\n尊敬的交易中心领导：\n   在全省政府采购交易平台电子化、不见面化的大背景下，目前只有广元市交易中心的交易程序不够科学，虽然部分实行子电子化，但却要供应商用CA证书到现场进行解密，这在全省是唯一存在的，这就等于",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "8b81b7f6b9e648a89d7e189af6c95a87",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/8b81b7f6b9e648a89d7e189af6c95a87",
+   "question": "关于市图书馆智慧书屋的几点建议\n尊敬的市长的先生：\n       您好！关于市图书馆积极响应党和国家的号召，为群众办实事，为我们学生谋福利。再次表示感谢，但有几点意见：\n       一、图书馆的装修味道很大，以至于来的读者进来一会就会觉得",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "757d643b003a46f0bb9624be6ab0d8a1",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/757d643b003a46f0bb9624be6ab0d8a1",
+   "question": "凤凰山隧道早晨4点开始施工严重影响周边居民休息\n尊敬的领导你好：\n我市为缓解老城交通压力，为民所需、为民所想，斥资修建了凤凰山隧道这个民生工程，自隧道修建以来无时无刻都受到了群众的关注。但施工单位在栖凤路方向的隧道口设置了施工棚，在日常施工",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "3defb18b9d55466b808b72fc6dc5d161",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/3defb18b9d55466b808b72fc6dc5d161",
+   "question": "关于住建局信息公开的广元市商品房预售和销售情况中统计口径的相关疑问\n尊敬的市长：\n您好！\n首先感谢住建局近年来每月对市城区商品房预售和销售情况的统计和数据发布，让房地产行业从业者能更详尽了解本地市场变化。但，自2021年2月以来，相关数据的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "51f273754b3d4e3fab89f715fb46589a",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/51f273754b3d4e3fab89f715fb46589a",
+   "question": "政府街书院巷菜贩乱摆摊位\n政府街书院巷内原军粮供应站宿舍楼下，每天早上卖菜的摊贩乱摆点。早点5过左右就开了，大声喧哗，影响休息，随地大小便，在楼道内随地大小便严重影响了卫生。摆摊太密集了严重影响了住户的人员和车辆出入。望有关部门及时整治，给",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "0f4bb3c99e4e4477aeb6a2d78dc37bb9",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/0f4bb3c99e4e4477aeb6a2d78dc37bb9",
+   "question": "30公交车站点设置请求\n市长好！\n      百忙中打扰了！我代表南河东区在昭化区工作的10多位同志，请求在南河南环路射击场或湿地公园西设置30路站点，以方便出行！！！因南环路改造，取消了南鹰小区和摩配一条街两个站点，本路段又未开劈新的站点",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "3a78bf07c2664bd492bac785961c569a",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/3a78bf07c2664bd492bac785961c569a",
+   "question": "咨询地下产权车位安装充电桩的问题？\n市长您好：\n目前，国家鼓励新能源汽车使用，个人购买新能源汽车逐年增加，各项配套政策也逐步出台，今年住建部也发文要求新建住宅配套车位要百分之百配套充电设备。但这之前我们购买的车位没有配套充电设施，现想咨询已",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "940406ede81d47d9b10b832d95fcc440",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/940406ede81d47d9b10b832d95fcc440",
+   "question": "房产证办理\n尊敬的市长您好！\n        我是东坝街道东润花园小区住户，我于2015年在东润花园购买住房一套，16年交房，当时购房合同上标明了交房后两年内办理房产证，可是现在已经过去5年多的时间了。期间曾多次与开发商电话沟通办理房产证一",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "f73c9b332b564cd1bc64fa5979831b30",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/f73c9b332b564cd1bc64fa5979831b30",
+   "question": "广元市G108与赤化大桥交叉口红绿灯问题\n广元市G108与赤化大桥交叉口红绿灯多次出现车祸，已致多人死亡。\n但目前为止仅有简易红绿灯，对G108来车并无任何指引作用，许多来车依旧照闯不误。且即便是简易红绿灯，依旧设置不合理，只设置了对向行驶",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "b152e16e4a674108a3b1556e094b66a1",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/b152e16e4a674108a3b1556e094b66a1",
+   "question": "投诉科兴房地产开发公司挪用科兴园二期房屋维修基金\n尊敬的市长:\n        您好！科兴房地产开发有限公司挪用房屋维修基金，导致建设局指定账户上根本没有这笔钱。我们曾多次向有关部门反应无果。房屋修建已经十年有余，基础设施陈旧老化急待维修（",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "783dbd710ed64e2198fbddc3a95aea72",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/783dbd710ed64e2198fbddc3a95aea72",
+   "question": "关于规划打造望远山摄影创作基地的建议",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "cc38dbc9f44a42ee9759fdf9377b4d66",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/cc38dbc9f44a42ee9759fdf9377b4d66",
+   "question": "关于邀请广元市人民政府参加第十一届中国深圳国际生态农业暨食品博览会的函\n尊敬的市长\n您好\n感谢您在百忙之中看到此封信件\n我是中国深圳国际生态农业暨食品博览会组委会执行主席卜晓辉。\n中国深圳国际生态农业暨食品博览会简称深农会,深农会立足华南全",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "f8e43c541e8e4398a930d8afee0cef70",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/f8e43c541e8e4398a930d8afee0cef70",
+   "question": "120居民用水问题\n尊敬的市长先生：\n     您好！我家住东坝办事处柜北社区三组35号（120厂黄冈学校后），由于附近居民都是用厂里的免费水或自己打井抽水，我幢12户居民因地势较高，经常无水可用，现自来水厂的供水管网昨年就已供到黄冈学校，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "8e496fdd016043c29a195da2c12ec3f6",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/8e496fdd016043c29a195da2c12ec3f6",
+   "question": "残疾两项补贴咨询\n想问一下关于国家残疾人两项补贴为何每个月只有50元一项？还有一项呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "ab28fc6874204b198f41b7fd0984c835",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/ab28fc6874204b198f41b7fd0984c835",
+   "question": "关于人社部发2020第13号文件的解读\n尊敬的市长领导，作为一名放射工作人员，偶然间发现人社部在2020年下发过这份文件，然而重来没有享受过该津贴。\n请问医院放射科工作人员是否属于文件中享受卫生防疫津贴的人群？我市是否向卫生局及医院下发过该",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "dd106fbf7bdb415a98b63046fcda629b",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/dd106fbf7bdb415a98b63046fcda629b",
+   "question": "感恩剑阁县交警大队\n我是吕林龙，剑门关高级中学高三12班的文科考生。今年的高考迄今为止已经圆满结束了，所以我写下这封信想表达一下我的感谢。高考期间我们乘坐学校统一的大巴到考点，但是由于我晕车无法乘坐大巴，学校特地找来了交警队的叔叔送我到考点",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "3827141ef87c4d29b93bd5881eea74e1",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/3827141ef87c4d29b93bd5881eea74e1",
+   "question": "道路停车收费透明化的建议\n尊敬的市长\n       您好！\n       在您的带领下广元经济发展欣欣向荣，人口增加，随之车辆增加。由于土地和车位限制，导致众多群众只能停放在路边停车位。\n       目前虽在万缘片区试点开展路旁停车电子收",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "1fde2afb8d4246a2b6f057a9d793bfdc",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/1fde2afb8d4246a2b6f057a9d793bfdc",
+   "question": "广元市利州区住房和城乡建设局行政不作为\n在市长信箱投诉万达中央华城前期物业费后，市长信箱委派广元市利州区住房和城乡建设局处理，但广元市利州区住房和城乡建设局行政不作为，（祥见附件）",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "ee148180936c4c62971add6ce460727e",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/ee148180936c4c62971add6ce460727e",
+   "question": "上西街道160户的问题楼盘\n尊敬的市长\n       您好！\n       感谢您百忙之中查看群众诉求，代表小区160名居户表示感激。\n       我们是上西坝皇泽寺社区“兴和丽景”的成员。截至目前入住率达98%，但均未办理房产证，仅有“",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "5e5c4c0b9f6c4e27b4e6c7e2694eda47",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/5e5c4c0b9f6c4e27b4e6c7e2694eda47",
+   "question": "解决小区下水问题\n市长您好！我是广元市利州区东坝街道育才路277号克旨达小区的一单元的住户。我单元厨房下水堵塞陆陆续续已有两三年，请过无数次专用疏通都未成功，确认需要修改管道，但我小区在街面附近找不到污水管道，所以一直无法实施。导致我单元居",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "3ad5325c1e7f45a8a9176659dd3830ad",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/3ad5325c1e7f45a8a9176659dd3830ad",
+   "question": "收取公共水费不缴纳反而拖欠导致停水\n二组的所有居民，我要把三个月来，二组出现的问题，一一告诉大家。一、二组从去年11月份就欠水厂水费至今年5月份共计水费320967元，但我们组每月是按时将收来的水费交给居委会，居委会不发话给水厂交钱，等我上",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "e4f6aca95d1748599ffba04b23346401",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/e4f6aca95d1748599ffba04b23346401",
+   "question": "广元妇保院下属单位唯密整形拖欠货款不给\n市长您好：\n    万不得已之下求助于您，我是一家广告个体户的老板，广元妇幼保健院下属单位唯密整形在2020年至2021年欠我们广告款余款人民币23909元，从去年到今年一直催，但是一直拖延不给，上月",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "a0509d4bb8c84d05a76d653aecd04b4c",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/a0509d4bb8c84d05a76d653aecd04b4c",
+   "question": "关于西城高铁租用土地倒渣土处理问题\n尊敬的市长您好:   我是广元市利州区宝轮镇红星村五组的村民，2013年西城高铁建设启动，当时是把红星村五组的几十亩良田作为堆放渣土的场地，修建高铁是利国利民的大事也是好事，村民们也都大力支持高铁建设。西",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "b90152f743d94afcb5290c968db099a8",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/b90152f743d94afcb5290c968db099a8",
+   "question": "请邹市长为我们解决2010年在汉寿雅居购买两套房子现在都还没有交房\n尊敬的邹市长，我是杨峰的妈妈杨静，五年前我给你写过信，我的情况不知道邹书记看过没有？但每次都有回复到建设局，我单亲家庭长子刘森35岁，二儿子杨峰33岁，我们于2010年在东",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "d5e594c732f64e5fb7fe35e37d0174c2",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/d5e594c732f64e5fb7fe35e37d0174c2",
+   "question": "广元动车所\n邹书记您好\n\n       广元动车所一期已经开工建设快两年了，做为广元人，我想咨询一下动车所现在建的怎么样了？大约什么时候能使用？到时候我们广元有始发终到北京上海宁波深圳的动车吗？\n\n        祝    各位领导    ",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "9fda55659ee24652901257669b2f2281",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/9fda55659ee24652901257669b2f2281",
+   "question": "利州区上西女皇路灰尘太多\n您好市长：\r\n      为什现在上西女皇路，无洒水车，清洗路面了？\r\n     现在上西坝也无大型工地建设，窗户开一天，家里一层灰。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "751f94d8c12c47489a02758e8839df4e",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/751f94d8c12c47489a02758e8839df4e",
+   "question": "教师资格证问题\n尊敬的领导你好，我是2011年毕业于成都中医药大学市场营销专业的本科学生。我想知道我是否可以参加教师资格证考试？还有就是我一直在关注我们市县的教师公招考试信息，我发现好像对参加考试人员的专业有要求好像基本都是要求师范类院校毕",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "5421ad201f0649eb9f91c7d4307cc27c",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/5421ad201f0649eb9f91c7d4307cc27c",
+   "question": "广元市政府官方网站存在漏洞和乱码的情况\n政府官方网站存在不安全因素，网站未启用SSL证书对数据加密，数据存在泄露的风险；导航菜单栏有乱码的情况，一个政企网站不应该存在这种情况，中国电信广元分公司有渎职嫌疑。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "c3716343722b46b384a747706d12a717",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/c3716343722b46b384a747706d12a717",
+   "question": "道路拥堵道路栏杆设置不合理\n兴安路雪峰三组路口青林医院前 道路栏杆设置不合理  雪峰大道通车前的临时道路栏杆建议拆除  雪峰三组没有路口可以进入  导致车辆必须走前面红绿灯而导致红绿灯路口进一步堵塞  很多车辆在500米范围内来来掉头才能回",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "5a5682957a3845b6a2075fb2f682e0d5",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/5a5682957a3845b6a2075fb2f682e0d5",
+   "question": "关于广中到北二环公路拓宽及公路堵塞的情况\n现在政府大力发展北二环，北二环未来1-4年将会有上万套房子交房，但从广中上方一直到天力的道路狭窄，现在中午或下午就已经很堵，一旦北二环的房子交房达到一半，将会不堪重负，请领导及相关部门提前规划拓宽北",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "e916dfa3198d4b00969a678f85079c9c",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/e916dfa3198d4b00969a678f85079c9c",
+   "question": "事业单位招聘能否对入伍地或服务地在广元市区域内的退役大学生和三支一扶人员设置一定比例的定向招录岗位\n尊敬的市长，您好：\r\n  我是广元市市民，参照了广元市事业单位工作人员招聘公告和四川省内其他地市的招聘公告，发现省内其他部分地市对入伍地或服",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "66028fdf5b1f47f4a23d363b9c665610",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/66028fdf5b1f47f4a23d363b9c665610",
+   "question": "万达中央花城二期旁篮球场和地上停车场停车场土地涉嫌违法改建\n你好，我是一名万达中央华城二期的住户，近期小区业主看到施工公告，六栋外面的那一片篮球场和停车场将规划建设万源商业步行街项目，根据广国土资（拍）告（2013）02号 土地拍卖公告，该",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "4d0d32aeea4c4e5f8f2f75939c04c36b",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/4d0d32aeea4c4e5f8f2f75939c04c36b",
+   "question": "关于异地透析新农合报销问题\n领导你好，我的母亲是一名透析患者，由于家里离县城较远，交通不便，一周三次透析费时费力，又是独自一人无人照管。而我是独生子女，在成都市工作居住，因此想让她转来成都透析。 母亲购买的是农村的新农合医保，我们去社保中心",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "55e900904c774a4ab77a2a5f4e29f237",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/55e900904c774a4ab77a2a5f4e29f237",
+   "question": "投诉\n尊敬的广元市政府及交通管理部门：\r\n我们是经营普安至广元市18台客运班线经营车主，经向广元市政府及交通管理部门反映目前客运市场经营困难，严重亏损，现黑车及拼车严重扰乱客运市场，我们也多次打了市长热线，也有相关部给予了回复，但至今就是没",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "38dbb57dee3043658740441262b0b9d9",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/38dbb57dee3043658740441262b0b9d9",
+   "question": "关于烟花爆竹燃放问题\n广元领导人：\r\n                     您好，不知道这个信件这样发合不合规矩，但是我觉得有有益于广元，所以稍作违规，也是发表一下市民意见，关于烟花爆竹燃放问题，首先烟花爆竹在我国已经有了两千多年的历史",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "9338dbd774394240afe976a14297cf4f",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/9338dbd774394240afe976a14297cf4f",
+   "question": "剑阁阳光新城房产证问题\n尊敬的市委领导，我是剑阁县下寺镇阳光新城小区业主，整个小区所有的业主迟迟拿不到房产证，恳请市委领导给于处理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "5bb26e8236834cbe8cb9ddd6a3bfd89a",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/5bb26e8236834cbe8cb9ddd6a3bfd89a",
+   "question": "关于节约用电的咨询\n想问下路灯，灯箱关闭时间为多久？节约本是好事，过度就成了负担，孩子早晚上学都要带手电才感觉看得见，城市像个死城没有一点生气",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "4663d468bf404da084e47f575a0bd74e",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/4663d468bf404da084e47f575a0bd74e",
+   "question": "关于境外人员回广的隔离政策\n尊敬的市长：\r\n\r\n       您好。在你百忙之中打扰到您的工作，我深表歉意。我是四川广元人，在境外（以色列）工作，计划于最近返广探亲。我了解到广元社区的隔离政策是：我飞机直飞上海，在上海集中隔离14天后返广继",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "b2eb441d946940a6b56844f115852b23",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/b2eb441d946940a6b56844f115852b23",
+   "question": "建议气象局雷达早晨早点开机，下午早点关机，像我们这些露天作业的，早上起来看天才决定出门不，邻近，绵羊，南充，陇南，太远观测广元数据又不准，别人早上5.6都是开机地，广元每天9.多才开，建议不一定每天都开那么早，预报有雨的情况下早点开也行，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "442473a9fa784b72af8346d7924e9427",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/442473a9fa784b72af8346d7924e9427",
+   "question": "公路夜间反光标识修复或增设\n尊敬的市长先生您好，因冬季天黑时间较早，宝轮镇刘家河大桥段至宝伦高速路口段公路，夜间地面反光标识及公路两侧反光标识，地面中线反光标识，均不能正常反光，该路段也无路灯照明，且该路段车流量较大，夜间行车极度不安全，对",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "001d3c8fbcea47fcad4db4d427c9535e",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/001d3c8fbcea47fcad4db4d427c9535e",
+   "question": "古堰路交通管理恳请改善\n尊敬的市长你好！\r\n据统计古堰路交通管制段有168间一楼门面，二三楼171间，共约339间商铺。商铺业主和商家共约有四五百户，千多人的生活来源和买商铺后的还贷款以及更多的服务就业岗位。\r\n2018年3月至2019年6",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "5c2741c3d65e4ee9b8ecd0ea92d4dd75",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/5c2741c3d65e4ee9b8ecd0ea92d4dd75",
+   "question": "未经疫区只到过郫都区银杏酒店管理学院参加四川省考并于6号当日返广社区要求居家隔离14天影响接下来行程\n您好 我于12月6日在成都市郫都区银杏酒店管理学院参加四川省公务员考试 当日晚上在成都东站乘坐高铁返广 未经疫区且与确诊病患行程未重合 1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "54b981cbff1947729f2f6b3cb56bf804",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/54b981cbff1947729f2f6b3cb56bf804",
+   "question": "做个厚道的广元人\n尊敬的市长，您好！我是一名土生土长的广元人，出生于广元市苍溪县。现在江苏省政协工作，离开广元已经二十多年了，虽身在外，但无时无刻不牵挂家乡的发展变化。父母都还生活在老家，所以每年都会回广元探亲，但有两件事却给我留下了深刻的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "14ccbfab6a9e42b68853f47f9ae3004b",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/14ccbfab6a9e42b68853f47f9ae3004b",
+   "question": "临时工工龄认定\n我于1985年10月被招为原剑阁丝厂临时工至1993年3月，1993年4月被剑阁劳动就业局招为正式工，2001年原剑阁丝厂倒闭，我们被强制解除劳动合同，失业至今，但坚持买社保，12月将退休，被告知可补认定临时工工龄为视同缴费",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "2c6a46de0be741aaba9695613484e8e5",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/2c6a46de0be741aaba9695613484e8e5",
+   "question": "关于重点管理的防疫场所有人售卖三五口罩事情投诉及建议\n尊敬的周市长您好：\r\n\r\n我是一位从成都回来办事的热心群众向您反应在广元看见经历的事希望您了解：\r\n现在广元市内各医院、社区卫生服务中心、市政务中心门口等重点防疫单位门口，出现一批无医疗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "def884a5ecca432e916e88efca2ed8f7",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/def884a5ecca432e916e88efca2ed8f7",
+   "question": "关于相关部门督促万源智慧停车场宏源领地旁及时动工的请求\n尊敬的市长先生您好！\r\n    我是万源宏源领地一楼商铺的业主，我于2019年初拿到的商铺钥匙，因该项目将近1年没有动工，就算动工都只有2-3人在施工地打转，并且该项目对外公示的施工时",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "95385e747b9b473db8015e8482e7c54f",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/95385e747b9b473db8015e8482e7c54f",
+   "question": "张开松等13户拆迁户尽快分配住房的请求\n尊敬的邹市长，您好！我受张开松等13户罗秀英等36人委托于2017年7月7日及2018年2月25日先后分别向邹自景市长、王菲书记去信反应剑阁县政府因建设剑门新区过程中于2011年拆迁安置合同约定应分配",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "02ea2a0bb53c473eb5ec4eb664e8aa86",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/02ea2a0bb53c473eb5ec4eb664e8aa86",
+   "question": "昭化山水盛景胡信访函\n关与山水盛景房产证的诉求。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "e11d4e57d57542f78e13fa6a95e9ab85",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/e11d4e57d57542f78e13fa6a95e9ab85",
+   "question": "关于相关部门督促万源智慧停车项目宏源领地旁及时动工的请求\n尊敬的市长先生，您好！\r\n我是万源宏源领地商铺业主，我于2019年初拿到商铺钥匙，因智慧停车项目开工导致商铺一直未成功出租出去，每月偿还银行贷款接近5000元,占家庭收入的大部分，作",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "0832318d8eec48fba56654f04bb3754d",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/0832318d8eec48fba56654f04bb3754d",
+   "question": "停车位\n建议万缘停车位多一些。停车较为困难。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "893e78ee1b9244c7b2538138028742ac",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/893e78ee1b9244c7b2538138028742ac",
+   "question": "学生毕业后怎么参保\n我女儿大学毕业了，目前没有正式工作，怎么参加社保呢.",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "468b253da051446392cf6e84fa588414",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/468b253da051446392cf6e84fa588414",
+   "question": "环境污染还我净土\n违规建养猪场，不达标，就投入生猪养殖，排泄物乱排，没有化粪设施，死猪乱埋，浅埋，没有防护处理裸露，造成竹林村三，六，七杜人畜饮用水源水库严重污染，粪便大雨冲到漫山遍野，村委不得力，严重失职，阻碍村民源头查验，村民发现后村委",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "0410a1a85eca41448097027a52942801",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/0410a1a85eca41448097027a52942801",
+   "question": "咨询今年医保缴费\n麻烦将今年的农村医疗保险如何缴纳，多少钱，在哪里缴，时间等说明一下，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "c0f7f0304a7944c0a966e456191452fc",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/c0f7f0304a7944c0a966e456191452fc",
+   "question": "棚改都快结束了却还是住老破小房子\n本人是原广元市陶瓷厂一名普通职工，早在9年多前，工农镇就在开展棚户区改造，我们生活在原陶瓷厂后厂区20多平方的平房里，一直等到原溶剂厂修建了汤山玫瑰园安置房，原溶剂厂职工都享受了棚改政策，住上新房。而我们这",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "3d8f65edcb694505a078412b9f3d29a4",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/3d8f65edcb694505a078412b9f3d29a4",
+   "question": "来信询沙河镇燃气进村惠民工程的开展情况\n尊敬的领导：\r\n        你们好，非常感谢领导对惠民工程的关注，来信拟询沙河镇燃气进村惠民工程的计划开工时间，具体承办单位，计划什么时间能完成，拟何时能通气。盼百忙之中解答，谢谢。\r\n     ",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "d7d0560aa92f47af8499a930ca2cf2c7",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/d7d0560aa92f47af8499a930ca2cf2c7",
+   "question": "到不了家的水稻\n尊敬的市长：\r\n您好!我是三合村一组居民蒲云韦，18808398918.一年之计在于春，受疫情影响没有外出，多种植了些水稻，趁双节之际回家收割。却不曾想到的是阻碍收获的不是几百公里的高速、几百块的油费而是这几百米的泥泞之路。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "ceb7b813d01249d5802ce77443a5f64e",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/ceb7b813d01249d5802ce77443a5f64e",
+   "question": "无自来水影响生活工作\n东坝街道张家路51号同心苑小区，从今年开始，夏天的时候白天晚上几乎无水，小的可怜，严重影响生活工作和小孩子学习。本以为夏天用水高峰水量较小，直至今日，天气较凉，用水量减少，可该小区的自来水仍小的可怜，导致无法直接用热水",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "9471c12335b842f9bd210949bd19e1e6",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/9471c12335b842f9bd210949bd19e1e6",
+   "question": "道路乱停车\n老072路口至081中学道路上每天都有违规停放车辆，特别是每天早上该路段又是送小孩上学的车和住在里面的居民车较多，经常造成交通堵塞，望有关部门管一下，还老百姓一个畅通的路。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "f298b2ad551f4830a0eeccbfa87fee69",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/f298b2ad551f4830a0eeccbfa87fee69",
+   "question": "恳请市交通运输局早日开通南马山隧道\n9.28日开通的南马山隧道，29日起已关闭，原老路宝红路南马山段损毁严重，希望南马山隧道能早日开通，方便沿线群众出行，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "c02bf7c072ac4c4fa52b77313b29783c",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/c02bf7c072ac4c4fa52b77313b29783c",
+   "question": "关于损坏数月未维修红绿灯引发的交通事故\n尊敬的市长，您好：\r\n       我是利州区宝轮镇安全村村民尚文科，我向您反映的情况是宝轮镇山珍大厦十字路口红绿灯损坏数月未得到维修，从而导致引发交通事故，据悉该路口是宝轮镇主要的交通要道之一，红绿",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "f5cf23737ad642d0a3cd09c0a955a014",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/f5cf23737ad642d0a3cd09c0a955a014",
+   "question": "工农镇汤山玫瑰园小下区存在的严重问题\n尊敬的邹市长：您好！我是工农镇汤山玫瑰园小区的住户。本小区开发商存在严重的欺骗业主的行为！望市领导重视。我们是买的商品房，现在小区有还建房的业主未交物业费和水费。开发商让自来水公司把整个小区的饮用水全部",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "0f9f1a626b8e4d63b8cb08e5097dedf4",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/0f9f1a626b8e4d63b8cb08e5097dedf4",
+   "question": "去了商务局未得到解决\n希望为广元尽快实现云逛街云展会数字化建设出一份力。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "66cc577c12a84d96b73e198a08eb12a6",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/66cc577c12a84d96b73e198a08eb12a6",
+   "question": "关于贵单位回复的22492807128号信件中第一条\r\n“一、关于公示陶龙村建档立卡贫困户名单的问题\r\n经调查核实，陶龙村建档立卡贫困户于2014年6月21日在陶龙村村务公开栏进行公示，2014年6月30日原红光乡公示栏进行公示，2014年",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "2de258d9d11244318e1eac7242763088",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/2de258d9d11244318e1eac7242763088",
+   "question": "朝天区三滩村修桥申请\n广元朝天区三滩村有大约2000人常年靠一条简易的铁船以人工摆渡的方式过河出行。但当每年夏天涨水期、冬天枯水期以及平时刮风下雨等不利天气时，就无法开船，导致人们无法出行。每当这时就有胆大者或办急事的人会冒着生命危险穿越铁",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "c280430a0b22432cb521e58ab0478179",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/c280430a0b22432cb521e58ab0478179",
+   "question": "旺苍县振兴路交通问题\n振兴路上本来3车道，现在暂用一条车道划出了单边停车位，现除停车位外另一车道上长时间乱停车辆，造成进出只有一条单行道，振兴路上有一小学，三个小区进出口，经常性堵车，500米的道路一个小时回不到家，交警偶尔来了只是负责疏通",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "b5f75a24d5a14507b2f663916694395c",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/b5f75a24d5a14507b2f663916694395c",
+   "question": "十一期间疫情防控政策\n准备十一期间从北京回广元，但不清楚十一期间疫情防控政策！烦请指教！不要再出现上次的出现的情况！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "25f10001d11f4ac788a3b11bd2f76626",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/25f10001d11f4ac788a3b11bd2f76626",
+   "question": "广元邮政高考档案提取太慢\n我于本周一在广元邮政微信公众号上提取我的高考档案，已经交费，但是至今未开始审核，广元邮政办事效率太低",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "fd0d2ee33ca44714bb81d26700c3a0c5",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/fd0d2ee33ca44714bb81d26700c3a0c5",
+   "question": "关于2018年6月旺苍县黄洋镇黄洋村土地征用遗留问题\n本人居住广元市旺苍县黄洋镇黄洋村7组，2018年6月因政府建设需要将黄洋镇部分社区（2社、7社）土地征用，共涉及五十多户人口。本次征用费用于2018年8月将款项转入各户，并将各户征用面积",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "d4441f521bde49c48e561926a1919e46",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/d4441f521bde49c48e561926a1919e46",
+   "question": "城南时代广场多年不办理房产证并拖欠房租\n尊敬的邹市长：\r\n       市长您好！我是原城南市场（现城南时代广场）的拆迁户，我代表原城南市场的十二家拆迁户给您写这封信，诉说我们的苦衷：我们赖以生存的门市部被淼汇公司拆岀、开发、建设至今己长达",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "94e83eb7e7ba426890314bb9c3400a0f",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/94e83eb7e7ba426890314bb9c3400a0f",
+   "question": "市区增设红绿灯\n今年来市区发生好几起严重交通事故，令人痛心，一方面是当事人违反交规所致，另一方面与诸多十字路口末设红绿灯有一定关系。敬请考虑进一步完善城区交通设施，特别是东坝和万缘红绿灯缺乏严重。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "cc8c84e200fb41abb17bb7a7b99600ff",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/cc8c84e200fb41abb17bb7a7b99600ff",
+   "question": "自发街头市场\n市长\r\n广元市区老城上城壕街是你治辖内吗。\r\n该街经我几个月观察没有任何政府职能部门管理。延街商贩自制摊位占领人行道，占领街道三分之二，每天六点开始喧闹和喇叭的叫卖到19点，时有争占摊位打架斗欧。早上热闹的行人难得通过。这个自",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "1dc0a6176ba041b187f300ef1f2d2516",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/1dc0a6176ba041b187f300ef1f2d2516",
+   "question": "碧桂园外侧绿道建设为何修成了断头路\n万源到碧桂园大桥的绿道近期已完成，市民休闲转路有了新选择，感到无比满意。但从大桥到大石方向有约300米河边道路却没有修通，建议尽快完成修建。\r\n     （1）如果不修河边绿道及基础有极大的安全隐患，该处",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "dc8d87fc0ee64cbbb59b9d6098b52e0c",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/dc8d87fc0ee64cbbb59b9d6098b52e0c",
+   "question": "碧桂园幼儿园门口\n领导，你好\r\n    碧桂园幼儿园门口早晚车流量非常大，接送娃儿过马路非常的危险，每次过马路提心吊胆，希望政府可以考虑一下相关安全措施，比如斑马线，红绿灯都可以，望回复，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "bb5a96d6d2c948da978786ecb6917fe7",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/bb5a96d6d2c948da978786ecb6917fe7",
+   "question": "蜀道太难\n市领导转县相关部门（这样的方式比较有力度），\r\n     继旺宁路之后，现在檬子至天星s301工程进行的如火如荼，旺苍有得天独厚的旅游资源和旅游优势，但距离县城远，管理存在问题，尤其是交通，旺宁路在建之初，尤其是罗家渡至双河段，只",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "5adcbc80fe8c442eb8b2bb97f255c8db",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/5adcbc80fe8c442eb8b2bb97f255c8db",
+   "question": "关于老城鼓楼出入口处新增岗亭存在安全隐患的相关情况\n具体内容见附件\r\n尊敬的市长：\r\n您好！希望您在百忙之中能够看到我这封信，并能够重视我反映的问题。\r\n我是老城鼓楼附近的一住户，最近老城商业步行街鼓楼出入口处正在打围施工，据了解准备在此处",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "d2c0bfd5e298493cb260b75870cf4f8c",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/d2c0bfd5e298493cb260b75870cf4f8c",
+   "question": "市妇幼保健院幼儿体检人满为患却只开一个窗口\n尊敬的领导：当前还处于疫情防控时期，广元市妇幼保健院幼儿入学体检却人满为患，家长带着小朋友排满了门诊大厅，医院却只安排了一个窗口办理。几个疑问希望医院能尽快解决：一、医院人手真的如此紧张？增加一个",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "f92f575daa5544dbb1528c9b91afd91c",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/f92f575daa5544dbb1528c9b91afd91c",
+   "question": "城镇街道安全隐患\n尊敬的邹市长:\r\n我们是剑阁县白龙镇临津街居民，来信主要反映白龙镇临津街昕源百货超市门口街道存在2个约3米左右大坑，行人车辆经过存在严重安全隐患。此情况也有几月之久，望相关部门实际解决下。谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "51203a65903646cd8ce63fc0014186da",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/51203a65903646cd8ce63fc0014186da",
+   "question": "办理养老保险却遇独生子女政策打架！\n尊敬的邹市长，你好。我是昭化区昭化镇（原沙坝乡）人，近日我母亲到昭化区政务中心办理养老保险退休业务，被告知根据市上相关要求必须提供独生子女证证明（我属独生子女）。但当年由于我已满18岁，乡镇政府说根据相关",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "95ffc25d09f34075890bb5a93b5dbebf",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/95ffc25d09f34075890bb5a93b5dbebf",
+   "question": "老百姓的苦衷\n尊敬的市长你好，就7月29号我投诉的闻溪政府拖欠食堂工资跟餐费一事，今天也就是8月11号，普安镇府给我发了一个文件，说合乡并镇期间，闻溪的财政没有移交过来，所以无法支付，要等财政财务划拨过来后，才能根据流程支付款项，但也没告知",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "cf8cde0220de4600b5350608bcf7ccb4",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/cf8cde0220de4600b5350608bcf7ccb4",
+   "question": "长期拖欠职工工资及社保\n四川兴能新材料有限公司，位于四川省广元市剑阁县下寺镇剑门关工业园区，上有成都兴能集团总公司，下有剑兴锂电，兴能新源等子公司。\r\n       工作了这么多年，第一次遇到四川兴能新材料有限公司这样的公司，公司有困难我们",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "fe06c39383144218ab4e7902598b8cdb",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/fe06c39383144218ab4e7902598b8cdb",
+   "question": "民生投诉\n尊敬的市长阁下:我是广元市利州区普通市民。家住利州区滨江路（上河街）利江苑7单元601,本人于2020年6月30日向贵单位反映的安全生活状况，由于我家房屋是楼顶出现严重漏水，金达物业公司在7月3日左右进行了一次处理，在下雨的过程中",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "aef2680e27c940e5aa24c74bca1d6579",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/aef2680e27c940e5aa24c74bca1d6579",
+   "question": "苍溪县财政局上班期间恶意拒接投诉电话\n本人于2020年8月19日上午10：20分开始多次拨打苍溪县财政局电话 0839-5283971咨询并投诉某采购项目，但电话接通后均被故意挂断，如此恶意拒绝投诉电话的行为，是故意娱乐广大市民的吗？希望相",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "5c2c44234aef44418cff0037e49a0460",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/5c2c44234aef44418cff0037e49a0460",
+   "question": "村村通道路硬化落实不到位老百姓出行难\n各位领导：我是苍溪县陵江镇河山村一组村民，现在反映陵江镇政府，2年前答应帮助我们解决但实际未落实和解决关于村村通公路问题，这条路属于半山腰四户人家出门通勤必经之路，大约6.7年前乡政府落实国家政策村村通",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "f95cc658393249dcb655c72f081ebacf",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/f95cc658393249dcb655c72f081ebacf",
+   "question": "投诉清水镇党委政府违反《中华人民共和国村民委员会组织法》干涉原香溪各村干部任命。从今年4月起清水镇启动村级行政区域调整，镇政府在没有召开村民会议的前提下提前内部指定了各村村干部。其各村的干部任前公示也涉嫌造假，部分村干部任命甚至涉嫌有贿选，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "cb6205739c67410ca7262e012c5c55cb",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/cb6205739c67410ca7262e012c5c55cb",
+   "question": "凤凰唐城2期业主维权书\n尊敬的市长\r\n        您好，我代表凤凰唐城二期刚修好的房子业主提出我们的诉求，请您一定要帮我们做主。\r\n        凤凰唐城2期于7月31号通知我们业主交房，我们去看了房子存在以下问题\r\n        ",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "5e67965ec1404de087475b06e9d37545",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/5e67965ec1404de087475b06e9d37545",
+   "question": "关于杜里五组及村委涉嫌违规违纪的问题反应\n尊敬的邹市长\r\n       您好！\r\n 我是苍溪县陵江镇杜里五组村民赵满才，我现就我村组一些问题向你反应如下：\r\n1，本组组长赵正才在未经过广大组员同意的情况下私自将五组集体土地松树林山坡赠与宝云",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "9014a851310e453c85c3a05b0493215b",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/9014a851310e453c85c3a05b0493215b",
+   "question": "农村用电问题\n王市长你好： \r\n      我是清水镇安山村7社社员，我社长年电压为180伏，目前社员在家打米、磨面、抽水、照明这些都要使用电来完成，特别晚上用电严重超负荷导致家用电器无法正常使用。烧坏维修非常麻烦。\r\n     原因是我社",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "d290903c66b14f55b20a664570daae5e",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/d290903c66b14f55b20a664570daae5e",
+   "question": "督处解决东润花园房产证\n领导好，我是利州区东坝街道东润花园6-1业主，整栋楼2005年就交付使用了，到现在东润房地产开发有限公司都没有把房产证给我们办了，前一段时间业委会成员到市信访局上访，许局长接待，答应协调安排，到现在他们和开发商相符扯",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "b4456c7d5f934f6ab6f822b147af1deb",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/b4456c7d5f934f6ab6f822b147af1deb",
+   "question": "关于凤翼路中医院宿舍改造\n邹市长您好：\r\n             去年8月份建设路社区工作人员通知中医院生活区计划老旧小区改造，当时召集住户签同意书等......过后就无音讯了，时隔快1年了请问还改造么，有无具体时间规划等！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "aedfc7c2411146eeae5bbe39aeb18496",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/aedfc7c2411146eeae5bbe39aeb18496",
+   "question": "照明线安全隐患突出多次反映无人管\n尊敬的市长先生：\r\n您好，本人家住广元市昭化区柏林沟镇（原文村乡）双龙村二组，离家中房屋不到100米的地方输电线路被树木严重遮挡，火线和零线都已经被高大的松树挂住，尤其是下雨天，树干直接压在了电线上，家里常",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "b7538605dea14db28a96dfdd8e5ea3e9",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/b7538605dea14db28a96dfdd8e5ea3e9",
+   "question": "房屋楼顶漏水问题\n尊敬的冯安富书记 \r\n      你好\r\n我是广元市利州区嘉陵街道办事处，东山街107号3幢2单元5楼1号住户，也就是原木材公司单位家属楼，今天我向你反应的是关于房屋维修问题，我们这本也是在棚户区改造范围之内，我们这小区本",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "4f8603a3ea70409fa98482ef9951f4ef",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/4f8603a3ea70409fa98482ef9951f4ef",
+   "question": "邪教组织必须扼杀于摇篮之中\n广元市苍溪县龙山镇，从2019年初开始，一个号称“三赎基督”的组织逐渐浮出水面，当时我爷爷奶奶身体不好，一位此组织成员便过来所谓的“传教”，鼓吹生病不吃药，不去医院，只要在房间里拉上窗帘，关上灯，跪在地上虔诚默念",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "a843e16dee5a499fa12ea73f52f8596d",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/a843e16dee5a499fa12ea73f52f8596d",
+   "question": "关于共和村土地款迟迟不发放超过3年的问题\n尊敬的领导：\r\n  你好。我是广元市利州区盘龙镇共和村1组的村民。我主要反应以下几个问题：\r\n1、土地款。2017年我们土地被占用，土地款当时已经下发到生产队上，但是，由于村领导不作为，一开会就吵，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "a7c4c2edcecb43958282e66b7ab36941",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/a7c4c2edcecb43958282e66b7ab36941",
+   "question": "关于北二环与瓷莲路交汇处排洪沟塌陷问题\n尊敬的市长您好:\r\n我是文昌社区四组的居民。由于瓷莲路排洪沟修建时候偷工减料现出现长1.2米宽0.8米深1.2米的塌陷坑，给过往行人带来严重的安全隐患，由于排洪沟处理不到位同时也给群众的生命财产造成严",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "bd275f90609a4f17af086f9727e0bc85",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/bd275f90609a4f17af086f9727e0bc85",
+   "question": "剑阁县北庙乡孤玉村华为博爱新村\n北庙乡，孤玉村5组。(俗称走马岭居民点)，或，华为博爱新村。\r\n在2008年地震后，由当地村民和青川灾后移民组成的一个50户人口的居民点。在政府的大力支持下，各种交通，通信，等设施都很完善，感谢党和政府。唯一",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "f6548f5d8dc847f8b4e09508f3d17444",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/f6548f5d8dc847f8b4e09508f3d17444",
+   "question": "子女户籍问题\n市长，各位领导你们好！我是广元市利州区工民，因为我儿子身份证到期，到下西经开区户籍地办理有关事情，在办理过程中，相关人员给我作出的解释是，地址停用，无法办理，必须把户籍迁移，在到接收处办里，我问办理处，为啥户籍要迁移，迁移的理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "f1c89392c0064cd8910517141d9c57eb",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/f1c89392c0064cd8910517141d9c57eb",
+   "question": "将军桥棚户区改造项目，多久能完工？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "3dd9a782b2164b3e88d49f45d45bce9c",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/3dd9a782b2164b3e88d49f45d45bce9c",
+   "question": "关于落实工龄年限的请求\n广元市人民政府:\r\n\r\n我叫王俊华。 现诉求我在苍溪县白山乡当广播员的陆年工龄未计算事宜，时间1978 年至1984年，以苍溪县招工表为准。我是从广运集团退休的，当时办理退休时把这6年工龄没有计算上。这几年一直在找相",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "79742627f8d84649be4f3a7ee9c0e3cd",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/79742627f8d84649be4f3a7ee9c0e3cd",
+   "question": "自来水不达标\n自来水发黄，有悬浮物，无法饮用。不是一直，但今年有好几次了。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "3eefd04b5a2947ce9ccc2a1338a611da",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/3eefd04b5a2947ce9ccc2a1338a611da",
+   "question": "无为\n您好！青川县乐安乡寨子村到杜家平的道路7年以来一直未硬化，导致山里80多人出行不便，下雨道路泥泞不堪完全无法出行，严重影响村民的生活。特别是年迈的老人赶集、看病，年幼的孩子上学无比艰难，村民多年多次反映均无果。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "63156b8136e24e11bc91fb70b3065bbb",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/63156b8136e24e11bc91fb70b3065bbb",
+   "question": "关于云栈园棚户区居民搬迁住新居事宜\n安居才能乐业，安居，是人民群众的一项基本需求。“努力把住房保障和供应体系建设办成一项经得起实践、人民、历史检验的德政工程。”、“人民对美好生活的向往就是我们的奋斗目标”，住有所居是美好生活的基石，是我们党",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "37083bb30e0a41a0b796a09d60f0ce59",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/37083bb30e0a41a0b796a09d60f0ce59",
+   "question": "疫情农民工返乡创业受挫！\n父母响应国家号召在外务工农民回乡创业，因小娅崖前任租赁当，再两年未交纳租金的前提条件下，于2020年3月份回乡申请小娅崖林下种植，通过天井一组三分之二社员签字同意！于三月份召开了四次社员，党员，代表会议，且第四会议",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "c4da254b2494481fb10920a31c9ac2d2",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/c4da254b2494481fb10920a31c9ac2d2",
+   "question": "关于利州区东坝办事处两桥街131号东润花园房产证未办理\n尊敬的各位市领导，\r\n                您们好！\r\n          我是利州区东坝办事处两桥街131号东润花园的一名业主，根据合同约定，开发商应该在2017年年底为我",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "430c8b642cb4423eba8d200113447cd3",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/430c8b642cb4423eba8d200113447cd3",
+   "question": "伸张个人权益\n雪峰街道办工作人员在此次调节赔偿方案工作过程中存在推卸责任行为，相关人员对群众的困难没有热情，工作没有责任心,，主观能动性不强,，遇事被动应付或回避推诿，这种不作为的现象，与党的事业，人民的意愿和时代的发展要求是相背离的。群众",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "0780b852cc094de7a4d6a4ba6d7e3b8e",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/0780b852cc094de7a4d6a4ba6d7e3b8e",
+   "question": "请尚宏归还我的合法商铺\n我在尚宏开发商处购买的商铺托管期为六年。现委托协议合同已到期。我想收回商铺自己经营。并就收回铺面一事期前提前一月微信通知管理方。但是管理公司在我毫不知情的情况下私自与承租方以低到无法接受的租金签订了超出托管期限好几年",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "698f122667cd43688bf990e22db988a4",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/698f122667cd43688bf990e22db988a4",
+   "question": "反应万达二期外墙漏水\n尊敬的领导你好:我是万达二期四栋一单元2号户型业主，我现反应万达二期2号户型外墙漏水情况。2019年7月期起多次联系物业处理，物业联系开发商处理过两次，但是至今仍未解决根本问题。2020年又多次联系物业公司，物业只是说",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "dc97cc782a7141ce85e9e25e12e1db38",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/dc97cc782a7141ce85e9e25e12e1db38",
+   "question": "恳请解决自来水供应问题\n尊敬的邹市长您好！百忙中打扰您了哈……我是万缘街道办事处南岸阳光小区的业主，三年前入住该小区。刚入住时就发现自来水压力不足，水流小。家人提起时我还安慰他（她）们说，压力小有利于室内管网的长时间使用，不至于被高压破坏…",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "ac7883c49fea4abd886fa17153a12eef",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/ac7883c49fea4abd886fa17153a12eef",
+   "question": "袁家坝铝厂污染问题\n袁家坝铝厂已经投产很久了，我家就住在铝厂的污染红线以内，这么久也莫得哪个单位或者领导来说一下这个事情，任由铝厂对我们周围的居民造成污染而不闻不问，请领导关心一下！谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "70e5dc8ab5334d4994012b592671ef53",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/70e5dc8ab5334d4994012b592671ef53",
+   "question": "切底根治百姓饮水污染源\n尊敬的市长你好!\r\n为彻底治疗当地自来水的严重污染，老百姓深受其害，怒气冲天，强烈要求终止公店乡荣光水库长达二十多年的养鱼合同。群众多次举报，收效甚微，他们以各种借口，理由为制造污染源的鱼老板涂脂抹粉，不难看出割不断",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "f964c9e8a5484f9a9143f1a5e84ffcaa",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/f964c9e8a5484f9a9143f1a5e84ffcaa",
+   "question": "请求上级领导核查胡家梁一组组长\n尊敬的市长您好\r\n     胡家梁村一组组长张全会，在2013年任本组组长以来耍歪耍恶，目无党纪国法，在该组搞一人说了算，无干部素质，经常在县地请客吃饭，本人吃喝赌，为自己找上下保护伞，自任职以来账目不公开，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "4c4ee05c1ea342f4b3b618266172e9ff",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/4c4ee05c1ea342f4b3b618266172e9ff",
+   "question": "还能相信政府吗\n领导你好！我是一个尿毒症患者，我们的民政救助从四月份就开始说给我们打钱，一直骗到现在都没打，四月份问，就回我们五月打，五月又说六月打，六月又说七月打，现在一直都没见过了，去找过几次，几次都没见人，一直说在开会，你让我们怎么解",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "721dd59b40f44e4aba9a19f1425acbc6",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/721dd59b40f44e4aba9a19f1425acbc6",
+   "question": "求助\n尊敬的市长您好 董安宝元山镇七一村人五保户二级残疾  跟60多岁的哥哥生活 自己没有房子借住在哥的老土墙房地震后出现大裂缝 19年报贫困户和异地搬迁都说不符合 报的危房改造 新房子离老房子有几里路 异地搬迁说不符合 村建赖雷开始喊修房",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "4322cc43647a49daba0c01b2b7433d3c",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/4322cc43647a49daba0c01b2b7433d3c",
+   "question": "广元市城区洪源养殖场的述求\n关于广元市城区洪源养殖场的\r\n诉求申请\r\n广元市人民政府：\r\n本人蒲建芳，女，现年46岁，家住广元市利州区蜀门北路二段19号附38号。于2012年5月租赁位于广元市利州区工农镇联盟村一组何文斌的荒山20亩，建立了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "812e0e8248724b7e8cf8680776802ecf",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/812e0e8248724b7e8cf8680776802ecf",
+   "question": "加强公共场所犬只管理\n近期广元市湿地公园、沿南河边的游步道，傍晚时分经常有人带着大型犬只同游，有的栓绳、有的未栓，严重违反广元市犬只管理规定，对过往行人产生严重影响。（本人经历一次，犬只扑来碰到大腿，幸好狗戴有嘴笼，身边一老人吓得倒地）要求",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "3779c791084c4a57b99f255e06a8fe15",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/3779c791084c4a57b99f255e06a8fe15",
+   "question": "投诉关于苍溪县陵江镇三清七组村霸非法强占我校国有土地的情况反映\n关于陵江镇三清七组村霸非法强占我校国有土地的情况反映\r\n尊敬的邹市长:\r\n   您好！\r\n   首先，我很抱歉在您们日理万机时打扰，我们是四川广运集团苍溪有限公司77队驾校的职",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "4cac43e636fe41ec981094a7962b50de",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/4cac43e636fe41ec981094a7962b50de",
+   "question": "壁秀小区排水问题困扰居民出行\n市长，你好,我住苍溪县陵江镇滨江路壁秀花园C区，该小区是苍溪县城的老小区，已有十年之久，遇到下雨天，满小区都是水，困扰着我们小区六十几户居民的生活出行，有其小孩上学，老人上街买菜，希望苍溪政府领导，实地区考察，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "384dfc9ad2ed44f6976c8e4149731953",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/384dfc9ad2ed44f6976c8e4149731953",
+   "question": "城乡居民养老保险\n邹市长你好！\r\n   我是广元市剑阁县圈龙乡金陵村李晓霞。我现以城乡居民养老保险一事希望能得到解决，2010年我前夫父母在剑阁县香沉镇帮我办理了养老保险（我不知情此事，我已在外地参保职工社保）。2013年离婚，户口迁回圈龙",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "a64d968b2602485db1262eb1de6e21c5",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/a64d968b2602485db1262eb1de6e21c5",
+   "question": "老百姓没水吃该找谁？\n尊敬的市长：您好！\r\n我是朝天区沙河镇望云村6组的村民李成生，联系电话：13981290345。6月29日我组人畜饮水工程设备潜水泵故障缺水至今。7月8日之前村民自发组织请多方技术人员前来维修无果。花费4000余元。后",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "966e5238e1da42afbc2113c105fd26f5",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/966e5238e1da42afbc2113c105fd26f5",
+   "question": "请求返还福位款的反映\n中共广元市委王书记：\r\n广元市人民政府邹市长：\r\n反映人：凡素珍，女，生于1935年2月8日，现住广元市利州区南河街道办事处北京西路，身份证号：510802350208008，因年事已高，又无儿无女，委托侄女马云霞，电",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "4c6c6798c3bc4560af309b1988bb3e0c",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/4c6c6798c3bc4560af309b1988bb3e0c",
+   "question": "剑阁县圆通快递一手遮天\n申 诉 书                      \r\n申诉人：何彩虹，女，现住广元市剑阁县元山镇凉泉路115号，联系电话13518327155。\r\n \r\n被申诉人：岳安中，男，广元市剑阁县圆通 速递总代理，联系电",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "f54419f4427142bc9708ad0aff21ef0d",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/f54419f4427142bc9708ad0aff21ef0d",
+   "question": "广元房价\n尊敬的领导你好！\r\n  我是外来广元务工的一名22岁男子，因为种种原因会选择在广元安家！ 我17年来广元的时候房价3千到4千多，可是到18/19年和今年的时候，我看了下房价就要7千到一万多了， 在广元务工我一个月工资才3000多点",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "19b857a5d0ad4f948d5b450e9cf5266a",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/19b857a5d0ad4f948d5b450e9cf5266a",
+   "question": "广元银行何时成立？\n近年来，四川各地市的市属银行相继进入广元，吸纳广元人民的存款，但遗憾的是，广元人民至今尚未有属于自己的银行-广元银行，希望尽早成立广元银行，让广元人民的存款用来支援广元的经济建设，另不用电话回复，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "0f1bf2e89e53421fae891601adf06875",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/0f1bf2e89e53421fae891601adf06875",
+   "question": "关于广元欣蜀文化传媒有限公司拖欠员工工资问题\n尊敬的领导你好！\r\n       本人姓名阳小琴，性别女，年龄30岁，家住广元昭化区清水乡树丰村9组，于2020年5月25日在广元欣蜀文化传媒有限公司任职平面设计岗位，后因公司工作时间调整等原因",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "14f089fefb004705b14254fbf6580681",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/14f089fefb004705b14254fbf6580681",
+   "question": "请求市长调研明查为三川25000多百姓民生提供便利\n尊敬的市长，你好！\r\n我是苍溪县三川镇的一名老百姓，最近具镇上有关部门的消息，由于2019年12月，中国动物疫病预防控制组织专家对我县生猪定点屠宰现场复核检查，我们三川屠宰场因为屠宰流程设",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "e3d2fc6a25fa4883a73b9337b851ba6c",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/e3d2fc6a25fa4883a73b9337b851ba6c",
+   "question": "关于新农合报销前往南投\n尊敬的市长：\r\n你好!感谢您百忙之中看我的信件。在此信件中我主要说两件事。\r\n1、能否将广元每个区县每一年度新农合报销比例、范围、报销资料做一个更新。我是青川的群众，最近家里人生病我在青川官网查到的只有2018年的数",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "9fbca2dd6bcd44ddbe645c27bc9bf325",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/9fbca2dd6bcd44ddbe645c27bc9bf325",
+   "question": "李荣强盗领他人钱款\n市长你好    \r\n     我是广元青川凉水森溪山，18岁以后10多年没回过广元的在外地工作的广元人，老家空无一人，08年地震后我去世老爸的弟弟李荣强，私自在信用社以我的名义开户，领取地震补助款项，此事，我以前以通过，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "899cc8bee8384077b44caa133c144dbd",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/899cc8bee8384077b44caa133c144dbd",
+   "question": "关于天曌山盘龙镇东升村8组吃水难的问题反映\n尊敬的政府及水利部门领导：\r\n     您们好！\r\n     我是天曌山东升村八组【2020年前隶属广元市经开区盘龙镇东升村8组，拆乡并镇后现隶属于回龙河学工村12组】村民，该组共24户村民107",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "89998ba477f346488a6d74580688ee75",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/89998ba477f346488a6d74580688ee75",
+   "question": "旺苍县振兴路原住民不能开车正常进行1街对面的商户和摆地摊的居然可以随便进出\n邹市长您好：\r\n\r\n    我是旺苍县东河镇振兴路的原住民，以前这里没有路，政府修了路，对面也修了小区，还有很多商铺，占我们土地，开发老城也是好事，我们也支持。\r\n",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "b2afe55040e74279a3a08bd2e09328f3",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/b2afe55040e74279a3a08bd2e09328f3",
+   "question": "澳元体育场是否可以允许宠物狗进去\n尊敬的市领导您好：\r\n       今天我儿子在澳元体育场被一只没牵绳的宠物狗惊吓到。为了这个事情我当时也报了110，警察同志处理的也很好，但是我还是有一个疑问，就是在澳元体育场小孩子和老年人特别多的这种公",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "cc75f501f062490c839f211610f115ed",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/cc75f501f062490c839f211610f115ed",
+   "question": "工地上上班出事导致左手中指断裂至今1年多了未解决\n尊敬的市长尊敬领导们，我是一个出生在农村的孩子，自成年后长期在广元从事工地上机械工作，2019年4月23日，我在工地检查压路机时，被压路机机械砸断左手中指，住进广元市中医院.出院后，经广元利",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "69750c6914c946668e597298664705ae",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/69750c6914c946668e597298664705ae",
+   "question": "咨询企业职工技能补贴\n广元市出台的企业职工技能补贴，我想咨询下，本人社保一直缴纳在广元，但是今年申请的国家职业资格证不是广元申请的，请问符不符合申请补贴条件，我查阅了之相关文件规定，个人认为是符合的。至少没有看到任何一条规定职业资格证必须在",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "c4464680a5814b7bad51f33297a93e46",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/c4464680a5814b7bad51f33297a93e46",
+   "question": "关于规范校外培训机构上课时间的建议\n尊敬的领导：\r\n     您好！\r\n     目前，广元市很多校外培训机构（舞蹈学校、古筝学校、钢琴学校…..）在如五一、端午、国庆、中秋这样的小、大长假仍然安排孩子上课。\r\n     我认为这对地方经济",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "cdf69bce68be4f25ab908f129f7dd409",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/cdf69bce68be4f25ab908f129f7dd409",
+   "question": "土胚房拆除\n邹市长您好，我想咨询一下大石镇青岩村土胚房拆除补偿标准，是按户补偿还是按面积补偿？村上说是10元每平方米，由村上出钱。与五一村，荣山镇补偿标准差距太大。特此咨询，敬请回复。谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "1b75d1a00bd74e669b083182341e4288",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/1b75d1a00bd74e669b083182341e4288",
+   "question": "请求政府给予高考学子一个安静的学习环境\n尊敬的市委市政府领导：\r\n          老城上河街嘉陵广场！每天早晚广场舞及各类健身噪音扰民一事，多次向市长热线、城管部门等反映，均未得到改善！每天早上六点钟左右，老人们开始健身大声吼叫！随后广",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "77c2703e509e4fddbd97ef8a3efd51a8",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/77c2703e509e4fddbd97ef8a3efd51a8",
+   "question": "剑阁县政府不作为\n剑阁县人民政府张世忠：\r\n我5月18日向你反映的关于碑垭乡政府违法拆除我老屋一事，信箱显示司法局将在10天内完成。县司法局与其他部门调查核实一个月后，信箱显示信件处理中，过了几天，信箱显示杨明学将在10天内完成。现在信箱又",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "e406c205e902497a972af32fac448941",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/e406c205e902497a972af32fac448941",
+   "question": "一大暴雨再次严重受灾再次遭遇基层政府漠视相互踢皮球\n平乐寺景区采摘园，6.16再次遭遇严重水灾，再次遭遇基层政府漠视。这几年，前几次严重受灾，我们自己处理、自己解决了，这一次我们再也坐不住了！我们找到了昭化区农业局、联系了灾情搜集人，拨打了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "4cb0bbfba8d74b30a8589fdf8c3fe79a",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/4cb0bbfba8d74b30a8589fdf8c3fe79a",
+   "question": "白龙镇打人书记\n我是剑阁县白龙镇青丰村6组居民，由于近期本生产组在进行生产农田田坎修建，6月14日施工老板为了偷工省料在施工中直接在个户田地里施工，不愿用机械靠田边砌田坎，后我母亲杨玉珍上前理论，要求实事求是按上田边挖土砌实田盖。施工老板当",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "c332bda93f454092acd0c55f56907d43",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/c332bda93f454092acd0c55f56907d43",
+   "question": "贫困\n市长你好本人是朝天区龙门村5组。杨竹和，因父母残疾，单亲家庭，父母是以前集体摘柿子，树枝断了，从上边摔下来骨折，在市人民医院住一年，现69岁了，已失去劳动能力，母亲因常年生病，家庭特别困难。去年9月申请的贫我情愿，今年3月取消了，理由",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "af0310eb94e444249434acb46522f184",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/af0310eb94e444249434acb46522f184",
+   "question": "关于苍溪县楼坪村垃圾焚烧项目\n尊敬的市长先生：\r\n您好！我是苍溪县歧坪镇楼坪村二组村名，近日我父亲告诉我政府决定在我村山顶修建垃圾焚烧项目。村上在为此事召开全村会议的时候，大多数村民都表示反对，为什么政府还要单方面决定定到我村。我咨询了歧坪",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "43059259134840a4b283cbcaad50d7f7",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/43059259134840a4b283cbcaad50d7f7",
+   "question": "求一个公平\n尊敬的市长您好，我是利州区荣山镇一名普通的农民。2019年12月9日在荣山镇荣鱼公路我驾驶摩托车与另一辆摩托车相撞。由于发生事故后我在成都华西医院治疗，导致当时不能处理此次事故。我在治疗期间二大队事故处理中心出了责任认定书让我儿",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "ab10e54b2b734717a28c13d6e87ccf48",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/ab10e54b2b734717a28c13d6e87ccf48",
+   "question": "旺苍县g542公路距离房屋安全距离\n我是来自旺苍县东河镇双农村村民，现在修的g542高速路距离我家二三米，严重影响我们出行生活安全，村上和政府都说不属于拆迁范围，我家左边是崖边，公路修在我们右边严重影响我们生活和安全，既然不拆迁麻烦把公路改",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "06237e3ae8b34082bbfa33213c7e84d2",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/06237e3ae8b34082bbfa33213c7e84d2",
+   "question": "广元市建设局针对市长信箱的问题答非所问\n尊敬的领导\r\n      可能上次我没有说清楚，这次我就简单明了的表达，广元市建设局规定：“办理资质增项时，要求建造师放满3个月。”这个规定，我们找了很多资料都没有找到相关文件证明。麻烦告知一下具体出",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "f945c84970dc46f8b0ee6de7ea1ec495",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/f945c84970dc46f8b0ee6de7ea1ec495",
+   "question": "关于尚宏私自贪污业主租金问题\n市长，您好，我所反应的尚宏租金问题，仍然未解决，我们老百姓的血汗钱不知不觉被吃掉，剑阁政府说我们所有业主同意了，让他们拿出证据他们又拿不出，现在就推辞说开发商拒绝调解，难道我们只能这样任由开发商宰割吗？我们是社",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "3dac5379394849bd9440fe02df9875b2",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/3dac5379394849bd9440fe02df9875b2",
+   "question": "反映青川县养路段不作为\n2020年5月6日，我母亲李自朴（青川县七佛乡人），在为青川县养路段工作期间发生车祸导致死亡。本人对于本次事故，对青川县养路段存在以下两点疑问：\r\n\r\n1.我母亲从5月1日开始以每月1000元作为报酬开始为养路段工作",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "60d8b8cd5e314686b04e335f08d03583",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/60d8b8cd5e314686b04e335f08d03583",
+   "question": "保障恢复拆迁遗留户生命财产保全及生存环境\n尊敬的市长及相关领导\r\n  您们好！\r\n  我是东坝办事处城郊村四组居民邵红！\r\n现因和信地产拆迁本村破坏了我们原有的网络，天然气，道路，以及排水系统已7年，7年！今天暴雨现在我的房屋正受几十亩荒原",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "9e0032b3ad244228820ff0f088fd2d8c",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/9e0032b3ad244228820ff0f088fd2d8c",
+   "question": "关于利州区南河街道蜀门南路段交通问题\n尊敬的市长，\r\n        您好，此次写信的目地，主要希望能改善利州区南河坝蜀门南路与利州市场交汇的十字路口的交通状况。\r\n        此处路口，是南河汽车站，利州市场，蜀门南路主干道的交汇处，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "9113be3284614ed1830f9241338cd793",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/9113be3284614ed1830f9241338cd793",
+   "question": "唤马政府懒政不作为\n本人于2018年底跟唤马镇政府装饰布展唤马剪纸传习所.前刘书记和文华站陈站长答应2019年最迟5月份解决资金问题，本工程与2019年3月交付唤马镇政府使用，但一直以资金不到位为由.不予签合同和支付工程款.打电话一直拖，说",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "10d0607a171d479bbffb6fe3e872ed1b",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/10d0607a171d479bbffb6fe3e872ed1b",
+   "question": "噪音扰民\n市长你好，去年我已反应过剑阁县普安镇滨河路山水人家KTV名爵汇噪音扰民问题。普安城管中队来了解过情况，但一直没有改变，到现在还是与以前一样，到夜间零点过后都还是声音太大。再加之有小孩就读高三，晚上不能保证睡眠，肯请有关部门能认真履",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "315059569d714d9eafc410eb5758ca9f",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/315059569d714d9eafc410eb5758ca9f",
+   "question": "苍溪县中考相关资询\n尊敬的领导：\r\n    您好！\r\n    本人是苍溪县烟峰小学在读初三生的家长，前些天学校老师来电，说广元市今年中考改革了，且最近二诊成绩全市进行了划线，对所有孩子事先进行预录取，我家孩子在所谓的城郊中学线内，且需要交预",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "5fd9f858c5c94acd84ad3c1583aa30a0",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/5fd9f858c5c94acd84ad3c1583aa30a0",
+   "question": "关于万达二期6栋长期噪音扰民\n关于万达二期6栋商家占道经营，长期噪音扰民。\r\n  1：从18年入驻就开始了长期倍受噪音扰民的维权之路。这里属于金街可以占道经营。那么噪音扰民该谁管。城管没有执法权。\r\n  2，个人观点投诉了三年问题没有解决，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "4ea775ae9b674336baa0db4e040f54c3",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/4ea775ae9b674336baa0db4e040f54c3",
+   "question": "开展校园安全隐患排查建设环境友好型城市的建议\n根据世卫组织发布的报告，意外事故是儿童青少年致伤、致残、致死的最主要原因。意外伤害不仅给孩子及家庭带来痛苦和不幸，而且给社会、政府及学校造成巨大的负担和损失。因此，校园安全已成为社会各界关注的热",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "5f11f6d5fba348c6899b5bbde0dff2d1",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/5f11f6d5fba348c6899b5bbde0dff2d1",
+   "question": "二环路建设导致我家成D级危房无法居住\n我是利州区上西街道二居委会居民沈天均，修建二环路建设红线距离我家房屋不足5米（排水沟在围墙边），公路标高高于我家房屋2米之多，修建的挡墙和排水沟将我家房屋四周包围，形成一个人为的低洼地（堰塞湖）。\r\n ",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "6f63b19e34734b74a7b12cca831311c0",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/6f63b19e34734b74a7b12cca831311c0",
+   "question": "利州区东坝110路口菌子厂棚户区饮用水改造贪污\n尊敬的市长：\r\n   您好，我父母现居住于2008年在东坝110路口菌子厂附近购买的小产权房，该片区饮用自来水为当地村上自己打的水井供水，村上收取各户水费用于供水系统运行。今天接到对上通知，说",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "c0cffee2c9d5454aab3ae4361c44aea2",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/c0cffee2c9d5454aab3ae4361c44aea2",
+   "question": "广元建设局在资质审批时故意设门槛为难企业\n尊敬的领导：\r\n在这里我向领导反映一个事，广元建设局在资质审批的时候乱要求，为难企业，故意设置门槛增加企业负担。\r\n以公司要增项市政、水利、公路等总包为例，我们做资料时认真查看了相关文件和资料，好不",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "41953f639c5a42efa4e8a0a51774fb23",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/41953f639c5a42efa4e8a0a51774fb23",
+   "question": "广元东山半岛开发商虚假宣传\n市长你好！我是东山半岛业主，我给你反映一个情况就是关于广元市隆晟房地产开发有限责任公司（开发商）就东山半岛小区房屋（尤其是5号楼）在销售宣传、建造直至交房过程中存在着前期销售宣传与实际结果严重不符，纯属欺骗；凡是",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "e1107628dd1f4cac9d71cd107f3e1335",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/e1107628dd1f4cac9d71cd107f3e1335",
+   "question": "投诉剑州驾校教练\n教练车违规教学 致伤不救\r\n    2020.5月20日，在剑阁县普安镇剑门路方向背背梁（以前的路政超检站）处，一辆剑州驾校车牌为：川H1219的教练车，教练好像是个女的，从公路左边坝子左转进入公路，未转入公路右边，而是直",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "b304ddab3e394b6e99c61c8388635113",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/b304ddab3e394b6e99c61c8388635113",
+   "question": "广元小升初招生乱象\n尊敬的市长：\r\n       您好！\r\n       我是一名小学六年级学生家长，今天写信的目的是想请您关注下当前广元初中招生的乱象，为我们家长指明方向。\r\n       我家小孩还有25天就要小学毕业了，但是，到现在我",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "6ab32ae5e5cb429aa02835bc8245ee6b",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/6ab32ae5e5cb429aa02835bc8245ee6b",
+   "question": "关于尚宏广场的问题\n市长您好，又一次来给您添麻烦，关于我多次反应的尚宏租金问题，剑阁政府还是和上次一样说尚宏发了消息，我要求他们提供他们调查的证据，他们也没有，疫情原因国家提倡减免，但是没有强制，国家给免了那么多税，开发商一分没少收我们的税",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "e4b29a5f72744ec0a8c9f2ad3ad1b731",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/e4b29a5f72744ec0a8c9f2ad3ad1b731",
+   "question": "元坝停车\n市长先生:\r\n        你好，我想反应一下元坝停车问题，元坝根本没有停车场可以停车，只要车一停在路边买个东西就抓拍，大家都知道乱停车影响城市的市容市貌，可是元坝根本就没有可停车的地方(宏瑞地下室车位少的可怜)我想一个城市解决",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "29a7c2fe1f194ef9bf2bb5fe39e73972",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/29a7c2fe1f194ef9bf2bb5fe39e73972",
+   "question": "4050养老补贴政策\n市长你好\r\n       我是 53岁的灵活就业人员，我在网上查到多地都有关于4050养老补贴政策，于是我就到政务中心咨询社保窗口，回答说广元现在没有这个政策了。我想确定广元是不是不执行这个了。为啥别的地方还有?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "6c731d6c68bf4822afe97ea104e8b6e9",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/6c731d6c68bf4822afe97ea104e8b6e9",
+   "question": "剑阁县人民医院私扣年终奖\n本人2016年7月于广元市剑阁县人民医院工作至今。劳动合同到期时间为2021年7月。我因住院医师规范化培训需要，于2020-05-28提交辞职报告。本人未参加医院组织的进修学习及培训，医院要求赔偿违约金5000元。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "3e6b32332fb04692a705fcd03ac0898a",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/3e6b32332fb04692a705fcd03ac0898a",
+   "question": "举报：反对发展熊代荣为正式党员\n“川陕甘农产品交易中心商户支部”预备党员，熊代荣，此人劣迹斑斑，毫无先进性可言，为保证党员队伍纯洁性、先进性，建议不将其发展为正式党员。理由如下：\r\n1.\t熊代荣曾因酒驾被处罚；\r\n2.\t2019年熊代荣与商",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "338d56d7f1de4acfa666232baf536cc5",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/338d56d7f1de4acfa666232baf536cc5",
+   "question": "请解决饮水问题。\n你好！我来自苍溪县歧坪镇登高乡红光村，我是迫于无奈才给你们写信，本在今年之前还可以勉强坚持，期盼通自来水的一天，但是今年改变了很多事情，去年寻找的其他水源已经枯竭，几十户人唯一的山顶水塘水源已将近枯竭，水源浑浊，这是我在五",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "a81fc75505ef4092b99198bb81328509",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/a81fc75505ef4092b99198bb81328509",
+   "question": "请把此建议提交给四川淼汇公司董事长\n见信好，广元时代广场地处老城中心地带，但是确因为前期的不善运营导致商场从疫情过后就一直歇业。在此仅有一点小建议希望能给你们公司的负责人看看。\r\n  最近看到一个新闻，深圳某商场规划出临时地摊位，使一个面临",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "9b3cf696dec246c8bbba468bc65dd7e6",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/9b3cf696dec246c8bbba468bc65dd7e6",
+   "question": "修G542道路夜间倾倒土石方扰民投诉\n市长先生：\r\n              你好。我是旺苍县东河镇长滩村六组居民。去年开始在家门口开始修建G542公路，本来一直都很好，今年3月份开始，也不是每天如此，在夜间10点之后到早上7点之前，不定",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "e8389f8438db498db71ff04b8efb72f0",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/e8389f8438db498db71ff04b8efb72f0",
+   "question": "垃圾车凌晨4点多扰民\n尊敬的领导您好：\r\n       我是利州区东坝财丰街的临街居民，家住金泽苑小区。近期我们全家备受凌晨垃圾车轰鸣声的困扰，每天从早上4点多开始，垃圾车就达到财丰街，一段街道两个垃圾点，共进行20分钟左右的作业。当值夏季",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "8a83f7cfc9004a27bc6bf21a46f25044",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/8a83f7cfc9004a27bc6bf21a46f25044",
+   "question": "生活用水经常无缘无语停掉\n我家住三江镇街道，生活用水经常无缘无故停掉，停水之前也不会通知。周日和法定节假日尤为严重，经常连续几天没有一点水。有时正在洗澡，突然就没有水了，你们说气人不气人？居民家中几乎都会备上盛水容器，但是容器中的水隔几天也",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "c2a7d19a87594fdfa8f5989051b8641a",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/c2a7d19a87594fdfa8f5989051b8641a",
+   "question": "科兴园三期宇华荣城什么时候交房\n尊敬的邹市长：\r\n      您好!\r\n      非常感谢您为广元做出的一切，广元人民感谢您。\r\n      我们在科兴园三期（宇华荣城）购买了一套住房，合同签订2020年3月交房；可是，该工地从2019年",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "7af152ae69f14cffa581a36b11eb1ec6",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/7af152ae69f14cffa581a36b11eb1ec6",
+   "question": "希望能完善广元市利州区机关幼儿园监控项目\n这不是一个投诉。这只是一个千千万万妈妈们关心小朋友成长的心声。每一个作为父母的人都是很关心一个3-5岁适龄入园小朋友的在园生活情况的。这不是隐私的侵犯，更不是对园方的监督，仅仅只是作为父母的一点心声",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "9da0976d958b4f4c9501df436826cf28",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/9da0976d958b4f4c9501df436826cf28",
+   "question": "屋顶漏水\n领导好，我是广元市利州区雪峰福康花园8栋3单元703住房，我们现在所住房屋属于经济适用房，从去年开始房子就因漏水我们多次向物管及建设局反应至今未处理，马上雨季又要来临，不处理我们怎么办，现在我们的屋顶全是被水侵泡起的壳，而且昨天的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "791eb91017864b188fe9720073293164",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/791eb91017864b188fe9720073293164",
+   "question": "112厂南区公交站候车棚需维修\n112厂南区公交站候车棚，年久失修，存在安全隐患，恳求维修!",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "2fd885df780f4c7cb914277391d959d8",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/2fd885df780f4c7cb914277391d959d8",
+   "question": "政府改土造成房屋损害\n尊敬的领导，您好！\r\n      我是昭化区虎跳镇毗鹿村村民，2018年的时候政府建设农业产业园对屋前一带进行挖掘改土。改土期间我们有向村委反映过，别家屋前改土都有防护措施，而我们家门前为什么没有，当时村委告知，目前你",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "c47d710e75964b8b966e11fd63f9b765",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/c47d710e75964b8b966e11fd63f9b765",
+   "question": "关于一块集体土地让外村人员占用建房\n本人白大学，家住苍溪县石门乡金城村6组，本人与白大贵同住一个院子各有3间半土墙房，汶川地震时成危房，白大贵为精准扶贫户。去年7月多次找过国土所以及乡村组申请在本组的一块集体土地上修建住房，去年7月30日经",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "42b4a51edc264821a6b88ad72be703ec",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/42b4a51edc264821a6b88ad72be703ec",
+   "question": "广元市宝轮镇龙都花园社区污水臭水乱流无人管理问题\n亲爱的市长:\r\n        您好！\r\n        我居住在宝轮镇龙都花园社区，在全球疫情泛滥的大背景下，广元防疫控疫做的如此之好，让我们宝轮人感到十分安全和幸福。但天气炎热，我们社区",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "7390494228bf4251a52deaf9870a2d49",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/7390494228bf4251a52deaf9870a2d49",
+   "question": "金顺汽车集团侵犯劳动者权益\n尊敬的邹市长：\r\n     您好！我是金顺员工的家属，今天向您反映两个问题，烦请您在百忙中一阅。\r\n第一，因受新冠疫情影响，所有企业复工都需监管部门审批方可复工，既然是受到不可抗的因素影响，员工不能提供正常的劳动",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "d6820e4843fb4d0b9edce0841210f761",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/d6820e4843fb4d0b9edce0841210f761",
+   "question": "将军桥云栈园棚户区拆迁问题\n我现在居住地是 将军桥云栈园棚户区。我们那是50，60年代的老房子，一百多户共用一个公共厕所，我就再想呀今年这个肺炎广元利州区万信没有，不然我们那一山的人怎么办，自我居家，不现实因为最起码的厕所都不能上，可笑再城",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "9c9ea45180f94cfd81116ea537644bbe",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/9c9ea45180f94cfd81116ea537644bbe",
+   "question": "广元治安一瞥\n尊敬的市长，您好！\r\n       近日，广元市城区内偷盗摩托车，电瓶车及电瓶车电瓶的事件屡屡发生，给市民出行造成极大影响，也扰乱社会治安。4月14日凌晨4时57分——5时，我停放在文化路383号门前一辆（川H106310)电",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "8fc5f17180eb44e8b2bf641c1e08befa",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/8fc5f17180eb44e8b2bf641c1e08befa",
+   "question": "良辰足道诱导消费洗脚的地方出现淫秽服务\n本人出差到广元市，在忙碌一天以后脚有点疼，就到广元市利州区水榭花都二期门口良辰足道洗脚，到楼上以后是正常的足浴服务，选了一个698的皇家足浴，足浴做到一半发现这家的足浴跟正常的足浴不太一样，技师开始脱",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "8663c644c8e841379a1a4496def2137b",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/8663c644c8e841379a1a4496def2137b",
+   "question": "关于老城东街食品公司旧楼维修和加固的建议\n领导好：\r\n我们是位于老城东街（原食品公司宿舍）旧址的业主，由于房龄较长，以至于房屋外墙造成隐患，为了排除潜在隐患，市场街居委会自称牵头，先后召开了业主委员会，经过通知和协商，由牵头人组织承建方对房",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "a7aebaebdfee47e09158fab67a2ece7e",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/a7aebaebdfee47e09158fab67a2ece7e",
+   "question": "盼:人民路南段人行道平顺\r\n尊敬的邹市长好！\r\n   \r\n近日雨后散步，在城区东坝人民路南段不足200米的人行道上，有点揪心：地砖不平，泥水溅身，砖块缺失，闪脚伤筋，烂砖不断，有点伤心。\r\n   因此段位于市人民政府大门外，东立交通局、南竖",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "b60bb4afa2364bf0ab087f763c31a716",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/b60bb4afa2364bf0ab087f763c31a716",
+   "question": "电网供电线路尚未改造\n昭化区石井铺镇庙儿顶村十二组供电线路在前些年国家电网供电线路改造升级实施过程中未动作，时至今日全程线路老化程度严重，电线杆东倒西歪，大部分电线据地距离不足三米，存在重大安全隐患。恳求领导核实真实情况，尽快组织专业人员对",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "e6591d02cb704a64b5487081609061ae",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/e6591d02cb704a64b5487081609061ae",
+   "question": "什么时候能用上干净的水\n市长：\r\n    你好！宝轮供销社100多户吃的是脏水，去年镇政府都召开会议，大家也都同意用自来水厂的水，说是年前能吃上干净水，改造的钱早就交了！现在疫情也不严重了，可是水厂还是没动工，请问什么时候能解决这个问题？这",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "77a9c5eec811448483c4b1b2c5680e34",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/77a9c5eec811448483c4b1b2c5680e34",
+   "question": "宝红路邓家河嘉陵江大桥至朝阳段部分路段损毁严重建议维修\n尊敬的领导你好，昭化区宝红路邓家河嘉陵江大桥至朝阳大桥段有十几处路面损毁较严重，其中一处 。上南马村岔路口回首100米左右。在弯道上十分危险，影响交通安全，恳请有关部门能组织人力对破损",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "574e5b2650f04c349f246ef49585a674",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/574e5b2650f04c349f246ef49585a674",
+   "question": "路面压坏影响老百姓正常出行\n东坝105厂区门口的必经之路已被”长虹天汇城“项目施工的大货车压的已经完全不成样子了，我们住在105厂区里的很多小区住户无法正常出行，车辆和行人大量拥堵，出行和回家极度不便，早晚高峰更是水泄不通，这条路是大家上千",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "ad2e8015672f47f684c73b633e0d7339",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/ad2e8015672f47f684c73b633e0d7339",
+   "question": "关于南山隧道施工时间建议\n尊敬的市领导：\r\n  您好！我是居住于广元市利州区南河南山丽景小区的住户刘剑，身份证号码510802197510150737，手机号码13808128271。关于南山丽景打隧道严重影响并侵害了老百姓的生活、财产以及",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "2cbffc019bf3420e906807b498bf67d6",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/2cbffc019bf3420e906807b498bf67d6",
+   "question": "关于村级建制调整改革中村名称命名建议\n全省乡镇行政区划调整改革工作总结暨村级建制调整改革工作推进会议召开后，我市及时总结用好乡镇行政区划改革经验，顺势推进村级建制调整。各县区相继公示了《村级建制调整改革初步方案》，对现有村和社区在数量上进行",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-guangyuan",
+   "id": "d4c9082cba444db48218ddc6a18e3e4c",
+   "url": "http://qgj.cngy.gov.cn:9050/ldxx/szxx/publish/d4c9082cba444db48218ddc6a18e3e4c",
+   "question": "咨询公务员招考\n请问一下，受疫情影响，今年下半年是否还有公务员招考，时间大概是好久？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

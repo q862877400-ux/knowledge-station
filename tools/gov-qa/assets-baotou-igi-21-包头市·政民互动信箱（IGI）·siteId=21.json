@@ -1,0 +1,3709 @@
+{
+ "A_考卷": [
+  {
+   "source": "baotou-igi-21",
+   "id": "216535",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=216535",
+   "question": "对方欠钱不还，想走法律渠道，但不清楚具体流程，希望获得法律援助帮助",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国法律援助法",
+     "lib_no": "法律援助法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "法律援助条例",
+     "lib_no": "法律援助条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24978",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24978",
+   "question": "区长您好： 我是东河区北梁新区西三区b区的住户，我们这小区23年底领的钥匙，属于回迁房。直到现在天然气都没有入户使用，我们很多住户都是天然气壁挂炉洗浴，现在基本生活都是用电，做饭，洗浴啥的，经常会断电，居民正常生活都影响， ，我们小区没有天",
+   "cited_hits": [
+    {
+     "name": "城镇燃气管理条例",
+     "lib_no": "城镇燃气管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "住宅燃气设计规范"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24946",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24946",
+   "question": "包头市东河区南二街1号楼顶层今年以来已经多次漏雨，漏雨情况严重，雨水漏进家里，严重影响居住老人生活，已从群里反馈到社区但未回复",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国民法典",
+     "lib_no": "中华人民共和国民法典",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24934",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24934",
+   "question": "实名举报引导者教育综合体北梁校区，恶意拖欠员工工资及社保，多次协商未果，态度极其恶略，谩骂威胁。本人多次联系相关管理部门后，没有后续结果，协商处理的录音本人都有保存，更有相关管理部门证实情况属实后，回复说无法解决。我现在无法入职其他工作，拖",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国社会保险法",
+     "lib_no": "保险法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于优化调整社会保险费申报缴纳流程的公告"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24766",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24766",
+   "question": "自2023年举报违建至今，城管的回复是既不能认定其是违建也不能认定其不是违建，并说老旧小区无统一标准这种没有法律依据的话，我们举报的违建户主是2017年给街道写了不改变主体结构，及时清理建筑垃圾的一张纸，并在2019到2021年间翻建，其翻",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国城乡规划法",
+     "lib_no": "城乡规划法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国土地管理法",
+     "lib_no": "土地管理法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国土地管理法",
+     "lib_no": "土地管理法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "土地管理法",
+     "lib_no": "土地管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24093",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24093",
+   "question": "区长您好，我是一名工地电工，于今年4月份，在东河区恒大翡翠华庭进行电工工作，共施工7天，一直未收到工资，8月底去了第一劳动局，进行沟通，说是记录一下，等电话，后来又打过12345，说是没有你这人我是被人叫过去干的活，不承认，后来劳动局又承认",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国劳动法",
+     "lib_no": "劳动法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "内蒙古自治区劳动保障监察条例",
+     "lib_no": "劳动保障监察条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国民事诉讼法",
+     "lib_no": "民事诉讼法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "劳动和社会保障部关于实施〈劳动保障监察条例〉若干规定",
+     "lib_no": "劳动保障监察条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "包头市东河区人力资源和社会保障综合行政执法大队投诉程序告知书"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24073",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24073",
+   "question": "绿地西斯莱公馆领钥匙物业公司拉出一个清单装修要押金的有一项装修押金3000元有异议首先我不准备装修也不准备改变结构所以不愿意交3000元押金2小区里到处都漂着的是塑料袋小区看不到物业公司的人打扫卫生3绿地西斯莱公馆至今为止具备交付条件了吗为",
+   "cited_hits": [
+    {
+     "name": "内蒙古自治区物业管理条例",
+     "lib_no": "物业管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24690",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24690",
+   "question": "绿地西斯莱公馆强迫业主收房没有验收报告三书一表都没有给业主邮寄交房通知并且单方面不合理通知强行交房违法乱纪违纪违规行为请相关部门处理监督管理",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国建筑法",
+     "lib_no": "建筑法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "商品房销售管理办法",
+    "建设工程竣工验收备案表",
+    "建设工程竣工验收备案表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23833",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23833",
+   "question": "到东河区河东市场监督管理所办理年检时,工作人员说我们的个体工商户营业执照未按时年检,需要缴纳2000元罚款才给年检,这个收费对于我们小本生意来说实在太多了,现在生意不好做经营困难,所以想问下能否取消罚款,以后我们一定按时年检,做遵纪守法的经",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国市场主体登记管理条例实施细则",
+     "lib_no": "市场主体登记管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24432",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24432",
+   "question": "尊敬的区长您好,感谢您百忙之中关注我们的需求.我是一名打算回家的在沪大学生,近日向各处领导咨询回东河的隔离政策,昨日东河区卫健委方来电确认了目前隔离政策是自费集中隔离七天和居家隔离七天.卫健委方在电话中提到,我区的隔离政策之前是免费集中隔离",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国传染病防治法",
+     "lib_no": "传染病防治法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24396",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24396",
+   "question": "请政府监管吾悦违约行为",
+   "cited_hits": [
+    {
+     "name": "包头市物业管理条例",
+     "lib_no": "物业管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24379",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24379",
+   "question": "业主全款买房",
+   "cited_hits": [
+    {
+     "name": "包头市物业管理条例",
+     "lib_no": "物业管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23673",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23673",
+   "question": "小区无法通燃气",
+   "cited_hits": [
+    {
+     "name": "包头市物业管理条例",
+     "lib_no": "物业管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "baotou-igi-21",
+   "id": "122096",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=122096",
+   "question": "请问现在有下发关于主治医师评审聘用需要规培的文件吗.主治医师聘用需要规培吗.如果医院有各种理由不让医务人员规培该怎么办",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步做好关于住院医师规范化培训有关工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "25023",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=25023",
+   "question": "我们诚挚地邀请您与我们携手合作，共同构建高效设施农业。小神农（寿光市）种苗有限公司已在通辽市本地启动了共建项目，公司引入了大棚产业智能化、环境与节能并重、环保共存的发展理念。",
+   "cited_hits": [],
+   "cited_missing": [
+    "东河区蔬菜产业高质量发展三年行动计划(2024-2026年)",
+    "东河区智慧农业行动计划(2025-2027年)"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "25019",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=25019",
+   "question": "尊敬的各位领导，位于西脑包前街（教堂至富民佳苑小区门口）至今没有路灯，晚上一片乌黑，周围有西二小和包八中两所学校，出于对学生的安全考虑，建议给予该路段安装路灯。",
+   "cited_hits": [],
+   "cited_missing": [
+    "东河区照明设备更新改造项目"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24886",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24886",
+   "question": "尊敬的领导：您好！我是来自中南财经政法大学的本科生，目前正在研究老工业区搬迁改造的相关问题。2014年发改委发布的国家发展改革委关于做好城区老工业区搬迁改造试点工作的通知中，试点地区第4条巴彦塔拉老工业区的东部片区，文件中没有给出其具体位置",
+   "cited_hits": [],
+   "cited_missing": [
+    "包头市巴彦塔拉老工业区改造中的政府职能研究"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24874",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24874",
+   "question": "您好，请问医保当年缴纳的费用就只限于当年使用吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好包头市2025年度城乡居民基本医疗保险参保缴费工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24870",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24870",
+   "question": "请问新生儿是否可以参加城乡居民基本医疗保险？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好包头市2025年度城乡居民基本医疗保险参保缴费工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24858",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24858",
+   "question": "有关领导你们好。我是保利罗兰香谷一名住户，我小区一直使用天然气自行取暖，已有10余年，第一批壁挂炉已经基本到了更新换代的时候。小区必然会陆续出现更换壁挂炉的情况，加上周围还有南海明珠，阳光新城，龙湾半岛等小区，回中片区周边至少2万多户，自行",
+   "cited_hits": [],
+   "cited_missing": [
+    "民法典"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24854",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24854",
+   "question": "11月14日到15日 糖厂雾霾尤为严重 空气有异味 是否与黄原胶生产有关？还是其他工厂污染 黄原胶污染对人身体有很大的影响 附近村庄都是老人 工人长期吸入黄原胶污染对人身体会造成过敏、影响胎儿发育、骨质疏松、体内重金属铅和汞超标 希望有关部",
+   "cited_hits": [],
+   "cited_missing": [
+    "环境影响评价"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24950",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24950",
+   "question": "小孩现在在康复路小学上二年级，家里买房要搬到吾悦和府居住，请问能转学到公园路富力校区吗？转学需要什么流程？",
+   "cited_hits": [],
+   "cited_missing": [
+    "东河区义务教育阶段转学办理工作指南"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24846",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24846",
+   "question": "请问补办结婚证需要准备哪些资料？",
+   "cited_hits": [],
+   "cited_missing": [
+    "婚姻登记工作规范",
+    "军人婚姻登记证明",
+    "婚姻登记工作规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24838",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24838",
+   "question": "因不知情停暖的期限，错过了9.30号！人不在东河家里住的了，还要交2000元暖气费。 房子是买了三年的二手房，希望政府帮忙协调",
+   "cited_hits": [],
+   "cited_missing": [
+    "包头市供热条例",
+    "包头市城镇供热收费管理办法",
+    "包头市供热条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24213",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24213",
+   "question": "东河区今年还有教师招聘笔试吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "东河区2024年公开招聘中小学教师实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24798",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24798",
+   "question": "东河区豪德贸易广场东北区和东南区之间的公共停车场，商户自行摆放电动车，水桶，钢材，路障，私人占用，物业多次协调未果，严重侵害业主的利益，本人诉求清空公共车位。",
+   "cited_hits": [],
+   "cited_missing": [
+    "非住宅物业服务合同"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24169",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24169",
+   "question": "东河区豪德贸易广场东南区9栋26号店铺位置在油封0型圈和顺宝利中间，牌子模糊不清，一个字也看不清，不符合市场监督管理局的规定，本人诉求店铺更换新的牌匾。",
+   "cited_hits": [],
+   "cited_missing": [
+    "非住宅物业服务合同"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24205",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24205",
+   "question": "您好，想请问一下外地户口迁入东河区需要满足哪些条件？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "包头市公安局关于进一步全面推行零门槛落户的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24161",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24161",
+   "question": "请问外地户口迁入东河区需要满足哪些条件？",
+   "cited_hits": [],
+   "cited_missing": [
+    "包头市公安局关于进一步全面推行零门槛落户的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24145",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24145",
+   "question": "区长大人好！拆迁政策你怎么制定的，拆迁就给几十块到上千元一平，你反过来卖给百姓就三千多一平？谁让你制定的压榨百姓的拆迁政策？你不压榨百姓你就难活吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "东河区东兴片区棚户区改造国有土地上房屋征收补偿方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24125",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24125",
+   "question": "当年出生证明上的月份相关发出生证明的部门给我写错了，现在需要修改正确，否则影响我办其他事。这个意见已经是找12345，东河区区长邮箱反应过多次了，到现在也没给解决，东河区卫健委使用座机为04724105191的工作人员，在和我沟通事情的过程",
+   "cited_hits": [],
+   "cited_missing": [
+    "出生医学证明",
+    "出生医学证明"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24141",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24141",
+   "question": "当年出生证明上的月份相关发出生证明的部门给我写错了，现在需要修改正确，否则影响我办其他事。这个意见已经是找12345，东河区区长邮箱反应过多次了，到现在也没给解决，东河区卫健委使用座机为04724105191的工作人员，在和我沟通事情的过程",
+   "cited_hits": [],
+   "cited_missing": [
+    "出生医学证明",
+    "出生医学证明"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24770",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24770",
+   "question": "当年出生证明上的月份相关发出生证明的部门给我写错了，现在需要修改正确，否则影响我办其他事。这个意见已经是找12345，东河区区长邮箱反应过多次了，到现在也没给解决，东河区卫健委的工作人员在和我沟通事情的过程中，工作态度也极其傲慢无礼，不负责",
+   "cited_hits": [],
+   "cited_missing": [
+    "出生医学证明",
+    "出生医学证明"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24762",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24762",
+   "question": "当年出生证明上的月份相关发出生证明的部门给我写错了，现在需要修改正确，否则影响我办其他事。这个意见已经是找12345，东河区区长邮箱反应过多次了，到现在也没给解决，东河区卫健委的工作人员在和我沟通事情的过程中，工作态度也极其傲慢无礼，不负责",
+   "cited_hits": [],
+   "cited_missing": [
+    "出生医学证明",
+    "出生医学证明"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24117",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24117",
+   "question": "当年管理出生证明签发的相关部门给我写错了出生证上的月份，现在需要修改，否则影响我办其他事。这个意见已经是第二次反应了，上次反应上去到现在也没给解决方案，一直是不闻不问的状态，请领导予以解决",
+   "cited_hits": [],
+   "cited_missing": [
+    "出生医学证明",
+    "出生医学证明"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24754",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24754",
+   "question": "大家好！我是家住北梁的一名普通老百姓，北梁拆迁的第一时间，考虑家里老人年事已高，老人房产写名事项，我的父亲询问了拆迁办主任石丽娜意见，主任说只要在老人生前做好公正声明书就可以在办房本的时候顺利更名，听了主任的话父亲赶紧去办回头还拿给主任确认",
+   "cited_hits": [],
+   "cited_missing": [
+    "声明公证书",
+    "民法典",
+    "包头市北梁棚户区房屋征收产权调换安置协议"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24097",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24097",
+   "question": "请问2023年包头市发展和改革委员会政府网站工作年度报表什么时候更新？",
+   "cited_hits": [],
+   "cited_missing": [
+    "2023年政府信息公开年报"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24049",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24049",
+   "question": "东方壹号院的地暖在排气放水之后依然不热，温乎的不到30度，不是已经开始供暖了吗？？",
+   "cited_hits": [],
+   "cited_missing": [
+    "内蒙古城镇供热条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24718",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24718",
+   "question": "我想了解一下这个贫困证明，因为我评学校的励志奖学金，需要这个贫困证明，于是2023年8月25号左右，我向我们村(东河区沙尔沁镇三村),开贫困证明，沙尔沁镇三村负责这方面的人说，今年不能开贫困证明，说除了吃低保的，其他一律不给开，说是今年的新",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于规范贫困证明办理工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24677",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24677",
+   "question": "2023东河区人才引进不允许师范类学校非师范类专业研究生参加考试.东河区教育局人才引进因其公告3山东师范大学至包头师范学院师范类专业全日制本科及以上学历学位应往届毕业生.这一条原因不允许师范类院校非师范类研究生报考.在公告提交材料中3山东师",
+   "cited_hits": [],
+   "cited_missing": [
+    "内蒙古包头市东河区2023年引进高层次和紧缺急需优秀教育人才公告"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24706",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24706",
+   "question": "通知领钥匙2次第一次让叫停了过了没几天又通知过去领钥匙开发商连三书一证一表都拿不出来就能通知业主领钥匙了吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设工程竣工验收备案表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24661",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24661",
+   "question": "物业费是真说不过去全包头市的高端都算上那个小区那个不比绿地西斯莱的各种各样设施齐全服务也好那里有超过2元的东河区的物业费哪个高端小区有超过2元钱的绿地西斯莱公馆配套设施没有合格房产验收报告没有消防设施合格报告没有要啥没有啥于5月30日邮寄快",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设工程竣工验收备案表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23913",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23913",
+   "question": "工业路的六栋楼有没有改造或拆迁计划这个问题一直很长时间没有解决就算是过渡房也一直住也不是办法望回复",
+   "cited_hits": [],
+   "cited_missing": [
+    "东河区南圪洞街道辖区危险房屋居民搬迁工作方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24621",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24621",
+   "question": "这只是作为一个小市民想为政府更好建设一个更好的东河区的一个小小想法如有不对切望海涵诚惶诚恐.想法1.东河区医疗资源可以说是很丰富.所以区级医院生存空间已经很小.病人量少之又少.所以我想的是可不可以将东河区区医院.区中医院.区中西医结合医院三",
+   "cited_hits": [],
+   "cited_missing": [
+    "包头市医联体建设规划方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23873",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23873",
+   "question": "2013年北梁拆迁办动员拆迁了位于居祖庙50号院子的平房换取了北六区一个9楼一个10楼过去10年一直未办理房产证2023年开始办理房产证老人已去世现在不予办理",
+   "cited_hits": [],
+   "cited_missing": [
+    "民法典",
+    "民法典"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23869",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23869",
+   "question": "包头东河事业编考试庞宏宇面试1人进入体检环节1人",
+   "cited_hits": [],
+   "cited_missing": [
+    "2022年包头市东河区事业单位面向社会公开招聘工作人员简章"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23825",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23825",
+   "question": "您好想了解一下今年人才引进什么时候落编什么时候发工资目前走到什么流程了还需要多久",
+   "cited_hits": [],
+   "cited_missing": [
+    "包头市东河区引进高层次和紧缺急需优秀教育人才实施方案",
+    "包头市事业单位人才引进工作办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23837",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23837",
+   "question": "您好.因科研工作需要.向贵单位申请本县区的2012至2021年完整统计年鉴.现有的统计年鉴没有所需环境.就业情况等数据.特向贵单位申请.如能提供请直接发送至邮箱",
+   "cited_hits": [],
+   "cited_missing": [
+    "统计年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24537",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24537",
+   "question": "22日上午突然封控小区.小区南面并无确诊病例.问询社区也无人回复.问询过其他小区也没有封控.我们居民并没有发现政府有关部门发过静默或封控小区的通知.这明显是一刀切层层加码.想问领导知不知情.我们很想正常出入小区",
+   "cited_hits": [],
+   "cited_missing": [
+    "东河区关于继续做好疫情防控工作的通告"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24485",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24485",
+   "question": "包头市公安局东河区分局刑侦队长赵宇2016年违规使用自己的警察证从第三方金融平台集资借款和其配偶李记兰开公司做副业截止目前为止本金一直未能处理1包头市裕达金商贸有限公司,李记兰法人2021年又开了新公司1赵宇和其配偶有能力处理欠款问题往有关",
+   "cited_hits": [],
+   "cited_missing": [
+    "公安机关人民警察证使用规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23741",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23741",
+   "question": "您好我想问下2022年东河区教师招聘公示期已经过了什么时候安排体检呢",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于修订 及 有关内容的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24440",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24440",
+   "question": "办理食宿班营业执照,三天跑了三次大厅.5月30日,打电话后得知需要到现场设立名称,5月31日第一次到业务大厅设立名称,设立后相关工作人员未发放住改营纸质材料.5月31日当天提交相关材料后,6月1日上午初审不通过被驳回,驳回原因为住宅使用的需",
+   "cited_hits": [],
+   "cited_missing": [
+    "内蒙古自治区市场监管综合服务平台",
+    "营业执照",
+    "住所改为经营场所表格",
+    "内蒙古自治区市场监管综合服务平台",
+    "营业执照",
+    "住所改为经营场所表格",
+    "营业执照"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23661",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23661",
+   "question": "绿地西斯莱公馆实验小学项目能准时开学不如果开不了学买房后小孩上学盖如何解决",
+   "cited_hits": [],
+   "cited_missing": [
+    "包头市第一实验小学绿地校区合作框架协议"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23657",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23657",
+   "question": "希望领导们重视一下帮我们解决临时用电的问题督促开发商和物业接入供电网费用我们住户一直在缴冬天了缴费不方便希望可以入供电网",
+   "cited_hits": [],
+   "cited_missing": [
+    "恳请东河区天骄街道向区政府对包头供电局出函的请示",
+    "包头市易通房地产开发有限公司关于恳请东河区人民政府对包头供电局出函的请示"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24367",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24367",
+   "question": "东兴街道原包铝离退处周末能不能开放活动室",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发包头市基层服务服务中心建设实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24338",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24338",
+   "question": "我想咨询一下孩子9月底出生孩子的父亲户口是鄂尔多斯母亲的户口是东河区的如果现在孩子的户口和父亲上到鄂尔多斯等孩子上幼儿园和小学的时候会不会有影响",
+   "cited_hits": [],
+   "cited_missing": [
+    "2021年东河区义务教育阶段学校招生实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23633",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23633",
+   "question": "我是土生土长的东河北梁人由于上学后一直在外地至今无住所东河北梁拆迁没有享受到有关好的政策因此至今都是手提户没有住房恳请有关部门能够解决我的住房问题哪怕在经济能力范围内购买也可以恳请领导关注我的诉求万分感谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "北梁棚户区国有土地上房屋征收补偿方案",
+    "包头市关于加快推行公共租赁住房租赁补贴的实施方案（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23597",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23597",
+   "question": "东河区2021教师招聘规定21届毕业生必须要提供教师资格证才能报名参加招聘考试.本人教师资格认定已经通过,只是教育局证件还在办理中,8月10号才能拿到证,导致现在无法报名.我相信肯定也有其他应届毕业生存在这种情况,希望您能帮忙沟通解决这一问",
+   "cited_hits": [],
+   "cited_missing": [
+    "包头市东河区2021年公开招聘教师简章"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23581",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23581",
+   "question": "道路优化铁路医院北路一中西路路南二街住宅小区俩侧通向每一条小巷子的马路牙子太高有10cm高左右自行车和电动车上下进出很不方便有学生路过时容易摔倒老年人的轮椅更是很难进出希望有关部门实地考擦重新优化一下一打标点符号就格式不符望谅解",
+   "cited_hits": [],
+   "cited_missing": [
+    "2019年包头市城区市政工程设施量汇编"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23569",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23569",
+   "question": "首先.漏水的不是我家.我家楼下无人居住.一楼更也不存在漏水问题.你说的那几个问题跟我家都不牵扯.其次无人联系过我家.从来没接到过社区街道城管电话也好家里走访也好都没联系过我家.你们可以进行调取各种记录.你们通知整改期限我们自己进行了整改.再",
+   "cited_hits": [],
+   "cited_missing": [
+    "包头市城市管理行政执法条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24261",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24261",
+   "question": "既然把我家的家庭详细住址写在回复的留言板上那就继续回复我上一条好吗.防盗栅栏我们已经在期限内改造完成.配合了区政府工作.小区开放商跑了后政府已经接手.房本和道路问题谁能给回复具体什么时候能解决.窗外马路晚上没有路灯漆黑一片旁边粮库和小区相通",
+   "cited_hits": [],
+   "cited_missing": [
+    "市规划房屋产权登记集中治理"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24257",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24257",
+   "question": "首先我们家301底下2楼没人居住.你们确定了解情况了吗.我家防盗栅栏并没有妨碍到一楼二楼商户.具体安装防盗栅栏原因城管也清楚了.要说漏水.开发商跑路后根本没有3楼的下水.三楼下水和二楼房顶的防水都是三楼居民大家集体自己掏腰包安的.二楼想修复",
+   "cited_hits": [],
+   "cited_missing": [
+    "包头市城市管理行政执法条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23557",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23557",
+   "question": "我家住宅小区是小高层.一楼二楼是底店.我家三楼阳台外面是二楼房顶有个大平台.因小区没有外墙紧挨着大马路晚上有大车经过鱼目混杂就围着大平台安装了防护栅栏.城管说是违章建筑要拆除.街道和社区都没提前通知住户城管敲开门就把执法摄录仪打开旁边还有拿",
+   "cited_hits": [],
+   "cited_missing": [
+    "包头市城市管理行政执法条例"
+   ],
+   "has_clause_no": true
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "baotou-igi-21",
+   "id": "234456",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=234456",
+   "question": "我是东河区张楠，现向您反映公租房租赁补贴申请的相关问题，恳请予以帮助核查。 我符合东河区公租房租赁补贴申请条件，已于2025年9月19日，提交全部申请材料，所有资料按照窗口要求准备齐全并上交。近期东河区发布租房补贴公示名单，我认真查阅后，名",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "224217",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=224217",
+   "question": "通过浏览东河区人民政府的政务信息公开，看到东河区住建局于2026年4月份拨付了一笔25年三季度到26年一季度的部分人才引进租房补贴名单，我想咨询一下，25年4季度的人才引进租房补贴预计几月份能全部拨付完毕。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "216136",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=216136",
+   "question": "尊敬的东河区领导： 东河区西南片区（王大汉，回中，保利罗兰，南海公园附近等）一直以来 都是天燃气取暖，既不经济，也不环保，更有安全隐患。如今天燃气价格高涨，后续取暖费用可能面临大幅上升。2026年初，小区物业曾经组织调查居民意愿，是否愿意接",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "212011",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=212011",
+   "question": "我想要买一只娃娃，在闲鱼上发了收物帖子，昨天卖家来找我，说她那边有我想要的娃娃，但是因为她尾火了，需要买家提前确认收货。我查了卖家的主页，看到卖家卖出的东西后，觉得她的理由是有可能成立的，就提前确认收货了。 确认收货之后，卖家出示了顺丰快递",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "207092",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=207092",
+   "question": "请问东河区人才引进的租房补贴发到哪个季度了？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "169551",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=169551",
+   "question": "尊敬的领导！ 目前王大汉，保利罗兰香谷，回中，龙湾半岛，南海明珠等地区，一直没有通大暖，该区域老百姓取暖很是不方便，不经济。今年春节前，有关部分组织物业，社区等，调查居民改造大暖的意见。现在想问问，此事件进度如何，2026会有进一步动作吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "156639",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=156639",
+   "question": "灵活就业人员每次交完费用都开了税票，前几年的（都有税票）4050社保补贴还能享受吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "156607",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=156607",
+   "question": "东河区新建井坪中学(九年一贯制)项目什么时候落地？？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "154659",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=154659",
+   "question": "领导您好 我是商业英语专业应届毕业生，目前正在积极求职，想咨询一下东河区的人才引进政策，以及想进一步了解贵市是否有针对本专业的相关岗位、招聘活动或人才引进政策。 期待你的回复，谢谢你。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "150874",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=150874",
+   "question": "天气转凉，电动车停放进楼梯间的现象又出现了，急需再检查处理一翻，尤其是东河的老楼房。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "150755",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=150755",
+   "question": "本人为东河吾悦和府的业主，当初因开发商宣传的未来小区周边教育资源较全面配套和区政府领导参加井坪中学开工仪式的官方新闻信息我购买了东河吾悦和府，但买房至今，原计划在吾悦和府小区西侧建设的学校的土地在开工仪式举行之后再无动工，成为一片荒草丛生的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "147901",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=147901",
+   "question": "请问在东河区接种乙肝疫苗是多少钱一针？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "147326",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=147326",
+   "question": "请问2024年东河区城乡居民人均可支配收入情况在哪里看可以查看？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "137094",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=137094",
+   "question": "内蒙古自治区包头市东河区绿地西斯莱公馆项目拖欠留言人民工班组工资71000元。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "137067",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=137067",
+   "question": "房管一号楼近20年没水，一直都是断断续续，无法洗澡冲厕错严重影响居民生活 家中老人年迈无法下楼打水求政府重视。当时开发商一整栋楼百户居民用的一趟水 除了一二楼全天有水三四五六就是断断续续来水很细很小无法洗澡压力不够生活严重影响。联系1234",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "122104",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=122104",
+   "question": "房管一号楼近20年没水，一直都是断断续续，无法洗澡冲厕错严重影响居民生活 家中老人年迈无法下楼打水求政府重视。当时开发商一整栋楼百户居民用的一趟水 除了一二楼全天有水三四五六就是断断续续来水很细很小无法洗澡压力不够生活严重影响。联系1234",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "122164",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=122164",
+   "question": "本人张秉承因2025年02月25日，驾驶SUV车辆蒙B120R8通过包头市东河区京包铁路桥洞时德胜泰黄河大桥与京包铁路附近桥洞，因桥洞未达到道路使用条件地面约有1.米深1.5米直径的冰水坑。车辆被困受损。随即拨打122报警求助，并且自行联系",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "122160",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=122160",
+   "question": "尊敬的张区长： 您好！我是包头二中的一名教师，有问题向您求助。 包头二中初、高中现在都极缺物理教师。开学之际，缺少代课的教师，这是一个很紧迫的问题。 关于教师聘用、引进应该考虑学科、年龄结构，并且提前谋划。现在是有的学科人足够富裕，物理学科",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "122156",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=122156",
+   "question": "社区两委工作人员陆续换届，东河区有没有招聘社区工作者计划？感觉东河社区很少招人，这是什么原因",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "122152",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=122152",
+   "question": "于2025年8月5日美团外卖平台下单 的张亮麻辣烫，因有优惠券加上个人身体原因点了很多素菜，价格不高(2 0.98元)外卖到手后因天气炎热吃了几口，发现苍蝇幼卵(蛆)第一时间发现立马拍照反馈给商家，商家道歉后让我去点美团的放心吃理赔配合了商",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "122148",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=122148",
+   "question": "东河区夏日花园小区4号楼楼顶女儿墙外倾严重有随时倒塌的可能，六楼居民家中楼顶水泥脱落砸坏吊顶至屋顶露天，水泥夹层中已经露出钢精且钢精腐蚀严重，水泥用手一扣一块。存在严重安全隐患，因小区没有物业反映到社区和街道没人管，希望东河区负责安全生产相",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "122100",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=122100",
+   "question": "小区污水管漏水。下雨天导致地下车库被淹！物业和住建局不管",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "122144",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=122144",
+   "question": "想问下各区今年都开始招聘社区工作者储备，本区会有相关招聘么",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "122140",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=122140",
+   "question": "你好，请问一下东河区的辖区面积有多大？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "122092",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=122092",
+   "question": "东河区人民政府涉嫌工作失职行为申诉书 包头市及东河区人民政府： 您好！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "122136",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=122136",
+   "question": "请问东河区2024全年地区生产总值是多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "122088",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=122088",
+   "question": "您好，我们是来自中国人民大学的学生，希望来此地开千村百巷活动，了解群众诉求，积极建言献策。调研时间大概为2025年7月28日至7月31日，形式主要为实地调研和发放问卷调查。请问可以得到您这边的允许吗？以及我们可以从您这边得到例如帮忙发放问卷",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "122084",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=122084",
+   "question": "东河区东大桥2号桥由南向北方向是一条单行道，最近总有车辆由北向南逆向行驶，逆向行驶的车辆会干扰正常行驶的车辆，会带来交通隐患。请问相关交管部门，此路段上的违法拍照的探头坏了吗？起不到监管的作用了吗？还是该路段变成双向行驶路段了？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "122132",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=122132",
+   "question": "您好，请问东河区教师招聘有没有高校或普通音乐教师岗位？考试时间大约在什么时候？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "122128",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=122128",
+   "question": "您好，请问东河此次的教师社招，有小学或者初中道法的普岗吗？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "122124",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=122124",
+   "question": "搬来这里一周，每天晚上都有活动，从下班回来到休息就没有停过，而且还不止一个地方有活动，再加上老城区的房子都不隔音，真的很吵",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "122120",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=122120",
+   "question": "请问东河区2025年有没有幼儿教师招聘计划？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "122116",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=122116",
+   "question": "请问东河区教师招聘会和事业单位联考一起组织吗？考试内容为d类吗？普通岗位有英语岗吗？谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "122112",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=122112",
+   "question": "2025年6月6日我请求东河政府给我办理社保，但是东河政府没有答复至今。反而是沙尔沁政府给我答复，请问沙尔沁政府能代表东河政府吗？怎么回事？2025.6.24",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "122080",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=122080",
+   "question": "想问下今年东河教师招聘会有社会招聘么，有美术教师岗位么",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "122076",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=122076",
+   "question": "您好，我是一名高校毕业生，也是一名共产党员。因已经离校，且没有确定工作单位，因此需要将党组织转接与社区党支部。但目前社区党支部以支部面临换届、且无正式书记为由，拒绝我的组织关系转入。想求助这类问题向哪个部门咨询，或者该如何解决。期待您的回复",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "122108",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=122108",
+   "question": "尊敬的领导，本人2024缴纳的居民社保款4050，截止2020年6月也未返款，请问什么时候能返款？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "122072",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=122072",
+   "question": "尊敬的各位领导，位于东门外大街（东河槽以东到河东街道办事处路段），以及转龙藏大街以北，晚上路灯没有开，道路漆黑，特别是位于两条道路交叉口的位置，特别危险；晚上转龙藏公园和南龙王庙有市民活动，很多市民会去参加活动，出于对市民、机动车及其它交通",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "122068",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=122068",
+   "question": "再次请求办理社保申请书申请人郭金良男沙尔沁镇沙尔沁二村村民6区15号甲2号身份证号码150207196407272311电话号码19847366840.15304710606送达地址呼和浩特赛罕区宇泰广场a座14楼 事实及理由我系沙尔沁镇沙",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24914",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24914",
+   "question": "请问东河区英语老师的数量目前是处于饱和状态吗？秋招还有人才引进吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24910",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24910",
+   "question": "申诉人向中央第十巡视组投诉东河区应急管理局涉嫌工作失职渎职及低效率行为。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24906",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24906",
+   "question": "欧艺锦绣苑二期北大门，本月中旬挖开宽半米，长约500的壕沟，现已填补土质，但是没有铺砖和硬化，人家好好的小区大门出入口被不知道谁破坏挖烂，大雨一下形成坑洼，导致车辆轮胎受损，要求尽快恢复原状，保证小区居民正常出行。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "25015",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=25015",
+   "question": "过年期间包头金街招募演出人员，本人在金街演出8天，说当天结工资，结果到现在没给结工资，打12345也没有作用，我就想知道啥时候能给我结钱。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "25011",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=25011",
+   "question": "东河区环城路升力楼底店（人民公园对面），体育福利彩票站店门口违建2根水泥桩，这条路是出行通道，安上水泥桩非常不方便，恳请城管部门迁离水泥桩，恢复原有公共通道。不要侵犯业行人的通行权利。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24902",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24902",
+   "question": "东河区延迟一年上小学是否需要出具任何证明？如果参加部分小学的电脑派位未录取，今年不上小学可以吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "25006",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=25006",
+   "question": "请问东河区目前的耕地面积是多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "25002",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=25002",
+   "question": "东河区铁西街道神龙宿舍2号楼二单元一楼西户居民在自家卧室外面（小区内自行车停放公共区域）堆放垃圾废品，存在大量纸张等易燃物。在天气干燥风大的季节存在火灾隐患，夏天容易产生污染、异味，不利于小区环境卫生干净整洁。希望相关部门可以与其协商，友好",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24898",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24898",
+   "question": "公园存在的问题： 1、管理方面：公园建设有一独立管理处（包括一个院落，一个2层小楼及若干平方），位于包头医学院南门南200米路东，院内房屋发生过扩建情况，是否合理合规有备案；院内长期住人，停放多辆私家车，公园却至少两年没有保安巡逻，院内还养",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24994",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24994",
+   "question": "请问农村自建房办理房产证需要带哪些资料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24894",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24894",
+   "question": "想与王瑞书记就百年老校生存问题进行请示和汇报。感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24990",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24990",
+   "question": "尊敬的张区长： 包头二中现在初、高中都极度缺少物理教师。希望相关部门重视，解决物理教师年龄结构和数量缺乏的问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24986",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24986",
+   "question": "现在毛凤章营剩下的一部分平房今年有拆迁计划吗，因为现在两个老年人在那个地方住，生活非常不方便，没有排水管道，污水都是直接倒在垃圾桶旁边，污水横流，夏季还发出阵阵恶臭，生活环境非常糟糕，他们又不愿意来成都和我们一起生活。期盼这个地方早日纳入拆",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24890",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24890",
+   "question": "请问2025年东河区春招是否还有教师招聘，是社招还是人才引进？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24982",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24982",
+   "question": "东河区人民政府：东河区应急管理局欠广州国测规划信息技术有限公司测绘专款5706000元及利息，恳请东河区人民政府依法支持民企工作，督促东河区应急管理局尽快给予支付广州国测规划信息技术有限公司项目专款150.6万元，以解民企营运周转困难。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24882",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24882",
+   "question": "尊敬的区长：您好！ 东河区锦溪路向南过火车道涵洞的不到1km路，砂石路大掉头，出行极其不便，且有较大的安全隐患，严重影响火车道以南居住人群的出行，希望政府能够给予修复道路，打通群众出行的最好一公里路。万分感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24974",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24974",
+   "question": "尊敬的领导 您好 我是北梁南三区16号楼居民 我们和15号楼有一个多星期了 自来水用不成 电梯也用不成 联系物业 和社区 解决未果 说自来水公司不给修 自来水公司说不是他们管的 不予维修 物业和自来水互相推诿扯皮 一个多星期 没有维修的动作",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24970",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24970",
+   "question": "给区长同志点一个大大的赞，昨天反应了倒垃圾的情况，今天他们就行动起来了，d一天都在倒垃圾！感谢区长同志对老白姓反应情况这么上心，谢谢了。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24878",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24878",
+   "question": "区长同志，眼看就要过年了，可是我们楼下垃圾成堆，垃圾桶损坏了好久也没人管，我的卫生费什么的就没欠过，可这卫生到了年关却特别的差劲了呢？不能到了文明城市检查的时候才突击伪装吧，平常的生活就这么尸位素餐吗？请领导亲自下来看看，老百姓的生活就不能",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24966",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24966",
+   "question": "尊敬的区长: 您好： 我是包头市东河区北梁新区西B区2号楼二单元三零八的居民，我多次拨打东河区东华热电供热分公司客服电话明确告知二号楼低压供暖管网回水不热，希望贵公司能安排工作人员处理此问题，工作人员上门后就是推诿，说208用户把供暖管网接",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24962",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24962",
+   "question": "想问您东河区人才引进什么时候面试，大体有个时间范围吗？因为月底学校有论文答辩，害怕时间冲突来不及参加，本意非常想参加你们单位组织的这场面试，所以想大体了解一下面试时间范围，有个心理准备，时间安排。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24866",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24866",
+   "question": "请问2024年包头市东河区机关所属事业单位秋季人才引进是12月还是1月面试？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24958",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24958",
+   "question": "区长您好，我2011年购买锦裕园小区楼房和车库各一个。买后知道楼房和车库都属于违建，楼房已解决，车库还属于违建，多次反映无果，我是买的二手，卖房者没告诉我是违建，开发商答复告诉卖给我房的人，现在无法解决。我该怎么办",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24862",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24862",
+   "question": "通顺城街与和平路交叉路口和平路9号二楼整天唱歌扰民，影响周边居民休息和楼上正常办公。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24954",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24954",
+   "question": "2024年5月租房补贴材料已经提交并公示完成，给市住房保障中心电话咨询被告知已经批款至区级，想问一下什么时候才能发放或者还有什么流程需要进行。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24850",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24850",
+   "question": "包头市东河区西脑包街道办事处回复文件提出复查申请",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24842",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24842",
+   "question": "2024年包头市秋季校园招才引智事业单位岗位表已于9月30日公布，问下具体公告什么时候出？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24942",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24942",
+   "question": "请问本地区自来水是怎么收费的？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24938",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24938",
+   "question": "东河区图书馆，自习室，夜幕降临之后灯光昏暗，自习室应该是让人们阅读学习，而不是为了省点，那么多灯都打不开，坏的也不维修，很难不让人怀疑是为了省点，但是工作人员办公室灯一直亮着，是不是有些不妥！盼解决",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24930",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24930",
+   "question": "之前反映的鼎泰车库不更名一事，政府反馈比较及时。但是结果不能理解，因为怕有融资纠纷，依然是要求个人之间协议，我们就是单纯的房屋买卖哪里来的金融纠纷。同时个人协议不具备法律效力，后患无穷。望政府针对我们这种正常交易的买卖双方，出台附加条款，予",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24834",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24834",
+   "question": "雅生活物业公司不给业主退押金要求政府部门领导协助要求装修退押金包头市东河区绿地西斯莱公馆",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24926",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24926",
+   "question": "08年在鼎泰购买楼房和车库各一套，2021年交易时公证处只给楼房公证，政策规定地下车库不公证，且当时车库未建好只能私下协议留部分尾款，等建好后一并结算。今年车库可以办理手续，结果不予办理更名，导致现在还没有结算尾款，多次联系买家也一直拖延不",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24922",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24922",
+   "question": "东河区教育局今年下半年会开展人才引进计划吗？应届毕业生想关注一下",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24830",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24830",
+   "question": "东河区财政局对市财政已经下发的人才引进租房补贴推诿扯皮，拒不回应。包头市其他区财政都已将补贴按时发放，东河区财政迟迟不发。因为本人群里多次催促，导致工作人员心怀怨恨，故意拖延本人补贴，而其他人都按时发放。孤立区别对待某些群众，以权压人。以重",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24826",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24826",
+   "question": "东河区财政局对市财政已经下发的人才引进租房补贴推诿扯皮，拒不回应。对待上门访问人员采用恐吓威胁方式处理问题。包头市其他区财政都已将补贴按时发放，只有东河区财政迟迟不发，去年四季度的申请，今年四季度依旧没有消息。群里多次催促，导致工作人员心怀",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24822",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24822",
+   "question": "小区物业费2.5元物业收费标准完全没有达标1门禁系统和安防系统监控一直没有没有弱电无法使用门禁和人脸识别系统业主希望当务之急政府部门给协调解决弱电问题2车库无法使用问题3无法开全款发票问题4小区物业不规范问题小区里建筑垃圾都在3号楼堆积如山",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24818",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24818",
+   "question": "请问峰到和新能源集团刘董事长一行赴内蒙古自治区包头市东河区进行项目考察是真的吗，没有在贵司的新闻上找到",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24814",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24814",
+   "question": "奥宇新城北侧垃圾填埋场每晚违规作业释放毒气臭气，严重影响附近居民身心健康，主管部门放任不管，监管不到位，将毒气臭气问题推到大气压上，解释没有任何说服力，还请区长严查！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24918",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24918",
+   "question": "咨询新建房屋相关问题，位于东河区纬二路欧艺家园锦绣苑。一、小区车库什么时候开始买卖，车库现在处于什么状态？二、20号楼有无大房本，何时可以办理分户小房本？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24810",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24810",
+   "question": "您好，请问东河区井坪中学现在是否开工建设？去年动工仪式后，就一直没有相关消息了，今年有消息说6月份取得施工许可后就开工，不知道现在具体情况如何？有没有具体的、确定的开工建设日期？是否能如期建成使用？望回复，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24209",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24209",
+   "question": "东河区2024年人才引进什么时候公示？2025年6月研究生毕业，希望能参加东河区的人才引进计划。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24165",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24165",
+   "question": "我是包头市东河区全域文旅策划和规划项目策划设计项目的负责人白夏芳。我现就包头东河区文体旅游广电局及局长程彤违规行为：恶意违约打压设计单位的相关事宜向您进行实名举报。2019年8月以来，包头东河区文体旅游广电局陆续获得我司该项目知识产权申报文",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24806",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24806",
+   "question": "不知道政府规划的工期是多久，从五月份开始修路到现在七月初迟迟不完工，进度极其的慢，严重影响市民生活出行及周边商户。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24195",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24195",
+   "question": "请问公积金未正常缴纳会不会影响公积金贷款？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24189",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24189",
+   "question": "您好，请问东河区2024年引进高层次和紧缺急需优秀教育人才是否会到包头师范学院入校宣讲？请问该引进人数是否已满？若还有名额请问如何参加该次引进？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24181",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24181",
+   "question": "尊敬的同志您好！我是内蒙古师范大学的一名研究生，现急需东河区2020年和2022年有效灌溉耕地面积（公顷），农用地机械动力（千瓦），农林牧渔从业人员或第一产业就业人员，化肥施用量（t），粮食播种面积（公顷）这些数据。十分感谢您对于我学业的支",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24177",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24177",
+   "question": "咨询：东河区纬二路北面有一片拆迁后的空地，未来有什么规划，同时新修纬二路西段两边护坡都是土，一刮风影响环境，可不可以进行处理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24802",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24802",
+   "question": "请问，东河2024年有面向社会公开招聘教师的计划吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24157",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24157",
+   "question": "尊敬的领导们好，夏日华庭小区从入住以来小区有一些自有的松树和各类树木，为美化小区做了很大的贡献，由于后来物业撤走后没有人管理，各类树木自由生长，为了美观和更有利树木的存活现在需要将该树木进行修剪，此前向社区反映是否可以帮助修剪，社区反馈是没",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24153",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24153",
+   "question": "需要杨圪楞街道党群服务中心的负责人电话或者邮箱",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24173",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24173",
+   "question": "东河区东一路小学东侧现有一处腾空区，面积约3800平米，处于属盛世社区管辖内，位置处于工业路、环城路、东河西路、巴彦东大街交汇片区中心。本地区老旧小区较多，人员居住密集，社区内没有开放的居民休闲健身广场，居民休闲健身生活缺失，尤其居住在附近",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24786",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24786",
+   "question": "填补根基、翻新重建 或者.按评估公司一平米2000.约144平房屋，再加拆除重建共40万,如果能尽快解决按15万赔偿，水管损坏进而影响春耕、住房、吃水及维修破损水管垫付的资金，以上费用谁来负责，什么时候解决",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24782",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24782",
+   "question": "工业路往南过铁路桥洞后，十字路口，有一个深坑，请相关单位尽快现场检查，修复。一是路面不平影响车辆平稳同行，二是担心会不会哪天有可能路面破损塌方，造成交通事故。防患未然。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24137",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24137",
+   "question": "诉求个人信息：郭明元：150207195704032010，包头市东河区沙尔沁镇公积板村村民，房屋坐落于包头市东河区沙尔沁镇公积板村北区118号，19米长，宽7.6米约150平米的砖瓦房，2022年新农村改造时外墙全部用水泥加固，房屋改造后",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24133",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24133",
+   "question": "诉求个人信息：郭明元：150207195704032010，包头市东河区沙尔沁镇公积板村村民，房屋坐落于包头市东河区沙尔沁镇公积板村北区118号，19米长，宽7.6米约150平米的砖瓦房，2022年新农村改造时外墙全部用水泥加固，房屋改造后",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24149",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24149",
+   "question": "4050的补助为什么还没有返？几个月前说缺材料，补齐以后也一直没有动静，什么反馈都没有，查明以后麻烦回个电话",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24778",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24778",
+   "question": "尊敬的张利军区长，您好！我是一名东河区龙藏新城和风苑小区120商铺的业主，从2022年开始，我的商铺被社区和小区物业无故停水至今，我问小区物业说是地下管道有漏水，导致整体房屋下沉，已经请求社区逐级上报政府，政府会解决问题，但时至今日，仍是无",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24129",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24129",
+   "question": "请问补办身份证需要带什么材料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24794",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24794",
+   "question": "各位领导，工作人员 您好，我是东河区维多利附近的居民，随着天气的转暖，夜市小吃经济发展迎来旺季，维多利6号门的夜市摊贩也增多，消费人员增多，伴随着大量食品的出售，与之出现了食品垃圾。周围在柱子角落下面有且只有一个带盖子的垃圾桶，从消费者的角",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24790",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24790",
+   "question": "请问提取公积金有条件限制吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24774",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24774",
+   "question": "东河区东大桥园林管理处负责同志，您好： 最近看到东河区东大桥西侧原壹品府售楼部及建筑工棚在陆续拆除，拆除后空地能否建设一个五人制足球场和蓝球场，给东河区及周边人民群众提供一个健身活动的场地。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24121",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24121",
+   "question": "小区入住多年一直无法办理房本，之前反映问题说正在跟进，想知道有没有确切时间，可以顺利办理房本。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24758",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24758",
+   "question": "东河区吾悦和府与九曲街地址位置相离很近，政府早些年公告建设该桥路以方便百姓出行，也能促进经济发展，但几年过去了，一直未完成建设，居民来往行走很不方便，想咨询一下什么时候才能建好通行？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24113",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24113",
+   "question": "东河区包头市第二中学2023届高一年级八班，有个石拐15中的舞蹈艺术生来借读，违反教育局制度无学籍人员借读规定。对包头教育资源不公，带坏了风气，请查。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24109",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24109",
+   "question": "东河区包二中有学生违反招生制度规定入校后改专业 东河区包头市第二中学2023届高一年级八班，有个萨拉齐考过来的舞蹈艺术生，违反教育局制度规定不学舞蹈改为别的专业。当初不靠舞蹈艺术科目分是考不到包二中的，按教育局制度规定上了这个舞蹈艺术专业就",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24105",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24105",
+   "question": "临近建筑物拆除导致自家阳台内外墙产生贯通裂缝，给房屋的保温、防水及安全造成隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24081",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24081",
+   "question": "东河区真的篮球馆太少太少篮球场也是特别少 我希望能推动篮球馆设施建设为东河区篮球爱好者提供一个更好的运动锻炼环境谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24101",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24101",
+   "question": "2024年致东河区政府各职能部门 易通花园小区开发商 易通花园小区业主一封信 自2012年买房到现在跨年刚结束的2024年，已经12年过去了！但是房本里的种种问题依然还没有解决！ 首先我想对东河区各职能部门说：因你们疏于管理，导致开发商借代",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24750",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24750",
+   "question": "请问东河区2023年公共租赁住房租赁补贴可以在线上申请吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24089",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24089",
+   "question": "老旧小区自来水管道改造，别的小区都是免费改造，我们每人收500元!更是给我们改造的乱七八糟，自来水管让每家每户走明管，在家里给打孔，瓷砖，墙上都给打烂也不给管，楼梯上也给穿透打孔，楼道里给安装大的供水箱子，阻挡人们上下楼还有逃生!鹿王社区里",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24077",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24077",
+   "question": "尊敬的各位领导： 您好，我是小区的一名业主，我要对我们小区的供暖问题进行投诉。自集中供暖以来，我们小区的暖气一直不热，室温甚至达不到 18 度，下了俩场雪以后，气温下降，家里温度只有15度左右，给我们的生活带来了极大的不便。 在这个问题上，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24746",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24746",
+   "question": "我想请问一下4050的补贴审查是否有新的政策？一直说在审查，但是至今没有一个明确结果答复。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24738",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24738",
+   "question": "东河区邻建路与丽城大街交叉路口，北侧为公园健身器械广场，南侧为大片居民楼，半径一公里内还有幼儿园、学校等场所。每日早中晚高峰期间，均有大量行人（老人、学生等）和非机动车通过此路口。经过长期观察，来往此路口机动车辆斑马线前几乎从不礼让行人且不",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24734",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24734",
+   "question": "您好，想问一下东河区人民政府网站上发布事业单位招聘信息的栏目名称是？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24742",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24742",
+   "question": "欧艺锦绣苑北侧纬二路已完成铺油，但是道路两旁还未进行美化硬化，尤其是进入小区的那一段土路，渣土建筑垃圾堆得很高，请求有关部门处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24065",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24065",
+   "question": "东河区臭水井村平房供暖，今年能供上吗 几月份能供上 怎么收费",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24061",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24061",
+   "question": "您好，请问东河区人民政府2023年财政预算在哪里查找？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24069",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24069",
+   "question": "本人居住小区上个月突然贴出告示说要再次开展供水分户改造，可这个改造早在前几年就因为小区居民反对而停止了。现如今物业没有征求我们意见直接又重启了该工程，本人现在想知道这是政府推进的项目还是小区物业和自来水公司擅自开展的？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24057",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24057",
+   "question": "东河有什么旅游的好地方吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24053",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24053",
+   "question": "请问东河区自来水是怎么收费的？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24045",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24045",
+   "question": "请问一方结婚证丢失，补办需要夫妻双方都去现场吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24730",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24730",
+   "question": "站北路四号桥往东的大棚什么时候能拆啊？这个问题已经困扰了好多年了 到底是什么原因导致拖延了这么多年不能动工？每次回家都得绕着走 修的四号桥也成了摆设",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24726",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24726",
+   "question": "北梁新区南一区的多处供热管道漏水导致无法供热，供热公司、开发商、北梁棚改之间互相推诿扯皮，到现在还没得到处理，请求政府落实责任部门，尽快解决问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24041",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24041",
+   "question": "铁西区邻建路国庆乡居民楼外施工工程大功率发电机噪音太大，严重超标，已经持续一周了，每天早上8点左右开始，晚上6点前结束。老人每天精神差，休息不好，不知道何时才能完工?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24722",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24722",
+   "question": "本人于10月6号晚上去爱民汆饺吃饭，餐具包装上没有标明具体费用，问了员工有无免费的餐具提供，员工说没有，只能用收费餐具，最后收取两元餐具费。餐具强制收费是违法的。我国有明确的规定，餐饮用餐具不得收费。根据食品安全法 第二十七条第五项的规定，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24033",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24033",
+   "question": "你好，我是2021年东河区招聘的老师，现在已经过了一年试用期（事业编），但是个人公积金一直没有缴存，想问下什么时候缴存？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24037",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24037",
+   "question": "东河区恒大翡翠华庭二期，工程未达到交房标准，私自在园区画定停车位，小区大门不让业主走，强迫业主选择物业等一系列行为，严重的损害了业主的合法权益，望政府出面解决，为民做主。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24029",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24029",
+   "question": "领导同志们，区区基建狂魔不能把站北路的井盖处好好修平整吗？所有的井都低于路面陷下去了，整条路没有一个井盖处是平的，开车路过和过陷阱差不多，咚咚跌的肾结石也治好了，还有西脑包大街不能换一种井盖吗？车一压井盖那铛铛的声音太吓人了，那能行呢？细节",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24021",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24021",
+   "question": "区领导您好，因本人已购买比亚迪纯电动汽车，因居住小区无固定停车位，所以不具备安装私人充电桩条件，只能在公用充电桩充电。之前看到党政大楼院内有电动车充电桩，想咨询领导该处充电桩是否可对外服务广大电动汽车车主？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24025",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24025",
+   "question": "（因为一些不可抗因素，请短信联系本人）本人在买到了一款包头市红卫日用化 工有限公司生产的驱蚊 皂，根据农业农村部办公厅关于防蚊驱蚊类产品认定的意见，（只要包装标注驱蚊防蚊字样，无论其成分是植物源性成分还是化学成分，都应当按照农药进行管理） ",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24685",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24685",
+   "question": "请问，近期东河人才引进的教师差不多什么时候体检和政审？应该不会不通知吧？是下学期才上岗吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24017",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24017",
+   "question": "00",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23973",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23973",
+   "question": "想问一下关于4050的具体政策，还有今年的补助还没有下来，是否有了新的政策",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24013",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24013",
+   "question": "反应的包头市东河区东出口自备电厂煤尘环境污染严重问题应该是引起有关部门重视像自备电厂大门一样每一天都清理的干干净净",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24714",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24714",
+   "question": "请问一下需要缴纳多久公积金可以贷款买房.公积金贷款买房还有什么必须条件吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24681",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24681",
+   "question": "东河区北大街中环路和G110国道段道路什么时候可以正式通车",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23969",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23969",
+   "question": "2023年东河区事业单位今年有招聘考试吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23965",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23965",
+   "question": "财政局何时能将款项拨到位发放",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24009",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24009",
+   "question": "今日单位有一个博爱一日捐活动.让职工每人捐款100元.我想询问一下东河区的这项捐款去向.对于帮助弱小我很乐意.但是不明不白的捐就很奇怪.所以特地想咨询一下",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23961",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23961",
+   "question": "通顺西二区9号楼底店饭店将后面一楼居民楼作为后厨每天饭店经营时把门打开并把煤气罐搬到家门外或者单元门前炒底料具有极大的安全隐患且自从饭店开了之后楼道里长期弥漫着难闻刺鼻的味道楼上多家住户蟑螂不断楼道卫生堪忧这种情况下的餐饮未达到食品安全标准",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24710",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24710",
+   "question": "请问养老保险断缴可以补缴吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23957",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23957",
+   "question": "东河区欧艺家园锦绣苑北面的水泥路现在已经硬化,再次铺油什么时候施工?什么时候通车?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24005",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24005",
+   "question": "包头市东河区东出入口由于铝业园区自备电厂燃煤运输造成原110国道两侧及周边严重的煤尘埃污染给周围居民生活严重的环境污染问题希望东河区政府领导处理好人民群众的急难愁盼问题再一次反应问题人民群众的对美好生活的向往就希望从根本上解决煤粉尘对环境的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23953",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23953",
+   "question": "2022年度退役士兵的一次性补助是在什么时候发放看好多地方都已经发了家里面刚好遇到重大事故急需用钱所以得知道一个大概的日期谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24673",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24673",
+   "question": "咨询一下2023年东河区事业单位今年有招聘考试吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23949",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23949",
+   "question": "请问申领东河区居住证需要多长时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24669",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24669",
+   "question": "和平路西小区115号楼六楼供水断断续续经过咨询后供水局回复解决方法一如果其他楼层没有问题就是自己本身问题作为独立居民我并不知道其他楼层有没有问题解决方法二如果其他楼层正常有可能楼层阀门被关闭经过本人排查并没有关闭楼层阀门解决方法三以上都没问",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23945",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23945",
+   "question": "原黄河影剧院现复盛公商会违规搭建舞台造成百姓居民出行不便把进出小区的路口封堵迫使居民只能占用非机动车道出入小区引起出行不便",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24665",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24665",
+   "question": "请问东河区的农区初中有哪些麻烦回复时候说一下具体的学校名称谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24001",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24001",
+   "question": "为什么2022届毕业生已经取得了本次教师资格证合格证并且已经参加认定还不能报考2022年收到疫情影响才会耽误教师资格证的取得啊",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23997",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23997",
+   "question": "要求绿地西斯莱公馆开全款发票绿地既然有实际面积测算说明绿地西斯莱公馆是取得了房管局监察大队的验收合格报告那么就应该给业主开全款发票了业主要求绿地西斯莱公馆开全款发票",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24702",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24702",
+   "question": "业主买的车位每年为什么要交车位管理费",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23941",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23941",
+   "question": "请问目前东河区对外开放供市民免费锻炼使用的户外篮球场有哪几个并且分别在哪里呢谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24657",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24657",
+   "question": "公交车应东兴街道办事处申请进入小区内通行.小区居民对此一无所知.被通知进入.已向交通部门反映无果.公交车进小区.对小区内居民产生很大的噪音污染和尘土污染.小区内有上学的孩子.上了年纪的老人和嗷嗷待哺的小孩中午没办法得到充分的休息.对于楼层低",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23993",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23993",
+   "question": "富力院士庭二期2021年6月30日已交房截止目前2023年6月迟迟未通燃气给居民造成很大的困扰",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24653",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24653",
+   "question": "位于瓦窑沟路21号底店后福瑞花苑东区11号楼的污水管道近半年泄露都没有维修询问相关单位总是以各种理由推脱到现在我家房子下方由于污水积水房子已严重受损希望相关单位落实维修",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24698",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24698",
+   "question": "我是西脑包街道绿苑小区一号楼住户6月9日10日两天1号楼部分住户在没有征求大部分住户同意也没有像有关部门申请的情况下私自大面积过度的修剪小区内的树木甚至私自砍伐一颗几十年树龄的健康柳树致使其死亡其他树木也遭到严重破坏据悉11日还会有一次修剪",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24694",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24694",
+   "question": "东河卫健委行政执法大队大队长柴鹏举..2023年6月2日醉驾被交警查获..区里怎么处理?会不会因为他是党员是领导是公职人员包庇??处罚避重就轻",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23989",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23989",
+   "question": "退休至今不能领取正常养老金待遇",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23937",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23937",
+   "question": "因欠职业年金退休拿不到正常退休工资",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23985",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23985",
+   "question": "关于2020年以后退休教师未领取正常养老金待遇",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23981",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23981",
+   "question": "东河区耐火厂路欧艺家园锦绣苑步梯房产权证不能办理的原因",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23977",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23977",
+   "question": "我是东河吾悦和府的业主,买房时开发商承诺西门马路对面地块将建设公园路小学分校,之后也看到东河区政府发文承诺该分校将于2022年交付使用,然后到现在该分校的建设基本没有动工,请问什么时候开始建设,什么时候可以交付使用",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23933",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23933",
+   "question": "东河区绿地西斯莱公馆不让业主入户验房强迫业主先交钱如同黑社会老大没有房产局住建部等相关部门的任何验收报告",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24649",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24649",
+   "question": "我于2011年在包头市东河区锦裕园小区购买楼房和车库各一套.都属于违建当时购买时不知是违建.从别人手里购买.目前楼房在政府干预下已办理产权.车库产权已经11年了至今办理不了.已向相关部门反映也解决不了.恳请领导解决",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23929",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23929",
+   "question": "东河二号桥路口口下水管堵塞一年店里污水外溢影响小鹿正常经营",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23909",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23909",
+   "question": "2022年12月30日交付使用至今为止没有交房没有下水管没有电没有上水没有暖气没有燃气直饮水楼房怎么住小区绿化也完全不是买房时候说的欧式风格园林绿化不通市政工程的上下水和配套设施业主不可能验收房请市长亲自体察民情监督相关部门早日解决绿地西斯",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23925",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23925",
+   "question": "绿地西斯莱公馆的房子什么时间交付使用小区里的上下水什么时间通小区周边的外环路什么时间修通实验小区什么时间交付使用孩子能上学小区整体的绿化和暖气天燃气直饮水宽带等生活必须设备什么时间入户接通可以正常安全使用",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23921",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23921",
+   "question": "今年事业编招聘吗今年什么时候安排事业编考试呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23917",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23917",
+   "question": "东河区阳光天福小区用电安全问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24641",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24641",
+   "question": "东河区东出口煤尘污染环境已经反应多次但结果还是一样为什么就这样一个问题反反复复就是解决不了再一次向领导反应希望能得到切切实实的解决而不是再回复承诺南无阿弥陀佛",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24637",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24637",
+   "question": "养老4050政策的补贴为什么还没有下来",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24633",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24633",
+   "question": "请问驾驶证到期换证需要哪些材料",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23905",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23905",
+   "question": "小区树木无人修剪严重影响居民生活",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24625",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24625",
+   "question": "你好领导通顺街吉兴小区是否改造",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24629",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24629",
+   "question": "请问异地更换身份证需要多久",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24617",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24617",
+   "question": "目前居住很不方便一河之隔生活用品采购极不方便影响区域的互联互通",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23901",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23901",
+   "question": "领导东河区中级职称什么时候可以打印",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24613",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24613",
+   "question": "今早车辆停放于车位被高空坠物砸烂天窗车顶但环绕一周无一监控据居民了解一年有很多起生活垃圾从高空扔下导致居民车辆出现不同损伤试想如果有人经过连车都可以砸烂人得有多大的危险希望政府可以改善社区安全加大社区监控化信息化智能化",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23897",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23897",
+   "question": "之前说电信3月20号可以通网,到时间了又说目前网络搭建还没开始,最少得一个多月才能通,移动更是没个准信.从去年到现在大家一直在等着办理网络,但迟迟未能等到结果.网络这方面已经多次反映问题,相关部门一直没有跟进解决,不断地延后再延后,这是在糊",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23893",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23893",
+   "question": "东河政府2023年啥时候开始事业单位招聘考试",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24609",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24609",
+   "question": "领导你好.请将来信转至包头市东河区沙尔沁中学处理.我反应.该事业单位在编在职教师杜琴身份证尾号.28232X.违纪违规问题请有关单位及领导按规定调查处理..杜琴老师作为事业单位在职人员凭身份便利获取民间借款.身为事业单位在职人员.作风品行不",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24605",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24605",
+   "question": "东方壹号院小区的网络宽带建设缓慢.建设人员无法给出预计完成施工的时间,不断地拖延大家的等待时间!上次说联通3月10号,移动月底可以完成,但是电信联通截至今日依然没有完成建设,办理网络的工作人员说移动更是月底决定没办法完成建设.请尽快解决,居",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23885",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23885",
+   "question": "东河区教育局的工作人员真的有那么厉害吗.我昨天反应的包头市东河区沙尔沁中学老师的问题.今天就要东河区教育局0476166069的电话给我来电.说我投诉的信息有误.叫我走法律途径.还没等我反驳.啪就把电话挂了.很快啊.我给他回电就不接了.更可",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24597",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24597",
+   "question": "领导你好.请将来信转至包头市东河区沙尔沁中学处理.我反应.该事业单位在编在职教师杜琴身份证尾号.131513.违纪违规问题请有关单位及领导按规定调查处理..杜琴老师作为事业单位在职人员凭身份便利获取民间借款.身为事业单位在职人员.作风品行不",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23889",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23889",
+   "question": "包头市东河区牛桥街第一小学教师石小磊,提供工作材料申请借贷后拒不偿进行举报,有正常收入却借贷不还,品德败坏不讲诚信,该职员还能正常在单位工作,多次将此事反映到单位都是以敷衍的态度来解决,单位领导管理不当,不约束不教育.其本人表示没有人能管他",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24601",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24601",
+   "question": "您好咨询一下包头有没有计划免费给9到14岁儿童接种hpv疫苗呢因为看很多讲解这个年龄接种预防最好但是疫苗很难预约到很多城市地区像是鄂尔多斯也都免费给适龄的儿童接种了这是利民的好事有没有建议过能不能提上日程呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23881",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23881",
+   "question": "东河区福瑞花苑东区11号楼由于污水管道泄漏导致东河区瓦窑沟路21号底店下方井下暖气管道都是污水恶臭难闻且房屋随时有被污水印塌的风险希望相关部门抓紧把我底店下方的污水抽走且对我底店下方被浸泡的暖气管道进行维护",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24581",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24581",
+   "question": "我于2011年在包头市东河区锦裕园小区购买楼房和车库各一套.都属于违建.当时购买时不知是违建.目前楼房在政府干预下已办理产权车库产权.已经12年了至今办理不了.已向相关部门反映但都解决不了目前已不在该小区居住楼房已卖.但车库因无产权证无法出",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24593",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24593",
+   "question": "我于2011年在东河区锦裕园小区购买车库一个.住房一套.都属于违建.住房已解决.车库已经12年了.无法办理产权证.找了12345和住建局.一直都无法解决.希望领导帮助解决.",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24589",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24589",
+   "question": "您好.我要反应的是劝业城内的美容机构.在路边拦下人说帮个忙检测一下皮肤就能走.结果进去之后涂了不知名的东西.不消费就不给卸.如果非要卸脸上出问题就不关他们的事.强买强卖.我说当时说好的检测完就能走.店员说不然怎么能让你进来.很遗憾我没能够录",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24577",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24577",
+   "question": "东河区锦裕园小区购买车库12年了无法办理产权证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23877",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23877",
+   "question": "感谢站铝业园区管委会回复1铝厂两个电厂及监测肯定是达标2是400辆运煤车抑尘管理厂区内也不怀疑但是在入厂前从德胜泰大桥至电厂哪里有除尘管理本人反映的就是这一段3是公转铁非常欢迎另外汽车走南侧新路避开居民集中区更能解决煤尘环境污染",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24585",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24585",
+   "question": "包头市东河区东出入口由于铝业园区自备电厂燃煤运输造成原110国道两侧及周边严重的煤尘埃污染给周围居民生活严重的环境污染问题希望东河区政府领导处理好人民群众的急难愁盼问题再一次反应问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24573",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24573",
+   "question": "实际上有一条从德胜泰大桥到南绕城至铝业园区自备电厂的路关健是需要政府协调交管",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24565",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24565",
+   "question": "我要反应的是包头市东河区东出入口的环境污染问题由于铝业园区自备电厂的燃煤运输严重的污染了从德胜泰大桥到自备电厂的道路两侧及周边居民区严重的影响了包头市东河区东出入口形象和人民群众的生活希望你们能切切实实解决人民群众的急难愁盼问题谢谢你",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24569",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24569",
+   "question": "据包东政办发2020年3号文件内容描述东河吾悦广场配套幼儿园于2021年与住宅同步建成后投入使用并由开发商于1月13日前出具承诺书.请问目前落实到哪一步了.有具体投入运营的时间吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24561",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24561",
+   "question": "东方壹号院的金科物业垄断宽带网络",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24553",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24553",
+   "question": "春节期间物业无人管理导致百多户出现供暖供水故障",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23857",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23857",
+   "question": "有关部门负责人您好,想问一下家中老人72岁,是乌海市户籍,现在包头东河区有购买房产,请问是否能将户籍迁移至东河区,主要考虑以后办事方便",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24549",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24549",
+   "question": "12月份二次网外网管线漏水维修后供回水管线之间无压差无法保证正常供暖室内温度低于供热标准回水管无温度供热外网检查井开挖后未回填未保温无安全标识牌夜间警示灯存在重大安全隐患和热源损耗及外网受低温影响的二次伤害开挖后未恢复路面",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23849",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23849",
+   "question": "您好,因论文研究需要贵区一些数据,2000至2005年以及2018至2021年牧业从业人数.2017至2021年第一产业从业人数.2018至2021年农林牧渔业从业人数.2000至2021牧业产值.2000至2021年草地面积.2021年大",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23845",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23845",
+   "question": "领导你好想咨询一下2022年职称预计什么时候公示",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24545",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24545",
+   "question": "领导您好相信您也本着为人民服务建设更好的家乡为宗旨这里我实事求是和您汇报一个情况包头市东河区图书馆在12.28未在网上公布闭馆通知也没有发布任何信息导致读者跑空过去以后门上挂个锁也没有完全锁读者进去试图寻找工作人员询问情况保安大爷态度恶劣他",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23853",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23853",
+   "question": "咱们东河区人社局办理退休工人退休工资的电话一个都打不通",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23841",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23841",
+   "question": "领导您好,我是一名在校研究生,因研究需要,我想咨询一下2021年东河区的常住人口城镇化率,农业机械总动力数据,感谢您在百忙之中阅读我的来信",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23821",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23821",
+   "question": "站北路西一街小区供暖不热反应过多次找了物业也找了东华热电依旧没人管12345也打了很多次还是没有解决这个小区是老人小区老人特别多冻的很多老人在家里生炉子希望区长能给解决",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23817",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23817",
+   "question": "东河区医保中心哪个电话可以打通我需要咨询门诊手工报销相关事宜",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24541",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24541",
+   "question": "相关部门领导您好.我是北梁新区南四区13号楼居民.今日本小区网格员白婧在微信群内转发关于居民接种疫苗相关通知.本人在群内追问该通知适合哪些人群接种.该社区网格员态度消极回复.自己去问.并随后说出.自己只负责转发.领导要求怎么转自己就怎么转.",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23813",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23813",
+   "question": "领导您好,东河区事业单位面试资格复审为何自资格复审时间结束后一直没有回复,且一直不推进考试时间?根据自治区人社厅于2022年6月下发关于加快推进2022年全区事业单位公开招聘的通知,要求各地区,部门有序推进事业单位云招聘工作近期巴盟,集宁均",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23809",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23809",
+   "question": "924东河区事业单位考试什么时候复试面试啊我看到彼得省份是线上请问怎么办呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24533",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24533",
+   "question": "因为疫情滞留在包头现在小区低风险想返回居住地需要这边的西脑包向阳景苑社区给开具一个居住的证明社区人员不给开表示临时居住人员不给开居住证明现在无法回家请帮忙协调解决",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23805",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23805",
+   "question": "能让包二中高三学生现在开学能全部住校吗封闭管理能保证孩子们不受外界感染有住校的有跑校的这样风险很大",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23797",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23797",
+   "question": "本人双残人员.无固定收入来源.基本丧失劳动能力.父母相继离开人世且家庭困难无固定资产文化水平小学行动不便口齿不清无法从事各种工作希望",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23793",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23793",
+   "question": "你好我因疫情静默期间10月9日至27日漏做两次核酸且非最后一次集中核酸期间并未外出被包头市东河区天骄社区于10月27日赋黄码现已满足三天内三次核酸大筛结果均阴性从蒙健康蒙速办线上申请转码已经48小时无回复咨询市区卫健委与疫情防控部门均回复需",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23789",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23789",
+   "question": "尊敬的东河区领导您好我们是东河区党政大楼停车场管理系统的施工单位我公司于2022年4月与政府机关事务服务中心签订了系统采购合同合同总价为14.8万元并于2022年5月初全部供货并安装调试完毕投入使用至今半年有余政府仍未按合同要求支付该款项我",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24529",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24529",
+   "question": "10月26号市防疫指挥部2022第31号公告补充公告要求杜绝层层加码限制低风险区域外出但到28号我们属于低风险的小区仍然不能出去买菜买药问社区就是等着",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24525",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24525",
+   "question": "东河区第二批无疫小区名单什么时候公布.",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24521",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24521",
+   "question": "站北路南龙王庙街道东河区税务局宿舍楼疫情封了不让买菜之后也没有人管住的大多是老人也没有人告诉他们怎么买菜也没有人送菜老人已经好几天买不上菜饭也不知道做啥今天子女联系才知道已经好几天没菜了也出不去希望能给解决一下没有粮食的问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24517",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24517",
+   "question": "疫情封控失聪老人无药无菜急需救助",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24513",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24513",
+   "question": "我系沙尔沁镇沙尔沁二村村民自己承包的4.67亩地被无端征收没有签订任何协议没有告知任何事情没有收到任何补偿2022年8月我委托律师经律师申请包头东河区政府信息公开才知道自己的地被东河区政府征收没有履行任何合法手续我的律师找村委会村委会说政府",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23785",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23785",
+   "question": "请问申领失业保险金需要满足什么条件",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24505",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24505",
+   "question": "区长您好我是参加9月24日东河区事业单位考试的考生从考试结束到现在已经过去20多天了期间有十一假期又赶上疫情成绩出的慢可以理解我想了解一下这么长的阅卷时间是怎么保证成绩的公平性和真实性的单位采取了什么措施吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24501",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24501",
+   "question": "我想在东河区一些景点使用无人机航拍但是我看基本上东河区整个区域都是禁飞区公民无商业用途可以申请飞行无人机进行景点拍摄吗设备重量小于250g高度处于120m以下如果可以申请的话需要在哪个部门进行申请备案呢麻烦您告诉我流程或者给我相关部门电话谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24497",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24497",
+   "question": "上周的事业单位考试啥时候出成绩",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24493",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24493",
+   "question": "河东镇南二里半村拖欠李金枝我2015年11月至2021年2月工资139308.8元未开且没有积极与我商议工资给付事宜",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23781",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23781",
+   "question": "尊敬的东河区领导..您好..随着国家大力扶持乡村振兴..科技农业成为新的发展方向..我们的鲈鱼工业化养殖项目寻求落地合作..项目名称..工业化智能集成养殖..加州鲈鱼..项目介绍..全封闭式工业化智能集成养殖系统..不需要池塘..平地即可养",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23777",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23777",
+   "question": "考生所在居住地突发疫情成为疫情高中风险区全员封闭无法参加24至25日东河区事业单位考试由于此客观原因能否申请考试费用退款",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23773",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23773",
+   "question": "西脑包后街空地何时开发治理一直空置至今墙根下面尿屎遍地影响文明城市形象希望政府早日开发利用该空地给周边居民一个干净的居住环境",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23769",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23769",
+   "question": "河东镇南二里半村拖欠李金枝2015年11月至2021年2月工资139308.8元未开且不积极与我商议工资给付事宜",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23765",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23765",
+   "question": "东河槽4号桥站北东路多会修通到南四区每次去火车站都舍近求远说了很多年了一直没有实现请问2022年8月份有没有最新的进展谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23761",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23761",
+   "question": "2022年东河区事业单位报名已结束请问笔试时间具体在什么时候公布呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24489",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24489",
+   "question": "17栋小区业主私自搭建房屋周末施工扰民",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23757",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23757",
+   "question": "路灯不亮了出行不方便,之前也给有关部门打过电话说是过段时间来修,可是已经过了一个月了还没有亮,麻烦帮忙解决一下,谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23753",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23753",
+   "question": "东河篮球场太少希望来东河区多建立几个篮球场满足居民体育运动需求",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23749",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23749",
+   "question": "我公司受东河区公安分局委托对404专案所涉及房地产进行评估至今评估费仍未得到落实",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24481",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24481",
+   "question": "工作人员您好请问铁一中和铁二中会近期会搬回到原来的地址吗也就是原铁工校的地址",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23745",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23745",
+   "question": "二里半拆迁给的铁西土二楼可以办房本了吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24476",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24476",
+   "question": "2022年事业单位招聘公告何时发出",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24472",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24472",
+   "question": "请问铁西街道公安楼下面的毓秀幼儿园有没有人管我投诉了黄河云好几件事都不予受理门口定死的护栏影响整栋楼消防安全举报了高空坠物后只安装了一半防护网而且我查阅过相关文件是那个关于支持规范微小幼儿园发展的文件上面明确要求不能在铁道附近而这栋楼离铁道",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24468",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24468",
+   "question": "您好我想问下东河区教师招聘进入了考察期的话我是不是就得辞掉当下的工作了因为我当下的工作还没有办理辞职我怕因为没有辞掉工作而造成考察没有通过还是说等考察结果出来公示了以后辞掉也来得及",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24464",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24464",
+   "question": "东河区是否有公益性质的足球场对公众开放?南海公园西面的足球场如何预约?收费标准是?谢谢!",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24460",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24460",
+   "question": "请问东河区有哪些公立医院?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24456",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24456",
+   "question": "请问东河区有公租房吗,什么时候可以申请?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23737",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23737",
+   "question": "近年来包头市各旗县区社区均已经实现公开招聘的方式招录社区人才东河区能否也使用公开社会化的考试方式公平竞争择优录取提高东河区基层服务力量为东河区文化振兴乡村振兴经济振兴积蓄人才",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24448",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24448",
+   "question": "尊敬的东河区政府领导我于2020年购买吾悦和府小区1期商品房考虑到东河区经济发展趋势附近学校资源优势因此购买但购买后孩子无法就近转学东河区吾悦和府大批家长多次与东河区教育局沟通市教育局沟通无果有如下两个回复第一东河区教育局表示等通知现无法确",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24444",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24444",
+   "question": "尊敬的领导,您好!我了解到6月3日,国务院已发布通知,在沪大学生返乡若有学校开具的证明且符合要求的可以不进行集中隔离,只需七天健康监测,地区不可层层加码,同时包头发布公众号也有同样的通知.而我今日致电东河区疾控指挥部得到回复是并未收到相关政",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23733",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23733",
+   "question": "请求审批404专案涉案房产评估费用",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24436",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24436",
+   "question": "孩子要上包一中孩子要就近入学",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24428",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24428",
+   "question": "我于2022年5月1日到南圪洞社区卫生医院询问是否有九价hpv疫苗;医院工作人员只告知关注其公众号;并没有告知是否有九价疫苗.在5月26日;我于另一社交平台刷到了一位网友在5月16日于南圪洞社区医院的播种九价hpv疫苗凭证;但社区医院公众号",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23729",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23729",
+   "question": "您好,我是上海市松江区东华大学的大四学生,已在学校宿舍隔离近八十天,在校期间每天一次核酸且一直是阴性,目前由于学校不允许毕业生留校正准备返家.但是在咨询隔离政策时,我家的居委会给出的文件表示松江区属于社会面清零区,只需要居家隔离三天,核酸两",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23725",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23725",
+   "question": "东河区广场管理是针对所有广场还是个别广场为什么有的广场可以摆摊有的确不可以摆摊控制摆摊无非就是影响卫生破坏广场环境但是如果摊位不影响环境卫生可以摆吗疫情刚刚稳定下来前几年中央也在大力支持地摊经济这个夏天快到来了希望政府可以继续放开政策让经济",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24424",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24424",
+   "question": "东河区福瑞花苑东区瓦窑沟24号底店杨氏稍麦馆私搭乱建行为0在原房产的基础上另外搭建了一个厨房卫生间0并且在我家后墙私自挖洞私接三项电0露天电线围绕着我家0对我家房子造成极大安全隐患0希望政府可以解决",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23721",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23721",
+   "question": "感谢东河区杜副区长对我女儿等三个集中隔离的大学生的关心和照顾谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23717",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23717",
+   "question": "东河吾悦和府交房一年未履行建设车棚和充电桩承诺,不按最初向政府备案的图纸建设车棚,开发商交付房屋时应当配备建设好的车棚和充电桩,目前开发商将不该征求意见的事项增加了大部分业主重新确定车棚位置这一步骤.由于小区业主的认知和各自利益需求不同,经",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24420",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24420",
+   "question": "东河区吾悦广场与我签订合同前对我进行虚假承诺诱导签署合同存在欺诈行为东河区吾悦广场一楼消防通道公共区域设点经营商铺以及存放可燃物影响市民安全存在火灾隐患根据商业综合体消防管理条例有顶棚的步行街上中厅扶梯下方不允许存放可燃物以及设点经营商铺",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23713",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23713",
+   "question": "位于东河区胜达小区南侧的河东乡楼不动产产权何时能办",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24412",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24412",
+   "question": "房屋建筑遮挡",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24416",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24416",
+   "question": "1请问2022年包头东河区教师招聘公告预计最早会在几月份发布2请问2022年包头东河区教师招聘会限制学历取得方式吗会限制非全日制考生报考吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23709",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23709",
+   "question": "本人母亲在4月5日拨打5161100客服电话要求将天然气表换一下位置.至今没有派人来.本人母亲已经在5.7.10.11.13日多次拨打电话.天然气公司均以已经报备为由推诿.请天然气公司尽快安排处理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23705",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23705",
+   "question": "耐火厂路南段路灯不亮,影响附近小区住户出行.望政府予以解决.2020年11月有人反映此问题,政府回复说因天气冷,不方便施工,等2021年天气变暖再施工.之后一直没动静.后有人反映,2021年9月回复耐火厂路南段路灯之前由于副食品厂路全段未贯",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24404",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24404",
+   "question": "请问东河区现在可以办理大型宴会吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24400",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24400",
+   "question": "区领导;你们好;上次我们反馈的东河区海岱村占地补偿问题,沙尔沁镇政府给我们的反馈是;经与辖区镇政府核实;海岱村于1995年开展了土地承包到户工作;涉及反映人人户应分土地为3.9亩;因其一等地分配时位置偏离;出现分配不均情况;村委会结合实际情",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23701",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23701",
+   "question": "您好我是来自包头市东河区原二中队后西麻地的居民这里紧邻远大副食蔬菜批发市场北梁新区东河区办证大厅人流量巨大且在图纸上属于医院规划建设区而却被绿布遮挡这一片居民区再无人问津一来这里断水十几年二来基础设施不全厕所破败满溢生活环境脏乱差且无法办理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23697",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23697",
+   "question": "这地方已经没水十几年了厕所就破砖垒起来的都满出来了还办不成宽带上网课也没法上家里要是没人半天油都能冻了一直说要拆迁但好几年了得不到解决只等来围栏一围除了打扫了垃圾再没动静疫情防控政策都照顾不到这边人打疫苗啥的都靠住小区的人告诉去年甚至因电路",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24388",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24388",
+   "question": "关于东河区商贸服务业创业园区场地补贴政策丶具体的场地位置如何划分丶巴彦塔拉大街北利郎路西是否有补贴场地丶望有关部门回复",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24392",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24392",
+   "question": "东河区新兴大厦丶区房管局丶公园路小区位于包头市中心医院十字路口北平时共用出入口为进出双车道丶而私家车经常占用道口丶使双向车道变单句而造成拥堵丶近而使中心医院十字路口瘫痪丶负责此区域的交管部门也了解此情况丶可没有具体解决方案丶个人建议启动此处",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23693",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23693",
+   "question": "旧南绕城公路没有清晰行驶标示线和少数局部路段沟洼及时修补",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24383",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24383",
+   "question": "请问可以去哪里查询城乡居民基本养老保险缴费明细",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23689",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23689",
+   "question": "南六区的15层以上自来水整天停水得不到真正解决",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23685",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23685",
+   "question": "尊敬的领导,您好关于包头市北梁棚户区搬迁改造领导小组现场指挥部职员贾宏伟150202198207122711,在2019年06月24日于我司阳光保险借款逾期至今曾为归还全部款项,关于包头市发布清收公职人员的不良贷款公告,作为公职人员借钱不还",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23681",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23681",
+   "question": "1月6日下午给残联打电话问能不能取残疾证残联说可以1月7日我去取残疾证工作人员说系统坏了要去修现在1月十号了还没有修好怎么办我现在非常着急不能在拖了急急急在等两天医保办理都误了非常急",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23669",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23669",
+   "question": "请问在东河区河东街道开一个小餐馆需要办理哪些证件",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23677",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23677",
+   "question": "请问外地户口可以申请东河区的公租房吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24375",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24375",
+   "question": "2017年东河区小学教师招聘后并未按照招聘时的承诺给予教师编制希望得到政府妥善解答和处理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23665",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23665",
+   "question": "连续打了好几天电话无论几点都是打通了却没人接听的状态导致我们没法正常咨询预约只能一趟趟跑过去问到最后也是白跑一趟打不着疫苗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24371",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24371",
+   "question": "易通花园小区拆迁8年未安置0多次与开发商沟通都以各种理由推脱0去年年底说今年开春盖房子0可是今年完全没有动工的迹象0我想问一下政府我们何时能住上自己的房子0房子何时可以动工",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24363",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24363",
+   "question": "东河区政府棚改指挥部给我们北梁拆迁户享受的一次性水电暖补贴3600元5年了现在都没给",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23653",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23653",
+   "question": "河北村2022年怎么规划的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24359",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24359",
+   "question": "请问公职考试信息在哪里可以查看",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24355",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24355",
+   "question": "请问外省的医保卡可以在东河区的医院使用吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24351",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24351",
+   "question": "现在去东河区要提供核酸检测报告吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24347",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24347",
+   "question": "包头市看守所迁建中腾空后附近居民区是否有改造计划今年区政府煤改电计划中此区域改大暖还是电暖",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23649",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23649",
+   "question": "今日中午12.50.分位于东河区公二街家中来了一个收费人员态度恶掠大中午咚咚敲门开门后骂骂唧唧不知道是来收费的还是来要账的大中午谁家没个孩子敲门不会敲土匪吗一个女的还如此态度真不知道是哪个街道办雇佣的人才收个费整的就跟欠她多少钱一样嘴巴那么",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24342",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24342",
+   "question": "领导.面粉小区的车有很多不是本小区的每天回来自己家都没地方放车都是维多利华府的车能想办法解决一下吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23645",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23645",
+   "question": "去年办理停暖已经缴费有凭证但是供暖公司没有在开始供暖前来关阀门停暖今年继续办理停暖时让补缴去年供暖费非常不合理并且多次反映后一直拖延至今不给解决导致今年的停暖也无法办理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24334",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24334",
+   "question": "四年了一东河区拆迁户的保利罗兰象谷房本还没下来一同样的其他花钱买的保利罗兰香谷房子房本下来了一是歧视拆迁户吗一到底问题出在哪儿了一东河区政府管不管",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24326",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24326",
+   "question": "想问一下什么时候可以给和平路东四区12号楼修一修路面小区院里路面全是坑附近的小区好像都已经修了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24322",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24322",
+   "question": "摩尔城住宅12号楼至今未供暖咨询热力公司得到回复是需要与开发商沟通对接用户信息手续后才能供暖但多次联系开发商后都以出差为由不配合沟通导致现在仍未供暖咨询开发商得到回复是手续已经提交给热力公司至于为什么不供暖要找热力公司两家公司互相推诿扯皮不",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23641",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23641",
+   "question": "供热几天了家里一点儿温度没有暖气管道冰冰凉不知道能不能解决一下民生问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24318",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24318",
+   "question": "包头市东华热电不给办理停暖业务",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23637",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23637",
+   "question": "东华热电不给办理供热停暖",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24310",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24310",
+   "question": "东河区财神庙西小区,总共有11栋楼房,其中在中间的5栋楼房,一楼住户在楼前统一圈地违建自家院子,楼顶私搭乱建,这么短的时间回复如此迅速,是否也存在懒政,怠政的问题呢?有没有实地调查,有没有联系从规划到建设在到地下管网各环节主管单位,违建的院",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24314",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24314",
+   "question": "因为和平街道办事处的不公正执法.没完没了的欺负一个七十多岁的老头.导致我媳妇受到惊吓做了流产手术.希望领导可以看到比留言替我们全家人申冤做主.",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23629",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23629",
+   "question": "耐火厂路南段路灯不亮,影响附近小区住户出行.望政府予以解决.去年11月有人反映此问题,政府回复说因天气冷,不方便施工,等今年天气变暖在施工.现在马上天气变冷,请问什么时候施工",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24306",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24306",
+   "question": "东河区财神庙西小区,总共有11栋楼房,其中在中间的5栋楼房,一楼住户在楼前统一圈地违建自家院子.问题之一是,私自违建将一部分公用设施阀门井圈入院内,致使维护维修困难,经常浇水种地,也减少了设备设施使用寿命.问题之二是,公共用地减少,停车异常",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24298",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24298",
+   "question": "1夏日华庭路面塌陷多年没人管2今年是否谁对小区进行下水改造3外墙保温漆料脱落严重应该谁负责任4社区就是单纯的给予路面摸了一层薄薄的水泥应付检查导致雨水留不出去浪费人民钱财还堵心",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23625",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23625",
+   "question": "东河铁西小区杜改云回家掉入施工井",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24302",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24302",
+   "question": "七月二十九日和平路街道组织参与挖完市二建凉房之后我家的后墙裸露在外.因为是很多年前的土墙经过两场雨之后出现坍塌现象.后我的父亲去找和平路街道反应情况.以不是他们挖的为借口不予办理和理会.后我们自己为了保住房屋不再出现继续坍塌我们自己进行加固",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24293",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24293",
+   "question": "毛凤章前几年拆迁大多数人都过上了好生活可是东村一片至今未拆房屋已经多年没有修缮也没办法进行修理已经挺不住要摇摇欲坠了想问一下是否还有拆迁的计划",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24289",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24289",
+   "question": "首先我不接受和平街道办事处对于我的问题的解答.因为并没有如实调查和汇报7.29日市二建拆凉房导致我房屋后墙裸露因是几十年的土墙事隔半个月也不见和平街道以及有关部门及时维护.再加上下雨眼看即将塌陷.我们的生命和财产受到严重的威胁.我父亲去问缘",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24285",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24285",
+   "question": "老房危房即将塌陷老人孩子以及个人财产受到危害居委会不管不顾为了提高别人的幸福美好生活把我们全家人的生命安全置之不顾把责任全都怪在我们身上视频证据我也有希望区政府能够核查实情还我们家一个公道",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23621",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23621",
+   "question": "公职人员贺九文在交通事故中负全责但是不履责",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23617",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23617",
+   "question": "新兴大街西市场76号因为拆凉房把我房屋土培后墙裸露下雨导致我房屋后墙整体下沉地基坍塌现在房子里还住着我的父母和我未满周岁的孩子一共五口人我们的生命随时都在受着危险希望有关领导和部门能够看到敬上",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23605",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23605",
+   "question": "包头市东河区西脑包前街12号楼路北农行楼",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23613",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23613",
+   "question": "作为人数较多的小区之一无运动场地成为其诟病之一希望能修建运动场地促进居民的锻炼保障居民的健康",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23609",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23609",
+   "question": "领导您好,想咨询一下,对于老旧小区改造,拆除凉房会有资金补偿吗,如果有的话.具体估价标准是什么呢?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23601",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23601",
+   "question": "尊敬的领导你好.我是公二街北面铁工校宿舍楼的住户目前街道办要求拆掉凉房补偿800元但是我们的房子是70年代盖的并且自带凉房有房本此行为是政府行为还是街道办行为补偿标准是否合理街道办说是为了三供一业为啥前两个月修路时候不从楼房前面铺设管道请说",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23593",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23593",
+   "question": "老旧小区改造,前段时时间康乐小区都给硬化了,但是旁边附新10号楼小区里路面破损严重,进出小区门东西口大门都已坏,5月份社区通知说要硬化小区路面至今没有消息,为什么把我们小区搁置在一边了呢?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24281",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24281",
+   "question": "2012年东河区教育局欠我公司110万元设计费,拖欠五年后于2017年改由东河区财政支付,并协商转借给包头市东河区城市基础设施投资开发有限公司无息使用三年.我公司与包头市东河区城市基础设施投资开发有限公司的借款合同于2020年7月14日到期",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23589",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23589",
+   "question": "你好领导我家铝厂砖瓦厂有套平方周围基本上都拆了为啥没人管的房子啊一去拆迁办就说让等着一等就没影了麻烦领导给我做主",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24277",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24277",
+   "question": "咨询一下,老旧小区改造,景龙苑2号楼小区内的路面有许多破损的地方,有一个污水井盖的旁边有很大一个洞,上个月小区南面的空地已经硬化,小区门口的路面也硬化了,难道小区里面的路面不给硬化了吗?其他小区都已经硬化.为什么把我们小区搁置在一边了呢?恳",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23585",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23585",
+   "question": "三年了没拿到执行款",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23577",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23577",
+   "question": "文件公示公园路小学井坪校区拟今年9月开学什么时候开始公园路小学井坪校区呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24273",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24273",
+   "question": "请问西脑包绿园小区5号楼南面车库是违章建筑吗为什么这么多年还无法拆除现正在修路把违章建筑和老旧小区小凉房拆除给市民建个活动广场不好吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24269",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24269",
+   "question": "想咨询一下老旧小区家装电梯的事",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23565",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23565",
+   "question": "往王大汉走的那个方向的二里半路实在是没法走了.一下雨全淹了.好几年了.希望处理一下.公交都过不去了.又烂又积水的.本来好好的一条商业路.经常有去南海拍结婚照和去南星都过不去.回中上学的孩子都困难.父母送都过不去.希望政府重视一下.谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23561",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23561",
+   "question": "你好我是一名双非院校王牌专业的硕士研究生明年毕业考虑回包工作请问东河区和包头市有没有配套的相关就业政策和岗位想做一个长远的职业规划",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24265",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24265",
+   "question": "您好,我是今年毕业的一名大学生,现学校要求转接团组织关系,想问一下河东街道流动团员团支部的联系方式,谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "24253",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=24253",
+   "question": "包头市东河区中医院每周三四五下午为辖区儿童接种疫苗5月26日通知因新冠疫苗接种任务而停止10天不接种儿童疫苗但是新冠疫苗没有苗让等通知为什么不能在新冠没有疫苗的时候继续接种儿童疫苗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23553",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23553",
+   "question": "巴彦社区工作人员在未进行任何通知的情况下破坏私有财产要求恢复原状提出诉求后没有任何回复",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "baotou-igi-21",
+   "id": "23549",
+   "url": "https://www.baotou.gov.cn/IGI/nbhd/openGovmsgbox.do?id=23549",
+   "question": "东河区可以修一个滑板场吗昆区的滑板场太远了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

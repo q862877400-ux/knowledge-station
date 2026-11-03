@@ -1,0 +1,526 @@
+{
+ "A_考卷": [
+  {
+   "source": "sc-luzhou",
+   "id": "13037",
+   "url": "https://www.luzhou.gov.cn/LetterBox/13037",
+   "question": "契税缴纳政策咨询\n本人在泸州市合江县现有两套住房，一套父母住（乡下无房，进城居住），一套自住（两个孩子），8月在泸州市江阳区购买一套期房，已网签，办理了按揭贷款，合同上是2026年12月交房。目前经济压力大，准备卖掉一套房，只剩下一套，减少",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国契税法",
+     "lib_no": "契税法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-luzhou",
+   "id": "13011",
+   "url": "https://www.luzhou.gov.cn/LetterBox/13011",
+   "question": "关于巧越牌核桃花生奶复合蛋白饮料是否合格的问题\n巧越牌核桃花生奶复合蛋白饮料下乡销售，但是老人不懂成分以及食品安全检验标准，所以特此提出，希望查证产品是否合格及合法销售，以及对后续结果公示。另外，本人有产品附图，但是这个信件不能附图，也是一",
+   "cited_hits": [
+    {
+     "name": "食品安全国家标准 食品添加剂使用标准",
+     "lib_no": "GB 2760-2014",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "营业执照",
+    "食品经营许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-luzhou",
+   "id": "12877",
+   "url": "https://www.luzhou.gov.cn/LetterBox/12877",
+   "question": "泸州主城区江湾城小区中间的铁路半夜鸣笛严重扰民\n泸州主城区江湾城小区中间的铁路半夜鸣笛严重扰民，每天23点到第二天凌晨4点有四五趟火车经过，并且发出刺耳的鸣笛声，让家有老人和小孩的住户时常在梦中被惊醒，让人苦不堪言。\n为有效控制城市交通噪声",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国铁路法",
+     "lib_no": "铁路法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国噪声污染防治法",
+     "lib_no": "噪声污染防治法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "国务院办公厅关于印发交通运输领域中央与地方财政事权和支出责任划分改革方案的通知",
+    "铁路技术管理规程"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-luzhou",
+   "id": "11815",
+   "url": "https://www.luzhou.gov.cn/LetterBox/11815",
+   "question": "农村危房改造政策咨询\n《中共中央 国务院关于推动城市高质量发展的意见》中提到“稳步推进城中村和危旧房改造，支持老旧住房自主更新、原拆原建”。我家在纳溪区大渡口镇光明村4社，户籍响应推动城镇化建设的有关政策已转成城镇户口，无农村户口。有唯一一",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国土地管理法",
+     "lib_no": "土地管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "中央农村工作领导小组办公室 农业农村部关于进一步加强农村宅基地管理的通知"
+   ],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "sc-luzhou",
+   "id": "13193",
+   "url": "https://www.luzhou.gov.cn/LetterBox/13193",
+   "question": "公费师范生随配偶调动问题\n尊敬的各位领导：\n您好！我是一名省属公费师范生，于2022年在泸县参加工作；我的配偶也是省属公费师范生，于2022年在达州参加工作，根据川教函2020【434】号文件，公费师范生可以调动到配偶所在市（州）参加工作。",
+   "cited_hits": [],
+   "cited_missing": [
+    "四川省教育厅等四部门关于做好省级公费师范毕业生就业管理工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-luzhou",
+   "id": "13178",
+   "url": "https://www.luzhou.gov.cn/LetterBox/13178",
+   "question": "咨询叙永县被征地农民社保安置政策\n已年满60周岁农村妇女，未参加城乡居民养老保险，因修高速公路，仅部分林地（非耕地）被占，是否可纳入社保安置？希望得到明确答复或相关政策解释，而不是让我向某某部门咨询。",
+   "cited_hits": [],
+   "cited_missing": [
+    "泸州市人民政府关于印发泸州市征收农村集体土地补偿安置办法的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-luzhou",
+   "id": "12383",
+   "url": "https://www.luzhou.gov.cn/LetterBox/12383",
+   "question": "关于新能源汽车申领补贴相关问题\n致相关负责同志：\n\n我特此书面反映在申请本市新能源汽车购车补贴过程中遇到的诸多问题，并希望对相关服务与流程提出投诉。\n\n投诉事由一：申请材料要求不明，审核标准令人困惑\n我于2025年11月20日通过“新能源惠",
+   "cited_hits": [],
+   "cited_missing": [
+    "泸州市2025年新能源乘用车推广应用促销活动实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-luzhou",
+   "id": "12373",
+   "url": "https://www.luzhou.gov.cn/LetterBox/12373",
+   "question": "泸县华油天然气有限公司违法经营，请查处\n2025年7月9日，我母亲向燃气公司申请安装天然气，并于2025年9月8日向燃气公司缴纳安装费6000元，燃气公司以“从主管道到用户家中这段距离需用户自行挖沟埋设管道”为由拒绝施工，根据相关法律规定，",
+   "cited_hits": [],
+   "cited_missing": [
+    "天然气安装申请表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-luzhou",
+   "id": "11668",
+   "url": "https://www.luzhou.gov.cn/LetterBox/11668",
+   "question": "大学生就业创业\nQ1：大学生创业有哪些补贴，应该如何办理？\nQ2：灵活就业大学生如何自行购买社保/公积金？",
+   "cited_hits": [],
+   "cited_missing": [
+    "外国人永久居留证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-luzhou",
+   "id": "11586",
+   "url": "https://www.luzhou.gov.cn/LetterBox/11586",
+   "question": "江阳区安置房物业收费标准及依据\n经咨询市发改委，江阳区江南新区八区匠心玉桂园系泸州市茜草片区工矿棚户区改造项目，建设的是安置房（泸市发改投资【2013】474号文件）。本人系茜草片工矿拆迁安置户。请问该安置房前期物业费应该是按什么标准收取，",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于规范住宅物业服务收费管理有关事项的通知",
+    "关于保障性住房高层电梯物业服务收费指导价标准的补充通知"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "sc-luzhou",
+   "id": "15046",
+   "url": "https://www.luzhou.gov.cn/LetterBox/15046",
+   "question": "泸州市乒乓球裁判证考取通道\n您好！我是一名就读本地的非体育专业学生，希望在泸州市报考乒乓球裁判员证书。我在网络上检索相关公开信息，暂未查询到泸州市乒乓球裁判员等级考核的报名通知、报考条件、培训考试渠道等相关内容。\n \n特此向贵单位咨询：泸州",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-luzhou",
+   "id": "15025",
+   "url": "https://www.luzhou.gov.cn/LetterBox/15025",
+   "question": "泸州银河左岸音乐节\n是否可以将蓝田机场现在外圈围墙更换为水泥转墙，然后学习石家庄摇滚文化之墙进行彩绘",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-luzhou",
+   "id": "14883",
+   "url": "https://www.luzhou.gov.cn/LetterBox/14883",
+   "question": "关于请求优化泸州十二中方向公交线路的求助信\n我是家住泸州市锦绣山水小区的一名学生家长。我的孩子将于2026年9月入读泸州市第十二初级中学校(地址:龙马潭区金带路173号)。锦绣山水小区与泸州十二中之间目前无直达公交线路。孩子每天上学需多次换",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-luzhou",
+   "id": "14892",
+   "url": "https://www.luzhou.gov.cn/LetterBox/14892",
+   "question": "白泥综合能源型加油站何时修建\n尊敬的泸州市各位领导及古蔺县各位领导\n我是古蔺县白泥镇本地居民，一直关注白泥加油站的建设情况，盼加油站早日修建完成，方便加油更省时间，去加油更快，看到之前预计2026年5月拿到省厅批复，现7月了该加油站没有更新",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-luzhou",
+   "id": "14877",
+   "url": "https://www.luzhou.gov.cn/LetterBox/14877",
+   "question": "占道经营且噪音油烟扰民\n江阳区滨河广场一元烧烤，违规占道经营，且经常经营至凌晨2、3点，存在噪音油烟扰民。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-luzhou",
+   "id": "14786",
+   "url": "https://www.luzhou.gov.cn/LetterBox/14786",
+   "question": "关于加密市区至云龙机场公交班次及优化车型的建议\n本人计划在中考后坐飞机去深圳体验美好的度假生活，但是，\n目前泸州市区往返云龙机场的公共交通主要依靠机场快线及 94 路、95 路等公交线路，整体班次偏少、发车间隔过长（普遍 60–90 分钟一",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-luzhou",
+   "id": "14753",
+   "url": "https://www.luzhou.gov.cn/LetterBox/14753",
+   "question": "农房屋基产权证\n泸县黄金村农房产权证，政府收回说换新，快十年了为什么还换不下来？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-luzhou",
+   "id": "14648",
+   "url": "https://www.luzhou.gov.cn/LetterBox/14648",
+   "question": "咨询泸州市区共享单车\n泸州市区里一半区域有共享单车，一部分没有，领导能否考虑，让其他区也运营共享单车，市区坡比较大，自行车可能通行不便，是否可以考虑运营电动的呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-luzhou",
+   "id": "14450",
+   "url": "https://www.luzhou.gov.cn/LetterBox/14450",
+   "question": "咨询\n请问泸州市的学校招聘信息在哪里可以查询？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-luzhou",
+   "id": "13203",
+   "url": "https://www.luzhou.gov.cn/LetterBox/13203",
+   "question": "酒城中心上筑小区建渣堆放严重影响居民生活\n酒城中心.上筑19/20号楼地下车库建渣堆放点卫生条件相当恶劣，老鼠成堆，未见防尘处理措施，尤其在转运过程中，更是灰尘弥漫；同时，转运使用的铲车散发大量柴油味道，在车库和低矮楼层经久不散，严重影响日",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-luzhou",
+   "id": "13061",
+   "url": "https://www.luzhou.gov.cn/LetterBox/13061",
+   "question": "关于治理安福斯停车场出口楼上排污管道泄漏的建议\n江阳区北城街道的安福斯停车场出口，楼上排污管道断裂，长期泄漏，污水、残渣遍地流淌，味道难闻，过道溜滑。既是一个安全隐患，也是一个传染病源，还是一个不文明的现场。此处长期得不到治理，不知原因何在",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-luzhou",
+   "id": "12936",
+   "url": "https://www.luzhou.gov.cn/LetterBox/12936",
+   "question": "叙永县江门镇香港理文纸浆110亿省市重点项目进展情况\n2022年泸州地标会引进的叙永县江门镇香港理文纸浆110亿省市重点项目几年了为何没有一点进展？关心家乡产业发展的人问政了一批又一批，从23年到24年到25年，从“十四五”问到现在“十五五",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-luzhou",
+   "id": "12928",
+   "url": "https://www.luzhou.gov.cn/LetterBox/12928",
+   "question": "建一点体育设施利民利国\n市长：您好。这次百子图广场改造，把原广场上的健身器材全部拆了，我经常在此锻炼知道健身器材利用率高，还经常见到一些人吊树枝锻炼身体。龙马潭区健身器材种类多，江阳区健身器材种类较少，恳请领导调研一下，根据情况多按一健身健",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-luzhou",
+   "id": "12935",
+   "url": "https://www.luzhou.gov.cn/LetterBox/12935",
+   "question": "玩自行车场地建设\n泸州这么大个地方，一个玩自行车的场地都没有，希望你们未来几年修建一个自行车速降场地，唯一听到的一个消息就是在什么鼓楼山那里，也不知道真的假的，希望你们讨论一下，重视一下自行车运动",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-luzhou",
+   "id": "12908",
+   "url": "https://www.luzhou.gov.cn/LetterBox/12908",
+   "question": "泸州龙马潭区公园九街项目拖欠农民工工资\n泸州龙马潭区公园九街项目，我们5人在这个工地从2025年3月做消防弱电做到现在，现在每人差5万2千多元工资，现在找项目部要，一说就是没钱，推责任，求领导解决我们农民工工资。以上所说事实清楚。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-luzhou",
+   "id": "12868",
+   "url": "https://www.luzhou.gov.cn/LetterBox/12868",
+   "question": "关于保留泸州蓝田机场南端部分跑道与机坪以打造川南低空经济示范基地的建议\n作为一个航空爱好者与历史爱好者，我也比较了解泸州蓝田机场的故事，特提出以下建议，希望能为家乡建设贡献一份微薄之力。\n蓝田机场是泸州航空发展的重要历史印记，其 “无平行滑",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-luzhou",
+   "id": "12846",
+   "url": "https://www.luzhou.gov.cn/LetterBox/12846",
+   "question": "关于在蜀泸大道三段（川酒集团自贸区总部基地附近）修建人行天桥的建议\n希望能在蜀泸大道三段（川酒集团自贸区总部基地附近）修建人行天桥，方便道路两侧人员通行，主要原因如下：\n1、通行需求大。首先是读书需求，蜀泸大道三段靠龙涧溪公园一侧，有公园一",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-luzhou",
+   "id": "12778",
+   "url": "https://www.luzhou.gov.cn/LetterBox/12778",
+   "question": "江阳区连江路一段枇杷沟修路要修多久,采用钢板覆盖路面严重扰民\n现在江阳区连江路一段枇杷沟在维修下水道，对路面进行了开挖，现用两块钢板覆盖路面开挖处，车辆经过时，产生巨大的噪音，已经连续3日有余，附近居民经常被半夜车经过钢板产生的巨大噪音惊醒",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-luzhou",
+   "id": "12783",
+   "url": "https://www.luzhou.gov.cn/LetterBox/12783",
+   "question": "购房补贴\n各位领导您好，我于2022年11月申请了首套房购房补贴，酒城e置业上显示批次生成在2023年2月，然后后面就没动静了。申请了购房补贴到现在已有3年余，还有一个契税补贴也是交了之后就没动静，我看到小区有些邻居都已经拿到了购房补贴或者",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-luzhou",
+   "id": "12304",
+   "url": "https://www.luzhou.gov.cn/LetterBox/12304",
+   "question": "&nbsp;关于恳请协调解决夫妻异地分居、归乡服务泸州发展的求助信\n尊敬的市委书记：\n   您好！我是一名外市在职公务员，丈夫为龙马潭区在岗教师，系家中独子。公婆年迈体弱、常年患病，日常起居需专人照料，家中还有两名年幼子女待抚育，夫妻异地分",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-luzhou",
+   "id": "12318",
+   "url": "https://www.luzhou.gov.cn/LetterBox/12318",
+   "question": "合江县利城高中学食堂存在严重问题\n有很多学生反映食堂饭菜难吃有异味，菜里吃出虫子，菜没有炒熟生的，有的菜温度低于常温，是冰箱拿出的冷菜。有很多家长对学校意见很大，已很愤怒，强烈要求有关部门对合江利城高中食进行整改，还学生一个健康身体。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-luzhou",
+   "id": "12346",
+   "url": "https://www.luzhou.gov.cn/LetterBox/12346",
+   "question": "打古镇龙方田养猪场环境污染\n龙方田养猪场因为审批手续不合法，无环评报告合格证书，乱排污，空气污染，土壤污染，对附近农户健康污染，造成农户家畜死亡，希望上级政府部门重视，给我们受害农户相应的经济赔偿，周边受污染的农户要求撤除养猪场。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-luzhou",
+   "id": "12144",
+   "url": "https://www.luzhou.gov.cn/LetterBox/12144",
+   "question": "感谢纳溪区反诈中心\n本人于2025年12月26日在纳溪区报案被诈骗约90万元，纳溪区反诈中心袁警官、左警官等办案民警积极跟进案情进度，积极与我沟通并做好我的思想工作，截至目前为我追回被诈骗资金约36万元，在此衷心感谢纳溪区反诈中心的各位警官",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-luzhou",
+   "id": "12039",
+   "url": "https://www.luzhou.gov.cn/LetterBox/12039",
+   "question": "市政设施安全隐患，急需排除\n泸州移动大楼车辆入口旁边的小巷(大通路)，以前为了禁止乱停车，有很多铁桩，这些铁桩损毁严重，端口极其锋利，过路人如果不小心撞上容易受伤，如果附近有追疯打闹的小孩，撞上这些铁桩，后果更是不堪设想。请市政及时处理该安",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-luzhou",
+   "id": "12058",
+   "url": "https://www.luzhou.gov.cn/LetterBox/12058",
+   "question": "泸州市新能源车购车补贴款和汽车置换补贴款和迟迟不发放\n本人于25年8月18日在蓝田二级路泸州比亚迪源仪汽车4S店购买了一辆新的比亚迪新能源汽车，购买时被店方告知本人满足条件可以享受泸州市新能源车购车补贴和汽车置换补贴。购车后，本人于8月22",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-luzhou",
+   "id": "12038",
+   "url": "https://www.luzhou.gov.cn/LetterBox/12038",
+   "question": "位于泸州市南城（城南丽景）拆迁房产证办理事项\n我林继群这个房屋产权属于拆迁还房，于2020年9月30日交付，但房屋产权证泸州市德明月房地产开发有限公司至今未办理，多次沟通无效，万般无计，只好求助政府主持正义公道。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-luzhou",
+   "id": "12023",
+   "url": "https://www.luzhou.gov.cn/LetterBox/12023",
+   "question": "汽车置换更新补贴\n为何置换补贴一直不发放，从市州审核通过到现在已经过去3个月了，咨询市商务局一直说省上没有拨钱给地方，省上又大力宣传资金下发给市州了，到底怎么回事？何时才能才能收到补贴？今年的补贴会不会被取消？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-luzhou",
+   "id": "11975",
+   "url": "https://www.luzhou.gov.cn/LetterBox/11975",
+   "question": "村村通硬化公路指标询问\n询问村村通公路硬化指标在我们天仙镇天星村3组52所在公路是否有硬化指标，毛公路已经挖好10多年了，周围好几个村的后挖的都硬化好了，为什么我们村的还没有指标，有些客观因素我不知道是不是真实，我们村上都是些老年人又不会用",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-luzhou",
+   "id": "11869",
+   "url": "https://www.luzhou.gov.cn/LetterBox/11869",
+   "question": "泸州纳溪城区交通严重拥堵问题\n一、纳溪城区每天早高峰严重拥堵，工作日每天如此，从二环下道一直堵到李子林；\n二、凤凰城周边交通秩序混乱，短短几百米，斑马线非常多，行人、机动车、非机动车抢道现象非常严重，交通安全隐患很大；\n三、政府在疏堵保畅方",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-luzhou",
+   "id": "11937",
+   "url": "https://www.luzhou.gov.cn/LetterBox/11937",
+   "question": "交通安全\n主城区内摩托车增多，有的摩托车在红绿灯处不遵守交通规则，红灯亮起、摩托车依然继续通行。此时，正有市民路过斑马线。这种情况下，容易发生摩托车在斑马线撞人事故。请交警，加大对不遵守交通规则摩托车的查处力度，保障交通安全。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-luzhou",
+   "id": "11884",
+   "url": "https://www.luzhou.gov.cn/LetterBox/11884",
+   "question": "《恳请协调解决泸州职院贫困生走读申请被拒问题》\n尊敬的市委书记：\n   您好！\n   我是泸州职业技术学院的一名大三学生。因家庭经济条件较为困难，为节省开支，经与家人充分沟通，我计划在大三学年将住宿方式由住校改为走读，并按要求准备了走读申请",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-luzhou",
+   "id": "11848",
+   "url": "https://www.luzhou.gov.cn/LetterBox/11848",
+   "question": "玉龙苑小区门口道路实行单行道不合理！！\n9月8日开始，玉龙苑小区门口至龙马大道的200米道路实行了早晚单向道限行，严重影响了玉龙苑小区和桂景苑小区几千户居民的正常生活秩序！这条道路是两个小区居民回家的必经之路，采用单行道后居民正常生活被严重",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-luzhou",
+   "id": "11910",
+   "url": "https://www.luzhou.gov.cn/LetterBox/11910",
+   "question": "云华逸府燃气改造施工破坏绿化，希望尽快恢复\n尊敬的领导:您好，我是云华逸府的住户，8月初，燃气改造施工对小区内绿化进行大量破坏，本是惠民改善民生的工程，现在适得其反。燃气改造施工方在恢复因燃气施工破坏的绿化树木中，严重偷工减料，与改造前的小",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-luzhou",
+   "id": "11843",
+   "url": "https://www.luzhou.gov.cn/LetterBox/11843",
+   "question": "关于对龙头关大桥连接工程柏香林路段实施“循环圈”交通管制的整改提议\n随着泸州市近几年的快速发展，使城市建设越来越好，交通也更加便利，泸州市民的幸福指数也逐渐攀升。龙头关大桥的建设也使“三岸”市民的出行便利添砖加瓦，使蓝田、大山坪、城北等区域",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-luzhou",
+   "id": "11867",
+   "url": "https://www.luzhou.gov.cn/LetterBox/11867",
+   "question": "翡翠滨江车库上下班高峰期严重拥堵，没有门禁，业主无法解决\n尊敬的相关部门领导：\n \n您好！\n \n我是江阳区鸿通翡翠滨江小区的一名业主，怀着焦急与无奈的心情，向您反映我们小区车库存在的诸多严重问题，希望能得到您的重视与帮助。\n \n我们小区车库",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-luzhou",
+   "id": "11855",
+   "url": "https://www.luzhou.gov.cn/LetterBox/11855",
+   "question": "关于梓潼路小学渔子溪学校到碧桂园生态城过街通道问题\n领导您好！我是梓潼路小学渔子溪学校学生家长，作为家长和孩子以及整个碧桂园生态城的业主盼望的学校到对面桂圆里处的过街通道应该有很多年了，每天看着这么多学生和家长冒着生命危险往来于酒谷大道，穿",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-luzhou",
+   "id": "11786",
+   "url": "https://www.luzhou.gov.cn/LetterBox/11786",
+   "question": "关于危房改造\n各位领导好，我的老家是方山村的，宅基地在山上，家里老人还健在的时候还回老家看看，在我新兵下连的时候家里老人就走了，家里的宅基地就一直空着，今年房产证下来，父母打算近几年回老家养老，从我记事起，每年回老家都是步行上山，老家一直没",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-luzhou",
+   "id": "11811",
+   "url": "https://www.luzhou.gov.cn/LetterBox/11811",
+   "question": "春华路二段（沱江六桥往万象汇方向铁路下面））污水长期漫延致路面造成环境污染及占道打围右侧道路受阻影响车辆行驶造成环境污染事\n江阳区春华路二段（沱江六桥往万象汇方向铁路下面））污水长期漫延致路面造成环境污染及占道打围右侧道路受阻影响车辆行驶造",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-luzhou",
+   "id": "11664",
+   "url": "https://www.luzhou.gov.cn/LetterBox/11664",
+   "question": "表扬信\n奶奶离世了，昨晚家人们在送别她最后一程，大约快晚上9点时，可能因用电量超负荷导致输电线路的变压器跳闸，于是自己拨打了泸县奇峰供电所的求助电话，电话立马接通，我只是反映了停电事宜以及停电位置，并未告知家里有特殊事情，20多分钟后就有4",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-luzhou",
+   "id": "11660",
+   "url": "https://www.luzhou.gov.cn/LetterBox/11660",
+   "question": "关于咨询“村村通”公路政策及恳请解决我村道路硬化问题的信\n尊敬的市领导：  \n您好！  \n  我是古蔺县茅溪镇庙林村八组的村民代表。首先衷心感谢市委、市政府多年来对农村发展的高度重视，特别是“村村通”公路政策极大地改善了广大农村地区的交通条",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-luzhou",
+   "id": "11598",
+   "url": "https://www.luzhou.gov.cn/LetterBox/11598",
+   "question": "汽车置换补贴\n3月底在泸州江阳区4s店买的车，4月几号就申请置换补贴，现在都7月底了还没收到补贴，已经快4个月了。请问这补贴还要等几个月？问了商务局也没具体时间，就是让等",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-luzhou",
+   "id": "11549",
+   "url": "https://www.luzhou.gov.cn/LetterBox/11549",
+   "question": "身份证丢失怎么进行网上挂失？\n身份证丢失怎么进行网上挂失？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

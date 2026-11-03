@@ -1,0 +1,102 @@
+{
+ "A_考卷": [
+  {
+   "source": "gx-igi-263",
+   "id": "157830339965",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157830339965",
+   "question": "你好我想咨询一下，如果自己的树木在百色市的林地内被人为盗伐或者因为自然灾害导致树木被烧毁，这种情况如果自己要砍伐树木还需要向林业局申请砍伐证吗？这种情况如果林业局知情，这种情况林业局会介入调查林木被盗伐、烧毁的原因吗？私自砍伐自己种植在林地",
+   "cited_hits": [
+    {
+     "name": "森林法",
+     "lib_no": "森林法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "最高人民法院关于审理破坏森林资源刑事案件适用法律若干问题的解释",
+     "lib_no": "最高人民法院关于审理破坏森林资源刑事案件适用法律若干问题的解释(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于百色市砍伐树木问题咨询",
+    "森林草原防灭火条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gx-igi-263",
+   "id": "157814220377",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814220377",
+   "question": "我们百色市现在是否可以跨省购买河南带有合法标识的小太阳鹦鹉作为宠物饲养，不二次出售不繁殖。",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国野生动物保护法",
+     "lib_no": "野生动物保护法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "陆生野生动物保护实施条例",
+     "lib_no": "陆生野生动物保护实施条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "国家林业和草原局关于妥善解决人工繁育鹦鹉有关问题的函"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "gx-igi-263",
+   "id": "157814202526",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814202526",
+   "question": "领导您好，我叫李安泽，是百色市隆林县隆或镇马卡村那弄屯村民。想咨询一下人工种植培育国家二级保护植物桫椤需要什么手续？随着国家乡村振兴的政策不断落实，我也一直在关注在我的家乡可以种植什么，养殖什么来提高自己的收入。无意间在农业知识网上看到“桫",
+   "cited_hits": [],
+   "cited_missing": [
+    "广西壮族自治区重点保护野生植物人工培植单位备案登记管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gx-igi-263",
+   "id": "157814187108",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814187108",
+   "question": "油茶种植有什么优惠政策？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广西壮族自治区人民政府关于实施油茶“双千”计划助推乡村产业振兴的意见"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "gx-igi-263",
+   "id": "157830125886",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157830125886",
+   "question": "您好，我最近在做一项油茶行业政策的研究，想获取百色市以前公布的一些油茶扶持政策，目前能在网上查找到政策名称，但无法获取全文，我想请问能否联系你们获取。感谢回复",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-263",
+   "id": "157814422733",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814422733",
+   "question": "退化林修复补助标准是多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-263",
+   "id": "157814187096",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814187096",
+   "question": "想去林业局办事，现在办公地点在哪呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

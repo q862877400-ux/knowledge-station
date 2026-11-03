@@ -1,0 +1,72 @@
+{
+ "A_考卷": [],
+ "B_补料": [
+  {
+   "source": "hb-wuhan-28",
+   "id": "28278",
+   "url": "https://www.wuhan.gov.cn/?id=28278",
+   "question": "请问小孩满3岁那年还有育儿假吗？有的话是全年可休，还是在3周岁生日之前必须休完？是满额10天，还是按比例折算天数呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖北省人口与计划生育条例"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "hb-wuhan-28",
+   "id": "32256",
+   "url": "https://www.wuhan.gov.cn/?id=32256",
+   "question": "您好，我是16年农村医学专业订单培养的学生，40岁。已经考取乡村全科执业助理医师并于21年注册在村卫生室。我想知道在国家政策上我们有养老保险相关待遇吗，由谁交，上级卫生院吗，有的话为什么不落实呢？去镇卫生院找过相关人员，没解决，想了解下具体",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-28",
+   "id": "27726",
+   "url": "https://www.wuhan.gov.cn/?id=27726",
+   "question": "十分感谢丁主任，这几年因为各种疾病，有癌症，尿毒症，透析，各种并发症，常尽各种苦，各科室都住到，但从住到口腔科，一七年癌症开刀，这几年四次开刀，丁主任，细心周到，医术精，让我们一家不知道怎样感谢，特至卫建卫感谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-28",
+   "id": "27697",
+   "url": "https://www.wuhan.gov.cn/?id=27697",
+   "question": "外地前往武汉就医，遇同济医院汉口院区突发疫情，本人就只在APP上挂号，并未进入医院就医，该院区就已封闭管理，本人健康码变黄，目前在同济医院光谷院区救治，医院就黄码问题不能正常症治，目前日治疗费用已无法承担，转码问题已于2022年10月14日",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-28",
+   "id": "27510",
+   "url": "https://www.wuhan.gov.cn/?id=27510",
+   "question": "江夏第一人民医院 1.发热门诊、感染性疾病科门诊遇到发热伴腹泻病人不做大便常规检查 2.所有发热病人不是根据具体病情施治，都是阿比多尔（抗病毒），金叶败毒颗粒、蓝芩口服液，请求查阅近两年处方门诊",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-28",
+   "id": "27315",
+   "url": "https://www.wuhan.gov.cn/?id=27315",
+   "question": "杏花乡&红安县&湖北省疾控中心相关负责人：您好： 我是现居于红安县杏花乡竹林畈的返乡人员 秦桦，现10/1回乡参加婚礼，10/2晚突然健康码为黄码，已经严重影响我的出行，期间还要自己做饭、洗衣服，极其不方便，无法照料怀孕妻子，后面还会影响上",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-28",
+   "id": "27286",
+   "url": "https://www.wuhan.gov.cn/?id=27286",
+   "question": "2022年10月三日，康复科陆敏医生看病人不按照排队号来看病人，有人进房间后就能给看，应该是熟人，一上午插队了两个，都是出来一个病人后没有继续叫下一个号，病人直接进去后就看了，严重影响医疗公平",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

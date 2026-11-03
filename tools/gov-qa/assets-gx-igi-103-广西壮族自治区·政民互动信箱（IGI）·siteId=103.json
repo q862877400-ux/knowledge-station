@@ -1,0 +1,160 @@
+{
+ "A_考卷": [
+  {
+   "source": "gx-igi-103",
+   "id": "157830323022",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157830323022",
+   "question": "本人有一只2岁的中华田园犬，已经按时完成了狂犬疫苗接种和相关免疫，肯定贵局提供相关办理指南。",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国动物防疫法",
+     "lib_no": "动物防疫法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "动物检疫合格证明",
+    "动物检疫合格证明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-103",
+   "id": "157814423073",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814423073",
+   "question": "尊敬的政府工作人员您好，我是南宁师范大学的在读研究生，目前正在做广西地级市耕地绿色利用的相关课题研究，需要用到来宾2010-2020年度的农业相关数据，包括农药使用量、农用塑料薄膜使用量、柴油使用、由于在官网尚未找到该市的统计年鉴且考虑到研",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "gx-igi-103",
+   "id": "157814194596",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814194596",
+   "question": "您好！我想办理家畜遗传材料种畜禽生产经营许可证，请问需要提供什么材料呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广西壮族自治区种畜禽生产经营许可管理办法"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "gx-igi-103",
+   "id": "100180222",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=100180222",
+   "question": "尊敬的领导，您好！我是一名大三的学生，因毕业论文需要，在网上查阅无果后，特向贵单位咨询来宾市2010-2024年的数据指标。要咨询的数据有：1）冷库总容量2）农产品冷链运输车辆数（论文研究中需要关于冷链物流的数据）不知贵单位是否方便给予以上",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-103",
+   "id": "100117384",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=100117384",
+   "question": "你好，我想问我从国外回来带了少量种子需要检疫吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-103",
+   "id": "157814426075",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814426075",
+   "question": "咨询来宾甘蔗以及水稻种植分布情况 近3年",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-103",
+   "id": "157814417454",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814417454",
+   "question": "尊敬的来宾市领导：&nbsp; &nbsp; &nbsp; &nbsp;您好!我是来着广西科技师范学院2024届即将毕业的学生，由于现阶段论文写作需要来宾市甘蔗成本收益情况以及甘蔗产业降本增效情况相关数据，作为论文支持的佐证，故特需请贵单位",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-103",
+   "id": "157814413981",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814413981",
+   "question": "2022年来宾市种果面积和产量有多少？其中砂糖桔的种植面积和产量有多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-103",
+   "id": "157814385776",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814385776",
+   "question": "禁渔期可以在河里钓鱼吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-103",
+   "id": "157814220417",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814220417",
+   "question": "本人听讲圆桶养鱼效益不错，想去实地参观来宾市附件圆桶养殖场，烦请提供圆桶养鱼地址或者联系方式，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-103",
+   "id": "157814203016",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814203016",
+   "question": "您好，我想了解一下目前全市农产品获得“”三品一标”认证数量是多少",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-103",
+   "id": "157814197613",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814197613",
+   "question": "今年以来，各级各部门出台了一系列政策助力生猪生产恢复，请问一下具体有哪些政策呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-103",
+   "id": "1578108355",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=1578108355",
+   "question": "您好，我是种水稻的农民，关于耕地地力保护补贴，我的个人信息发生变化后该如何更改呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-103",
+   "id": "92243",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=92243",
+   "question": "我是一名养蜂户，近期了解到省外移动养蜂平台有中央补贴和地方补贴两项，想了解一下来宾市是否有相关补贴政策？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-103",
+   "id": "92242",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=92242",
+   "question": "您好，我想咨询一下养殖户在非洲猪瘟防控中该如何做呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

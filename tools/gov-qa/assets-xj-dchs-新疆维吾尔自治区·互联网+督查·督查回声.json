@@ -14,6 +14,240 @@
    ],
    "cited_missing": [],
    "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "fad53f2794dd485da980003bfa3ed499",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202502/fad53f2794dd485da980003bfa3ed499.shtml",
+   "question": "群众反映娱乐场所噪音扰民问题喀什地区行署经实地核查督促立即整改到位",
+   "cited_hits": [
+    {
+     "name": "娱乐场所管理条例",
+     "lib_no": "娱乐场所管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "4c05b9b839d44046866bb8938b2a6cfd",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202502/4c05b9b839d44046866bb8938b2a6cfd.shtml",
+   "question": "群众反映需安装充电桩问题伊犁州政府按程序主动服务保障",
+   "cited_hits": [
+    {
+     "name": "物业管理条例",
+     "lib_no": "物业管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于协助做好物业管理小区电动汽车充电设施安装工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "3c97710dc2084748bd418f1c4ea8f878",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202408/3c97710dc2084748bd418f1c4ea8f878.shtml",
+   "question": "群众反映伊宁市康贝乐月子中心无证经营问题伊犁州政府责令整改 消除食品安全风险隐患",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国食品安全法",
+     "lib_no": "食品安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "营业执照",
+    "食品经营许可证",
+    "食品经营许可证",
+    "食品经营许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "7b87b4ad26964bc7b301dc6c348911a5",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202407/7b87b4ad26964bc7b301dc6c348911a5.shtml",
+   "question": "群众反映万象乐居天地小区存在安全隐患问题乌鲁木齐市政府责令违法单位整改并立案处罚",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国消防法",
+     "lib_no": "消防法(2021修正全本)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "abfc7fd54c38415d8a46e62251e788d3",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202406/abfc7fd54c38415d8a46e62251e788d3.shtml",
+   "question": "群众反映奎屯市三洋广场应急通道被堵塞问题伊犁州政府依法依规责令物业公司限期改正",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国消防法",
+     "lib_no": "消防法(2021修正全本)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "新疆维吾尔自治区消防条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "f807512f096d4f5db700486da03da8ef",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202404/f807512f096d4f5db700486da03da8ef.shtml",
+   "question": "群众反映道路封路问题吐鲁番市政府耐心说明并积极开展道路维修工作",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国道路交通安全法",
+     "lib_no": "道路交通安全法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国道路交通安全法实施条例",
+     "lib_no": "道路交通安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于Z486线禁止大型车辆通行的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "bd3bd64d587143dab6dab41927ce7b6c",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202403/bd3bd64d587143dab6dab41927ce7b6c.shtml",
+   "question": "群众反映物业公司违规占用避难层问题乌鲁木齐市政府依规责令限期整改",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国消防法",
+     "lib_no": "消防法(2021修正全本)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "6bd43c8bdabc4471819d7371ae0f179a",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202402/6bd43c8bdabc4471819d7371ae0f179a.shtml",
+   "question": "群众反映伊州区项目招标存在本地化倾向哈密市政府依法依规立行立改",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国政府采购法实施条例",
+     "lib_no": "政府采购法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "xj-dchs",
+   "id": "924ed71d4f19416496b4a3f77047ed58",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202401/924ed71d4f19416496b4a3f77047ed58.shtml",
+   "question": "群众反映被要求拆除瓶装液化石油气问题伊犁州政府详细解释相关规定依法依规要求整改",
+   "cited_hits": [
+    {
+     "name": "建筑设计防火规范",
+     "lib_no": "GB 50016-2014",
+     "weak": false
+    },
+    {
+     "name": "城镇燃气设计规范",
+     "lib_no": "GB 50028-2006",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "民用建筑设计术语标准",
+    "民用建筑设计同意标准",
+    "城镇燃气经营安全重大隐患判定标准",
+    "建筑防火通用规范",
+    "责令整改通知书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "7359a0115bf04872aeb8ce761e77a554",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202312/7359a0115bf04872aeb8ce761e77a554.shtml",
+   "question": "群众反映村道限高影响货物运输问题哈密市政府积极协调推动解决相关问题",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国公路安全保护条例",
+     "lib_no": "公路安全保护条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "857b8221be89487280bd0c984cd14632",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/857b8221be89487280bd0c984cd14632.shtml",
+   "question": "克拉玛依市政府畅通服务热线保障群众合法利益",
+   "cited_hits": [
+    {
+     "name": "社会保险法",
+     "lib_no": "社会保险法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "社会保险费征收暂行条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "453e42f3d24f4adeb4975a9a39d99845",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/453e42f3d24f4adeb4975a9a39d99845.shtml",
+   "question": "塔城地区行署督促建设单位做好修缮工作保障居民住房安全",
+   "cited_hits": [
+    {
+     "name": "建设工程质量管理条例",
+     "lib_no": "建设工程质量管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "建设工程质量投诉处理通知书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "b005be2766794805ac6fa51d201e90b8",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202110/b005be2766794805ac6fa51d201e90b8.shtml",
+   "question": "群众反映商铺油烟排放装置产生噪音、异味乌鲁木齐市政府责令改正，保障居民日常生活",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国环境噪声污染防治法",
+     "lib_no": "噪声污染防治法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "乌鲁木齐市大气污染防治法",
+     "lib_no": "大气污染防治法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "油烟检测报告",
+    "责令改正整改通知书"
+   ],
+   "has_clause_no": false
   }
  ],
  "B_补料": [
@@ -27,6 +261,604 @@
     "昌吉州居民小区电动汽车充电基础设施建设运营管理暂行办法"
    ],
    "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "b9bfe3f737a84011803020c6d32d4b92",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202503/b9bfe3f737a84011803020c6d32d4b92.shtml",
+   "question": "群众反映银星大酒店未按规定发放计划生育奖励金问题乌鲁木齐市政府立即协调帮助解决",
+   "cited_hits": [],
+   "cited_missing": [
+    "独生子女父母光荣证",
+    "光荣证",
+    "新疆维吾尔自治区人口与计划生育条例",
+    "独生子女父母光荣证",
+    "计划生育父母光荣证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "xj-dchs",
+   "id": "2a75f8cd155a4e7ea29603dfd916a39c",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202411/2a75f8cd155a4e7ea29603dfd916a39c.shtml",
+   "question": "群众反映喀什天盛大厦楼顶广告牌存在安全隐患问题喀什地区行署下达整改通知书要求采取加固措施并进行安全评估",
+   "cited_hits": [],
+   "cited_missing": [
+    "户外广告设施及户外招牌设置技术标准",
+    "户外广告设施及户外招牌设置技术标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "3647405a32fa436ba50edb1c4f38a994",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202410/3647405a32fa436ba50edb1c4f38a994.shtml",
+   "question": "群众反映昌吉市热力公司限制办理停热问题昌吉州政府约谈负责人 要求企业解除限制条件",
+   "cited_hits": [],
+   "cited_missing": [
+    "昌吉回族自治州城镇供热条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "429f7543c0424ac19c63744e2c4953c8",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202409/429f7543c0424ac19c63744e2c4953c8.shtml",
+   "question": "群众反映阿克苏市房产公司违规收费问题阿克苏行署现场办公协调督促确保全额退款",
+   "cited_hits": [],
+   "cited_missing": [
+    "城市商品房预售管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "c5a0812073d94e1188a85bb18f2597dc",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202406/c5a0812073d94e1188a85bb18f2597dc.shtml",
+   "question": "群众反映新疆科信职业技术学院强制学生实习问题自治区教育厅责成学校立即有序恢复正常教育教学活动",
+   "cited_hits": [],
+   "cited_missing": [
+    "职业学校学生实习管理规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "b60494330018442ab9dec8f3de3ee605",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202404/b60494330018442ab9dec8f3de3ee605.shtml",
+   "question": "群众反映出租车驾驶员半路加价、甩客问题乌鲁木齐市政府依法依规进行处罚责令改正",
+   "cited_hits": [],
+   "cited_missing": [
+    "巡游出租汽车经营服务管理规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "xj-dchs",
+   "id": "dbde86b924f34c7e999e9b285404838c",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202403/dbde86b924f34c7e999e9b285404838c.shtml",
+   "question": "群众反映道路运输从业资格证被注销问题塔城地区行署耐心说明相关规定",
+   "cited_hits": [],
+   "cited_missing": [
+    "道路运输从业人员管理规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "f10286a25f074dec811e82df19c37b87",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202402/f10286a25f074dec811e82df19c37b87.shtml",
+   "question": "群众咨询出租车强制报废期限自治区交通厅耐心详细解释有关规定",
+   "cited_hits": [],
+   "cited_missing": [
+    "中华人民共和国机动车强制报废标准规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "xj-dchs",
+   "id": "dbd6048bb936465384ffd3327800cc16",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202311/dbd6048bb936465384ffd3327800cc16.shtml",
+   "question": "群众反映喀纳斯景区区间车运力不足问题自治区文旅厅、阿勒泰地区行署联合组织核查积极优化区间车换乘方案",
+   "cited_hits": [],
+   "cited_missing": [
+    "农村道路旅客运输班线通行条件审核规则",
+    "喀纳斯景区区间车换乘优化行动方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "b364cc3d9e544e99bc0e369665b62257",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202311/b364cc3d9e544e99bc0e369665b62257.shtml",
+   "question": "群众反映特克斯县违规收取造林更新保证金问题伊犁州政府督促立即清理违规文件退费整改",
+   "cited_hits": [],
+   "cited_missing": [
+    "特克斯县林木采伐管理实施办法（暂行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "c445d71ea50f4387819b53e2402e1b0e",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202309/c445d71ea50f4387819b53e2402e1b0e.shtml",
+   "question": "群众反映华兵实验中学违规招生问题乌鲁木齐市政府积极组织核查督促整改",
+   "cited_hits": [],
+   "cited_missing": [
+    "自治区规范民办义务教育专项工作实施方案",
+    "乌鲁木齐市2023年义务教育阶段学校招生入学的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "93e2db9052fa4fbb9632d0eef9c8ca29",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202308/93e2db9052fa4fbb9632d0eef9c8ca29.shtml",
+   "question": "群众反映新购置车辆无法办理班线营运证问题吐鲁番市政府耐心解释相关规定指导帮助办理",
+   "cited_hits": [],
+   "cited_missing": [
+    "道路运输管理工作规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "577927d673824b21b4969327672252ae",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202301/577927d673824b21b4969327672252ae.shtml",
+   "question": "群众反映克拉玛依区临时卸货点收取消杀费 克拉玛依市政府认真组织现场核查并督促有关方面立行立改",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步优化落实新冠肺炎疫情防控措施的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "c230b3e0902b4ff796faaa84627b7c69",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202210/c230b3e0902b4ff796faaa84627b7c69.shtml",
+   "question": "关于克州群众反映“伊尔克什坦口岸、吐尔尕特口岸执行援外物资、绿色农产品、进出口贸易三种型态区分排队离境”问题的办理情况",
+   "cited_hits": [],
+   "cited_missing": [
+    "中华人民共和国海关进出口货物申报管理规定",
+    "对外援助物资项目管理办法",
+    "农产品快速通关“绿色通道”协议"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "cc1bcb2373544c1b92e1de966eb0017d",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/cc1bcb2373544c1b92e1de966eb0017d.shtml",
+   "question": "乌鲁木齐市政府耐心回复帮助群众办理医疗保险关系转移业务",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步明确乌鲁木齐市城镇职工基本医疗保险有关问题的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "b9b15f35da1b4f81a4c86d10422ed355",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/b9b15f35da1b4f81a4c86d10422ed355.shtml",
+   "question": "自治区卫健委耐心服务积极解答群众咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步优化地方政务服务便民热线的指导意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "0d17b2b88b3b49c389f6d80afab44e4d",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/0d17b2b88b3b49c389f6d80afab44e4d.shtml",
+   "question": "和田地区行署耐心服务帮助群众办理取水许可电子证照",
+   "cited_hits": [],
+   "cited_missing": [
+    "新疆维吾尔自治区取用水管理专项整治行动整改提升实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "4b3714b04c0c4b03b5174f499d011a80",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/4b3714b04c0c4b03b5174f499d011a80.shtml",
+   "question": "伊犁州政府开通绿色通道有序组织大学生返校",
+   "cited_hits": [],
+   "cited_missing": [
+    "伊宁市疆外大学生离伊返校工作方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "09a472be99b847b89a646f6331afb748",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/09a472be99b847b89a646f6331afb748.shtml",
+   "question": "喀什地区行署进一步加大对个体工商户帮扶力度",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步加大对中小微企业和个体工商户助企纾困力度若干政策措施的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "0d6382904fe64c62ba11112b84719dfa",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/0d6382904fe64c62ba11112b84719dfa.shtml",
+   "question": "阿勒泰地区行署严格规范做好水价调整工作",
+   "cited_hits": [],
+   "cited_missing": [
+    "政府制定价格成本监测办法",
+    "青河县水利工程供水定价成本监审"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "41c4db6bb44a455b8a40c505463373fc",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/41c4db6bb44a455b8a40c505463373fc.shtml",
+   "question": "乌鲁木齐市政府建设统一公共资源交易网站规范项目招标相关事宜",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于规范政务服务和公共资源交易中心收费项目和标准的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "d990a635fbdc4293b7564aaf87cadf07",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/d990a635fbdc4293b7564aaf87cadf07.shtml",
+   "question": "巴州政府全力以赴做好物价监管工作保障消费者合法权益",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于疫情防控期间市场价格行为提醒告诫书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "4f09e2ccef7e4de8a08a7f2307cf2781",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/4f09e2ccef7e4de8a08a7f2307cf2781.shtml",
+   "question": "乌鲁木齐市政府完善政策畅通二手车市场",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于搞活汽车流通扩大汽车消费若干措施的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "7991dda7a46147a780c54c6738ecc4c9",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/7991dda7a46147a780c54c6738ecc4c9.shtml",
+   "question": "阿克苏地区行署主动帮助群众申请食品经营许可证",
+   "cited_hits": [],
+   "cited_missing": [
+    "食品经营许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "b0f30ff1c788461b951236c33d1f4d31",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/b0f30ff1c788461b951236c33d1f4d31.shtml",
+   "question": "乌鲁木齐市政府主动完善二手车交易管理相关规定",
+   "cited_hits": [],
+   "cited_missing": [
+    "乌鲁木齐市二手车交易管理规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "30b8903d800b4cf4840808d77832193d",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/30b8903d800b4cf4840808d77832193d.shtml",
+   "question": "伊犁州政府主动告知医疗保障信息平台升级相关事宜",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于新疆医疗保障信息平台停机升级的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "350ad08186cf417987b3307fd6e7dbd2",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/350ad08186cf417987b3307fd6e7dbd2.shtml",
+   "question": "伊犁州政府全力保障人员正常流动",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于明确人员离疆及保障物流通畅有关政策要求的紧急通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "b10f9cfb9fe74e4b8a5b5116e725f033",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/b10f9cfb9fe74e4b8a5b5116e725f033.shtml",
+   "question": "昌吉州政府解答群众咨询法考相关问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "新疆维吾尔自治区司法厅2022年国家统一法律职业资格考试公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "ee592ccfdfec4fbd8933e36c9bff8243",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/ee592ccfdfec4fbd8933e36c9bff8243.shtml",
+   "question": "伊犁州群众反映转移密接人员不规范问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "新型冠状病毒肺炎防控方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "4d87de61e02649eea1472c3db0df520c",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/4d87de61e02649eea1472c3db0df520c.shtml",
+   "question": "塔城地区群众反映白杨河检查站不让进入问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "塔城地区物流保通保畅和产业链供应链稳定的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "c62a1dfcfc0548f5af044621605ec641",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/c62a1dfcfc0548f5af044621605ec641.shtml",
+   "question": "巴州群众反映调整高中风险区域通告发布不及时问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于库尔勒市调整部分区域风险等级的通告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "ec8552f616bf436ea560ba9eeb6ae2d6",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/ec8552f616bf436ea560ba9eeb6ae2d6.shtml",
+   "question": "伊犁州群众反映牧民转场、牲畜交易难问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "尼勒克县秋季牲畜转场方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "27cfe30f6fb34eda82cb918ef9e6cfd4",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/27cfe30f6fb34eda82cb918ef9e6cfd4.shtml",
+   "question": "阿勒泰地区群众反映娱乐场所不允许复工问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于人员密集场所科学有序开放的建议"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "512a18997126477598d8a23df7825b62",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202208/512a18997126477598d8a23df7825b62.shtml",
+   "question": "哈密市群众反映疫情期间志愿者不能回家问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "伊州区关于规范志愿服务管理工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "84e217be85a741108c4f556b604487d6",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202208/84e217be85a741108c4f556b604487d6.shtml",
+   "question": "喀什地区学生反映离家返校难问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于明确人员离疆及保障物流通畅有关政策要求的紧急通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "d833b9e3badd41d8856e532b960aa5c6",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202208/d833b9e3badd41d8856e532b960aa5c6.shtml",
+   "question": "克州群众反映防控措施极端问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "新型冠状病毒肺炎防控方案（第九版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "524e340fe618442390e7975cc26bbc0b",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202208/524e340fe618442390e7975cc26bbc0b.shtml",
+   "question": "乌鲁木齐市群众反映开发商延期交房问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "商品房购买合同"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "5268cc71925244a088d40bc437831ddd",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202208/5268cc71925244a088d40bc437831ddd.shtml",
+   "question": "乌鲁木齐市群众反映核酸采集不规范问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "新型冠状病毒肺炎防控方案",
+    "新冠病毒标本采集和检测技术指南"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "09ac67c25bae4dc09dd7ad73da2d45d5",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202208/09ac67c25bae4dc09dd7ad73da2d45d5.shtml",
+   "question": "克拉玛依市学生家长担心学生返校难问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "新型冠状病毒肺炎防控方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "418bf5cd17de4b74bc160d58518f23f2",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202208/418bf5cd17de4b74bc160d58518f23f2.shtml",
+   "question": "昌吉州群众反映静态管控期间菜农蔬菜滞销问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "新冠病毒肺炎防控方案（第九版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "72d4f48640ba488ab7e219bf956aaa2b",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202205/72d4f48640ba488ab7e219bf956aaa2b.shtml",
+   "question": "群众反映未能申领烟草零售许可证问题喀什地区行署主动服务进行政策宣讲",
+   "cited_hits": [],
+   "cited_missing": [
+    "岳普湖县烟草制品零售点合理布局规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "b673d20d37404ce693fc2202dea31686",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202204/b673d20d37404ce693fc2202dea31686.shtml",
+   "question": "群众反映土地租赁费用问题哈密市政府主动进行政策解读，答惑释疑",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于规范农用地开发项目用地管理有关问题的通知",
+    "伊州区国有农用地租赁使用地价标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "7fb8926ade7944bba8805e02a8ff5cc6",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202204/7fb8926ade7944bba8805e02a8ff5cc6.shtml",
+   "question": "群众反映学校周六补课问题自治区教育厅认真组织核查，要求立行立改",
+   "cited_hits": [],
+   "cited_missing": [
+    "普通高中学校办学质量评价指南"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "839d3ad1e22b456991e05e9a90a1a696",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202204/839d3ad1e22b456991e05e9a90a1a696.shtml",
+   "question": "群众反映有关购房政策问题克孜勒苏柯尔克孜自治州政府进行政策宣讲，答疑解惑",
+   "cited_hits": [],
+   "cited_missing": [
+    "个人住房公积金贷款管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "xj-dchs",
+   "id": "d880cdea9a1843f9bb6d6d90017ac613",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202203/d880cdea9a1843f9bb6d6d90017ac613.shtml",
+   "question": "群众反映公交车数量不足出行难问题喀什地区认真研究协调解决 全力保障群众需",
+   "cited_hits": [],
+   "cited_missing": [
+    "城市道路交通规划设计规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "d0e148c5fb2c49cc9aa0e800f0d85411",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202110/d0e148c5fb2c49cc9aa0e800f0d85411.shtml",
+   "question": "群众反映物业私自定价超高额物业费喀什地区行署责令期限改正，规范收费标准",
+   "cited_hits": [],
+   "cited_missing": [
+    "新疆维吾尔自治区物业服务收费管理办法",
+    "责令改正通知书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "a58e2ed9696247f491519e3f1b63c4cd",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202107/a58e2ed9696247f491519e3f1b63c4cd.shtml",
+   "question": "群众反映全民健康体检不提供腹部B超项目伊犁州政府进行政策解读帮助免费进行复查",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步做好2021年度常态化疫情防控下全民健康体检工作的通知",
+    "关于有序开展2020年度全民健康体检工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "fe1414aa269a48028b0349ad3ce9c1af",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202106/fe1414aa269a48028b0349ad3ce9c1af.shtml",
+   "question": "群众反映办理营业执照陷入证明材料“死循环” 伊犁州政府进行政策解读帮助办理经营手续",
+   "cited_hits": [],
+   "cited_missing": [
+    "新疆维吾尔自治区市场主体住所（经营场所）登记管理办法",
+    "关于伊犁州直清理规范社区证明事项目录清单的（第一批）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "06c7d721ab5d4bfda9de079a0e962b46",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202105/06c7d721ab5d4bfda9de079a0e962b46.shtml",
+   "question": "群众反映慢性病药物医保报销疑问乌鲁木齐市政府回应群众疑惑帮助协调解决困难",
+   "cited_hits": [],
+   "cited_missing": [
+    "处方管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "dc6ebc52aec640b1959cfc2d0e9f5880",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202104/dc6ebc52aec640b1959cfc2d0e9f5880.shtml",
+   "question": "喀什地区群众反映叶城县教育局要求 跆拳道俱乐部营业前需办理办学许可证喀什地区行政公署督促有关部门停止不合理限制",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于促进和规范社会体育俱乐部发展的意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "d1efec3698b44f6dbff43bac53d5fa48",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202103/d1efec3698b44f6dbff43bac53d5fa48.shtml",
+   "question": "自治区住房和城乡建设厅认真接受群众意见建议及时提高新疆二级建造师合格标准",
+   "cited_hits": [],
+   "cited_missing": [
+    "自治区二级建造师执业资格考试实施办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "223143f749c54ea9862d4a656b1e1445",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202103/223143f749c54ea9862d4a656b1e1445.shtml",
+   "question": "群众反映乌鲁木齐市小区物业收费不合理问题乌鲁木齐市政府第一时间为群众释疑解忧",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于规范乌鲁木齐市住宅小区物业服务收费和停车服务收费的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "6bdbe902bf5e46129879a3abe8929fc5",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202103/6bdbe902bf5e46129879a3abe8929fc5.shtml",
+   "question": "群众反映伊犁州霍城县商铺一次性租赁补助未发放伊犁州政府认真核查督促霍城县将补贴发放到位",
+   "cited_hits": [],
+   "cited_missing": [
+    "伊犁州扶持中小微企业和个体工商户复工复产健康发展十条措施"
+   ],
+   "has_clause_no": true
   }
  ],
  "C_无依据": [
@@ -98,6 +930,1365 @@
    "id": "efce343636b545e495db3abd6d5a86db",
    "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202506/efce343636b545e495db3abd6d5a86db.shtml",
    "question": "群众反映青河县风林小区高层用水困难问题阿勒泰地区行署多措并举保障高层住户用水",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "5eae7fb1073c45888d4100e24d9dbf23",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202506/5eae7fb1073c45888d4100e24d9dbf23.shtml",
+   "question": "伊宁市市场监督管理局积极采纳群众工作建议进一步提高服务质效",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "15c4151ab63e4694a96d0d06857351cd",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202505/15c4151ab63e4694a96d0d06857351cd.shtml",
+   "question": "群众反映伊宁市蔚蓝公寓小区电梯未进行年检问题伊犁州政府实地核实积极协调进行检测",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "8732fb6a62d1493d82341819cf56e818",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202505/8732fb6a62d1493d82341819cf56e818.shtml",
+   "question": "群众反映喀什市外地注册营运车辆异地驻点经营问题喀什地区行署多措并举强化整治",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "3ce3bd7738774587940362508b215e53",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202504/3ce3bd7738774587940362508b215e53.shtml",
+   "question": "群众反映乌鲁木齐市幸福花园七期物业服务不到位问题乌鲁木齐市政府督促物业公司积极整改到位",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "98579755222242d38434c2fae140cea2",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202504/98579755222242d38434c2fae140cea2.shtml",
+   "question": "群众反映伊宁市喀赞其景区存在“黑摩的”问题伊犁州政府多措并举立即整改到位",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "2823b333dde941739374aa74eb326efe",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202503/2823b333dde941739374aa74eb326efe.shtml",
+   "question": "群众反映用水计费异常问题阿克苏地区行署立即整改到位",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "807ce49838bc40689f07e02da3c7afc8",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202501/807ce49838bc40689f07e02da3c7afc8.shtml",
+   "question": "群众反映小区违规收取停车费问题喀什地区行署经实地核查推动有关方面立行立改",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "98f0d5ab162d4cba89cb4c8333ef3a94",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202501/98f0d5ab162d4cba89cb4c8333ef3a94.shtml",
+   "question": "群众反映小区电梯频发故障问题阿克苏地区行署认真组织核查督促立即整改",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "cbb8e9ab323a4b5d9e40356bff60b728",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202412/cbb8e9ab323a4b5d9e40356bff60b728.shtml",
+   "question": "群众反映昌吉州昌吉市中山路派出所违规收费问题昌吉州责令停止违规行为 公示收费标准",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "c5057ff0a64745bd97e1f1da66e5d3cc",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202412/c5057ff0a64745bd97e1f1da66e5d3cc.shtml",
+   "question": "群众反映塔城地区额敏县友好新城小区供暖问题塔城地区行署立即进行排查调试 保障供热",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "b054381f01d442c7910051ddbeee5a39",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202411/b054381f01d442c7910051ddbeee5a39.shtml",
+   "question": "群众反映阿克苏市金桥幸福里小区物业乱收费问题阿克苏地区行署下达责令整改通知书要求退费并停止收费行为",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "c2d1b11d812143729db4463b417b1218",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202410/c2d1b11d812143729db4463b417b1218.shtml",
+   "question": "群众反映乌鲁木齐市恒信阳光里小区出行难问题乌鲁木齐市政府调整增设公交线路 满足群众出行需求",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "dc677760503b4203899e16f0d50fa3a7",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202409/dc677760503b4203899e16f0d50fa3a7.shtml",
+   "question": "群众反映奎屯市廊桥餐吧噪音扰民问题伊犁州政府多措并举 进行源头治理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "e13632f94b014a4787c3cc31142ee0d3",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202408/e13632f94b014a4787c3cc31142ee0d3.shtml",
+   "question": "群众反映昌吉市钢花滨河苑小区频繁停水问题昌吉州政府多措并举 进行源头治理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "add960f47f6a4e6d871414bcbfbd1de9",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202407/add960f47f6a4e6d871414bcbfbd1de9.shtml",
+   "question": "群众反映疏勒县罕南力克镇村民用水困难问题喀什行署多措并举有效恢复水源供水能力",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "9a5a814fc36f4473ab29b43579b6de71",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202405/9a5a814fc36f4473ab29b43579b6de71.shtml",
+   "question": "群众反映小区业主私自侵占公共绿地问题乌鲁木齐市政府进行释法宣传依法依规责令整改",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "f76775355f0b48369e0ec3ff6d0ff838",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202405/f76775355f0b48369e0ec3ff6d0ff838.shtml",
+   "question": "群众反映政务服务系统网络卡顿问题自治区市场监督管理局积极采取有效措施恢复正常运行",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "323394ef05d541219ecf8907c9c45b64",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202312/323394ef05d541219ecf8907c9c45b64.shtml",
+   "question": "群众反映皮山县高级中学乱收费问题和田地区行署督促有关单位立即退费整改",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "3f55f9293dea42e0a3318c899b691d42",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202309/3f55f9293dea42e0a3318c899b691d42.shtml",
+   "question": "群众反映燃气公司限制购气问题昌吉州政府认真组织核查要求立即整改",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "5e843aa795d84676ade480779d92846d",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202308/5e843aa795d84676ade480779d92846d.shtml",
+   "question": "群众反映乐思嘉教育培训机构违规补课问题乌鲁木齐市政府组织实地核查督促培训机构退费整改",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "55cb2134174645fca2509fac06fde785",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202307/55cb2134174645fca2509fac06fde785.shtml",
+   "question": "群众反映沙湾市施工现场存在安全隐患问题塔城地区行署派员实地核查督促当地立行立改",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "d3bf3edb496a4096878fd84e5b5aaa34",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202307/d3bf3edb496a4096878fd84e5b5aaa34.shtml",
+   "question": "群众反映博乐市充电桩未通电问题博州政府认真组织核查并督促有关单位及时检测接电",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "7063d5f9e5ba4a698f959ee472b65b5e",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202210/7063d5f9e5ba4a698f959ee472b65b5e.shtml",
+   "question": "关于库尔勒市群众反映“无法离库返校”问题的办理情况",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "3942ea4db7104bbba705ea3770e1f1c9",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202210/3942ea4db7104bbba705ea3770e1f1c9.shtml",
+   "question": "关于新源县群众反映“收割机缺配件，希望帮助解决进行水稻收割”问题的办理情况",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "fe49bc2663e649b69c70ee0be2997c7b",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/fe49bc2663e649b69c70ee0be2997c7b.shtml",
+   "question": "阿克苏地区行署有序组织拾花工转移输送",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "77577cf3c5dc454b854e77c384aa1195",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/77577cf3c5dc454b854e77c384aa1195.shtml",
+   "question": "巴州政府全力以赴做好辣椒采摘工作",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "7bfcc079aaf3453184c2b9a8e13acc65",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/7bfcc079aaf3453184c2b9a8e13acc65.shtml",
+   "question": "巴州政府积极协调劳动力助农采摘",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "149fa5da2e1442ceb6ce300a3c1011a0",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/149fa5da2e1442ceb6ce300a3c1011a0.shtml",
+   "question": "伊犁政府积极保障疫情期间农业生产需求",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "86adac45f7da45c2a97227be044df551",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/86adac45f7da45c2a97227be044df551.shtml",
+   "question": "昌吉州政府暖心服务留守老人帮助申请核酸检测码",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "0e8c50cc6be44f9780f3032e11261de1",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/0e8c50cc6be44f9780f3032e11261de1.shtml",
+   "question": "乌鲁木齐市政府积极做好疫情期间大学生返校工作",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "abeabadce1cd47a9b81ed8521ec8188a",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/abeabadce1cd47a9b81ed8521ec8188a.shtml",
+   "question": "伊犁州政府主动接受社会监督做好捐赠物资发放工作",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "6cae316044cb482caec384165dab7eac",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/6cae316044cb482caec384165dab7eac.shtml",
+   "question": "伊犁州政府全程公开玉米收购水分测量保障农户收益",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "0574d2a80de940c59e356c6351329497",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/0574d2a80de940c59e356c6351329497.shtml",
+   "question": "喀什地区行署规范驾培行业收费保障学员利益",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "3a0a2281ae654547b942fb5d272cf809",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/3a0a2281ae654547b942fb5d272cf809.shtml",
+   "question": "昌吉州政府积极做好蔬菜保供稳价工作",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "3fb2c346a21b46799b463744cce2a3dc",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/3fb2c346a21b46799b463744cce2a3dc.shtml",
+   "question": "巴州政府规范物业管理保障业主权益",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "0c130e84ea1d4528b784d309e61dba0b",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/0c130e84ea1d4528b784d309e61dba0b.shtml",
+   "question": "喀什地区行署主动沟通做好政策解释工作群众留言表示感谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "8e1c633c272d4cc59eb32a7759f6c1fd",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/8e1c633c272d4cc59eb32a7759f6c1fd.shtml",
+   "question": "昌吉州政府多措并举解决葡萄销售难题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "6585a9ceb4c74eedab6c7f3ec46039e0",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/6585a9ceb4c74eedab6c7f3ec46039e0.shtml",
+   "question": "塔城地区行署规范办理电动自行车延伸服务点",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "0b84c4e287df472c92db333439406b19",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/0b84c4e287df472c92db333439406b19.shtml",
+   "question": "吐鲁番市政府全力以赴保障哈密瓜采摘销售工作",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "d9c65121de9b48a483648c1b5e3432f9",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/d9c65121de9b48a483648c1b5e3432f9.shtml",
+   "question": "巴州政府采取包联服务模式保障孕妇就医产检",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "859a4e3ccfa642a985c3522b44929ba5",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/859a4e3ccfa642a985c3522b44929ba5.shtml",
+   "question": "伊犁州政府统一指导规范物资销售价格",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "a78dde5d28814835b2035328cf52c8b1",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/a78dde5d28814835b2035328cf52c8b1.shtml",
+   "question": "自治区教育厅严格按照规定执行保障教育公平",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "900284fc7ff54911ab2d7f966caf9b6e",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/900284fc7ff54911ab2d7f966caf9b6e.shtml",
+   "question": "巴州政府及时作出安排部署保障生活物资供应到位",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "c63e7c7cf0354f0c90e29bcc818ea9bc",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/c63e7c7cf0354f0c90e29bcc818ea9bc.shtml",
+   "question": "伊犁州政府全力以赴做好服务群众看病就医工作",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "2f42b61483ae4406bf9bc3f1d144ee70",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/2f42b61483ae4406bf9bc3f1d144ee70.shtml",
+   "question": "伊犁州政府严格规范做好核酸检测工作保障群众安全",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "0b04fe4445124bb58d180ce7b0cc91ec",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/0b04fe4445124bb58d180ce7b0cc91ec.shtml",
+   "question": "喀什地区行署耐心细致做好政策解释工作群众留言表示感谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "d1abd5eda8314322a7ba1a8cdb3dc252",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/d1abd5eda8314322a7ba1a8cdb3dc252.shtml",
+   "question": "阿克苏地区行署主动服务做好出行保障工作群众留言表示感谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "e3ddc30464574463ab061bcefbbed1e0",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/e3ddc30464574463ab061bcefbbed1e0.shtml",
+   "question": "阿勒泰地区行署依法依规保障消费者权益",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "7cbffd20a5564c1c8420c5c1b9742fe2",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/7cbffd20a5564c1c8420c5c1b9742fe2.shtml",
+   "question": "克州政府积极协调解决挂车入境问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "a9d1cde674fc4d019d0dfb260b639fcf",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/a9d1cde674fc4d019d0dfb260b639fcf.shtml",
+   "question": "吐鲁番市政府及时修复路灯保障居民夜晚出行安全",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "9a4275cc439f4527874a57e1541e641e",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/9a4275cc439f4527874a57e1541e641e.shtml",
+   "question": "伊犁州政府全力保障学生返校就学",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "0e92d5e0abd24e6a838d50ad0770981e",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/0e92d5e0abd24e6a838d50ad0770981e.shtml",
+   "question": "阿克苏地区行署及时恢复道路保障通行安全",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "24da0d28f8994483940da870dc797d87",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/24da0d28f8994483940da870dc797d87.shtml",
+   "question": "伊犁州政府全力保障群众看病就医需求",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "f5f4ff9c12414380a34ed487407cdfb7",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/f5f4ff9c12414380a34ed487407cdfb7.shtml",
+   "question": "克拉玛依市政府督促企业做好社保缴费工作维护劳动关系稳定",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "c3ca7567e4cd44349c6e6961cad4e1aa",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/c3ca7567e4cd44349c6e6961cad4e1aa.shtml",
+   "question": "伊犁州政府全力保障群众看病就医需求",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "4c5521d9d1d2446d8da8aaac2cb1f4ff",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/4c5521d9d1d2446d8da8aaac2cb1f4ff.shtml",
+   "question": "塔城地区行署多措并举做好老旧小区改造工作",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "2a036b579fa046aaa79d9f8618bb44f7",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/2a036b579fa046aaa79d9f8618bb44f7.shtml",
+   "question": "博州政府积极畅通货物运输保障小微企业正常运转",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "631009955ffa436bbfe76941f128c3db",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/631009955ffa436bbfe76941f128c3db.shtml",
+   "question": "吐鲁番市政府主动服务帮助群众办理社保转出业务",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "325963e5549a4e90bd1f0813cd88dc9f",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/325963e5549a4e90bd1f0813cd88dc9f.shtml",
+   "question": "巴州政府有效解决香梨采摘销售难题全力保障农民收入",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "fa00487bea6a4ce89d3b24dabfdbbe9d",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/fa00487bea6a4ce89d3b24dabfdbbe9d.shtml",
+   "question": "伊犁州政府全力以赴保障居民蔬菜供应",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "ab505606d7d745e5b470a6369b3a181f",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/ab505606d7d745e5b470a6369b3a181f.shtml",
+   "question": "巴州政府有效保障居民区基础设施建设",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "d164950cbc974af6a8fc5eb29cc5f67b",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/d164950cbc974af6a8fc5eb29cc5f67b.shtml",
+   "question": "昌吉州政府积极协调房产验收相关事宜",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "85f68266e6734a11814efd16a4074c94",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/85f68266e6734a11814efd16a4074c94.shtml",
+   "question": "乌鲁木齐市政府积极解决农业灌溉用水紧张难题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "042522667b9340e4a7f225546b53cddc",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/042522667b9340e4a7f225546b53cddc.shtml",
+   "question": "昌吉州政府有效保障疫情期间秋收工作",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "34539e34e3ed4d0f8d4b200592797010",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/34539e34e3ed4d0f8d4b200592797010.shtml",
+   "question": "乌鲁木齐市政府积极解决高中风险区人员就医难题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "55b9e381ac1c4f3a8515526fa2c5c4f1",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/55b9e381ac1c4f3a8515526fa2c5c4f1.shtml",
+   "question": "乌鲁木齐市政府帮助困难群众就医",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "3c4bd3991dc943d684c8b4b8344fec28",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/3c4bd3991dc943d684c8b4b8344fec28.shtml",
+   "question": "伊犁州政府帮助收割小麦，保障农民收入",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "6371e2dbc9c648f99ce5b3ae90e1d0d5",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/6371e2dbc9c648f99ce5b3ae90e1d0d5.shtml",
+   "question": "乌鲁木齐市群众反映生活物资供应不到位问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "584a574454514bdfb8866b277477c864",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/584a574454514bdfb8866b277477c864.shtml",
+   "question": "乌鲁木齐市群众反映社区核酸采集样管放置不规范问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "6e0ff0c8db234926bb2d8a576ade2a7c",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/6e0ff0c8db234926bb2d8a576ade2a7c.shtml",
+   "question": "巴州群众反映集中医学观察期间每天进行一次咽拭子和抗原检测问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "5c16241c70ec4b2eb326b7310aa86672",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/5c16241c70ec4b2eb326b7310aa86672.shtml",
+   "question": "博州群众反映红星商业街不允许复工复产问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "35a50601dcc04425bd6ae8c2afa70a13",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/35a50601dcc04425bd6ae8c2afa70a13.shtml",
+   "question": "伊犁州群众反映学生网上报名问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "47cdeede43744ffd8fa90ff3a7f8a72d",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/47cdeede43744ffd8fa90ff3a7f8a72d.shtml",
+   "question": "乌鲁木齐市群众反映生活物资保障不到位问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "8f5afe98c9c847609799cbab72f87768",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/8f5afe98c9c847609799cbab72f87768.shtml",
+   "question": "塔城地区群众反映不让进入额敏县问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "52e99f4d1a944706a97c9c2309be34af",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/52e99f4d1a944706a97c9c2309be34af.shtml",
+   "question": "阿克苏地区群众反映不接收60岁以上人员核酸检测问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "5d02e348554344e2a62f0f407a56ded5",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/5d02e348554344e2a62f0f407a56ded5.shtml",
+   "question": "喀什地区群众反映需要吸氧设备问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "9597af5853ab43fdb44809309631a328",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/9597af5853ab43fdb44809309631a328.shtml",
+   "question": "伊犁州群众反映道路修复问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "c79e3a0271df417e909ec806e10107c0",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/c79e3a0271df417e909ec806e10107c0.shtml",
+   "question": "昌吉州群众反映货物无法正常运输问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "4604a875713e4b6e8b8a2d3e165694c2",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/4604a875713e4b6e8b8a2d3e165694c2.shtml",
+   "question": "乌鲁木齐市群众反映教师下沉社区参加防疫志愿服务影响教学进程问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "1230e69d5ef84583b2acf6589591ebdb",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/1230e69d5ef84583b2acf6589591ebdb.shtml",
+   "question": "伊犁州群众反映需协调解决集中隔离转居家隔离问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "32943b52f0004c3795fe8b4e617e74bf",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/32943b52f0004c3795fe8b4e617e74bf.shtml",
+   "question": "和田地区群众反映集中隔离点服务保障不到位问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "f898cf6aca2b46b28704ef3ed86f9957",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/f898cf6aca2b46b28704ef3ed86f9957.shtml",
+   "question": "巴州群众反映不允许下高速问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "f391fa0f87514d2d90022fa55604e813",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/f391fa0f87514d2d90022fa55604e813.shtml",
+   "question": "克州群众反映蔬菜无法出售问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "41e147fbe47e40f5b4a590c78a7a4494",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/41e147fbe47e40f5b4a590c78a7a4494.shtml",
+   "question": "吐鲁番市群众反映农业生产活动受限问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "4b24484392ff46f2b8b05a8aaeda64bc",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/4b24484392ff46f2b8b05a8aaeda64bc.shtml",
+   "question": "昌吉州群众反映申请离疆未批复问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "5b96b637db6f4801bd65fcc78006301c",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/5b96b637db6f4801bd65fcc78006301c.shtml",
+   "question": "吐鲁番市群众反映餐馆不能堂食问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "bcc7c8d391004f8e904e57760cef54d6",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/bcc7c8d391004f8e904e57760cef54d6.shtml",
+   "question": "昌吉州群众反映买药难问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "efcd2d8f0f7c4ea9a04d88cf6ed48289",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/efcd2d8f0f7c4ea9a04d88cf6ed48289.shtml",
+   "question": "乌鲁木齐市群众反映配送蔬菜质量差问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "067049f617b94c7ebdc1409d86d48508",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/067049f617b94c7ebdc1409d86d48508.shtml",
+   "question": "阿勒泰地区群众反映被执行闭环管理问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "f1504033e33e4e41bf3739c5b7b8b3c1",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/f1504033e33e4e41bf3739c5b7b8b3c1.shtml",
+   "question": "伊犁州群众反映无法返回居住地问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "3fd7a65de3f74834a9abbbee1f9f5a33",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202209/3fd7a65de3f74834a9abbbee1f9f5a33.shtml",
+   "question": "塔城地区群众反映客运班线停止运营问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "1cd2787dda194d09b7a2d44087170e9b",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202208/1cd2787dda194d09b7a2d44087170e9b.shtml",
+   "question": "克拉玛依市群众反映疫情期间无法正常上下班问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "87f0cd79f0e641cd97a2aaf09f505450",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202208/87f0cd79f0e641cd97a2aaf09f505450.shtml",
+   "question": "昌吉州群众反映生活保障措施不充分问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "e03624171aca411f90462f1248af2a43",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202208/e03624171aca411f90462f1248af2a43.shtml",
+   "question": "伊犁州群众反映医院不接收待产住院问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "2480146d6d744baabdc06eca77f8c6fa",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202208/2480146d6d744baabdc06eca77f8c6fa.shtml",
+   "question": "博州群众反映疫情防控政策不透明问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "2529fbc9d83c4292ba32e29ab58cd081",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202208/2529fbc9d83c4292ba32e29ab58cd081.shtml",
+   "question": "昌吉州群众反映疫情防控工作人员态度差问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "436d56df20ac4114b8e86d9fac311a81",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202208/436d56df20ac4114b8e86d9fac311a81.shtml",
+   "question": "阿克苏地区群众反映疫情政策解释不到位问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "bfe1194bf3bd480cb44b5e7b971e5a73",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202208/bfe1194bf3bd480cb44b5e7b971e5a73.shtml",
+   "question": "喀什地区群众反映12345热线回复不及时问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "5a50fd8ba4a24d2eb8af3641459516d1",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202208/5a50fd8ba4a24d2eb8af3641459516d1.shtml",
+   "question": "哈密市群众反映疫情防控信息公布不及时问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "3d93e0d3f2664053b9af9baaec95348b",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202208/3d93e0d3f2664053b9af9baaec95348b.shtml",
+   "question": "伊犁州群众反映出疆途径少问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "29c67bd770e3463481e8cec3956c9633",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202208/29c67bd770e3463481e8cec3956c9633.shtml",
+   "question": "哈密市群众反映物资配送不及时问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "a4db6d035c6247a2b948bc8f6a3155ad",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202208/a4db6d035c6247a2b948bc8f6a3155ad.shtml",
+   "question": "巴州群众反映对违反防疫措施实施处罚问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "aff5c0e62e134469809fc479fe329c76",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202208/aff5c0e62e134469809fc479fe329c76.shtml",
+   "question": "阿克苏地区群众反映集中隔离点条件较差问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "eac14710a81b44eb8822bebe4dc1679c",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202208/eac14710a81b44eb8822bebe4dc1679c.shtml",
+   "question": "伊犁州群众反映患病居家无人照顾问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "0927638ee3e54e4a9cc3568bc81f8d1d",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202208/0927638ee3e54e4a9cc3568bc81f8d1d.shtml",
+   "question": "喀什地区群众反映孕妇需求未保障问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "f086e25946854c39b31488f5918023b4",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202208/f086e25946854c39b31488f5918023b4.shtml",
+   "question": "伊犁州群众反映身体条件不宜集中隔离问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "3d6f7401595740ef8447a968501b6cd2",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202208/3d6f7401595740ef8447a968501b6cd2.shtml",
+   "question": "乌鲁木齐市群众反映未及时回复热线咨询问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "3fe9ccc06bf14edba2621a447ad9c8ba",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202208/3fe9ccc06bf14edba2621a447ad9c8ba.shtml",
+   "question": "伊犁州群众反映菜品供应单一问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "35666df8846345089cb50b8f9e7f43fb",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202208/35666df8846345089cb50b8f9e7f43fb.shtml",
+   "question": "巴州群众反映物资采购配送不到位问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "b149f20cd76e42d8be593c038903e69b",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202208/b149f20cd76e42d8be593c038903e69b.shtml",
+   "question": "乌鲁木齐市群众反映社区宣传方式不当问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "71144acec05d4dd8a069478930b9f6db",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202208/71144acec05d4dd8a069478930b9f6db.shtml",
+   "question": "伊犁州群众反映因甲醛超标不宜居家隔离问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "e5184e16b4eb47fe9429fdbc6b248d02",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202208/e5184e16b4eb47fe9429fdbc6b248d02.shtml",
+   "question": "喀什地区群众反映防控办服务意识欠缺问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "ca30258c32994c5284ae7ca78a219aac",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202208/ca30258c32994c5284ae7ca78a219aac.shtml",
+   "question": "巴州群众反映低风险地区人员被强制劝返问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "7b6f002a446746fa812850434a5e5f15",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202208/7b6f002a446746fa812850434a5e5f15.shtml",
+   "question": "吐鲁番市群众反映疫情防控热线不畅问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "83a833c32f40459bb333d040656bc81a",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202208/83a833c32f40459bb333d040656bc81a.shtml",
+   "question": "伊犁州群众反映疫情期间需外出就医问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "420f65e4cd734c8b9f4a175d7e47eff2",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202208/420f65e4cd734c8b9f4a175d7e47eff2.shtml",
+   "question": "伊犁州群众反映物资保障困难问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "38bfe29c21204b06970d9e0c4d72e7d4",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202208/38bfe29c21204b06970d9e0c4d72e7d4.shtml",
+   "question": "乌鲁木齐市群众反映疫情期间部分外送平台物品价格高问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "5b5568be71e547cebc7248a8b98bf491",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202208/5b5568be71e547cebc7248a8b98bf491.shtml",
+   "question": "乌鲁木齐市群众反映封控小区生活物资配送不及时问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "0a239a49b60c40e28b17eba27fdcea3d",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202208/0a239a49b60c40e28b17eba27fdcea3d.shtml",
+   "question": "和田地区群众反映疫情防控隔离期限问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "f2c72fc16aaf4c68a8bdba57ff698fa3",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202208/f2c72fc16aaf4c68a8bdba57ff698fa3.shtml",
+   "question": "伊犁州群众反映受疫情影响西梅销售困难问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "d8c6ef7201aa4cbaab76199dca038003",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202208/d8c6ef7201aa4cbaab76199dca038003.shtml",
+   "question": "伊犁州群众反映来疆旅游人员离疆问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "f32eaf53020b4b30ac84ea32ef39292e",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202208/f32eaf53020b4b30ac84ea32ef39292e.shtml",
+   "question": "喀什地区群众反映哄抬物价问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "c5d39bf16f1b492292721c2007f732f1",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202208/c5d39bf16f1b492292721c2007f732f1.shtml",
+   "question": "阿克苏地区群众反映集中医学观察点服务态度冷硬问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "83ee01da4b7b433e9db0d77ec56ff442",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202208/83ee01da4b7b433e9db0d77ec56ff442.shtml",
+   "question": "博州群众反映边远散地区核酸检测困难问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "4586bca3a0f54da3a01b28d859632657",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202208/4586bca3a0f54da3a01b28d859632657.shtml",
+   "question": "塔城地区群众反映核酸检测时间不合理问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "51834699b4d440a1ba3f5791407cd418",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202208/51834699b4d440a1ba3f5791407cd418.shtml",
+   "question": "巴州群众反映疫情期间滞留无法回归属地问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "574774dd9e18412684ec03ac455144d0",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202205/574774dd9e18412684ec03ac455144d0.shtml",
+   "question": "群众反映中介公司违规协助购买经济适用房问题乌鲁木齐市政府认真核实督促纠正错误做法",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "52226195e9584c139645b4bcc6cf8ee1",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202205/52226195e9584c139645b4bcc6cf8ee1.shtml",
+   "question": "群众反映幼儿园收取托管费用问题昌吉州政府迅速核查督促退还收费规范办学",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "4939713c15674ac7969fde11d2a17103",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202203/4939713c15674ac7969fde11d2a17103.shtml",
+   "question": "群众反映培训中心违规有偿补课问题伊犁州严肃纠正错误做法 督促退还违规收费",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "1e5d700bd5dd4560b009cd986ff0d04e",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202203/1e5d700bd5dd4560b009cd986ff0d04e.shtml",
+   "question": "群众反映电力供应不稳定问题乌鲁木齐市认真核查主动服务 确保供电稳定",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "abdf89aa1f6c4072828e1a886510a587",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202111/abdf89aa1f6c4072828e1a886510a587.shtml",
+   "question": "群众反映客运车辆乱停乱放问题和田地区行政公署责令改正，维护群众经营活动",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "dc4f7a4e0e4842f68f5ee59d1fe137ed",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202111/dc4f7a4e0e4842f68f5ee59d1fe137ed.shtml",
+   "question": "群众反映供暖不足问题克拉玛依市政府及时抢修，保障居民供热",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "8bcd4263a60b400aae80806f1a9b4774",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202111/8bcd4263a60b400aae80806f1a9b4774.shtml",
+   "question": "群众反映出行难问题 乌鲁木齐市政府积极协调，解决群众出行难题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "79fd970781cd4857b1756a59b826c60e",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202110/79fd970781cd4857b1756a59b826c60e.shtml",
+   "question": "群众反映管网改造后修复路面不符合验收标准昌吉州政府积极制定整改方案，重新修整路面",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "cbca025a9d2e44a6a3167bcd8bfaaa08",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202109/cbca025a9d2e44a6a3167bcd8bfaaa08.shtml",
+   "question": "群众反映商铺在停车位私自建立高压变电站伊犁州政府依法进行拆除，恢复停车位",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "f2fc9e4980b44fbb91b5d2c3a7ed26d5",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202109/f2fc9e4980b44fbb91b5d2c3a7ed26d5.shtml",
+   "question": "群众反映道路未安装路灯，存在安全隐患乌鲁木齐市积极协调对接，纳入建设规划",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "5bc8479fc33948d3962c1a4216aedb70",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202109/5bc8479fc33948d3962c1a4216aedb70.shtml",
+   "question": "群众反映拆迁施工车辆进出尘土大、噪音大昌吉州政府积极制定整改方案，完善服务工作",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "f3d9dd8667fa4ea3aa9d5f4e9632d306",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202108/f3d9dd8667fa4ea3aa9d5f4e9632d306.shtml",
+   "question": "群众反映执业药师资格证书领取时间过长自治区人社厅积极畅通信息渠道，完善服务工作",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "122c8bc33f3b472aa18f2a4b6d0b80d2",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202108/122c8bc33f3b472aa18f2a4b6d0b80d2.shtml",
+   "question": "群众反映受工伤，公司未赔付问题伊犁州政府主动协助进行工伤认定，责令公司达成赔偿协议",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "3d93f90b5e2345fc8007de60952c05d7",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202108/3d93f90b5e2345fc8007de60952c05d7.shtml",
+   "question": "群众反映“商转公”业务难办理昌吉州政府进行平台优化，开拓办理通道",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "457f044efd4440eabd2e80d33a61b1cf",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202107/457f044efd4440eabd2e80d33a61b1cf.shtml",
+   "question": "群众反映小区长时间停水问题 昌吉州政府积极解决水压不足问题确保居民正常用水",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "1bbce93e81dd4222b4b5f891a258efb3",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202107/1bbce93e81dd4222b4b5f891a258efb3.shtml",
+   "question": "群众反映社保重复扣费问题乌鲁木齐市政府协助办理进行退费",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "ce5b2b718efa46c993875ca1150826e2",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202107/ce5b2b718efa46c993875ca1150826e2.shtml",
+   "question": "群众反映进口货物积压口岸通关不畅博州政府积极协调帮助企业解决货物通关难题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "1e807e4f079648e282adaba310bc73fc",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202106/1e807e4f079648e282adaba310bc73fc.shtml",
+   "question": "群众反映专项补贴资金未能拨付企业问题 喀什地区行署积极进行审批工作快速拨付资金",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "5b43e559a13e4a819388a659d7f6a9a2",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202106/5b43e559a13e4a819388a659d7f6a9a2.shtml",
+   "question": "群众反映小区存在未申报消防验收问题 乌鲁木齐市政府认真组织核查解决验收难题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "803b615ed11a430b8f522c7813886948",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202105/803b615ed11a430b8f522c7813886948.shtml",
+   "question": "群众反映无法在学信网查询到毕业证问题自治区教育厅认真核查纠正工作失误",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "c61e1d0d4a1f4e27901ce43d0706a76e",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202105/c61e1d0d4a1f4e27901ce43d0706a76e.shtml",
+   "question": "群众反映身份证无法办理问题阿勒泰地区行署认真核查系统错误解决办证难题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "e204492ec75a4e158a4a7eb5136507e2",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202104/e204492ec75a4e158a4a7eb5136507e2.shtml",
+   "question": "昌吉回族自治州群众反映给孩子办理身份证困难的问题 昌吉州政府认真整改主动服务获得群众满意",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "0d42e8bb9afe4fc598691c943a9696c3",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202104/0d42e8bb9afe4fc598691c943a9696c3.shtml",
+   "question": "乌鲁木齐市群众反映快车线路停运导致出行不便问题乌鲁木齐市政府积极制定线路优化调整方案",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "16f9d04073054c55bc3cdacbc8b6660e",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202103/16f9d04073054c55bc3cdacbc8b6660e.shtml",
+   "question": "群众反映乌鲁木齐市社区干部作风问题 乌鲁木齐政府督促整改作风不实问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "85dc3d3113214ea083233f8b145f2a1e",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202103/85dc3d3113214ea083233f8b145f2a1e.shtml",
+   "question": "群众反映和田市卫健委临聘防疫工作人员工资未足额发放 和田市政府认真整改及时补发工资",
    "cited_hits": [],
    "cited_missing": [],
    "has_clause_no": false

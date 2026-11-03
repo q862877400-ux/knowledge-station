@@ -1,0 +1,48 @@
+fix(govqa): nat-mohurd 问题正文解析 —— 站点 HTML 结构按页不同（230 条修复）
+
+## 问题
+
+字段体检（`recon/field-audit.py`）发现 **230 条 `nat-mohurd` 记录的 `question` 为空**
+（`answer` 有内容）。
+
+## 根因（探针实测，不是猜）
+
+写探针 `recon/probe-mohurd-q.py` 逐页对比，发现：
+
+| 页 | `Q_RE` 命中 |
+|---|---|
+| page 1 / 2 / 3 / 5 / 10 | **20/20（100%）** |
+| **page 31 / 32** | **0/20（全部失败）** |
+
+**本站 HTML 结构按页不同**：
+- 新条目（page 1~10）：`question-title</p> <p> <p style=…>TEXT</p>` ← **嵌套 `<p>`**
+- 老条目（page 31+）：`question-title</p> <p>TEXT</p> <p></p>` ← **扁平，无嵌套**
+
+`Q_RE` 只认嵌套结构 ⇒ 老条目的问题正文全丢。
+
+## 修法
+
+加兜底正则 `Q_RE_FLAT`，两条都试：
+```python
+mq = Q_RE.search(seg)
+question = _text(mq.group(1)) if mq else ""
+if not question:                       # 兜底：老条目的扁平结构
+    mq2 = Q_RE_FLAT.search(seg)
+    if mq2:
+        question = _text(mq2.group(1))
+```
+
+**修复后实测：page 31 / 32 均 20/20 命中（合计 40 命中 / 0 失败）。**
+
+## ★ 通用教训
+
+> **同一个站点的列表页，不同页可能用不同的 HTML 模板。**
+> 只看第 1 页就断言「解析规则正确」是不够的 —— 老条目（深页）常是旧模板。
+
+这正是「字段体检」的价值：**230 条空值静默躺在 36 万条里，不做体检永远发现不了。**
+
+## 遗留
+
+- 已落盘的 230 条**旧记录仍是空 question** —— 需要重采该通道才能修复。
+  本次只修**采集器**，不擅自改已落盘数据（宪法 V：留痕不许悄悄删）。
+- 重采计划：`poll.py --channel nat-mohurd --full`（全量重采，按 id 去重不会产生重复）

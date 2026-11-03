@@ -55,6 +55,13 @@ TARGETS = {
     "guiyang":  ("https://www.guiyang.gov.cn",  "https://www.guiyang.gov.cn/",            1, 300),
     "xining":   ("https://www.xining.gov.cn",   "https://www.xining.gov.cn/",             1, 300),
     "yinchuan": ("https://www.yinchuan.gov.cn", "https://www.yinchuan.gov.cn/",           1, 300),
+    # ★ 2026-10-09 第 10 轮新增：**地级市** IGI 普查（`var/tmp/r18/city-igi-sweep2.py`，93 城）
+    #   命中 14 个；下面 3 个是**此前全无 IGI 记录的省**（甘肃 / 江西 / 西藏），优先枚举。
+    #   ⚠ 这 14 个的 `siteId=1` 实测 `totalResults=0`、0 行 ⇒ **只证明平台在，不等于有数据**，
+    #     必须靠本脚本枚举出有效 siteId（与 `baotou IGI 200 0` 同形态）。
+    "zhangye":  ("https://www.zhangye.gov.cn",  "https://www.zhangye.gov.cn/",  1, 300),   # 甘肃
+    "jiujiang": ("https://www.jiujiang.gov.cn", "https://www.jiujiang.gov.cn/", 1, 300),   # 江西
+    "shannan":  ("https://www.shannan.gov.cn",  "https://www.shannan.gov.cn/",  1, 300),   # 西藏
 }
 
 

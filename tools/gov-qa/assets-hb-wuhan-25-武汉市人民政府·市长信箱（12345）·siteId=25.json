@@ -1,0 +1,1033 @@
+{
+ "A_考卷": [
+  {
+   "source": "hb-wuhan-25",
+   "id": "53115",
+   "url": "https://www.wuhan.gov.cn/?id=53115",
+   "question": "本人在拼多多店铺（名称：特示种业）营业执照名称：武汉竣史林木种子经营部地址：武汉市江岸区车站街道一元路37号1层2-3R024室购买种子一份，到货后发现该款产品属于假种子，根据《中华人民共和国种子法》第四十条销售的种子，应当附有标签和使用说",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国种子法",
+     "lib_no": "种子法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "52942",
+   "url": "https://www.wuhan.gov.cn/?id=52942",
+   "question": "您好，请问饲料生产许可证是在农业局申请吗？个体工商户可以申请吗？",
+   "cited_hits": [
+    {
+     "name": "饲料和饲料添加剂管理条例",
+     "lib_no": "饲料和饲料添加剂管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "45519",
+   "url": "https://www.wuhan.gov.cn/?id=45519",
+   "question": "希望你单位兽医团队给我小区流浪猫做免费绝育。",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国动物防疫法",
+     "lib_no": "动物防疫法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "43820",
+   "url": "https://www.wuhan.gov.cn/?id=43820",
+   "question": "该店家门面门头为重庆人家，在小红书、闲鱼等平台上发布自家繁殖的广告吸引人去他家看狗看猫，我于31号晚上在他家购买了一只阿拉斯加，店家称买他们的狗粮可以包三个月的医疗，并且声称自己已经给小狗接种了一针疫苗，但小狗带回家后第六天开始出现呕吐、便",
+   "cited_hits": [
+    {
+     "name": "动物防疫法",
+     "lib_no": "动物防疫法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "动物防疫法",
+     "lib_no": "动物防疫法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "消费者权益保护法",
+     "lib_no": "消费者权益保护法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "消费者权益保护法",
+     "lib_no": "消费者权益保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "动物诊疗许可证",
+    "动物防疫条件合格证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "43785",
+   "url": "https://www.wuhan.gov.cn/?id=43785",
+   "question": "汉阳区建桥街道汉阳大道140号闽东国际商业城一层门头为重庆人家，售卖病猫病狗。 该店三月份开店以来，不少消费者买到的病猫病狗，检测出犬瘟细小冠状猫瘟等传染疾病。 部分顾客被老板要求把狗狗送回店里然后死掉后老板恶意销毁。",
+   "cited_hits": [
+    {
+     "name": "动物防疫法",
+     "lib_no": "动物防疫法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "动物防疫法",
+     "lib_no": "动物防疫法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "消费者权益保护法",
+     "lib_no": "消费者权益保护法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "消费者权益保护法",
+     "lib_no": "消费者权益保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "动物诊疗许可证",
+    "动物防疫条件合格证"
+   ],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "hb-wuhan-25",
+   "id": "69024",
+   "url": "https://www.wuhan.gov.cn/?id=69024",
+   "question": "办理农药销售许可证时所要求的专业教育培训机构五十六学时以上的学习经历，请问是否有官方认可的教育机构名单，如果没有如何才能确定机构的合规和出具的学习证明的有效性。",
+   "cited_hits": [],
+   "cited_missing": [
+    "农药经营许可管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "65940",
+   "url": "https://www.wuhan.gov.cn/?id=65940",
+   "question": "2025年7月1日施行的《种畜禽生产经营许可管理办法》将商品代仔畜、雏禽纳入种畜禽生产经营许可证的强制范围。是否意味着在2025年7月1日后，对外出售商品代仔猪用于客户育肥或养殖的养殖场，必须办理种畜禽生产经营许可；此前已有种畜禽生产经营许",
+   "cited_hits": [],
+   "cited_missing": [
+    "省农业农村厅关于明确种畜禽生产经营许可证核发权限的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "64587",
+   "url": "https://www.wuhan.gov.cn/?id=64587",
+   "question": "没有执业兽医师证书的人是否可以在执业兽医师的指导下对动物进行采血，采血的人不是兽医专业的相关学生，但是在动物医院学习了一年，采血全过程是在执业兽医师的指导下进行，该行为是否违法",
+   "cited_hits": [],
+   "cited_missing": [
+    "动物诊疗机构管理办法",
+    "执业兽医师和乡村兽医管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "57195",
+   "url": "https://www.wuhan.gov.cn/?id=57195",
+   "question": "本人购买商家（武汉鱼知乐电子商务有限公司）水霉净兽药一份，用于治疗宠物疾病。商家明确宣传治疗水霉病。产品到货后发现该产品无任何生产信息兽药文号以及执行标准",
+   "cited_hits": [],
+   "cited_missing": [
+    "农业行政处罚程序规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "57037",
+   "url": "https://www.wuhan.gov.cn/?id=57037",
+   "question": "2024年10月，长沙市曙光环保公益发展中心工作人员分别在淘宝、京东、拼多多三个平台部分兽药店铺与商家客服进行沟通咨询并下单了兽用抗菌药，经查证均属于《兽用处方药品种目录（第一批）》（中华人民共和国农业部公告 第1997号）中规定的兽用处方",
+   "cited_hits": [],
+   "cited_missing": [
+    "农业行政处罚程序规定",
+    "农业行政处罚程序规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "55521",
+   "url": "https://www.wuhan.gov.cn/?id=55521",
+   "question": "您好，本人想咨询一下江夏区金水河现在的垂钓政策，谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于长江江夏段金水河水域实行全面禁止垂钓的通告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "53623",
+   "url": "https://www.wuhan.gov.cn/?id=53623",
+   "question": "人工繁育省重点保护水生野生动物审批办事指南中，对技术人员的专业技术资格证书描述不清。具体需要什么条件的技术人员，什么工种，什么等级？资格证书全称叫什么？评定组织，颁发单位什么？第三方资质是否有效？如何申办？ 给出的证书样例没有公章，评定组织",
+   "cited_hits": [],
+   "cited_missing": [
+    "中华人民共和国水生野生动物利用特许办法",
+    "人工繁育证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "51908",
+   "url": "https://www.wuhan.gov.cn/?id=51908",
+   "question": "请问江夏上涉湖能否休闲垂钓 一人一杆一线一钩能否垂钓",
+   "cited_hits": [],
+   "cited_missing": [
+    "湿地保护管理规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "50303",
+   "url": "https://www.wuhan.gov.cn/?id=50303",
+   "question": "尊敬的武汉市农业农村局： 您好！我是一名大三的学生，此次致信是希望能详细了解《武汉市2024年油菜轮作试点示范项目实施方案》相关内容。我通过贵局官方网站得知了该政策，但仍有一些疑惑。解释。在 《武汉市2024年油菜轮作试点示范项目实施方案》",
+   "cited_hits": [],
+   "cited_missing": [
+    "农业农村部关于统筹利用撂荒地促进农业生产发展的指导意见",
+    "农业农村部关于统筹利用撂荒地促进农业生产发展的指导意见",
+    "武汉市油菜轮作试点任务验收公示单",
+    "武汉市油菜轮作试点任务申报、验收单"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "49745",
+   "url": "https://www.wuhan.gov.cn/?id=49745",
+   "question": "《武汉市养殖水域滩涂规划暨水产养殖“三区”划定方案（2018－2030年）》附图中，蔡甸区沉湖湿地自然保护区（由沉湖、张家大湖和王家涉组成）为禁止养殖区，查看”附图1 武汉市养殖水域滩涂禁止养殖区规划图“中未标记出来，是否有错误？",
+   "cited_hits": [],
+   "cited_missing": [
+    "蔡甸区养殖水域滩涂规划",
+    "武汉市养殖水域滩涂规划暨水产养殖“三区”划定方案（2018－2030年）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "47742",
+   "url": "https://www.wuhan.gov.cn/?id=47742",
+   "question": "因论文需要，能否提供2010年至今秸秆利用率和畜禽粪污利用率的数据。",
+   "cited_hits": [],
+   "cited_missing": [
+    "武汉市畜禽养殖废弃物资源化利用工作方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "46686",
+   "url": "https://www.wuhan.gov.cn/?id=46686",
+   "question": "我是中国地质大学（武汉）“三下乡”研究生实践团队的一员，应中国青少年研究中心号召，现开展一项\"湖北省青年参与乡村全面振兴的路径探索和实践研究\"，有一些相关事宜咨询： 1、请问贵局是否有相关的政策文件或实施方案，可以分享给我们作为研究参考？ ",
+   "cited_hits": [],
+   "cited_missing": [
+    "武汉市加快推进乡村人才振兴若干措施"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "44970",
+   "url": "https://www.wuhan.gov.cn/?id=44970",
+   "question": "长江能否用海竿钓鱼，单钩单杆作钓",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于加强和规范长江流域垂钓管理工作的通知",
+    "省农业农村厅关于加强禁捕水域垂钓管理工作的意见",
+    "市人民政府关于长江汉江武汉段实施全面禁捕的通告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "44804",
+   "url": "https://www.wuhan.gov.cn/?id=44804",
+   "question": "售卖时未提供动物检疫合格证明，和宠物健康免疫证",
+   "cited_hits": [],
+   "cited_missing": [
+    "动物检疫合格证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "40788",
+   "url": "https://www.wuhan.gov.cn/?id=40788",
+   "question": "尊敬的全国各市县厕改负责人： 新年好！我是吉林省永吉县渴望信息咨询有限公司法人崔太明，很高兴在新年第一封信与您们分享。我们辛辛苦苦搞了7-8年的厕改，近几年又搞个整改，虽然农民不欢迎，但我们不得不前行。我的总结是我们开始就存在技术不过硬准备",
+   "cited_hits": [],
+   "cited_missing": [
+    "农村户厕卫生规范",
+    "中国农村卫生厕所技术指南",
+    "农村无害化厕所建造技术指南"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "hb-wuhan-25",
+   "id": "69651",
+   "url": "https://www.wuhan.gov.cn/?id=69651",
+   "question": "政策咨询，本人为龟类爱好者，计划在某养殖场购买一黄缘闭壳龟幼体用于个人饲养，请问需要准备什么证件和手续？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "67804",
+   "url": "https://www.wuhan.gov.cn/?id=67804",
+   "question": "想咨询一下有什么政策支持和法律法规方面的问题。租的土地五十亩可以做家庭农场吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "67262",
+   "url": "https://www.wuhan.gov.cn/?id=67262",
+   "question": "发现三堆红火蚁穴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "66115",
+   "url": "https://www.wuhan.gov.cn/?id=66115",
+   "question": "如何查询职业技能培训，如何参加无人机飞手职业技能培训课程",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "63050",
+   "url": "https://www.wuhan.gov.cn/?id=63050",
+   "question": "发现福寿螺与加拿大一只花，请及时处理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "62941",
+   "url": "https://www.wuhan.gov.cn/?id=62941",
+   "question": "加拿大一枝花，在梁子湖及梁子湖大道沿线",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "62825",
+   "url": "https://www.wuhan.gov.cn/?id=62825",
+   "question": "武汉能不能用路亚竿啊为什么有的人说新出台的政策没说不让用但是有些人又说武汉一直不让用路亚竿",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "62607",
+   "url": "https://www.wuhan.gov.cn/?id=62607",
+   "question": "我方针对10月的20号.18号.17号.16号.15号.14号.13号。7天时间白沙洲市场的批发菜价做了个对比 有的产品比如玉米棒的价格在这几天时间的波动特别大，对这个价格可靠新产生疑问，同时也是想了解白沙州的蔬菜价格的真实性，作为企业的采",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "61906",
+   "url": "https://www.wuhan.gov.cn/?id=61906",
+   "question": "在这边种大棚，菜种不出来，土地不长菜。请领导 指导一下。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "61658",
+   "url": "https://www.wuhan.gov.cn/?id=61658",
+   "question": "最近武汉市汉南区通顺河段频繁有人丝网捕鱼，想咨询能否捕捞",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "60835",
+   "url": "https://www.wuhan.gov.cn/?id=60835",
+   "question": "尊敬的工作人员您好！我正在撰写湖北省县域耕地多功能的相关论文，在查询武汉市统计年鉴时，发现一些数据缺失，请问您这边能否提供？我需要2010、2015、2020年武汉市汉南区、蔡甸区、江夏区、黄陂区、新洲区的农作物播种面积、粮食作物播种面积、",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "59423",
+   "url": "https://www.wuhan.gov.cn/?id=59423",
+   "question": "因为有意向找创业工作室，所以一直关注着三乡工程网武汉周边有无合适的农房出租信息。。前年偶然看到三乡工程网，虽然没有看到合适的信息但是收藏了这个网站，不时也会打开看看有无合适的农房信息，25年以来再多次打开。都无法正常浏览了。官网链接也没有。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "59176",
+   "url": "https://www.wuhan.gov.cn/?id=59176",
+   "question": "我是武汉市新洲区仓埠街道五云村汪家田村民：程彪。我有户口，也是户主，目前在村里是没有房子的，现在准备在村里建自己的房子，我要求村里给我划拔一块宅基地。如上所述，希望问题能够得到解决！ 备注：五云村村支书李云剑（电话1*********9）",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "58914",
+   "url": "https://www.wuhan.gov.cn/?id=58914",
+   "question": "变型拖拉机上路是否合法",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "57241",
+   "url": "https://www.wuhan.gov.cn/?id=57241",
+   "question": "神墩五路与生物园西路交汇处发现红火蚁巢穴及大量红火蚁",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "56892",
+   "url": "https://www.wuhan.gov.cn/?id=56892",
+   "question": "我于2025年5月30日在抖音商城向武汉市小喵公社宠物有限公司购买缅因猫咪一只，价值3500元整。5月31到我家楼下时发现猫咪拉稀，6月1日发现猫咪后腿出现无力状态，前爪破损伴有溃烂出血症状，商家承诺发出时提供猫咪猫瘟检测视频，但并未提供，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "56162",
+   "url": "https://www.wuhan.gov.cn/?id=56162",
+   "question": "五一期间在江城大道地铁站附件南太子湖边发现福寿螺卵。粉红色的 在湖边水草上附着着。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "55869",
+   "url": "https://www.wuhan.gov.cn/?id=55869",
+   "question": "武汉市生猪定点屠宰证有效期是多久?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "55555",
+   "url": "https://www.wuhan.gov.cn/?id=55555",
+   "question": "我是外国一家跨国种子公司的中国业务负责人。公司计划投资中国并建立中国公司。我作为湖北人希望该公司设立在武汉。希望咨询武汉相关的政策。目前北京市农业局希望我们在北京投资并把公司设立在北京。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "55431",
+   "url": "https://www.wuhan.gov.cn/?id=55431",
+   "question": "2025年4月20日本人于被投诉举报人于美团网经营的“喵的咪宠物用品百货店”购买的一根彩条长杆逗猫棒（单价0.01元），宠物手套洗澡刷蓝色（0.64元），狩猎密码宠物零食猫咪湿粮条15g/条（两条一共2.34元），滚筒粘毛器-替换纸55撕（",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "54947",
+   "url": "https://www.wuhan.gov.cn/?id=54947",
+   "question": "我在3.17在淘宝这个人的店铺买了10只美国辉瑞卫佳五疫苗，但是使用感跟包装与以前买的正品根本不一样，之后看见他不符合兽用生物制品资历，所以合理合法怀疑他卖的假疫苗，所以投诉，希望严查严惩此店铺。狗狗的生命也是生命！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "54857",
+   "url": "https://www.wuhan.gov.cn/?id=54857",
+   "question": "农业公司租用土地种油菜，国家省市区有那些补贴与政策帮助。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "54839",
+   "url": "https://www.wuhan.gov.cn/?id=54839",
+   "question": "驻村工作队队员请假三天应由驻村所在街道审批，还是由驻村所在区的农村农业局审批？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "54793",
+   "url": "https://www.wuhan.gov.cn/?id=54793",
+   "question": "晚上10点左右总是看见有人拿一个轮胎做的船用很细的网在河里来回捕捞",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "54766",
+   "url": "https://www.wuhan.gov.cn/?id=54766",
+   "question": "高新大道734号武汉空轨下方豹子溪公园正月桥旁边湖中发现大量福寿螺卵，空轨支柱上也有",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "54663",
+   "url": "https://www.wuhan.gov.cn/?id=54663",
+   "question": "武汉青栾生物科技有限公司销售的狂犬病毒抗原没有药品批文，请有关部门严查、依法处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "54168",
+   "url": "https://www.wuhan.gov.cn/?id=54168",
+   "question": "看到贵账号发布的东西湖区的一些科技种植、养殖企业，我很感兴趣，想参观一下身边的这种农业科技公司，不知道贵司是否可以帮忙协调组织一下？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "53938",
+   "url": "https://www.wuhan.gov.cn/?id=53938",
+   "question": "我想租一个农村独门独户的小院，网上到处找不到合适的，想问下你们这有没有",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "53239",
+   "url": "https://www.wuhan.gov.cn/?id=53239",
+   "question": "局长您好: 本人罗羲，我父亲罗云生在2024年12月份通过湖北普尔泰机械设备制造有限公司销售员(小关-1*********6)，购买农机设备(40型水旱微耕机)定金5800+购机费22700元，使用微信支付给此销售员。 设备通过货运，简单的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "52821",
+   "url": "https://www.wuhan.gov.cn/?id=52821",
+   "question": "致武汉市农业农村局： 我计划在黄陂区建设美洲大蠊循环经济养殖基地，项目以厨余垃圾资源化、药用原料开发为核心，可以联合华中农业大学完成技术验证。现申请纳入渔业发展补助或乡村振兴专项，恳请贵局指导申报流程，并安排实地考察。 附件：项目可行性报告",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "52811",
+   "url": "https://www.wuhan.gov.cn/?id=52811",
+   "question": "武汉农福兴农业公司，打着客户提供灵芝种子，让客户拿回家种植，并保证以600元每公斤的价格回收，种子以13800元的价格出售给客户。但是并未按照合同履行回收所谓的灵芝，中途以各种各样的借口包括但不限于灵芝发霉，受潮等理由来推辞，并要客户再继续",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "52434",
+   "url": "https://www.wuhan.gov.cn/?id=52434",
+   "question": "2025年2月6日下午3时，本人携带两个月幼犬到位于解放大道1725附2号的联合动物医院（汉口总院）注射疫苗，注射后发现，宠物医院贴在疫苗本上的疫苗注射标签显示已过期（过期日是2025年1月23日）。疫苗标签显示：卫佳伍 四联活疫苗 生产批",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "52277",
+   "url": "https://www.wuhan.gov.cn/?id=52277",
+   "question": "负责人您好，我在贵网站看到局里为了解决养殖场粪污问题推出了联系电话，希望有广大种植户可以找到就近的养殖场合作消纳粪污，解决养殖场环保压力，解决种植户有机肥的需求，搭起有机绿色生态桥梁。我们公司从一七年开始一直在推广微生物法无害化处理养殖场粪",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "52112",
+   "url": "https://www.wuhan.gov.cn/?id=52112",
+   "question": "洪山菜薹这一区域公用品牌向七个生产企业授权，请问这七个企业分别是谁呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "50548",
+   "url": "https://www.wuhan.gov.cn/?id=50548",
+   "question": "神墩三路往大悦城方向，空轨下方荒地发现两处加拿大一枝黄花，经查此花破坏生态，繁殖极快，遂举报。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "50319",
+   "url": "https://www.wuhan.gov.cn/?id=50319",
+   "question": "金银湖公园水天榭西北端堤岸外近岸植物茎杆上有疑似福寿螺卵块附着，请予检查处理为盼",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "50280",
+   "url": "https://www.wuhan.gov.cn/?id=50280",
+   "question": "通顺河河堤沿岸发现入侵物种：加拿大一枝黄花，具体位置在长河公园段河堤背面（佳兆业滨江新城北侧），已经拍摄了现场疑似入侵物种的照片，希望有关部门去现场核实一下是否需要清除。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "50270",
+   "url": "https://www.wuhan.gov.cn/?id=50270",
+   "question": "在地质工作巡排查过程中发现阳逻开发区金阳大道与阳福大道路口西侧两百米范围内，包括但不限于星港路附近土坡上，存在加拿大一枝黄花分布",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "50157",
+   "url": "https://www.wuhan.gov.cn/?id=50157",
+   "question": "如题，中韩石化厂内400亩地区域疑似存在大量入侵有害植物“加拿大一支黄花”，目前基本进入花期，方便辨识处理，少量早熟植株即将布撒种子。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "50028",
+   "url": "https://www.wuhan.gov.cn/?id=50028",
+   "question": "我于6月20日花了13800元在同创（湖北）智慧农业产业有限公司购买了鹿茸菌种（有合同），该公司提供的合同上未承诺什么时间采收和收购，并未按照合同上的价格回收，之前的购买的菌包有120个菌包，3个多月一直未发效生长，现请贵局能进行监督鉴定该",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "49989",
+   "url": "https://www.wuhan.gov.cn/?id=49989",
+   "question": "江夏区郑店街道段岭庙张涂路青年庵有一处黑窝点（黑色彩钢瓦大棚内），每天夜晚1点左右开始私屠滥宰，环境恶劣，现场气味刺鼻。请严查取缔违法行为。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "49899",
+   "url": "https://www.wuhan.gov.cn/?id=49899",
+   "question": "武汉 园博园内“郴州园”门口有一石头上以镂空方式写篆书“郴”字。该“郴”字正对面的马路一侧约5米开外的地方有2-3株已经开花的疑似加拿大一枝黄花。另，由该字处向“济南园”方向走10米左右第二个路灯背后的石缝中也有1株疑似加拿大一枝黄花。建议",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "49895",
+   "url": "https://www.wuhan.gov.cn/?id=49895",
+   "question": "在蔡甸区黄土坡村到琴川公路一带生长着大量一支黄花",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "49615",
+   "url": "https://www.wuhan.gov.cn/?id=49615",
+   "question": "为了保护生态环境，福寿螺作为农村农业部重点的清除对象。现在斧头湖沿岸已经泛滥成灾！请相关部门重视。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "49422",
+   "url": "https://www.wuhan.gov.cn/?id=49422",
+   "question": "2024年10月7日，在拼多多平台网购兽药畜牧用专用消毒剂过硫酸氢钾复合粉，开店主体单位：武汉瑞畜安生物科技有限公司 在其拼多多店铺瑞畜安生物科技产品链接和规格图片宣称的是国标兽药，产品包装宣称与商家物流发送过来的货物不对称，商家发送的货物",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "49092",
+   "url": "https://www.wuhan.gov.cn/?id=49092",
+   "question": "我9月12日于江汉路烟火巷小吃街买到疑似福寿螺的螺肉，现螺肉保存并不完全，但尚有螺肉在，请问可否帮忙检测是否是福寿螺，以便维权",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "49085",
+   "url": "https://www.wuhan.gov.cn/?id=49085",
+   "question": "在旷林咀捞捕大队附近的几片水塘里发现了大量福寿螺的卵，水塘里种了很多荷花荷叶，卵就附着在荷叶杆杆上，这边反映一下情况。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "48960",
+   "url": "https://www.wuhan.gov.cn/?id=48960",
+   "question": "我家种了600亩水稻，其中因低势低洼淹了一小部分，保险理赔了。今年9月持续的高温干旱，导致水稻黄花占品种高温减产严重。叫人保保险人员来查看。保险人员说不赔，说我们已经赔过一次了。我说如果一张保单只能出一次险话，我明年600亩分5个人头买。他",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "48861",
+   "url": "https://www.wuhan.gov.cn/?id=48861",
+   "question": "尊敬的领导： 咨询一下，陂行审经〔2021〕3号，所涉基础农田，是否需要办理农用地转建设用地审批？如果不需要，麻烦说明一下对应的要求及所涉基础农田的是属于征地还是占地，占地属于什么样情况，征地属于什么样的情况。谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "48503",
+   "url": "https://www.wuhan.gov.cn/?id=48503",
+   "question": "想找你们单位下的协会，需要怎么联系。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "48252",
+   "url": "https://www.wuhan.gov.cn/?id=48252",
+   "question": "我是湖北省公安厅高警一支队江夏大队三中队的齐瑟，经我的实地勘测，我三中队辖区武阳高速光谷南收费站（及其立交桥枢纽施工现场），龙泉收费站，梧桐湖服务区，长岗枢纽，还地桥收费站及其沿线草庙水源地，红莲湖湿地保护区，受到加拿大一枝黄花大范围入侵，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "47770",
+   "url": "https://www.wuhan.gov.cn/?id=47770",
+   "question": "请问目前武汉市的行政范围内还有农村吗？如果有的话，具体是哪些地方。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "47422",
+   "url": "https://www.wuhan.gov.cn/?id=47422",
+   "question": "咨询一下，武汉城市河道内是否可以钓鱼？有没有什么限制之类的，我现在知道的就是江边上一杆一线一钩，城市内河道有哪些要求，或者说禁止钓鱼，有没有文件可以查看，避免钓鱼出现问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "47205",
+   "url": "https://www.wuhan.gov.cn/?id=47205",
+   "question": "考拖拉机驾驶证对方要求必须要取得居住证才能办理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "47183",
+   "url": "https://www.wuhan.gov.cn/?id=47183",
+   "question": "武汉的几大湖（东湖，南湖，东西湖，汤逊湖等）能休闲钓鱼吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "47171",
+   "url": "https://www.wuhan.gov.cn/?id=47171",
+   "question": "执业兽医资格考试办公室（武汉市江岸区二七路170号润禾大厦1112室，027-82243212） 电话一直无人接听，想咨询证书领取的相关问题，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "47128",
+   "url": "https://www.wuhan.gov.cn/?id=47128",
+   "question": "投诉洪山区小尹金渐层宠物用品工作室（个体工商户）违反《中华人民共和国动物防疫法》经营的动物应当附有而未附有检疫证明。该猫舍（营业执照工商注册号：420111601959973，纳税人识别号92420111M*****7E4U）购买宠物猫花费",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "47083",
+   "url": "https://www.wuhan.gov.cn/?id=47083",
+   "question": "你好， 我在你们网站的新闻中心部分里看到有一篇2024-07-11的新闻，标题是‘东西湖“淡水金枪鱼”上市了‘。这篇新闻里提到的马口鱼说是现在已经在武汉市开始售卖了，我想知道在武汉哪里可以买到。 谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "47036",
+   "url": "https://www.wuhan.gov.cn/?id=47036",
+   "question": "很多超市有那种处理干净的鲜螺肉卖。但一般老百姓都不大会分辨是哪种螺肉。田螺肉、福寿螺肉的鉴定的方法是什么？有无专业的田螺肉、福寿螺肉的鉴定机构？是免费的吗？有免费的吗？能出具具有法律效力的证明报告的吗(以方便维权)？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "46570",
+   "url": "https://www.wuhan.gov.cn/?id=46570",
+   "question": "我觉得东西湖这些农业科技公司的种养殖模式对年轻人和孩子有很大的教育意义，带家人一起参观这些农业公司，有助于提升这些公司的知名度，且提高年轻人对农业的认知。不知是否可以以社区为单位，定期组织人去参观学习？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "46496",
+   "url": "https://www.wuhan.gov.cn/?id=46496",
+   "question": "2024年7月04日在淘宝平台【环丰生物1号店】店铺 购买了武汉环丰生物科技有限公司一款 【鱼康188】产品，产品宣传有【治疗、肠炎病、烂鳃病、出血、】等作用，是属于兽药范围，该产品包装并没有兽药GMP批文。 相当产品未取得兽药批准文号 宣",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "46156",
+   "url": "https://www.wuhan.gov.cn/?id=46156",
+   "question": "6月18号在拼多多鑫欧颂动保店里买的一盒抗真菌2号注射液，该药品编码官网搜索不到，也没有二维码，也就是完全不合格的兽药，想请相关部门给与处理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "46031",
+   "url": "https://www.wuhan.gov.cn/?id=46031",
+   "question": "个人车辆，每天往返黄陂区和武汉市区送菜3-4趟，能否办理绿色通行证，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "45941",
+   "url": "https://www.wuhan.gov.cn/?id=45941",
+   "question": "我在武昌区武珞路230名宠会宠物犬猫舍花一千买一条狗狗 健康证明也没有 也不跟我说这狗狗有问题 上来就跟我签一份不退钱的合同 交完钱就叫我走 就给个小狗笼一张不退钱的合同 啥都没有 啥都不说 次日我带狗狗去宠物医院检查当天检查出为犬瘟冠状病",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "45856",
+   "url": "https://www.wuhan.gov.cn/?id=45856",
+   "question": "在谭鑫培公园荷花池内发现了大量疑似外来入侵物种福寿螺的卵附着在荷花荷叶的杆子上面，请求处理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "45854",
+   "url": "https://www.wuhan.gov.cn/?id=45854",
+   "question": "本人在2024年6月8日报名武汉市汉阳区喵大白宠物服务店（个体工商户）猫咪分期，共计花费7176元。该机构涉及虚假宣传，违规经营，超出经营范围，该宠物商家以免费领养布偶猫为噱头诱骗顾客去店里签巨额领养协议，并瑕疵交付布偶猫。未按照合同提供猫",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "45853",
+   "url": "https://www.wuhan.gov.cn/?id=45853",
+   "question": "本人在2024年6月8日报名武汉市汉阳区喵大白宠物服务店（个体工商户）猫咪分期，共计花费7176元。该机构涉及虚假宣传，违规经营，超出经营范围，该宠物商家以免费领养布偶猫为噱头诱骗顾客去店里签巨额领养协议，并瑕疵交付布偶猫。未按照合同提供猫",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "45738",
+   "url": "https://www.wuhan.gov.cn/?id=45738",
+   "question": "南湖幸福湾公园目前已被福寿螺入侵，水体中有大量成体螺，在沿岸出现大量卵和幼螺，并且已经蔓延到对面的南湖中，清尽快处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "45665",
+   "url": "https://www.wuhan.gov.cn/?id=45665",
+   "question": "1.环境特别差 注射针头混用 手术医疗器戒不消毒 用完的医疗器械就用自来水冲一遍 2.没有按照规定用正规兽药批文的药品 全是用人用的药 不符合法律规定 不开具病历 处方",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "44999",
+   "url": "https://www.wuhan.gov.cn/?id=44999",
+   "question": "马影河、五丈河。上述区域是否可以垂钓呢（采用一人一杆一线单钩的垂钓方式，大鱼放生，小鱼娱乐性垂钓）。 如果可以垂钓，遇到巡湖/河收费的人该向哪个部门反应，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "44946",
+   "url": "https://www.wuhan.gov.cn/?id=44946",
+   "question": "我于2024年5月23日在惠农网商城【禾麦种业】实际经营者：湖北归园居生态农业有限公司 地址：湖北省武汉市武昌区和平大道750号绿地国际金融城A04地块第B3幢9层6室-02，购买的种子种类：茄子，品种名称：春早茄六号，生产厂家：江西省宜春",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "44704",
+   "url": "https://www.wuhan.gov.cn/?id=44704",
+   "question": "CBD商务区，从民生金融中心大厦，前行，桥下穿过宝丰路高架桥后，废弃土堆沿线，有大量入侵植物加拿大一枝黄花，请处理！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "44381",
+   "url": "https://www.wuhan.gov.cn/?id=44381",
+   "question": "本人2024-04-20日在天猫商城店铺（爱博宠物用品专营店）营业执照（艾博（武汉）生物技术有限公司）购买了6盒猫瘟病毒检测诊断试纸，一共花费了1077元。收到商品后发现该猫瘟病毒诊断试纸包装上全部是英文，并且没有兽药生产许可证批准文号!根",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "40972",
+   "url": "https://www.wuhan.gov.cn/?id=40972",
+   "question": "我在2024.2.11在线下一家宠物店购买 了一只猫，1店家当时说这是缅因猫所以要比其他猫贵一点，实际上并不是缅因猫2卖家说小猫接种疫苗一针，但是并未提供疫苗本并且连猫都出生日期都不知道3我于2024.2.14上午10:30到宠物医院给我的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "40503",
+   "url": "https://www.wuhan.gov.cn/?id=40503",
+   "question": "卫山村那么多湾子到底拆不拆？何时拆？印了多次地都没拆，今年可以拆吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "40497",
+   "url": "https://www.wuhan.gov.cn/?id=40497",
+   "question": "我想咨询一下，农村厕所改造就是在湾子里建一个公共厕所吗？我们村有一个新的公共厕所，但是如果我自己在家里建一个有厕所补贴吗？化粪池等是挖到哪里呢？有统一集中吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "40417",
+   "url": "https://www.wuhan.gov.cn/?id=40417",
+   "question": "武汉市东西湖区2024年2月3日，2月4日的暴雪导致大棚全部塌陷，武汉的种植户一年的辛苦血本无归，甚至亏损了许多，希望政府能够帮忙渡过难关。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "40247",
+   "url": "https://www.wuhan.gov.cn/?id=40247",
+   "question": "武汉市江夏区五里界街道漫时光家庭农场，申请草莓无公害认证流程",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "39710",
+   "url": "https://www.wuhan.gov.cn/?id=39710",
+   "question": "请问稻虾共作大户（200亩以上）都可以获得哪些补贴项目及金额，以及奖励的项目和金额，和相对应的通知文件",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "39583",
+   "url": "https://www.wuhan.gov.cn/?id=39583",
+   "question": "事实与理由： 本人于2023年12月26日通过拼多多平台【云边的萌宠生活馆】店铺购买了《大宠爱45mg》驱虫药4盒。支付价款377.5元。订单号：231226-544488836122189，231226-4*************9，2",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "39431",
+   "url": "https://www.wuhan.gov.cn/?id=39431",
+   "question": "您好，我是武汉大四毕业学生，我的毕业论文创作中数据缺失，无法建构模型完成论文写作。请问相关部门可以提供武汉市农村土地家庭承包经营耕地面积以及农村土地流转面积数据（2005-2021年），盼回复",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-25",
+   "id": "39368",
+   "url": "https://www.wuhan.gov.cn/?id=39368",
+   "question": "尊敬的领导你好，我是华中农业大学一名学生，现需获悉一些武汉农地（水田/稻虾）交易信息，不知在哪获取，叨扰您告知我相关途径，如若无法公开也请您告知我，谢谢您。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

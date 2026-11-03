@@ -1,0 +1,8093 @@
+{
+ "A_考卷": [
+  {
+   "source": "sx-igi-45",
+   "id": "2520241",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2520241",
+   "question": "晋卫办医函（2025）110号查询",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2235972",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2235972",
+   "question": "关于中医诊所备案条件的咨询",
+   "cited_hits": [
+    {
+     "name": "医疗机构管理条例实施细则",
+     "lib_no": "医疗机构管理条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "医疗机构管理条例实施细则",
+     "lib_no": "医疗机构管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "中医诊所备案管理暂行办法",
+    "医师资格证书",
+    "中医（专长）医师资格证书",
+    "中医诊所基本标准"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2235593",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2235593",
+   "question": "关于中医类别从事西医工作执业的咨询",
+   "cited_hits": [
+    {
+     "name": "医师法",
+     "lib_no": "医师法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2231589",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2231589",
+   "question": "医院数据申请",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2230221",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2230221",
+   "question": "申请信息公开进度如何查询？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2229031",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2229031",
+   "question": "医师执业咨询",
+   "cited_hits": [
+    {
+     "name": "医师法",
+     "lib_no": "医师法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2223212",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2223212",
+   "question": "关于山西省的医疗机构相关数据的咨询",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2220565",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2220565",
+   "question": "关于精神障碍患者的相关咨询",
+   "cited_hits": [
+    {
+     "name": "精神卫生法",
+     "lib_no": "精神卫生法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2195139",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2195139",
+   "question": "无偿献血优待政策咨询",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国献血法",
+     "lib_no": "献血法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于公立医疗机构落实无偿献血获奖者免收门诊诊察费优待措施的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2168811",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2168811",
+   "question": "有中医证从事超声诊疗工作的咨询",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国医师法",
+     "lib_no": "医师法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "医师法",
+     "lib_no": "医师法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "医师法",
+     "lib_no": "医师法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2113462",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2113462",
+   "question": "中西医结合专业的医师是否能注册咨询",
+   "cited_hits": [
+    {
+     "name": " 中华人民共和国医师法",
+     "lib_no": "医师法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2024178",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2024178",
+   "question": "晋卫医发【2023】38号文件的内容",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1994270",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1994270",
+   "question": "政府信息公开咨询",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1988252",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1988252",
+   "question": "企业标准咨询",
+   "cited_hits": [
+    {
+     "name": "食品安全法",
+     "lib_no": "食品安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1987751",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1987751",
+   "question": "全科医生特设岗位咨询",
+   "cited_hits": [
+    {
+     "name": "事业单位人事管理条例",
+     "lib_no": "事业单位人事管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "山西省全科医生特设岗位计划试点工作实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1979170",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1979170",
+   "question": "豁免的三类设备咨询",
+   "cited_hits": [
+    {
+     "name": "职业病防治法",
+     "lib_no": "职业病防治法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "电离辐射防护与辐射源安全基本标准",
+    "如显像用阴极射线管",
+    "放射工作人员职业健康管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1976976",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1976976",
+   "question": "药食同源物质在试点咨询",
+   "cited_hits": [
+    {
+     "name": "标准化法",
+     "lib_no": "标准化法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    " 食品安全地方标准管理办法 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1891528",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1891528",
+   "question": "HPV九价疫苗咨询",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国疫苗管理法",
+     "lib_no": "疫苗管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "sx-igi-45",
+   "id": "2546666",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2546666",
+   "question": "育儿假咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2545938",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2545938",
+   "question": "执业医师注册咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于医师执业注册中执业范围的暂行规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2542154",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2542154",
+   "question": "生育登记咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2538030",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2538030",
+   "question": "育儿假咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2534802",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2534802",
+   "question": "生育登记咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2529079",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2529079",
+   "question": "产假工资咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2528963",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2528963",
+   "question": "关于临汾市生育登记的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2528201",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2528201",
+   "question": "关于公共卫生执业医师资格考试报考学历认定的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "医师资格考试报名资格规定（2014版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2528099",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2528099",
+   "question": "关于育儿假的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2526755",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2526755",
+   "question": "关于育儿假的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2524918",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2524918",
+   "question": "产假天数咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例",
+    "山西省女职工劳动保护条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2524671",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2524671",
+   "question": "查询笔试分数",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于2026年度全省卫生系列和卫生管理研究专业副高级职称专业考试合格标准及有关事项的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2520812",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2520812",
+   "question": "《独生子女光荣证》咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省独生子女父母光荣证管理办法",
+    "独生子女父母光荣证",
+    "独生子女父母光荣证",
+    "出生医学证明",
+    "出生医学证明"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2520692",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2520692",
+   "question": "2026卫生资格考试咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于推行专业技术人员职业资格电子证书的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2517388",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2517388",
+   "question": "育儿假咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2513661",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2513661",
+   "question": "育儿假咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2502462",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2502462",
+   "question": "育儿补贴咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省育儿补贴制度实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2498524",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2498524",
+   "question": "关于氯芬待因片的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于含麻醉药品复方制剂管理的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2496765",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2496765",
+   "question": "独生子女费咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例",
+    "独生子女父母光荣证",
+    "独生子女父母光荣证",
+    "独生子女父母光荣证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2494742",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2494742",
+   "question": "育儿补贴",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2494695",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2494695",
+   "question": "独生子女费咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例",
+    "独生子女父母光荣证",
+    "独生子女父母光荣证",
+    "独生子女父母光荣证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2494525",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2494525",
+   "question": "产假咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例",
+    "山西省女职工劳动保护条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2492580",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2492580",
+   "question": "生育登记咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2491381",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2491381",
+   "question": "关于椎间盘微创消融术的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省限制类技术目录(2022年版)",
+    "医疗技术临床应用管理办法",
+    "医疗机构执业许可证",
+    "综合介入诊疗技术临床应用管理规范（2019年版））"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2489935",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2489935",
+   "question": "生育登记咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2488287",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2488287",
+   "question": "关于放射工作的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "放射诊疗管理规定",
+    "放射诊疗管理规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2487117",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2487117",
+   "question": "关于咨询“腰椎间盘突出射频消融术",
+   "cited_hits": [],
+   "cited_missing": [
+    "医疗技术临床应用管理办法",
+    "山西省限制类技术目录(2022年版)",
+    "医疗技术临床应用管理办法",
+    "医疗机构执业许可证",
+    "脊柱内镜诊疗技术临床应用管理规范（2019 年版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2480717",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2480717",
+   "question": "生育登记咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2480117",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2480117",
+   "question": "竹叶粉合规使用问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "食品安全地方标准 竹叶粉"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2479859",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2479859",
+   "question": "独生子女证的相关咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例",
+    "独生子女父母光荣证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2479829",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2479829",
+   "question": "竹叶粉是否可以作为食品原料生产",
+   "cited_hits": [],
+   "cited_missing": [
+    "食品安全地方标准 竹叶粉"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2479314",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2479314",
+   "question": "女职工产假咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例",
+    "山西省女职工劳动保护条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2478747",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2478747",
+   "question": "双胞胎婴幼儿保教费咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2475715",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2475715",
+   "question": "3岁以下婴幼儿保教费咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2472667",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2472667",
+   "question": "关于产假，陪产假，育儿假的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例",
+    "山西省女职工劳动保护条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2471232",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2471232",
+   "question": "产假申请延长的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省女职工劳动保护条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2464382",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2464382",
+   "question": "关于独生子女父母光荣证办理的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省独生子女父母光荣证管理办法",
+    "独生子女父母光荣证",
+    "独生子女父母光荣证",
+    "独生子女父母光荣证",
+    "独生子女父母光荣证",
+    "独生子女父母光荣证",
+    "独生子女父母光荣证申请表",
+    "独生子女父母光荣证",
+    "独生子女父母光荣证申请表",
+    "生育服务证",
+    "居民身份证",
+    "收养证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2460650",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2460650",
+   "question": "陪产假咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2454581",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2454581",
+   "question": "独生子女证补办咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省独生子女父母光荣证管理办法",
+    "独生子女父母光荣证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2453908",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2453908",
+   "question": "独生子女证办理咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省独生子女父母光荣证管理办法",
+    "独生子女父母光荣证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2447629",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2447629",
+   "question": "独生子女证补办咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省独生子女父母光荣证管理办法",
+    "独生子女父母光荣证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2447392",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2447392",
+   "question": "婴幼儿保教费咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2447360",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2447360",
+   "question": "关于产假的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省女职工劳动保护条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2442923",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2442923",
+   "question": "产假咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2442919",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2442919",
+   "question": "生育登记咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2442842",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2442842",
+   "question": "生育登记咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2442414",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2442414",
+   "question": "婴幼儿保教费咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2442105",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2442105",
+   "question": "生育登记咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2440554",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2440554",
+   "question": "婴幼儿保教费发放咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2439321",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2439321",
+   "question": "关于医师转岗培训的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "执业医师法 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2437935",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2437935",
+   "question": "护士学分咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省卫生健康委员会关于印发继续医学教育学分管理办法（试行）的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2437719",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2437719",
+   "question": "美容主诊医师咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "医疗机构执业许可证",
+    "医疗美容服务管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2436820",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2436820",
+   "question": "关于生育登记咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2436365",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2436365",
+   "question": "关于产假咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省女职工劳动保护条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2436082",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2436082",
+   "question": "关于独生子女证咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省民政厅等部门关于改进和规范基层群众性自治组织出具证明工作的实施意见",
+    "出生医学证明",
+    "山西省人口和计划生育委员会关于印发&lt;山西省独生子女父母光荣证管理办法&gt;的通知",
+    "生育服务证",
+    "独生子女父母光荣证",
+    "生育服务证",
+    "出生医学证明"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2435492",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2435492",
+   "question": "独生子女证办理咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省民政厅等部门关于改进和规范基层群众性自治组织出具证明工作的实施意见",
+    "出生医学证明",
+    "山西省人口和计划生育委员会关于印发&lt;山西省独生子女父母光荣证管理办法&gt;的通知",
+    "生育服务证",
+    "独生子女父母光荣证",
+    "生育服务证",
+    "出生医学证明"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2435318",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2435318",
+   "question": "育儿假咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2430174",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2430174",
+   "question": "关于报考执业医师的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "医师资格考试报名资格规定（2014版）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2422530",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2422530",
+   "question": "咨询执业地点限制问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "医师资格考试报名资格规定（2014版）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2418093",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2418093",
+   "question": "咨询执业地点限制问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "医师资格考试报名资格规定（2014版）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2415315",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2415315",
+   "question": "关于公共卫生领域资质认定的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "检验检测机构监督管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2409654",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2409654",
+   "question": "关于山西省职业健康检查机构备案管理办法的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "职业健康检查机构备案回执",
+    "职业健康检查机构备案回执",
+    "职业健康检查机构备案回执"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2409329",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2409329",
+   "question": "关于中西医执业注册以问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "全省中医类别医师执业范围的规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2409172",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2409172",
+   "question": "女职工产假咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例",
+    "山西省女职工劳动保护条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2408005",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2408005",
+   "question": "办理独生子女证咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省独生子女父母光荣证管理办法",
+    "独生子女父母光荣证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2401244",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2401244",
+   "question": "独生子女证咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2395399",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2395399",
+   "question": "独生子女一次性奖励咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例",
+    "独生子女父母光荣证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2394919",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2394919",
+   "question": "产假期间工资咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2386118",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2386118",
+   "question": "护士资格证注册政策咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    " 护士执业注册管理办法 "
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2341054",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2341054",
+   "question": "关于产假的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例",
+    "山西省女职工劳动保护条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2339979",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2339979",
+   "question": "二孩政策奖励金领取条件的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "独生子女父母光荣证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2338805",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2338805",
+   "question": "生育登记咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2336813",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2336813",
+   "question": "关于独生子女咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例",
+    "独生子女父母光荣证",
+    "独生子女父母光荣证",
+    "独生子女父母光荣证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2333557",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2333557",
+   "question": "独生子女护理假咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2328201",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2328201",
+   "question": "育儿补贴制度与婴幼儿保教费政策咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2326651",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2326651",
+   "question": "关于独生子女证的问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省独生子女父母光荣证管理办法",
+    "独生子女父母光荣证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2325685",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2325685",
+   "question": "双女户奖励制度咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例",
+    "独生子女父母光荣证",
+    "独生子女父母光荣证",
+    "独生子女父母光荣证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2324316",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2324316",
+   "question": "关于独生子女的相关咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例",
+    "独生子女父母光荣证",
+    "独生子女父母光荣证",
+    "独生子女父母光荣证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2318075",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2318075",
+   "question": "关于计划生育政策的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例",
+    "独生子女父母光荣证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2316382",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2316382",
+   "question": "计划生育补助的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例",
+    "独生子女父母光荣证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2315995",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2315995",
+   "question": "生育登记咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2311981",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2311981",
+   "question": "保教费与育儿补贴的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2311961",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2311961",
+   "question": "保教费与育儿补贴的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2311704",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2311704",
+   "question": "独生子女奖励咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例",
+    "独生子女父母光荣证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2306058",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2306058",
+   "question": "西学中培训咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "医师资格考试报名资格规定（2014版）",
+    "传统医学师承和确有专长人员医师资格考核考试办法",
+    "传统医学师承出师证书"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2305948",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2305948",
+   "question": "西学中培训咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "医师资格考试报名资格规定（2014版）",
+    "传统医学师承和确有专长人员医师资格考核考试办法",
+    "传统医学师承出师证书"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2301194",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2301194",
+   "question": "育儿补贴咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "育儿补贴制度实施方案",
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2301192",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2301192",
+   "question": "领取育儿补贴资料咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "育儿补贴制度实施方案",
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2299054",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2299054",
+   "question": "生育登记咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2298529",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2298529",
+   "question": "关于食品问题的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    " 中华人民共和国卫生部公告2009年第12号 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2298064",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2298064",
+   "question": "生育登记咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2296655",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2296655",
+   "question": "育儿补贴咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "育儿补贴制度实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2285427",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2285427",
+   "question": "育儿假咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2284391",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2284391",
+   "question": "陪产假咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2283026",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2283026",
+   "question": "独生子女父母光荣证咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省独生子女父母光荣证管理办法",
+    "独生子女父母光荣证",
+    "独生子女父母光荣证",
+    "独生子女父母光荣证",
+    "独生子女父母光荣证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2280007",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2280007",
+   "question": "2025年山西省最新产假一共可以休息多少天，顺产和剖腹产的产假时间是一样吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例",
+    "山西省女职工劳动保护条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2280005",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2280005",
+   "question": "关于产假的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例",
+    "山西省女职工劳动保护条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2276214",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2276214",
+   "question": "独生子母奖励政策咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例",
+    "独生子女父母光荣证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2273052",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2273052",
+   "question": "关于办理独生子女证的相关问题咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "中共中央 国务院关于优化生育政策促进人口长期均衡发展的决定",
+    "独生子女父母光荣证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2270551",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2270551",
+   "question": "医师资格审核表如何补办",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省卫生健康委员会办公室 山西省疾病预防控制局综合处关于进一步加强医师资格信息修改及医师资格证书遗失补办等工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2266338",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2266338",
+   "question": "再婚家庭独生子女认定咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省独生子女父母光荣证管理办法",
+    "独生子女父母光荣证",
+    "独生子女父母光荣证",
+    "独生子女父母光荣证",
+    "独生子女父母光荣证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2265685",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2265685",
+   "question": "生育登记服务",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2262987",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2262987",
+   "question": "理独生子女证相关条款的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "中共中央 国务院关于优化生育政策促进人口长期均衡发展的决定",
+    "独生子女父母光荣证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2261411",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2261411",
+   "question": "产假咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2255682",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2255682",
+   "question": "生育登记咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "生育登记服务工作规范",
+    "生育服务证",
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2254368",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2254368",
+   "question": "育儿补贴咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2252642",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2252642",
+   "question": "产假咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2252640",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2252640",
+   "question": "关于产假咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2249342",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2249342",
+   "question": "由辛酸、癸酸再经甘油酯化制得的中链甘油三酯是否可以作为“食品原料”使用？",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家卫生计生委办公厅关于中链甘油三酯有关问题的复函"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2247521",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2247521",
+   "question": "《三级医院评审标准（2025年版）》咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "三级医院评审标准（2025）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2240810",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2240810",
+   "question": "产假咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省女职工劳动保护条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2240401",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2240401",
+   "question": "育儿假咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2237554",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2237554",
+   "question": "生育登记咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2237052",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2237052",
+   "question": "生育服务登记",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2233503",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2233503",
+   "question": "生育类假期咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例",
+    "国家教育委员会关于女教师产假有关问题的复函",
+    "山西省女职工劳动保护条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2232259",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2232259",
+   "question": "产假及育儿假咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例",
+    "国家教育委员会关于女教师产假有关问题的复函",
+    "山西省女职工劳动保护条例",
+    "山西省女职工劳动保护条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2230989",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2230989",
+   "question": "休假咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2229860",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2229860",
+   "question": "公立医疗机构临床营养师的问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "临床营养科建设与管理指南（试行）",
+    "临床营养科建设与管理指南（试行）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2229836",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2229836",
+   "question": "生育登记咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2229466",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2229466",
+   "question": "连翘叶咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "食品安全地方标准 连翘叶"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2229099",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2229099",
+   "question": "产假咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家教育委员会关于女教师产假有关问题的复函",
+    "山西省女职工劳动保护条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2227256",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2227256",
+   "question": "产假遇到寒暑假的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家教育委员会关于女教师产假有关问题的复函",
+    "山西省女职工劳动保护条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2220354",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2220354",
+   "question": "关于流感数据的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "信息公开申请书",
+    "中华人民共和国信息公开条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2220348",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2220348",
+   "question": "职工享受独生子女补助咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例",
+    "独生子女父母光荣证",
+    "独生子女父母光荣证",
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2216461",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2216461",
+   "question": "免费医学生服务期咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步做好农村订单定向医学生免费培养工作的意见",
+    "关于落实农村订单定向免费培养医学生工作的通知",
+    "住院医师规范化培训合格证书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2213657",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2213657",
+   "question": "免费医学生服务期咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    " 山西省农村订单定向免费培养医学生就业安置实施办法 ",
+    "住院医师规范化培训合格证书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2213309",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2213309",
+   "question": "关于基本药物补助的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于修订基本公共卫生服务等5项补助资金管理办公的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2206874",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2206874",
+   "question": "独生子女证",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省独生子女父母光荣证管理办法",
+    "独生子女父母光荣证",
+    "独生子女父母光荣证",
+    "独生子女父母光荣证",
+    "独生子女父母光荣证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2205183",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2205183",
+   "question": "生育登记咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2205135",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2205135",
+   "question": "独生子女补贴咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例",
+    "独生子女父母光荣证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2202998",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2202998",
+   "question": "独生子女陪护假咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2202063",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2202063",
+   "question": "生育登记咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2200918",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2200918",
+   "question": "办理独生子女证咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省独生子女父母光荣证管理办法",
+    "独生子女父母光荣证",
+    "独生子女父母光荣证",
+    "独生子女父母光荣证",
+    "独生子女父母光荣证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2200885",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2200885",
+   "question": "社会抚养费咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "中共中央 国务院关于优化生育政策促进人口长期均衡发展的决定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2200797",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2200797",
+   "question": "生育登记平台咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2200614",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2200614",
+   "question": "生育登记咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2199370",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2199370",
+   "question": "免费定向生咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好农村订单定向免费培养医学生就业安置和履约管理工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2197571",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2197571",
+   "question": "生育登记",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2197275",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2197275",
+   "question": "准生证的系统查询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2196977",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2196977",
+   "question": "产假天数咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例",
+    "国家教育委员会关于女教师产假有关问题的复函",
+    "山西省女职工劳动保护条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2196773",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2196773",
+   "question": "生育登记",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2195674",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2195674",
+   "question": "独生子女证咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省独生子女父母光荣证管理办法",
+    "独生子女父母光荣证",
+    "独生子女父母光荣证",
+    "独生子女父母光荣证",
+    "独生子女父母光荣证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2194556",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2194556",
+   "question": "生育服务登记表咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2193642",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2193642",
+   "question": "育儿假咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2192091",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2192091",
+   "question": "办理独生子女证",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省独生子女父母光荣证管理办法",
+    "独生子女父母光荣证",
+    "独生子女父母光荣证",
+    "独生子女父母光荣证",
+    "独生子女父母光荣证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2191854",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2191854",
+   "question": "关于免费医学定向生就业聘任咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "国务院办公厅关于改革完善全科医生培养与使用激励机制的意见",
+    "山西省人民政府办公厅关于改革完善全科医生培养与使用激励机制的实施意见",
+    "转发关于做好农村订单定向免费培养医学生就业安置和履约管理工作的通知",
+    "关于做好农村订单定向免费培养医学生就业安置和履约管理工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2191356",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2191356",
+   "question": "生育登记咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2191278",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2191278",
+   "question": "二胎、三胎补贴咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例",
+    "关于优化生育政策促进人口长期均衡发展的实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2190826",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2190826",
+   "question": "生育登记咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2188902",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2188902",
+   "question": "生育登记",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2187865",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2187865",
+   "question": "生育登记咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2187701",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2187701",
+   "question": "生育登记",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2187551",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2187551",
+   "question": "生育登记咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2187239",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2187239",
+   "question": "生育登记咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2187087",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2187087",
+   "question": "生育登记服务",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2187016",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2187016",
+   "question": "生育登记咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2186998",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2186998",
+   "question": "生育登记服务",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2186560",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2186560",
+   "question": "生育登记",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2182694",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2182694",
+   "question": "《关于优化生育政策促进人口长期均衡发展的规定》的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于优化生育政策促进人口长期均衡发展的决定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2181697",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2181697",
+   "question": "生育登记咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2181363",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2181363",
+   "question": "生育咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2181359",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2181359",
+   "question": "关于办理准生证的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "中共中央 国务院关于优化生育政策促进人口长期均衡发展的决定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2175400",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2175400",
+   "question": "独生子女费咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例",
+    "独生子女父母光荣证",
+    "独生子女父母光荣证",
+    "独生子女父母光荣证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2165142",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2165142",
+   "question": "关于咨询开展诊疗技术的问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发加强和完善麻醉医疗服务意见的通知",
+    "关于开展分娩镇痛试点工作的通知",
+    "关于印发第一批国家分娩镇痛试点医院名单的通知",
+    "关于在全省开展分娩镇痛试点工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2155803",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2155803",
+   "question": "社区卫生服务设置内科诊疗咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "城市社区卫生服务站基本标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2155363",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2155363",
+   "question": "山西省长治市潞州区二孩补助咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于发放符合政策生育二孩、三孩生育补贴的通知",
+    "关于发放符合政策生育二孩、三孩生育补贴的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2154998",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2154998",
+   "question": "专业技术资格考试咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于2025年度卫生专业技术资格考试有关问题的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2154425",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2154425",
+   "question": "传统食用习惯的食品咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省卫生健康委员会关于征集 2024年食品安全地方标准立项建议的通告 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2154337",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2154337",
+   "question": "卫生资格考试咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于2025年度卫生专业技术资格考试有关问题的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2153959",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2153959",
+   "question": "地方特色食品咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省食品安全地方标准 白木香叶",
+    "连翘叶",
+    "毛建草",
+    "流苏花",
+    "流苏叶",
+    "黄芩叶"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2148299",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2148299",
+   "question": "计划生育条例有关规定的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2144345",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2144345",
+   "question": "独生子女奖励咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例",
+    "独生子女父母光荣证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2142885",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2142885",
+   "question": "一次性生育奖励金咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "独生子女父母光荣证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2140560",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2140560",
+   "question": "生育登记咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2139168",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2139168",
+   "question": "护资报名考试咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于2025年护士执业资格考试有关问题的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2139028",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2139028",
+   "question": "卫生专业技术资格考试报考咨询（心理治疗师）咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于2025年度卫生专业技术资格考试有关问题的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2137111",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2137111",
+   "question": "卫生技术资格考试咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    " 202 5 年度卫生专业技术资格考试报名公告 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2136911",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2136911",
+   "question": "依法收养子女咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "民法典",
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2135825",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2135825",
+   "question": "生育登记要求咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例",
+    "山西省人口和计划生育条例",
+    "关于优化生育政策促进人口长期均衡发展的实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2135688",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2135688",
+   "question": "生育登记服务咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2135674",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2135674",
+   "question": "关于山西省产假的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家教育委员会关于女教师产假有关问题的复函",
+    "山西省女职工劳动保护条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2135480",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2135480",
+   "question": "二孩补贴咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2135239",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2135239",
+   "question": "生育三胞胎补助政策咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2134524",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2134524",
+   "question": "办理独生子女证咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省独生子女父母光荣证管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2133483",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2133483",
+   "question": "卒中中心建设咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "2024年国家卫生健康委百万减残工程专家委员会三级医院卒中中心建设指引"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2128726",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2128726",
+   "question": "办理独生子女证",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育委员会关于印发&lt;山西省独生子女父母光荣证管理办法&gt;的通知",
+    "山西省独生子女父母光荣证管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2125762",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2125762",
+   "question": "生育咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2124233",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2124233",
+   "question": "放射科技师相关工作咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "卫生部关于医技人员出具相关检查诊断报告问题的批复",
+    "卫生部关于医技人员出具相关检查诊断报告问题的批复",
+    "卫生部关于医技人员出具相关检查诊断报告问题的批复"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2123267",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2123267",
+   "question": "山西中西医结合执业医师可以在临床骨科工作的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省中医类别执业医师执业范围的暂行规定（试行） "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2119552",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2119552",
+   "question": "男性陪产假咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2117305",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2117305",
+   "question": "二孩新政策处理流程咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "中共中央 国务院关于优化生育政策促进人口长期均衡发展的决定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2115215",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2115215",
+   "question": "健康证办理",
+   "cited_hits": [],
+   "cited_missing": [
+    "健康证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2110196",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2110196",
+   "question": "检验师资格证丢失咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    " 人力资源社会保障部办公厅关于推行专业技术人员职业资格电子证书的通知 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2105557",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2105557",
+   "question": "生育登记咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "中共中央 国务院关于优化生育政策促进人口长期均衡发展的决定",
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2103905",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2103905",
+   "question": "执业医师资格证身份证号码变更咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "医师资格证书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2097535",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2097535",
+   "question": "农村订单定向免费培养医学生服务期咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于转发做好农村订单定向免费培养医学生就业安置和履约管理工作的通知",
+    "关于印发山西省落实中央脱贫攻坚专项巡视“回头看”农村订单定向免费培养医学生就业安置和履约管理整改方案的通知",
+    "关于印发山西省农村订单定向免费培养医学生就业安置实施办法的通知",
+    "关于落实农村订单定向免费培养医学生工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2097120",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2097120",
+   "question": "育儿假咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2094009",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2094009",
+   "question": "二孩政策咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "中共中央 国务院关于优化生育政策促进人口长期均衡发展的决定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2093882",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2093882",
+   "question": "女职工产假咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "人口和计划生育条例",
+    "国家教育委员会关于女教师产假有关问题的复函",
+    "山西省女职工劳动保护条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2089177",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2089177",
+   "question": "国外进口的卫生巾以及卫生护垫执行标准事宜",
+   "cited_hits": [],
+   "cited_missing": [
+    "一次性使用卫生用品卫生标准（GB 15979-2002）",
+    "一次性使用卫生用品卫生标准（G*****9-2002）",
+    "一次性使用卫生用品卫生要求（G*****9—2024）",
+    "GB 15979-2002"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2083272",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2083272",
+   "question": "企业员工子女婴幼儿保教费咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2080718",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2080718",
+   "question": "医疗服务项目技术规范文件咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "医疗服务项目技术规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2078613",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2078613",
+   "question": "我是单位人事,想咨询下中所说的婚假、产假、护理假、育儿假是否包含公休日和法定节假日?",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例",
+    "国家教育委员会关于女教师产假有关问题的复函",
+    "山西省女职工劳动保护条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2076021",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2076021",
+   "question": "退休职工领取独生子女一次性奖励咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例",
+    "独生子女父母光荣证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2073125",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2073125",
+   "question": "护理院设置咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "护理院基本标准（2011版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2072333",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2072333",
+   "question": "卫生专业技术资格考试咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于2024年度卫生专业技术资格考试有关问题的通知",
+    "医师资格考试报名资格规定2014版"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2063278",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2063278",
+   "question": "育儿假咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2061205",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2061205",
+   "question": "育儿假咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2061109",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2061109",
+   "question": "咨询独生子女奖励相关政策",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例",
+    "独生子女父母光荣证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2057091",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2057091",
+   "question": "关于二孩补贴申领事宜",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例",
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2056179",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2056179",
+   "question": "双女绝育家庭奖励咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2045877",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2045877",
+   "question": "生育补贴问题咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2045426",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2045426",
+   "question": "关于二胎三胎情况咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2045424",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2045424",
+   "question": "关于二胎三胎情况咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2044969",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2044969",
+   "question": "二孩登记",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2044452",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2044452",
+   "question": "生育登记如何填写",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2044062",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2044062",
+   "question": "请问《山西省公立医疗机构医疗服务项目价格（2020版）》是最新版吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省公立医疗机构医疗服务项目价格(2020版)"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2038793",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2038793",
+   "question": "公务员产假期间相关待遇咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2024214",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2024214",
+   "question": "职称评审咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    " 人力资源社会保障部国家卫生健康委 国家中医药局关于深化卫生专业技术人员 职称制度改革的指导意见 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2022294",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2022294",
+   "question": "正在规培的临床医学生可否报考医学院专硕事宜",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发住院医师规范化培训招收实施办法（试行）和住院医师规范化培训考核实施办法（试行）的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2021195",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2021195",
+   "question": "关于独生子女父母满六十周岁补贴咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例",
+    "独生子女父母光荣证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2021158",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2021158",
+   "question": "在岗大学生村医咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于允许医学专业高校毕业生免试申请乡村医生执业注册的意见",
+    "关于实施大学生乡村医生专项计划的通知",
+    "关于实施大学生乡村医生专项计划的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2017367",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2017367",
+   "question": "卫生专业技术资格考试报考咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于2024年度卫生专业技术资格考试有关问题的通知",
+    "职业教育专业目录2021年",
+    "普通高等学校本科专业目录2020年",
+    "2021年普通高等学校本科专业目录的新专业名单"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2017294",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2017294",
+   "question": "中医诊所备案咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "中医诊所备案管理暂行办法",
+    "中医诊所基本标准",
+    "中医诊所基本标准（2023年版）",
+    "医师资格证书"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2012069",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2012069",
+   "question": "生育登记咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2009494",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2009494",
+   "question": "生育登记咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1999149",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1999149",
+   "question": "独生子女父母光荣证咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省全面两孩政策实施细则",
+    "独生子女父母光荣证",
+    "独生子女父母光荣证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1999147",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1999147",
+   "question": "《独生子女证》领取咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省全面两孩政策实施细则",
+    "独生子女父母光荣证",
+    "山西省独生子女父母光荣证管理办法",
+    "独生子女父母光荣证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1993545",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1993545",
+   "question": "独生子女奖励咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例",
+    "独生子女父母光荣证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1993143",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1993143",
+   "question": "出生证明咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "出生医学证明管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1991364",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1991364",
+   "question": "卫生资格考试咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "人力资源社会保障部 国家卫生健康委 国家中医药局关于深化卫生专业技术人员职称制度改革的指导意见 "
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1988335",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1988335",
+   "question": "三胎政策咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于优化生育政策促进人口长期均衡发展的实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1987844",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1987844",
+   "question": "出生证补办咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "出生医学证明管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1987799",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1987799",
+   "question": "生育登记服务证办理咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "生育登记服务工作规范",
+    "生育服务证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1982629",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1982629",
+   "question": "企业标准咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于批准人参（人工种植）为新资源食品的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1981982",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1981982",
+   "question": "生育登记服务证办理咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例",
+    "生育登记服务工作规范",
+    "生育服务证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1981980",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1981980",
+   "question": "生育登记服务证办理咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例",
+    "生育登记服务工作规范",
+    "生育服务证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1981087",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1981087",
+   "question": "事业单位专业技术人员岗位等级晋升咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "事业单位工作人员竞聘上岗暂行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1981011",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1981011",
+   "question": "咨询退二孩指标独生子女父母奖励",
+   "cited_hits": [],
+   "cited_missing": [
+    "出生医学证明",
+    "山西省人口和计划生育条例",
+    "山西省人口和计划生育委员会山西省财政厅关于印发&lt;山西省农村计划生育家庭奖励扶助工作实施方案&gt;的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1980980",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1980980",
+   "question": "中级考试咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "中央应对疫情工作领导小组关于全面落实进一步保护关心爱护医务人员若干措施的通知",
+    "人力资源社会保障部办公厅关于做好新冠肺炎疫情防控一线专业技术人员职称工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1980239",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1980239",
+   "question": "事业单位专业技术人员岗位等级晋升咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "事业单位工作人员竞聘上岗暂行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1980142",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1980142",
+   "question": "关于母婴保健技术服务执业许可证的业务咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "母婴保健技术服务执业许可证",
+    "母婴保健技术服务执业许可证",
+    "母婴保健技术服务执业许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1978309",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1978309",
+   "question": "农村医学定向生咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于整改落实中央脱贫攻坚专项巡视“回头看”农村订单定向免费培养医学生就业安置和履约管理工作任务的函",
+    "关于做好农村订单定向免费培养医学生就业安置和履约管理工作的通知",
+    "山西省落实中央脱贫攻坚专项巡视“回头看”农村订单定向免费培养医学生就业安置和履约管理整改方案",
+    "关于做好农村订单定向免费培养医学生就业安置和履约管理工作的通知",
+    "关于印发山西省农村订单定向免费培养医学生就业安置实施办法的通知",
+    "农村订单定向医学生免费培养定向就业协议书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1974907",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1974907",
+   "question": "生育登记咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1974409",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1974409",
+   "question": "定向生编制咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省卫生健康委员会关于做好2017级农村订单定向免费培养医学生就业安置工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1974094",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1974094",
+   "question": "独生子女证补办咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育委员会关于印发 &lt; 山西省独生子女父母光荣证管理办法 &gt; 的通知",
+    "独生子女父母光荣证",
+    "独生子女父母光荣证",
+    "独生子女父母光荣证",
+    "独生子女父母光荣证",
+    "独生子女父母光荣证",
+    "独生子女父母光荣证申请表",
+    "独生子女父母光荣证",
+    "独生子女父母光荣证申请表",
+    "生育服务证",
+    "居民身份证",
+    "收养证",
+    "独生子女父母光荣证",
+    "独生子女父母光荣证申请表",
+    "独生子女父母光荣证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1973290",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1973290",
+   "question": "退休人员独生子女政策咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例",
+    "独生子女父母光荣证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1971867",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1971867",
+   "question": "食品企业标准咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "食品安全企业标准备案工作规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1968684",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1968684",
+   "question": "关于生育登记证明咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1964110",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1964110",
+   "question": "生育登记证明咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1962184",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1962184",
+   "question": "咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例",
+    "山西省人口和计划生育委员会山西省财政厅关于印发＜山西省农村计划生育家庭奖励扶助工作实施方案＞的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1958028",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1958028",
+   "question": "准生证相关咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例",
+    "生育登记服务工作规范",
+    "生育服务证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1957192",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1957192",
+   "question": "设置诊疗科目为儿科，现在要申请增加检验科，能否增加？",
+   "cited_hits": [],
+   "cited_missing": [
+    "诊所备案管理暂行办法",
+    "诊所基本标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1954431",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1954431",
+   "question": "《山西省预防接种异常反应补偿办法》咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省预防接种异常反应补偿办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1950614",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1950614",
+   "question": "职称聘用咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "事业单位工作人员竞聘上岗暂行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1947113",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1947113",
+   "question": "卫生职称咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省卫生健康委员会关于2023年度全省卫生系列和卫生管理专业高级职称评审有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1944275",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1944275",
+   "question": "出生医学证明咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "出生医学证明管理办法",
+    "出生医学证明",
+    "出生医学证明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1943394",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1943394",
+   "question": "入职时间咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于深化高等院校、科研院所、公立医院人事管理改革有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1942472",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1942472",
+   "question": "生育证明办理咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例",
+    "生育登记服务工作规范",
+    "生育服务证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1938307",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1938307",
+   "question": "关于育儿假具体实施的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1936621",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1936621",
+   "question": "生育服务登记咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1934896",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1934896",
+   "question": "农村订单定向免费培养医学生服务期满考录政策咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好农村订单定向免费培养医学生就业安置和履约管理工作的通知",
+    "关于印发山西省落实中央脱贫攻坚专项巡视“回头看”农村订单定向免费培养医学生就业安置和履约管理整改方案的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1932808",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1932808",
+   "question": "关于医师职称考试的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于2023年度卫生专业技术资格考试有关问题的通知",
+    "卫生专业技术资格考试专业目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1928511",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1928511",
+   "question": "免费医学定向生考研咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于转发做好农村订单定向免费培养医学生就业安置和履约管理工作的通知",
+    "关于印发山西省农村订单定向免费培养医学生就业安置实施办法的通知",
+    "关于落实农村订单定向免费培养医学生工作的通知",
+    "关于印发山西省落实中央脱贫攻坚专项巡视“回头看”农村订单定向免费培养医学生就业安置和履约管理整改方案的通知",
+    "农村订单定向医学生免费培养定向就业协议书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1928071",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1928071",
+   "question": "关于母婴保健技术服务许可证和医疗机构执业许可证校验相关问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省相对集中行政许可权办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1927367",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1927367",
+   "question": "育儿假咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1925796",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1925796",
+   "question": "免费医学定向生考研问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于转发做好农村订单定向免费培养医学生就业安置和履约管理工作的通知",
+    "关于印发山西省农村订单定向免费培养医学生就业安置实施办法的通知",
+    "关于落实农村订单定向免费培养医学生工作的通知",
+    "关于印发山西省落实中央脱贫攻坚专项巡视“回头看”农村订单定向免费培养医学生就业安置和履约管理整改方案的通知",
+    "农村订单定向医学生免费培养定向就业协议书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1925780",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1925780",
+   "question": "大学生村医护理专业报名咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家卫生健康委关于允许医学专业高校毕业生免试申请乡村医生执业注册的意见",
+    "关于实施大学生乡村医生专项计划的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1922228",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1922228",
+   "question": "我想咨询下大学生村医护理专业可以报名吗，我是护理专业毕业想在村卫生室工作。",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家卫生健康委关于允许医学专业高校毕业生免试申请乡村医生执业注册的意见",
+    "关于实施大学生乡村医生专项计划的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1921570",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1921570",
+   "question": "建议省城太原医疗机构积极开通夜间门诊",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省“改善就医感受 提升患者体验”实施方案（2023-2025）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1919404",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1919404",
+   "question": "关于高级职称评审咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于深化卫生专业技术人员职称制度改革的指导意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1918314",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1918314",
+   "question": "生育咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "中共中央 国务院关于优化生育政策促进人口长期均衡发展的决定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1916539",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1916539",
+   "question": "医学定向生职称聘任咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省事业单位岗位设置管理实施办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1915034",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1915034",
+   "question": "卫生专业技术人员职称咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于贯彻落实住院医师规范化培训“两个同等对待”政策及有关工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1909270",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1909270",
+   "question": "生育登记咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例",
+    "生育登记服务工作规范",
+    "生育服务证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1909267",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1909267",
+   "question": "生育登记咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例",
+    "生育登记服务工作规范",
+    "生育服务证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1908420",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1908420",
+   "question": "2024年度继续医学教育咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省继续医学教育实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1905804",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1905804",
+   "question": "三胎奖励政策咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例",
+    "关于优化生育政策促进人口长期均衡发展的实施方案",
+    "山西省女职工劳动保护条例",
+    "山西省女职工劳动保护条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1902718",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1902718",
+   "question": "关于村医补助咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于提高在岗村医岗位补助有关问题的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1892478",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1892478",
+   "question": "计划生育政策咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "中共中央 国务院关于优化生育政策促进人口长期均衡发展的决定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1891061",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1891061",
+   "question": "基层卫生服务机构医师注册咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于医师执业注册中执业范围的暂行规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1883607",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1883607",
+   "question": "发热门诊设置要求咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好当前发热门诊有关工作的通知",
+    "关于进一步加强发热门诊（诊室）能力建设及基层医疗服务工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1874333",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1874333",
+   "question": "独生子女补助咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例",
+    "独生子女父母光荣证",
+    "独生子女父母光荣证",
+    "独生子女父母光荣证",
+    "山西省人口和计划生育委员会山西省财政厅关于印发&lt;山西省农村计划生育家庭奖励扶助工作实施方案&gt;的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1865238",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1865238",
+   "question": "政策咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1864232",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1864232",
+   "question": "山西省境内的的煤矿建设项目三同时评审、验收执行通知文件的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省卫生健康委办公室关于开展全省建设项目职业病防护设施“三同时”核查工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1864128",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1864128",
+   "question": "计生咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "中共中央 国务院关于优化生育政策促进人口长期均衡发展的决定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1862605",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1862605",
+   "question": "有《独生子女光荣证》在父母退休后该如何领取补助？",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例",
+    "独生子女父母光荣证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1856426",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1856426",
+   "question": "报考职称考试的现场报名时间，和需要哪些材料",
+   "cited_hits": [],
+   "cited_missing": [
+    "申报表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1853231",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1853231",
+   "question": "您好，我咨询的是：执业医师只能注册单一科室吗执业范围？我是全科规培生，回到吕梁当地后联系政务大厅说只能等规培证下来注册全科，可是官网上提示可以注册三个科室。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于医师执业注册中执业范围的暂行规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1853220",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1853220",
+   "question": "中级资格考试咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "人力资源社会保障部 国家卫生健康委 国家中医药局关于深化卫生专业技术人员职称制度改革的指导意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1851926",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1851926",
+   "question": "怎么申请办理准生证",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例",
+    "生育登记服务工作规范",
+    "生育服务证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1844270",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1844270",
+   "question": "中医师承助理医师是否可以变更注册到社区卫生中心",
+   "cited_hits": [],
+   "cited_missing": [
+    "卫生部办公厅关于卫生保健专业、初中起点五年制大专临床医学专业毕业生参加执业助理医师资格考试及执业注册问题的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1844220",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1844220",
+   "question": "我夫妻二人男方社保为山西太原，女方为北京市，孩子是再太原生的，因需要办理生育门诊报销和生育津贴，需要纸质版生育证明。",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1843029",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1843029",
+   "question": "关于生育登记",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1840459",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1840459",
+   "question": "村医的五险一金的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省保障和促进县域医疗卫生一体化办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1829897",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1829897",
+   "question": "全面三孩政策实施细则的相关问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于优化生育政策促进人口长期均衡发展的实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1826893",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1826893",
+   "question": "男士陪产假出自哪个规定？",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1824767",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1824767",
+   "question": "独生子女证咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人口和计划生育委员会关于印发 &lt; 山西省独生子女父母光荣证管理办法 &gt; 的通知",
+    "独生子女父母光荣证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1823115",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1823115",
+   "question": "违反计生政策相关咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "中共中央、国务院关于优化生育政策促进人口长期均衡发展的决定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1820146",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1820146",
+   "question": "新生儿体检事宜咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家基本公共卫生服务规范（第三版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1818569",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1818569",
+   "question": "尊敬的领导您好，在规培期间考取执业医师证书，执业范围是空白，我想咨询一下,如果规培结业考试未通过或者中途退出规培，现在变更医师注册时，执业范围如何填写？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于医师执业注册中执业范围的暂行规定"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "sx-igi-45",
+   "id": "2549511",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2549511",
+   "question": "关于传统医学师承出师考核的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2543331",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2543331",
+   "question": "中西医结合专业申请美容主诊医师备案的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2537516",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2537516",
+   "question": "非中医类别医师从事中医服务",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2533527",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2533527",
+   "question": "中医药传承创新平台咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2530751",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2530751",
+   "question": "三晋英才咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2526726",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2526726",
+   "question": "中药饮片咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2524342",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2524342",
+   "question": "非中医类别医师开展中医诊疗的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2524329",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2524329",
+   "question": "表扬山西省肿瘤医院呼吸内科单彬彬主任",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2520130",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2520130",
+   "question": "西学中咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2520103",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2520103",
+   "question": "卫生系列职称评审著作认定咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2517104",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2517104",
+   "question": "感谢山西省人民医院内分泌科、心内科医护团队",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2516004",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2516004",
+   "question": "中医药传承创新平台",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2506600",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2506600",
+   "question": "关于银龄药师补贴相关政策咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2505301",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2505301",
+   "question": "中医确有专长人员考核报名的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2503626",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2503626",
+   "question": "关于 2026 版国家基本药物目录落地及我省医共体采购目录调整相关政策咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2503339",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2503339",
+   "question": "独生子女费咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2493601",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2493601",
+   "question": "山西医科大学第一医院泌尿外科科室吴波医生医德高尚、医术精湛",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2488679",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2488679",
+   "question": "关于两个同等对待政策咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2486057",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2486057",
+   "question": "关于病案信息技术职称考试的问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2482803",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2482803",
+   "question": "关于中医（专长）医师报名中医执业医师相关咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2480360",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2480360",
+   "question": "大学乡村医生专项计划人员咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2479878",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2479878",
+   "question": "卫生职称初级中药师报考条件咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2476326",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2476326",
+   "question": "职称咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2475128",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2475128",
+   "question": "中医类资格证执业范围咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2474274",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2474274",
+   "question": "关于中医师承咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2474264",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2474264",
+   "question": "卫生职称初级中药师报考条件咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2472956",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2472956",
+   "question": "感谢信 尊敬的领导： 您好！ 我是一名患者家属，怀着无比感激的心情，向山西省卫生健康事业、向山西省肿瘤医院（中国医学科学院肿瘤医院山西医院）致以最诚挚的谢意。 我父亲自2025年3月起，在山西省肿瘤医院综合内科接受诊疗，至今已一年。在这段艰",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2464938",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2464938",
+   "question": "两个同等对待政策咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2458939",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2458939",
+   "question": "西学中咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2458134",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2458134",
+   "question": "西学中培训平台咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2456791",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2456791",
+   "question": "副主任医师报名咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2456355",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2456355",
+   "question": "西学中咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2456341",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2456341",
+   "question": "出生医学证明办理咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2444951",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2444951",
+   "question": "医师执业证书补办咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2444931",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2444931",
+   "question": "医师执业证书补办流程咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2444835",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2444835",
+   "question": "关于报考职称限制的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2443442",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2443442",
+   "question": "关于报考中级医师资格的问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2443318",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2443318",
+   "question": "精神科医师转岗培训",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2443310",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2443310",
+   "question": "精神科医师转岗咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2442836",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2442836",
+   "question": "职称报名问题咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2442440",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2442440",
+   "question": "育儿假咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2432823",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2432823",
+   "question": "潞党参能否做为药食同源原料用于生产加工",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2432723",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2432723",
+   "question": "育儿假咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2432053",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2432053",
+   "question": "关于卫生中级的相关咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2431360",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2431360",
+   "question": "关于显齿蛇葡萄叶使用的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2431284",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2431284",
+   "question": "护士从事中医护理技术的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2427659",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2427659",
+   "question": "关于中医类医师执业范围的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2427343",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2427343",
+   "question": "副主任护师咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2427164",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2427164",
+   "question": "师承合同备案的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2418736",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2418736",
+   "question": "招聘资格初审咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2418061",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2418061",
+   "question": "造口袋咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2415776",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2415776",
+   "question": "职称评审咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2407170",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2407170",
+   "question": "中医确有专长医师多点执业咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2404852",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2404852",
+   "question": "职称评定咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2402658",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2402658",
+   "question": "中级职称聘任咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2402500",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2402500",
+   "question": "关于中西医结合执业的问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2401371",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2401371",
+   "question": "关于中西医结合执业范围的问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2394407",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2394407",
+   "question": "卫生资格考试报名条件",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2381806",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2381806",
+   "question": "中医师承拜师大会的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2381220",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2381220",
+   "question": "职称专业技术资格考试咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2378647",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2378647",
+   "question": "育儿补贴咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2376928",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2376928",
+   "question": "职称专业技术资格考试咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2371898",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2371898",
+   "question": "医师资格考试咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2368637",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2368637",
+   "question": "食品原料咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2359352",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2359352",
+   "question": "师承网站的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2341290",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2341290",
+   "question": "关于生育津贴的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2338947",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2338947",
+   "question": "招聘工作对技术资格要求的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2336535",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2336535",
+   "question": "执业药师聘任职称咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2336107",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2336107",
+   "question": "传统医学出师考试咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2335487",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2335487",
+   "question": "中级职称考试咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2335360",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2335360",
+   "question": "中级职称聘任咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2334348",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2334348",
+   "question": "师承系统登录咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2334277",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2334277",
+   "question": "“花椒叶”作为食品原料生产食品咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2334118",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2334118",
+   "question": "职称报考咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2334115",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2334115",
+   "question": "关于职称报考的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2333906",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2333906",
+   "question": "医师资格证信息咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2333685",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2333685",
+   "question": "诊所微信平台使用咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2332709",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2332709",
+   "question": "执业证执业范围加注咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2330680",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2330680",
+   "question": "中医考试咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2326663",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2326663",
+   "question": "关于西学中咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2324288",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2324288",
+   "question": "西学中政策咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2318425",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2318425",
+   "question": "中医专长医师考试咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2317568",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2317568",
+   "question": "传统医学师承的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2316107",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2316107",
+   "question": "全员人口信息管理系统信息变更",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2315538",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2315538",
+   "question": "关于西学中的相关咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2312478",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2312478",
+   "question": "关于职业病危害预评价报告、职业病防护设施设计专篇和职业病危害控制效果评价报告的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2310779",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2310779",
+   "question": "适宜技术培训合格证书的执业方面的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2309545",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2309545",
+   "question": "关于确有专长的政府信息公开咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2308941",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2308941",
+   "question": "临床执业医开中成药及中药处方咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2307669",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2307669",
+   "question": "美容外科备案咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2306384",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2306384",
+   "question": "执业注册变更的信息咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2305684",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2305684",
+   "question": "非中医类别医师参加西学中培训的相关咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2305371",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2305371",
+   "question": "西学中操作咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2305082",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2305082",
+   "question": "职称证书丢失咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2303650",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2303650",
+   "question": "传统中医师承考试报名的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2299490",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2299490",
+   "question": "关于中医推拿师证书的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2298132",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2298132",
+   "question": "医师资格证书修改的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2297300",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2297300",
+   "question": "关于山西省职业健康机构名单的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2294187",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2294187",
+   "question": "大学生村医咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2292870",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2292870",
+   "question": "关于西医报考中西医结合执业医师考试的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2292599",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2292599",
+   "question": "关于医疗器械使用寿命的问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2292427",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2292427",
+   "question": "恶性肿瘤登记报告数据咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2290408",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2290408",
+   "question": "中医执业范围增加咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2289560",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2289560",
+   "question": "恶性肿瘤数据咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2287197",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2287197",
+   "question": "山西省继续教育平台账号无法登陆的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2286833",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2286833",
+   "question": "中医类别中西医结合专业的执业咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2286776",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2286776",
+   "question": "山西中医药适宜技术推广平台操作咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2286517",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2286517",
+   "question": "乡镇卫生院医疗次中心建设咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2285742",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2285742",
+   "question": "产前筛查技术咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2285671",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2285671",
+   "question": "中医类别执业医师开展手术咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2285478",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2285478",
+   "question": "中医职业资格证书",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2283523",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2283523",
+   "question": "食品企业标准备案咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2282516",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2282516",
+   "question": "咨询中医医师执业问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2282478",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2282478",
+   "question": "关于中药材加工企业申办的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2282306",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2282306",
+   "question": "育儿补贴申领咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2280191",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2280191",
+   "question": "关于考执业医师的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2279929",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2279929",
+   "question": "医师资格证书信息修改咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2279533",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2279533",
+   "question": "中级职称考评咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2279241",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2279241",
+   "question": "关于太原市集体户口生二胎奖励咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2278799",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2278799",
+   "question": "中医（专长）医师考取执业医师的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2276431",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2276431",
+   "question": "关于“百医迁徒”的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2275535",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2275535",
+   "question": "卫健委卫生人才评价职称评审或考试专业的建议",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2274190",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2274190",
+   "question": "执业医师增加执业范围的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2271842",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2271842",
+   "question": "大同市社区办理母子健康手册的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2269252",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2269252",
+   "question": "育儿假咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2267626",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2267626",
+   "question": "育儿假咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2267560",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2267560",
+   "question": "育儿假的问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2263299",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2263299",
+   "question": "省妇幼保健院新生儿疾病筛查的结果如何查询？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2262841",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2262841",
+   "question": "《育儿补贴制度实施方案》咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2261787",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2261787",
+   "question": "短缺药品目录咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2261415",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2261415",
+   "question": "中级执业证书咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2260776",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2260776",
+   "question": "二胎咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2259358",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2259358",
+   "question": "山梨酸钾使用咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2258248",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2258248",
+   "question": "育儿假和陪产假咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2258070",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2258070",
+   "question": "医学生出国留学执业注册地点咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2258035",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2258035",
+   "question": "修改相关咨询事项的信息",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2257593",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2257593",
+   "question": "2020年山西省母乳喂养率数据是多少",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2256635",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2256635",
+   "question": "计划生育相关咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2254776",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2254776",
+   "question": "专业咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2253813",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2253813",
+   "question": "省人民医院体检中心电话问题处理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2253502",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2253502",
+   "question": "医院相关数据咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2252870",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2252870",
+   "question": "咨询医院合同制招聘",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2249350",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2249350",
+   "question": "咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2249310",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2249310",
+   "question": "食品原料中链甘油三酯使用相关问题咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2248838",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2248838",
+   "question": "护师考试查询证书咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2247869",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2247869",
+   "question": "规培咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2247419",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2247419",
+   "question": "基层医疗设备需求和建议",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2244444",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2244444",
+   "question": "规培结业咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2244258",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2244258",
+   "question": "关于规培结业考试二试的问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2243207",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2243207",
+   "question": "住院医师规范化咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2242934",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2242934",
+   "question": "关于规培结业考试二试的问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2242335",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2242335",
+   "question": "慢性病患者购药建议",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2237901",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2237901",
+   "question": "住院医师规范化培训咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2235591",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2235591",
+   "question": "关于美容中医执业范围细化的建议",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2235390",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2235390",
+   "question": "关于山西省住培管理中心的办公电话咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2235377",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2235377",
+   "question": "关于二次规培的问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2230819",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2230819",
+   "question": "关于公共卫生服务补助资金咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2229967",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2229967",
+   "question": "关于住培生执业地点问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2228673",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2228673",
+   "question": "关于农村订单定向免费培养医学生的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2226164",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2226164",
+   "question": "免费医学生服务期咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2222598",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2222598",
+   "question": "中医类别执业医师执业范围咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2220335",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2220335",
+   "question": "关于数据的申请",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2219922",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2219922",
+   "question": "关于健康山西APP手机版医院挂号功能咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2218147",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2218147",
+   "question": "关于妄想性障碍的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2217529",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2217529",
+   "question": "护理领域标准规范竞技活动结果咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2216405",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2216405",
+   "question": "法定传染病疫情数据咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2216326",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2216326",
+   "question": "医师证身份信息变更咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2214192",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2214192",
+   "question": "关于相关数据的申请",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2213307",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2213307",
+   "question": "关于妄想性障碍的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2208280",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2208280",
+   "question": "山西省限制类技术目录（2022年版）咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2205567",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2205567",
+   "question": "西医医师从事中医咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2198955",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2198955",
+   "question": "我省育儿补贴事宜",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2197805",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2197805",
+   "question": "西学中培训咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2191980",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2191980",
+   "question": "非中医类别医师西学中执业咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2190492",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2190492",
+   "question": "传统医学出师考试咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2190435",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2190435",
+   "question": "中药房工作人员岗位咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2190421",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2190421",
+   "question": "师承报考传统医学确有专长咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2190413",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2190413",
+   "question": "执业助理医师信息修改",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2190373",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2190373",
+   "question": "护士资格证咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2189559",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2189559",
+   "question": "副高报考专业咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2184792",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2184792",
+   "question": "查询25年职业健康检查备案机构信息",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2182979",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2182979",
+   "question": "生育登记咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2181880",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2181880",
+   "question": "生育登记服务咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2181489",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2181489",
+   "question": "生育服务证咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2181241",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2181241",
+   "question": "生育登记咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2178176",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2178176",
+   "question": "我是一名浙江中医药大学的大学生，现正开展一项有关医疗卫生资源配置效率的国家级大学生创新创业项目，需要用到2022年贵省的孕产妇死亡率的准确数据。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2173718",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2173718",
+   "question": "卫生中级资格考试咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2172546",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2172546",
+   "question": "中级职称咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2172442",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2172442",
+   "question": "2025年卫生管理类考试咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2172399",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2172399",
+   "question": "全科执业注册咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2172086",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2172086",
+   "question": "中级职称咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2171172",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2171172",
+   "question": "临床医学工程技术职称考试咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2169913",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2169913",
+   "question": "卫生专业技术资格考试咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2169780",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2169780",
+   "question": "本人于2025年1月1日已登记，至2025年1月13日未收到短信审核结果，请问目前是否符合要求？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2169746",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2169746",
+   "question": "生育登记回执",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2168825",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2168825",
+   "question": "生育登记点击之后一直不跳转页面",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2166674",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2166674",
+   "question": "医师资格证电子信息咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2163587",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2163587",
+   "question": "生育登记审核咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2151766",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2151766",
+   "question": "生育登记服咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2147814",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2147814",
+   "question": "中级职称晋升途径咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2147386",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2147386",
+   "question": "生育登记审核咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2146841",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2146841",
+   "question": "卫生技术资格考试问题咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2145645",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2145645",
+   "question": "关于诊断编码的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2144261",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2144261",
+   "question": "卫生技术资格考试咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2142696",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2142696",
+   "question": "职称考试咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2142652",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2142652",
+   "question": "职称晋升咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2141632",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2141632",
+   "question": "职称考试咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2141630",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2141630",
+   "question": "职称考试成绩咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2140992",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2140992",
+   "question": "生育登记服务咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2140815",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2140815",
+   "question": "生育登记咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2137316",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2137316",
+   "question": "护士资格证相关咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2132319",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2132319",
+   "question": "育儿假咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2131329",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2131329",
+   "question": "育儿假咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2127587",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2127587",
+   "question": "医保准入问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2125894",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2125894",
+   "question": "生育登记",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2125726",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2125726",
+   "question": "生育登记咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2124476",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2124476",
+   "question": "关于咨询卒中中心建立事宜",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2124426",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2124426",
+   "question": "生育登记咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2123150",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2123150",
+   "question": "生育登记咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2123138",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2123138",
+   "question": "生育登记申请表下载咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2119432",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2119432",
+   "question": "护士执业资格证书丢失补办的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2119380",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2119380",
+   "question": "生育登记咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2118536",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2118536",
+   "question": "执业医师二试缴费咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2111325",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2111325",
+   "question": "医疗器械临床试验中严重不良事件上报山西省卫建委的途径",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2107441",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2107441",
+   "question": "24年执业医师资格证电子版什么时候出",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2103920",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2103920",
+   "question": "中医全科主治医师报名条件咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2102242",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2102242",
+   "question": "中医全科主治医师报名咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2101834",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2101834",
+   "question": "医疗器械临床试验中严重不良事件上报山西省卫建委的途径",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2101734",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2101734",
+   "question": "国家执业医考试二试咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2100201",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2100201",
+   "question": "“西学中”咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2099750",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2099750",
+   "question": "执业医师考试咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2099748",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2099748",
+   "question": "中医全科主治医师报名咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2091858",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2091858",
+   "question": "中医执业医师考试咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2090098",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2090098",
+   "question": "中医助理医师考试咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2090076",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2090076",
+   "question": "医保卡使用咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2089086",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2089086",
+   "question": "医保卡使用咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2087213",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2087213",
+   "question": "职称证书咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2084956",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2084956",
+   "question": "试管婴儿纳入医保咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2084895",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2084895",
+   "question": "确有专长考核咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2084681",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2084681",
+   "question": "生育登记查询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2084360",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2084360",
+   "question": "卫生职称证书咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2084228",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2084228",
+   "question": "生育登记表性别误填变更咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2082320",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2082320",
+   "question": "2024年师承和确有专长咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2081737",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2081737",
+   "question": "医师资格证咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2080223",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2080223",
+   "question": "医师资格补录咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2079392",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2079392",
+   "question": "外省一线抗疫人员证明咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2078801",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2078801",
+   "question": "医疗服务项目技术规范文件",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2077704",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2077704",
+   "question": "一线抗疫人员咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2073552",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2073552",
+   "question": "合欢花药食同源咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2073480",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2073480",
+   "question": "中医临床诊疗咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2069519",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2069519",
+   "question": "新生儿出生一件事儿办理进度咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2061738",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2061738",
+   "question": "中级聘用咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2061070",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2061070",
+   "question": "职称咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2058044",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2058044",
+   "question": "育儿假咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2057634",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2057634",
+   "question": "生育登记咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2057530",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2057530",
+   "question": "职称咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2057087",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2057087",
+   "question": "生育登记咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2056373",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2056373",
+   "question": "职称咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2053942",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2053942",
+   "question": "生育登记咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2051783",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2051783",
+   "question": "生育登记咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2051759",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2051759",
+   "question": "生育登记咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2050073",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2050073",
+   "question": "网上生育登记咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2048076",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2048076",
+   "question": "中专医学学历提升成人大专报考执业医师问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2047168",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2047168",
+   "question": "中医确有专长证丢失咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2045467",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2045467",
+   "question": "生育登记咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2045420",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2045420",
+   "question": "生育登记平台登记咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2044334",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2044334",
+   "question": "生育登记咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2042333",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2042333",
+   "question": "生育登记平台咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2041944",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2041944",
+   "question": "生育登记网站怎么操作",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2041508",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2041508",
+   "question": "生育登记咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2035215",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2035215",
+   "question": "职称报考咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2023601",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2023601",
+   "question": "关于师承备案的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2023281",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2023281",
+   "question": "统计直报系统无法注册账户",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2022974",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2022974",
+   "question": "网上挂号咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2022676",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2022676",
+   "question": "诊所备案咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2021965",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2021965",
+   "question": "生育登记咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2021891",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2021891",
+   "question": "生育登记信息咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2021889",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2021889",
+   "question": "生育登记错误后，无法修改也无法删除的解决途径",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2020755",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2020755",
+   "question": "中医硧有专长医师资格证书咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2017083",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2017083",
+   "question": "九价疫苗咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2017018",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2017018",
+   "question": "临床执业医师报考项目咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2016710",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2016710",
+   "question": "山西医科大学第一医院服务问题咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2013918",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2013918",
+   "question": "关于中医学主治医师的执业范围咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2013914",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2013914",
+   "question": "关于中医学主治医师的执业范围咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2009558",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2009558",
+   "question": "关于山西省农村妇女“两癌”免费筛查咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2006399",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2006399",
+   "question": "省中医药管理局课题结题回执咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2004636",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2004636",
+   "question": "卫生资格考试咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2004634",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2004634",
+   "question": "卫生资格考试咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2003173",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2003173",
+   "question": "开办诊所咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2002241",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2002241",
+   "question": "医师电子化注册变更咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2001819",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2001819",
+   "question": "山西省二孩补贴政策咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2001790",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2001790",
+   "question": "山西二胎育儿补贴政策咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2001515",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2001515",
+   "question": "医师资格证咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2001378",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2001378",
+   "question": "关于国家免疫规划疫苗接种咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "2000054",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2000054",
+   "question": "卫生资格考试咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1999269",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1999269",
+   "question": "理疗店开业咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1999262",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1999262",
+   "question": "出生证明补办咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1999213",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1999213",
+   "question": "省直事业单位招聘咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1998970",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1998970",
+   "question": "卫生管理中级职称专业技术咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1998858",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1998858",
+   "question": "卫生技术资格考试咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1997824",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1997824",
+   "question": "中医执业范围咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1997600",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1997600",
+   "question": "关于2024年卫生专业技术资格考试咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1995611",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1995611",
+   "question": "医师资格考试合格考生信息修改咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1993467",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1993467",
+   "question": "《新生儿“出生一件事”联办服务实施方案》咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1993463",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1993463",
+   "question": "关于职称评审中的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1992559",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1992559",
+   "question": "卫生资格主治医师考试咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1992399",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1992399",
+   "question": "卫生资格考试咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1991786",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1991786",
+   "question": "乡村助理医师报考执业医师",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1990467",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1990467",
+   "question": "卫生资格考试咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1989954",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1989954",
+   "question": "康复治疗师报考",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1988502",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1988502",
+   "question": "中西医结合副高工作量咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1987773",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1987773",
+   "question": "中西医结合副高工作量咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1985556",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1985556",
+   "question": "护士首次注册咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1985554",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1985554",
+   "question": "护士首次注册咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1985536",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1985536",
+   "question": "生育登记登记咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1985140",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1985140",
+   "question": "卫生技术职称考试咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1984986",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1984986",
+   "question": "卫生技术职称考试咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1984185",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1984185",
+   "question": "生育登记咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1983639",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1983639",
+   "question": "主治医师报名咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1983637",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1983637",
+   "question": "主治医师考试咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1981466",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1981466",
+   "question": "山西乡村医生基药补助款咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1981249",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1981249",
+   "question": "中医专长咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1979703",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1979703",
+   "question": "执业医师资格证咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1979600",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1979600",
+   "question": "卫生管理专业资格考试咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1978987",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1978987",
+   "question": "卫生人才评价考试咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1977194",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1977194",
+   "question": "如何申报补助咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1976607",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1976607",
+   "question": "医保结算单咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1975201",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1975201",
+   "question": "关于中医诊所销售药材咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1974367",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1974367",
+   "question": "有关医师资格证书注册的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1972395",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1972395",
+   "question": "山西省关于党参黄芪等试点物质咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1972296",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1972296",
+   "question": "丙肝是否属于特殊传染病",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1966802",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1966802",
+   "question": "关于中医师承备案的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1964350",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1964350",
+   "question": "山西省“十四五”眼健康规划咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1958805",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1958805",
+   "question": "护士申请审核咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1956343",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1956343",
+   "question": "妇幼保健机构数量咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1955061",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1955061",
+   "question": "2022年专长医师执业证咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1954487",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1954487",
+   "question": "执业医师能否在两个省份同时注册？如果可以，如何办理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1953671",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1953671",
+   "question": "医疗器械临床试验中发生的SAE的接收方式咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1952295",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1952295",
+   "question": "关于医师资格类考试的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1951002",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1951002",
+   "question": "卫生专业技术资格证咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1949040",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1949040",
+   "question": "卫生专业技术资格证咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1947568",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1947568",
+   "question": "中级职称卫生专业技术资格证咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1947255",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1947255",
+   "question": "具有中医专科学历的非中医类执业医师相关咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1947212",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1947212",
+   "question": "山西省皮肤主诊医师培训申请开发票咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1947052",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1947052",
+   "question": "生育登记咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1945949",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1945949",
+   "question": "山西省皮肤主诊医师培训申请发票",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1945636",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1945636",
+   "question": "咨询县级医院建立网站前置审批的问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1944965",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1944965",
+   "question": "全省卫生健康领域行风问题举报电话和电子邮箱",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1944903",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1944903",
+   "question": "生育证明登记咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1944318",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1944318",
+   "question": "生育服务登记咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1943981",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1943981",
+   "question": "规培证与执业注册范围相关事项咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1942418",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1942418",
+   "question": "尊敬的领导：&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;您好！非常感谢省卫健委领导和尖草坪区妇幼保健院工作人员给予的帮助，感谢尖草坪区妇幼保健院工作员耐心解答和细心办理。针对我补办过程中出现的特殊情况请示上级及时汇报",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1941595",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1941595",
+   "question": "执业医师考试补缴笔试费用咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1941369",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1941369",
+   "question": "我已经成功应聘到医院，感谢耐心回复，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1941251",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1941251",
+   "question": "2022年专长医师执业证何时领取？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1938098",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1938098",
+   "question": "脊髓灰质炎灭活疫苗（IPV）接种咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1936740",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1936740",
+   "question": "护士执业资格证咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1935871",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1935871",
+   "question": "我想对全国公共环境的灭蚊方式进行一个调研，就是山西省的公园、广场这些场所是否进行了灭蚊操作，如果进行了使用的是那种方式？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1935855",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1935855",
+   "question": "关于护士职称晋升的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1935587",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1935587",
+   "question": "出生证明事项",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1935447",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1935447",
+   "question": "关于护士能否多点执业的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1935434",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1935434",
+   "question": "关于疾控中心如何办理护士延续注册事宜",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1933456",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1933456",
+   "question": "关于疾控中心护士延续注册的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1933300",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1933300",
+   "question": "尊敬的省卫健委领导：&nbsp;由于我现要参加山西省的住院医师规范化培训，急需文件：《山西省卫生和计划生育委员会关于印发住院医师规范化培训管理办法(试行)的通知》(晋卫科教发〔2014〕38号)，恳请相关办事领导将文件发送至我的邮箱。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1932633",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1932633",
+   "question": "咨询职业卫生管理人员培训计划",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1931715",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1931715",
+   "question": "护士有护士资格证可以到村卫生室工作吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1929322",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1929322",
+   "question": "关于2022年卫生系列基层正高考试学历条件咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1927369",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1927369",
+   "question": "进村卫生室资格咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1924572",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1924572",
+   "question": "新入职护士规培咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1923510",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1923510",
+   "question": "财政补助咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1920314",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1920314",
+   "question": "成立一家健康体检中心到哪一级卫生行政部门审批？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1920309",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1920309",
+   "question": "口腔助理医师考试咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1914922",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1914922",
+   "question": "专长医师咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1913891",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1913891",
+   "question": "医院招聘咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1913711",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1913711",
+   "question": "关于2023年省直医院笔试考试的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1913145",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1913145",
+   "question": "医疗器械临床试验SAE报告接收单位、接收方式和联系人",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1912444",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1912444",
+   "question": "乙类大型医用设备配置许可证变更事项咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1912091",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1912091",
+   "question": "中医专长咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1911494",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1911494",
+   "question": "中医师承备案咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1911492",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1911492",
+   "question": "中医师承备案咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1911365",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1911365",
+   "question": "中医医术确有专长咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1911302",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1911302",
+   "question": "中医专长医师考试咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1910964",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1910964",
+   "question": "中医医术确有专长咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1910081",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1910081",
+   "question": "继续教育平台登录如何变更手机号码",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1909651",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1909651",
+   "question": "2023年全省卫生系列高级职称专业考试报名咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1908422",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1908422",
+   "question": "副高考试咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1908363",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1908363",
+   "question": "中医专长医师咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1900345",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1900345",
+   "question": "专长医师考核结果咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1893951",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1893951",
+   "question": "药物医保报销咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1893589",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1893589",
+   "question": "医院招聘专业相关咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1892495",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1892495",
+   "question": "普通食品原料用于泡酒食品生产咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1892308",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1892308",
+   "question": "招聘咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1890523",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1890523",
+   "question": "卫生管理咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1889573",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1889573",
+   "question": "关于社区卫生服务站的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1888591",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1888591",
+   "question": "请问2023年的继续医学教育学习还分I类几分，II类几分这么学吗。还是学够25分就行了。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1888212",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1888212",
+   "question": "执业医师材料咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1887086",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1887086",
+   "question": "关于医院发热门诊的设置规范要求咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1881847",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1881847",
+   "question": "关于传统师承和中医确有专长咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1879488",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1879488",
+   "question": "《医疗机构执业许可证》相关问题咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1878835",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1878835",
+   "question": "四证合一的专业学位硕士毕业生的执业医注册到硕士所在医院是长期有效吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1878594",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1878594",
+   "question": "免费医学定向生咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1874002",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1874002",
+   "question": "补办护士资格证书与护士执业证书咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1872290",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1872290",
+   "question": "独生子女补助咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1864779",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1864779",
+   "question": "师承人员报考执业助理医师的问题咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1864670",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1864670",
+   "question": "中医师承人员报考执业助理医师的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1860472",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1860472",
+   "question": "医院招聘咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1856921",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1856921",
+   "question": "2023年度卫生专业技术资格考试报名",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1854594",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1854594",
+   "question": "中级职称证书",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1853391",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1853391",
+   "question": "什么时候发放规培证书",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1852227",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1852227",
+   "question": "什么时候发放规培证书",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1851040",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1851040",
+   "question": "规培证何时颁发",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1849694",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1849694",
+   "question": "关于医师初中级考试的相关咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1848430",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1848430",
+   "question": "关于2022年卫生系列高级文件评审条件的文件在哪里下载",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1846073",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1846073",
+   "question": "科教科关于2023年科研课题下载文件在哪里",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1844396",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1844396",
+   "question": "近期北京回太原相关防疫政策",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1844078",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1844078",
+   "question": "山西省继续医学教育管理平台注册手机如何更改？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1843540",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1843540",
+   "question": "健康码红码咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1843487",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1843487",
+   "question": "健康码咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1842841",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1842841",
+   "question": "健康码咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1842504",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1842504",
+   "question": "健康码咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1841636",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1841636",
+   "question": "西学中中西医执业医师报名考试咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1841619",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1841619",
+   "question": "您好，想咨询一下太原市的免费避孕药具在哪里领取，在网上查找没有找到具体的领取点清单，去社区领取又有点不好意思。想知道小店区附近有自助领取机或者有线上领取渠道吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1838433",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1838433",
+   "question": "关于西学中执业医师资格考试咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1837682",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1837682",
+   "question": "健康码红码",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1837453",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1837453",
+   "question": "“健康监测”和\"居家隔离\"咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1836376",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1836376",
+   "question": "留言没有回复，结果在哪里查询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1835845",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1835845",
+   "question": "3+3居家健康监测咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1835677",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1835677",
+   "question": "今天介休市疾控中心计免科已通知尿毒症患者到定点卫生院接种新冠疫苗了。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1835671",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1835671",
+   "question": "红码咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1835486",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1835486",
+   "question": "红码咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1835468",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1835468",
+   "question": "西学中执业医师资格考试报名",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1835453",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1835453",
+   "question": "政策咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1834907",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1834907",
+   "question": "白癜风患者慢性病咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1834685",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1834685",
+   "question": "11月15还对来自西安低风险地区人员集中隔离，这完全违背了九不准,什么时候能够按照国家的政策不要这样随意隔离，让人员流动起来",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1833420",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1833420",
+   "question": "陕西西安返回山西，请问对应的疫情管控政策是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1833340",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1833340",
+   "question": "健康码咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1833098",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1833098",
+   "question": "理发美容、住宿场所的行业主管部门是哪个部门",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1833034",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1833034",
+   "question": "吉林省长春市到山西省临汾市安泽县防疫政策？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1832835",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1832835",
+   "question": "黄码咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1832766",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1832766",
+   "question": "健康码咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1830678",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1830678",
+   "question": "门诊慢性病咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1830463",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1830463",
+   "question": "消毒产品经营许可证咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1830018",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1830018",
+   "question": "执业医师儿科加试可注册那些科室",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1829821",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1829821",
+   "question": "门诊慢性病政策咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1828727",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1828727",
+   "question": "误点太原市检疫登记信息系统码咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1827159",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1827159",
+   "question": "执业中医助理医师能不能注册到中医的备案诊所中，对后续考执业医有没有影响",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1825887",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1825887",
+   "question": "防疫政策咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1825429",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1825429",
+   "question": "黄码咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1825218",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1825218",
+   "question": "晋升主治，规培证方面的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1824524",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1824524",
+   "question": "黄码咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1824460",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1824460",
+   "question": "黄码咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1824170",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1824170",
+   "question": "外地进入晋城政策咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1824098",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1824098",
+   "question": "健康码咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1823454",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1823454",
+   "question": "健康码咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1823317",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1823317",
+   "question": "查找贵省关于“互联网+护理服务”试点的相关工作方案",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1822878",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1822878",
+   "question": "健康码咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1822465",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1822465",
+   "question": "健康码咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1821982",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1821982",
+   "question": "健康码咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1821495",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1821495",
+   "question": "健康码红码咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1820930",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1820930",
+   "question": "健康码咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1820881",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1820881",
+   "question": "健康码红码咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1820839",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1820839",
+   "question": "健康码红码咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1820689",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1820689",
+   "question": "健康码咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1820334",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1820334",
+   "question": "黄码问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1819791",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1819791",
+   "question": "关于风险等级咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1819547",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1819547",
+   "question": "健康码黄码咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1819545",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1819545",
+   "question": "关于风险等级咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1818641",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1818641",
+   "question": "执业医师注册问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1817947",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1817947",
+   "question": "健康码咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-45",
+   "id": "1817760",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1817760",
+   "question": "尊敬的领导您好，我是规培期间考的医师证，执业范围空白的，目前规培结束了，变更执业范围必须与规培专业一致吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

@@ -1,0 +1,1158 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>甘肃省统一身份认证平台-用户登录</title>
+    <link rel="stylesheet" href="https://zwfw.gansu.gov.cn/gsjis/static/login/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://zwfw.gansu.gov.cn/gsjis/static/css/normalize.css">
+    <link rel="stylesheet" href="https://zwfw.gansu.gov.cn/gsjis/static/icons/remixicon/remixicon.css">
+    <link rel="stylesheet" href="https://zwfw.gansu.gov.cn/gsjis/static/css/login.css">
+    <link rel="stylesheet" href="https://zwfw.gansu.gov.cn/gsjis/static/login/js/validator/jquery.validator.css">
+    <link rel="stylesheet" href="https://zwfw.gansu.gov.cn/gsjis/static/login/css/verify.css">
+    <link rel="icon" href="https://zwfw.gansu.gov.cn/gsjis/static/img/icon/favicon.ico">
+    <link rel="stylesheet" href="https://zwfw.gansu.gov.cn/gsjis/static/js/dialog/style/ui-dialog.css">
+    <link rel="stylesheet" href="https://zwfw.gansu.gov.cn/gsjis/static/login/css/modal-custom.css">
+    <link rel="stylesheet" href="https://zwfw.gansu.gov.cn/gsjis/static/js/slidercaptcha/slidercaptcha.min.css">
+    <!--[if lt IE 9]>
+    <script src="https://zwfw.gansu.gov.cn/gsjis/static/login/js/html5.min.js"></script>
+    <script src="https://zwfw.gansu.gov.cn/gsjis/static/login/js/respond.min.js"></script>
+    <![endif]-->
+    <script src="https://zwfw.gansu.gov.cn/gsjis/static/login/js/jquery.min.js"></script>
+    <style>
+        body .ty-header{
+            min-height: 80px;
+        }
+        body .ty-header-bottom{
+            display: block;
+        }
+        body .ty-header-select{
+            display: block;
+        }
+        body .tytb-lnr{
+            display: none;
+        }
+        body .ty-header-right>ul>div{
+            display: block;
+        }
+        body .aside{
+            display: none !important;
+        }
+        .sliderIcon {
+            display: none;
+        }
+
+        .slider,
+        .sliderContainer,
+        .sliderbg {
+            border-radius: 0;
+        }
+
+        .sliderText {
+            font-family: "微软雅黑";
+        }
+
+        .slider {
+            box-shadow: none;
+            border: 1px solid rgba(0, 0, 0, .1);
+            background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAOCAYAAAASVl2WAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAExJREFUeNp8kMEKADAIQqf/f+qHG2wwtqZ5CnykhYjIsYUhxGtOB6CDKNani5AQy8YPouj1QAqwZ6qSYGd2j0KNSFNyAdbsHnU0BRgA6lgN0lalI+QAAAAASUVORK5CYII=") !important;
+            background-position: center center !important;
+            background-repeat: no-repeat !important;
+        }
+
+        .sliderContainer {
+            height: 40px;
+        }
+
+        .sliderContainer_active .slider,
+        .sliderContainer_fail .slider,
+        .sliderContainer_success .slider,
+        .slider:hover {
+            background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAOCAYAAAASVl2WAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAEpJREFUeNp8kFEOACAIQoX739laba0M5MuNN0GRU7GFEOI1pwPQQRTr00VIiGXjB1H0eiAF2DNVSbAzu0ehRqQpuQBrdo86GgIMADYZDxl9hCaKAAAAAElFTkSuQmCC") !important;
+        }
+
+        .sliderImageContainer {
+            position: absolute;
+            bottom: 100%;
+            width: 100%;
+        }
+
+        .verifyCode {
+            margin: 16px 0;
+        }
+        .warn-content{
+            color: red;
+            font-weight: bolder;
+            font-size: 20px;
+        }
+    </style>
+    <script type="text/javascript">
+        var _hmt = _hmt || [];
+        /*(function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?de20de06da15ec1ee0893ff044edcf6e";    <script type="text/javascript">
+        var _hmt = _hmt || [];
+        /*(function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?de20de06da15ec1ee0893ff044edcf6e";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();*/
+        try {
+            var bodycount = $("body").size();//此处在正常登录时会报错，捕捉忽略
+            window.top.location = "https://zwfw.gansu.gov.cn/gsjis/sso/main?utype=0";
+        } catch (err) {//报错正常
+        }
+    </script>
+</head>
+<body>
+<script type="text/javascript" src="https://zwfw.gansu.gov.cn/cms_files/filemanager/892888968/script/20217/bc1cfe0691c34ead987e22155897f754.js" charset="utf-8"></script>
+<div class="login-main">
+    <div class="g-main">
+        <div class="login-slogan">
+            <div class="slogan-sub-title">统一身份认证平台全新上线</div>
+            <div class="slogan-title">
+                <span>权威认证</span>
+                <span>安全可信</span>
+            </div>
+            <div class="slogan-content"><br><p>忘记密码说明︰<p>
+                <p>1.如您忘记密码，请点击个人/法人忘记密码找回您的密码。<p>
+                <p>2.如无法在线找回，请您携带本人的相关证件(个人：身份证；法人：身份证、营业执照），前往本地政务大厅密码找回窗口找回账号密码。<p>
+                <p>3.如以上均未解决，请联系客服。电话:12345。<p></div>
+            <div class="slogan-content warn-content"><br>本平台为非涉密平台，严禁处理、传输国家秘密</div>
+        </div>
+        <div class="login-panel">
+            <div class="login-tab-header">
+                <ul>
+                    <li class="active">个人登录</li>
+                    <li>法人登录</li>
+                </ul>
+            </div>
+            <div class="login-tab-body">
+                <ul>
+                    <li class="active">
+                        <div class="login-toggle type-code qrcodelogin active" data-target="login-qrcode-user" >
+                            <span>请使用甘快办APP或支付宝扫码登录</span>
+                        </div>
+                        <div class="login-toggle type-account accoutlogin" data-target="login-account-user">
+                            <span>账号密码登录</span>
+                        </div>
+                        <div class="login-method active"  data-method="login-account-user">
+                            <div id="userAccountArea">
+                                <form id="userloginform" class="log-form" autocomplete="off" action="https://zwfw.gansu.gov.cn/gsjis/oauth/authorize" method="post" data-validator-option="{theme:'yellow_right_effect',stopOnError:true}">
+                                    <input type="hidden" name="utype" value="0"/>
+                                    <input type="hidden" name="client_id" value="zygszwfww"/>
+                                    <input type="hidden" name="scope" value="read,write"/>
+                                    <input type="hidden" name="response_type" value="code"/>
+                                    <input type="hidden" name="state" value="-799162617"/>
+                                    <input type="hidden" name="goto" value="https%3A%2F%2Fzwfw.gansu.gov.cn%2Fszgs%2Fmember%2FwwLogin%2FuserInfo.do"/>
+                                    <input type="hidden" name="userVerifyCode" id="userVerifyCode"/>
+                                    <div class="login-form-row">
+                                        <i class="ri-user-3-line label-img"></i>
+                                        <input type="hidden" id="encrypt_username" name="username"/>
+                                        <input type="text" id="username" placeholder="用户名/手机号码/身份证号" data-rule="用户名:required;length[1~30]" autocomplete="off"/>
+                                    </div>
+                                    <div class="login-form-row">
+                                        <i class="ri-lock-line label-img"></i>
+                                        <input type="hidden" id="encrypt_password" name="password"/>
+                                        <input type="password" id="password" placeholder="请输入密码" data-rule="密码:required;length[6~20]" autocomplete="new-password" onchange="checkpasssafe(this.value)">
+                                        <i class="ri-eye-off-line password-img" data-target="password"></i>
+                                    </div>
+
+                                    <div class="login-form-row">
+                                        <div class="verifyCode" id="verify-code"></div>
+                                    </div>
+                                    <!--                                    <div id="captchaUser"></div>-->
+                                    <input type="hidden" id="captchaUserHd"/>
+                                    <div class="messageTip" style="text-align: center;"></div>
+                                    <div class="login-form-btn">
+                                        <button type="submit">登录 </button>
+                                    </div>
+                                </form>
+                                <div class="sign-up" style="text-align: center">
+                                    <div class="forgot-password forgot"><a href="#">忘记密码?</a></div>
+                                    <div class="user-register register"><a href="#">用户注册</a></div>
+                                    <a href="#" class="answer">常见问题</a>
+                                </div>
+                            </div>
+
+
+
+                            <div id="smsloginArea" style="display: none;">
+
+                                <form id="smsloginform" class="log-form" autocomplete="off" action="https://zwfw.gansu.gov.cn/gsjis/oauth/authorize" method="post" data-validator-option="{theme:'yellow_right_effect',stopOnError:true}">
+                                    <input type="hidden" name="utype" value="0"/>
+                                    <input type="hidden" name="client_id" value="zygszwfww"/>
+                                    <input type="hidden" name="scope" value="read,write"/>
+                                    <input type="hidden" name="response_type" value="code"/>
+                                    <input type="hidden" name="state" value="-799162617"/>
+                                    <input type="hidden" name="goto" value="https%3A%2F%2Fzwfw.gansu.gov.cn%2Fszgs%2Fmember%2FwwLogin%2FuserInfo.do"/>
+                                    <input type="hidden" name="third" value="MOBILE"/>
+
+                                    <div class="login-form-row smsCode">
+                                        <i class="ri-user-3-line label-img"></i>
+                                        <input type="hidden" id="encrypt_mobile" name="mobile"/>
+                                        <input type="text" id="mobile" placeholder="请输入手机号码" maxlength="11" data-rule="手机号码:required;mobile"
+                                               autocomplete="off"/>
+
+                                    </div>
+                                    <div class="login-form-row smsCode">
+                                        <i class="ri-lock-line label-img"></i>
+                                        <input type="text" id="cardnosuffix"
+                                               placeholder="请输入证件号后六位" maxlength="6"
+                                               data-rule="证件号后六位:required;length[6]" autocomplete="off"/>
+                                    </div>
+                                    <div class="login-form-row smsCode" style="display: flex">
+                                        <i class="ri-image-2-line label-img"></i>
+                                        <input type="text" id="piccode" name="piccode" placeholder="请输入图形验证码" maxlength="4" data-rule="图形验证码:required;length[4]" style="width: 280px;">
+                                        <span class="input-group-btn" style="margin-left: 13px">
+                                            <img style="cursor: pointer; height:46px;" id="code_image" alt="图形验证码" title="看不清,换一个!" src="">
+                                            <span id="btn_refresh"><i class="nc-icon-glyph arrows-1_refresh-68"></i>刷新</span>
+                                        </span>
+                                        <span class="msg-box" for="piccode"></span>
+                                    </div>
+                                    <div class="login-form-row smsCode" >
+                                        <i class="ri-lock-password-line label-img"></i>
+                                        <input type="text" id="smscode" name="smscode" maxlength="20" placeholder="请输入验证码" data-rule="验证码:required;length[6~20]" style="width: 280px;">
+                                        <button class="vericode-btn getsmscode" style="width: 120px">获取验证码</button>
+                                        <span class="msg-box" for="smscode"></span>
+                                    </div>
+                                    <div class="messageTip" style="text-align: center;"></div>
+
+                                    <div class="login-form-btn">
+                                        <button type="submit" >登录 </button>
+                                    </div>
+                                </form>
+                                <div class="sign-up" style="text-align: center">
+                                    <div class="forgot-password forgot"><a href="#">忘记密码?</a></div>
+                                    <div class="user-register register"><a href="#">用户注册</a></div>
+                                    <a href="#" class="answer">常见问题</a>
+                                </div>
+                            </div>
+                            <div class="login-method" id="alipayQrCodeArea" data-method="login-qrcode-ele">
+                                <div class="qr-code">
+                                    <form id="alipayQrCodeForm" action="https://zwfw.gansu.gov.cn/gsjis/oauth/authorize" method="post">
+                                        <input type="hidden" name="utype" value="0"/>
+                                        <input type="hidden" name="third" value="THIRD"/>
+                                        <input type="hidden" name="client_id" value="zygszwfww"/>
+                                        <input type="hidden" name="scope" value="read,write"/>
+                                        <input type="hidden" name="response_type" value="code"/>
+                                        <input type="hidden" name="state" value="-799162617"/>
+                                        <input type="hidden" name="goto" value="https%3A%2F%2Fzwfw.gansu.gov.cn%2Fszgs%2Fmember%2FwwLogin%2FuserInfo.do"/>
+                                        <input type="hidden" id="alipayUserId" name="userid" value=""/>
+                                    </form>
+                                    <img alt="" src="" style="width: 190px; height: 210px;" id="alipayQrCodeImg">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="login-method"  data-method="login-qrcode-user">
+                            <!--<div class="qr-title"><i class="ri-qr-scan-2-line ri-lg" style="vertical-align: -4px;"></i>&nbsp;请使用<a href="#" target="_blank" id="downloadapp0">甘快办APP</a>扫码登录</div>-->
+                            <div class="qr-title"><i class="ri-qr-scan-2-line ri-lg" style="vertical-align: -4px;"></i>&nbsp;请使用甘快办APP或支付宝扫码登录</div>
+                            <div class="qr-code">
+                                <form id="zwappform0" class="log-form" autocomplete="off" action="https://zwfw.gansu.gov.cn/gsjis/oauth/authorize" method="post" data-validator-option="{theme:'yellow_right_effect',stopOnError:true}">
+                                    <!--  <a class="qrcode">
+                                          <span style="font-size: larger;color: silver;">甘快办APP下载</span><br>
+                                          <span class="appspan"><img style="width: 230px;height: 230px;" id="downloadapp"
+                                                                     alt="政府app下载" src=""></span>
+                                      </a>-->
+                                    <input type="hidden" name="utype" value="0"/>
+                                    <input type="hidden" name="client_id" value="zygszwfww"/>
+                                    <input type="hidden" name="scope" value="read,write"/>
+                                    <input type="hidden" name="response_type" value="code"/>
+                                    <input type="hidden" name="state" value="-799162617"/>
+                                    <input type="hidden" name="goto" value="https%3A%2F%2Fzwfw.gansu.gov.cn%2Fszgs%2Fmember%2FwwLogin%2FuserInfo.do"/>
+                                    <input type="hidden" name="third" value="THIRD"/>
+                                    <input type="hidden" class="zwappThird0" name="userid"/>
+                                    <div style="padding: 2px;border:2px solid #999;border-radius: 4px;">
+                                        <img alt="" src=""  id="qrcodeurl0">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="login-type">
+                            <div class="type-title">
+                                <span>其他方式登录</span>
+                            </div>
+                            <div class="type-list">
+                                <a id="sbkdl" href="https://zwfw.gansu.gov.cn/gsjis/sso/thirdlogin/ssc?utype=0&client_id=zygszwfww&goto=https%3A%2F%2Fzwfw.gansu.gov.cn%2Fszgs%2Fmember%2FwwLogin%2FuserInfo.do">
+                                    <span class="type-icon">
+                                        <img src="https://zwfw.gansu.gov.cn/gsjis/static/img/login/ico-shebao.jpeg" alt="">
+                                    </span>
+                                    <span class="type-name">电子社保卡登录</span>
+                                </a>
+                                <a href="https://zwfw.gansu.gov.cn/gsjis/sso/china/chinalogin?utype=0&client_id=zygszwfww&goto=https%3A%2F%2Fzwfw.gansu.gov.cn%2Fszgs%2Fmember%2FwwLogin%2FuserInfo.do">
+                                    <span class="type-icon">
+                                        <img src="https://zwfw.gansu.gov.cn/gsjis/static/img/login/ico-nation.png" alt="">
+                                    </span>
+                                    <span class="type-name">国家政务服务平台账号登录</span>
+                                </a>
+                                <a class="smslogin" >
+                                    <span class="type-icon">
+                                        <img src="https://zwfw.gansu.gov.cn/gsjis/static/img/login/ico-msg.png" alt="">
+                                    </span>
+                                    <span class="type-name">手机验证码登录</span>
+                                </a>
+                                <a class="useraccount" style="display: none;">
+                                    <span class="type-icon">
+                                        <img src="https://zwfw.gansu.gov.cn/gsjis/static/img/login/ico-account.png" alt="">
+                                    </span>
+                                    <span class="type-name">账号密码登录</span>
+                                </a>
+                                <!-- <a href="https://zwfw.gansu.gov.cn/gsjis/sso/thirdlogin/wechat">
+                                     <span class="type-icon">
+                                         <img src="https://zwfw.gansu.gov.cn/gsjis/static/img/login/ico-wechat.png" alt="">
+                                     </span>
+                                     <span class="type-name">微信扫码</span>
+                                 </a>-->
+                                 <a class="alipayQrCodeLogin">
+                                     <span class="type-icon">
+                                         <img src="https://zwfw.gansu.gov.cn/gsjis/static/img/login/ico-alipay.png" alt="">
+                                     </span>
+                                     <span class="type-name">支付宝扫码</span>
+                                 </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="login-toggle type-code active" data-target="login-qrcode-corp" >
+                            <span>请使用甘快办APP或支付宝扫码登录</span>
+                        </div>
+                        <div class="login-toggle type-account " data-target="login-account-corp">
+                            <span>账号密码登录</span>
+                        </div>
+                        <div class="login-method active "  id="corpAccountArea" data-method="login-account-corp">
+                            <div >
+                                <form id="corploginform" class="log-form" autocomplete="off" action="https://zwfw.gansu.gov.cn/gsjis/oauth/authorize" method="post"
+                                      data-validator-option="{theme:'yellow_right_effect',stopOnError:true}">
+                                    <input type="hidden" name="utype" value="1"/>
+                                    <input type="hidden" name="client_id" value="zygszwfww"/>
+                                    <input type="hidden" name="scope" value="read,write"/>
+                                    <input type="hidden" name="response_type" value="code"/>
+                                    <input type="hidden" name="state" value="-799162617"/>
+                                    <input type="hidden" name="goto" value="https%3A%2F%2Fzwfw.gansu.gov.cn%2Fszgs%2Fmember%2FwwLogin%2FuserInfo.do"/>
+                                    <input type="hidden" name="corpVerifyCode" id="corpVerifyCode"/>
+                                    <div class="login-form-row">
+                                        <i class="ri-user-3-line label-img"></i>
+                                        <input type="hidden" id="encrypt_corpname" name="corpname"/>
+                                        <input type="text" id="corpname" data-rule="用户名:required;length[1~30]" placeholder="用户名/统一社会信用代码"  autocomplete="off">
+                                    </div>
+                                    <div class="login-form-row">
+                                        <i class="ri-lock-line label-img"></i>
+                                        <input type="hidden" id="encrypt_corppassword" name="corppassword"/>
+                                        <input type="password" id="corppassword" placeholder="请输入密码" data-rule="密码:required;length[6~20]"
+                                               autocomplete="new-password" onchange="checkpasssafe(this.value)">
+                                        <i class="ri-eye-off-line password-img" data-target="corppassword"></i>
+                                    </div>
+
+                                    <div class="login-form-row">
+                                        <div class="verifyCode" id="verify-code-corp"></div>
+                                    </div>
+
+                                    <!--                                    <div id="captchaCorp"></div>-->
+                                    <input type="hidden" id="captchaCorpHd"/>
+                                    <div class="form-group-tip">
+                                        <div id="corpmessageTip" style="text-align: center;"></div>
+                                    </div>
+                                    <div class="login-form-btn">
+                                        <button id="corpbtn" type="submit">登录 </button>
+                                    </div>
+                                </form>
+                                <div class="sign-up" style="text-align: center">
+                                    <div class="forgot-password forgot"><a href="#">忘记密码?</a></div>
+                                    <div class="user-register register"><a href="#">用户注册</a></div>
+                                    <a href="#" class="answer">常见问题</a>
+                                    <!-- <div class="forgot-password"><a href="#">忘记密码?</a></div>
+                                     <div class="user-register"><a href="#">用户注册</a></div>-->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="login-method" id="corpZwappArea" data-method="login-qrcode-corp">
+                            <!--<div class="qr-title"><i class="ri-qr-scan-2-line ri-lg" style="vertical-align: -4px;"></i>&nbsp;请使用<a href="#" target="_blank" id="downloadapp1">甘快办APP</a>扫码登录</div>-->
+                            <div class="qr-title"><i class="ri-qr-scan-2-line ri-lg" style="vertical-align: -4px;"></i>&nbsp;请使用甘快办APP或支付宝扫码登录</div>
+                            <div class="qr-code">
+                                <form id="zwappform1" class="log-form" autocomplete="off" action="https://zwfw.gansu.gov.cn/gsjis/oauth/authorize" method="post" data-validator-option="{theme:'yellow_right_effect',stopOnError:true}">
+                                    <!--  <a class="qrcode">
+                                          <span style="font-size: larger;color: silver;">甘快办APP下载</span><br>
+                                          <span class="appspan"><img style="width: 230px;height: 230px;" id="downloadapp"
+                                                                     alt="政府app下载" src=""></span>
+                                      </a>-->
+                                    <input type="hidden" name="utype" value="1"/>
+                                    <input type="hidden" name="client_id" value="zygszwfww"/>
+                                    <input type="hidden" name="scope" value="read,write"/>
+                                    <input type="hidden" name="response_type" value="code"/>
+                                    <input type="hidden" name="state" value="-799162617"/>
+                                    <input type="hidden" name="goto" value="https%3A%2F%2Fzwfw.gansu.gov.cn%2Fszgs%2Fmember%2FwwLogin%2FuserInfo.do"/>
+                                    <input type="hidden" name="third" value="THIRD"/>
+                                    <input type="hidden" class="zwappThird1" name="userid"/>
+                                    <div style="padding: 2px;border:2px solid #999;border-radius: 4px;">
+                                        <img alt="" src=""  id="qrcodeurl1">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="login-method" id="corpeleArea" data-method="login-qrcode-ele">
+                            <div class="qr-title">请使用电子营业执照APP/小程序扫码登录</div>
+                            <div class="qr-code">
+                                <form id="elecodeForm" action="https://zwfw.gansu.gov.cn/gsjis/oauth/authorize" method="post">
+                                    <input type="hidden" name="utype" value="1"/>
+                                    <input type="hidden" name="third" value="ELECODE"/>
+                                    <input type="hidden" name="client_id" value="zygszwfww"/>
+                                    <input type="hidden" name="scope" value="read,write"/>
+                                    <input type="hidden" name="response_type" value="code"/>
+                                    <input type="hidden" name="state" value="-799162617"/>
+                                    <input type="hidden" name="goto" value="https%3A%2F%2Fzwfw.gansu.gov.cn%2Fszgs%2Fmember%2FwwLogin%2FuserInfo.do"/>
+                                    <input type="hidden" id="uniscid" name="uniscid" value=""/>
+                                </form>
+                                <img alt="" src="" style="width: 200px; height: 200px;" id="erweima">
+                                <!-- 错误提示及刷新按钮 -->
+                                <div id="eleQrError" style="display:none; text-align:center; margin-top:10px; cursor:pointer;">
+                                    <span id="eleErrorMsg" style="color:#f56c6c; font-size:14px;"></span>
+                                    <span style="font-size:20px; margin-left:5px;">↻</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="login-type">
+                            <div class="type-title">
+                                <span>其他方式登录</span>
+                            </div>
+                            <div class="type-list">
+                                <a href="https://zwfw.gansu.gov.cn/gsjis/sso/china/chinalogin?utype=1&client_id=zygszwfww&goto=https%3A%2F%2Fzwfw.gansu.gov.cn%2Fszgs%2Fmember%2FwwLogin%2FuserInfo.do">
+                                    <span class="type-icon">
+                                        <img src="https://zwfw.gansu.gov.cn/gsjis/static/img/login/ico-nation.png" alt="">
+                                    </span>
+                                    <span class="type-name">国家政务服务平台账号登录</span>
+                                </a>
+                                <a href="#" id="switchwele">
+                                    <span class="type-icon">
+                                        <img src="https://zwfw.gansu.gov.cn/gsjis/static/img/login/ico-yingye.png" alt="">
+                                    </span>
+                                    <span class="type-name">电子营业执照登录</span>
+                                </a>
+                                <a href="#" id="switchcorpaccount" style="display: none">
+                                    <span class="type-icon">
+                                        <img src="https://zwfw.gansu.gov.cn/gsjis/static/img/login/ico-account.png" alt="">
+                                    </span>
+                                    <span class="type-name">账号密码登录</span>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 模态框 展示pdf -->
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content" style="width: 900px;height: 1190px;"></div>
+    </div>
+</div>
+<div class="modal custom-modal fade" id="cardNoModal" tabindex="-1" role="dialog" aria-labelledby="cardNoModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="warm-title">
+                    <span>温馨提示</span>
+                </div>
+                <div class="warm-subtitle">证件后六位不正确，请通过以下操作进行登录：</div>
+                <p>1.请下载<a class="gkb" href="#">甘快办</a>进行重新注册;</p>
+                <p>2.通过<a class="forgot" href="#">忘记密码</a>找回密码。</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript -->
+<script src="https://zwfw.gansu.gov.cn/gsjis/static/login/js/bootstrap.min.js"></script>
+<script src="https://zwfw.gansu.gov.cn/gsjis/static/login/js/validator/jquery.validator.js"></script>
+<script src="https://zwfw.gansu.gov.cn/gsjis/static/login/js/validator/jquery.validator.zh_CN.js"></script>
+<script src="https://zwfw.gansu.gov.cn/gsjis/static/js/jquery/jquery.md5.js"></script>
+<script src="https://zwfw.gansu.gov.cn/gsjis/static/js/smcrypto/sm4.js"></script>
+<script src="https://zwfw.gansu.gov.cn/gsjis/static/js/jpower/dzzw.webfinal.all.js"></script>
+<!-- 对话框 -->
+<script src="https://zwfw.gansu.gov.cn/gsjis/static/js/dialog/dialog-min.js"></script>
+<script src="https://zwfw.gansu.gov.cn/gsjis/static/js/dialog/dialog-plus-min.js"></script>
+<script src="https://zwfw.gansu.gov.cn/gsjis/static/js/jquery/jquery.json.min.js"></script>
+
+<script src="https://zwfw.gansu.gov.cn/gsjis/static/js/qrcode/qrcode.js"></script>
+<script src="https://zwfw.gansu.gov.cn/gsjis/static/js/login/js/aes.js"></script>
+<script src="https://zwfw.gansu.gov.cn/gsjis/static/js/smcrypto/crypto-js.js"></script>
+<script src="https://zwfw.gansu.gov.cn/gsjis/static/js/smcrypto/sm2.js"></script>
+<script src="https://zwfw.gansu.gov.cn/gsjis/static/js/signature/signature.js"></script>
+<script src="https://zwfw.gansu.gov.cn/gsjis/static/login/js/verify.js?v=1"></script>
+<script src="https://zwfw.gansu.gov.cn/gsjis/static/login/js/verifyCode.js"></script>
+<script src="https://zwfw.gansu.gov.cn/gsjis/static/js/slidercaptcha/slidercaptcha.min.js"></script>
+<script src="https://zwfw.gansu.gov.cn/gsjis/static/js/pdfobject.min.js"></script>
+<script>
+
+    var verifyToken = "D41BA8A91B024032819FC6AD3D880EB4";
+
+    $(function () {
+        /*$(window).resize(function () {
+            var marginHeight = $(window).height() - 715;
+            if (marginHeight <= 0) {
+                marginHeight = 0;
+            }
+            $("#loginBlock").css("margin-top", marginHeight / 2);
+        }).resize();*/
+        //$("#sbkdl").attr("disabled", true);
+        //$("#sbkdl").css("pointer-events", "none");
+        //$("#switchwele").attr("disabled", true);
+        //$("#switchwele").css("pointer-events", "none");
+        $('.sidebar-toggle').click(function (e) {
+            e.preventDefault();
+            $('.skeleton').toggleClass('skeleton-sidebar-expanded');
+            window.dispatchEvent(new Event('resize'));
+        })
+        $('#captchaUser,#captchaCorp').sliderCaptcha({
+            width: 425,
+            height: 180,
+            repeatIcon: 'fa fa-redo',
+            barText: '向右滑动完成验证',
+            setSrc: function () {
+                return 'https://zwfw.gansu.gov.cn/gsjis/static/js/slidercaptcha/image/' + Math.round(Math.random() * 4 + 1) + '.jpg';
+            },
+            onSuccess: function () {
+                $('.sliderImageContainer').hide();
+                var container = $(this).attr("id");
+                if (container == "captchaUser") {
+                    $("#" + container + "Hd").val("1");
+                } else {
+                    $("#" + container + "Hd").val("1");
+                }
+            },
+            onRefresh: function () {
+                var container = $(this).attr("id");
+                $("#" + container + "Hd").val("1");
+            }
+        });
+        $('.sliderImageContainer').hide();
+        $('.slider').mousedown(function () {
+            $('.sliderImageContainer').show();
+        });
+        //切换tab
+        $('body').on('click', '.login-tab-header>ul>li', function () {
+            var count = $(this).index();
+            $(this).addClass('active').siblings().removeClass('active');
+            $('.login-tab-body>ul>li').eq(count).addClass('active').siblings().removeClass('active');
+            $(".type-account").click();
+            $(".useraccount").click();
+            $('.verify-refresh').click();
+            $("#switchcorpaccount").click();
+            validateCode = '';
+        });
+        // 密码框悬浮显示
+        // $('input[type="password"]').hover(function () {
+        //     $(this).attr('type', 'text');
+        //     $(this).siblings('.password-img').addClass('ri-eye-close-line').removeClass('ri-eye-line');
+        // }, function () {
+        //     $(this).attr('type', 'password');
+        //     $(this).siblings('.password-img').addClass('ri-eye-line').removeClass('ri-eye-close-line');
+        // });
+        // 密码可见性切换
+        $('.password-img').on('click', function () {
+            var $icon = $(this);
+            var targetId = $icon.data('target');
+            var $input = $('#' + targetId);
+            if ($input.attr('type') === 'password') {
+                $input.attr('type', 'text');
+                $icon.removeClass('ri-eye-off-line').addClass('ri-eye-line');
+            } else {
+                $input.attr('type', 'password');
+                $icon.removeClass('ri-eye-line').addClass('ri-eye-off-line');
+            }
+        });
+        // 点击扫码登录
+        $('body').on('click', '.login-toggle', function () {
+            $(this).removeClass('active').siblings('.login-toggle').addClass('active');
+            var targetMethod = $(this).data('target');
+            $(this).siblings('[data-method="'+ targetMethod +'"]').addClass('active').siblings('.login-method').removeClass('active');
+
+            if(targetMethod=="login-account-corp"){
+                $("#corpAccountArea").show();
+                $("#corpZwappArea").hide();
+                $("#corpeleArea").hide();
+            }
+            if(targetMethod=="login-qrcode-corp"){
+                //获取法人政务二维码
+                $("#corpZwappArea").show();
+                $("#corpeleArea").hide();
+                $("#corpAccountArea").hide();
+                getQRcode();
+            } else if(targetMethod=="login-qrcode-user"){
+                //获取自然人政务二维码
+                getQRcode();
+            }
+            // else if(targetMethod=="login-account-user"){
+            //     $(".alipayQrCodeLogin").show();
+            //     $(".useraccount").hide();
+            // }
+        });
+
+        // 新版滑动验证码
+        //var windowWidth = $(window).width()
+        //if(windowWidth>500){
+        var imgWidth = '440px',imgHeight='150px',blockSize='50px',barHeight='40px',barBottom='42px';
+        $('#verify-code').slideVerify({
+            type : 2,
+            vOffset : 5,
+            vSpace : 5,
+            captchaServerUrl: 'https://zwfw.gansu.gov.cn/gsjis/web/getSlideCaptcha',
+            verifyServerUrl: 'https://zwfw.gansu.gov.cn/gsjis/web/verifySlideCaptcha',
+            imgSize: {
+                width: imgWidth,
+                height: imgHeight,
+            },
+            blockSize: {
+                width: blockSize,
+                height: blockSize,
+            },
+            barSize: {
+                width: imgWidth,
+                height: barHeight,
+                bottom: barBottom,
+            },
+            ready : function() {
+            },
+            success : function(obj, code) {
+                if(code) {
+                    validateCode = code;
+                }
+            },
+            error : function() {
+                validateCode = '';
+            }
+
+        });
+
+        $('#verify-code-corp').slideVerify({
+            type : 2,
+            vOffset : 5,
+            vSpace : 5,
+            captchaServerUrl: 'https://zwfw.gansu.gov.cn/gsjis/web/getSlideCaptcha',
+            verifyServerUrl: 'https://zwfw.gansu.gov.cn/gsjis/web/verifySlideCaptcha',
+            imgSize: {
+                width: imgWidth,
+                height: imgHeight,
+            },
+            blockSize: {
+                width: blockSize,
+                height: blockSize,
+            },
+            barSize: {
+                width: imgWidth,
+                height: barHeight,
+                bottom: barBottom,
+            },
+            ready : function() {
+            },
+            success : function(obj, code) {
+                if(code) {
+                    validateCode = code;
+                }
+            },
+            error : function() {
+                validateCode = '';
+            }
+
+        });
+    });
+
+    var logintype = "0";
+    var client_id = "zygszwfww";
+    var gotourl = "https%3A%2F%2Fzwfw.gansu.gov.cn%2Fszgs%2Fmember%2FwwLogin%2FuserInfo.do";
+
+    var qrCodeTimer = null;
+    var pollTimer = null;
+    var alipayPollTimer = null;
+
+    // 电子营业执照相关变量
+    var elePollTimer = null;    // 轮询定时器
+    var elePollCount = 0;       // 已轮询次数
+    var eleRetryCount = 0;      // 网络错误重试次数
+    var eleQrid = '';           // 当前二维码ID
+    var eleRefreshBound = false;   // 是否已绑定刷新按钮事件
+
+    // ===== 配置 =====
+    var eleMaxPoll = 60;        // 最大轮询次数（60次 * 2秒 = 2分钟）
+    var eleMaxRetry = 3;        // 网络错误最大重试次数
+
+
+    $(function () {
+        function checkImage(id) {
+            var dom = $(id).val();
+            if (!dom) {
+                WebFinal.tips("<div style='padding-bottom:10px;text-align:left;color:red;'>请滑动滑块填充拼图以通过验证</div>")
+                // var a = {};
+                // a.title = "系统提示";
+                // a.content = "<div style='padding-bottom:10px;text-align:left;color:red;'><i class='mdicon mdicon-close' style='color:red;font-size:120%;'></i>&nbsp;请滑动滑块填充拼图以通过验证</div>";
+                // a.okValue = "确定";
+                // a.cancelValue = "取消";
+                // a.width = "250px";
+                // WebFinal.dialog.alert(a);
+            }
+            return dom;
+        }
+
+
+
+        window.setTimeout(function () {
+             $("#code_image").attr("src", "https://zwfw.gansu.gov.cn/gsjis/web/checkcode?v=" + new Date().getTime());
+         }, 200);
+         //刷新验证码
+         $("#code_image").click(function () {
+             var stamp = new Date().getTime();
+             $(this).attr("src", "https://zwfw.gansu.gov.cn/gsjis/web/checkcode?v=" + stamp);
+         });
+        var loginway = "";
+        var loginfailed = "false";
+        var message = "";
+        if ("0" == logintype) {
+            $('.login-tab-header>ul>li').eq(0).click();
+        } else if ("1" == logintype) {
+            $('.login-tab-header>ul>li').eq(1).click();
+        }
+
+        if (loginfailed == "true") {
+            if ("0" == logintype) {
+                $(".messageTip").html("<div style='margin-top: 16px;padding:8px;line-height: 1.5;'><font color='red'>" + message + "</font></div>");
+            } else if ("1" == logintype) {
+                $("#corpmessageTip").html("<div style='margin-top: 16px;padding:8px;line-height: 1.5;'><font color='red'>" + message + "</font></div>");
+            }
+        }
+        $(".register").click(function () {
+            var utype = "0";
+            if ($('.login-tab-header>ul>li').eq(1).hasClass("active")) {
+                utype = "1";
+            }
+            window.location.href = "https://zwfw.gansu.gov.cn/gsjis/sso/register?utype=" + utype + "&client_id=" + client_id + "&goto=" + gotourl;
+        });
+        $(".forgot").click(function () {
+            var utype = "0";
+            if ($('.login-tab-header>ul>li').eq(1).hasClass("active")) {
+                utype = "1";
+            }
+            window.location.href = "https://zwfw.gansu.gov.cn/gsjis/sso/forgot/userpass?utype=" + utype + "&client_id=" + client_id + "&goto=" + gotourl;
+        });
+
+        $('#userloginform').validator({
+            valid: function (form) {
+                if (validateCode == '') {
+                    $(".messageTip").html("<div style='margin-top: 16px;padding:8px;line-height: 1.5;'><font color='red'>请先完成滑动验证</font></div>");
+                    $('.verify-refresh').click();
+                    return;
+                }
+                // if (checkImage('#captchaUserHd')) {
+                $("#encrypt_password").val(encryptSM2($("#password").val()));
+                $("#encrypt_username").val(encryptSM2($("#username").val()));
+                $("#userVerifyCode").val(validateCode);
+                form.submit();
+                // }
+            }
+        });
+
+
+        $('#corploginform').validator({
+            valid: function (form) {
+                // if (checkImage('#captchaCorpHd')) {
+
+                if (validateCode == '') {
+                    $("#corpmessageTip").html("<div style='margin-top: 16px;padding:8px;line-height: 1.5;'><font color='red'>请先完成滑动验证</font></div>");
+                    $('.verify-refresh').click();
+                    return;
+                }
+
+                $("#encrypt_corpname").val(encryptSM2($("#corpname").val()));
+                $("#encrypt_corppassword").val(encryptSM2($("#corppassword").val()));
+                $("#corpVerifyCode").val(validateCode);
+                form.submit();
+                // }
+            }
+        });
+
+        $('#smsloginform').validator({
+            valid: function (form) {
+                $("#encrypt_mobile").val(encryptSM2($("#mobile").val()));
+                form.submit();
+            }
+        });
+
+
+        if (loginway == "zwapp") {
+            /* var utype = "0";*/
+            if ($('.login-tab-header>ul>li').eq(1).hasClass("active")) {
+                $('[data-target="login-qrcode-corp"]').click();
+            }else{
+                $('[data-target="login-qrcode-user"]').click();
+            }
+        }
+        $(".smslogin").click(function () {
+            $(".accoutlogin").click();
+            $("#userAccountArea").hide();
+            $("#alipayQrCodeArea").hide();
+            $("#smsloginArea").show();
+            $(".useraccount").show();
+            $(".alipayQrCodeLogin").show();
+            $(this).hide();
+            //轮训停止
+            stopPoll();
+        });
+
+        $(".alipayQrCodeLogin").click(function () {
+            $(".qrcodelogin").click();
+            // $(".useraccount").show();
+            // $(".smslogin").show();
+            // $(".alipayQrCodeLogin").hide();
+        });
+
+        $(".useraccount").click(function () {
+            $(".accoutlogin").click();
+            $("#smsloginArea").hide();
+            $("#alipayQrCodeArea").hide();
+            $("#userAccountArea").show();
+            $(".smslogin").show();
+            $(".alipayQrCodeLogin").show();
+            $(this).hide();
+            //轮训停止
+            stopPoll();
+        });
+
+        $("#switchwele").click(function () {
+            $("#corpAccountArea").hide();
+            $("#corpZwappArea").hide();
+            $("#corpeleArea").show();
+            $("#switchcorpaccount").show();
+            $(this).hide();
+            //获取二维码
+            corpQRCodeLogin();
+        });
+
+        $("#switchcorpaccount").click(function () {
+            $("#corpeleArea").hide();
+            $("#corpZwappArea").hide();
+            $("#corpAccountArea").show();
+            $("#switchwele").show();
+            $(this).hide();
+            stopPoll();
+        });
+
+        if (!eleRefreshBound) {
+            // 点击整个错误区域（文字或符号）都触发刷新
+            $("#eleQrError").on("click", function() {
+                corpQRCodeLogin();
+            });
+            eleRefreshBound = true;
+        }
+    });
+
+    function getQRcode() {
+        var utype = "0";
+        if ($('.login-tab-header>ul>li').eq(1).hasClass("active")) {
+            utype = "1";
+        }
+        $("#qrcodeurl" + utype).empty();
+        if (qrCodeTimer != null || qrCodeTimer != "") {
+            clearInterval(qrCodeTimer);
+        }
+        //获取二维码
+        $.ajax({
+            type: "POST",
+            url: "https://zwfw.gansu.gov.cn/gsjis/sso/thirdlogin/zwapp",
+            // timeout: 60000,
+            async: true,
+            data: {"utype": utype},
+            beforeSend:function(){
+                $("#qrcodeurl"+utype).attr("src" ,"data:image/gif;base64,R0lGODlhyADIAPf/AP7+/v39/fz8/Pn5+fv7+/r6+vj4+Pf39/b29vX19fT09PHx8fDw8Onp6fLy8uzs7OXl5fPz8+/v7+7u7u3t7evr6+rq6uTk5OLi4ubm5uPj49PT097e3t3d3QAAANvb2+jo6ODg4AEBAdra2ufn59bW1sbGxs3NzdDQ0NnZ2eHh4dfX18rKysHBwb6+vry8vNXV1dLS0sjIyMfHx9zc3AICAt/f38/Pz4GBgczMzNTU1MPDw7q6uqmpqdjY2LCwsMTExMvLy8LCwgQEBM7OzsDAwL+/v56enri4uJycnLW1tXBwcJWVlaioqLS0tMnJybm5uVNTUw0NDaKioltbW1BQUFlZWS8vL9HR0b29vaGhoWNjY6+vr62trYaGhgUFBUBAQAMDAyIiImtraxAQEAkJCXV1daysrJqamp+fn3t7e4SEhJeXlxgYGCMjI5SUlKSkpJiYmAYGBmZmZre3t5GRkbOzs7u7u4+Pj66urrKyspaWlm1tbXx8fGRkZB8fH4uLiwgICDExMZubm3d3d2JiYgsLC4mJiaqqqm5ubl5eXkRERAcHB7GxsRsbG6urqxISEl1dXXFxcTc3N7a2tqWlpaampoqKiicnJ3JycpCQkJmZmTw8PBMTEyoqKlFRURkZGaOjo3h4eC0tLY6OjkFBQaCgoHp6emdnZxYWFiAgICUlJUdHR0VFRTMzM52dnXZ2dhERERoaGjU1NZOTk8XFxTAwMFpaWqenp09PT4ODg0hISDk5OYCAgBUVFQ4ODoeHh4KCgnl5eSwsLAwMDG9vb42NjSkpKUZGRlJSUhwcHFVVVR0dHT09PUxMTDs7O4iIiGVlZS4uLklJSWFhYWlpaU1NTZKSkn19fYWFhSEhIVhYWGxsbH9/f4yMjGBgYBQUFAoKCnR0dE5OTl9fXw8PDyYmJjY2Njo6OmpqakpKSjQ0NCQkJD4+Pjg4OGhoaFdXV1xcXH5+fhcXFz8/PysrK0NDQ1ZWVjIyMigoKHNzc0tLS0JCQlRUVP///////yH/C05FVFNDQVBFMi4wAwEAAAAh/wtYTVAgRGF0YVhNUDw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBXaW5kb3dzIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkNEODlGRDRFQkRERDExRTE4NURFQ0JDRkFDMEQxN0EyIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkNEODlGRDRGQkRERDExRTE4NURFQ0JDRkFDMEQxN0EyIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6Q0Q4OUZENENCREREMTFFMTg1REVDQkNGQUMwRDE3QTIiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6Q0Q4OUZENERCREREMTFFMTg1REVDQkNGQUMwRDE3QTIiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz4B//79/Pv6+fj39vX08/Lx8O/u7ezr6uno5+bl5OPi4eDf3t3c29rZ2NfW1dTT0tHQz87NzMvKycjHxsXEw8LBwL++vby7urm4t7a1tLOysbCvrq2sq6qpqKempaSjoqGgn56dnJuamZiXlpWUk5KRkI+OjYyLiomIh4aFhIOCgYB/fn18e3p5eHd2dXRzcnFwb25tbGtqaWhnZmVkY2JhYF9eXVxbWllYV1ZVVFNSUVBPTk1MS0pJSEdGRURDQkFAPz49PDs6OTg3NjU0MzIx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");
+            },
+            success: function (data) {
+                if (data.state == 1) {
+                    $("#downloadapp"+utype).attr("href", data.downloadUrl);
+                    $("#qrcodeurl"+utype).attr("src", "data:image/png;base64," +data.qrcodeUrl);
+                    //开始轮训结果
+                    pollTimer = setInterval("pollResult('"+utype+"')", 3000);
+                    setTimeout(function () {
+                        if (pollTimer != null || pollTimer != "") {
+                            clearInterval(pollTimer);
+                        }
+                    }, 60000);
+                } else {
+                    //获取二维码失败提示
+                }
+            }
+        });
+        qrCodeTimer = setInterval("getQRcode()", 1000 * 60 * 5);
+    }
+
+    function pollResult(utype) {
+
+
+        $.ajax({
+            type: "POST",
+            url: "https://zwfw.gansu.gov.cn/gsjis/sso/zwapp/poll",
+            timeout: 60000,
+            async: true,
+            success: function (data) {
+                if (data.state != 1) {
+                    //提示失败
+                    /*if(pollTimer!=null||pollTimer!=""){
+                        clearInterval(pollTimer);
+                    }*/
+                } else {
+                    if (pollTimer != null || pollTimer != "") {
+                        clearInterval(pollTimer);
+                    }
+                    $(".zwappThird"+utype).val(data.ykbsign);
+                    $("#zwappform"+utype).submit();
+                }
+            }
+        });
+        //pollTimer = setInterval("pollResult('"+ requestId +"')", 3000);
+    }
+
+
+
+    // ===== 获取二维码 =====
+    function corpQRCodeLogin() {
+        // 隐藏错误提示，显示二维码
+        $("#eleQrError").hide();
+        $("#erweima").show();
+
+
+        // 清理旧定时器
+        if (elePollTimer) {
+            stopPoll();
+        }
+        // 重置计数
+        elePollCount = 0;
+        eleRetryCount = 0;
+        eleQrid = '';
+
+        $.ajax({
+            type: 'post',
+            dataType: "json",
+            url: "https://zwfw.gansu.gov.cn/gsjis/sso/thirdlogin/elecode",
+            async: true,   // 改为异步，不阻塞UI
+            data: {},
+            success: function (data) {
+                // 先保存二维码ID，再显示二维码
+                eleQrid = data.qrid;
+                $("#erweima").attr("src", "data:image/png;base64," + data.qrimage);
+                // 启动轮询（每2秒）
+                elePollTimer = setInterval(getEleCodeInfo, 2000);
+            },
+            error: function () {
+                // 获取二维码失败，显示错误+刷新按钮
+                showEleError("获取二维码失败，请刷新重试");
+            }
+        });
+    }
+
+    // ===== 轮询检查授权状态 =====
+    function getEleCodeInfo() {
+        // 1. 检查轮询次数是否超限（超时）
+        if (elePollCount >= eleMaxPoll) {
+            showEleError("二维码已过期，请刷新重试");
+            return;
+        }
+        elePollCount++;
+
+        // 2. 发起请求
+        $.ajax({
+            type: 'post',
+            dataType: "json",
+            url: "https://zwfw.gansu.gov.cn/gsjis/sso/thirdlogin/getEleCodeInfo",
+            async: true,
+            data: { "qrid": eleQrid },
+            success: function (data) {
+                if (data.status) {
+                    // ----- 授权成功 -----
+                    stopPoll();
+                    var uniscid = data.detail;
+                    var ishave = data.ishave;
+                    var entname = data.entname;
+                    if (ishave) {
+                        $("#uniscid").val(uniscid);
+                        $("#elecodeForm").submit();
+                    } else {
+                        window.location.href = "https://zwfw.gansu.gov.cn/gsjis/sso/thirdlogin/bindCorpinfo?uniscid=" + uniscid + "&entname=" + entname + "&client_id=" + client_id + "&goto=" + gotourl;
+                    }
+                } else {
+                    // ----- 业务返回非成功 -----
+                    if (data.obj == 'wait') {
+                        // 等待扫码，继续轮询（重置网络重试计数）
+                        eleRetryCount = 0;
+                    } else {
+                        // 其他错误（如二维码失效、状态异常），停止轮询并提示
+                        var msg = data.msg || "二维码状态异常，请刷新重新获取";
+                        showEleError(msg);
+                    }
+                }
+            },
+            error: function () {
+                // ----- 网络错误处理（带重试） -----
+                eleRetryCount++;
+                if (eleRetryCount > eleMaxRetry) {
+                    // 重试次数耗尽，停止轮询
+                    showEleError("网络连接失败，请刷新重试");
+                }
+                // 否则不做额外处理，等待下一次定时器触发（2秒后重试）
+            }
+        });
+    }
+
+    function showEleError(msg) {
+        // 隐藏二维码，显示错误信息
+        $("#erweima").hide();
+        $("#eleErrorMsg").text(msg);
+        $("#eleQrError").show();
+        // 停止定时器
+        stopPoll();
+    }
+
+    function getAlipayQrCode() {
+        //加载二维码
+        var qrid = "";
+        $.ajax({
+            type: 'post',
+            dataType: "json",
+            url: "https://zwfw.gansu.gov.cn/gsjis/sso/thirdlogin/alipay/qrCode",
+            async: false,
+            data: {},
+            success: function (data) {
+                if (data.state === "1") {
+                    $("#alipayQrCodeImg").attr("src", data.qrcodeUrl);
+                    alipayPollTimer = setInterval("alipayLoginPoll()", 3000);
+                } else {
+                    WebFinal.dialog.alertError(data.msg);
+                }
+            }
+        });
+    }
+
+    function alipayLoginPoll() {
+        $.ajax({
+            type: 'post',
+            dataType: "json",
+            url: "https://zwfw.gansu.gov.cn/gsjis/sso/thirdlogin/alipay/poll",
+            async: false,
+            success: function (data) {
+                if (data.state === "1") {
+                    //登录成功
+                    stopPoll();
+                    //统一社会信用代码
+                    var userid = data.userid;
+                    var ishave = data.ishave;
+                    if (ishave) {
+                        $("#alipayUserId").val(userid);
+                        $("#alipayQrCodeForm").submit();
+                    } else {
+                        window.location.href = "https://zwfw.gansu.gov.cn/gsjis/sso/bind/third?thirdid=" + userid +  "&thirdtype=alipay";
+                    }
+                }
+            },
+            error: function (a, b, c) {
+            }
+        });
+    }
+
+    /** 以下为短信验证码登录 */
+    var wait = 120;
+
+    function time(o) {
+        if (wait == 0) {
+            o.removeClass("disabled");
+            o.html("重新获取");
+            wait = 120;
+        } else {
+            o.html("等待接收(" + wait + ")秒");
+            wait--;
+            setTimeout(function () {
+                    time(o);
+                },
+                1000);
+        }
+    }
+
+    //获取短信验证码
+    $(".getsmscode").click(function () {
+        var $this = $(this);
+        var mobileValid = $("#mobile").isValid() + '';
+        var piccodeValid = $("#piccode").isValid()+'';
+        var cardnosuffixValid = $("#cardnosuffix").isValid() + '';
+
+        if (!$this.is('.disabled')) {
+            if (cardnosuffixValid != 'false' && mobileValid != 'false' && piccodeValid != 'false') {
+                var cmd = new WebFinal.command("https://zwfw.gansu.gov.cn/gsjis/sso");
+                var params = encryptSM2(JSON.stringify({"mobile": $('#mobile').val(), "piccode": $('#piccode').val(), "cardnosuffix": $('#cardnosuffix').val()}))
+                cmd.setParameter("data", params);
+                var ret = cmd.execute("sendSMSlogin");
+                if (!ret.error && ret.state == 1) {
+                    time($this);
+                    $this.addClass("disabled");
+                    $('#smscode').val('');
+                } else if(ret.state == 2) {
+                    $("#cardNoModal").modal('show');
+                }else{
+                    WebFinal.dialog.alertError(ret.msg);
+                }
+                $("#code_image").trigger('click')
+            }
+        }
+    });
+
+    function checkpasssafe(pwd) {
+        if (pwd != "" && pwd != null) {
+            if (!(/^(?![a-zA-Z]+$)(?![A-Z0-9]+$)(?![A-Z\W_!@#$^&*~-]+$)(?![a-z0-9]+$)(?![a-z\W_!@#$^&*~-]+$)(?![0-9\W_!@#$^&*~-]+$)[a-zA-Z0-9\W_!@#$^&*~-]{8,20}$/.test(pwd))) {
+                WebFinal.dialog.alertError("尊敬的客户：你的统一实名认证系统登陆密码未通过弱口令校验请通过图形验证码下面的“忘记密码”功能重新设置你的新密码（新密码规则：1.密码长度8-20位；2.密码需要包含大写字母、小写字母、数字和特殊符号的任意三种或三种以上组合），如果忘记密码不能正常修改的，请拨打下面的客服电话进行修改，谢谢！");
+            }
+        }
+    }
+
+    // 停止轮询
+    function stopPoll() {
+        try {
+            if (pollTimer != null || pollTimer != "") {
+                clearInterval(pollTimer);
+                pollTimer = null;
+            }
+            if (qrCodeTimer != null || qrCodeTimer != "") {
+                clearInterval(qrCodeTimer);
+                qrCodeTimer = null;
+            }
+            if (elePollTimer != null || elePollTimer != "") {
+                clearInterval(elePollTimer);
+                elePollTimer = null;
+            }
+            if (alipayPollTimer != null || alipayPollTimer != "") {
+                clearInterval(alipayPollTimer);
+                alipayPollTimer = null;
+            }
+        } catch (error) {
+            console.error("Failed to stop poll:", error);
+        }
+    }
+
+    $(".answer").click(function (){
+        $('.bd-example-modal-lg').modal('show');
+        PDFObject.embed("https://zwfw.gansu.gov.cn/gsjis/static/pdf/常见问题.pdf",".modal-content");
+    })
+    $(".gkb").click(function (){
+        $("#cardNoModal").modal('hide');
+        $('.bd-example-modal-lg').modal('show');
+        PDFObject.embed("https://zwfw.gansu.gov.cn/gsjis/static/pdf/甘快办注册操作手册.pdf",".modal-content");
+    })
+</script>
+<script type="text/javascript" src="https://zwfw.gansu.gov.cn/cms_files/filemanager/892888968/script/20217/ff8118e005514463b6ba11fa4b932d4e.js" charset="utf-8"></script>
+</body>
+
+</html>

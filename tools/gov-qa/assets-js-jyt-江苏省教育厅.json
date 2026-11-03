@@ -1,0 +1,711 @@
+{
+ "A_考卷": [
+  {
+   "source": "js-jyt",
+   "id": "112455",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=112455&sysid=126",
+   "question": "小学入学年龄咨询\n你好！我想咨询下现在小孩小学入学年龄是不是仍然按8月31日前年满6周岁的制度执行，现在网上有信息说江苏在未来几年将按执行12月31日前年满6周岁的小孩可以上小学的制度，请问是否有这种制度，如果有何时开始执行，还请告知，谢谢",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国义务教育法",
+     "lib_no": "义务教育法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "js-jyt",
+   "id": "453102",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=453102&sysid=126",
+   "question": "出国学籍处理\n您好！     我是徐州初二学生家长，学生要在初二下学期离校出国上学，国内学籍处理办法有哪些规定！谢谢解答！",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省义务教育学籍管理规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt",
+   "id": "181507",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=181507&sysid=126",
+   "question": "体育考试\n关于中学生体育考试三级跳远考试场地有没有标准要求？具体标准要求是什么？依据什么文件或规定？",
+   "cited_hits": [],
+   "cited_missing": [
+    "南通市中等学校招生体育考试改革实施办法",
+    "2014届及往后初中毕业生体育素质与运动技能项目测试办法与规则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt",
+   "id": "128435",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=128435&sysid=126",
+   "question": "关于中小学义务教育收费的相关规定\n咨询关于中小学义务教育阶段学校收费问题的相关规定，及辅导教材收费的相关规定。辅导教材是否由学校统一下发收费。烦请回复，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于加强全省中小学教辅材料使用管理工作的实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt",
+   "id": "106914",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=106914&sysid=126",
+   "question": "对于教育部《中小学教师违反职业道德行为处理办法》的一点疑问\n第四条这样规定     教师有下列行为之一的，视情节轻重分别给予相应处分： (一)在教育教学活动中有违背党和国家方针政策言行的； (二)在教育教学活动中遇突发事件时，不履行保护学生",
+   "cited_hits": [],
+   "cited_missing": [
+    "中小学教师违反职业道德行为处理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt",
+   "id": "105865",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=105865&sysid=126",
+   "question": "今年高级讲师评选是否参照苏人社发〔2018〕96号文件\n省人力资源和社会保障厅关于我省专业技术人才申报评审职称有关问题的通知（苏人社发〔2018〕96号）中规定，获得硕士学历或学位，取得中级职称后，从事专业技术工作4年以上，可申报评审副高级",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于我省专业技术人才申报评审职称有关问题的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-jyt",
+   "id": "105766",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=105766&sysid=126",
+   "question": "请问2018年新高一各科采用的教材版本\n请问2018年新高一各科采用的教材版本？",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省2016年普通高中新课程实验教学用书目录"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "js-jyt",
+   "id": "414206",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=414206&sysid=126",
+   "question": "江苏专转本\n2022年5月参加过一次转本考试没考上2022年6月毕业了   2022年9月当兵去了  今年退伍能参加明年2025年退役士兵专转本计划吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt",
+   "id": "404562",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=404562&sysid=126",
+   "question": "关于咨询自考和成考两者同时进行\n在今年自考和成考我都有报名，按照时间我自考拿证应该会比成考快，自考没有学籍，成考有学籍，但自考在拿证时会同步到学信网，那是否会对在籍的成考有影响发生冲突，这种情况算是学历重叠吗，会影响到考编考编吗，请帮忙解答",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt",
+   "id": "400437",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=400437&sysid=126",
+   "question": "查询2000年的高考成绩及录取情况\n您好！本人是参加的2000年高考。现希望查询当年的高考成绩，及录取情况。请您回复，不甚感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt",
+   "id": "380777",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=380777&sysid=126",
+   "question": "江苏省2024年普通高考\n持有高中结业证书的往届生可以正常报名并正常参加江苏省2024年普通高考考试吗?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt",
+   "id": "351002",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=351002&sysid=126",
+   "question": "汉语言文学是不是中国语言文学？\n你好，我是4.1日参加扬州事业单位考试的考生，报考岗位是瘦西湖景区管委会02岗，岗位专业要求包括中国语言文学专业，本人专业为汉语言文学专业因此以中国语言文学专业报考。现有有递补面试资格，资格复审时工作人员说明",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt",
+   "id": "343371",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=343371&sysid=126",
+   "question": "2023年6月大学英语四六级\n2023年6月大学英语四六级什么时候可以报名",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt",
+   "id": "339436",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=339436&sysid=126",
+   "question": "关于2022年下半年四级延期考试与专转本成绩\n2022年下半年四级延期考试在3.12日进行，专转本成绩大概会在4月中旬出，我想问，3.12号的四级成绩会算入2023年专转本的成绩中吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt",
+   "id": "333528",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=333528&sysid=126",
+   "question": "专转本四级成绩问题\n2023年1月上旬开始报名专转本，以往12月份的四级成绩都是2月份出成绩，今年12月份的四级成绩还算不算。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt",
+   "id": "285945",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=285945&sysid=126",
+   "question": "普通话水平测试\n咨询2022年全国普通话水平测试时间和报名途径",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt",
+   "id": "284567",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=284567&sysid=126",
+   "question": "江苏省师范生培养系统的网页无法打开\n我是一名大四的师范生，前两天正准备在师范生培养系统里上传教案和微课视频，但是网页一直打不开，换了很多个浏览器都没有用。我本以为是截止时间到了，先去询问了本校老师，被告知并没有截止时间，让我换个浏览器试试。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt",
+   "id": "275386",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=275386&sysid=126",
+   "question": "校医招聘\n江苏省部分中小学校医，通过第三方外包单位签订劳动合同，外包单位在中间拿差额工资，合理吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt",
+   "id": "238335",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=238335&sysid=126",
+   "question": "关于普通话考试报名的问题\n普通话考试报名的时候，忘记了上传照片，结果报名成功，支付后显示的报名信息中没有照片。这个影响后期的考试和证书的颁发吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt",
+   "id": "229663",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=229663&sysid=126",
+   "question": "小学三年级作业量咨询\n请问小学三年级作业量合理范围是多少，对所有任课老师的作业布置总体量是否有限制，是否有相关的管理规定",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt",
+   "id": "228874",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=228874&sysid=126",
+   "question": "苏职称〔2009〕27号文规定基本条件包含第三章资格条件吗\n根据《关于印发全省乡村教师职称评审政策若干意见的通知（苏人设发〔2016〕202号》文规定，在符合苏职称〔2009〕27号文规定基本条件的前提下，对长期在乡村学校任教且当年仍在乡村",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt",
+   "id": "182362",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=182362&sysid=126",
+   "question": "退伍兵全日制大专补助问题\n退伍兵全日制大专补助问题，有同事讲三年学费全免，再另外补助每年5千，三年发15000元，是不是这样的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt",
+   "id": "181397",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=181397&sysid=126",
+   "question": "退役军人复学费\n我是18退伍回来复学的，苏州大学文正学院，去年提交的申请，请问一下，啥时候钱能到位？这都快一年了，不知道是学校的问题，还是你们这边没发放到位？想问一下，什么情况呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt",
+   "id": "138734",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=138734&sysid=126",
+   "question": "关于高职院校学生参加各类体育竞赛的咨询\n有没有各种比赛定级的指导性文件 由国家体育总局健身气功管理中心主办的高等院校健身气功锦标赛按什么级别来算？国家级还是省级？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt",
+   "id": "138169",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=138169&sysid=126",
+   "question": "咨询2019年秋季小学教材\n请问2019年秋季三年级新生数学和英语是不是都改为人教版，还是数学苏教版，英语译林版？镇江和淮安的小学教材是否一样",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt",
+   "id": "137950",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=137950&sysid=126",
+   "question": "课本\n请问五年级秋学期课本是用苏教版的还是人教版的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt",
+   "id": "136383",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=136383&sysid=126",
+   "question": "常州职业学院的助学金发了吗\n常州职业学院的助学金发了吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt",
+   "id": "134186",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=134186&sysid=126",
+   "question": "助学金什么时候发啊\n请问盐城助学金什么时候发啊？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt",
+   "id": "133989",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=133989&sysid=126",
+   "question": "国家助学金\n苏州高校的国家助学金啥时候发放",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt",
+   "id": "133872",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=133872&sysid=126",
+   "question": "一个半月过去了，人都在等着结果呢！\n4月4日我提交的关于《中小学高级破格评选对长期工作在农村的老师条件过于苛刻》一文，一个半月过去了，一直在处理中。说说又快要职评了，不知何时能有回音？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt",
+   "id": "133706",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=133706&sysid=126",
+   "question": "关于我省高校学生助学金发放\n请问，本学期的高校学生助学金是否已经拨款至各高校？去年4月上旬已经发送，今年为何还未发放？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt",
+   "id": "133696",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=133696&sysid=126",
+   "question": "想咨询一下助学金相关事宜\n领导你好，坐标南京某大学，想问今年的助学金什么时候发，现在已经五月份啦！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt",
+   "id": "133694",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=133694&sysid=126",
+   "question": "助学金\n您好,我想问一下南京市三江学院2019年助学金为什么都快毕业了还没有收到？以前好像都是四月份就发放了。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt",
+   "id": "133484",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=133484&sysid=126",
+   "question": "国家助学金\n请问南京医科大学春季国家助学金什么时候发放",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt",
+   "id": "133459",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=133459&sysid=126",
+   "question": "国家助学金的咨询\n亲爱的领导，您好！我想要咨询一下2018-2019年国家助学金的发放情况。今天下半年的发放时间是不是要比往年晚一些。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt",
+   "id": "133391",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=133391&sysid=126",
+   "question": "想咨询一下今年上半年的贫困助学金何时下发\n去年上半年的助学金于4月底就到账了，想请问一下今年上半年的助学金何时可以到账呢？我咨询了学校，学校说暂时不知道，因为教育部还没打款。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt",
+   "id": "133380",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=133380&sysid=126",
+   "question": "国家助学金\n南京高校的国家助学金什么时候发放",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt",
+   "id": "133363",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=133363&sysid=126",
+   "question": "国家助学金\n想请问一下国家助学金什么时候发放！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt",
+   "id": "133183",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=133183&sysid=126",
+   "question": "咨询2017年全省百名优秀学生资助工作者的评选结果\n咨询2017年全省百名优秀学生资助工作者典型评选宣传活动的评选结果，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt",
+   "id": "132950",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=132950&sysid=126",
+   "question": "国家助学金\n我想请问一下2019春季国家助学金什么时候发放？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt",
+   "id": "132006",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=132006&sysid=126",
+   "question": "五年制专转本\n五年制专转本只能应届生参加考试吗?如果休学算应届还是往届?五年制专转本只能参加一次吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt",
+   "id": "131519",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=131519&sysid=126",
+   "question": "专转本考试\n请问大三考过一次专转本，下一年复读还能再考吗？麻烦告知，很急。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt",
+   "id": "131517",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=131517&sysid=126",
+   "question": "江苏专转本是否可以通过休学在考一次\n高考可以考很多次，四六级可以考很多次，考研也可以很多次，请问转本考试失利，可以休学再考吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt",
+   "id": "131282",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=131282&sysid=126",
+   "question": "学籍\n请问大学毕业后更改户籍姓名，可以向毕业学校申请更改学籍和学信网上的姓名吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt",
+   "id": "131074",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=131074&sysid=126",
+   "question": "2018年高等学校重点教材立项建设名单\n请问2018年高等学校重点教材立项建设名单有没有正式公布？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt",
+   "id": "129849",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=129849&sysid=126",
+   "question": "关于退伍士兵专转本专项计划\n领导您好，我是2018退伍大学生士兵，报名参加2019年专转本，在《省教育厅关于做好2019年“专转本”工作的通知》文件中，有此条通知：2.按照教育部办公厅《关于进一步做好高校学生参军入伍工作的通知》（教学厅〔2",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt",
+   "id": "128980",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=128980&sysid=126",
+   "question": "关于退伍士兵专转本专项计划\n领导您好，我是2018退伍大学生士兵，报名参加2019年专转本，在《省教育厅关于做好2019年“专转本”工作的通知》文件中，有此条通知：2.按照教育部办公厅《关于进一步做好高校学生参军入伍工作的通知》（教学厅〔2",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt",
+   "id": "128143",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=128143&sysid=126",
+   "question": "关于2月19号，专转本的文件\n请问2019年专转本的文件3＋2的学生可以报名吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt",
+   "id": "126010",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=126010&sysid=126",
+   "question": "想问一下关于大学生转学的问题\n您好！我家孩子由于身体原因，想从常州转回淮安，请问大学生的转学的程序应该怎么走？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt",
+   "id": "125866",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=125866&sysid=126",
+   "question": "五年制高职专转本退役士兵专项今年能增加吗?\n专转本考试临近，我(本人基本情况见附件)想问一下五年制高职专转本退役士兵专项今年能增加吗?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt",
+   "id": "121969",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=121969&sysid=126",
+   "question": "2019年以后非师范生能报考教师资格证吗？\n网上教育机构传言:江苏出台政策，过了2019年后非师范生不能报考教师资格证，此传言是真是假？2019年后江苏非师范生报考政策是什么样的，非师范生有必要继续学习吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt",
+   "id": "120243",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=120243&sysid=126",
+   "question": "关于省优质幼儿园的的咨询\n我是南通市通州区的一名工作人员，负责财务工作。在日常报销中，经常遇到单位人员的孩子上幼儿园报销的问题，因幼儿园的级别不同，报销的标准不同，你厅教育评估院有最新的省优幼儿园的公示，但之前有好多名单已打不开了。请问从哪",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt",
+   "id": "113343",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=113343&sysid=126",
+   "question": "江苏省中小学教师资格证的考取需要哪些资格？\n尊敬的领导，您好！我是一名2012年毕业的本科生，目前有意向转行成为一名老师。想咨询一下，从2018年起，江苏省中小学教师资格证的考取需要考生拥有哪些资格？是否必须为师范类院校毕业的本科生？是否非",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt",
+   "id": "113060",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=113060&sysid=126",
+   "question": "普通话证书怎样补办\n不慎将普通话证书遗失怎样补办",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt",
+   "id": "112761",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=112761&sysid=126",
+   "question": "2018年高校职称何时申报\n请问省厅领导，2018年高校职称何时申报？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt",
+   "id": "112655",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=112655&sysid=126",
+   "question": "教师资格证\n12级高等师范学校毕业生，毕业时普通话没过二甲，没发教师资格证，现在过二甲了，还能申请教师资格证吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt",
+   "id": "111552",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=111552&sysid=126",
+   "question": "普通话考试报名\n请问江苏省普通话考试报名是在江苏语言文字网吗？我查询了一下，有人说是在教育局网站，也有人说是在语言文字网，我想确定一下",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt",
+   "id": "111440",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=111440&sysid=126",
+   "question": "2018年高中综合实践活动教师资格证书申报需要走哪些流程\n尊敬的领导：您好！我是一名高中化学教师，已经有高中化学教师资格证书。现想申报2018年高中综合实践活动教师资格证书，但是全国教师资格考试没有高中综合实践活动教师资格认定考试，想咨询江",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt",
+   "id": "111221",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=111221&sysid=126",
+   "question": "我想询问本三学院大四下学期是不是没有助学金\n学校说大四下学期没有助学金，我想问下是国家规定这样的，还是学校吞了这笔钱",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt",
+   "id": "109753",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=109753&sysid=126",
+   "question": "成人脱产教育学历属于全日制学历吗？\n你好，我想咨询下我学历是成人脱产大专，属于全日制学历吗？我已经考到了教师资格证，小学数学专业，现在教育局在招聘劳务派遣教师，要求是全日制专科学历，我这个学历符合要求吗？ 谢谢！我",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt",
+   "id": "109448",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=109448&sysid=126",
+   "question": "专转本考试咨询\n您好，我是今年高考生，有意报考省内专科院校，想了解一下我省专转本相关政策，希望回复至我的邮箱或者拨打我的电话告知。谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt",
+   "id": "109257",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=109257&sysid=126",
+   "question": "高校职称证书中职是否可用\n您好。本人于2017.12获得高等学校讲师职称，2018.5通过教育局招聘考试进入中等专业学校。我想问这个高校的职称到中专院校怎么算?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt",
+   "id": "108958",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=108958&sysid=126",
+   "question": "省优质幼儿园查询\n查询兴化市缸顾中心幼儿园、兴化市海河学校幼儿园、兴化市大垛中心幼儿园分别是不是江苏省优质幼儿园？如果是，分别是哪年通过评估和复审？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt",
+   "id": "108067",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=108067&sysid=126",
+   "question": "教师资格证与职称评定问题\n领导好，我取得的教师资格证是普通高中教育技术学教师资格证，已经从事中等专业学校信息技术和计算机专业教学13年，现在想申请评定中等职业学校高级讲师，会不会受到教师资格证影响？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt",
+   "id": "107774",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=107774&sysid=126",
+   "question": "统招专转本\n请问3年中职+3年公办高职的应届毕业生有资格报名普通高校统招专转本吗？望您在百忙之中抽出一点时间回复，万分感激！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt",
+   "id": "107594",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=107594&sysid=126",
+   "question": "关于江苏省研究生科研创新计划项目\n您好，我想咨询一下江苏省研究生科研创新计划项目什么时候能公布，急需项目号，烦请尽快回复，在此感谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt",
+   "id": "107402",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=107402&sysid=126",
+   "question": "中职校评审高级讲师的学历问题\n我在1997年评到中学一级教师，2018年1月10日取得本科学历，请问2019年能否参评高级教师？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt",
+   "id": "106705",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=106705&sysid=126",
+   "question": "关于2018年上半年幼儿园教师资格证发放时间\n本人是参加国考的师范类毕业生。今年4月份在当地教育局申请幼儿园教师资格证，且各项都符合。7月份我即将与用人单位签就业合同，就业单位要求应届毕业生必须提供教师资格证原件。我咨询了当地教育局以及上一",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt",
+   "id": "106654",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=106654&sysid=126",
+   "question": "高校哲学社会科学重大研究项目等咨询\n尊敬的教育厅领导：        您好，请问2018年度的省高校哲学社会科学重大项目与重点项目、省教育科学研究成果奖大约什么时间能够公示？谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt",
+   "id": "106244",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=106244&sysid=126",
+   "question": "2018下半年教师资格证考试非师范类可以报名吗\n2018下半年教师资格证考试非师范类可以报名吗？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt",
+   "id": "105844",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=105844&sysid=126",
+   "question": "关于教师资格证\n您好！我今年三月份在贵州省参加小学教师资格证考试，其中有一科没有过。现在我毕业了回江苏继续考我原来一科合格的成绩有效吗？需要重新考吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt",
+   "id": "105451",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=105451&sysid=126",
+   "question": "普通话证书如何补办\n打电话给 02583335868  一上午都没人接",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt",
+   "id": "105434",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=105434&sysid=126",
+   "question": "中职教师职称\n请问教育厅领导：今年我省中等职业学校教师职称（主要是高级讲师及以上）的评审文件和相关通知什么时候发布，往年都是6月初，学校即将放假，请省厅尽快通知，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt",
+   "id": "105209",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=105209&sysid=126",
+   "question": "大学生生活补助\n关于大学生生活补助 水费补助 有相关文件吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt",
+   "id": "105058",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=105058&sysid=126",
+   "question": "中职系列职称\n本人需要凭中职系列讲师职称，现在有参与技工系列课题，请问：凭中职系列职称，技工系列课题可否代替？是否通用？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt",
+   "id": "104941",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=104941&sysid=126",
+   "question": "想请提供2007年江苏省“专转本”考试的省厅文件\n我是参加2007年江苏省“专转本”考试的，目前根据上海市居住证积分要求，“专转本”考生需要提供录取通知书及当年度省厅的文件，由于省厅关于这块业务的处室电话一直无人接听，还烦请能提供一下相关文",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

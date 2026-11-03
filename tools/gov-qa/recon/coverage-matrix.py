@@ -51,6 +51,10 @@ PROVINCE_PREFIX = {
     "baotou-": "内蒙古自治区", "shenyang-": "辽宁省",
     "nanning-": "广西壮族自治区", "nanjing-": "江苏省",
     "xining-": "青海省",
+    # —— ★ 2026-10-09 第 10 轮补：地级市 IGI 普查（93 城）新接的两条线 ——
+    #   同前一条纪律：**每接一个城市门户，这张表必须同步加一行**，否则该批只能靠
+    #   `pForumNames` 归省（张掖/九江的地域虽为真、但旧信可能为空 ⇒ 会掉「未归属」）。
+    "zhangye-": "甘肃省", "jiujiang-": "江西省",
 }
 NATIONAL = {"mee", "mem", "people-liuyan"}
 #: 国家级来源的**前缀**（nat-* 是后加的国家部委适配器，早期只登记了 mee/mem/people-liuyan 三个全集名）

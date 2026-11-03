@@ -1,0 +1,17 @@
+=== 河北采集 Thu Oct  8 19:57:29     2026 ===
+### heb-czt 19:57:30
+
+[heb-czt] 河北省财政厅·群众信箱 → heb-czt-河北省财政厅·群众信箱.jsonl（已有 0 条）
+    [heb-czt] 第 1/4 页：条目 8，新增 8
+    [heb-czt] 第 2/4 页：条目 8，新增 8
+    [heb-czt] 第 3/4 页：条目 8，新增 8
+    [heb-czt] 第 4/4 页：条目 2，新增 2
+    [heb-czt] 收 26 条
+    取到 26 条，其中**新增 26 条**（用时 50s）
+    已追加到 D:\AI\work space\zcode\tools\gov-qa\data\heb-czt-河北省财政厅·群众信箱.jsonl
+
+[harvest] 全部完成，新增合计 26 条。
+[harvest] 下一步：跑 `measure-locate-rate.py` 看这些条目能不能当考卷。
+### heb-szj 19:58:22
+
+[heb-szj] 河北省数据和政务服务局·留言公开 → heb-szj-河北省数据和政务服务局·留言公开.jsonl（已有 0 条）

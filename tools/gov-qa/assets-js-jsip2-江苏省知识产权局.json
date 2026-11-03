@@ -1,0 +1,658 @@
+{
+ "A_考卷": [
+  {
+   "source": "js-jsip2",
+   "id": "452141",
+   "url": "https://jsip.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=452141&sysid=85",
+   "question": "投诉江苏起点管理咨询有限公司不诚信经营\n江苏省知识产权局领导您好！我投诉江苏起点管理咨询有限公司不诚信经营。该公司知识产权顾问通过电话联系到我，可担保注册商标“搭着学“，优惠价格1280元，有聊天记录为证。明知商标初审很可能不通过（去年初审",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国商标法",
+     "lib_no": "商标法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国商标法实施条例",
+     "lib_no": "商标法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国商标法实施条例",
+     "lib_no": "商标法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "商标代理监督管理规定"
+   ],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "js-jsip2",
+   "id": "466552",
+   "url": "https://jsip.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=466552&sysid=85",
+   "question": "地理标志产品（GI专用标志）委托生产使用问题\n领导您好！受托生产企业A公司已取得国家知识产权局地理标志专用标志（GI）使用授权，委托方B公司暂未获取GI标志使用许可。特此咨询：若由B公司委托A公司合规生产地理标志类产品，产品外包装是否可以标",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省地理标志专用标志使用管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-jsip2",
+   "id": "461597",
+   "url": "https://jsip.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=461597&sysid=85",
+   "question": "举报北京京所专利代理事务所（普通合伙）江苏分所的违规行为\n本人现就“北京京所专利代理事务所(普通合伙)江苏分所”在专利代理服务中的违规行为进行投诉。本人于[2025年5月29日]与该机构签订专利代理委托合同，委托其办理[新型实用专利--一种",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省知识产权促进和保护条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jsip2",
+   "id": "456994",
+   "url": "https://jsip.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=456994&sysid=85",
+   "question": "有关“滨海白首乌”地理标志保护类型\n据查询DB32/T2032-2012标准3.1滨海白首乌binhai cynanchum  auriculatumroot以原产于滨海白首乌地理标志产品保护产地范围内的鲜白首乌块根（原植物为萝藦科耳叶牛皮",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于批准对西旗羊肉、滨海白首乌、清镇酥李、兴平辣椒、大荔黄花菜实施地理标志产品保护的公告",
+    "滨海白首乌质量技术要求"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jsip2",
+   "id": "443969",
+   "url": "https://jsip.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=443969&sysid=85",
+   "question": "请问2025年江苏的专利代理师资格证书何时发放\n请问2025年江苏的专利代理师资格证书何时发放，目前已是9月中下旬了，请尽快公开告知",
+   "cited_hits": [],
+   "cited_missing": [
+    "专利代理师资格证书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jsip2",
+   "id": "342031",
+   "url": "https://jsip.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=342031&sysid=85",
+   "question": "关于专利优先审查的咨询\n尊敬的领导，您好！   关于《专利优先审查管理办法》，其中一条为：涉及各省级和设区的市级人民政府重点鼓励的产业。   我司位于江苏省无锡市，准备将已经进入实审的发明专利，申请优先审查。   但是没有查到江苏省和无锡市",
+   "cited_hits": [],
+   "cited_missing": [
+    "专利优先审查管理办法"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "js-jsip2",
+   "id": "480495",
+   "url": "https://jsip.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=480495&sysid=85",
+   "question": "无效案件的优先审查的相关问题\n想咨询一下，无效请求人想走无效的优先审查，他满足第6条“涉及的专利发生侵权纠纷，当事人已请求地方知识产权局处理或者向人民法院起诉”，需要提供哪些文件？同时这些文件需要原件的纸件邮寄么？要邮寄的话要邮寄到哪里？不",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jsip2",
+   "id": "475521",
+   "url": "https://jsip.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=475521&sysid=85",
+   "question": "撤销编号ZSCQJ0220251100484投诉\n已和被投诉公司徐州知橙智睿知识产权代理事务所（普通合伙）达成和解协议，双方共同梳理核查了案涉专利代理业务现状，同时一并对双方其余尚未办结的发明专利代理业务相关情况进行逐项核实，充分交换各自诉",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jsip2",
+   "id": "475308",
+   "url": "https://jsip.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=475308&sysid=85",
+   "question": "申请撤销办件编号：ZSCQJ0220260700527\n江苏省知识产权局领导：本人2026-07-28 提交投诉办件，办件编号：ZSCQJ0220260700527。经江苏省知识产权局领导雷厉风行督导并加以正确处置，现本人已与徐州正衡维度专",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jsip2",
+   "id": "472769",
+   "url": "https://jsip.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=472769&sysid=85",
+   "question": "唐欣(南京)知识产权有限公司-专利申请没有做也不退款\n我公司在2025年6月份委托唐欣(南京)知识产权有限公司申请发明专利，结果整整一年过去了也没有做，然后也不退款",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jsip2",
+   "id": "472677",
+   "url": "https://jsip.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=472677&sysid=85",
+   "question": "投诉徐州创知为正知识产权代理事务所专利代理执业违规行为\n本人与徐州创知为正知识产权代理事务所（普通合伙）洽谈专利代理委托服务，磋商期间对方提供服务合同草案。我审阅合同后提出条款修改意见，双方自始至终没有完成合同签字盖章，服务合同尚未成立、未",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jsip2",
+   "id": "468011",
+   "url": "https://jsip.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=468011&sysid=85",
+   "question": "已解决，请撤销 ZSCQJ0220260600514\n已解决，谢谢，上一个ZSCQJ0220260600514案不用解决了。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jsip2",
+   "id": "466262",
+   "url": "https://jsip.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=466262&sysid=85",
+   "question": "专利代理公司资质被吊销，解除合同退还费用\n投诉人于2025年8月16日与“北京环泰睿辰专利代理有限公司徐州分公司”签订专利代理委托合同，委托其代理专利申请事宜。徐州分公司以总公司“北京环泰睿辰专利代理有限公司”名义向国家知识产权局提交了专利",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jsip2",
+   "id": "464266",
+   "url": "https://jsip.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=464266&sysid=85",
+   "question": "申请撤销办件编号：ZSCQJ0220250400467\n江苏省知识产权局领导：本人此前提交投诉办件，办件编号：ZSCQJ0220250400467。经江苏省知识产权局领导雷厉风行督导并加以正确处置，现本人已与徐州知橙智睿知识产权代理事务所 ",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jsip2",
+   "id": "464010",
+   "url": "https://jsip.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=464010&sysid=85",
+   "question": "：申请撤销办件编号 ZSCQJ0220250800478 投\n江苏省知识产权局领导：本人此前提交投诉办件，办件编号：ZSCQJ0220250800478。现本人已与徐州知橙智睿知识产权代理事务所 (普通合伙) 友好协商，相关事宜已妥善处理完",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jsip2",
+   "id": "459011",
+   "url": "https://jsip.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=459011&sysid=85",
+   "question": "投诉南京业腾知识产权代理事务所）不履行合同不退款\n被投诉单位： 南京业腾知识产权代理事务所（特殊普通合伙）投诉请求：1.  责令被投诉单位立即退还本人支付的专利代理服务费共计（发明专利及软著）13000元。2.  对被投诉单位以“包过”为噱",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jsip2",
+   "id": "457513",
+   "url": "https://jsip.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=457513&sysid=85",
+   "question": "咨询与“文化浸润与企业家精神培育”相关的几个简单问题\n尊敬的江苏省知识产权局领导及工作人员：您好！来信是为了向贵单位咨询与“文化浸润与企业家精神培育”相关的几个简单问题。我们正在开展一项学术研究，关注地方文化（例如文化遗产的影响、博物馆的影",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jsip2",
+   "id": "457343",
+   "url": "https://jsip.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=457343&sysid=85",
+   "question": "江苏省作品著作权登记系统补正问题\n视频登记补正理由建议选择录像，平台类别选项没有此分类平台所提供的联系方式打不通，在线联系方式也无回复",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jsip2",
+   "id": "455237",
+   "url": "https://jsip.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=455237&sysid=85",
+   "question": "运动营养食品-耐力类产品商标使用类别咨询\n江苏省知识产权局您好：我单位准备委托江苏省一家持有特殊膳食生产资质的食品代工企业，生产一款“运动营养食品-耐力类”（执行标准GB24154-2015）的产品。代工企业要求必须使用商标分类中的第5类商",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jsip2",
+   "id": "454256",
+   "url": "https://jsip.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=454256&sysid=85",
+   "question": "撤销\n[ZSCQJ0120251200275]该记录请撤回。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jsip2",
+   "id": "453230",
+   "url": "https://jsip.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=453230&sysid=85",
+   "question": "江苏省地方检定规程和校准规范在哪里可以查询\n江苏省地方检定规程和校准规范在哪里可以查询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jsip2",
+   "id": "449149",
+   "url": "https://jsip.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=449149&sysid=85",
+   "question": "投诉徐州知橙智睿知识产权代理事务所（普通合伙）专利诈骗\n江苏知识产权局领导：您好！我现投诉徐州知橙智睿知识产权代理事务所（普通合伙）专利服务诈骗违法行为。2025年3月11日我和同事两人咨询该公司员工赵传成专利事项，赵承诺今年6月前下证，与",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jsip2",
+   "id": "443856",
+   "url": "https://jsip.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=443856&sysid=85",
+   "question": "北京众达德权知识产权代理有限公司4个月没动静，问情况不回复\n你好，我是南京交通职业技术学院，汽车工程学院的老师，我叫张昶。我2025年5月7日向南京交院招标的北京众达德权知识产权代理有限公司提交了专利初稿。到今天2025年9月16日无任何消",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jsip2",
+   "id": "443532",
+   "url": "https://jsip.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=443532&sysid=85",
+   "question": "江苏中和智创知识产权代理有限公司违法经营＋诈骗\n自江苏中和智创知识产权代理有限公司成立之日开始在他公司办理了多个专利，目前他们公司人员处于失联状态，长久联系不到，另外经在国家知识产权局查询他们公司并没有专利代理人资格，请求予以处理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jsip2",
+   "id": "423109",
+   "url": "https://jsip.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=423109&sysid=85",
+   "question": "公司改名后未同步变更专利申请人名称的法律后果\n想请教一下知识产权局的老师：我们公司有几十份以前用曾用名申请的专利，但在市监局变更完公司名称后，未在知产局同步变更专利申请人/专利权人名称。请问不办理专利权人更名手续的法律后果是什么？会对公司罚",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jsip2",
+   "id": "421380",
+   "url": "https://jsip.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=421380&sysid=85",
+   "question": "网站工作年度报表\n您好，请问贵单位网站的2024年网站工作年度报表发布了吗？网址是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jsip2",
+   "id": "421379",
+   "url": "https://jsip.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=421379&sysid=85",
+   "question": "询问注册商标事宜\n一个商品上面，有2个注册商标，如何认定哪一个注册商标侵权。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jsip2",
+   "id": "421241",
+   "url": "https://jsip.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=421241&sysid=85",
+   "question": "投诉北京君宣知识产权代理事务所（普通合伙）徐州分所违规代理\n1.该专利代理所收取专利代理费后未按技术实际内容进行专利撰写，所写内容与技术内容不一致，不实事求是，导致技术迟迟无法得到保护。2.该专利所工作人员欺瞒委托人，实际服务人员与交底人员",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jsip2",
+   "id": "411300",
+   "url": "https://jsip.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=411300&sysid=85",
+   "question": "获取江苏省数据\n想获取2010-2023年度江苏13市的专利授权个数，用于学术研究",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jsip2",
+   "id": "411145",
+   "url": "https://jsip.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=411145&sysid=85",
+   "question": "线下知识产权培训活动咨询\n省知识产权局的各位领导：您好！我想咨询一下：2024年12月、2025年，贵局有无组织开展针对企业的线下知识产权培训活动的计划与安排，如有，相关活动是否有对应证书颁发，以及搜索活动详情的途径是什么？感谢您在百忙之中",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jsip2",
+   "id": "409123",
+   "url": "https://jsip.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=409123&sysid=85",
+   "question": "2024年徐州市级知识产权质押融资项目企业申报条件设置不合理\n我公司是江苏省徐州市泉山区下属企业，公司属于小微企业，2019年通过政府及银行渠道了解到”徐知贷“产品是政府为解决小微企业困境推出的惠企政策，因此连续3年通过合作银行贷款并申请了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jsip2",
+   "id": "408872",
+   "url": "https://jsip.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=408872&sysid=85",
+   "question": "江苏省各地级市PCT国际专利申请数量在哪里可以查到\n2021年至2023年江苏省各地级市PCT国际专利申请数量",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jsip2",
+   "id": "404570",
+   "url": "https://jsip.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=404570&sysid=85",
+   "question": "关于辖区内店铺主体商标混淆等不正当行为的查办需求反应\n本人在淘宝上的“先声再康大药房旗舰店”购买了可复柔生物膜创面敷料，该店铺主体为贵局辖区内“先声再康江苏药业有限公司”。发现可复柔品牌和可复美品牌很相似，让本人误以为是可复美关联品牌，可复",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jsip2",
+   "id": "404120",
+   "url": "https://jsip.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=404120&sysid=85",
+   "question": "咨询一下江苏省专利代理师资格证何时发放\n咨询一下2024年江苏省专利代理师资格证何时发放",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jsip2",
+   "id": "402988",
+   "url": "https://jsip.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=402988&sysid=85",
+   "question": "关于商标代理机构的乱收费的\n尊敬的产权局领导和各位工作人员：      您们好，我是福建省龙岩市的某位商标注册人。      在2023年至2024年期间通过委托一家名为“北京金起源知识产权代理有限公司”售卖名下商标，在此期间，此公司某位员",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jsip2",
+   "id": "401170",
+   "url": "https://jsip.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=401170&sysid=85",
+   "question": "南京奈思特文化传播有限公司批量申请不实著作权进行不正当竞争\n南京奈思特文化传播有限公司大批量且不诚信的申请虚假美术著作权150多份，并利用不实的作品著作权文件，限制制约同行销售，在第26届亚洲宠物展览会上，利用不实著作权文件恶意投诉、强制他",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jsip2",
+   "id": "401047",
+   "url": "https://jsip.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=401047&sysid=85",
+   "question": "加急咨询2024年知识产权专业高级技术资格评审评审年限问题\n尊敬的省知识产权局领导：您好，本人今年申报2024年知识产权专业高级技术资格评审，评审中遇到职称申报规定的资历年限问题，特此咨询，由于8月31日纸质材料要寄出，望贵单位领导可以加急",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jsip2",
+   "id": "398935",
+   "url": "https://jsip.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=398935&sysid=85",
+   "question": "举报江苏图亿知识产权代理有限公司骗人\n2024年3月24日本人委托江苏图亿知识产权代理有限公司注册商标三个类别。江苏图亿知识产权代理有限公司（以下简称图亿）以快速办证、检索了我提供的商标名称确定可以注册，不成功免除一切代理费重新注册等虚假宣",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jsip2",
+   "id": "397408",
+   "url": "https://jsip.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=397408&sysid=85",
+   "question": "违规招揽业务-南京中天知识产权代理事务所\n南京中天知识产权代理事务所(普通合伙)机构代码：32748该机构于2024年4月11日协议承诺“包授权”“包快速预审”。本人与该代理机构签订协议，并支付代理费13000元。同年6月18日，该机构联系",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jsip2",
+   "id": "393152",
+   "url": "https://jsip.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=393152&sysid=85",
+   "question": "剽窃抄袭\n尊敬的先生、女士你好：     江苏省有多个医药公司剽窃抄袭、非法获取国际专利号PCT/CN2022/000056技术方案和声明。在国内、国外专利申请和药品申请注册，意图非法占有他人发明成果。特别是在国家药品监督管理局剽窃抄袭国际",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jsip2",
+   "id": "392113",
+   "url": "https://jsip.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=392113&sysid=85",
+   "question": "地理标志证明商标 专用标志使用\n第7774962号“连云港紫菜”商标，被许可人江苏海州湾文化旅游发展集团有限公司，2023年5月29日在国家知识产权局完成商标使用许可备案，至今，省局没有告知（公告）是否可以使用专用标志，没有告知（公告）专用",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jsip2",
+   "id": "391268",
+   "url": "https://jsip.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=391268&sysid=85",
+   "question": "专利事务所不给提供证书\n公司很早之前在苏州途正专利代理有限公司帮助申请的专利现在需要专利证书，途正现在不提供商量无果负责人电话打不通",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jsip2",
+   "id": "388364",
+   "url": "https://jsip.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=388364&sysid=85",
+   "question": "抖音账号\n请问贵单位开设了抖音号吗？能否提供名称，想关注下。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jsip2",
+   "id": "379988",
+   "url": "https://jsip.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=379988&sysid=85",
+   "question": "科学设置知识产权高质量考核内容\n最近几年江苏虽然将知识产权高质量考核与GDP捆绑在一起，本质上还是要求不断提高发明专利授权的数量和增幅，违背了市场规律，容易造成大量不以保护为目的的发明专利。建议科学设置知识产权高质量考核要求，不要追求面子工",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jsip2",
+   "id": "379340",
+   "url": "https://jsip.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=379340&sysid=85",
+   "question": "专利代理师报考专业咨询。\n自2020年开始，专利代理师资格考试常见问题解答中，已没有《大学理工科专业目录新旧对照表》，我看2019年版的专利代理师资格考试常见问题解答的附件《大学理工科专业目录新旧对照表》含有本科专业康复治疗学。请问一下，成",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jsip2",
+   "id": "378874",
+   "url": "https://jsip.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=378874&sysid=85",
+   "question": "未缴年费专利权终止\n请问因未缴年费专利权终止后，如果补缴并续费，专利权可以恢复有效吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jsip2",
+   "id": "370942",
+   "url": "https://jsip.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=370942&sysid=85",
+   "question": "请问2022年江苏省各市PCT国际专利申请数量在哪里可以查到\n请问2022年江苏省各市PCT国际专利申请数量在哪里可以查到？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jsip2",
+   "id": "367575",
+   "url": "https://jsip.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=367575&sysid=85",
+   "question": "专利行政裁决程序只加平台不加生产商的问题\n江苏省知产局您好，贵局的系统服务体系非常完善，所以我想向贵局提出我的问题。我是一个制造商，在平台上出售的商品被举报侵权他人专利，但是申请人只告了平台，执法机关就也只通知了平台，平台为了麻烦就直接通知",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jsip2",
+   "id": "367558",
+   "url": "https://jsip.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=367558&sysid=85",
+   "question": "举报江苏图亿知识产权代理有限公司没有专利备案从事专利业务\n本人在抖音上搜索专利相关业务知识，想通过专业机构了解和办理专利。结果在抖音上都到用户名“”图亿专利申请”由江苏图亿知识产权代理有限公司蓝V认证的企业账号，发布多条专利视频及投放广告，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jsip2",
+   "id": "367299",
+   "url": "https://jsip.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=367299&sysid=85",
+   "question": "咨询一下江苏省专利代理师资格证何时发放\n江苏省专利代理师资格证何时发放以及领取形式，可否邮寄",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jsip2",
+   "id": "367253",
+   "url": "https://jsip.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=367253&sysid=85",
+   "question": "咨询一下江苏省专利代理师资格证何时发放\n咨询一下江苏省专利代理师资格证何时发放以及发放形式，可否采取邮寄地方式。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jsip2",
+   "id": "366631",
+   "url": "https://jsip.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=366631&sysid=85",
+   "question": "专利代理师考试通过，证书什么时候可以拿到\n专利代理师考试通过，现已经八月底，请问证书什么时候可以拿到？领取渠道或者通知通过邮件告知还是手机短信又或者是网页板块呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jsip2",
+   "id": "364321",
+   "url": "https://jsip.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=364321&sysid=85",
+   "question": "专利代理师考试过了，什么时候发证，通过什么方式取得证书\n您好！     专利代理师考试过了，什么时候发证，通过什么方式取得证书，与之相关的通知发布在哪个渠道或者页面或者板块？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jsip2",
+   "id": "363137",
+   "url": "https://jsip.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=363137&sysid=85",
+   "question": "2023年专利代理师资格证发放\n请问2023年专利代理师资格证书什么时候发放？可以邮寄吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jsip2",
+   "id": "360347",
+   "url": "https://jsip.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=360347&sysid=85",
+   "question": "重点商标保护名录\n我想咨询一下江苏省是否有重点商标保护名录，如何申请，申请条件，以及材料是什么。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jsip2",
+   "id": "359906",
+   "url": "https://jsip.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=359906&sysid=85",
+   "question": "发明专利优先审查怎样查审查进度\n尊敬的领导您好：       本人于2022年10月申请了一项发明专利，名称叫资金链诊断方法、系统、电子设备及存储系统，申请号２０２２１１２５５２０６．Ｘ，２０２３年５月作为新一代信息技术通过专利代理人向国家",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jsip2",
+   "id": "359560",
+   "url": "https://jsip.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=359560&sysid=85",
+   "question": "江苏省有哪些知识产权方面的行业协会？哪些是有甲方会员的？\n江苏省有哪些知识产权方面的行业协会？哪些是有甲方会员的？具体协会名称和联系方式请给一下。谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jsip2",
+   "id": "354773",
+   "url": "https://jsip.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=354773&sysid=85",
+   "question": "江苏省企业知识产权管理标准化（第一批）\n市里通过了，到省里一直没有动态。江苏省知识产权项目管理信息系统中的申报项目《江苏省企业知识产权管理标准化（第一批）》。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jsip2",
+   "id": "354242",
+   "url": "https://jsip.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=354242&sysid=85",
+   "question": "本人误会知识产权局工作人员了，希望将所有发的信合并处理。\n知识产权局工作人员并没有将问题转给市场监管局，而是12345转的。这是个误会。请合并所有信件处理。谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jsip2",
+   "id": "354084",
+   "url": "https://jsip.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=354084&sysid=85",
+   "question": "知识产权局的义务不应该推给市场监管局处理。\n本人举报的江苏图亿知识产权代理有限公司有黑代理行为，江苏知识产权局有义务主动去鉴定该公司是否存在违法违规行为，而不是让市场监管局处理。市场监管局两次协调无果，也发不了证据给他们。他们也不了解《工商",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jsip2",
+   "id": "354055",
+   "url": "https://jsip.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=354055&sysid=85",
+   "question": "市场监管局不了解蓝天”专项整治行动内容根本解决不了问题。\n徐州市场监管局已经两次协调江苏图亿知识产权代理有限公司违法违规黑代理行为问题，但由于电话发不了证据加上市场监管局根本不了解知识产权局的蓝天”专项整治行动内容所以市场监管局根本处理不了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jsip2",
+   "id": "353682",
+   "url": "https://jsip.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=353682&sysid=85",
+   "question": "举报江苏图亿知识产权代理有限公司违法违规套路消费者的行为。\n今年二月本人委托江苏图亿知识产权代理有限公司注册商标全人类35，32，40类。他们以急速受理，受理失败全额退款免费重新注册为承诺收取1180一类共计3540元，他们利用消费者分不清",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jsip2",
+   "id": "353428",
+   "url": "https://jsip.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=353428&sysid=85",
+   "question": "贯标备案证明材料\n我公司做了贯标备案，现在遇到一个项目申报，需要有公司做过贯标备案的证明，可是我在江苏知识产权局网站上没找2019年前的贯标备案企业通知，我该从什么地方找到这类证明文件呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jsip2",
+   "id": "350890",
+   "url": "https://jsip.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=350890&sysid=85",
+   "question": "关于“江苏省知识产权培训（盐城）基地”咨询\n近日在盐城市知识产权研究会相关宣传中看到有关江苏省知识产权培训（盐城）基地内容。该会宣称其为关江苏省知识产权培训（盐城）基地。牌匾上落款时间为2016年，该会成立于2021年12月。先咨询江苏省知",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jsip2",
+   "id": "350770",
+   "url": "https://jsip.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=350770&sysid=85",
+   "question": "资格证书领取时间和方式\n请问2023年2月25-26日考试通过，获得的资格证书什么时候可以领取，怎么领取，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jsip2",
+   "id": "348645",
+   "url": "https://jsip.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=348645&sysid=85",
+   "question": "请问22年专利代理师证书什么时候发放\n请问22年专利代理师证书什么时候发放",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jsip2",
+   "id": "339285",
+   "url": "https://jsip.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=339285&sysid=85",
+   "question": "关于专利代理师考试退费\n我因故无法参加延期的专利代理师考试，申请退费。不知道江苏省是否可以开通网上退费通道。北京考点已经可以发了通知《关于北京考点2022年度专利代理师资格考试退费的通知》，链接：http://www.beijing.gov",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jsip2",
+   "id": "337093",
+   "url": "https://jsip.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=337093&sysid=85",
+   "question": "疫情防控层层加码，苏州知产局举办的2022年度全国代理人资格\n本考生报名参加了11月5号苏州知产局举办的2022年度全国代理人资格考试，并根据防疫规定在11月2号-4号在常州市做了72、48、24小时的核酸检测，并且均为阴性。    在11",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jsip2",
+   "id": "336515",
+   "url": "https://jsip.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=336515&sysid=85",
+   "question": "国家知识产权示范企业、知识产权优势企业申报条件及政策文件\n想了解下国家知识产权示范企业、知识产权优势企业申报条件及政策文件",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

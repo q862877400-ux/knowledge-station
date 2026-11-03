@@ -1,0 +1,33 @@
+{
+ "A_考卷": [],
+ "B_补料": [],
+ "C_无依据": [
+  {
+   "source": "sx-igi-100",
+   "id": "908680",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=908680",
+   "question": "顶顶顶顶顶顶顶顶顶",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-100",
+   "id": "908631",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=908631",
+   "question": "dssssssssssssss",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-100",
+   "id": "908607",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=908607",
+   "question": "gsdkhkhd",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

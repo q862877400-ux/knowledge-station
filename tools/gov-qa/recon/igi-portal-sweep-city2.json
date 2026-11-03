@@ -1,0 +1,653 @@
+{
+ "qujing": {
+  "base": "https://www.qujing.gov.cn",
+  "verdict": "BLOCK",
+  "http": null,
+  "total": null,
+  "note": "ConnectError"
+ },
+ "yuxi": {
+  "base": "https://www.yuxi.gov.cn",
+  "verdict": "NO",
+  "http": 404,
+  "total": null,
+  "note": ""
+ },
+ "dali": {
+  "base": "https://www.dali.gov.cn",
+  "verdict": "NO",
+  "http": 404,
+  "total": null,
+  "note": ""
+ },
+ "chuxiong": {
+  "base": "https://www.chuxiong.gov.cn",
+  "verdict": "BLOCK",
+  "http": null,
+  "total": null,
+  "note": "ConnectError"
+ },
+ "baoshan": {
+  "base": "https://www.baoshan.gov.cn",
+  "verdict": "NO",
+  "http": 404,
+  "total": null,
+  "note": ""
+ },
+ "zhaotong": {
+  "base": "https://www.zt.gov.cn",
+  "verdict": "NO",
+  "http": 502,
+  "total": null,
+  "note": ""
+ },
+ "puer": {
+  "base": "https://www.pes.gov.cn",
+  "verdict": "NO",
+  "http": 404,
+  "total": null,
+  "note": ""
+ },
+ "lijiang": {
+  "base": "https://www.lijiang.gov.cn",
+  "verdict": "NO",
+  "http": 404,
+  "total": null,
+  "note": ""
+ },
+ "quanzhou": {
+  "base": "https://www.quanzhou.gov.cn",
+  "verdict": "NO",
+  "http": 404,
+  "total": null,
+  "note": ""
+ },
+ "zhangzhou": {
+  "base": "https://www.zhangzhou.gov.cn",
+  "verdict": "NO",
+  "http": 404,
+  "total": null,
+  "note": ""
+ },
+ "putian": {
+  "base": "https://www.putian.gov.cn",
+  "verdict": "NO",
+  "http": 200,
+  "total": null,
+  "note": "200 但非 JSON（多半是首页 HTML）"
+ },
+ "sanming": {
+  "base": "https://www.sm.gov.cn",
+  "verdict": "NO",
+  "http": 404,
+  "total": null,
+  "note": ""
+ },
+ "nanping": {
+  "base": "https://www.np.gov.cn",
+  "verdict": "NO",
+  "http": 404,
+  "total": null,
+  "note": ""
+ },
+ "longyan": {
+  "base": "https://www.longyan.gov.cn",
+  "verdict": "NO",
+  "http": 404,
+  "total": null,
+  "note": ""
+ },
+ "ningde": {
+  "base": "https://www.ningde.gov.cn",
+  "verdict": "NO",
+  "http": 404,
+  "total": null,
+  "note": ""
+ },
+ "kelamayi": {
+  "base": "https://www.klmy.gov.cn",
+  "verdict": "NO",
+  "http": 404,
+  "total": null,
+  "note": ""
+ },
+ "changji": {
+  "base": "https://www.cj.gov.cn",
+  "verdict": "NO",
+  "http": 404,
+  "total": null,
+  "note": ""
+ },
+ "kashi": {
+  "base": "https://www.kashi.gov.cn",
+  "verdict": "NO",
+  "http": 404,
+  "total": null,
+  "note": ""
+ },
+ "akesu": {
+  "base": "https://www.aks.gov.cn",
+  "verdict": "NO",
+  "http": 200,
+  "total": null,
+  "note": "200 但非 JSON（多半是首页 HTML）"
+ },
+ "rikaze": {
+  "base": "https://www.rikaze.gov.cn",
+  "verdict": "BLOCK",
+  "http": null,
+  "total": null,
+  "note": "ConnectTimeout"
+ },
+ "linzhi": {
+  "base": "https://www.linzhi.gov.cn",
+  "verdict": "NO",
+  "http": 404,
+  "total": null,
+  "note": ""
+ },
+ "changdu": {
+  "base": "https://www.changdu.gov.cn",
+  "verdict": "NO",
+  "http": 404,
+  "total": null,
+  "note": ""
+ },
+ "shannan": {
+  "base": "https://www.shannan.gov.cn",
+  "verdict": "IGI",
+  "http": 200,
+  "total": null,
+  "note": "IGI 平台"
+ },
+ "ganzhou": {
+  "base": "https://www.ganzhou.gov.cn",
+  "verdict": "NO",
+  "http": 200,
+  "total": null,
+  "note": "200 但非 JSON（多半是首页 HTML）"
+ },
+ "jiujiang": {
+  "base": "https://www.jiujiang.gov.cn",
+  "verdict": "IGI",
+  "http": 200,
+  "total": null,
+  "note": "IGI 平台"
+ },
+ "shangrao": {
+  "base": "https://www.zgsr.gov.cn",
+  "verdict": "BLOCK",
+  "http": 412,
+  "total": null,
+  "note": "HTTP 412（WAF）"
+ },
+ "yichun_jx": {
+  "base": "https://www.yichun.gov.cn",
+  "verdict": "NO",
+  "http": 200,
+  "total": null,
+  "note": "200 但非 JSON（多半是首页 HTML）"
+ },
+ "jian": {
+  "base": "https://www.jian.gov.cn",
+  "verdict": "BLOCK",
+  "http": 403,
+  "total": null,
+  "note": "HTTP 403（WAF）"
+ },
+ "luoyang": {
+  "base": "https://www.ly.gov.cn",
+  "verdict": "NO",
+  "http": 404,
+  "total": null,
+  "note": ""
+ },
+ "nanyang": {
+  "base": "https://www.nanyang.gov.cn",
+  "verdict": "NO",
+  "http": 404,
+  "total": null,
+  "note": ""
+ },
+ "xinxiang": {
+  "base": "https://www.xinxiang.gov.cn",
+  "verdict": "NO",
+  "http": 404,
+  "total": null,
+  "note": ""
+ },
+ "jiaozuo": {
+  "base": "https://www.jiaozuo.gov.cn",
+  "verdict": "NO",
+  "http": 404,
+  "total": null,
+  "note": ""
+ },
+ "xuchang": {
+  "base": "https://www.xuchang.gov.cn",
+  "verdict": "NO",
+  "http": 404,
+  "total": null,
+  "note": ""
+ },
+ "kaifeng": {
+  "base": "https://www.kaifeng.gov.cn",
+  "verdict": "NO",
+  "http": 200,
+  "total": null,
+  "note": "200 但非 JSON（多半是首页 HTML）"
+ },
+ "pingdingshan": {
+  "base": "https://www.pds.gov.cn",
+  "verdict": "NO",
+  "http": 404,
+  "total": null,
+  "note": ""
+ },
+ "anyang": {
+  "base": "https://www.anyang.gov.cn",
+  "verdict": "NO",
+  "http": 404,
+  "total": null,
+  "note": ""
+ },
+ "shangqiu": {
+  "base": "https://www.shangqiu.gov.cn",
+  "verdict": "NO",
+  "http": 404,
+  "total": null,
+  "note": ""
+ },
+ "xinyang": {
+  "base": "https://www.xinyang.gov.cn",
+  "verdict": "NO",
+  "http": 404,
+  "total": null,
+  "note": ""
+ },
+ "wuhu": {
+  "base": "https://www.wuhu.gov.cn",
+  "verdict": "NO",
+  "http": 404,
+  "total": null,
+  "note": ""
+ },
+ "bengbu": {
+  "base": "https://www.bengbu.gov.cn",
+  "verdict": "NO",
+  "http": 200,
+  "total": null,
+  "note": "200 但非 JSON（多半是首页 HTML）"
+ },
+ "anqing": {
+  "base": "https://www.anqing.gov.cn",
+  "verdict": "NO",
+  "http": 521,
+  "total": null,
+  "note": ""
+ },
+ "maanshan": {
+  "base": "https://www.mas.gov.cn",
+  "verdict": "NO",
+  "http": 404,
+  "total": null,
+  "note": ""
+ },
+ "fuyang": {
+  "base": "https://www.fy.gov.cn",
+  "verdict": "NO",
+  "http": 404,
+  "total": null,
+  "note": ""
+ },
+ "chuzhou": {
+  "base": "https://www.chuzhou.gov.cn",
+  "verdict": "NO",
+  "http": 404,
+  "total": null,
+  "note": ""
+ },
+ "luan": {
+  "base": "https://www.luan.gov.cn",
+  "verdict": "NO",
+  "http": 404,
+  "total": null,
+  "note": ""
+ },
+ "tangshan": {
+  "base": "https://www.tangshan.gov.cn",
+  "verdict": "BLOCK",
+  "http": 412,
+  "total": null,
+  "note": "HTTP 412（WAF）"
+ },
+ "baoding": {
+  "base": "https://www.baoding.gov.cn",
+  "verdict": "NO",
+  "http": 200,
+  "total": null,
+  "note": "200 但非 JSON（多半是首页 HTML）"
+ },
+ "handan": {
+  "base": "https://www.hd.gov.cn",
+  "verdict": "NO",
+  "http": 404,
+  "total": null,
+  "note": ""
+ },
+ "xingtai": {
+  "base": "https://www.xingtai.gov.cn",
+  "verdict": "NO",
+  "http": 404,
+  "total": null,
+  "note": ""
+ },
+ "cangzhou": {
+  "base": "https://www.cangzhou.gov.cn",
+  "verdict": "NO",
+  "http": 404,
+  "total": null,
+  "note": ""
+ },
+ "langfang": {
+  "base": "https://www.lf.gov.cn",
+  "verdict": "NO",
+  "http": 404,
+  "total": null,
+  "note": ""
+ },
+ "qinhuangdao": {
+  "base": "https://www.qhd.gov.cn",
+  "verdict": "NO",
+  "http": 404,
+  "total": null,
+  "note": ""
+ },
+ "zhangjiakou": {
+  "base": "https://www.zjk.gov.cn",
+  "verdict": "NO",
+  "http": 301,
+  "total": null,
+  "note": ""
+ },
+ "chengde": {
+  "base": "https://www.chengde.gov.cn",
+  "verdict": "NO",
+  "http": 404,
+  "total": null,
+  "note": ""
+ },
+ "tianshui": {
+  "base": "https://www.tianshui.gov.cn",
+  "verdict": "NO",
+  "http": 404,
+  "total": null,
+  "note": ""
+ },
+ "baiyin": {
+  "base": "https://www.baiyin.gov.cn",
+  "verdict": "NO",
+  "http": 404,
+  "total": null,
+  "note": ""
+ },
+ "wuwei": {
+  "base": "https://www.wuwei.gov.cn",
+  "verdict": "BLOCK",
+  "http": null,
+  "total": null,
+  "note": "ConnectError"
+ },
+ "zhangye": {
+  "base": "https://www.zhangye.gov.cn",
+  "verdict": "IGI",
+  "http": 200,
+  "total": null,
+  "note": "IGI 平台"
+ },
+ "jiuquan": {
+  "base": "https://www.jiuquan.gov.cn",
+  "verdict": "NO",
+  "http": 404,
+  "total": null,
+  "note": ""
+ },
+ "qingyang": {
+  "base": "https://www.zgqingyang.gov.cn",
+  "verdict": "BLOCK",
+  "http": 403,
+  "total": null,
+  "note": "HTTP 403（WAF）"
+ },
+ "sanya": {
+  "base": "https://www.sanya.gov.cn",
+  "verdict": "NO",
+  "http": 404,
+  "total": null,
+  "note": ""
+ },
+ "danzhou": {
+  "base": "https://www.danzhou.gov.cn",
+  "verdict": "IGI",
+  "http": 200,
+  "total": null,
+  "note": "IGI 平台"
+ },
+ "datong": {
+  "base": "https://www.dt.gov.cn",
+  "verdict": "NO",
+  "http": 404,
+  "total": null,
+  "note": ""
+ },
+ "changzhi": {
+  "base": "https://www.changzhi.gov.cn",
+  "verdict": "IGI",
+  "http": 200,
+  "total": null,
+  "note": "IGI 平台"
+ },
+ "jincheng": {
+  "base": "https://www.jconline.cn",
+  "verdict": "BLOCK",
+  "http": null,
+  "total": null,
+  "note": "ConnectError"
+ },
+ "linfen": {
+  "base": "https://www.linfen.gov.cn",
+  "verdict": "BLOCK",
+  "http": null,
+  "total": null,
+  "note": "ConnectTimeout"
+ },
+ "xianyang": {
+  "base": "https://www.xianyang.gov.cn",
+  "verdict": "IGI",
+  "http": 200,
+  "total": null,
+  "note": "IGI 平台"
+ },
+ "baoji": {
+  "base": "https://www.baoji.gov.cn",
+  "verdict": "IGI",
+  "http": 200,
+  "total": null,
+  "note": "IGI 平台"
+ },
+ "weinan": {
+  "base": "https://www.weinan.gov.cn",
+  "verdict": "NO",
+  "http": 404,
+  "total": null,
+  "note": ""
+ },
+ "hanzhong": {
+  "base": "https://www.hanzhong.gov.cn",
+  "verdict": "NO",
+  "http": 404,
+  "total": null,
+  "note": ""
+ },
+ "yichang": {
+  "base": "https://www.yichang.gov.cn",
+  "verdict": "NO",
+  "http": 404,
+  "total": null,
+  "note": ""
+ },
+ "xiangyang": {
+  "base": "https://www.xiangyang.gov.cn",
+  "verdict": "BLOCK",
+  "http": 403,
+  "total": null,
+  "note": "HTTP 403（WAF）"
+ },
+ "jingzhou": {
+  "base": "https://www.jingzhou.gov.cn",
+  "verdict": "IGI",
+  "http": 200,
+  "total": null,
+  "note": "IGI 平台"
+ },
+ "shiyan": {
+  "base": "https://www.shiyan.gov.cn",
+  "verdict": "NO",
+  "http": 404,
+  "total": null,
+  "note": ""
+ },
+ "zhuzhou": {
+  "base": "https://www.zhuzhou.gov.cn",
+  "verdict": "NO",
+  "http": 200,
+  "total": null,
+  "note": "200 但非 JSON（多半是首页 HTML）"
+ },
+ "xiangtan": {
+  "base": "https://www.xiangtan.gov.cn",
+  "verdict": "NO",
+  "http": 404,
+  "total": null,
+  "note": ""
+ },
+ "hengyang": {
+  "base": "https://www.hengyang.gov.cn",
+  "verdict": "BLOCK",
+  "http": 412,
+  "total": null,
+  "note": "HTTP 412（WAF）"
+ },
+ "yueyang": {
+  "base": "https://www.yueyang.gov.cn",
+  "verdict": "NO",
+  "http": 404,
+  "total": null,
+  "note": ""
+ },
+ "anshan": {
+  "base": "https://www.anshan.gov.cn",
+  "verdict": "BLOCK",
+  "http": null,
+  "total": null,
+  "note": "ConnectError"
+ },
+ "dandong": {
+  "base": "https://www.dandong.gov.cn",
+  "verdict": "NO",
+  "http": 200,
+  "total": null,
+  "note": "200 但非 JSON（多半是首页 HTML）"
+ },
+ "jinzhou": {
+  "base": "https://www.jz.gov.cn",
+  "verdict": "NO",
+  "http": 404,
+  "total": null,
+  "note": ""
+ },
+ "liuzhou": {
+  "base": "https://www.liuzhou.gov.cn",
+  "verdict": "BLOCK",
+  "http": null,
+  "total": null,
+  "note": "ConnectTimeout"
+ },
+ "guilin": {
+  "base": "https://www.guilin.gov.cn",
+  "verdict": "IGI",
+  "http": 200,
+  "total": null,
+  "note": "IGI 平台"
+ },
+ "beihai": {
+  "base": "https://www.beihai.gov.cn",
+  "verdict": "NO",
+  "http": 502,
+  "total": null,
+  "note": ""
+ },
+ "qinzhou": {
+  "base": "https://www.qinzhou.gov.cn",
+  "verdict": "NO",
+  "http": 502,
+  "total": null,
+  "note": ""
+ },
+ "zunyi": {
+  "base": "https://www.zunyi.gov.cn",
+  "verdict": "IGI",
+  "http": 200,
+  "total": null,
+  "note": "IGI 平台"
+ },
+ "anshun": {
+  "base": "https://www.anshun.gov.cn",
+  "verdict": "IGI",
+  "http": 200,
+  "total": null,
+  "note": "IGI 平台"
+ },
+ "bijie": {
+  "base": "https://www.bijie.gov.cn",
+  "verdict": "IGI",
+  "http": 200,
+  "total": null,
+  "note": "IGI 平台"
+ },
+ "ordos": {
+  "base": "https://www.ordos.gov.cn",
+  "verdict": "NO",
+  "http": 404,
+  "total": null,
+  "note": ""
+ },
+ "chifeng": {
+  "base": "https://www.chifeng.gov.cn",
+  "verdict": "IGI",
+  "http": 200,
+  "total": null,
+  "note": "IGI 平台"
+ },
+ "tongliao": {
+  "base": "https://www.tongliao.gov.cn",
+  "verdict": "IGI",
+  "http": 200,
+  "total": null,
+  "note": "IGI 平台"
+ },
+ "wuhai": {
+  "base": "https://www.wuhai.gov.cn",
+  "verdict": "BLOCK",
+  "http": 403,
+  "total": null,
+  "note": "HTTP 403（WAF）"
+ },
+ "haidong": {
+  "base": "https://www.haidong.gov.cn",
+  "verdict": "NO",
+  "http": 404,
+  "total": null,
+  "note": ""
+ }
+}

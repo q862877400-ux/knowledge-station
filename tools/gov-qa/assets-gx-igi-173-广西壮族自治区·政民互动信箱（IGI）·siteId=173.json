@@ -1,0 +1,202 @@
+{
+ "A_考卷": [
+  {
+   "source": "gx-igi-173",
+   "id": "157814444633",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814444633",
+   "question": "玉林仲裁委员会是否为玉林市司法局直属二层机构？玉林仲裁委员会做出的裁决公平性合法性由谁来监督？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国仲裁法",
+     "lib_no": "仲裁法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-173",
+   "id": "157814417551",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814417551",
+   "question": "问题咨询：被征收的土地，已向村委会拨付“土地三费”，那这块土地上的住户他们的帐篷、车辆等，是否被定义为非法占用国有土地和乱搭配？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国土地管理法",
+     "lib_no": "土地管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gx-igi-173",
+   "id": "157814208766",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814208766",
+   "question": "司法局工作人员你好：&nbsp; &nbsp; &nbsp; &nbsp;近日，我收到自称玉林市仲裁委，调解中心，调解员韦育安的短信，称我与北京瓴岳这家公司有合同纠纷，由他进行调解，通过多次联系，沟通，从“韦育安”说话的语气，态度中感觉到此",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国仲裁法",
+     "lib_no": "仲裁法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国仲裁法",
+     "lib_no": "仲裁法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国仲裁法",
+     "lib_no": "仲裁法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "玉林仲裁委员会仲裁规则"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gx-igi-173",
+   "id": "157814205737",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814205737",
+   "question": "尊敬的各位领导，现了解到我国已经实施新一套《人民陪审员选任办法》，普通居民符合条件的也可以通过个人申请成为一名人民陪审员。我的母亲是一名人民教师，而我的父亲是一名国企职工，两人这两年先后退休，一直想找一点有意义的事情做，能够继续为社会奉献个",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国人民陪审员法",
+     "lib_no": "人民陪审员法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国人民陪审员法",
+     "lib_no": "人民陪审员法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "gx-igi-173",
+   "id": "157830379934",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157830379934",
+   "question": "玉林市司法局领导您好！本人刚刚取得法律职业资格证书，我原打算想到基层法律服务中心兼职执业。今天下午到司法局问了下，一名工作人员告知，目前均不再新发法律工作者执业证，除非原来有过法官、检察官、司法相关工作过的退休人员。就此向你们求证了解。感谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "基层法律服务工作者管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gx-igi-173",
+   "id": "157814409430",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814409430",
+   "question": "您好，想问一下现在广西还可以办理法律服务工作者证吗？有的话，报名时间一般在什么时候。",
+   "cited_hits": [],
+   "cited_missing": [
+    "基层法律服务工作者管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gx-igi-173",
+   "id": "157814405320",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814405320",
+   "question": "请问国企公司律师应当如何申请律师职称？现行法律规定是否有相关制度？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广西壮族自治区职称改革工作领导小组办公室关于印发广西壮族自治区律师系列高、中、初级职称评审条件的通知",
+    "律师执业证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-173",
+   "id": "157814205537",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814205537",
+   "question": "‘’3.根据审核需要提交的学信网学历查询结果、中国高等教育学历认证报告等补正材料‘’，是准备学信网的“教育部学历证书电子注册备案表”吗，学信网说明在线验证了教育部学历证书电子注册备案表，就无法申请书面验证",
+   "cited_hits": [],
+   "cited_missing": [
+    " 中国高等教育学历认证报告 "
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "gx-igi-173",
+   "id": "100221022",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=100221022",
+   "question": "玉林属于法考政策放宽地区吧？非全日制本科法学类专业毕业，还需要从事法律工作满三年才能报考？公安局交通管理大队的辅警人员，工作内容是：参与交通管理、交通事故调解、文书整理等，工作内容与法律条文比较紧密，算不算“从事法律工作”？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-173",
+   "id": "157830255106",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157830255106",
+   "question": "你好，我今年通过了法考在申请考试成绩合格人员法律职业资格，在填写信息选择专业类别时有疑问。我的毕业证书上写的是金融学，而专业类别的选项上只有经济学，那是否可以选择经济学？我本科入学时专业是经济学类，后面大三分流变成金融学，之前法考报名时选的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-173",
+   "id": "157814410810",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814410810",
+   "question": "本人在2017年11月份到玉林市司法局申请法执业C证，后期因为本人一直在外地工作，未领取该证件，后期不知道找谁领取该证书，一直未领取，目前因本人2023年国家统一法律资格资格考试通过，可以申请领取法律执业资格证书A证，目前需求是本人法律执业",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-173",
+   "id": "157814400908",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814400908",
+   "question": "请问玉林市司法局的微信公众号是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-173",
+   "id": "157814205719",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814205719",
+   "question": "2月17日从广州回玉林需要隔离或核算检测吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-173",
+   "id": "157814205530",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814205530",
+   "question": "‘’3.根据审核需要提交的学信网学历查询结果、中国高等教育学历认证报告等补正材料。‘’有本科毕业证也需要这个材料吗？这两个材料怎么获取呀？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-173",
+   "id": "157814205440",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814205440",
+   "question": "尊敬的司法局：&nbsp; &nbsp; &nbsp; 关于申请2021年国家法律职业资格的相关事宜，在此特作如下咨询：&nbsp; &nbsp; &nbsp; 1、已经在网上填了申报，后续是当地司法局通知本人作现场材料审核还是以短信形式通",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-173",
+   "id": "157814194651",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814194651",
+   "question": "玉林市安康鉴定中心合法吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

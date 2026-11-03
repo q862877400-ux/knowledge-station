@@ -1,0 +1,357 @@
+{
+ "A_考卷": [
+  {
+   "source": "nx-igi-261",
+   "id": "10153511",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10153511",
+   "question": "领导您好！我是西夏区原测绘局家属院拆迁户居民， 依据我们与西夏区住房城乡建设和交通局签定的《宁夏测绘局家属区旧城（棚户区）改造项目房屋征收补偿协议》，西夏区住建局应负责向宁夏测绘局家属区拆迁户提供符合国家质量安全标准的安置房。住建局只保证了",
+   "cited_hits": [
+    {
+     "name": "信访工作条例",
+     "lib_no": "信访工作条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "测绘局家属区棚改项目已开展土地招拍挂工作"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nx-igi-261",
+   "id": "10150926",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10150926",
+   "question": "主厅长您帮帮我吧！ 我是中宁县谞丰商贸有限公司负责人叫贾谞。我在2012年响应县政府招商引资，承包18000多亩石空镇草原投资种养殖项目，前期投资一千多万的,2014年县政府发展光伏园区，征走13637.5亩，剩的4345亩经营至去年，期间",
+   "cited_hits": [
+    {
+     "name": "信访工作条例",
+     "lib_no": "信访工作条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "信访事项处理意见书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-261",
+   "id": "10150650",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10150650",
+   "question": "21年，宁夏吴忠市同心县豫海镇兴隆行政村三自然村村民高有在未获得相关手续的情况下私自使用耕地进行建设房屋（两层），在房屋建设期间占用我家地基，房屋排水直接排到我家房屋后墙上，致使我家房屋出现隐患。根据《中华人民共和国城乡规划法》中第六十五条",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国土地管理法",
+     "lib_no": "土地管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "nx-igi-261",
+   "id": "10126137",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10126137",
+   "question": "我公司于2012年在惠农区办理了土地使用权证，土地用途：通信基站，使用权类型：出让，土地使用权即将到期,通信设施仍要继续使用，请问如何办理土地使用权续期?在哪申请办理？流程是什么？需要提供什么资料？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国城市房地产管理法",
+     "lib_no": "城市房地产管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "中华人民共和国国有土地使用证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nx-igi-261",
+   "id": "10071505",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10071505",
+   "question": "关于办理祥和家园（福利医院后）不动产权证书的诉求&nbsp;&nbsp;&nbsp; 我是宁夏固原市原州区南城路祥和家园2号楼（福利医院后）的住户，于2014年5月购买由固原建发房地产开发有限公司建设的商品房，商品房预售许可证为固预售201",
+   "cited_hits": [
+    {
+     "name": "不动产登记暂行条例",
+     "lib_no": "不动产登记暂行条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "不动产登记暂行条例实施细则",
+     "lib_no": "不动产登记暂行条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "nx-igi-261",
+   "id": "10071485",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10071485",
+   "question": "尊敬的领导： 您好，我家在银川市落户二十余年，并于当年购买宅基地一处，我家所在的村于2014年拆迁，近期，拆迁房屋分配，村集体要求我们缴纳宅基地使用费（五万多元）后才能领取分配房屋，对此，有如下问题希望能得到权威部门的答复： 1、我认为该费",
+   "cited_hits": [
+    {
+     "name": "土地管理法",
+     "lib_no": "土地管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-261",
+   "id": "10071296",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10071296",
+   "question": "您好，想咨询一下，对向非金融机构（比如说融资租赁公司）提供抵押担保的土地、房产，非金融机构能否办理抵押登记，如果能办理依据是什么，不能办理依据是什么，非常感谢！",
+   "cited_hits": [
+    {
+     "name": "不动产登记暂行条例实施细则",
+     "lib_no": "不动产登记暂行条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "最高人民法院关于审理民间借贷案件适用法律若干问题的规定",
+     "lib_no": "最高人民法院关于审理民间借贷案件适用法律若干问题的规定(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "合同法"
+   ],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "nx-igi-261",
+   "id": "10150512",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10150512",
+   "question": "尊敬的自治区自然资源厅厅长： 您好！在2020年违法占地专项整治中，我们向您反映了中宁县恩和镇李长林（中宁长林医院）无用地手续违法占用国家敬老院土地、耕地等私建三层楼违法用于其私人医院商用营利和住宅等。自治区自然资源厅将案件移交给了中宁县自",
+   "cited_hits": [],
+   "cited_missing": [
+    "房屋及土地转让协议书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-261",
+   "id": "10150271",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10150271",
+   "question": "同心县新宝隆矿业有限责任公司不符合国家矿产资源管理相关规定，在被同心县自然资源管理部门和同心县环保部门查封停业期间，半夜12点以后开启设备私自开采石膏，造成尘土污染和噪音污染，且造成国家自然资源流失，影响附近村民正常生活和休息，开采了好几个",
+   "cited_hits": [],
+   "cited_missing": [
+    "采矿许可证到期告知通知书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-261",
+   "id": "10081049",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10081049",
+   "question": "尊敬的厅长您好，我是一名想研究宁夏生态的老师。宁夏统计年鉴上2018年与2019年的三废的排放量数据都是2018年数据，能否帮忙公布一下2019年宁夏各县三废的排放量。谢谢您。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发 &lt;自治区自然资源厅职能配置内设机构和人员编制规定&gt;的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-261",
+   "id": "10071523",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10071523",
+   "question": "园子村六队被良田镇遗忘了吗？园子村1-5队基本全部搬进园子中心村，为什么园子村六队被孤立了呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "银川市金凤区成建制移民村“多规合一”实用性村庄规划编制工作实施方案",
+    "银川市金凤区良田镇园子六队“多规合一”实用性村庄规划（2021-2035）年"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-261",
+   "id": "10071517",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10071517",
+   "question": "反映情况自治区自然资源厅&nbsp; &nbsp;本人李有国，男，汉族，现住宁夏回族自治区银川市。本人于2007年6月2日从宁夏金羚机械有限责任公司处受让取得了位于银川市贺兰县城石中高速立交桥北侧11.6亩土地使用权，2007年贺兰县国土资",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于109线东侧旧城改造建设的批复",
+    "国有土地使用证",
+    "不动产更正登记通知书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-261",
+   "id": "10071501",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10071501",
+   "question": "石嘴山市简泉农场，在村子上面搭建羊场，是否合规。",
+   "cited_hits": [],
+   "cited_missing": [
+    "自治区自然资源厅 农业农村厅关于加强设施农业用地管理促进现代农业健康发展的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-261",
+   "id": "10071361",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10071361",
+   "question": "1.自2019年7月，我多次向你厅反应吴忠市利通区金积镇一宗违法占用农用地10余亩案件，截至到今天没有给出一个调查结果，你们这种敷衍了事，不作为行为严重影响了自然资源系统的形象，同时对国土资源的不负责任。2.我多次向你厅询问调查结果，你一再",
+   "cited_hits": [],
+   "cited_missing": [
+    "金积工业园区项目金积镇丁家湾子村吴忠市三海木业有限公司房屋征收补偿协议"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-261",
+   "id": "10071292",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10071292",
+   "question": "国土资发[2014]127号：关于进一步支持设施农业健康发展的通知：“一、合理界定设施农用地范围（一）进一步明确生产设施用地。生产设施用地是指在设施农业项目区域内，直接用于农产品生产的设施用地。包括： 2、规模化养殖中畜禽舍（含场区内通道）",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步加强和规范设施农业用地管理的通知"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "nx-igi-261",
+   "id": "10153793",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10153793",
+   "question": "自治区自然资源厅领导你们好：我叫杨东，联系电话;15009514576.本人于2022年11月7日向厅长信箱咨询我父亲所持(平土发（87）54号《关于给杨国兴，吴学尧二同志划拨荒地搞开发性生产的批复）中“批准以上土地开发期为两年（87年5月",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-261",
+   "id": "10153615",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10153615",
+   "question": "项目以招拍挂形式取得建设用地，此地块是否还需办理压覆矿手续？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-261",
+   "id": "10153400",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10153400",
+   "question": "尊敬的厅长同志，您好！我是中国林科院的博士研究生谢贤胜，目前正在研究生态产品价值实现有关课题。通过查阅资料，发现贵省在两山转化理论和实践方面已走在了其他兄弟省份前面，并率先汇编了《宁夏回族自治区生态产品价值实现典型案例》，极具指导意义。原通",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-261",
+   "id": "10151274",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10151274",
+   "question": "本人于2021年年底离职，现发现宁夏恒合规划测绘有限公司测绘资质系统还在占用本人职称，要求解除无果，请求资质管理测绘处给一个合理处理办法。 因公司没有符合要求的新人补进系统，本人职称没无法从系统里解除，这是什么强盗逻辑？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-261",
+   "id": "10150749",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10150749",
+   "question": "涉密测绘成果管理人员岗位培训证书，根据《国家测绘地理信息局关于进一步贯彻落实测绘成果核心涉密人员保密管理制度的通知》（国测成发【2011】11号）要求，凡从事涉密测绘成果生产、加工、保管、利用活动的单位应当全面明确测绘成果核心涉密人员工作岗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-261",
+   "id": "10150414",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10150414",
+   "question": "您好:我是购买领航佳苑房屋的业主，今年小区来了个施工队将我们小区的绿化和树木挖掉，并使用大型挖掘机挖出长约25米，宽约15米，深约6米的大坑进行施工，我到物业公司反映为什么将业主的绿化和树木挖掉，物业公司答复：这块地是宁夏友厦房地产开发有限",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-261",
+   "id": "10149904",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10149904",
+   "question": "位于银川市兴庆区清和南街与治平路交叉口，东南角。有一建筑工地。十年了，就挖个坑在那，一直不开发。一年前有咨询过这个问题。说法院在协商，不知道最新情况是怎样的。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-261",
+   "id": "10143951",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10143951",
+   "question": "%E5%B0%8A%E6%95%AC%E7%9A%84%E7%9B%B8%E5%85%B3%E8%B4%9F%E8%B4%A3%E4%BA%BA%EF%BC%9A%0A%20%20%20%20%E6%82%A8%E5%A5%BD%E3%80",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-261",
+   "id": "10143548",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10143548",
+   "question": "%E5%B0%8A%E6%95%AC%E7%9A%84%E5%8E%85%E9%95%BF%EF%BC%9A%E6%82%A8%E5%A5%BD%0A%E6%88%91%E6%98%AF%E4%B8%80%E4%B8%AA%E6%99%AE",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-261",
+   "id": "10126538",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10126538",
+   "question": "请问全区1:2000基础地理信息数据库是公开发布的吗，在哪里登录或获取",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-261",
+   "id": "10126531",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10126531",
+   "question": "%E5%9C%9F%E5%9C%B0%E6%94%B9%E9%9D%A9%EF%BC%8C%E4%B8%8D%E5%8F%8A%E6%97%B6%E5%88%86%E9%85%8D%EF%BC%8C%E5%BD%93%E5%9C%B0%E6",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-261",
+   "id": "10071526",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10071526",
+   "question": "相关负责人： &nbsp; &nbsp;您好。 &nbsp; &nbsp;本人因学术研究需要，求2019年和2020年宁夏各区县的耕地、草地、林地、水域、建筑用地的面积，请问可以通过什么渠道可以获得相关数据。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-261",
+   "id": "10071516",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10071516",
+   "question": "我们在原州区有一个工程项目，急需一幅包括原州区所有农村和乡镇区划的高清地图。我去本地的书店里买，没有本地地图。请问一下哪里才能找到原州区、西吉县、海原县的地图？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-261",
+   "id": "10071502",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10071502",
+   "question": "请问宁夏地图标准图集地理坐标系用CGCS2000，那么投影坐标用什么呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-261",
+   "id": "10071395",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10071395",
+   "question": "举报自然资源厅执法局叶青海，针对本人一年前向其反应的吴忠市一宗违法占地，骗取国家巨额补偿的案件不作为，压案不查，来回扯皮，具有重大包庇嫌疑，请核实，本人将配合一切调查。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

@@ -1,0 +1,94 @@
+{
+ "A_考卷": [
+  {
+   "source": "nx-igi-272",
+   "id": "10072004",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072004",
+   "question": "2020年，宁夏广播电视传输发射基地迁建项目成为了自治区党委、政府确定的自治区重点工程之一，是为优化银川市城市整体规划，打通西夏区文萃路，加速西夏区经济社会发展的重要一步。宁夏广播电视铁塔要拆，文萃南街终于要通了？ 2018年，宁夏日报曾报",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国广播电视设施保护条例",
+     "lib_no": "广播电视设施保护条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [],
+ "C_无依据": [
+  {
+   "source": "nx-igi-272",
+   "id": "10144344",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10144344",
+   "question": "宁夏卫视高清频道什么时候能落地辽宁北方广电有线，现在只有宁夏标清，没有宁夏高清频道啊",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-272",
+   "id": "10126197",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10126197",
+   "question": "您好，原定于2021年10月23日在银川举办的全国广播电视编辑记者、播音员主持人资格考试因为疫情取消了，想咨询一下后续考试费退费方式以及时间，因为当时只收到了考试取消的短信通知，并未收到退费的相关措施通知。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-272",
+   "id": "10072163",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072163",
+   "question": "您好：请问宁夏广播电视台卫视高清频道近期什么时间上卫星播出？在那颗卫星播出？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-272",
+   "id": "10072006",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072006",
+   "question": "请问宁夏卫视高清频道什么时间上卫星覆盖全国",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-272",
+   "id": "10072002",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072002",
+   "question": "银川的物业费为啥是一刀切的，空置房和住人的房子都要按一个标准交物业费，一天不住一个纸片垃圾也没有产生，一天的物业服务也没有享受到，为什么要按照全额来交物业费，那个职能部门能给个合理的解释？？？这是为什么，为什么要一刀切，这样的政策真的好么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-272",
+   "id": "10072000",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072000",
+   "question": "宁夏广播电视台拥有四个地面频道分别为公共、经济、少儿、影视频道，四个频道有相应频道定位，但频道定位与如今的社会发展衔接不厚紧密，也难以满足观众需要，建议对频道名称进行调整，经济频道更名为经济生活频道，以民生新闻和生活服务类节目为主，在现有栏",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-272",
+   "id": "10071998",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10071998",
+   "question": "最近在总局的地级以上广播电视播出机构及频道频率名录（截至2020年10月）当中，宁夏地区的高清频道只有银川台的公共频道和石嘴山的综合频道获批高标清同播，包括宁夏台5个电视频道在内的其他电视频道均没有批复咨询几个问题 1、宁夏台5个电视频道是",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-272",
+   "id": "10071994",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10071994",
+   "question": "我是位于银川市西夏区宁朔街的个人用户，近两年来一直通过DTMB地面波信号接收电视信号，此前电视接收信号除偶尔会出现画面撕裂、短暂的信号丢失、画面卡顿的情况外，大部分时间还是可以正常收视的。近日（约1周前开始），收视信号持续不佳，画面连续撕裂",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

@@ -1,0 +1,1982 @@
+{
+ "A_考卷": [
+  {
+   "source": "sx-igi-70",
+   "id": "2330565",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2330565",
+   "question": "您好，我是从事水资源论证工作的第三方服务人员。在水资源论证报告审查过程中专家提出：“节水评价章节及内容应根据《节约用水条例》（2024年3月9日）进行更新”。从网站上查询到的《节约用水条例》（中华人民共和国国务院令第776号，2024年3月",
+   "cited_hits": [
+    {
+     "name": "节约用水条例",
+     "lib_no": "节约用水条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "节水评价技术导则",
+    "水利建设项目节水评价编制规程",
+    "关于印发规划和建设项目节水评价技术要求的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2154647",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2154647",
+   "question": "已取得取水许可批准文件，取水工程(设施)建成一个开始取水，但未按规定及时申领取水许可证。这个属于无证取水违法行为吗？",
+   "cited_hits": [
+    {
+     "name": "取水许可和水资源费征收管理条例",
+     "lib_no": "取水许可和水资源费征收管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "取水许可管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2151541",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2151541",
+   "question": "取水的水源在临县，用水在本县，办理取水许可证在本县办理还是临县办理，还是两个县的共同上级办理？",
+   "cited_hits": [
+    {
+     "name": "取水许可和水资源费征收管理条例",
+     "lib_no": "取水许可和水资源费征收管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2150395",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2150395",
+   "question": "供水单位修建管网从水库取地表水向工业园区供水，供水单位取得取水许可证，取水证标明工业园区工业用水，工业园区企业从厂门口接入供水管网地表水用水，用水企业是否需要办理取水许可证，如需办理依据的条款是什么？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国水法",
+     "lib_no": "水法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2141944",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2141944",
+   "question": "《中华人民共和国防洪法》（2016年修正）第二十七条：建设跨河、穿河、穿堤、临河的桥梁、码头、道路、渡口、管道、缆线、取水、排水等工程设施，应当符合防洪标准、岸线规划、航运要求和其他技术要求，不得危害堤防安全、影响河势稳定、妨碍行洪畅通；其",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国防洪法",
+     "lib_no": "防洪法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2136269",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2136269",
+   "question": "1、项目建成2年后，还需要补办水保手续吗？ 2、农业项目（种植类）占地面积够了5000平米，需要办理水保手续吗？需要缴费吗？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国行政处罚法",
+     "lib_no": "行政处罚法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国水土保持法",
+     "lib_no": "水土保持法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "生产建设项目水土保持方案管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2121168",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2121168",
+   "question": "领导您好！企业对水资源论证报告编制和水平衡测试报告编制事宜有疑惑:如果在同一年度已经开展了水资源论证报告编制，还需要开展水平衡测试报告编制吗？恳请给予指导，谢谢您！",
+   "cited_hits": [
+    {
+     "name": "山西省节约用水条例",
+     "lib_no": "节约用水条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "山西省水资源管理条例",
+    "山西省计划用水管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2085166",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2085166",
+   "question": "情况是这样的，总公司和分公司（下属单位）分别单独法人，这个下属单位用总公司省级批的生活用水，生产用水用县级批的。洗煤厂的生产用水和生活用水可以分开审批吗？省级批生活用水县级批生产用水可行吗？",
+   "cited_hits": [
+    {
+     "name": "建设项目水资源论证导则",
+     "lib_no": "GB/T 35580-2017",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2041716",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2041716",
+   "question": "您好，打扰了。 我是地方水利局一名公务人员，能否担任本单位水利工程建设项目法人代表？ 还望百忙中予以恢回复。",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国公务员法",
+     "lib_no": "公务员法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "山西省水利工程建设项目法人管理实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2025150",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2025150",
+   "question": "您好。公务员可不可以担任本单位水利工程项目法人代表？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国公务员法",
+     "lib_no": "公务员法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "山西省水利工程建设项目法人管理实施意见"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "sx-igi-70",
+   "id": "2503314",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2503314",
+   "question": "《国家税务总局关于起征点标准等增值税征管事项的公告》（2026年10号公告）中，销售自来水，适用简易计税，水利工程供应天然水比照销售自来水政策执行。 《中华人民共和国水法》第七十九条，“本法所称的水工程，是指在江河、湖泊和地上税源开发、利用",
+   "cited_hits": [],
+   "cited_missing": [
+    "水利水电工程术语"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2447186",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2447186",
+   "question": "您好，我想咨询一下，咱们2026年3月26日开始实施的山西省用水定额文件，在哪里可以找见呢？如果方便的话是否可以发一份电子版给我呢？非常感谢！！！",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省用水定额 第1部分 农业",
+    "山西省用水定额 第2部分 工业",
+    "山西省用水定额 第4部分 居民生活"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2429763",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2429763",
+   "question": "水利水电专业项目负责人安全B证延续申请，需提供连续三年的继续教育证明，如果不全的话，是否可以补继续教育培训",
+   "cited_hits": [],
+   "cited_missing": [
+    "水利水电工程施工企业主要负责人、项目负责人和专职安全生产管理人员安全生产考核管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2427816",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2427816",
+   "question": "水利部发文，有水利施工监理，增项水利监理金属结构，只需要备考一门案例分析。山西是否和水利部要求一致。",
+   "cited_hits": [],
+   "cited_missing": [
+    "监理工程师职业资格制度规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2219420",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2219420",
+   "question": "按照《取水许可管理办法》中的相关规定，县级以上人民政府水行政主管部门或者流域管理机构应当组织有关专家对建设项目水资源论证报告书进行审查，并提出书面审查意见，作为审批取水申请的技术依据。可《一网快办》中，对于符合条件的，不再组织技术审查。这是",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省取水许可“一网快办”审批方式实施办法（试行）",
+    "建设项目水资源论证报告表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2200986",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2200986",
+   "question": "您好，我是基层的一名水利工作人员，近日收到关于一网快办的文件，我想问取水水源为地表水的情况，有一些偏远地区的加油站站内附带免费自助洗车，用水量不多，这种情况适用于一网快办吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发〈山西省取水许可“一网快办”审批方式实施办法〉(试行)的通知",
+    "关于在黄河流域实行用水定额管理的意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2196901",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2196901",
+   "question": "你好，请问现在的关于招投标类型的监管层级是有变化吗？还是要按照【晋水建设[2023]89号】文件执行，如果有新文件指导，是否可发送一份，内部抄送文件，我们看不到，谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省水利厅关于进一步明确水利工程建设招标投标项目类型和监管层级的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2194975",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2194975",
+   "question": "基层工作中存在许多水工程水设施被破坏的情况，现行《山西省水工程管理条例》为1991年1月1日实施，距今已30余年，难以满足需求，建议考虑我省水工程特点和现实需求，对我省水工程管理条例进行更新完善。",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省水工程管理条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2176665",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2176665",
+   "question": "根据《黄土高原地区淤地坝登记和销号管理办法(试行)》第三章第十二条“ 淤地坝申报销号前，申报主体应采取必要的处理措施,消除可能出现的安全风险隐患。大、中型淤地坝销号前,应委托具备水利行业水土保持与水文设施专业或水库枢纽专业乙级及以上资质的单",
+   "cited_hits": [],
+   "cited_missing": [
+    "黄土高原地区淤地坝登记和销号管理办法(试行)"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2158042",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2158042",
+   "question": "近日交水费，价格上涨，询问得知增收水资源税每吨2.4元，请问贵厅相关领导，水资源税是随水费每吨上交么？",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省财政厅 国家税务总局山西省税务局 山西省水利厅关于明确我省水资源税改革试点有关政策的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2156537",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2156537",
+   "question": "明年到期的水利施工临时资质延期需要参照哪个文件？之后是否还要出新政策或文件。",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省住房和城乡建设厅关于建设工程企业临时资质延期及重新核定有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2151651",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2151651",
+   "question": "企业原来有取水许可证，也编制了水资源论证报告，现在取水许可证过期了，按照相关规定需要重新申请办理取水许可证，在取水许可证载明事项不变的情况下，原来的水资源论证报告还可以作为办理依据吗？还是需要重新编制？",
+   "cited_hits": [],
+   "cited_missing": [
+    "水利部办公厅关于做好取用水管理专项整治行动整改提升工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2151537",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2151537",
+   "question": "已办理取水许可证的供水公司如何申请增加取水量",
+   "cited_hits": [],
+   "cited_missing": [
+    "取水许可管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2145870",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2145870",
+   "question": "我县有个已经完工的城镇基础设施建设项目，现在补报水土保持方案，工程占地2.05公顷，开挖方量1.78万立方米。请问是按2019年5月31日后的《水利部关于进一步深化“放管服”改革全面加强水土保持监管的意见》中“双五”以下规定编报水土保持方案",
+   "cited_hits": [],
+   "cited_missing": [
+    "水利部关于进一步深化“放管服”改革全面加强水土保持监管的意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2138711",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2138711",
+   "question": "已考的水利一级建造师可以换领水利中级职称证吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省水利厅关于做好2024年度水利工程专业工程师及助理工程师评审工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2137739",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2137739",
+   "question": "我单位项目水土保持方案批复后，因设计变更等原因，占地面积减少约50公顷，此情况下，水土保持补偿费可按照新的面积缴纳么？或者有无相关政策针对此问题进行解决。我单位后期缴纳时，是否可以享受山西省发展和改革委员会等部门 关于降低中小企业生产建设项",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于降低中小企业生产建设项目建设期水土保持补偿费收费标准的通知",
+    "工业和信息化部 国家统计局 国家发展改革委 财政部关于印发中小企业划型标准规定的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2130022",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2130022",
+   "question": "您好领导，我想咨询关于今年水利中级职称申请的相关问题。我是山西建设投资集团有限公司的，有一级水利建造师证书，想问下能否用证书代替考试直接申请水利中级职称，是否需要参加考试，发表论文和答辩？如果能够用职业资格证书代替考试，不需要发表论文和答辩",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省水利厅关于做好2024年度水利工程专业工程师及助理工程师评审工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2126092",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2126092",
+   "question": "您好，我想咨询一下关于县级水利项目，是需要达到什么规模才需要向上级部门申请，第二个咨询一下关于防洪提升工程，永久性占用农田的补助标准与流程，是先补助后施工。还是先施工占用，再去申请征用农田手续。",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省人民政府关于重新公布全省征地区片综合地价的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2106370",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2106370",
+   "question": "请问山西有没有关于水利工程定额人工费的执行标准或者是人工人调整文件",
+   "cited_hits": [],
+   "cited_missing": [
+    "水利工程设计概（估）算编制规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2092444",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2092444",
+   "question": "你好，我想请教一下山西省水利厅《山西省水利工程建设项目招标投标管理办法》（晋水政法﹝2007﹞39号）规定：“水利工程建设项目的勘察设计、施工、监理评标委员会成员人数为七人以上单数”，而《中华人民共和国招标投标法》规定：“依法必须进行招标的",
+   "cited_hits": [],
+   "cited_missing": [
+    "中华人民共和国招投标法",
+    "山西省水利工程建设项目招标投标管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2086951",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2086951",
+   "question": "关于发布《水库大坝安全鉴定办法》的通知 水建管〔2003〕271号 附件水库大坝安全鉴定报告书模板",
+   "cited_hits": [],
+   "cited_missing": [
+    "水库大坝安全鉴定办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2084765",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2084765",
+   "question": "稷山县行政审批服务管理局 关于山西世纪建材有限公司水泥粉磨站技术改造（一期60万吨/年） 项目取水许可审批权限的请示 山西省水利厅： 我县山西世纪建材有限公司建设的水泥粉磨站技术改造一期60万吨/年）项目已建成，年取水量为0.81万m3/a",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于山西世纪建材有限公司水泥粉磨站技术改造（一期 60万吨/年）项目取水许可审批权限的请示",
+    "山西省水利厅关于调整下放取水许可及泉域水环境评价报告审批权限的通知",
+    "山西省水利厅关于印发 &lt;山西省高耗水行业生产工艺和产品目录（试行）&gt;的通知",
+    "山西省高耗水行业生产工艺和产品目录（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2036496",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2036496",
+   "question": "您好，我想咨询，对于规上企业节约用水是否有相关奖励办法或细则？",
+   "cited_hits": [],
+   "cited_missing": [
+    "农业水价综合改革精准补贴和节水奖励办法(试行）",
+    "关于开展“节水贷”融资服务工作的指导意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2036046",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2036046",
+   "question": "您好，我在日常工作中遇到一个问题，我县有一户矿泉水生产企业，需要核实该企业在矿泉水的日常生产过程中，是否需要按照《水土保持补偿费》的第五条中 “开采期间，对石油、天然气以外的矿产资源按照开采量（采掘、采剥总量）计征，每吨0.2元。”这一标准",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省发改委&nbsp;&nbsp;山西省财政厅 &nbsp;山西省水利厅关于水土保持补偿费收费标准的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2032424",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2032424",
+   "question": "住宅小区建设时，县城供水管网未接通，是否可以用自备井供水？如果可以，是否有相关政策或规定内容？如果可以采用自备井供水，小区建设完成后，自备井以何种方式处置、有什么处置程序？ 住宅小区建设完成后使用后，小区内扔私自采用自备井用水，是否违反水利",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省地下水超采综合治理行动方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1991092",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1991092",
+   "question": "尊敬的领导您好，在水利工程招标阶段，平行检测费是否含在监理投标报价中，还是在合同外单独计算",
+   "cited_hits": [],
+   "cited_missing": [
+    "水利工程施工监理合同示范文本"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1987018",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1987018",
+   "question": "关于山西省水利厅印发晋水规发（2023）2号文《水利工程建设项目勘察设计、监理、施工招标评标标准（试行）》文件在哪里能找到？具体内容是什么？",
+   "cited_hits": [],
+   "cited_missing": [
+    "水利工程建设项目勘察设计、监理、施工招标评标标准（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1982295",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1982295",
+   "question": "尊敬的山西省水利厅工作人员， 您好！我是一名研究生，目前因毕业论文研究需要，特向贵单位申请2008至2020年有效灌溉面积数据，如能提供帮助，不胜感激！本人承诺相关资料仅供本人学术研究使用，不进行二次传播！本人邮箱：1633258120@q",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省水利统计年鉴",
+    "山西省水利统计年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1971824",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1971824",
+   "question": "尊敬的领导： 您好，根据《河湖管理范围内建设项目黄河水利委员会审查权限 》，黄河流域其他省界河流边界河段，省界上、下游各10公里河段建设项目需在黄河水利委员会审查。 我想咨询一下，如果拟建项目跨河处位于黄河的一级支流（县管河沟），该项目跨河",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发河湖管理范围内建设项目各流域管理机构审查权限的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1970623",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1970623",
+   "question": "您好，因本人论文是关于山西省水资源税实施现状分析，但是在网站中查询不到想要的数据，希望可以得到帮助。 1、需要2022年水资源公报，但网站只公布到2021年的水资源公报。 2、现在山西省是水资源税改革试点，请问如何可以查询到之前水资源费的征",
+   "cited_hits": [],
+   "cited_missing": [
+    "水利部数据安全管理办法（试行）",
+    "水利数据分类分级指南（试行）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1379532",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1379532",
+   "question": "您好，麻烦问一下不在泉域范围内打井取水，办理取水证需不需要编制《水环境影响评价报告》？",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省泉域水资源保护条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1378694",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1378694",
+   "question": "厅长您好，我想问问《凿井资格证》如何办理，在哪办理？",
+   "cited_hits": [],
+   "cited_missing": [
+    "凿井资质证",
+    "山西省水利凿井单位资质定级认证实施细则",
+    "水利凿井单位资质证",
+    "行政许可清理意见汇总卷五",
+    "水利凿井单位资质证",
+    "水利凿井单位资质证",
+    "山西省水资源管理条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1377806",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1377806",
+   "question": "我在宁武注册了一个宁武县中天生态农业发展有限责任公司，其中有承建水利工程的经营项目，现在需办理资质证。",
+   "cited_hits": [],
+   "cited_missing": [
+    "建筑业企业资质管理规定",
+    "建筑业企业资质管理规定"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "sx-igi-70",
+   "id": "2548549",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2548549",
+   "question": "水利厅官网改版，以前水利专业中高级职称评审结果官网可以看到公示，也算是解决的水利职称未联网查询的一个办法。现在以前的结果公示都找不到了，请问水利专业职称现在能联网查询了么，2016年评审通过的水利职称在哪可以查询？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2533671",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2533671",
+   "question": "您好，我已向贵单位寄出政府信息公开申请表及申请人身份证复印件，咨询数据，不知道您这边是否收到？想问一下，大概多久能收到回信？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2526177",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2526177",
+   "question": "您好，我是东北林业大学农林经济管理专业研究生，因撰写学术论文的需要，想要咨询山西省各地市2011-2017年有效灌溉面积指标数据，在统计年鉴中我没有找到相关数据。如有相关数据可以发送至我的邮箱：2130483075@qq.com，我保证数据",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2506170",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2506170",
+   "question": "您好，我是一名学生，因课题研究内容需要，现请求贵单位公布山西省2001-2010年水资源公报数据，本人承诺仅作为研究数据使用，万分感谢！ 我的邮箱是1459949907@qq.com，不胜感激！目前电话咨询贵单位水资源处0351-46666",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2492270",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2492270",
+   "question": "您好，因论文数据需要山西省各地级市2013-2017年有效灌溉面积，特来咨询，望回复！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2483347",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2483347",
+   "question": "我是一名在校研究生，因论文需要山西省各地级市2013-2019年有效灌溉面积，特来咨询，望回复！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2469225",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2469225",
+   "question": "您好，想要知道2024山西水资源公报，想要知道水资源相关数据、供水量相关数据、用水量相关数据等。我是学生写论文需要这个数据。谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2393448",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2393448",
+   "question": "请问下水利厅领导：我是山西二建一名职工，我于2025年12月11日通过第二批水利安全员B证考试并已公布，请问相关水安证书多会发放呢，或者是在哪个网站下载呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2333414",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2333414",
+   "question": "尊敬的山西水利厅工作人员您好！因科研需要了解山西省水土保持开展情况，想下载2012-2017年的水土保持公报，但该网站上只有2020-2023年的。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2319101",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2319101",
+   "question": "近10年的山西省水资源公报在哪下载",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2313170",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2313170",
+   "question": "需2022年度对防汛抗旱先进个人表彰的文件",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2301961",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2301961",
+   "question": "您好，我最近想放生一些鱼类，想了解一下咱们这里规定里是怎么要求放生方式以及禁止放生的鱼类的，哪些河流允许放生，哪些河流不允许放生，感谢👍",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2283728",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2283728",
+   "question": "二级造价师要求每年继续教育，我省没有发布相关通知与学习网站，在哪个平台学习，才能不影响后期变更和延续注册？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2256879",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2256879",
+   "question": "山西省水利厅： 您好，关于晋水规发【2023】2号文件，水利工程建设大中型项目施工招标评分标准（四）投标人的业绩和资信中第4条： 4.优良工程及获奖(3分) 评标标准:所施工的水利工程项目近5年:获得国家级和省部级优质工程奖(如鲁班奖、大禹",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2252071",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2252071",
+   "question": "评山西水利局高工需要满足哪些条件，有具体的期刊要求吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2232465",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2232465",
+   "question": "山西省水利厅水土保持局汇编出版的，“四荒”治理开发相关法律政策汇编从哪里可以买到此书。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2216396",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2216396",
+   "question": "领导您好，我是河南大学在读研究生，现在做关于黄河流域生态补偿研究，在官网没有找到2023年山西省水资源公报，还望领导告知从哪里获取，或者能否将数据发送至我的邮箱1*********7@163.com。感谢领导",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2215841",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2215841",
+   "question": "村镇供水工程及单村供水工程：流量小于5m³/s，按照工程性质应划分为引水工程（供水工程），还是河道工程（灌溉工程2型）。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2207490",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2207490",
+   "question": "根据《国家税务总局 财政部 水利部关于水资源税有关征管问题的公告》的规定：请问：2024年度山西省工业用水前一年度用水效率达到国家用水定额先进值的纳税人名单是否公布？如何查询？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2174669",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2174669",
+   "question": "您好，山西省水利厅在官网发布过《山西省水利工程维修养护定额标准（试行）》晋水运管〔2023〕311号吗，在哪里可以看到？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2148837",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2148837",
+   "question": "你好，我有一个二级水利专业建造师证，听说二建可以注册为水利监理工程师，我想问有这个政策吗?有的话怎么操作？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2145864",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2145864",
+   "question": "您好，我们公司的一个风电项目在水保方案批复后，进行了规模调整。规模调整后与原批复的水土保持方案相比，实际减少了2个风机机位。请问我们的这个项目要不要进行水保方案变更手续？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2134310",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2134310",
+   "question": "您好，我是山西大学历史文化学院旅游管理专业的研究生曹蔚旋，现因我导师太行山地图制作课题项目需要，希望您能提供一份有关山西省省级水利风景区的完整名录，只用于地图制作，非常感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2133197",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2133197",
+   "question": "请教，水利基建项目有那些？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2130460",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2130460",
+   "question": "想要2010年到2022年水资源公报，用于论文分析",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2124405",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2124405",
+   "question": "您好，我是山西大学研究生张晖梅，因为科研需要，想申请看一下首批山西省省级水利风景区名单，如果方便的话，还请您发送至我的邮箱，只是科研需要，不外传。万分感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2124049",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2124049",
+   "question": "您好，本人是海南大学在读研究生，因课程需要2018年-2023年山西省水土保持公报数据，查询后未在山西省水利厅主页找到2018及2019年山西省水土保持公报，若贵单位能提供数据，请发送至邮箱3489628886@qq.com，不胜感激！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2119437",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2119437",
+   "question": "2024年7月份考完的三类人员证书什么时候发放？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2092714",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2092714",
+   "question": "您好，我是一名博士生，由于科研需求，需要汾河水文站的水情日报（如水位、流量数据）。此前在黄河水文网可以查询到汾河河津站的水清日报，但现在已找不到信息，希望能够提供一下数据或者查询途径，不胜感激。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2091172",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2091172",
+   "question": "您好，我是一名在校研究生，出于科研的需求，现需要山西省太原市、阳泉市、晋中市、忻州市、吕梁市2007-2023年水资源公报相关数据，能否麻烦贵厅提供下，恳请将数据发送至我的邮箱：jhm202303@163.com。数据仅作论文撰写，不胜感激",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2090810",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2090810",
+   "question": "尊敬的水利局工作人员，您好，我因科研项目评估黄河流域水资源情况需要使用太原市水资源公报中的相关水资源数据，故向您申请太原市2007-2023（或2022）年水资源公报，望批复！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2089398",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2089398",
+   "question": "您好，本人是一名在读本科生，因科研需要，请求获取山西省所有区（县）2020年和2023年度的水资源公报或水资源总量、地表水量、地下水量、水库总蓄水量四项数据资料，贵单位如有此类数据，请发至邮箱，不胜感激！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2085586",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2085586",
+   "question": "请问哪里能下载到山西省小型U型渠道防渗工程标准图集呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2084694",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2084694",
+   "question": "水利工程设计、施工中，如无国家标准（GB类）、水利行业标准（SL或SL/T类）时，是否可以参照或执行其他行业标准？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2076640",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2076640",
+   "question": "山西省水利厅： 您好。 我们是上海闵行区青悦环保信息技术服务中心（在上海市闵行区民政局正式注册成立的民办非企业单位，以下简称“上海青悦”），是长期环境信息公开的环保组织。 近年来，气候变化影响日渐加剧，全国受水患影响不断严重。水文和雨情相关",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2074812",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2074812",
+   "question": "您好，我这边需要查阅2021年至2023年咱们龙门断面之后汇入黄河的河流流量，但是在网站上未查找到有关信息，方便进行文字说明或者提供可以查阅信息的网站吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2067303",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2067303",
+   "question": "您好，我是山西水利职业技术学院（运城校区）的一名应届毕业生，在网上查到我们学校属于贵厅管理，因为工作需要我需要拿到毕业证，学信网学生已经到期，而且周边别的学校已经发放毕业证，所以有点着急。另外我想匿名咨询，不想给学校带来麻烦，只是在网上查到",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2063524",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2063524",
+   "question": "运城市水利项目是否需要办理工程规划许可证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2060423",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2060423",
+   "question": "山西省水利厅相关领导：5月30日发送的关于邀请贵厅作为2024 中国（山西）水务科技展览会 暨水处理技术装备与泵管阀展览会的指导单位，贵厅给与回复发送邀请函传真至0351-2028223，由于网络近几年发展迅速，我方不便于发送，可否通过其他",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2053486",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2053486",
+   "question": "山西省水利厅： 水是生命之源、生产之要、生态之基，既不可或缺又无以替代。人类由水而生、依水而居、因水而兴。水资源可持续利用不仅是经济社会可持续发展的根本前提，也是生态文明建设的先决条件。 为贯彻落实《中共中央关于制定国民经济和社会发展第十四",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2049927",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2049927",
+   "question": "尊敬的山西省水利厅工作人员， 您好！我是山西财经大学的一名研究生，目前因论文研究需要，特向贵单位申请2016至2022年度部门预决算公开数据，如能提供帮助，不胜感激！本人承诺相关资料仅供本人学术研究使用，不进行二次传播！本人邮箱：10451",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2046828",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2046828",
+   "question": "您好，我是山西工程技术学院在读学生，因毕设课题需要2018年山西省的地表水总面积数据，希望贵司可以发到我的邮箱2973957903@qq.com，不胜感激。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2044285",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2044285",
+   "question": "本人于2018年通过助理工程师审核，2019年取证后证件丢失，如何补办。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2040351",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2040351",
+   "question": "您好，想咨询一下能否提供2001-2010年山西省水资源公报，主要用于基础研究。网站上只有2011年及以后的，其他地方也找不到。如果可以的话，能否发送到邮箱，非常感谢！！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2040250",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2040250",
+   "question": "您好，我是一名山西师范大学在读研究生，因论文写作需要，想咨询一下各地级市2010、2015、2022年水土流失面积及治理面积、节水灌溉面积（有效灌溉面积），经查找统计年鉴与统计公报并未找到，如有数据或相关数据可发于邮箱（chejinrong",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2037977",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2037977",
+   "question": "尊敬的山西省水利厅领导： 您好！我是在读的大学本科生，因撰写论文研究需要2022年山西省污水处理回用量的相关数据，请问2022年水资源公报何时公布？该数据该如何获取？本人承诺数据只用于论文写作，会保护好数据，绝不外传。非常感谢！期待您的回复",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2034555",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2034555",
+   "question": "您好，我是中国地质大学的一名在校研究生，出于科研的需求，现需要山西省各地级市的2009年以来的历年水土流失面积数据以及每年新增水土流失治理面积数据，能否麻烦贵厅提供下，恳请将数据发送至我的邮箱：1023521456@qq.com。数据仅作论",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2030004",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2030004",
+   "question": "尊敬的领导： 您好。根据《河湖管理范围内建设项目黄河水利委员会审查权限 》，黄河流域其他省界河流边界河段，省界上、下游各10公里河段建设项目需在黄河水利委员会审查。 我想咨询一下，如果拟建项目在省内河省外跨了同一条河流（市管河道），都属于黄",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2029313",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2029313",
+   "question": "尊敬的领导，您好！我是青海大学的一名研究生，现因撰写论文需要山西省各地级市水土数据，但水利厅仅发布了2020-2022年山西省水土保持公报，故而想申请2010-2019年山西省水土保持公报或者山西省各地级市水土流失治理面积数据。本人承诺此数",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2027539",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2027539",
+   "question": "国家蓄滞洪区修订名录于2010年1月7日正式公布，修订后的国家蓄滞洪区名录共有蓄滞洪区98处，但其中没有涉及山西的。但是后续也没有更新这个名单，请问目前山西省内还有有无蓄滞洪区，有的话具体有哪些？多谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2024464",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2024464",
+   "question": "水利厅的二级造价师今年五月份还考试吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2023828",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2023828",
+   "question": "您好，我是太原理工大学的一名硕士研究生，由于科研需要，想查询到我省每个市的堤防长度数据、大中型水库库容数据、河网密度数据，如能发送给我，不胜感激。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2023194",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2023194",
+   "question": "您好，我是河海大学一名在读研究生，因论文需要，特向贵单位咨询2000-2010年水资源公报。如果方便的话，请将资料发到tianqing106@163.com，本人承诺数据仅做论文研究使用，非常感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2022556",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2022556",
+   "question": "山西省水利厅 山西省财政厅下发的 晋水运管（2023）311号文件中颁发的山西省水利工程维修养护定额标准（试行）有没有书可以购买？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2022181",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2022181",
+   "question": "您好，因科研需要想要咨询一下贵省2020-2021年以及2005-2010年期间的城镇公共用水量，即建筑业与服务业用水量之和，谢谢！期待您的回复！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2021676",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2021676",
+   "question": "尊敬的领导，您好！我是太原师范学院地理科学学院的一名在读学生，现因撰写论文需要山西省各地级市水土数据，但水利厅仅发布了2020-2022年山西省水土保持公报，故而想申请2012-2022年山西省水土保持公报或者山西省各地级市水土流失治理面积",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2021038",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2021038",
+   "question": "关于山西省水库、泵站、管涵、渡槽等水利工程管理范围及保护范围的划定的相关文件； 在咱们水利厅官网查找了半天没有找到具体的法律法规和相关依据，麻烦帮我推送一个链接或者文件名称，方便我从网上可以找到。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2009881",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2009881",
+   "question": "我是一名大学教师，因研究需要，向贵单位申请山西省内蓄滞洪区、洪泛区、防洪保护区、防洪工程（包括水库工程、河道堤防工程）的相关信息。具体需要以下两个信息。 1.蓄滞洪区、洪泛区、防洪保护区、防洪工程所在的区县名称。 2.时间：首次被划为滞洪区",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2007838",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2007838",
+   "question": "山西水利大讲堂的举办可以为水利工作者增加水利知识，了解水利前沿动态。可不可以增加腾讯会议或钉钉等app听课通道，让我们基层水利人也能学习学习。建议先建个水利大讲堂微信群，有兴趣学习的同志进群，群里可以提前通知大家，讲课时间，地点（腾讯会议号",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2007261",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2007261",
+   "question": "您好，请问咱们得水土保持规划哪里能够下载？属不属于咱们的公开范围。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2006405",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2006405",
+   "question": "您好，出于水土保持方案编制需要，请求获取《山西省水土保持规划（2016-2030年）》、山西省水土流失防治区划分等资料，请发至邮箱，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2006300",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2006300",
+   "question": "尊敬的领导，您好！我是山西师范大学地理科学学院一名在读研究生，现撰写论文需要山西省各地级市水土数据，但水利厅仅发布了2020—2022年水土保持公报，故而想申请2009年-2021年山西省水土保持公报或山西省各地级市水土流失治理面积数据，本",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "2000082",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2000082",
+   "question": "我的水利电力高级工程师证件被他人借用山西单位，怎么查询单位是否撤销，如果没撤销怎么操作才能撤销，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1988855",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1988855",
+   "question": "尊敬的水利局领导： &nbsp; &nbsp; &nbsp;您好！我是一名郑州大学在校研究生，因科研需要搜集山西省2022年水资源公报，官网上只更新到2021年，请问2022年水资源公报是否更新？有的话请求您发送到邮箱2841399168@",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1986472",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1986472",
+   "question": "因工作需要，我公司运营项目需申请国家水利风景区，请告知申请方式及申请途径，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1986322",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1986322",
+   "question": "您好，我是山东科技大学的一名在读研究生，因科研工作需要，希望获取2000-2011年山西省的水资源公报数据，可以的话麻烦将数据发到我邮箱3264436843@qq.com，非常感谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1986133",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1986133",
+   "question": "请问山西省建设项目做水资源论证报告书或报告表的依据是什么呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1984832",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1984832",
+   "question": "请问厅长 山西省大同市水土保持项目 （1）招标控制价 人工费 有调整文件吗 ？（2）水土保持项目人工费 能够采用水利项目人工费 调整吗？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1979075",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1979075",
+   "question": "尊敬的领导，打扰到您！本人为高校研究生，现开展学术研究撰写论文需要到贵省地级市有关水土数据，但苦于贵厅仅发布了2020年和2021年山西省水土保持公报，故而想申请2014年-2019年山西省水土保持公报或者2014年-2019年山西省各地级",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1973817",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1973817",
+   "question": "您好，在咱们水利厅网站看到8月22日的“安全生产考核延续合格通知”（网址附后），在合格名单有查询到我的名字，但在山西政务网“我的证照”里面，没有看到相关电子证件更新，现在已经快过完10月了，想咨询下是什么原因呢？ http://slt.sh",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1958670",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1958670",
+   "question": "您好： 对于文件中公益性项目免征水土补偿费，在我们的认知下，公园也属于水土保持的公益性项目，是否也在免征水土补偿费的序列呢？是全额免征呢？还是部分免征呢？免征的部分有哪些呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1953699",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1953699",
+   "question": "在哪里可以查看水利施工企业项目负责人、安全管理人员考核证书",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1903193",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1903193",
+   "question": "水利安全员在那里报名考试",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1891526",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1891526",
+   "question": "你好，请问山西省水文水资源勘测总站辖内的运城市城市水文站的地址在哪？网上搜不到，看到回复一下，真诚感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1379855",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1379855",
+   "question": "因本人论文写作需要山西省2000-2010年水资源公报，在山西省水利厅官网只找到了2011-2019年的数据，望贵网站提供相关年份的查询途径和有效查询方式，非常感谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1379835",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1379835",
+   "question": "您好！我是一名河海大学的研究生，因科研需要，并且已下载贵单位发布的水资源公报，但由于数据展示不全，因此我想向贵单位咨询一下山西省及其地级市的1、农田灌溉用水量(耕地灌溉、林地灌溉、园地灌溉、牧草地灌溉) 2、林木渔畜用水量（渔塘补水、畜禽用",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1379819",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1379819",
+   "question": "本人是华南师范大学本科生，现因课程作业需要2000-2010年山西省水资源公报，这些公报在贵局官网上没有显示，希望能发至本人邮箱或予以公示，谢谢支持，不胜感激！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1379793",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1379793",
+   "question": "尊敬的领导：您好！我是中科院的一名博士生，因课题需要，需2000/2005/2010/2019年山西水资源公报中的“各行政区用水量”数据。但网站上没有找到这几年的数据，特申请获得各行政区用水量数据，烦请发送到我的邮箱m1*********7",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1379785",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1379785",
+   "question": "请恕打扰，我是四川农业大学一名研究生，请问贵单位方便提供一下2000-2010年的水资源公报吗？仅用于学术研究，若能提供万分感谢！！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1379769",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1379769",
+   "question": "关于修订《山西省泉域水资源保护条例》和出台实施细则的建议 一、修订相关条款的原因《山西省泉域水资源保护条例》（山西省第八届人民代表大会常务委员会第三十次会议于1997年9月28日通过，自1998年1月1日起施行。2010年11月26日，山西",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1378618",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1378618",
+   "question": "寻求山西省的从1998年到2018年的水资源公报，仅用于学术研究，希望得到您的帮助。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1379725",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1379725",
+   "question": "请问水资源论证表需要专家评审吗，具体有什么规定？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1379685",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1379685",
+   "question": "2020年监理工程师水利工程专业何时开始审核，有计划开始审核时间吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1379665",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1379665",
+   "question": "您好！网站上水资源公报仅公开了2011年之后的，请问能否提供2000-2010年的水资源公报？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1379653",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1379653",
+   "question": "您好！我是中科院的研究生，因研究需要山西省偏关、义棠、兰村、润城、侯壁、界河铺、东榆林和固定桥水文站点2000-2018年的月径流数据。请问此数据可以通过依申请公开获取吗？如果可以，请问《公开申请表》可以通过邮件发送吗？如果可以，请问应该发",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1379631",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1379631",
+   "question": "本人因论文需要2000年-2010年水资源公报，望贵单位提供相关资料，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1379604",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1379604",
+   "question": "因学术需要，希望得到贵省2000~2010年的水资源公报，或者是希望得到贵省2000~2010年各年的：全省总耗水量、总耗水率和全省水资源总量。感谢您的支持",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1379590",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1379590",
+   "question": "您好！因为学术研究需要，望公开山西省2009年和2010年的水资源公报，或者是提供2009年、2010年山西省全年期监测评价的河流长度（km）以及I, II, III, IV, V, 劣V类水质的河长（km）数据。目前网站仅提供到2011年",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1379579",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1379579",
+   "question": "因工作需要，烦请贵厅提供取水许可、泉域水环境影响、生产建设项目水土保持方案法定审批最短期限。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1378569",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1378569",
+   "question": "现咨询山西中部引黄工程汾阳北楡苑蓄水库建设具体位置和工程规划情况及线路走向，具体大概开工时间是什么时候，虢义河三泉村段两岸是否会拆迁农民房屋，具体怎么规划河道。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1379561",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1379561",
+   "question": "长治市黎城县目前有一个光伏发电项目110kv送出工程项目水土保持方案需要自主验收，总占地3.67hm2，其中永久占地1.46hm2，临时占地2.21hm2。土方量1.12万m3，挖方量0.56万m3，填方量0.56万m3。想咨询一下流程和专",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1378497",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1378497",
+   "question": "尊敬的领导您好！ 很抱歉打扰到您，我是一名应届本科毕业生，由于论文写作数据需求，希望获得水资源公报数据资料，这对于我本人以及关系到毕业都十分重要，希望得以数据支持，在这里万分感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1379427",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1379427",
+   "question": "因论文需要山西省忻州市滹沱河南庄段水文数据。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1378447",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1378447",
+   "question": "讨薪申请我叫孙寿强 男 河北省青县孙楼村3组9号 身份证号1*********12111210，原山西省中部引黄工程施工25标 交通洞施工队工人，现住址 河北省青县康泰小区 电话1*********8；汪杰 男 湖北省黄石市西塞山区临江街黄",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1378436",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1378436",
+   "question": "我爷爷在屋顶安装了导流装置，将屋顶的雨水收集到蓄水池中，用作院子里小菜园的日常灌溉，我想了解一下咱们山西省是否有这方面的补贴政策？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1378285",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1378285",
+   "question": "柏叶口水库观景台下方库区经常有人游泳、捕捞，虽有标语警示，但效果不佳，希望加强工作人员巡视或常驻，特别是在夏季。作为供水水源，水质安全关系重大，望引起重视",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1378279",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1378279",
+   "question": "你好，我想请问一下汾河灌溉管理局会不会被取消事业编制，它现在能参加公务员联考吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1378266",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1378266",
+   "question": "因课题要，探索中国水资源承载力相关问题，需要贵省2001年至2018年的水资源公报，网上查阅到部分年份，希望能获得全面的数据。如有打扰请谅解，非常感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1378260",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1378260",
+   "question": "关于加快推进河湖岸线管理利用规划的建议 为深入贯彻落实中共中央办公厅、国务院办公厅《关于全面推行河长制的意见》《关于在湖泊实施湖长制的指导意见》，加强河长制湖长制工作的基础支撑，加快制定并公布河湖岸线管理利用规划，划定河湖水域岸线管理保护范",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1378234",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1378234",
+   "question": "厅长您好： 想请您在百忙之中协调一下，壶关县晋庄镇洪掌村百姓长期吃窖水的问题！就吃水问题我先后给市县反映过，至今未解决！期待您能解决！！！希望您能让我们村早日吃上干净卫生的自来水！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1378228",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1378228",
+   "question": "您好： 我是一名在读博士生，因课题需要，现求2015年贵省水资源公报，麻烦您发送至我的邮箱：zkksj@163.com。期待您的回复，非常感谢！ 翟坤 20190620",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1378174",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1378174",
+   "question": "尊敬的厅长您好，我们是从上世纪70年代开始，为响应毛主席水利是农业命脉的指示，在水利建设工程中，经过层层挑选，将有文化，素质高能吃苦耐劳有组织能力的成员，经培训合格后被招收为亦工亦农水利管理员，我们多次参加县水利局组织的重大水利工程建设，并",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1378166",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1378166",
+   "question": "您好，因论文写作需要，需要2011-2017年山西省水资源公报，近日网站一直无法查询到相关信息，需要贵单位提供从2009年到2017年山西省水资源公报数据。叨扰了您的工作，不胜感激，请求给予回复。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1379148",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1379148",
+   "question": "政务公开里的文件，怎么下载电子版的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1378149",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1378149",
+   "question": "厅长，您好。我是河南大学环境与规划学院一名研究生，最近在着手写关于中国城市群资源投入产出效率时空分异及耦合机制研究这样一篇论文，需要贵单位提供从2006年到2017年山西省水资源公报数据。叨扰了您的工作，不胜感激",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1378143",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1378143",
+   "question": "您好，因论文写作需要，请求2011-2017年太原市水资源公报，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1379142",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1379142",
+   "question": "您好，因论文写作需要，需要2011-2017年山西省水资源公报，近日网站一直无法查询到相关信息，请求给予回复",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1379124",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1379124",
+   "question": "因工作需要，烦请贵厅提供山西省2018年用水量/供水量数据，非常感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1379108",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1379108",
+   "question": "如题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1379102",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1379102",
+   "question": "请问山西省水利厅所属事业单位的资格复审公告和资格复审名单多会公示？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1379096",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1379096",
+   "question": "您好，我想请问一下省直事业单位考试公告上在职人员资格审查时需要单位的同意，在私企上班需要么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1379090",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1379090",
+   "question": "您好，由于研究需要，需要2017年及2018年山西省水资源公报，如能提供，不胜感激",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1379084",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1379084",
+   "question": "本人因课题需要山西省2007-2012年山西省水资源公报，望贵局予以支持，尽快回复，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1379078",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1379078",
+   "question": "您好，我是山西财经大学的一名在读研究生，因课题研究需要，向贵单位申请2017-2018年的水资源公报，万望回复。祝好！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1379068",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1379068",
+   "question": "关于山西省省直事业单位招聘，部分单位公布了笔试排名和分数，建议贵单位也能予以公布，以便考生能通过分差策略性有效复习与作答，同时公布分数也体现公平公正的原则，消除考生的一些顾虑。谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1379062",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1379062",
+   "question": "2018年全省事业单位招聘考试，成绩已于1月份公布，想咨询水利厅面试资格复核及面试工作是如何安排的？看到很多单位已经公布了资格复核和面试工作通知，所以对此项工作很是关注，希望能够得到回复。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1379046",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1379046",
+   "question": "您好！ 我是2018年应届硕士毕业生，目前在一家私企工作，社保已上，档案转回了户籍地。报考时考生身份填写应届毕业生还是在职？谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1379038",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1379038",
+   "question": "您好，请问2018山西省水利厅山西水利发展研究中心招聘新闻学人员，19届毕业生可以报考吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1379012",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1379012",
+   "question": "您好，我是山西大学一名研究生，因论文需要，需要下载2000年和2008年山西省各市的水资源公报，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1378984",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1378984",
+   "question": "我是北京师范大学本科生，因课题需要，希望能获取贵省2004~2016年的水资源公报",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1378059",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1378059",
+   "question": "水利厅领导你好，去年新闻媒体大量报道了汾河新二坝建设的消息，并且已经开始招标，可是今年2018年却没有相关的消息了，是项目下马了，还是别的什么原因，请问 ，汾河新二坝什么时候开工 ？？请告知",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1378045",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1378045",
+   "question": "您好，我想请问城市防洪管理职业协调的问题，能否具体说明一下水利部门和城建部门的管理职责划分，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1378952",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1378952",
+   "question": "《山西省水利厅办公室关于印发&lt;水利水电工程施工企业主要负责人、项目负责人和专职安全生产管理员安全生产考核管理办法&gt;的通知》（晋水办安全〔X〕x号） 请问一下现在想申报水利安考证，前面印发的这个文件是多少号？？？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1378944",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1378944",
+   "question": "尊敬的省水利厅：我想咨询哪些建设项目需要做泉域水环境影响评价报告。因为在网上找到《建设项目环境影响评价分类管理名录》不知道是否适用水环境影响，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1378938",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1378938",
+   "question": "您好，我是首都师范大学的硕士研究生，目前在做永定河流域水资源变化的研究，需要用到1991-2008年天镇、固定桥、西朱庄、贾庄、广灵、孤山、观音堂、南土岭、东榆林、罗庄、镇子梁水库、新桥、册田水库等水文站点，实测的月平均流量、年径流量、月降",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1378930",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1378930",
+   "question": "尊敬的水利厅领导：因实施项目涉及辛安泉域重点保护区，我们严格按照法律规定实施，但在辛安泉域重点保护区范围上不太确定：主要原因是经咨询水利部门，告知泉域重点保护区范围包括1.泉水集中出露带：以浊漳河为轴线，北起黎城县南赵店桥，顺浊漳河谷向下游",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1378924",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1378924",
+   "question": "您好： 我现在想申请水资源论证资格证书的延续，在报告书一栏中，需要填写公司主持编制并通过审查的水资源论证报告书的审批文号，我想问一下，这个水资源论证报告书的审批文号怎么查呢，譬如说：山西燃气产业集团有限公司原平煤层气液化项目水资源论证。 谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1378918",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1378918",
+   "question": "你好 我想咨询一下水利工程中三类人员在那里报考？都需要准备那些文件",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1378898",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1378898",
+   "question": "尊敬的山西省水利厅工作人员： 您好！ 我是河海大学的一名研究生，因论文写作需要想查询一下2005年—2015年山西省水资源公报。衷心感谢您的阅读，盼望能够尽快收到您的回复。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1378880",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1378880",
+   "question": "水利厅通过评审的水利水电工程施工工程师证在哪能查出来？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1378872",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1378872",
+   "question": "您好，请问本次事业单位面试的时间是哪会？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1378866",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1378866",
+   "question": "尊敬的山西省水利厅工作人员：您好！我是北京大学环境学院的一名研究生，正在做海河流域水资源相关项目，需要贵省2014-2016年的水资源公报。衷心希望得到贵单位的帮助，将水资源公报发送至我的邮箱，期待您的回复，非常感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1378860",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1378860",
+   "question": "我公司为火电厂，使用的水向自来水公司购买。按照《水资源费征收使用管理办法》规定，直接从江河湖海取水、地下水取水的单位需要缴纳水资源费。我公司的情况是否不需要缴纳水资源费？如果不需要，以前缴纳的是否可以退还？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1378848",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1378848",
+   "question": "您好！我是山西财经大学的一名研究生，因论文写作需要，想查询一下关于山西省2010-2016年水资源公报以及山西省2010-2015年水资源的数据。感谢您的阅读，希望尽快得到回复！谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1378021",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1378021",
+   "question": "尊敬的山西省水利厅工作人员：您好！我是西北农林科技大学水利与建筑工程学院的一名研究生，正在做黄河流域水资源相关项目，需要贵省2015年的水资源公报。衷心希望得到贵单位的帮助，将为2015年水资源公报发送至我的邮箱，期待您的回复，非常感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1378842",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1378842",
+   "question": "包括：田间工程配套率",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1378836",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1378836",
+   "question": "关于山阴县古城镇小圪塔村桑干河何时治理，谢谢，希望您在百忙之中给予答复。上次已经问过同类问题，但网页里的问题无法打开，不得不再次提问",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1378824",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1378824",
+   "question": "山西水利厅工作人员：你们好！我是首都师范大学的硕士研究生王明丽，目前在研究永定河流域地表水资源的变化，需要永定河流域内水文站点实测的降雨量（月降雨量和年降雨量数据）、径流量（年径流量和月径流量）数据作为基础数据及对应水文站的经纬度。不知贵单",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1378007",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1378007",
+   "question": "怎么2017年的企业信用信息公开到第三批就没动静了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1378818",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1378818",
+   "question": "您好： 找不到山西省的水资源公报。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1378812",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1378812",
+   "question": "您好： 上次我报考贵单位的山西省水产育种养殖科学实验中心，由于人数太少，岗位被取消，请问这个岗位还需要人吗？需要临时工吗？下次招聘大概在什么时候？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1378806",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1378806",
+   "question": "我是这次报考水利厅所属部分事业单位公开招聘的一名考生，由于疏忽忘记下载打印该次招聘的报名表，请问还有别的方式可以下载吗？或者可以完全等到资格复审时再下载打印。谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1378796",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1378796",
+   "question": "尊敬的水利厅领导： 您好，我是2018届应届硕士毕业生，山西太原人，目前就读于中国农业大学水利工程系，本科在太原理工农业水利工程专业。马上面临毕业找工作的问题，由于本人一直憧憬着山西省水利厅，近年来也一直关注着就业动向。但是我发现去年并没有",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1377954",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1377954",
+   "question": "我是运城市新绛县泽掌镇吴岭庄村的 1.请问农村村民用水供应是隔几天放一次水还是应该天天放水？ 2.请问村民用水是不是每年都有固定的财政支出来保障村民用水？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1377948",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1377948",
+   "question": "尊敬的山西省水利厅工作人员：您好！我是湖北省社会科学院的一名研究生，正在写一篇关于绿色发展的论文，需要比较中部六省水功能区水质达标率，需要贵省2015年的水资源公报。衷心希望得到贵单位的帮助，将为2015年水资源公报发送至我的邮箱，期待您的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1378782",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1378782",
+   "question": "省外水利企业如何在山西平台办理准入备案",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1378774",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1378774",
+   "question": "怎样办理水利建造师的安全生产考核合格b证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1378768",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1378768",
+   "question": "你好，业务法规咨询，县级河道整治工程或其它水利工程开工前需要办理“工程开工报告和工程施工许可证”吗，可以给出相关法律法规依据名称吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1377936",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1377936",
+   "question": "今年六月上旬在山西水工大厦进行了水利水电施工企业三类人员培训，请问考试成绩何时公布？在哪查询！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1378762",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1378762",
+   "question": "你好，外省甲级检测资质要在我省备案需要什么材料，及报备流程。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1377850",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1377850",
+   "question": "山西省境内的黄河黄沙化，断流严重，黄河两岸泥土松动，没有苍天大树，黄河里没有鱼儿，我建议山西省水利厅要大力保护黄河，要在黄河两岸大力植树，加固两岸河堤，让黄河水更请。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1377838",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1377838",
+   "question": "你好，我想问一下村旁边的河道能不能承包养鱼，如果能，应该跟哪个部门签承包合同，水利局还是村委会？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1378731",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1378731",
+   "question": "我2016年参加水利厅事业单位的考试，经过三轮考试，成绩合格，进入了体检环节。但是因为怀孕的原因，有一项体检未能如期进行。这是否会影响录用？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1378725",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1378725",
+   "question": "出于科研信息收集的目的，请问山西蓄水一亿立方米以上的大型水库有几座？分别是哪几座？ 企盼回复！ 谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1377832",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1377832",
+   "question": "尊敬的山西省水利厅工作人员，您好， 请问哪里可以找到2015年山西省水资源公报呢 谢谢 祝好 王姣",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1377818",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1377818",
+   "question": "您好，潘厅长，我是省内一家第三方检测机构的员工，想咨询一下水利方面监测的事情，现在省内水质监测有无对第三方检测机构开放？是否有什么限制条件？如果第三方检测机构想要承接水质监测方面的业务该找哪个部门对接，走什么样的程序？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1378700",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1378700",
+   "question": "单位兴建一座加气站，请问水利局方面要求水土保持方案的标准是多大的项目，做一个方案的时间和费用需要多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-70",
+   "id": "1377812",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1377812",
+   "question": "尊敬的潘厅长你好 我是芮城县风陵渡东章村人 叫张作平 上次向你反映的我两个孩子移民遗漏问题 至现在已有七个多月了 还没得到解决 我们芮城县三管局给省里一个姓李的领导汇报说我们的问题已解决 实质上根本就没有解决 这不是欺上瞒下吗 请您在百忙之",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

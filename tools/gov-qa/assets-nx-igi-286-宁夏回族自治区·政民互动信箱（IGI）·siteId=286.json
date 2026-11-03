@@ -1,0 +1,534 @@
+{
+ "A_考卷": [
+  {
+   "source": "nx-igi-286",
+   "id": "10154871",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10154871",
+   "question": "尊贵的司法厅： 您好，我是宁夏一名基层政法公务员，对贵厅抱有无限的期望与憧憬，梦想着通过遴选成为贵厅的一名工作人员。但是由于我是政法体制改革的政法生，定向委培学习后只有本科学历，没有学士学位，虽然我现具有司法考试a证，并成为一名基层员额法官",
+   "cited_hits": [
+    {
+     "name": "公务员法",
+     "lib_no": "公务员法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "公务员公开遴选办法"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "nx-igi-286",
+   "id": "10148084",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10148084",
+   "question": "各位领导非常抱歉打扰您，我是2015年取得的非法学专业专科毕业证，户籍在灵武市还属于放宽地区，后在2019年入学，2022年取得的法学专业本科毕业证，属自学考试，此时灵武已不属于放宽地区，想询问一下我是否有报考2022年司法考试的资格",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家统一法律职业资格考试实施办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-286",
+   "id": "10146721",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10146721",
+   "question": "法律职业资格A证申领大概日期",
+   "cited_hits": [],
+   "cited_missing": [
+    " 2021年法律职业资格考试成绩合格人员领取法律职业资格证书须知 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-286",
+   "id": "10146187",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10146187",
+   "question": "尊敬的领导您好，我是2018年1月31日取得的非日制法学专科学历（国家开放大学），一直从事法律工作，户籍地为中宁县，能否参加法考",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家统一法律职业资格考试实施办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-286",
+   "id": "10145589",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10145589",
+   "question": "尊敬的厅领导：本人于2021年12月16日投诉举报宁夏六维物证司法鉴定中心严重违反司法鉴定程序，串通有意拖延、伪造司法鉴定意见书，伤害人民的合法权益一事，贵厅受理转办银川市司法局核实，银川市司法局于2022年1月15日出据答复，明显绕过法律",
+   "cited_hits": [],
+   "cited_missing": [
+    " 司法鉴定程序通则 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-286",
+   "id": "10144255",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10144255",
+   "question": "%E6%88%91%E7%9A%84%E6%88%B7%E5%8F%A3%E5%9C%A8%E9%93%B6%E5%B7%9D%E5%B8%82%E9%87%91%E5%87%A4%E5%8C%BA%EF%BC%8C%E4%B8%93%E7",
+   "cited_hits": [],
+   "cited_missing": [
+    "法律职业资格考试实施办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-286",
+   "id": "10143807",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10143807",
+   "question": "%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%9C%AC%E4%BA%BA%E5%9C%A82012%E5%B9%B4-2015%E5%B9%B4%E5%9C%A8%E5%86%85%E8%92%99%E5%8F%A4%E9",
+   "cited_hits": [],
+   "cited_missing": [
+    "律师执业管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-286",
+   "id": "10143696",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10143696",
+   "question": "你好！ 法考主观题成绩已经下来，根据司法部相关要求应试人员对主观题考试成绩有异议的，可自考试成绩公布之日起15日内，向报名地司法行政机关提出核查的书面申请。 &nbsp; 于此，本人想咨询如何进行书面申请的流程，因为网站上并无详细流程特求回",
+   "cited_hits": [],
+   "cited_missing": [
+    "主观题考试成绩核查、资格申请等事项看这里"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "nx-igi-286",
+   "id": "10155604",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10155604",
+   "question": "您好，我是宁夏大学22届日语毕业的，在校期间辅修了法学，请问我可以考司法考试吗，或者说放宽地区是否可以考A证呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-286",
+   "id": "10154229",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10154229",
+   "question": "2022年12月6日收到2条。1.短信【中卫仲裁委】安渊，仲裁调解一案，案号：（2022）卫仲调字第12-36005号，可登录查看https://zctj.zwzcwyh.com/aribitration/case/down/notices",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-286",
+   "id": "10154228",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10154228",
+   "question": "尊敬的领导您好： 本人2021年7月公安类公共安全管理专业专科毕业，2021年12月30日专升本拿到高等院校中国政法大学法律专业毕业证书，请问我是否能参加法律资格考试？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-286",
+   "id": "10154121",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10154121",
+   "question": "宁夏回族自治区宁安医院狼狈为奸沆瀣一气！宁安医院院长亲口说的：“只要给我钱！习近平我都敢关押！你王治安算个啥！随便弄死你！”我始终完完全全就是一正常人！正常教师！宁夏回族自治区宁安医院！暴利！利润大大的！故意把正常人当成精神病！与中宁县信访",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-286",
+   "id": "10153890",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10153890",
+   "question": "通贵家园A区为拆迁安置房，16年10月分房入住，17年开始漏雨，22年3月8日本人将兴庆区政府、兴庆区住建局、通贵乡政府起诉至兴庆区法院，至今12月1日己八个月，法院既不立案，也不出具不予立案通知书，法院违反“民事诉讼法”，知法犯法，不依法",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-286",
+   "id": "10153387",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10153387",
+   "question": "本人户籍地在灵武市，2008年通过司法考试取得C证，现在想申请公职律师，请问法律职业资格C证是否可以申请做公职律师？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-286",
+   "id": "10153365",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10153365",
+   "question": "您好，我是2014年专科毕业，2018年后自考远程教育法学类本科，我想咨询一下我是否符合法律职业资格证书的报了条件，考试通过后能否领证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-286",
+   "id": "10153310",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10153310",
+   "question": "请问，2018年以前取得的法律专业专科毕业证，可否报名2023年法考？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-286",
+   "id": "10153255",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10153255",
+   "question": "宁夏新中元律师事务所姜满元律师是举报人委托的法律顾问和委托代理律师，严重违反律师法、律师执业纪律和执业道德规范，在代理举报人的一起民间借贷案件中，涉嫌存在接受对方当事人巨额贿赂，与其恶意串通，严重损害作为委托人的合法权益，给作为委托人造成近",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-286",
+   "id": "10153254",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10153254",
+   "question": "宁夏新中元律师事务所姜满元律师是举报人委托的法律顾问和委托代理律师，严重违反律师法、律师执业纪律和执业道德规范，在代理举报人的一起民间借贷案件中，涉嫌存在接受对方当事人巨额贿赂，与其恶意串通，严重损害作为委托人的合法权益，给作为委托人造成近",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-286",
+   "id": "10153226",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10153226",
+   "question": "尊敬的领导：您好，我叫束礼靖，身份证号码：340881198609130013，性别：男，联系电话：18096629773。本人因买卖宝塔集团财务公司银行承兑汇票于2022年8月22日被银川市中级人民法院判罚：犯非法经营罪，判处有期徒刑二年",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-286",
+   "id": "10153192",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10153192",
+   "question": "1近日收到中卫市仲裁委短信，受桔多多网贷委托对本人进行催收 2因疫情桔多多网贷逾期，协商期间桔多多骚扰威胁本人及亲友等违法行为本人已向银保监会、人行、当地政府及国务院总理信箱进行投诉 3中卫市仲裁委先后向本人发送短信，自称自己是政府组建拥有",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-286",
+   "id": "10151974",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10151974",
+   "question": "尊敬的领导，我是宁夏巨梦律所的名誉合伙人，2022年5月27日我所登报注销了律师事务所并再7月中旬时完成了审计，但至今律所不向司法行政机关提交注销手续，导致我近五个月无法代理案件、执业。我的生活为此也受到严重影响。依据《律师事务所事务所管理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-286",
+   "id": "10151774",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10151774",
+   "question": "2022年取得法律职业资格证书，是否可以申请成为公司律师",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-286",
+   "id": "10151593",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10151593",
+   "question": "2022年国家法律资格考试，主观题是否延期？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-286",
+   "id": "10151445",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10151445",
+   "question": "今天我区又发现确诊病例，请问法考主观题考试是否会延期，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-286",
+   "id": "10151290",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10151290",
+   "question": "考虑异地考生问题，我们这里会延期吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-286",
+   "id": "10151211",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10151211",
+   "question": "尊敬的领导您好： 本人2018年1月法学专科毕业，2022年参加法学专业专升本，请问我属于老人老办法还是新人新办法？取得法学本科毕业证后是否可以参加法律职业资格考试？如果能参加考试，是否还需要本科学位证？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-286",
+   "id": "10150448",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10150448",
+   "question": "本人使用手机号码余8月6日收到中卫仲裁委员会发送的立案短信，这是本人第一次知道信息，之前并没有任何电话以及短信联系过本人。仲裁委却在8月5日下午17点55分给家人打了电话，并在之后给多次给家人使用的所有手机均发送了骚扰短信，信息内容说本人恶",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-286",
+   "id": "10150152",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10150152",
+   "question": "宁夏回族自治区银川监狱始建于1949年9月，其前身为宁夏省监狱。为巩固新生的人民政权，从1950年4月开始，省监狱对旧监房及警戒设施等进行维修和改造，主要管押原国民党及其政府中罪恶与民愤极大的党、政、军、特人员及部分政治土匪头目。 1951",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-286",
+   "id": "10150117",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10150117",
+   "question": "物业服务有限公司提供物业服务的过程中，物业公司按照营业执照经营范围从事供暖工作，主管部门应该是银川市市政管理局，可是物业公司没有按照“自治区供暖条例”取得供暖特许经营许可证，通过12345市场热线投诉近一年，银川市市政管理局答复：他们是行政",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-286",
+   "id": "10149343",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10149343",
+   "question": "针对我7月8日的投诉，中卫监狱领导一行进行了家访，在交流的过程中，我才了解中卫监狱的实际情况，我对我的做法，表示歉意。我与丈夫结婚半年，聚少离多。当详细了解了中卫监狱的实际情况。才知道中卫监狱押犯才半年，目前，各项工作都属于起步期。同时，中",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-286",
+   "id": "10149062",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10149062",
+   "question": "尊敬的各位司法厅领导您好： 今投诉宁夏中卫监狱。作为中卫监狱狱警家属，实属无奈投诉至此。不知各位领导是否了解您所管辖监狱干警的作息时间及上班制度。 第一，中卫监狱执行14+4+3的换防制度，也就是执勤14天，休息4天，备勤3天，这样的制度就",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-286",
+   "id": "10148718",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10148718",
+   "question": "2022年5月24日，司法厅办公室下发了宁司办〔2022〕24号关于做好2022年度律师 、公证员系列专业技术职称评审工作的通知，要求律师线上申报专业技术职称，在应提交材料部分明确“社会专职律师需提交法律援助案例3-5件”，且法律援助案件3",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-286",
+   "id": "10148581",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10148581",
+   "question": "请问我们区内的申领公告 除了司法厅的官网可以查询 还有其他渠道吗 ，诸如微信公众号",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-286",
+   "id": "10147220",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10147220",
+   "question": "尊敬的厅长: 您好！ 本人是一名法律职业资格考试考生，自法律职业资格考试实行计算机答题方式以来，本人已经参加了两次考试，在主观题考试中我发现，主观题考试考场内的键盘有的放置在桌面上，有的放置在桌面下的键盘托中，就本人而言，键盘放置在键盘托中",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-286",
+   "id": "10146885",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10146885",
+   "question": "尊敬的自治区厅长： 感谢您在百忙之中阅读我的信封，我是明天预约领取法律职业资格证的考生，在银川境内居住，去吴忠市领取证书，因为在特殊时期，问吴忠市司法厅的在职人员，明天取证书从银川市到吴忠市需不需要48小时的核算证明，给的回答是：“不知道”",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-286",
+   "id": "10146397",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10146397",
+   "question": "您好，请问大概什么时候能领证呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-286",
+   "id": "10146223",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10146223",
+   "question": "尊敬的厅长您好，抱歉以这样的方式打扰您。 灵武市现在已成为传销聚集地，一种新型传销，打着“西部大开发”“双向扶贫”“国家秘密建设宁夏”的旗号实施传销，曲解当地建筑，歪曲国家政策，7天完成洗脑过程。已经祸害了无数无辜的家庭，很不幸我的家庭也因",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-286",
+   "id": "10146026",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10146026",
+   "question": "尊敬的领导： 最近看到宁夏人大于2021年11月通过了行政执法监督条例修订版，为了更好的促进我单位依法行政工作，我特意通过各种渠道查询该条例的最新行政公文，但只能查到发布在百度百科的2003年11月的版本，宁夏政府网站和司法厅官网均查不到相",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-286",
+   "id": "10145549",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10145549",
+   "question": "领导您好: 咨询一下国家开放大学2018年9取得学籍并于2021年底毕业的法学本科毕业生，请问可以报考2022年的司法考试吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-286",
+   "id": "10145411",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10145411",
+   "question": "宁夏民族职业技术学院2021级教育系马洋，李志祥，马庆打同宿舍学生，事发2021年12月23日晚上21点左右，18995389070是马洋电话号",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-286",
+   "id": "10144539",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10144539",
+   "question": "2018%E5%B9%B4%E6%88%91%E5%BD%93%E6%97%B6%E7%9A%84%E8%80%81%E6%9D%BF%E4%BF%9E%E6%98%9F%E6%A1%93%E5%92%8C%E4%BB%96%E7%9A%8",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-286",
+   "id": "10143452",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10143452",
+   "question": "%E5%8E%85%E9%95%BF%E6%82%A8%E5%A5%BD%EF%BC%9A%0A%20%20%20%20%20%20%20%20%20%E6%B0%B8%E5%AE%81%E5%8E%BF%E6%9C%9B%E6%B4%AA",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-286",
+   "id": "10143326",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10143326",
+   "question": "2021%E5%B9%B412%E6%9C%8824%E6%97%A521%E7%82%B9%E5%B7%A6%E5%8F%B3%EF%BC%8C%E6%88%91%E4%BB%8E%E7%8F%AD%E7%BA%A7%E5%9B%9E%E",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-286",
+   "id": "10143310",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10143310",
+   "question": "%E5%B0%8A%E6%95%AC%E7%9A%84%E5%8F%B8%E6%B3%95%E5%B7%A5%E4%BD%9C%E4%BA%BA%E5%91%98%E4%BD%A0%E4%BB%AC%E5%A5%BD%EF%BC%8C%E8",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-286",
+   "id": "10143303",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10143303",
+   "question": "%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E9%97%AE%E4%B8%80%E4%B8%8B%E6%88%91%E4%BB%AC%E7%9A%84%E6%B3%95%E8%80%83%E4",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-286",
+   "id": "10143207",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10143207",
+   "question": "详情邮件发专项治理办，请领导予以查处回复！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-286",
+   "id": "10126337",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10126337",
+   "question": "%E6%88%91%E6%98%AF%E4%B8%80%E5%90%8D%E4%BA%A4%E9%80%9A%E8%BF%90%E8%BE%93%E7%BB%BC%E5%90%88%E6%89%A7%E6%B3%95%E4%BA%BA%E5",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-286",
+   "id": "10126159",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10126159",
+   "question": "您好，我在此投诉盐池人民法院，我于2021年11月8日通过竞拍取得一部手机(拍卖方：盐池人民法院)，拍卖成功后，拍卖方迟迟不发货，多次在竞拍平台联系，也不予理会。后来于11月17日发货了，但是收货地址搞成我的户口所在地地址了(不知是拍卖方搞",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-286",
+   "id": "10094528",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10094528",
+   "question": "%E5%B0%8A%E6%95%AC%E7%9A%84%E9%A2%86%E5%AF%BC%EF%BC%8C%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E6%98%AF%E4%B8%80%E5%90%8D%E6",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-286",
+   "id": "10094459",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10094459",
+   "question": "%E5%B0%8A%E6%95%AC%E7%9A%84%E5%8E%85%E9%95%BF%E6%82%A8%E5%A5%BD%EF%BC%9A%0A%20%20%20%20%20%20%20%20%E6%84%9F%E8%B0%A2%E6",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-286",
+   "id": "10089567",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10089567",
+   "question": "%E7%9B%AE%E5%89%8D%EF%BC%8C%E5%85%A8%E5%8C%BA%E9%98%B2%E7%96%AB%E5%BD%A2%E5%8A%BF%E5%88%9D%E6%AD%A5%E5%BE%97%E5%88%B0%E6",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-286",
+   "id": "10082665",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10082665",
+   "question": "%E5%B0%8A%E6%95%AC%E7%9A%84%E5%90%84%E7%BA%A7%E9%A2%86%E5%AF%BC%EF%BC%8C%E4%BD%A0%E4%BB%AC%E5%A5%BD%EF%BC%81%E6%88%91%E6",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-286",
+   "id": "10081105",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10081105",
+   "question": "%E8%AF%B7%E9%97%AE%E5%AE%81%E5%A4%8F%E6%B3%95%E8%80%83%E6%98%AF%E4%BC%9A%E5%A6%82%E6%9C%9F%E4%B8%BE%E8%A1%8C%E8%BF%98%E6",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-286",
+   "id": "10073274",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10073274",
+   "question": "您好，我是司法考试二战选手。由于疫情，我们单独封控任务，加之部队封闭管理，咨询下今年法考主观题能否延迟。由于疫情，无法参加法考，感觉很无奈。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-286",
+   "id": "10068579",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10068579",
+   "question": "尊敬的宁夏司法厅您好，宁夏正值疫情严重时期，我作为一名基层警察，正在疫情卡点执勤，很担心在工作中发生疫情问题被隔离，影响接下来的主观题考试，请问，如果被隔离了，我可不可以参加新疆或者黑龙江地区的延期考试，战友们全部在岗防疫抗疫，我也不能因为",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-286",
+   "id": "10068575",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10068575",
+   "question": "最近宁夏疫情趋势严峻，对于即将临近的国家法律职业资格考试，会不会因为疫情延期考试。如果疫情趋势趋于严峻，延期考试的公告会在十月之前通知吗。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

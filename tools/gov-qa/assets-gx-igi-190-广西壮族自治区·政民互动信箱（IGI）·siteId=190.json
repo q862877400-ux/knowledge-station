@@ -1,0 +1,69 @@
+{
+ "A_考卷": [],
+ "B_补料": [
+  {
+   "source": "gx-igi-190",
+   "id": "157814405012",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814405012",
+   "question": "请问能否提供一下刚发布的《玉林市北流河流域生态环境保护条例》全文？",
+   "cited_hits": [],
+   "cited_missing": [
+    "玉林市北流河流域生态环境保护条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-190",
+   "id": "157814215243",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814215243",
+   "question": "很多人都想知道容县六满水库是否被私人承包，是否允许养殖养鱼",
+   "cited_hits": [],
+   "cited_missing": [
+    "容县人民政府关于印发容县国有资产管理办法的通知",
+    "容县人民政府关于实行容县行政及财政全额拨款事业单位国有资产统一管理的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-190",
+   "id": "157814203728",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814203728",
+   "question": "您好，本月中江南公园段南流江限流，水位持续降低，目前因为淤泥堆积以及生活垃圾、死鱼等原因，造成在沿江跑道锻炼时气味非常难闻，请问这是在进行什么治理工作，我没能在网上查到相关新闻，方便公布吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "请问关于江南公园段南流江治理问题",
+    "关于江南公园段南流江治理问题的答复"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "gx-igi-190",
+   "id": "157814446281",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814446281",
+   "question": "你好，我想了解一下2025年玉林市小型水库防汛责任人名单是否已经公开，在哪里能够查看相关内容？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-190",
+   "id": "157814433810",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814433810",
+   "question": "尊敬的工作人员您好，我是一名研究生，因研究需要申请2013-2022年玉林市水资源公报，我的邮箱是2380667172@qq.com。谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-190",
+   "id": "157814408949",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814408949",
+   "question": "想查询一下水利行政许可信息，请问在哪个栏目可以看到相关信息",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

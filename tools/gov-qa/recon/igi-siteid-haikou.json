@@ -1,0 +1,15 @@
+{
+  "tag": "haikou",
+  "base": "https://www.haikou.gov.cn",
+  "referer": "https://www.haikou.gov.cn/",
+  "range": [
+    1,
+    300
+  ],
+  "appId": "",
+  "sites": {
+    "9": 6,
+    "31": 25
+  },
+  "total": 31
+}

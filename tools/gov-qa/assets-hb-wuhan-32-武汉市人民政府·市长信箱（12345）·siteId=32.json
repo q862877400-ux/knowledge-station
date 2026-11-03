@@ -1,0 +1,24 @@
+{
+ "A_考卷": [],
+ "B_补料": [],
+ "C_无依据": [
+  {
+   "source": "hb-wuhan-32",
+   "id": "31306",
+   "url": "https://www.wuhan.gov.cn/?id=31306",
+   "question": "市审计局的主要工作职责有哪些？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-32",
+   "id": "16474",
+   "url": "https://www.wuhan.gov.cn/?id=16474",
+   "question": "请问什么时间可以查询2021年审计专业技术资格考试的成绩和证书？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

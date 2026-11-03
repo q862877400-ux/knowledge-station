@@ -1,0 +1,1547 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<!-- 必须，不要动 -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="renderer" content="webkit" />
+	<!-- 移动端必须、PC端非响应式可以去掉 -->
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+	<!-- ---- 首页标签>>--【meta】 -- 标签开始 ---- -->
+	<meta name="keywords" content="tjj,湖北,湖北省,湖北省统计局门户网站,信息公开,湖北数据,统计分析,办事服务,公众互动,网上直报，门户网站,tjj.hubei.gov.cn">
+<meta name="description" content="tjj,湖北,湖北省,湖北省统计局门户网站,信息公开,湖北数据,统计分析,办事服务,公众互动,网上直报，门户网站,tjj.hubei.gov.cn">
+<meta name="SiteName" content="湖北省统计局门户网站">
+<meta name="SiteDomain" content="tjj.hubei.gov.cn">
+<meta name="SiteIDCode" content="4200000001">
+	<!-- ---- 首页标签>>--【meta】 -- 标签结束 ---- -->
+	<title>湖北省统计局</title>
+	<!-- 公共js、css-start -->
+	<link rel="shortcut icon" href="/material/images/ico.png">
+	<link rel="stylesheet" type="text/css" href="/material/css/bootstrap.css" />
+	<link rel="stylesheet" type="text/css" href="/material/css/swiper.css" />
+	<link rel="stylesheet" type="text/css" href="/material/2026/css/common.css?v1" />
+	<link rel="stylesheet" type="text/css" href="/material/2026/css/ui.css?v1" />
+	<!-- 兼容低版本IE -->
+	<!--[if lt IE 9]>
+    <script type="text/javascript" src="./images/html5shiv.js"></script>
+    <script type="text/javascript" src="./images/respond.js"></script>
+    <![endif]-->
+	<script type="text/javascript" src="/material/js/jquery_1_12_4.js"></script>
+	<script type="text/javascript" src="/material/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/material/js/layui/layui.js"></script>
+	<script type="text/javascript" src="/material/2026/js/2026-common.js"></script>
+	<!-- 公共js、css-end -->
+	<link rel="stylesheet" type="text/css" href="/material/2026/css/home.css" />
+	<script type="text/javascript" src="/material/2026/js/home.js"></script>
+
+</head>
+
+<body>
+   <script type="text/javascript">
+$(document).ready(function() {
+     /**
+         * 获取当前系统时间的时间戳
+         * @returns {Number} - 时间戳 秒
+         */
+        function getCurUnix() {
+            var date = new Date(); // 将yyy-mm-dd格式装换成yyyy/mm/dd
+            return Date.parse(date) / 1000; // parseDate.parse()支持yyyy/mm/dd格式的毫秒数返回
+        }
+
+        /**
+         * 日期格式转换为时间戳
+         * @param {String} date - 日期 yyyy-MM-dd HH-mm-ss
+         * @returns {Number} - 时间戳 秒
+         */
+        function dateToUnix(date) {
+            if (date) {
+                var date = date.replace(/-/g, '/'); // 将yyy-mm-dd格式装换成yyyy/mm/dd
+                return Date.parse(new Date(date)) / 1000; // parseDate.parse()支持yyyy/mm/dd格式的毫秒数返回
+            } else {
+                return null;
+            }
+        }
+
+        /**
+         * 定时显示
+         * @param {String} beginTime yyyy-MM-dd HH-mm-ss - 开始时间
+         * @param {String} endTime yyyy-MM-dd HH-mm-ss - 结束时间
+         */
+        function bannerTimer(beginTime, endTime) {
+            var currTime = getCurUnix();
+            var beginTime = dateToUnix(beginTime);
+            var endTime = dateToUnix(endTime);
+
+            if (currTime >= beginTime && currTime <= endTime) {//时间之间
+                //do something 页面加载完成后弹广告
+        //春节庆祝
+//PC,ipadpro页面
+if(document.documentElement.clientWidth>=1024){
+      $(window).load(function() {
+          //弹层
+		 // $(".header").css("background", "url(/material/images/banner20240118.png) center/cover no-repeat");
+		  //$(".nav").css({"background-color":"#ffcdb4","border-bottom":"5px solid #d02f14"});
+		  //$(".nav li a.current").css("background", "#d02f14");
+		 // $('body').append('<link type="text/css" rel="stylesheet" href="/material/2023/css/chunjie.css" />');
+          //设置自动关闭时间
+          //setTimeout("layer.closeAll()", 5000);
+		  
+		                var img = document.getElementById("img1");
+              //显示广告
+              img.style.display = "block";
+		  
+      });
+}
+//手机版
+else if(document.documentElement.clientWidth<=450){
+      $(window).load(function() {
+          //弹层
+		  //$(".header").css("background", "url(/material/images/banner20240118.png) center/cover no-repeat");
+		 // $(".nav").css({"background-color":"#ffcdb4","border-bottom":"5px solid #d02f14"});
+		  //$(".nav li a.current").css("background", "#d02f14");
+		  //$('body').append('<link type="text/css" rel="stylesheet" href="/material/2023/css/chunjie.css" />');
+          //设置自动关闭时间
+          //setTimeout("layer.closeAll()", 8000);
+		  
+		      var img = document.getElementById("img1");
+              //显示广告
+              img.style.display = "block";
+      });
+
+}
+            } else if (currTime < beginTime) {//开始之前
+                //do nothing
+            } else if (currTime > endTime) {//已经结束
+                //do nothing
+            }
+        }
+        //调用函数
+        bannerTimer("2026-09-30 00:00:00", "2026-10-08 23:59:59");
+});
+</script>
+
+<img src="//tjj.hubei.gov.cn/material/images/2026092901.jpg" style="display:none; width: 100%;" id="img1" />
+	<!-- 嵌套头部start -->
+    <div class="header-top">
+		<div class="top-bar">
+			<div class="layout-width">
+				<div class="top-bar-inner">
+					<span class="top-date">今天是：<em id="currentDate">
+							<script type="text/javaScript">
+       var sysdate = new Date();
+    var year = sysdate.getFullYear();
+    var month = sysdate.getMonth();
+    var date = sysdate.getDate();
+    var day = sysdate.getDay();
+    var week = ['日', '一', '二', '三', '四', '五', '六'];
+    document.write(year + "年" + (month + 1) + "月" + date + "日 星期" + week[day]);
+ </script>
+						</em></span>
+					<div class="top-links">
+						<a href="https://www.gov.cn/" target="_blank">中国政府网</a>
+						<span class="divider">|</span>
+						<a href="javascript:;" class="wza-link" id="wuzhangai"><i
+								class="iconfont icon-jyh-wza"></i>无障碍阅读</a>
+						<span class="divider">|</span>
+						<a href="javascript:;" id="login">登录</a>
+						<span class="divider">|</span>
+						<a href="javascript:;" id="zhuce">注册</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="logo-area">
+			<div class="layout-width">
+				<div class="logo-row">
+					<a href="/" class="site-logo">
+						<img src="/material/2026/images/layout/logo.png" alt="湖北省统计局" />
+					</a>
+					<button type="button" class="nav-toggle" aria-label="打开菜单">
+						<span></span>
+						<span></span>
+						<span></span>
+					</button>
+				</div>
+				<div class="search-wrap">
+					<div class="search-box">
+						<i class="iconfont icon-jyh-search search-icon"></i>
+						<input type="text" id="textfield" placeholder="请输入您想要搜索的内容" class="search-input" />
+						<button type="button" onclick="chkSearch()" class="search-btn">搜索</button>
+					</div>
+					<div class="hot-search">
+						热门搜索：
+						<a href="javascript:;" onclick="hotSearch('湖北数据')">湖北数据</a>
+						<a href="javascript:;" onclick="hotSearch('统计图表')">统计图表</a>
+						<a href="javascript:;" onclick="hotSearch('经济运行')">经济运行</a>
+						<a href="javascript:;" onclick="hotSearch('新闻发布会')">新闻发布会</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		// 热门搜索点击
+		function hotSearch(keyword) {
+			$('#textfield').val(keyword);
+			chkSearch();
+		}
+
+		// 搜索跳转
+		function chkSearch() {
+			var keyword = $('#textfield').val().trim();
+			if (keyword == '') {
+				alert('请输入关键字');
+				return false;
+			}
+			var keywords = encodeURI(keyword);
+			// 跳转到省政府网站检索页面
+			var $url = 'http://www.hubei.gov.cn/site/hb/#/all?type=所有&siteId=12&name=湖北省统计局&sitename=湖北省统计局&sitetype=省直部门&searchWord=' + keywords;
+			window.open($url, '_blank');
+		}
+
+		// 回车搜索
+		$('#textfield').on('keypress', function (event) {
+			if (event.keyCode === 13) {
+				chkSearch();
+			}
+		});
+	</script>
+	<nav class="main-nav">
+		<div class="layout-width">
+			<ul class="nav-list">
+				<li><a href="/">首页</a></li>
+				<li><a href="http://tjj.hubei.gov.cn/zfxxgk_GK2020/fdzdgknr_GK2020/zfgzjg_GK2020/">机构简介</a></li>
+				<li><a href="http://tjj.hubei.gov.cn/tjsj/">统计数据</a></li>
+				<li><a href="http://tjj.hubei.gov.cn/zfxxgk_GK2020/">信息公开</a></li>
+				<li><a href="http://tjj.hubei.gov.cn/hdjl/">互动交流</a></li>
+				<li><a href="http://tjj.hubei.gov.cn/bsfw/">办事服务</a></li>
+				<li><a href="http://tjj.hubei.gov.cn/ztzl/">专题专栏</a></li>
+				<li><a href="http://tjj.hubei.gov.cn/bsfw/lwzb/">网上直报</a></li>
+
+			</ul>
+
+		</div>
+	</nav>
+	<div class="nav-mask"></div>
+	<div class="nav-drawer">
+		<div class="drawer-head">
+			<a href="/" class="drawer-logo">
+				<img src="/material/2026/images/layout/logo.png" alt="湖北省统计局" />
+			</a>
+			<button type="button" class="drawer-close" aria-label="关闭菜单"></button>
+		</div>
+		<ul class="drawer-list">
+			<li class="active"><a href="/">首页<i class="drawer-arrow"></i></a></li>
+			<li><a href="http://tjj.hubei.gov.cn/zfxxgk_GK2020/fdzdgknr_GK2020/zfgzjg_GK2020/">机构简介<i
+						class="drawer-arrow"></i></a></li>
+			<li><a href="http://tjj.hubei.gov.cn/tjsj/">统计数据<i class="drawer-arrow"></i></a>
+			</li>
+			<li><a href="http://tjj.hubei.gov.cn/zfxxgk_GK2020/">信息公开<i
+						class="drawer-arrow"></i></a></li>
+			<li><a href="http://tjj.hubei.gov.cn/hdjl/">互动交流<i class="drawer-arrow"></i></a>
+			</li>
+			<li><a href="http://tjj.hubei.gov.cn/bsfw/">办事服务<i class="drawer-arrow"></i></a>
+			</li>
+			<li><a href="http://tjj.hubei.gov.cn/ztzl/">专题专栏<i class="drawer-arrow"></i></a>
+			</li>
+			<li><a href="http://tjj.hubei.gov.cn/bsfw/lwzb/">网上直报<i class="drawer-arrow"></i></a>
+			</li>
+		</ul>
+	</div>
+	<!-- 嵌套头部end -->
+
+	<main class="layout-main home-main">
+		<!-- 头条新闻 -->
+		<div class="layout-width">
+			<section class="headline">
+				<div class="headline-bar">
+					<div class="headline-icon">
+						<a href="http://tjj.hubei.gov.cn/bmdt/ttgz/">
+							<img src="/material/2026/images/home/news-icon.png" alt="头条" />
+						</a>
+					</div>
+					<div class="headline-body">
+						<div class="headline-swiper-wrap">
+							<div class="swiper headline-swiper">
+								<div class="swiper-wrapper">
+
+									
+										<div class="swiper-slide">
+											<div class="headline-item">
+												<div class="title"><a style="color: #fff;" href="http://www.hubei.gov.cn/2019/ttxw/zsj/202609/t20260930_6026740.shtml"
+														target="_blank" title="庆祝中华人民共和国成立77周年招待会在京举行 习近平发表重要讲话">
+													庆祝中华人民共和国成立77周年招待会在京举行 习近平发表重要讲话</a>
+												</div>
+												<div class="content" style="color: #fff;text-align: center;"">
+													
+													
+														
+													
+
+												</div>
+											</div>
+										</div>
+									
+										<div class="swiper-slide">
+											<div class="headline-item">
+												<div class="title"><a style="color: #fff;" href="http://www.hubei.gov.cn/2019/ttxw/zsj/202609/t20260930_6026736.shtml"
+														target="_blank" title="烈士纪念日向人民英雄敬献花篮仪式在京隆重举行 习近平等党和国家领导人出席">
+													烈士纪念日向人民英雄敬献花篮仪式在京隆重举行 习近平等党和国家领导人出席</a>
+												</div>
+												<div class="content" style="color: #fff;text-align: center;"">
+													
+													
+														
+													
+
+												</div>
+											</div>
+										</div>
+									
+										<div class="swiper-slide">
+											<div class="headline-item">
+												<div class="title"><a style="color: #fff;" href="http://www.hubei.gov.cn/2019/ttxw/zsj/202609/t20260924_6021655.shtml"
+														target="_blank" title="习近平抵达华盛顿对美国进行国事访问">
+													习近平抵达华盛顿对美国进行国事访问</a>
+												</div>
+												<div class="content" style="color: #fff;text-align: center;"">
+													
+													
+														
+													
+
+												</div>
+											</div>
+										</div>
+									
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<ul class="headline-tabs">
+					<li class="active" data-index="0"></li>
+					<li data-index="1"></li>
+					<li data-index="2"></li>
+				</ul>
+			</section>
+		</div>
+		<!-- 轮播 + 要闻列表 -->
+		<section class="news-section layout-width">
+			<div class="smart-entry">
+				<div class="smart-tag">
+					<span class="smart-text">智能推荐</span>
+					<span class="smart-play"></span>
+				</div>
+				<div class="smart-panel">
+					<div class="smart-panel-head">
+						<ul class="smart-tabs">
+							<li class="active" data-panel="news">新闻推荐</li>
+							<li data-panel="policy">最新解读</li>
+						</ul>
+					</div>
+					<div class="smart-panel-body">
+						<ul class="smart-list active" id="smart-news">
+
+            					
+																		<li>
+									<a href="http://www.hubei.gov.cn/2019/ttxw/zsj/202609/t20260930_6026740.shtml" target="_blank"
+										title="庆祝中华人民共和国成立77周年招待会在京举行 习近平发表重要讲话">
+									<div class="smart-date"><span class="smart-day">
+											08
+										</span><span class="smart-month">
+											2026-10
+										</span></div>
+									<div class="smart-info">
+										<div class="smart-title">
+											庆祝中华人民共和国成立77周年招待会在京举行 习近平发表重...
+										</div>
+										<div class="smart-desc">
+
+											
+											
+												
+											
+										</div>
+									</div>
+									</a>
+								</li>
+                  					
+																		<li>
+									<a href="http://www.hubei.gov.cn/2019/ttxw/zsj/202609/t20260930_6026736.shtml" target="_blank"
+										title="烈士纪念日向人民英雄敬献花篮仪式在京隆重举行 习近平等党和国家领导人出席">
+									<div class="smart-date"><span class="smart-day">
+											08
+										</span><span class="smart-month">
+											2026-10
+										</span></div>
+									<div class="smart-info">
+										<div class="smart-title">
+											烈士纪念日向人民英雄敬献花篮仪式在京隆重举行 习近平等党...
+										</div>
+										<div class="smart-desc">
+
+											
+											
+												
+											
+										</div>
+									</div>
+									</a>
+								</li>
+                  					
+																		<li>
+									<a href="http://www.hubei.gov.cn/2019/ttxw/zsj/202609/t20260924_6021655.shtml" target="_blank"
+										title="习近平抵达华盛顿对美国进行国事访问">
+									<div class="smart-date"><span class="smart-day">
+											24
+										</span><span class="smart-month">
+											2026-09
+										</span></div>
+									<div class="smart-info">
+										<div class="smart-title">
+											习近平抵达华盛顿对美国进行国事访问
+										</div>
+										<div class="smart-desc">
+
+											
+											
+												
+											
+										</div>
+									</div>
+									</a>
+								</li>
+                  					
+																		<li>
+									<a href="./bmdt/sjdt/202609/t20260921_6019781.shtml" target="_blank"
+										title="湖北省第十七届“中国统计开放日”活动成功举办">
+									<div class="smart-date"><span class="smart-day">
+											21
+										</span><span class="smart-month">
+											2026-09
+										</span></div>
+									<div class="smart-info">
+										<div class="smart-title">
+											湖北省第十七届“中国统计开放日”活动成功举办
+										</div>
+										<div class="smart-desc">
+
+											
+											
+												
+　　9月20日，由湖北省统计局、国家统计局湖北调查总队主办，咸宁市统计局、国家统计局咸宁调查队、嘉鱼县人民政府联合承办...
+											
+										</div>
+									</div>
+									</a>
+								</li>
+                  
+						</ul>
+
+						<ul class="smart-list" id="smart-policy">
+
+
+							
+
+								<li>
+									<a href="./zfxxgk_GK2020/zc_GK2020/zcjd_GK2020/202608/t20260828_6002829.shtml" target="_blank"
+										title="【视频解读】2026年上半年湖北经济运行情况解读">
+									<div class="smart-date"><span class="smart-day">
+											18
+										</span><span class="smart-month">
+											2026-07
+										</span></div>
+									<div class="smart-info">
+										<div class="smart-title">
+											【视频解读】2026年上半年湖北经济运行情况解读
+										</div>
+										<div class="smart-desc">
+
+											
+											
+												
+　　
+											
+										</div>
+									</div>
+									</a>
+								</li>
+							
+
+								<li>
+									<a href="./zfxxgk_GK2020/zc_GK2020/zcjd_GK2020/202607/t20260723_5982032.shtml" target="_blank"
+										title="【新闻发布会解读】2026年上半年湖北经济运行情况解读">
+									<div class="smart-date"><span class="smart-day">
+											17
+										</span><span class="smart-month">
+											2026-07
+										</span></div>
+									<div class="smart-info">
+										<div class="smart-title">
+											【新闻发布会解读】2026年上半年湖北经济运行情况解读
+										</div>
+										<div class="smart-desc">
+
+											
+											
+												
+　　    解读1：如何评价湖北经济运行总体表现？当前经济运行中主要特点有哪些？
+　　今年以来，面对国内外形势深刻复杂...
+											
+										</div>
+									</div>
+									</a>
+								</li>
+							
+
+								<li>
+									<a href="./zfxxgk_GK2020/zc_GK2020/zcjd_GK2020/202608/t20260828_6002807.shtml" target="_blank"
+										title="【图文解读】2026年一季度湖北经济实现良好开局">
+									<div class="smart-date"><span class="smart-day">
+											22
+										</span><span class="smart-month">
+											2026-04
+										</span></div>
+									<div class="smart-info">
+										<div class="smart-title">
+											【图文解读】2026年一季度湖北经济实现良好开局
+										</div>
+										<div class="smart-desc">
+
+											
+											
+												
+　　
+											
+										</div>
+									</div>
+									</a>
+								</li>
+							
+
+								<li>
+									<a href="./zfxxgk_GK2020/zc_GK2020/zcjd_GK2020/202604/t20260421_5918647.shtml" target="_blank"
+										title="【问答解读】2026年一季度湖北经济运行情况解读">
+									<div class="smart-date"><span class="smart-day">
+											21
+										</span><span class="smart-month">
+											2026-04
+										</span></div>
+									<div class="smart-info">
+										<div class="smart-title">
+											【问答解读】2026年一季度湖北经济运行情况解读
+										</div>
+										<div class="smart-desc">
+
+											
+											
+												
+　　解读1：请问如何看待湖北经济的主要表现，一季度有哪些主要特点？
+　　一季度，全省经济运行总体平稳、稳中提质，实现了...
+											
+										</div>
+									</div>
+									</a>
+								</li>
+							
+
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="news-carousel">
+				<div class="swiper news-swiper">
+					<div class="swiper-wrapper">
+
+						
+							<div class="swiper-slide">
+								<a href="http://www.hubei.gov.cn/2019/ttxw/zsj/202609/t20260930_6026740.shtml" target="_blank" title="
+								庆祝中华人民共和国成立77周年招待会在京举行 习近平发表重要讲话">
+								<img src="./bmdt/ttgz/202610/W020261008339507441409_ORIGIN.png"/>
+								<div class="slide-caption">
+									<span class="caption-text">
+										庆祝中华人民共和国成立77周年招待会在京举行 习近平发表重要讲话
+									</span>
+								</div>
+								</a>
+							</div>
+						
+							<div class="swiper-slide">
+								<a href="http://www.hubei.gov.cn/2019/ttxw/zsj/202609/t20260930_6026736.shtml" target="_blank" title="
+								烈士纪念日向人民英雄敬献花篮仪式在京隆重举行 习近平等党和国家领导人出席">
+								<img src="./bmdt/ttgz/202610/W020261008338624787756_ORIGIN.png"/>
+								<div class="slide-caption">
+									<span class="caption-text">
+										烈士纪念日向人民英雄敬献花篮仪式在京隆重举行 习近平等党和国家...
+									</span>
+								</div>
+								</a>
+							</div>
+						
+							<div class="swiper-slide">
+								<a href="http://www.hubei.gov.cn/2019/ttxw/zsj/202609/t20260924_6021655.shtml" target="_blank" title="
+								习近平抵达华盛顿对美国进行国事访问">
+								<img src="./bmdt/ttgz/202609/W020260924520032841438_ORIGIN.png"/>
+								<div class="slide-caption">
+									<span class="caption-text">
+										习近平抵达华盛顿对美国进行国事访问
+									</span>
+								</div>
+								</a>
+							</div>
+						
+							<div class="swiper-slide">
+								<a href="http://www.hubei.gov.cn/2019/ttxw/zsj/202609/t20260913_6012488.shtml" target="_blank" title="
+								习近平出席金砖国家领导人第十八次会晤第二阶段会议并发表重要讲话">
+								<img src="./bmdt/ttgz/202609/W020260914393329616939_ORIGIN.png"/>
+								<div class="slide-caption">
+									<span class="caption-text">
+										习近平出席金砖国家领导人第十八次会晤第二阶段会议并发表重要讲话
+									</span>
+								</div>
+								</a>
+							</div>
+						
+							<div class="swiper-slide">
+								<a href="http://www.hubei.gov.cn/2019/ttxw/zsj/202609/t20260913_6012386.shtml" target="_blank" title="
+								习近平出席金砖国家领导人第十八次会晤第一阶段会议并发表重要讲话">
+								<img src="./bmdt/ttgz/202609/W020260914392282696631_ORIGIN.png"/>
+								<div class="slide-caption">
+									<span class="caption-text">
+										习近平出席金砖国家领导人第十八次会晤第一阶段会议并发表重要讲话
+									</span>
+								</div>
+								</a>
+							</div>
+						
+					</div>
+					<div class="swiper-pagination"></div>
+				</div>
+			</div>
+			<div class="news-tabs">
+				<ul class="tab-nav">
+					<li class="active" data-index="0" data-tab="szyw"><a href="http://www.hubei.gov.cn/szyw/" >时政要闻</a>
+					</li>
+					<li data-index="1" data-tab="gwyyw" ><a href="http://www.gov.cn/pushinfo/v150203/index.htm" >国务院要闻</a>
+					</li>
+					<li data-index="2" data-tab="hbyw" ><a href="http://www.hubei.gov.cn/zwgk/hbyw/hbywqb/">湖北要闻</a></li>
+					<li data-index="3" data-tab="tjyw"><a href="/bmdt/sjdt/" >统计要闻</a></li>
+				</ul>
+				<div class="tab-panels">
+					<ul class="news-list active" id="szyw"></ul>
+					<ul class="news-list" id="gwyyw"></ul>
+					<ul class="news-list" id="hbyw"></ul>
+					<ul class="news-list" id="tjyw">
+
+						
+							<li>
+								<a href="http://tjj.hubei.gov.cn/bmdt/sjdt/202609/t20260921_6019781.shtml" target="_blank"
+									title="
+									湖北省第十七届“中国统计开放日”活动成功举办
+									">湖北省第十七届“中国统计开放日”活动成功举办
+								</a>
+								<span class="date hidden-xs">
+									2026-09-21
+								</span>
+							</li>
+						
+							<li>
+								<a href="http://tjj.hubei.gov.cn/bmdt/sjdt/202609/t20260916_6015118.shtml" target="_blank"
+									title="
+									《政策》发表中共湖北省统计局党组署名文章：稳中有进显韧性 向新向优强动能
+									">《政策》发表中共湖北省统计局党组署名文章：稳中有进显韧性 向新向优强动能
+								</a>
+								<span class="date hidden-xs">
+									2026-09-16
+								</span>
+							</li>
+						
+							<li>
+								<a href="http://tjj.hubei.gov.cn/bmdt/sjdt/202609/t20260910_6011315.shtml" target="_blank"
+									title="
+									湖北省第四次全国农业普查方案培训会在武汉举办
+									">湖北省第四次全国农业普查方案培训会在武汉举办
+								</a>
+								<span class="date hidden-xs">
+									2026-09-10
+								</span>
+							</li>
+						
+							<li>
+								<a href="http://tjj.hubei.gov.cn/bmdt/sjdt/202609/t20260904_6007813.shtml" target="_blank"
+									title="
+									湖北省统计局2026年度“两库”人才专题培训班在红安举办
+									">湖北省统计局2026年度“两库”人才专题培训班在红安举办
+								</a>
+								<span class="date hidden-xs">
+									2026-09-04
+								</span>
+							</li>
+						
+							<li>
+								<a href="http://tjj.hubei.gov.cn/bmdt/sjdt/202608/t20260828_6003177.shtml" target="_blank"
+									title="
+									谢高波到省农普办检查指导湖北省“四农普”普查区划分与建筑物标绘工作
+									">谢高波到省农普办检查指导湖北省“四农普”普查区划分与建筑物标绘工作
+								</a>
+								<span class="date hidden-xs">
+									2026-08-28
+								</span>
+							</li>
+						
+							<li>
+								<a href="http://tjj.hubei.gov.cn/bmdt/sjdt/202608/t20260818_5996606.shtml" target="_blank"
+									title="
+									全省巩固深化统计造假专项整治 “回头看”成效工作部署会议在汉召开
+									">全省巩固深化统计造假专项整治 “回头看”成效工作部署会议在汉召开
+								</a>
+								<span class="date hidden-xs">
+									2026-08-18
+								</span>
+							</li>
+						
+							<li>
+								<a href="http://tjj.hubei.gov.cn/bmdt/sjdt/202607/t20260728_5984729.shtml" target="_blank"
+									title="
+									谢高波赴武汉市督办农业普查工作
+									">谢高波赴武汉市督办农业普查工作
+								</a>
+								<span class="date hidden-xs">
+									2026-07-27
+								</span>
+							</li>
+						
+							<li>
+								<a href="http://tjj.hubei.gov.cn/bmdt/sjdt/202607/t20260717_5979258.shtml" target="_blank"
+									title="
+									省政府新闻办召开2026年上半年湖北经济运行情况新闻发布会
+									">省政府新闻办召开2026年上半年湖北经济运行情况新闻发布会
+								</a>
+								<span class="date hidden-xs">
+									2026-07-17
+								</span>
+							</li>
+						
+							<li>
+								<a href="http://tjj.hubei.gov.cn/bmdt/sjdt/202607/t20260714_5976133.shtml" target="_blank"
+									title="
+									湖北省第四次全国农业普查人员管理与普查区划分业务培训会在汉召开
+									">湖北省第四次全国农业普查人员管理与普查区划分业务培训会在汉召开
+								</a>
+								<span class="date hidden-xs">
+									2026-07-14
+								</span>
+							</li>
+						
+							<li>
+								<a href="http://tjj.hubei.gov.cn/bmdt/sjdt/202607/t20260701_5968200.shtml" target="_blank"
+									title="
+									省统计局开展树立和践行正确政绩观专题党课辅导
+									">省统计局开展树立和践行正确政绩观专题党课辅导
+								</a>
+								<span class="date hidden-xs">
+									2026-07-01
+								</span>
+							</li>
+						
+					</ul>
+				</div>
+			</div>
+		</section>
+		<div class="service-warp">
+			<div class="layout-width">
+				<!-- 服务导航 Tab -->
+				<section class="service-nav">
+					<ul class="service-tabs">
+						<li class="active" data-panel="panel-info"><a href="./zfxxgk_GK2020/" target="_blank" >政府信息公开</a></li>
+						<li data-panel="panel-data"><a href="./tjsj/" target="_blank" >统计数据</a></li>
+						<li data-panel="panel-interact"><a href="./hdjl/" target="_blank" >互动交流</a></li>
+						<li data-panel="panel-service"><a href="./bsfw/" target="_blank" >办事服务</a></li>
+					</ul>
+				</section>
+				<!-- Tab 内容：政府信息公开 -->
+				<section class="service-panel active" id="panel-info">
+					<div class="info-body">
+						<div class="info-left">
+							<div class="info-quick-nav">
+								<a href="./zfxxgk_GK2020/fdzdgknr_GK2020/zfgzjg_GK2020/stjjzn_GK2020/" target="_blank"><img src="/material/2026/images/home/jgzn-icon.png" alt="" /><span>机构职能</span></a>
+								<a href="./zfxxgk_GK2020/fdzdgknr_GK2020/ghxx_GK2020/" target="_blank"><img src="/material/2026/images/home/ghxx-icon.png" alt="" /><span>规划信息</span></a>
+								<a href="./zfxxgk_GK2020/fdzdgknr_GK2020/czzj_GK2020/czyjs_GK2020/ys/" target="_blank"><img src="/material/2026/images/home/czzj-icon.png" alt="" /><span>财政资金</span></a>
+								<a href="./zfxxgk_GK2020/fdzdgknr_GK2020/zfcg_GK2020/" target="_blank"><img src="/material/2026/images/home/zfcg-icon.png" alt="" /><span>政府采购</span></a>
+								<a href="./zfxxgk_GK2020/fdzdgknr_GK2020/qtzdgknr_GK2020/jytabl_GK2020/" target="_blank"><img src="/material/2026/images/home/jyta-icon.png" alt="" /><span>建议提案</span></a>
+							</div>
+							<div class="info-content-box">
+								<a href="./bsfw/zsk/" class="info-banner"></a>
+								<div class="info-news">
+									<div class="info-sub-head">
+										<ul class="sub-tabs js-sub-tabs">
+											<li class="active" data-sub="0">
+												<a href="http://tjj.hubei.gov.cn/zfxxgk_GK2020/zc_GK2020/qtzdgkwj_GK2020/tzgg/"
+													target="_blank">
+													通知公告
+												</a>
+											</li>
+											<li data-sub="1">
+												<a href="http://tjj.hubei.gov.cn/zfxxgk_GK2020/zc_GK2020/zcjd_GK2020/"
+													target="_blank">
+													政策解读
+												</a>
+											</li>
+										</ul>
+										<a href="http://tjj.hubei.gov.cn/zfxxgk_GK2020/zc_GK2020/qtzdgkwj_GK2020/tzgg/"
+											target="_blank" class="more-link">
+											更多&gt;</a>
+									</div>
+									<div class="sub-panels">
+										<ul class="info-news-list active">
+
+											
+												<li><a href="./zfxxgk_GK2020/zc_GK2020/qtzdgkwj_GK2020/tzgg/202604/t20260408_5909770.shtml" target="_blank" title="
+													国家统计局湖北调查总队2026年部门预算公开">国家统计局湖北调查总队2026年部门预算公开</a>
+													<span>
+														2026-07-23
+													</span>
+
+												</li>
+											
+												<li><a href="./zfxxgk_GK2020/zc_GK2020/qtzdgkwj_GK2020/tzgg/202605/t20260511_5934052.shtml" target="_blank" title="
+													长江经济带发展统计监测办公室关于开展长江经济带发展指数研究（2026）项目申请工作的通知">长江经济带发展统计监测办公室关于开展长江经济...</a>
+													<span>
+														2026-05-11
+													</span>
+
+												</li>
+											
+												<li><a href="./zfxxgk_GK2020/zc_GK2020/qtzdgkwj_GK2020/tzgg/202604/t20260424_5922102.shtml" target="_blank" title="
+													关于开展2026年度全省统计科学研究项目申请工作的通知">关于开展2026年度全省统计科学研究项目申请工作...</a>
+													<span>
+														2026-04-24
+													</span>
+
+												</li>
+											
+												<li><a href="./zfxxgk_GK2020/zc_GK2020/qtzdgkwj_GK2020/tzgg/202604/t20260407_5909033.shtml" target="_blank" title="
+													关于2026年度统计专业技术资格考试工作的通知">关于2026年度统计专业技术资格考试工作的通知</a>
+													<span>
+														2026-04-07
+													</span>
+
+												</li>
+											
+												<li><a href="./zfxxgk_GK2020/zc_GK2020/qtzdgkwj_GK2020/tzgg/202602/t20260209_5872982.shtml" target="_blank" title="
+													关于领取2025年度高级统计师资格考试成绩合格证的通知">关于领取2025年度高级统计师资格考试成绩合格证...</a>
+													<span>
+														2026-02-09
+													</span>
+
+												</li>
+											
+												<li><a href="./zfxxgk_GK2020/zc_GK2020/qtzdgkwj_GK2020/tzgg/202602/t20260204_5869603.shtml" target="_blank" title="
+													湖北省统计局关于2025年度推进法治政府建设情况的报告">湖北省统计局关于2025年度推进法治政府建设情况...</a>
+													<span>
+														2026-02-04
+													</span>
+
+												</li>
+											
+												<li><a href="./zfxxgk_GK2020/zc_GK2020/qtzdgkwj_GK2020/tzgg/202512/t20251209_5829747.shtml" target="_blank" title="
+													2025年省统计局行政许可信息公告">2025年省统计局行政许可信息公告</a>
+													<span>
+														2025-12-09
+													</span>
+
+												</li>
+											
+										</ul>
+										<ul class="info-news-list">
+											
+												<li><a href="./zfxxgk_GK2020/zc_GK2020/zcjd_GK2020/202608/t20260828_6002829.shtml" target="_blank" title="
+													">
+													【视频解读】2026年上半年湖北经济运行情况解读</a>
+													<span>
+														2026-07-18
+													</span>
+
+												</li>
+											
+												<li><a href="./zfxxgk_GK2020/zc_GK2020/zcjd_GK2020/202607/t20260723_5982032.shtml" target="_blank" title="
+													">
+													【新闻发布会解读】2026年上半年湖北经济运行情...</a>
+													<span>
+														2026-07-17
+													</span>
+
+												</li>
+											
+												<li><a href="./zfxxgk_GK2020/zc_GK2020/zcjd_GK2020/202608/t20260828_6002807.shtml" target="_blank" title="
+													">
+													【图文解读】2026年一季度湖北经济实现良好开局</a>
+													<span>
+														2026-04-22
+													</span>
+
+												</li>
+											
+												<li><a href="./zfxxgk_GK2020/zc_GK2020/zcjd_GK2020/202604/t20260421_5918647.shtml" target="_blank" title="
+													">
+													【问答解读】2026年一季度湖北经济运行情况解读</a>
+													<span>
+														2026-04-21
+													</span>
+
+												</li>
+											
+												<li><a href="./zfxxgk_GK2020/zc_GK2020/zcjd_GK2020/202603/t20260304_5884914.shtml" target="_blank" title="
+													">
+													【音频解读】奋楫破浪建支点 稳中有进开新局</a>
+													<span>
+														2026-01-26
+													</span>
+
+												</li>
+											
+												<li><a href="./zfxxgk_GK2020/zc_GK2020/zcjd_GK2020/202601/t20260126_5863483.shtml" target="_blank" title="
+													">
+													【图文解读】荆楚潮涌逐浪高  支点扬帆启新程</a>
+													<span>
+														2026-01-26
+													</span>
+
+												</li>
+											
+												<li><a href="./zfxxgk_GK2020/zc_GK2020/zcjd_GK2020/202601/t20260126_5863457.shtml" target="_blank" title="
+													">
+													【文字解读】奋楫破浪建支点  稳中有进开新局</a>
+													<span>
+														2026-01-26
+													</span>
+
+												</li>
+											
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="info-right">
+							<div class="info-guide-grid">
+								<a href="http://tjj.hubei.gov.cn/zfxxgk_GK2020/zfxxgk/"
+									target="_blank" class="guide-card"><img src="/material/2026/images/home/zn-icon.png" alt="" /><span>政府信息公开指南</span></a>
+								<a href="http://tjj.hubei.gov.cn/zfxxgk_GK2020/zfxxgk/"
+									target="_blank" class="guide-card"><img src="/material/2026/images/home/ml-icon.png" alt="" /><span>政府信息公开目录</span></a>
+								<a href="http://tjj.hubei.gov.cn/zfxxgk_GK2020/zfxxgkzd_GK2020/"
+									target="_blank" class="guide-card"><img src="/material/2026/images/home/zd-icon.png" alt="" /><span>政府信息公开制度</span></a>
+								<a href="http://tjj.hubei.gov.cn/zfxxgk_GK2020/zfxxgkgzndbg_GK2020/"
+									target="_blank" class="guide-card"><img src="/material/2026/images/home/nb-icon.png" alt="" /><span>政府信息公开年报</span></a>
+								<a href="http://tjj.hubei.gov.cn/zfxxgk_GK2020/zfwzjgndbb_GK2020/"
+									target="_blank" class="guide-card"><img src="/material/2026/images/home/bb-icon.png" alt="" /><span>政府网站年度报表</span></a>
+								<a href="http://tjj.hubei.gov.cn/zfxxgk_GK2020/ysqgk_GK2020/"
+									target="_blank" class="guide-card"><img src="/material/2026/images/home/gk-icon.png" alt="" /><span>依申请公开</span></a>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- Tab 内容：统计数据 -->
+				<section class="service-panel" id="panel-data">
+					<div class="data-body">
+						<div class="data-left">
+							<div class="info-sub-head">
+								<ul class="sub-tabs">
+									<li class="active">
+										<a href="./tjsj/" target="_blank">
+										数据查询
+										</a>
+									</li>
+								</ul>
+								<a href="./tjsj/" target="_blank"
+								class="more-link">更多&gt;</a>
+							</div>
+							<div class="data-cards">
+								<a href="./tjsj/" target="_blank" class="data-card
+								card-gdp"><img src="/material/2026/images/home/gdp.png" alt="GDP" /></a>
+								<a href="./tjsj/tjgb/" target="_blank" class="data-card
+								card-tjgb"><img src="/material/2026/images/home/tjgb.png" alt="统计公报" /></a>
+								<a href="./tjsj/" target="_blank" class="data-card
+								card-gy"><img src="/material/2026/images/home/gy.png" alt="工业" /></a>
+								<a href="./tjsj/" target="_blank" class="data-card
+								card-gdzctz"><img src="/material/2026/images/home/gdzctz.png" alt="固定资产投资" /></a>
+								<a href="./tjsj/" target="_blank" class="data-card
+								card-jmkzpsr"><img src="/material/2026/images/home/jmkzpsr.png" alt="居民可支配收入" /></a>
+							</div>
+							<div class="data-btn-grid">
+								<a href="./tjsj/sjkscx/tjnj/" target="_blank">统计年鉴</a>
+								<a href="./tjsj/tjgb/" target="_blank">统计公报</a>
+								<a href="./tjsj/sjkscx/tjyb/" target="_blank">统计月报</a>
+								<a href="./tjsj/sjkscx/tjzl/" target="_blank">统计资料</a>
+								<a href="https://tjj.hubei.gov.cn/hbsj/#/home" target="_blank">湖北数据</a>
+								<a href="./tjsj/tjgb/pcgb/" target="_blank">普查公报</a>
+							</div>
+						</div>
+						<div class="data-right">
+							<div class="info-sub-head">
+								<ul class="sub-tabs">
+									<li class="active">
+										<a href="./tjsj/tjfx/qstjfx/" target="_blank">
+										数据发布与解读
+										</a>
+									</li>
+								</ul>
+								<a href="./tjsj/tjfx/qstjfx/" target="_blank"
+								class="more-link">更多&gt;</a>
+							</div>
+							<ul class="data-list">
+								
+									<li>
+										<a href="http://tjj.hubei.gov.cn/tjsj/tjfx/qstjfx/202607/t20260722_5981812.shtml"
+											target="_blank" title="
+											2026年上半年全省消费市场平稳增长">2026年上半年全省消费市场平稳增长
+										</a>
+										<span class="date hidden-xs">
+											2026-07-22
+										</span>
+									</li>
+								
+									<li>
+										<a href="http://tjj.hubei.gov.cn/tjsj/tjfx/qstjfx/202607/t20260722_5981810.shtml"
+											target="_blank" title="
+											投资规模保持增长 投资结构持续优化">投资规模保持增长 投资结构持续优化
+										</a>
+										<span class="date hidden-xs">
+											2026-07-22
+										</span>
+									</li>
+								
+									<li>
+										<a href="http://tjj.hubei.gov.cn/tjsj/tjfx/qstjfx/202607/t20260722_5981809.shtml"
+											target="_blank" title="
+											服务业平稳增长 新兴动能加速积蓄">服务业平稳增长 新兴动能加速积蓄
+										</a>
+										<span class="date hidden-xs">
+											2026-07-22
+										</span>
+									</li>
+								
+									<li>
+										<a href="http://tjj.hubei.gov.cn/tjsj/tjfx/qstjfx/202607/t20260722_5981808.shtml"
+											target="_blank" title="
+											工业经济逐季攀升 向新向优态势彰显">工业经济逐季攀升 向新向优态势彰显
+										</a>
+										<span class="date hidden-xs">
+											2026-07-22
+										</span>
+									</li>
+								
+									<li>
+										<a href="http://tjj.hubei.gov.cn/tjsj/tjfx/qstjfx/202607/t20260722_5981807.shtml"
+											target="_blank" title="
+											2026年上半年全省农业经济总体平稳">2026年上半年全省农业经济总体平稳
+										</a>
+										<span class="date hidden-xs">
+											2026-07-22
+										</span>
+									</li>
+								
+									<li>
+										<a href="http://tjj.hubei.gov.cn/tjsj/tjfx/qstjfx/202607/t20260717_5979198.shtml"
+											target="_blank" title="
+											2026年上半年湖北经济运行情况解读">2026年上半年湖北经济运行情况解读
+										</a>
+										<span class="date hidden-xs">
+											2026-07-17
+										</span>
+									</li>
+								
+									<li>
+										<a href="http://tjj.hubei.gov.cn/tjsj/tjfx/qstjfx/202607/t20260717_5979196.shtml"
+											target="_blank" title="
+											2026年上半年湖北经济运行情况">2026年上半年湖北经济运行情况
+										</a>
+										<span class="date hidden-xs">
+											2026-07-17
+										</span>
+									</li>
+								
+									<li>
+										<a href="http://tjj.hubei.gov.cn/tjsj/tjfx/qstjfx/202604/t20260424_5922082.shtml"
+											target="_blank" title="
+											一季度全省消费市场回暖向好">一季度全省消费市场回暖向好
+										</a>
+										<span class="date hidden-xs">
+											2026-04-24
+										</span>
+									</li>
+								
+
+							</ul>
+						</div>
+					</div>
+				</section>
+				<!-- Tab 内容：互动交流 -->
+				<section class="service-panel" id="panel-interact">
+					<div class="interact-body">
+						<div class="interact-left">
+							<div class="info-sub-head">
+								<ul class="sub-tabs js-sub-tabs">
+									<li class="active" data-sub="0">
+
+										<a href="./hdjl/dczj/" target="_blank">调查征集</a>
+
+									</li>
+									<li data-sub="1">
+										<a href="./hdjl/hytj/" target="_blank">回应统计</a>
+
+									</li>
+								</ul>
+								<a href="./hdjl/dczj/" target="_blank"  class="more-link">更多&gt;</a>
+							</div>
+							<div class="sub-panels">
+								<div class="survey-list active" id="opinionList">
+
+								</div>
+								<div class="survey-list">
+
+									
+										<div class="survey-item">
+											<div class="survey-info">
+												<a class="survey-title" href="./hdjl/hytj/202610/t20261008_6027860.shtml"
+													target="_blank" title="2026年9月湖北省统计局公众互动回应情况">
+												2026年9月湖北省统计局公众互动回应情况
+												</a>
+												<p class="survey-meta"><span class="icon-clock"></span>
+													2026-10-08
+												</p>
+											</div>
+											<a href="./hdjl/hytj/202610/t20261008_6027860.shtml" target="_blank"
+												class="btn-detail">查看详情</a>
+										</div>
+									
+										<div class="survey-item">
+											<div class="survey-info">
+												<a class="survey-title" href="./hdjl/hytj/202609/t20260902_6006273.shtml"
+													target="_blank" title="2026年8月湖北省统计局公众互动回应情况">
+												2026年8月湖北省统计局公众互动回应情况
+												</a>
+												<p class="survey-meta"><span class="icon-clock"></span>
+													2026-09-02
+												</p>
+											</div>
+											<a href="./hdjl/hytj/202609/t20260902_6006273.shtml" target="_blank"
+												class="btn-detail">查看详情</a>
+										</div>
+									
+
+								</div>
+							</div>
+							<div class="interact-icons">
+								<a href="./hdjl/cjwt/" target="_blank"
+								class="interact-icon"><img src="/material/2026/images/home/zcwd-icon.png" alt="" /><span>政策问答</span></a>
+								<a href="https://www.stats.gov.cn/znwd/" target="_blank"
+								class="interact-icon"><img src="/material/2026/images/home/znwd-icon.png" alt="" /><span>
+									<span>智能问答</span>
+								</span></a>
+								<a href="./hdjl/zxft/" target="_blank"
+								class="interact-icon"><img src="/material/2026/images/home/zxft-icon.png" alt="" /><span>在线访谈</span></a>
+								<a href="./zfxxgk_GK2020/fdzdgknr_GK2020/qtzdgknr_GK2020/hygq_GK2020/" target="_blank"
+								class="interact-icon"><img src="/material/2026/images/home/hygq-icon.png" alt="" /><span>回应关切</span></a>
+							</div>
+						</div>
+						<div class="interact-right">
+							<div class="info-sub-head">
+								<ul class="sub-tabs">
+									<li class="active">
+										<a href="./hdjl/lxgs/" target="_blank">来信公示</a>
+									</li>
+								</ul>
+								<div class="header-links">
+									<a href="./hdjl/jzxx/" target="_blank">局长信箱</a>
+									<span>|</span>
+									<a href="./hdjl/zxts/" target="_blank">咨询投诉 </a>
+									<span>|</span>
+									<a href="http://oauth.hubei.gov.cn:9090/uias/mainChain.do?appCode=hbzwfw&code=90000&checkUser=1&flag=false" target="_blank">咨询建议</a>
+								</div>
+							</div>
+							<table class="letter-table">
+								<thead>
+									<tr>
+										<th>信件标题</th>
+										<th>回复单位</th>
+										<th>处理情况</th>
+									</tr>
+								</thead>
+								<tbody>
+
+									
+										<tr>
+											<td> <a id="d_6014758" href="./hdjl/lxgs/202609/t20260916_6014758.shtml" target="_blank"
+													title="【来信公示】湖北省投入产出延长表">
+												【来信公示】湖北省投入产出延长表
+												</a>
+																					<script>
+								var type = "【来信公示】湖北省投入产出延长表"
+								var newStr = type.replace('【来信公示】', '');
+								$("#d_6014758").html(newStr);
+							</script>
+											</td>
+											<td>省统计局</td>
+											<td class="status-done">已处理</td>
+										</tr>
+									
+										<tr>
+											<td> <a id="d_5976040" href="./hdjl/lxgs/202607/t20260714_5976040.shtml" target="_blank"
+													title="【来信公示】湖北省支出法生产总值核算中的相关统计数据">
+												【来信公示】湖北省支出法生产总值核算中的相...
+												</a>
+																					<script>
+								var type = "【来信公示】湖北省支出法生产总值核算中的相关统计数据"
+								var newStr = type.replace('【来信公示】', '');
+								$("#d_5976040").html(newStr);
+							</script>
+											</td>
+											<td>省统计局</td>
+											<td class="status-done">已处理</td>
+										</tr>
+									
+										<tr>
+											<td> <a id="d_5938887" href="./hdjl/lxgs/202605/t20260519_5938887.shtml" target="_blank"
+													title="【来信公示】2026年湖北省交通事故赔偿标准的统计数据">
+												【来信公示】2026年湖北省交通事故赔偿标准的...
+												</a>
+																					<script>
+								var type = "【来信公示】2026年湖北省交通事故赔偿标准的统计数据"
+								var newStr = type.replace('【来信公示】', '');
+								$("#d_5938887").html(newStr);
+							</script>
+											</td>
+											<td>省统计局</td>
+											<td class="status-done">已处理</td>
+										</tr>
+									
+
+								</tbody>
+							</table>
+							<div class="report-box">
+								<h4>纪检举报 &gt;&gt;</h4>
+					<p>地&emsp;&emsp;址：武汉市武昌区东一路17号</p>
+                    <p>邮&emsp;&emsp;编：430071</p>
+                    <p>举报电话：027-12388</p>
+                    <p>网上举报：<a style="color: #0F3979;" href="https://hubei.12388.gov.cn/" target="_blank" title="https://hubei.12388.gov.cn/">https://hubei.12388.gov.cn/</a></p>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- Tab 内容：办事服务 -->
+				<section class="service-panel" id="panel-service">
+					<div class="service-body">
+						<div class="service-left">
+							<div class="service-cards-row">
+								<a href="./bsfw/zwdt/" target="_blank" class="service-card"><img src="/material/2026/images/home/zwdt.png" alt="政务地图" /></a>
+								<a href="./bsfw/swshdc/" target="_blank"
+								class="service-card"><img src="/material/2026/images/home/swdcjgzgrd.png" alt="涉外调查机构资格认定" /></a>
+							</div>
+							<div class="report-section">
+								<div class="report-inner">
+									<div class="report-cols">
+										<div class="report-col">
+											<p>湖北省统计局</p>
+											<p>举报电话：027-87255791</p>
+											<p>举报邮箱：hbjzfc027@126.com</p>
+										</div>
+										<div class="report-col">
+											<p>国家统计局湖北调查总队</p>
+											<p>举报电话：027-87811922</p>
+											<p>举报邮箱：zfjdc.hb@dcd.stats.gov.cn</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="service-right">
+							<a href="https://zwfw.hubei.gov.cn/" target="_blank" class="gov-banner">
+								<img src="/material/2026/images/home/hbzwfww.png" alt="湖北政务服务网" />
+							</a>
+							<div class="quick-links">
+								<a href="https://zwfw.hubei.gov.cn/webview/bszn/bmsy.html?department=11420000011043428D"
+									target="_blank" class="quick-link"><img src="/material/2026/images/home/bszn.png" alt="" /><span>办事指南</span></a>
+								<a href="https://zwfw.hubei.gov.cn/webview/zwgk/qzqd.html?department=11420000011043428D"
+									target="_blank" class="quick-link"><img src="/material/2026/images/home/qzqd.png" alt="" /><span>权责清单</span></a>
+								<a href="https://tjj.hubei.gov.cn/bsfw/lwzb/" target="_blank" class="quick-link"><img src="/material/2026/images/home/wszb.png" alt="" /><span>网上直报</span></a>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+		<!-- 农业普查 Banner -->
+		<section class="promo-banner layout-width">
+			<div class="promo-swiper-wrap">
+				<div class="swiper promo-swiper">
+					<div class="swiper-wrapper">
+
+
+<!--<div class="swiper-slide">
+<img src="./images/2026091101.png" />
+</div>-->
+						<div class="swiper-slide"><a href="http://tjj.hubei.gov.cn/ztzl/hbsnp/" target="_blank"><img src="/material/2026/images/home/banner-01.png" alt="湖北省第四次全国农业普查" /></a>
+
+</div>
+<div class="swiper-slide"><a href="http://tjj.hubei.gov.cn/ztzl/cjjjd_1/" target="_blank"><img src="//tjj.hubei.gov.cn/material/images/2026091601.png" alt="2026-数说长江经济带十年" /></a>
+
+</div>
+
+
+					</div>
+					<!-- <div class="swiper-pagination"></div> -->
+				</div>
+			</div>
+		</section>
+		<!-- 专题专栏 -->
+		<section class="topic-section layout-width">
+			<div class="section-title">
+				<a href="http://tjj.hubei.gov.cn/ztzl/" target="_blank"
+					rel="noopener noreferrer">
+					<img src="/material/2026/images/home/zt-title.png" />
+				</a>
+			</div>
+			<div class="topic-row">
+				<div class="topic-fixed">
+					<a href="http://tjj.hubei.gov.cn/ztzl/hbsnp/" target="_blank"><img src="/material/2026/images/home/zt-01.png" /></a>
+
+					<a href="http://tjj.hubei.gov.cn/ztzl/cjjjd_1/" target="_blank"><img src="/material/2026/images/home/zt-02.png" /></a>
+				</div>
+				<div class="topic-carousel-wrap">
+					<span class="topic-arrow topic-prev"><i class="iconfont icon-jyh-left"></i></span>
+					<div class="swiper topic-swiper">
+						<div class="swiper-wrapper">
+							
+								<div class="swiper-slide">
+									<a href="./ztzl/tjdc/" target="_blank" title="
+									统计督察" >
+									<img src='./ztzl/tjdc/images/P020250722336475952271.png'/></a>
+									
+								</div>
+							
+								<div class="swiper-slide">
+									<a href="./ztzl/sqxzjc/" target="_blank" title="
+									涉企行政检查公示" >
+									<img src='./ztzl/sqxzjc/images/P020250520382648223608.jpg'/></a>
+									
+								</div>
+							
+								<div class="swiper-slide">
+									<a href="./ztzl/zfwzgznbbbhz/" target="_blank" title="
+									政府网站工作年度报表汇总专题" >
+									<img src='./ztzl/zfwzgznbbbhz/images/P020200119396680305264.jpg'/></a>
+									
+								</div>
+							
+								<div class="swiper-slide">
+									<a href="./ztzl/fzxc/" target="_blank" title="
+									统计法治建设" >
+									<img src='./ztzl/fzxc/images/P020191216409537133531.jpg'/></a>
+									
+								</div>
+							
+								<div class="swiper-slide">
+									<a href="./ztzl/zjtj/" target="_blank" title="
+									走进统计" >
+									<img src='./ztzl/zjtj/images/P020231116726628601295.png'/></a>
+									
+									
+								</div>
+							
+								<div class="swiper-slide">
+									<a href="./ztzl/wqzl/" target="_blank" title="
+									往期专栏" >
+									<img src='./ztzl/wqzl/images/P020231114567035594395.png'/></a>
+									
+								</div>
+							
+						</div>
+					</div>
+					<span class="topic-arrow topic-next"><i class="iconfont icon-jyh-right"></i></span>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<!-- 嵌套底部start	 -->
+    <div class="friend-links">
+		<div class="layout-width friend-links-inner">
+			<span class="friend-label">友情链接：</span>
+			<div class="friend-btns">
+				<a href="https://www.gov.cn/" target="_blank">中国政府网</a>
+				<a href="https://www.stats.gov.cn/" target="_blank">国家统计局</a>
+				<a href="https://www.hubei.gov.cn/" target="_blank">湖北省人民政府</a>
+			</div>
+		</div>
+	</div>
+	<div class="site-footer">
+		<div class="layout-width">
+			<div class="footer-inner">
+				<div class="footer-col footer-info">
+					<p>
+						<span>邮编：430071</span>
+						<span class="footer-sep">|</span>
+						<a href="http://tjj.hubei.gov.cn/fzlm/wzdt/">网站地图</a>
+						<span class="footer-sep">|</span>
+						<a href="http://tjj.hubei.gov.cn/fzlm/xmtjz/">新媒体矩阵</a>
+					</p>
+					<p>版权所有：湖北省统计局　地址：武汉市武昌区水果湖东一路19-2号　电话：027-87813435</p>
+					<p>
+						<span>鄂ICP备05011090号-1</span>
+						<img src="/material/2026/images/layout/gh.png" alt="" class="footer-police-icon" />
+						<a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=42010602001880">鄂公网安备 42010602001880号</a>
+						<span class="footer-sep">网站标识码：4200000001</span>
+					</p>
+				</div>
+				<div class="footer-col footer-badge">
+					<a href="http://bszs.conac.cn/sitename?method=show&id=03F3C88A4CD53DDCE053022819AC1577"><img src="/material/2026/images/layout/dzjg.png" alt="党政机关" /></a>
+					<a href="javascript:;">
+
+<script id="_jiucuo_" sitecode='4200000001' src='https://zfwzgl.www.gov.cn/exposure/jiucuo.js'></script>
+
+</a>
+				</div>
+				<div class="footer-col footer-social">
+					<a class="social-item" id="zwwx-qrcode">
+						<img src="/material/2026/images/layout/weChat-icon.png" alt="政务微信" />
+						<span>政务微信</span>
+					</a>
+					<a class="social-item" data-toggle="modal" data-target="#weibo-modal">
+						<img src="/material/2026/images/layout/weibo-icon.png" alt="微博" />
+						<span>微博</span>
+					</a>
+					<a class="social-item" id="phone-qrcode">
+						<img src="/material/2026/images/layout/phone-icon.png" alt="手机版" />
+						<span>手机版</span>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="weibo-modal">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="关闭"><span
+							aria-hidden="true">&times;</span></button>
+				</div>
+				<div class="modal-body">您访问的链接即将离开“湖北省统计局”门户网站 是否继续？</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">放弃</button>
+					<button type="button" class="btn btn-danger"
+						onclick="window.open('https://weibo.com/hbstj'); $('#weiboModal').modal('toggle')">继续访问</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="aside-weibo-modal">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="关闭"><span
+							aria-hidden="true">&times;</span></button>
+				</div>
+				<div class="modal-body">您访问的链接即将离开“湖北省统计局”门户网站 是否继续？</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">放弃</button>
+					<button type="button" class="btn btn-danger"
+						onclick="window.open('https://weibo.com/hbstj'); $('#weiboModal').modal('toggle')">继续访问</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<script type="text/javascript" src="/material/js/ssoAjax.js"></script>
+	<link href="/material/indeci/static/css/iconfont.css" rel="stylesheet" type="text/css" />
+	<link href="/material/assets/css/bf/barrierfree.css" rel="stylesheet" type="text/css" />
+	<script src="/material/assets/js/iframe.js" id="barrierFree" data="sn=D80A39ECF549DA3BAA8DC9A427918A580CB734F93284C7F6C2D6672907F7F9CB&amp;rcode=16BCCA6600194E894C4470C786136F8B2463A343772FA4EE2FD19008ED28BBC1003EC03B6082B1D616EB3045AA4B89DED1621AC006BC1ECE526A815EAB0E557F03111BAE74B8B429EC816A1F2E7F5CF8A3A5DCB13616E7B5A803D279D34A5FCF0E4F6536FB6F8F616A2F8F6BBF8B9D05EF8AE0A423EC7F232FFC5A52790C88D7&helpsrc=/fzlm/wza/202106/t20210623_3609539.shtml"></script>
+
+	<script>
+		// 平台访问统计
+		(function () {
+			var serverUrl = "/wasp-api";
+			var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+			g.type = 'text/javascript'; g.async = true; g.defer = true; g.src = serverUrl + '/js/ta.js';
+			g.id = "visit-js-id";
+			g.onload = function () {
+				window.Tracker.setCrossSubDomain();
+				window.Tracker.setSiteId('22');
+			}
+			s.parentNode.insertBefore(g, s);
+		})();
+
+	</script>
+	<!-- 嵌套底部end	 -->
+	<aside class="float-sidebar">
+		<a class="float-item" id="sidebar-phone-qrcode">
+			<img src="/material/2026/images/layout/sidebar-phone.png" alt="" />
+			<span>手机版</span>
+		</a>
+		<a class="float-item" id="sidebar-zwwx-qrcode">
+			<img src="/material/2026/images/layout/sidebar-weChat.png" alt="" />
+			<span>微信</span>
+		</a>
+		<a class="float-item" data-toggle="modal" data-target="#aside-weibo-modal">
+			<img src="/material/2026/images/layout/sidebar-weibo.png" alt="" />
+			<span>微博</span>
+		</a>
+		<a href="https://www.stats.gov.cn/znwd/" target="_blank" class="float-item">
+			<img src="/material/2026/images/layout/sidebar-znwd.png" alt="" />
+			<span>智能问答</span>
+		</a>
+		<a class="float-item back-top" id="backTop">
+			<img style="width: 20px; height: 20px" src="/material/2026/images/layout/sidebar-top.png" alt="返回顶部" />
+		</a>
+	</aside>
+	<!-- dom 结束 -->
+	<!-- js -->
+	<script type="text/javascript" charset="utf-8" src="/material/2026/js/opinion_index_new.js"></script>
+
+
+
+
+    <script>
+      $(function() {
+        $.ajax({
+          type: "get",
+          url: "/wasp-api/public/hotArticle.do",
+          data: {
+            "siteId": 22,
+            "timeType": "year",
+            "pageIndex": 1,
+            "pageSize": 4
+          },
+          dataType: "jsonp",
+          success: function(datas) {
+            var data = datas.data;
+            var html = '';
+            for (var i = 0; i < data.length; i++) {
+              var docTitle = data[i].title;
+              var docRelTime = data[i].publishDate;
+              var url = data[i].url;
+              var match = /\d{4}-\d{1,2}-\d{1,2}/g.exec(docRelTime);
+              var dateStr = match ? match[0] : '';
+              var parts = dateStr.split('-');
+              var day = parts[2] || '';
+              var month = parts[0] + '-' + parts[1];
+              var desc = data[i].summary || '';
+              html += '<li>' +
+                '<a href="' + url + '" target="_blank" title="' + docTitle + '">' +
+                '<div class="smart-date"><span class="smart-day">' + day + '</span><span class="smart-month">' + month + '</span></div>' +
+                '<div class="smart-info"><div class="smart-title">' + docTitle + '</div><div class="smart-desc">' + desc + '</div></div>' +
+                '</a></li>';
+            }
+            // $('#smart-news').html(html);
+          }
+        });
+      });
+    </script>
+</body>
+
+</html>

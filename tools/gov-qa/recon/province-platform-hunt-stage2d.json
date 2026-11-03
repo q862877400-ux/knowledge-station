@@ -1,0 +1,580 @@
+[
+ {
+  "name": "上海",
+  "url": "https://www.shanghai.gov.cn/nw2/nw2314/nw38605/index.html",
+  "depth": 1,
+  "status": 404,
+  "len": 1035
+ },
+ {
+  "name": "黑龙江",
+  "url": "https://www.hlj.gov.cn/hlj/c108467/zmhd.shtml",
+  "depth": 1,
+  "status": 200,
+  "len": 82950,
+  "fp": {},
+  "api_hints": [
+   "http://www.donganqu.gov.cn/",
+   "https://www.dongning.gov.cn/"
+  ],
+  "script_blocks": [],
+  "hd_links": [
+   {
+    "url": "https://www.hlj.gov.cn/hlj/c108467/zmhd.shtml",
+    "text": "政民互动"
+   },
+   {
+    "url": "https://www.hlj.gov.cn/hlj/c115777/dep_list.shtml",
+    "text": "部门互动"
+   },
+   {
+    "url": "https://www.hlj.gov.cn/hlj/ldxx/tjly.shtml?type=consult",
+    "text": "我要咨询了解民情"
+   },
+   {
+    "url": "https://www.hlj.gov.cn/hlj/ldxx/tjly.shtml?type=complaint",
+    "text": "我要投诉听取民声"
+   },
+   {
+    "url": "https://www.hlj.gov.cn/znwd/hljpc/",
+    "text": "常见问题"
+   },
+   {
+    "url": "https://www.hlj.gov.cn/hlj/c115707/wycx.shtml",
+    "text": "留言回复"
+   },
+   {
+    "url": "https://www.hlj.gov.cn/hlj/c115708/list.shtml",
+    "text": "留言统计"
+   },
+   {
+    "url": "https://www.hlj.gov.cn/hlj/c115708/202607/c00_31957049.shtml",
+    "text": "2026年第二季度留言统计数"
+   },
+   {
+    "url": "https://www.hlj.gov.cn/hlj/c115708/202604/c00_31935118.shtml",
+    "text": "2026年第一季度留言统计数"
+   },
+   {
+    "url": "https://www.hlj.gov.cn/hlj/c115708/202601/c00_31902961.shtml",
+    "text": "2025年第四季度留言统计数"
+   },
+   {
+    "url": "https://www.hlj.gov.cn/hlj/c115708/202510/c00_31883984.shtml",
+    "text": "2025年第三季度留言统计数"
+   },
+   {
+    "url": "https://www.hlj.gov.cn/hlj/c115708/202507/c00_31856085.shtml",
+    "text": "2025年第二季度留言统计数"
+   }
+  ],
+  "js_files": [
+   "https://www.hlj.gov.cn/hlj/xhtml/libs/jquery.min.js",
+   "https://www.hlj.gov.cn/hlj/xhtml/libs/SuperSlide.2.js",
+   "https://www.hlj.gov.cn/hlj/xhtml/libs/idangerous.swiper.min.js",
+   "https://www.hlj.gov.cn/hlj/xhtml/libs/ajaxFun.js",
+   "https://www.hlj.gov.cn/hlj/xhtml/libs/aes.js",
+   "https://www.hlj.gov.cn/hlj/xhtml/libs/aejpublic.js"
+  ],
+  "js_mined": [
+   {
+    "url": "https://www.hlj.gov.cn/hlj/xhtml/libs/jquery.min.js",
+    "fp": {},
+    "api_hints": [
+     "!==E.readyState&&!E.documentElement.doScroll?C.setTimeout(S.ready):(E.addEventListener(",
+     ")&&(u||(p.done(function(){h.display=l}),null==l&&(c=h.display,l=",
+     "+r):!1!==e.jsonp&&(e.url+=(Tt.test(e.url)?",
+     ",data:t}).done(function(e){o=arguments,a.html(r?S(",
+     "))t=r.getBoundingClientRect();else{t=this.offset(),n=r.ownerDocument,e=r.offsetParent||n.documentElement;while(e&&(e===n.body||e===n.documentElement)&&",
+     "+a]:e.document.documentElement[",
+     "+a]:9===e.nodeType?(r=e.documentElement,Math.max(e.body["
+    ]
+   },
+   {
+    "url": "https://www.hlj.gov.cn/hlj/xhtml/libs/SuperSlide.2.js",
+    "fp": {},
+    "api_hints": []
+   },
+   {
+    "url": "https://www.hlj.gov.cn/hlj/xhtml/libs/idangerous.swiper.min.js",
+    "fp": {},
+    "api_hints": []
+   }
+  ]
+ },
+ {
+  "name": "新疆",
+  "url": "https://www.xinjiang.gov.cn/xinjiang/zmhd/hd.shtml",
+  "depth": 1,
+  "status": 200,
+  "len": 74876,
+  "fp": {},
+  "api_hints": [],
+  "script_blocks": [
+   "\r\n    var url = window.location.href;\r\n    var titStr = $(\"meta[name='ArticleTitle']\").attr(\"content\"); \r\n    var share_imgUrl = \"https://www.xinjiang.gov.cn/xinjiang/xhtml/images/zzq_wxfx.png\";\r\n    var share_link = url;\r\n    var share_title = titStr;\r\n    var share_desc = \"新疆维吾尔自治区人民政府\";\r\n    $.ajax({\r\n      url: \"/app-wxsign/wx-api?url=\" + encodeURIComponent(share_link),\r\n      type: \"get\",\r\n      success: function (data) {\r\n        console.log(\"wxconfigdata====>\",data)\r\n        wx.config({\r\n          debug: false,\r\n          appId: 'wx4e5efdd9d03ca8b4',\r\n          timestamp: data.timestamp,\r\n          nonceStr: data.nonceStr,\r\n          signature: data.signature,\r\n          jsApiList: [\r\n            \"updateTimelineShareData\", //分享给好友\r\n            \"updateAppMessageShareData\", //分享到朋友圈\r\n            \"onMenuShareTimeline\",\r\n            \"onMenuShareAppMessage\"\r\n          ]\r\n        });\r\n        window.share_config = {\r\n          share: {\r\n            imgUrl: share_imgUrl,\r\n            title: share_title.replace(/<br>/g, ''),\r\n            desc: filterHTMLTag(share_desc),\r\n            link: share_link,\r\n            trigger: function (res) {\r\n              // alert('用户点击分享到朋友圈');\r\n    "
+  ],
+  "hd_links": [
+   {
+    "url": "https://www.xinjiang.gov.cn/xinjiang/zmhd/hd.shtml",
+    "text": "政民互动"
+   },
+   {
+    "url": "https://wsxf.xjxfj.gov.cn/html/onlineInquiry/queryIndex.jsp?regionCode=650000000000",
+    "text": "咨询评价"
+   },
+   {
+    "url": "https://www.xinjiang.gov.cn/xinjiang/hlwdc/hlwdc.shtml",
+    "text": "我要留言"
+   }
+  ],
+  "js_files": [
+   "https://www.xinjiang.gov.cn/xinjiang/xhtml/js/head.js",
+   "https://www.xinjiang.gov.cn/xinjiang/xhtml/js/echarts.min.js",
+   "https://www.xinjiang.gov.cn/xinjiang/xhtml/js/2022_newyear.js",
+   "https://www.xinjiang.gov.cn/xinjiang/xhtml/js/yhzx.js",
+   "https://www.xinjiang.gov.cn/xinjiang/xhtml/js/traditional.js",
+   "https://www.xinjiang.gov.cn/phpstat/count/10000001/10000001.js"
+  ],
+  "js_mined": [
+   {
+    "url": "https://www.xinjiang.gov.cn/xinjiang/xhtml/js/head.js",
+    "fp": {},
+    "api_hints": []
+   },
+   {
+    "url": "https://www.xinjiang.gov.cn/xinjiang/xhtml/js/echarts.min.js",
+    "fp": {},
+    "api_hints": [
+     "+this.id,this.painter,t),this.ctxBack=this.domBack.getContext(",
+     "),ra.mousemove.call(this,t),ra.mousedown.call(this,t),oa(this)},touchmove:function(t){(t=Vt(this.dom,t)).zrByTouch=!0,this.handler.processGesture(t,",
+     "),ra.mousemove.call(this,t),oa(this)},touchend:function(t){(t=Vt(this.dom,t)).zrByTouch=!0,this.handler.processGesture(t,",
+     "+e,i)}},ua.setCursor=function(t){this.dom.style&&(this.dom.style.cursor=t||",
+     "===t?v.domSupported?",
+     ")},Mg.downplay=function(){this.childAt(0).trigger(",
+     ")},R_.downplay=function(){this.trigger(",
+     ")},TS.downplay=function(){this.trigger(",
+     "!==h.showEffectOn&&this.startEffectAnimation(h)},f=function(){c.downplay(),"
+    ]
+   },
+   {
+    "url": "https://www.xinjiang.gov.cn/xinjiang/xhtml/js/2022_newyear.js",
+    "fp": {},
+    "api_hints": []
+   }
+  ]
+ },
+ {
+  "name": "西藏",
+  "url": "http://xzxf.xizang.gov.cn/ocp/wsxx.html",
+  "depth": 1,
+  "status": 200,
+  "len": 20961,
+  "fp": {},
+  "api_hints": [],
+  "script_blocks": [
+   "\r\n    $(function(){\r\n        /**\r\n         * 初始化界面\r\n         */\r\n        var initCheckView = function() {\r\n            if (false) {\r\n                $(\"div.petition_login_after_valid_mobile\").show();\r\n            }\r\n        };\r\n        /**\r\n         * 获取手机短信验证码\r\n         */\r\n        var getMobileCode = function($btn) {\r\n            $.post(\"/service/rest/member.user.petitionuserservice/colletion/getMobileCodeByOAuth\", function(result) {\r\n                if (result && 1 == result.code) {\r\n                    mobileCodeTimer($btn);\r\n                } else {\r\n                    $btn.removeClass(\"layui-btn-disabled\").val(result.description || \"重新获取验证码\");\r\n                }\r\n            });\r\n        };\r\n        /**\r\n         * 验证码倒计时\r\n         * @param $btn\r\n         */\r\n        var mobileCodeTimer = function($btn) {\r\n            var interval;\r\n            var time = 180;\r\n            var fun = function() {\r\n                time--;\r\n                if(time <= 0){\r\n                    $btn.removeClass(\"layui-btn-disabled\").val(\"获取验证码\");\r\n                    clearInterval(interval);\r\n                    return;\r\n                }\r\n                $btn.val(time + \"秒后可重新获取\");\r\n            }"
+  ],
+  "hd_links": [
+   {
+    "url": "http://xzxf.xizang.gov.cn/ocp/wyts.html",
+    "text": "我要投诉"
+   }
+  ],
+  "js_files": [
+   "http://xzxf.xizang.gov.cn/tongyong/js/jq.js",
+   "http://xzxf.xizang.gov.cn/tongyong/layui/layui.all.js"
+  ],
+  "js_mined": [
+   {
+    "url": "http://xzxf.xizang.gov.cn/tongyong/js/jq.js",
+    "fp": {},
+    "api_hints": []
+   },
+   {
+    "url": "http://xzxf.xizang.gov.cn/tongyong/layui/layui.all.js",
+    "fp": {},
+    "api_hints": [
+     ").calendar(),n.closeList()),n.setBtnStatus(),a.range||n.done(null,",
+     "===a.type)&&n.done(null,",
+     "===n.position?(l(!0),t.calendar().done().done(null,",
+     "===n.type?(l(!0),t.setValue(t.parse()).remove().done()):",
+     "===n.type&&(l(!0),t.calendar().done(null,",
+     ",e)),(d||c)&&(w.extend(a,{year:o[0]}),i&&(t[l].year=o[0]),n.range||t.done(null,",
+     ").calendar(),n.range||t.done(null,",
+     ")[0]||re.documentElement;return{send:function(r,i){t=re.createElement(",
+     "+i):t.jsonp!==!1&&(t.url+=(It.test(t.url)?",
+     ",data:t}).done(function(e){o=arguments,a.html(r?pe(",
+     "+e]:9===t.nodeType?(i=t.documentElement,Math.max(t.body[",
+     "+l[4]+e)[0];f.contentWindow.document.write(",
+     ",o.done&&o.done(",
+     ",function(e){layui.stope(e)}),e.done&&e.done(n,l)};switch(layui.stope(e),j.trigger(",
+     ").remove(),u.document.write(h+v.prop("
+    ]
+   }
+  ]
+ },
+ {
+  "name": "海南",
+  "url": "https://www.hainan.gov.cn/hainan/hdjl/hd.shtml?ddtab=true",
+  "depth": 1,
+  "status": 200,
+  "len": 36658,
+  "fp": {},
+  "api_hints": [],
+  "script_blocks": [
+   "\r\n   var url = window.location.href;\r\nif(url.indexOf(\"ref=pc1\") >= 0 ) { //判断url地址中是否包含link字符串\r\n  document.getElementById(\"typediv1\").style.display=\"block\"\r\n}\r\n",
+   "\r\n             \t\t\t function  onc(url){\r\n\r\n                           window.open(\"https://wssp.hainan.gov.cn/apollo/openlogin?backUrl=\"+url);\r\n\r\n             \t\t\t  }\r\n\r\n     \t\t\t ",
+   "\r\n   \r\n    \r\n/*\r\n var url =window.location.pathname;\r\n if (url.indexOf(\"fw.shtml\")>0){\r\n\t \r\n }else if (url.indexOf(\"sq.shtml\")>0){\r\n\t \r\n } else{\r\n \r\n\tvar script=document.getElementById('wa'); \r\n\tscript.type=\"text/javascript\"; \r\n\tscript.src=\"http://wza.hainan.gov.cn/cniil/assist.js?sid=11962&pos=left\"; \r\n }*/\r\n",
+   "\r\n//隐藏下拉提示\r\n  function hideTds() {\r\n      //解决IE8之类不支持getElementsByClassName\r\n      if (!document.getElementsByClassName) {\r\n          var searchUlTE = document.getElementsByClassName = function (className, element) {\r\n              var children = (element || document).getElementsByTagName('*');\r\n              var elements = new Array();\r\n              for (var i = 0; i < children.length; i++) {\r\n                  var child = children[i];\r\n                  var classNames = child.className.split(' ');\r\n                  for (var j = 0; j < classNames.length; j++) {\r\n                      if (classNames[j] == className) {\r\n                          elements.push(child);\r\n                          break;\r\n                      }\r\n                  }\r\n              }\r\n              return elements;\r\n          };\r\n          var searchUl = searchUlTE(\"searchLi\")\r\n      } else {\r\n          var searchUl = document.querySelectorAll('.searchLi');\r\n      }\r\n      for (var i = 0; i < searchUl.Length; i++) {\r\n          searchUl[i].style.display = 'none';\r\n      }\r\n  }\r\n  \r\n  \r\n//跨浏览器事件函数\r\n  function addEvent(element, type, handler) {\r\n      if (element.addEventListener) {\r\n          element.ad"
+  ],
+  "hd_links": [
+   {
+    "url": "https://www.hainan.gov.cn/hainan/hdjl/hd.shtml?ddtab=true",
+    "text": "互动"
+   },
+   {
+    "url": "https://www.hainan.gov.cn/hainan/newzxft/newzxft.shtml?ddtab=true",
+    "text": "在线访谈"
+   },
+   {
+    "url": "https://www.hainan.gov.cn/hainan/ywzsk/list3.shtml?ddtab=true",
+    "text": "业务知识库"
+   }
+  ],
+  "js_files": [
+   "https://www.hainan.gov.cn/default/xhtml/hainan/js/jquery-3.6.0.js",
+   "https://www.hainan.gov.cn/default/xhtml/hainan/js/jqmigrate.js",
+   "https://www.hainan.gov.cn/hainan/xhtml/js/tab.js",
+   "https://api.govwza.cn/cniil/assist.js?sid=11962&pos=left",
+   "https://www.hainan.gov.cn/hainan/xhtml/js/public.js",
+   "https://pucha.kaipuyun.cn/exposure/jiucuo.js"
+  ],
+  "js_mined": [
+   {
+    "url": "https://www.hainan.gov.cn/default/xhtml/hainan/js/jquery-3.6.0.js",
+    "fp": {},
+    "api_hints": []
+   },
+   {
+    "url": "https://www.hainan.gov.cn/default/xhtml/hainan/js/jqmigrate.js",
+    "fp": {},
+    "api_hints": [
+     "===n.document.compatMode&&u(",
+     "});try{n.document.querySelector(t),u(",
+     ",function(e){!1!==e.jsonp&&(c.test(e.url)||",
+     "===n.document.readyState&&u(",
+     "),0<arguments.length?this.on(r,null,e,t):this.trigger(r)}}),s(function(){s(n.document).triggerHandler(",
+     ")}),s.event.special.ready={setup:function(){this===n.document&&u("
+    ]
+   },
+   {
+    "url": "https://www.hainan.gov.cn/hainan/xhtml/js/tab.js",
+    "fp": {},
+    "api_hints": []
+   }
+  ]
+ },
+ {
+  "name": "内蒙古",
+  "url": "https://www.nmg.gov.cn/zmhd/fkhy_1/index_13317.html",
+  "depth": 1,
+  "status": 200,
+  "len": 56725,
+  "fp": {
+   "channelid": [
+    "30875"
+   ]
+  },
+  "api_hints": [
+   "https://www.nmg.gov.cn/xinxiang/api/getCaseInfo?rowguid="
+  ],
+  "script_blocks": [
+   "\n    var ovUserInfo\n\n    function getUserInfo() {\n        $.ajax({\n            url: '/personal/validate/getUserInfo',\n            type: 'get',\n            async: false,\n            dataType: 'json',\n            success: function(data) {\n                console.log(data)\n                if (!data.data.isLogin) {\n                    var str_url = 'https://zwfw.nmg.gov.cn/sso/sso/login?utype=0&redirect=istrue&client_id=LFWKGMPAY&goto='\n                    var str_href = window.location.href\n                    str_url += str_href\n                    $('.login').attr('href', str_url)\n                    return\n                } else {\n                    var fullName = data.data.userInfo.USER_NAME\n                    var lastName = fullName.slice(-1);\n                    var star = '*'.repeat(fullName.length - 1)\n                    $('.login').attr('href', 'https://zwfw.nmg.gov.cn/personal_center_profile').text(star + lastName + \"，欢迎您\")\n                    $('.register').attr('href', 'https://zwfw.nmg.gov.cn/personal_center_profile').html('用户中心')\n                }\n                ovUserInfo = data\n            },\n            error: function(err) {\n                console.log('不好意思，您请求的",
+   "\n    var cklink = 1;\n\n    function extLink(act) {\n        if (act == false) {\n            cklink = 0;\n        } else {\n            cklink = 1;\n        }\n    }\n    $(document).on('click', 'a', function() {\n        if (cklink == 0) return;\n        if ($(this).hasClass('ncolink')) return;\n        var o = $(this);\n        var href = o.attr('href');\n        var jx = true;\n        var w = '480px';\n        var h = '170px';\n        var host = getHost(href);\n       var ckhost = host.indexOf('.gov.cn');\n    if (ckhost >= 0) ckhost = 1;\n\n        if (host != 'null' && ckhost <= 0 && typeof(href) != 'undefined' && o.data('ask') != '1') {\n            o.removeAttr('href');\n            var cf = layer.confirm('<div style=\"margin-top:30px; font-size:16px;\">您访问的链接即将离开内蒙古自治区人民政府门户网站。</div>', {\n                btn: ['继续访问', '放弃'],\n                title: false,\n                shade: 0.7,\n                area: [w, h],\n                cancel: function(index) {\n                    o.attr('href', href);\n                }\n            }, function() {\n                o.attr('href', href);\n                o.attr('target', '_blank');\n                o.data('ask', '1');\n                layer.close(cf);\n         ",
+   "\n    //统计信息\n    function pageAccessStatistics(currUrl, parentUrl, currChannelid, currChannelname, docid, doctitle) {\n\n        var data = {\n            \"url\": currUrl,\n            \"parentUrl\": parentUrl,\n            \"channelId\": currChannelid,\n            \"channelName\": currChannelname,\n            \"docId\": docid,\n            \"docName\": doctitle,\n            \"ip\": \"\"\n        };\n        $.ajax({\n            url: \"/nmg-statistics-docchnl/statistics/collect\",\n            async: true,\n            type: \"POST\",\n            dataType: \"json\",\n            contentType: 'application/json',\n            data: JSON.stringify(data),\n            success: function(res) {\n                console.log(data);\n            },\n            error: function(jqXHR) {\n                console.log(jqXHR)\n            }\n        })\n    }\n    var currUrl = window.location.href; //当前页地址\n    var sourceUrl = document.referrer; //父级栏目地址\n    sourceUrl = sourceUrl != '' ? sourceUrl : \"https://www.nmg.gov.cn/\"\n    var docId = \"\";\n    var docTiele = \"\";\n    var currChannelId = \"30875\";\n    var currSiteId = \"32\"\n    if (currChannelId == '') {\n        currChannelId = currSiteId;\n    }\n    var currChannelName = \"反馈回应\";\n    var",
+   "\n    let eventReport = new EventReport(\"https://www.nmg.gov.cn/receive/receiveData\")\n\n    let siteName = '内蒙古自治区政府门户'\n\n    let chnlRelation = '内蒙古自治区政府门户>政民互动>反馈回应'\n\n    chnlRelation = chnlRelation.replace(siteName + \">\", \"\")\n\n    let docid = ''\n    let doc_id = 0\n    if (docid.length > 0) {  \n        doc_id = parseInt(docid)\n    }\n    let url = '####'\n\n    let title = '';\n    var reg = /<[^<>]+>/g;\n    title = title.replace(reg, \"\");\n    title = title.replace(/<[^<>]+>/g, '');\n    title = title.replace(/&lt;\\/?.+?&gt;/g, \"\");\n    let docpubtime = \"\"\n\n    if (doc_id == 0) {\n        doc_id = 0;\n        url = document.URL\n        title = document.title\n        docpubtime = \"\"\n    }\n\n    let doc_channel = '反馈回应'\n\n\n    let siteid = parseInt(\"32\")\n\n    if (siteid.length == 0) {\n        siteid = 0\n    }\n\n    let channel_id = parseInt(\"30875\")\n\n    if (channel_id.length == 0) {\n        channel_id = 0\n    }\n\n    let appKey = \"d3286812174122857c1e0156fd372bff\"\n\n    let myParam = {\n        title: title,\n        url: url,\n        doc_id: doc_id,\n        siteid: siteid,\n        site_name: siteName,\n        doc_channel: doc_channel,\n        channel_relation: chnlRelation,\n        channel_id: ch"
+  ],
+  "hd_links": [
+   {
+    "url": "https://www.nmg.gov.cn/zmhd/",
+    "text": "政民互动"
+   },
+   {
+    "url": "https://www.nmg.gov.cn/zmhd/fkhy_1/",
+    "text": "反馈回应"
+   },
+   {
+    "url": "https://zwfw.nmg.gov.cn/wsbsdt/website/pages/default/index",
+    "text": "12345热线留言"
+   }
+  ],
+  "js_files": [
+   "https://www.nmg.gov.cn/material/2025/js/jquery.min.js",
+   "https://www.nmg.gov.cn/material/2025/js/jquery-migrate.min.js",
+   "https://www.nmg.gov.cn/material/2025/js/jquery.SuperSlid.js",
+   "https://www.nmg.gov.cn/material/2025/js/common.js",
+   "https://www.nmg.gov.cn/material/2025/js/rem.js",
+   "https://www.nmg.gov.cn/material/js/layer.js"
+  ],
+  "js_mined": [
+   {
+    "url": "https://www.nmg.gov.cn/material/2025/js/jquery.min.js",
+    "fp": {},
+    "api_hints": [
+     "!==C.readyState&&!C.documentElement.doScroll?ie.setTimeout(ce.ready):(C.addEventListener(",
+     ")&&(u||(p.done(function(){h.display=l}),null==l&&(c=h.display,l=",
+     "+r):!1!==e.jsonp&&(e.url+=(At.test(e.url)?",
+     ",data:t}).done(function(e){o=arguments,a.html(r?ce(",
+     "))t=r.getBoundingClientRect();else{t=this.offset(),n=r.ownerDocument,e=r.offsetParent||n.documentElement;while(e&&(e===n.body||e===n.documentElement)&&",
+     "+a]:e.document.documentElement[",
+     "+a]:9===e.nodeType?(r=e.documentElement,Math.max(e.body["
+    ]
+   },
+   {
+    "url": "https://www.nmg.gov.cn/material/2025/js/jquery-migrate.min.js",
+    "fp": {},
+    "api_hints": [
+     "===n.document.compatMode&&u(",
+     "});try{n.document.querySelector(t),u(",
+     ",function(e){!1!==e.jsonp&&(p.test(e.url)||",
+     "===n.document.readyState&&u(",
+     ")}),s(function(){s(n.document).triggerHandler(",
+     ")}),s.event.special.ready={setup:function(){this===n.document&&u("
+    ]
+   },
+   {
+    "url": "https://www.nmg.gov.cn/material/2025/js/jquery.SuperSlid.js",
+    "fp": {},
+    "api_hints": []
+   }
+  ]
+ },
+ {
+  "name": "河南",
+  "url": "https://www.henan.gov.cn/hdjl/hdjl/",
+  "depth": 1,
+  "status": 200,
+  "len": 6975,
+  "fp": {},
+  "api_hints": [],
+  "script_blocks": [],
+  "hd_links": [
+   {
+    "url": "https://www.henan.gov.cn/2026/08-18/3400225.html",
+    "text": "豫政问答丨@准大学生，这份资助政策请查收"
+   },
+   {
+    "url": "https://www.henan.gov.cn/2026/07-22/3377951.html",
+    "text": "豫政问答丨事关河南社保“第六险”，解答来了！"
+   },
+   {
+    "url": "https://www.henan.gov.cn/2026/07-16/3376102.html",
+    "text": "豫政问答丨@高校毕业生 2026年就业创业政策来了！"
+   },
+   {
+    "url": "https://www.henan.gov.cn/2026/06-30/3370466.html",
+    "text": "豫政问答丨河南“社保通”平台上线！怎么用？能办啥？"
+   },
+   {
+    "url": "https://www.henan.gov.cn/2026/03-04/3330563.html",
+    "text": "豫政问答丨关于补充工伤保险，河南有这些新变化！"
+   },
+   {
+    "url": "https://www.henan.gov.cn/2026/02-06/3323879.html",
+    "text": "豫政问答丨关于养老服务消费补贴，这些信息请注意"
+   },
+   {
+    "url": "https://www.henan.gov.cn/2025/12-02/3269826.html",
+    "text": "豫政问答丨你关心的育儿补贴发放问题，权威解答来了→"
+   },
+   {
+    "url": "https://www.henan.gov.cn/2025/11-26/3267946.html",
+    "text": "豫政问答丨关于普惠托育收费，你想知道的都在这儿"
+   },
+   {
+    "url": "https://www.henan.gov.cn/2025/11-19/3247060.html",
+    "text": "豫政问答丨@河南企业 “科技贷”如何办理？指南来了！"
+   },
+   {
+    "url": "https://www.henan.gov.cn/2025/11-13/3245212.html",
+    "text": "豫政问答丨关于工伤保险，这些事儿要知道→"
+   },
+   {
+    "url": "https://www.henan.gov.cn/2025/09-05/3209343.html",
+    "text": "豫政问答丨在河南，“结婚+落户”一次办妥！攻略来了"
+   },
+   {
+    "url": "https://www.henan.gov.cn/2025/07-18/3181965.html",
+    "text": "豫政问答丨@高校毕业生 2025年就业创业政策来了！"
+   },
+   {
+    "url": "https://www.henan.gov.cn/2025/07-09/3178937.html",
+    "text": "豫政问答丨@河南人 事关身份证换证，办理指南请查收"
+   },
+   {
+    "url": "https://www.henan.gov.cn/2025/06-20/3172096.html",
+    "text": "豫政问答丨援企稳岗“划重点”！河南版政策答疑来了"
+   }
+  ],
+  "js_files": [
+   "https://file.henan.gov.cn/4500000001/js/jquery.min.js",
+   "https://file.henan.gov.cn/4500000001/js/head.js",
+   "https://file.henan.gov.cn/4500000001/js/nav.js",
+   "https://file.henan.gov.cn/4500000001/js/link.js",
+   "https://file.henan.gov.cn/4500000001/js/footer.js",
+   "https://file.henan.gov.cn/4500000001/js/paging.js"
+  ],
+  "js_mined": [
+   {
+    "url": "https://file.henan.gov.cn/4500000001/js/jquery.min.js",
+    "fp": {},
+    "api_hints": [
+     "!==d.readyState&&!d.documentElement.doScroll?a.setTimeout(n.ready):(d.addEventListener(",
+     "===b.dataTypes[0]?(e=b.jsonpCallback=n.isFunction(b.jsonpCallback)?b.jsonpCallback():b.jsonpCallback,h?b[h]=b[h].replace(Kb,",
+     "+e):b.jsonp!==!1&&(b.url+=(lb.test(b.url)?",
+     ",data:b}).done(function(a){f=arguments,g.html(d?n(",
+     "+a]:9===b.nodeType?(e=b.documentElement,Math.max(b.body["
+    ]
+   },
+   {
+    "url": "https://file.henan.gov.cn/4500000001/js/head.js",
+    "fp": {},
+    "api_hints": []
+   },
+   {
+    "url": "https://file.henan.gov.cn/4500000001/js/nav.js",
+    "fp": {},
+    "api_hints": []
+   }
+  ]
+ },
+ {
+  "name": "天津",
+  "url": "https://www.tj.gov.cn/zmhd/wmfkxd/index_1.html",
+  "depth": 1,
+  "status": 200,
+  "len": 152273,
+  "fp": {},
+  "api_hints": [
+   "https://xf.tj.gov.cn/glllm/blqk/data_19677.json"
+  ],
+  "script_blocks": [
+   "\nfunction openToolbarByMouse(){ \n\tif(window.location==top.location){\n\t\tvar str_location = window.location.href;\n\t\twindow.location.href = \"/wca.html?wcaUrl=\" +  str_location;\n\t}\n}\n\nfunction openToolbarByKey(obj,event){ \n\tif(window.location==top.location&&event.keyCode==13){\n\t\tvar str_location = window.location.href;\n\t\twindow.location.href = \"/wca.html?wcaUrl=\" +  str_location+\"&otp=1\";\n\t}\n}\n",
+   "\nvar pager_options = { currentPage: parseInt('1')+1, countPage: parseInt('25}'), PAGE_NAME: 'index', PAGE_EXT: 'html' };\n"
+  ],
+  "hd_links": [
+   {
+    "url": "https://www.tj.gov.cn/zmhd/",
+    "text": "政民互动"
+   }
+  ],
+  "js_files": [
+   "https://www.tj.gov.cn/images/jquery-3.6.0.min.js",
+   "https://www.tj.gov.cn/images/jquery-migrate-3.4.0.min.js",
+   "https://www.tj.gov.cn/images/N_common.js",
+   "https://www.tj.gov.cn/images/N_new_mixin-mh.js",
+   "https://www.tj.gov.cn/images/N-QT.js",
+   "https://www.tj.gov.cn/images/N_new_mixin-index-b.js"
+  ],
+  "js_mined": [
+   {
+    "url": "https://www.tj.gov.cn/images/jquery-3.6.0.min.js",
+    "fp": {},
+    "api_hints": [
+     "!==C.readyState&&!C.documentElement.doScroll?ie.setTimeout(ce.ready):(C.addEventListener(",
+     ")&&(u||(p.done(function(){h.display=l}),null==l&&(c=h.display,l=",
+     "+r):!1!==e.jsonp&&(e.url+=(At.test(e.url)?",
+     ",data:t}).done(function(e){o=arguments,a.html(r?ce(",
+     "))t=r.getBoundingClientRect();else{t=this.offset(),n=r.ownerDocument,e=r.offsetParent||n.documentElement;while(e&&(e===n.body||e===n.documentElement)&&",
+     "+a]:e.document.documentElement[",
+     "+a]:9===e.nodeType?(r=e.documentElement,Math.max(e.body["
+    ]
+   },
+   {
+    "url": "https://www.tj.gov.cn/images/jquery-migrate-3.4.0.min.js",
+    "fp": {},
+    "api_hints": [
+     "===n.document.compatMode&&u(",
+     "});try{n.document.querySelector(t),u(",
+     ",function(e){!1!==e.jsonp&&(p.test(e.url)||",
+     "===n.document.readyState&&u(",
+     ")}),s(function(){s(n.document).triggerHandler(",
+     ")}),s.event.special.ready={setup:function(){this===n.document&&u("
+    ]
+   },
+   {
+    "url": "https://www.tj.gov.cn/images/N_common.js",
+    "fp": {},
+    "api_hints": []
+   }
+  ]
+ },
+ {
+  "name": "河北",
+  "url": "https://www.hebei.gov.cn/columns/da32bd93-8a37-4258-b8d4-0d91283f0f94/index.html",
+  "depth": 1,
+  "status": 200,
+  "len": 57253,
+  "fp": {},
+  "api_hints": [],
+  "script_blocks": [],
+  "hd_links": [
+   {
+    "url": "https://www.hebei.gov.cn/columns/da32bd93-8a37-4258-b8d4-0d91283f0f94/index.html",
+    "text": "互动交流"
+   }
+  ],
+  "js_files": [
+   "https://www.hebei.gov.cn/templates/c2c2f42d-2125-4d7b-a312-6d2b82f27821/202512/31/images/jquery-ui.js",
+   "https://www.hebei.gov.cn/templates/c2c2f42d-2125-4d7b-a312-6d2b82f27821/202512/31/images/aria.js",
+   "https://www.hebei.gov.cn/templates/c2c2f42d-2125-4d7b-a312-6d2b82f27821/202512/31/images/fantiz.js",
+   "https://www.hebei.gov.cn/templates/c2c2f42d-2125-4d7b-a312-6d2b82f27821/202512/31/images/szfdbtz.js",
+   "https://www.hebei.gov.cn/templates/c2c2f42d-2125-4d7b-a312-6d2b82f27821/202512/31/images/jquery-1.7.1.min.js",
+   "https://www.hebei.gov.cn/templates/c2c2f42d-2125-4d7b-a312-6d2b82f27821/202512/31/images/jquery.meanmenu.min.js"
+  ],
+  "js_mined": [
+   {
+    "url": "https://www.hebei.gov.cn/templates/c2c2f42d-2125-4d7b-a312-6d2b82f27821/202512/31/images/jquery-ui.js",
+    "fp": {},
+    "api_hints": [
+     "),ck.frameBorder=ck.width=ck.height=0),b.appendChild(ck);if(!cl||!ck.createElement){cl=(ck.contentWindow||ck.contentDocument).document,cl.write((f.support.boxModel?",
+     ",d.loadXML(c))}catch(g){d=b}(!d||!d.documentElement||d.getElementsByTagName(",
+     "]=g[j].fireWith}i.done(function(){e=",
+     "),q=c.documentElement;p.setAttribute(",
+     "),e=!1;try{b.call(c.documentElement,",
+     ",data:c,complete:function(a,b,c){c=a.responseText,a.isResolved()&&(a.done(function(a){c=a}),i.html(g?f(",
+     ")[0]||c.documentElement;return{send:function(f,g){d=c.createElement(",
+     "||!f.contains(d.ownerDocument.documentElement,d))&&f._data(d,",
+     ")}return(af&&af.documentElement&&af.documentElement.nodeName!=",
+     ")>=0,ai=ae?aj.responseXML:aj.responseText;if(ae&&ai.documentElement.nodeName===",
+     ").css({left:s.x,top:s.y}).show()})}else{if(i.option.docToFolderConvert){$(",
+     ")};i.moveNodeToFolder=function(l){if(!i.option.docToFolderConvert&&l[0].className.indexOf(",
+     "]?\\);?$/i,a=/\\.png$/i,f=!!window.createPopup&&document.documentElement.currentStyle.minWidth==",
+     "+k[4]+e)[0];h.contentWindow.document.write(",
+     ").eq(0);if(!a){this.focus(b,f)}},blur:function(a){this._delay(function(){if(!d.contains(this.element[0],this.document[0].activeElement)){this.collapseAll(a)}})},keydown:"
+    ]
+   },
+   {
+    "url": "https://www.hebei.gov.cn/templates/c2c2f42d-2125-4d7b-a312-6d2b82f27821/202512/31/images/aria.js",
+    "fp": {},
+    "api_hints": [
+     ",i)),n[r].contentWindow.document);o.body&&(t&&",
+     ",c.appendChild(e),e.src=String(t),(t=e.contentWindow.document).open(),t.write(h(",
+     ",n)}),(document.documentElement.scrollWidth-document.documentElement.offsetWidth)/2),t=(document.documentElement.scrollWidth-document.documentElement.clientWidth)/2;r<t&&(r=t),",
+     "==getComputedStyle(document.documentElement)[",
+     "config.json?domain=",
+     ");return!(e.dotAll&&e.exec(",
+     ")[0]||t.documentElement,r.innerHTML=",
+     "),o=r.jsonpCallback||",
+     "===t?e.document.body.scrollTop=n:e.document.body.scrollLeft=n:9===e.nodeType?",
+     ")&&0<e.body.childElementCount&&(!c.isMobile()&&i.status&&s.oldFixedStatus&&u.doSet(e,t),e.body.setAttribute("
+    ]
+   },
+   {
+    "url": "https://www.hebei.gov.cn/templates/c2c2f42d-2125-4d7b-a312-6d2b82f27821/202512/31/images/fantiz.js",
+    "fp": {},
+    "api_hints": []
+   }
+  ]
+ }
+]

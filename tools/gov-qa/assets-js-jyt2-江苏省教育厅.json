@@ -1,0 +1,1858 @@
+{
+ "A_考卷": [],
+ "B_补料": [
+  {
+   "source": "js-jyt2",
+   "id": "480404",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=480404&sysid=34",
+   "question": "咨询高校学生复学政策\n学生因抑郁焦虑办理休学，休学期间居家休养，没有持续到医院复诊开药，但是休学期满，提供两家（户籍所在地以及高效所在地）三甲精神专科医院最新复学评估，评估结论适合返校。请问江苏省高校层面，是否强制要求休学一整年必须要有连续",
+   "cited_hits": [],
+   "cited_missing": [
+    "普通高等学校学生管理规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-jyt2",
+   "id": "478615",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=478615&sysid=34",
+   "question": "自考本科毕业证丢失，该如何补办\n领导您好，本人自考本科毕业证丢失，请问该如何补办？需要哪些材料？且我并非江苏人，居住于外省，能否邮寄办理？由于本人工作较忙，工作期间不方便接电话，还请领导直接文字回复，万分感谢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于成绩（录取）等证明开具的说明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "463910",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=463910&sysid=34",
+   "question": "退役专转本咨询\n您好我想请问一下退役大学生专转本的学费减免政策，我是五年制大专第三年入伍的，退役复学后没有再缴过学费应该是减免了，转本录取之后还会有学费的减免吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "学生资助资金管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "437093",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=437093&sysid=34",
+   "question": "如何补办教师资格证\n您好！我是2009年6月底毕业于阜宁高等师范学校，2010年拿到的小学教师资格证，现不慎将证书遗失，请问该如何补办呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "教师资格证书补发换发申请表",
+    "教师资格认定申请表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "415829",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=415829&sysid=34",
+   "question": "2022年度优秀本专科毕业论文获奖是否有证书？\n您好，想问一下2022年度江苏省普通高等学校优秀本专科毕业论文获奖是否有证书，我本科老师说学校没有收到证书，我现在找工作想用这个奖项，需要出具证明，想问一下您这边有没有证书，或是能否出具一个盖",
+   "cited_hits": [],
+   "cited_missing": [
+    "省教育厅关于公布2022年度普通高等学校优秀本专科毕业论文（设计）评定结果的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "405666",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=405666&sysid=34",
+   "question": "大学转学\n我是江苏本地人 现在这个账号登陆 我目前在四川省上学 因为水土不服想要转回江苏省 想问下 转回去的学校需要转相同专业吗 我是美术生摄影专业 转回去的话也需要转摄影专业吗 还有学要什么材料",
+   "cited_hits": [],
+   "cited_missing": [
+    "省教育厅关于进一步做好普通高等学校学生转学相关工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "399540",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=399540&sysid=34",
+   "question": "补办江苏省普通高等学校招生考生报名登记表\n您好，我是2017级高考生，工作单位所在的秦皇岛市抚宁区教育局在梳理我的档案时发现缺少报名登记表，我想问问补办的方法。",
+   "cited_hits": [],
+   "cited_missing": [
+    "考生报名登记表",
+    "考生志愿表",
+    "考生体检表",
+    "江苏省教育考试院普通高校招生录取证明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "388674",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=388674&sysid=34",
+   "question": "关于江苏省内女教师修产假问题\n休产假遇到寒暑假，我省是怎么规定的，寒暑假是否不计算在产假内。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于女教师产假有关问题的复函"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "388254",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=388254&sysid=34",
+   "question": "关于本科应届毕业生的档案问题\n本人小孩今年本科将毕业了，学校一直在催将团员关系转到原户籍地，同时告知如不及时转移的话，后果自负等。 因其今年考研分数差一点，现已准备二战，所以想将相关材料暂存学校，待明年看考的结果如何再做打算。不知是否有相关",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好取消普通高等学校毕业生就业报到证有关衔接工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "365856",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=365856&sysid=34",
+   "question": "关于幼儿园班级人数限制的咨询\n请问，江苏省教育厅是否有，针对幼儿园班级人数限制的相关规定。",
+   "cited_hits": [],
+   "cited_missing": [
+    "幼儿园工作规程"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "357168",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=357168&sysid=34",
+   "question": "高考档案\n我们学校最近查到我的档案里没有高考档案的纸质版，让我自己去找高考档案纸质版，我就是想请问下在哪里可以找到自己当年的体检表，高考志愿填报表高考报名表的电子版复印。",
+   "cited_hits": [],
+   "cited_missing": [
+    "考生报名登记表",
+    "考生志愿表",
+    "考生体检表",
+    "江苏省教育考试院普通高校招生录取证明",
+    "江苏省教育考试院普通高校招生录取证明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "346694",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=346694&sysid=34",
+   "question": "关于江苏省大赛获奖选手在升学考试、考研等方面的加分或免试政策\n据教育部发布《全国职业院校技能大赛执行规划（2023—2027年）》通知，请问第四项保障措施，第三条完善选手奖励政策中，2022年世校赛参赛选手获奖的政策何时出台？",
+   "cited_hits": [],
+   "cited_missing": [
+    "全国职业院校技能大赛执行规划（2023—2027年）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "343745",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=343745&sysid=34",
+   "question": "普通话考试\n请问普通话考试证书，已经申领，多久可以邮寄到家？",
+   "cited_hits": [],
+   "cited_missing": [
+    "普通话水平测试规程"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "343038",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=343038&sysid=34",
+   "question": "食品专转本考16还是22膳食指南\n去年出了22年最新的膳食指南，之前一直用16年的，请问专转本食品类考试中营养学考纲有考膳食指南，请问是考哪个版本呢，最新的22年的还是16年的",
+   "cited_hits": [],
+   "cited_missing": [
+    "中国居民膳食指南（2022）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "338208",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=338208&sysid=34",
+   "question": "江苏中职三年实习期满多少就可以了\n中职第三年去实习需满几个月，如果超出实习期可不可以自行离职呢",
+   "cited_hits": [],
+   "cited_missing": [
+    "职业教育实习管理规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "333059",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=333059&sysid=34",
+   "question": "专转本考试英语改革吗？\n我想了解一下关于23年专转本考试发布工作通知，是否要对英语进行改革，恢复了英语考试，不再用四级成绩转换？23年参加专转本考试的考生，英语是否要延续使用4级成绩转换？",
+   "cited_hits": [],
+   "cited_missing": [
+    "省教育厅关于做好2023年普通高等学校“专转本“工作的通知",
+    "江苏省普通高校“专转本“选拔考试改革实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "318160",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=318160&sysid=34",
+   "question": "高考考生电子档案\n我想问下我马上就读研究生缺失高考考生电子档案请问在哪才能办理",
+   "cited_hits": [],
+   "cited_missing": [
+    "考生报名登记表",
+    "考生志愿表",
+    "考生体检表",
+    "江苏省教育考试院普通高校招生录取证明",
+    "江苏省教育考试院普通高校招生录取证明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "305267",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=305267&sysid=34",
+   "question": "10月自考科目\n您好，我看到通知是10月份增加的两天是4月与10月不重叠的国考科目，但是行政管理本科的课程10月与4月考试科目相同，因此我原本今年可以完成的考试科目因为考试次数减少就拖到明年，南大今年的行管本科的毕业末班车也赶不上，恳请领导",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于稳妥做好2022年上半年高等教育自学考试延期工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "302295",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=302295&sysid=34",
+   "question": "咨询关于7月自考能否提前的问题\n尊敬的领导：您好！省内各大高校均有提前放假的情况，并且在校生疫情期间无法申请留校一段时间，因此自考时间在7月2号有点晚了，想请问一下是否有可能提前到6月中下旬进行考试？另外：国考科目因为4月停考失去一次机会，",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于稳妥做好2022年上半年高等教育自学考试延期工作的通知"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "js-jyt2",
+   "id": "461251",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=461251&sysid=34",
+   "question": "2026年度退役士兵专升本\n2026本年度退役士兵专升本计划什么时候发布 何时可以报名",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "456224",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=456224&sysid=34",
+   "question": "退役军人专升本政策\n拿到毕业证（因挂科未能在学制年份拿到毕业证，而是半年后补考后才拿到毕业证）的当年从江苏入伍，是否满足毕业当年入伍的政策？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "455522",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=455522&sysid=34",
+   "question": "中专学历认证与查询\n中专学历在哪儿做认证报告，在哪儿查询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "454308",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=454308&sysid=34",
+   "question": "关于2026年五年一贯制专转本通知中的问题\n在2024年世界职业院校技能大赛中所设奖项为金奖 银奖 铜奖 我想问一下 银奖 是否符合通知中的获得二等奖及以上 （之前的信件忘记保存编号了 只能重新问一遍 深感抱歉）",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "454306",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=454306&sysid=34",
+   "question": "关于2026年五年一贯制专转本通知的问题\n在2024年世界职业院校技能大赛中 所设奖项为金奖 银奖 铜奖 我想问一下银奖属不属于通知中的获得二等奖及以上这个范畴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "453885",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=453885&sysid=34",
+   "question": "大专二年级可以报考专转本考试吗\n请问三年制大专二年级在读学生可以报考专转本考试吗，如果可以，三年级时还可以再考吗，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "453791",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=453791&sysid=34",
+   "question": "2026年专转本招生计划发布时间\n请问2026年普通高校专转本招生计划什么时候发布？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "445193",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=445193&sysid=34",
+   "question": "2024年度优秀本专科毕业论文（设计）评定工作是否已完成？\n距离2024年度优秀毕业论文提交已经一年有余，网络上并未查询到相关结果及公示证明文件，请问预计何时能出结果？如有查询链接请告知，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "443955",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=443955&sysid=34",
+   "question": "申请教育资助\n我本人户籍扬州市，原出生地江苏省南京市六合区，现想要申请江苏教育学生资助。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "436953",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=436953&sysid=34",
+   "question": "江苏省哪些学校开设职业本科\n江苏省哪些学校开设职业本科",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "435010",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=435010&sysid=34",
+   "question": "高考成绩复核申请\n高考完对答案估分，成绩经过查询后只有语文和化学与估分相差较大，一共有将近30分，因此本人对高考成绩有异议，希望可以在线上进行复核申请。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "432878",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=432878&sysid=34",
+   "question": "2024年优秀博士论文证书\n老师好，我是2024年参加论文评审，2025年初学校公示了省优秀博士学位论文，后好多资料都需要获得省优秀博士论文得证明材料，然而，教育厅官网以及学校公示内容均下架，无法提供支持材料，我想咨询下，这个有证书吗,如果",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "425098",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=425098&sysid=34",
+   "question": "学历提升\n麻烦问一下江苏这边还有高职扩招或弹性学制的政策吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "424010",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=424010&sysid=34",
+   "question": "高等学校毕业生学费补偿政策的咨询\n河北人，曾在淮安的淮阴工学院上大学，毕业2年多以后，以非应届生的身份，考上河北的乡镇特岗教师，请问符合江苏省高等学校毕业生学费补偿政策要求吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "422990",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=422990&sysid=34",
+   "question": "退役士兵专升本\n5年制专科毕业生，退役士兵专升本如何报名，是跟着以前的学校一块报名，还是个人报名。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "422643",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=422643&sysid=34",
+   "question": "退伍士兵专转本相关咨询\n江苏省普通高校退役大学生士兵“专转本”与五年一贯制高职（高师）“专转本”选拔考试不得兼报，考生如报名参加五年一贯制高职（高师）“专转本”选拔考试，则不再享受退役大学生士兵“专转本”相关优惠政策。这是当年考试不能同时兼",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "422584",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=422584&sysid=34",
+   "question": "退伍士兵专转本相关咨询\n2022年参加专转本考试没录取，并且当年9月份入伍，2024年9月份退伍，那我还能参加25年的退伍士兵专转本考试吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "422489",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=422489&sysid=34",
+   "question": "关于退役士兵专转本\n您好，我是一名 2023 年毕业的专科生，当年已经参加过一次江苏专转本了，并且已经被录取了，想问一下退伍回去能否放弃本科的入学资格然后参加一次退役士兵专项？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "420675",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=420675&sysid=34",
+   "question": "退役专转本\n您好  我是大专毕业生入伍 现已退役 应届毕业身份还在 然后现在想咨询转本报考专业有哪些    好进行自主学习 我大专是电子信息工程学院 智能交通技术运用这个专业  以下是我想咨询的问题1.可以报考哪几种专业 报哪些学校2.退役",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "414968",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=414968&sysid=34",
+   "question": "关于2025年普通高校三年制专转本建档立卡贫困专项\n2025年普通高校三年制专转本建档立卡贫困专项招生的计划是否适用于江苏省内的建档立卡学生，低保家庭学生是否包含在建档立卡贫困专项计划？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "414145",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=414145&sysid=34",
+   "question": "咨询2024年江苏省优秀学位论文的公示\n老师您好，前几日在南京分院的官网上看到了关于2024年江苏省优秀学位论文的公示，请问江苏省教育厅的官网上是否会进行公示呢？如果公示，时间大概是什么时候呢？十分期待您的回复，非常感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "412631",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=412631&sysid=34",
+   "question": "关于外省毕业退役军人江苏省专升本\n在外省上的大专已毕业，入伍地江苏，退伍后可以回江苏专升本吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "410741",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=410741&sysid=34",
+   "question": "2025年度普通高校招生照顾政策\n想咨询一下《江苏省2025年普通高校招生享受照顾政策考生申请办法》中符合“同等条件下优先录取”条件的“平时荣获二等功或者战时荣获三等功以上奖励军人的子女”“在飞或停飞不满1年或达到飞行最高年限空勤军人的子女",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "409929",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=409929&sysid=34",
+   "question": "关于江苏转本考试\n2025年转本考试计算机一级可以再升入本科学校之前考吗，还是说报完名之后在补",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "409675",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=409675&sysid=34",
+   "question": "第九届学宪法讲宪法演讲和知识竞赛结果\n请问第九届学宪法讲宪法演讲和知识竞赛的结果何时公布？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "406951",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=406951&sysid=34",
+   "question": "有关江苏专转本考试内容\n您好，我目前是一名大三学生，我想请问一下参加2025年江苏专转本考试后选择入伍后，若选择退伍继续升学，可以参加退役士兵专升本吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "406802",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=406802&sysid=34",
+   "question": "咨询身份证年龄变更后毕业证办理问题\n领导好，本人大专毕业后，在当地公安系统申请变更年龄成功，变更后后报考成考专升本，目前在读中。请问这种情况毕业后的毕业证及学信网查询信息，是以新身份证为主，还是以老身份证为主，该如何变更信息或办理相关手续，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "405578",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=405578&sysid=34",
+   "question": "江苏省专转本\n本人在江苏卫生健康职业学院学习的针灸推拿专业，3年后想要专转本，针灸推拿还可以报考医护类的本科吗？（听说针灸推拿不能报医护类，而且专转本只有一次机会）",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "405166",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=405166&sysid=34",
+   "question": "贫困生认定\n你好，抱歉占用公共资源。看了省教育厅的文件很重视建档立卡贫苦户，现在本科在校生。我想问一下建档立卡贫困生真的能享受到待遇吗？可以申请贫困生吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "401343",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=401343&sysid=34",
+   "question": "咨询2025年专转本考试大学英语四级成绩截止时间\n2024年12月份考英语四级，是否可以折算为2025年3月份专转本考试的成绩呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "400704",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=400704&sysid=34",
+   "question": "大学转学咨询\n我家女儿目前在山西一所二本师范院校读大一，由于个人原因适应性差，想转学至本省相适应的本科院校就读，请问需要哪些程序呢？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "400673",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=400673&sysid=34",
+   "question": "专转本\n我想问一下就是在校大学生以高中往届生身份入伍，退役之后算不算是退役大学生，能享受到退役大学生政策吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "400496",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=400496&sysid=34",
+   "question": "加分政策\n2025年退役军人子女高考有没有加分政策？有哪些加分政策？如何申请或办理？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "394688",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=394688&sysid=34",
+   "question": "关于毕业生学费补偿\n请问高校毕业生基层就业学费补偿国家助学贷款代偿，和高校毕业生学费补偿是否同为一个政策，如果是两个政策，我去河北省参加三支一扶是否可以享受前者的学费补偿，如果可以，我是专转本上了两年本科，第三年还能否补偿学费",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "389026",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=389026&sysid=34",
+   "question": "成绩查询\n2024年江苏职教高考成绩什么时候公布",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "388773",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=388773&sysid=34",
+   "question": "专转本考试\n您好，我想咨询我们江苏专转本考试的有关内容我是2025年3月进行专转本考试，请问我们2024年12月份的英语四级考试成绩，是否计入专转本2025年3月份考试的英语成绩？以上有劳，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "387034",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=387034&sysid=34",
+   "question": "请求修改学信网学历照片\n您好，我是河海大学即将毕业的博士研究生杨金孟，我请求修改我学信网中的学历照片。原因如下：1、我是在22年进行图彩的，当时没有对此事引起足够重视，随便采集了一下，导致现在学信网上我的学籍照片质量较差；2、利用手机进行图",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "378937",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=378937&sysid=34",
+   "question": "咨询专转本\n您好，我咨询一下专转本的政策，我是2023年退伍的，然后是今年2024毕业准备参加专转本，但是政策我有点不清楚，我是在南通上的学，但是我入伍的话是在贵州入的伍，请问我是否符合江苏的专转本退伍士兵政策呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "376553",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=376553&sysid=34",
+   "question": "考试相关问题咨询\n江苏省舞蹈生专转本、专接本考试可以换哪些专业（除舞蹈之外的专业）？需要哪些要求？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "375738",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=375738&sysid=34",
+   "question": "咨询有关全国计算机考试\n请问不在江苏省考的全国计算机可以参加专转本考试嘛",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "375654",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=375654&sysid=34",
+   "question": "关于社招全日制大专生参加2024年江苏“专转本”考试的问题\n老师您好！我是江苏省（面向社会人员开展全日制学历教育）社招的全日制大专生。学信网上显示：本人学籍为在籍，入学时间为2021年12月26日，预计毕业日期为2025年1月1日。请问我是",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "375651",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=375651&sysid=34",
+   "question": "江苏专转本\n您好，请问专转本建档立卡招生计划，对于江苏考生在计划之内吗？招收本地的建档立卡贫困家庭专科毕业生，是指生源地所在市的吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "373978",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=373978&sysid=34",
+   "question": "关于江苏省专转本选拔考试报名资格问题\n尊敬的领导您好！ 请问这个“ATA 职业技能评价证书ATA Occupational Skills Assessment Certificate 通过ATA电子信息技术领域办公软件应用系列MS Ofic",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "373513",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=373513&sysid=34",
+   "question": "关于考前计算机问题\n你好，我是大一级学生，二一级在这个前大一大二的这个过程中，深受疫情影响，在这期间我们计算机考试多次涉及停考问题，考试机会减少，据了解上一届二零级，省考试院临时推迟去本科报道前，拿到计算机一级证，望二一级得到关照。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "373457",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=373457&sysid=34",
+   "question": "大学生服兵役学费补偿\n想询问一下  今年的现役大学生学费补偿什么时候发放",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "371619",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=371619&sysid=34",
+   "question": "江苏专转本\n请问报名江苏专转本计算机一级在外省考的算数吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "371281",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=371281&sysid=34",
+   "question": "诵读大赛咨询\n老师您好，想咨询一下中华经典诵读大赛的获奖证书是在凤凰优学的公众号领吗？还是别的什么渠道领，因为获奖结果出来一个多月了也没看到公众号发通知，所以想问一下证书如何领取。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "370475",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=370475&sysid=34",
+   "question": "关于2023版《江苏省普通高中学籍管理规定》休学规定\n关于2023版《江苏省普通高中学籍管理规定》休学规定中：第十八条（佐证材料）  学生因伤病提出休学的，须提供二级以上医疗机构病历或其他有效材料。其中的二级以上医疗机构包含二级吗？http",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "370347",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=370347&sysid=34",
+   "question": "江苏专转本 第一学历\n请问江苏专转本第一学历是专科还是本科呢？在哪可以找到文件证明呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "370322",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=370322&sysid=34",
+   "question": "研究生奖学金咨询\n你好，老师，想咨询一下，定向全日制研究生有没有获得助学金和奖学金的资格，有的学校给定向的研究生助学金，有的学校给定向的研究生学业奖学金，有的学校两者都不给，有没有文件明确规定这些内容的啊？是不是学校规定是啥就是啥，按学校的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "370123",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=370123&sysid=34",
+   "question": "关于农村本科学生补助的问题\n我想咨询关于农村的孩子，本科补助的问题，这个补助的数额及相关规定，能否给与解答，感谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "369631",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=369631&sysid=34",
+   "question": "专转本咨询\n您好，我的全国计算机一级NCRE证书是2014年9月考试获得合格证书的，请问是否可以参加2025年专转本考试，是否需要重新考？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "369524",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=369524&sysid=34",
+   "question": "江苏退役士兵报考专转本\n江苏退役士兵报考专转本，轨道交通专业，转本要求是（报考的本科专业应与就读的高职（专科）专业大体对应。）轨道交通专业找不到对应的专业大类，可以报考哪个大类的转本啊，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "366504",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=366504&sysid=34",
+   "question": "如何打印高中成绩往年高考成绩\n学校要过年的高考成绩要打印出来的那种，然后我想问一下怎么弄",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "364681",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=364681&sysid=34",
+   "question": "关于外省全国计算机一级证书是否可以参加江苏专转本\n我想问一下外省取得全国计算机一级证书是否可以参加江苏专转本，之前受到答复是只要全国性质，能在教育网查到就行，但是我也看到江苏省教育厅在21年6月给出的回复是在外省考全国计算机一级不符合条件，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "362477",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=362477&sysid=34",
+   "question": "关于24届专转本考试\n请问今年9月我在安徽省报考全国计算机一级考试满足江苏24届专转本考试报名要求吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "361509",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=361509&sysid=34",
+   "question": "自学考籍\n请问一下江苏自学考试的考籍是如何获得的。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "359403",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=359403&sysid=34",
+   "question": "专转本考试要求\n专转本考试要求计算机一级及以上证书，那如果只有二级证书，没有一级证书，可以参与报名吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "358031",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=358031&sysid=34",
+   "question": "高考志愿填报\n高考志愿填报如果分数达到普通本科线，是否可以不参加第一批次本科志愿填报，直接参加第二批次专科志愿填报",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "356067",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=356067&sysid=34",
+   "question": "请问参加专升本失败后，去当兵，退伍回来后还能享受免试升本吗？\n请问参加专升本失败后，去当兵，退伍回来后还能享受免试升本吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "355498",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=355498&sysid=34",
+   "question": "请问2023年五年一贯制退役士兵专转本结果什么时候会出来？\n请问2023年五年一贯制退役士兵专转本结果什么时候会出来？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "354699",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=354699&sysid=34",
+   "question": "五年一贯制退役士兵专转本免试\n我是2017年9月入学就读五年一贯制大专，2019年9月应征入伍，2021年退役复学，是否符合2024年的退役士兵专转本免试政策。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "353513",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=353513&sysid=34",
+   "question": "2023年江苏省专转本录取结果\n领导您好，我获取了2023年江苏省技能大赛高职组一等奖并参加专转本考试通过了计算机大类省控线，目前还查不到录取结果，今天登录征求志愿填报是禁止操作的，请问我们这一类学生今年录取政策是什么样的，我想打省教育考试",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "352191",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=352191&sysid=34",
+   "question": "第五届中华经典诵写讲大赛咨询\n请问什么时候发布赛区参赛方式？各省陆续已经发布相关参赛方式，但是江苏省还没有发布。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "350754",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=350754&sysid=34",
+   "question": "2023年江苏省普通专转本考试\n您好，我想要咨询一下2023年江苏省专转本考试成绩公布有具体时间吗？五月初大概是多少号出成绩？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "350703",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=350703&sysid=34",
+   "question": "2023年江苏省五年一贯制专转本考试查询时间\n2023年江苏省五年一贯制专转本考试查询时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "349516",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=349516&sysid=34",
+   "question": "关于<省教育厅关于进一步健全高等学校 人才流动配置机制的通知\n请问相关领导《省教育厅关于进一步健全高等学校 人才流动配置机制的通知》文件以下条件的解读：二、新聘用人员流动配置方式5．符合以下任意一项条件的人员，可不通过公开招聘，直接办理调配",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "348664",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=348664&sysid=34",
+   "question": "国家励志奖学金电子证书下载\n在哪才能查到国家励志奖学金证书的电子版",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "348501",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=348501&sysid=34",
+   "question": "23年高校毕业生学费补偿\n请问23年高校毕业生学费补偿是指22年毕业的学生吗？在徐州观音机场（场务）一线工作的学生享受补偿政策吗？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "348463",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=348463&sysid=34",
+   "question": "成绩公布延期了，那计算机一级改过名字的会算过吗\n专转本，一级计算机是18年中专考的，但我现在名字改了，跟原来不一样，那个成绩公布延期是不是会筛选计算机没过的人，然后判0分，那请问我会不会也被筛掉，有点害怕现在，因为之前都院校审核的。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "348356",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=348356&sysid=34",
+   "question": "想问问五年制专转本是否和三年制一样延期\n打电话问了学校，学校说要看上面安排，所以来问问今年五年制的转本成绩也和三年制的一样延期出分吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "348208",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=348208&sysid=34",
+   "question": "五年制专转本什么时候出成绩\n尊敬的各位教育厅领导，请问五年制的专转本的成绩什么时候出来，不是三年制的专转本",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "348096",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=348096&sysid=34",
+   "question": "关于江苏五年一贯制专转本成绩查询时间\n五年制专转本的成绩是否和三年制专转本成绩查询时间一同延期？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "347384",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=347384&sysid=34",
+   "question": "2023年普通高校专转本考试成绩公布具体时间\n您好，请问2023年普通高校专转本考试成绩公布的具体时间是什么时候？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "346674",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=346674&sysid=34",
+   "question": "2023年的大学生英语四六级咨询\n请问2023年6月大学英语四六级大概要什么时候开始报名",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "344397",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=344397&sysid=34",
+   "question": "即将参加专转本考试，身份证丢了，凭临时身份证明能参加考试吗\n如题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "344311",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=344311&sysid=34",
+   "question": "咨询在中专考的全国计算机一级的证书是否可以转本\n咨询在中专考的全国计算机一级的证书是否可以转本",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "344265",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=344265&sysid=34",
+   "question": "学籍信息\n我上学期间用的一个身份证号，大专毕业时，不知某种原因身份证号改变了，我现在再教育，学信网上需要查询学籍信息，我现在用现在的身份证号办理时，就查不到我的学籍信息，咨询下，我现在需要怎么做，才能在用我现在的身份证号能查到我的学籍信息？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "344218",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=344218&sysid=34",
+   "question": "三月加考四级成绩\n2023年3月份加考四级成绩算不算进2023年转本成绩里？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "343960",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=343960&sysid=34",
+   "question": "江苏省专转本考试咨询\n您好，2022年3月19日江苏省专转本选拔考试，身份证不见了，补办需要一个月，请问需要尽快走哪些手续呢。盼复！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "343610",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=343610&sysid=34",
+   "question": "目前为甲流高发期，转本考试是否会延期？\n本人为2023届转本考生，身边同学包括自己已感染甲流，反复高烧，身体无力，复习效率低，而且转本考试还需长途跋涉去考试点，害怕体力不支。请问能否考虑延期一段时间呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "342895",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=342895&sysid=34",
+   "question": "关于五年一贯制专转本考试的一些问题\n1.能否延期举行考试？最近甲流严重，学校里有很多班都停课了，班上也有很多同学都感冒咳嗽，身体状态不佳，发挥不出正常水平。2.能否给予一次更改支愿的机会？由于提前两个月填报志愿，导致很多人都没想好，甚至没有",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "342763",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=342763&sysid=34",
+   "question": "关于五年一贯制专转本学籍问题\n教育厅相关领导您好！我是一名通过2022年五年一贯制专转本考试考取本科的学生，现在在校学习一学期了，为什么学信网还查询不到相关学籍信息？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "342736",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=342736&sysid=34",
+   "question": "2024年，休学生考过的地生要重新考吗？\n孩子休学了，在初二时参加过市里组织的地理、生物考试（盐城市）。在2024年全省中考统一考试中成绩还算不算，要不要重考。？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "342165",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=342165&sysid=34",
+   "question": "小高考不过的影响\n新高考小高考如果不过，会影响高考填报志愿么",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "342095",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=342095&sysid=34",
+   "question": "退伍大学生士兵计划解读\n您好，本人想走退伍大学生士兵计划，请问下士兵计划是可以报学校里的所有专业吗？还是只能报定向专业？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "341606",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=341606&sysid=34",
+   "question": "专转本\n专转本第一志愿填错了，今天发现南京邮电通达学院是民办二办，没有南京邮电大学，请问怎么样可以补救呢，可以修改志愿，或者要求学校退档，进行补录还是什么",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "341309",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=341309&sysid=34",
+   "question": "江苏专转本要求\n24届考生没获得全国计算机一级证书但是有江苏省计算机一级证书可以吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "340831",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=340831&sysid=34",
+   "question": "全国计算机一级考试2023年江苏省可以考几次\n全国计算机一级考试2023年江苏省可以考几次呢？去年十二月没有全国计算机一级的考试，所以想问一下今年如果没有特殊情况比如疫情的话，是会开放四次还是只有三月和九月有全国计算机一级二级的考试呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "340675",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=340675&sysid=34",
+   "question": "3＋2今年是否要参加江苏统一的专转本考试？\n尊敬的各位老师你们好，我是2020级3＋2的一名学生，我近日看到有的学校的3＋2考生说他们不用参加江苏统一的专转本考试，但是我们学校并没有接到相关通知，我就想问问看这个是不是真的，或者说是不是所有",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "340494",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=340494&sysid=34",
+   "question": "关于专升本\n从广东省考取的全国计算机一级或二级是否符合江苏省专升本报名条件",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "340465",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=340465&sysid=34",
+   "question": "2023年四级延考问题\n省教育考试院在12月公开信息中指出“ 确定除12月考试外，在明年春季学期开学组织一次加（延）考”，请问四级考试时间是否明确，以及四级加（延）考相关政策若因疫情情况，部分考生弃考2022年下半年四级考试，学校说明不影响",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "340144",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=340144&sysid=34",
+   "question": "关于3＋2分段培养转本考试问题咨询\n尊敬的领导，你好，我是一名20级在读3＋2联合培养的学生，根据教育厅最新文件通知3＋2分段培养学生自2023年起必须参加江苏省统招专转本考试，我想询问3＋2学生升学到对接培养的本科院校是否有专转本分数要求",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "339696",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=339696&sysid=34",
+   "question": "关于应届生转本\n我是2023年的专科应届毕业生我现在已经报名了专转本考试，问题我家里人也让我参加了应征入伍现在已经开始政审了，到了3月份我可能已经在部队里了，这样的话我这次的考试就没有参加，我听说专转本考试一个人只能参加一次，我想知道我退伍",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "339438",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=339438&sysid=34",
+   "question": "咨询\n你好，想帮我朋友问一下，他学的是学前教育专业，属于教育大类，而在专转本中每年教育类可报考的院校很少，又多是民办院校，今年才新加了一个常州工学院，，他25年专转本，想问一下在往后的招生计划中，有没有可能会新增点院校供教育类学生报考。谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "339401",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=339401&sysid=34",
+   "question": "23年专转本\n今年3月的四级成绩计入转本成绩吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "339398",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=339398&sysid=34",
+   "question": "关于2023春季兵退伍专转本相关事宜\n本人与2021年3月应征第一批春季兵，将于2023年3月退出现役，请问还能不能赶得上今年的退役士兵专转本计划？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "338948",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=338948&sysid=34",
+   "question": "专转本保送问题咨询\n尊敬的领导您好：        关于首届世界职业院校技能大赛获奖是否可以保送？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "338277",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=338277&sysid=34",
+   "question": "计算机\n想问一下，江苏专转本没有计算机的，是只能把3月份的成绩计入成绩，还是参加外省5月份的考试，也可以，是在入学9月取的的计算机作数，还是只有3月那次做数",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "338222",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=338222&sysid=34",
+   "question": "我想咨询3＋2分段培养政策\n3＋2分段培养原来只需要参加转段考试，现在新政策颁布之后还要参加专转本考试，我想问一下，专转本考试的成绩会影响转段考试吗，专转本对3＋2来说重不重要",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "333478",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=333478&sysid=34",
+   "question": "四六级考试\n我省四六级12月考试正常进行。此外，还在明年春季组织一次加考，加考四级成绩算2023年专转本成绩吗？我因为疫情原因只能选择加考了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "333041",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=333041&sysid=34",
+   "question": "专转本考试\n您好！我想问一下明年2023年专转本考试如果是十二月份参加的计算机一级考试一月份取得的成绩，还能报名参加2023年的专转本考试吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "333038",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=333038&sysid=34",
+   "question": "2023年三年制专转本英语四级成绩截止时间\n你好！     来信咨询报名2023年专转本考试英语四级成绩截止日期",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "332527",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=332527&sysid=34",
+   "question": "江苏专转本考试\n您好，请问英语六级可以算转本分数吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "332237",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=332237&sysid=34",
+   "question": "四六级考试\n四六级考试如果不延期，那么外地学生前往考试地点的隔离问题该怎么解决？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "331436",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=331436&sysid=34",
+   "question": "2022年12月份四级考试\n请问江苏省2022年12月份四级考试会不会延期？如果万一延期，那对于专转本考生来说这次四级还算吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "331091",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=331091&sysid=34",
+   "question": "关于江苏专转本退役士兵专业填报问题\n我是江苏城乡建设职业技术学院今年刚退伍的大专三年级学生，按照政策可以参加23年的专转本考试，但是我不知道我是属于哪一个专业大类的，我本专业是古建筑工程技术，属于建筑艺术学院，在转本中有点偏美术设计大类，但",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "330611",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=330611&sysid=34",
+   "question": "23高考补报名\n请问2023年江苏高考有补报名吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "330556",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=330556&sysid=34",
+   "question": "高考问题\n您好 领导 请问一下技师学院在读可以报名高考吗 技校有学籍吗 江苏可以以初中毕业三年同等学历报考吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "330201",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=330201&sysid=34",
+   "question": "其他学校的英语四级和计算机一级成绩能不能用\n目前我的身份是一名高职扩招的大专生，我想要参加专转本考试。那我想要问一下，我在参加高职扩招之前已经过了之前学校的英语四级和计算机一级，我想要用高职扩招的大专生的应届生身份参加专转本考试，老早之前学",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "330112",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=330112&sysid=34",
+   "question": "关于今年江苏专转本的报名条件\n如果没有没有计算机一级，计算机二级是否符合专转本的报名条件",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "330063",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=330063&sysid=34",
+   "question": "江苏省专转本考试报名\n江苏省专转本考试报名成功后需要原专科学校审核吗？具体原专科学校需要审核什么内容通过可以参加专转本考试？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "329904",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=329904&sysid=34",
+   "question": "2023江苏省专转本考试\n因为今年我报名了全国9月份的计算机考试，但因为疫情考点不让我们进，报名资格就被退回来了，今年江苏省还不开考12月计算机一级 ，看江苏省已经没机会了，所以我们已经报考了外省的全国计算机考试， 但是外省说因为疫情原因不",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "329808",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=329808&sysid=34",
+   "question": "想问一下四级没有缴费现在还有机会吗\n因为浏览器打开的缴费没有缴成功，然后今天打开发现自动关闭了，没有报名成功，想问一下有没有机会，明年3月的四级算不算专转本成绩，因为我看之前网上的回复是学生在专科学习期间最高成绩，而我是明年6月份毕业，3月",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "329342",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=329342&sysid=34",
+   "question": "大艺展指导教师证书在哪下载呢\n老师您好，我想问下，江苏省第六届大艺展，器乐小合奏比赛的获奖作品，指导教师证书有吗，我们学校说没领到。让我在网站下载。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "329110",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=329110&sysid=34",
+   "question": "计算机一级报名\n关于计算机一级报名 成绩9号下来的其他市区9号之前报名的 不知道成绩情况也没有填报其他市区计算机一级 今年还不开考12月计算机一级 我们想转本的没有机会了 能不能在开放一下全国计算机一级报名 或者今年能取消计算机一级作为专转",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "329081",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=329081&sysid=34",
+   "question": "转本\n请问今年专转本专业技能是考实操还是笔试啊",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "328959",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=328959&sysid=34",
+   "question": "2023转本信息\n尊敬的各位领导您好：                                    我是一名专科大三学生，很不幸今年计算机我没有过（58分）在大一大二期间我没有意识到学习的重要性以及往后的规划，今年突然意识到学习以",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "328943",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=328943&sysid=34",
+   "question": "计算机考试\n江苏计算机考试12月份还会考吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "328926",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=328926&sysid=34",
+   "question": "江苏省专转本考试\n江苏省专转本考试，考了江苏省计算机一级过了（全国计算机一级没有考）这种情况下可以去参加江苏省专转本吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "328923",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=328923&sysid=34",
+   "question": "江苏省专转本考试\n参加江苏省的专转本考试，考过了江苏省计算机一级（没有考全国计算机一级），可以用江苏省计算机一级去参加专转本考试吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "328851",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=328851&sysid=34",
+   "question": "高职扩招是否可以申请生源地贷款\n高职扩招生是否可以申请生源地贷款 并且享受一样的政策  同时贫困家庭是否可以申请补助",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "328666",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=328666&sysid=34",
+   "question": "2023年退役士兵免试转本报名时间为何时？在哪查看报名的文件\n2023年退役士兵免试转本报名时间为何时？届时，需去省考试院官网查询报名的文件？还是省教育厅查询相关文件？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "328224",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=328224&sysid=34",
+   "question": "2022年全国计算机一级\n2022年12月份江苏省还会开通全国计算机一级考试吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "328169",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=328169&sysid=34",
+   "question": "全国计算机二级\n今年12月份还可以考全国计算机二级吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "328051",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=328051&sysid=34",
+   "question": "退役士兵专转本\n尊敬的教育厅领导，请问一下江苏2023年专转本退役士兵项需要计算机一级证书吗？因为刚退役回来，报名12月份的成绩时间和专转本报名条件错开导致不符合条件。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "327854",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=327854&sysid=34",
+   "question": "关于教龄问题的咨询\n教师的教龄怎么算？如果有教师在教育机构做过培训工作，这段工作经历算教龄吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "327601",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=327601&sysid=34",
+   "question": "关于计算机等级考试\n请问2022年12月江苏省会举办全国计算机等级考试吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "327291",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=327291&sysid=34",
+   "question": "英语四级与2023年专转本考试\n2022年10月31日报名的英语四级，成绩乘以17%计算，是否可以纳入2023年1月份报名的江苏省专转本考试成绩中",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "327247",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=327247&sysid=34",
+   "question": "专转本考试要求\n2023年考试的着专转本考试的计算机要求还是和22年的要求一样吗？江苏省计算机或全国计算机都行？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "326894",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=326894&sysid=34",
+   "question": "2023年专转本考试要求\n尊敬的江苏省教育厅，您好！我想参加2023年的转本考试，请问我只通过了江苏省计算机一级考试，没有通过全国计算机一级考试，可以参加专转本考试吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "326886",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=326886&sysid=34",
+   "question": "2023年专转本报名条件\n只有江苏省计算机一级证书能否报名参加2023年专转本考试",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "326516",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=326516&sysid=34",
+   "question": "2022年9月计算机考试\n江苏2022年9月计算机考试成绩预计什么时候出成绩？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "325065",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=325065&sysid=34",
+   "question": "第八届中国国际“互联网＋”大学生创新创业大赛江苏省获奖公示\n第八届中国国际“互联网＋”大学生创新创业大赛江苏省选拔赛暨第十一届江苏省大学生创新创业大赛结果的通知。这个获奖名单什么时候可以公示呢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "323593",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=323593&sysid=34",
+   "question": "江苏省外考的计算机一级合格成绩，在江苏专转本报名中是否承认\n在上海考的计算机一级成绩合格，江苏2023专转本是否承认，是否拥有江苏专转本报名资格",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "323318",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=323318&sysid=34",
+   "question": "关于退役大学生士兵学费补偿咨询事\n有关2022年退役大学生复学学费补偿，新标准是12000元，请问2021年退伍复学的按8000元还是12000元计算",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "323102",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=323102&sysid=34",
+   "question": "上学期的江苏省计算机考试推迟到了几月份\n上学期的江苏省计算机考试推迟到了这学期几月份？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "322891",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=322891&sysid=34",
+   "question": "高职扩招\n今年的高职扩招招生限制外省户籍吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "322727",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=322727&sysid=34",
+   "question": "全国计算机考试\n9.25号的全国计算机一级考试考砸了 可以去其他省考吗 因为明年就要转本 还有机会吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "317959",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=317959&sysid=34",
+   "question": "请问江苏12月英语四六级报名和考试是否会延期？\n请问下，12月江苏四六级报名时间是多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "317893",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=317893&sysid=34",
+   "question": "专转本考试要求\n专转本考试要求计算机一级及以上证书，那如果只有二级证书，没有一级证书，可以参与报名吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "316400",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=316400&sysid=34",
+   "question": "大学生退役免试专转本政策\n我今年要从新疆入伍，学校在江苏无锡，我看专转本政策退役大学生士兵必须从本省入伍才能享受免试吗？那我岂不是白白浪费这个政策了？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "316265",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=316265&sysid=34",
+   "question": "退役士兵专转本问题\n退役士兵转本考试，考察的内容有考纲吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "316259",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=316259&sysid=34",
+   "question": "咨询退役士兵专转本\n2017年上的大专 ，2019年大二结束后入伍，在义务兵第二年的时候拿到了专科毕业证，然后套选了下士第三年，今年退伍，还能报名退役士兵专转本吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "315302",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=315302&sysid=34",
+   "question": "随迁子女高考\n随迁子女高考制度及相关资料",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "314851",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=314851&sysid=34",
+   "question": "退役士兵报考专转本的条件\n学生毕业当年参军入伍是指毕业当年的12月份之前，还是毕业的一年之内都可以呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "314492",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=314492&sysid=34",
+   "question": "高职扩招\n高考录取快结束了请问高职扩招的相关文件什么时候出谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "314356",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=314356&sysid=34",
+   "question": "关于2023江苏专转本报名\n请问，专转本报名必须要有英语四级成绩单吗？如果没有英语四级成绩单可以报名吗？如果可以之后12月份的考试成绩会计入吗？静待您的回复。谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "314231",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=314231&sysid=34",
+   "question": "五年制高技参加职教高考需要具备哪些条件？\n就读于盐城技师学院五年制高技班，想参加江苏的职教高考，今年9月份开学是第四年。想问问技校的五年制高技班有没有参加职教高考的资格，如有资格需要准备哪些东西？需要准备的东西有哪些请老师能一次说明和讲解清",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "314073",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=314073&sysid=34",
+   "question": "2023江苏专转本\n你好，请问报名的时候英语没有成绩单，可以报名吗？也就是没有英语成绩可以报名吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "313902",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=313902&sysid=34",
+   "question": "国内国外学校联合培养博士生项目\n本人在挪威攻读博士，学籍是国外学校，国外院校有导师，国内院校有合作导师，导师签订合作协议，一年在国外上课，后三年在国内做科研，入学到答辩完全按照国外学校要求。但后来国内学校为了加强跟挪威学校合作，于我入学后大",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "312305",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=312305&sysid=34",
+   "question": "民办非企业单位的非学历培训机构是否可以使用XX进修大学\n1、民办非企业单位的非学历培训机构是否可以使用XX进修大学，2、应该具备哪些条件才可以申请注册。3、招生时是否可以 以大学字样来宣传学校，促成招生",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "312236",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=312236&sysid=34",
+   "question": "全国一级计算机考试\n尊敬的领导，你好！今年计算机一级南京考点一开始推迟，然后五月份又是考点停考，我们只有等九月那一次，考过才可以参加明年的专转本考试，心里很慌啊！想请问12月那次的成绩能算吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "311535",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=311535&sysid=34",
+   "question": "江苏师范大学及函授点\n之前反馈的问题已得到解决，谢谢您们的处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "311241",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=311241&sysid=34",
+   "question": "学历证书姓名变更\n咨询一下：我是2022年全日制专科毕业的，准备报考成人教育，但发现毕业证书上的名字有一个字和身份证不同（原毕业证书学信网可查询到），想进行变更，请问在线上可以变更吗？需要什么手续，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "309984",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=309984&sysid=34",
+   "question": "你好请问报到证改派可以自己线上办理吗？需要提供什么材料\n我的报道证的抬头有一个字出现错误了，所以需要进行改派，学校那面已经重新通过审核了，因为比较急，学校办的有点慢。我想问一下可以自己线上改派吗？需要提供什么材料，大概需要多长时间？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "309341",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=309341&sysid=34",
+   "question": "高职扩招\n我省2022年还有高职扩招吗？如果有什么时候开始",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "308527",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=308527&sysid=34",
+   "question": "退役大学生助学金\n扬州2022年春季退役大学生助学金一直还未发放，学校已放假，咨询有关部门老师说省里钱款还未拨款，请问什么时候能拨款下来呢，最后一学期了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "308298",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=308298&sysid=34",
+   "question": "建档立卡户免学费\n您好，我是江苏省南京市一所二本公立院校21级学生，先就建档立卡户免学费存疑，学校说免学费是需要勤工助学（勤工助学岗位由学校设置，要本人申请，我申请了，并没有批） ，并且由学校免除学费，一切解释权归学校所有，但具我所知，建档",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "306595",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=306595&sysid=34",
+   "question": "江苏省五月考的全国计算机等级考试成绩预计什么时候发布\n江苏省五月考的全国计算机等级考试成绩预计什么时候公布",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "306585",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=306585&sysid=34",
+   "question": "高职扩招\n我想问一下我省2022年有没有高职扩招了，大概什么时候开始",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "306571",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=306571&sysid=34",
+   "question": "江苏政府留学奖学金和江苏省高校优秀中青年教师境外研修\n尊敬的领导，您好！我是江苏省高校的一名青年教师，2021年度的江苏政府留学奖学金项目和2021年度的江苏省高校优秀中青年教师境外研修项目未看到申报信息，想咨询一下2022年度的江苏政府留",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "306157",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=306157&sysid=34",
+   "question": "外省获得全国计算机一级证书符不符合23年江苏专转本报名条件\n因为错过了江苏省的全国计算机一级的报名时间，想要报考外省的全国计算机一级考试，在外省报名参加考试获得的全国计算机一级证书符合23年的专转本报名条件嘛？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "305932",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=305932&sysid=34",
+   "question": "互联网＋创新创业大赛，高教主赛道能不能免试专转本\n互联网＋创新创业大赛，高教主赛道能不能免试专转本",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "305908",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=305908&sysid=34",
+   "question": "高技生可以参加高职扩招吗，如果可以怎么参加\n今年毕业了但是学校只提供高技毕业证和国开毕业证，但是国开大学不是全日制大专，想知道可以参加高职扩招吗，如果可以怎么参加，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "305613",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=305613&sysid=34",
+   "question": "专转本四级考试咨询\n2023届专转本考生今年12月份四级考试成绩算在专转本考试成绩内吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "304711",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=304711&sysid=34",
+   "question": "专转本\n请问今年的专转本成绩具体什么时候发布？三年制和五年制的专转本成绩发布时间是一样的吗?考生的录取通知书是直接邮寄给考生还是邮寄到考生的推荐院校？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "304668",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=304668&sysid=34",
+   "question": "退役士兵退役后什么时间报名转本免试考试呢？\n2022年3月报名普通转本考试后，想参军，咨询教育厅说不参加普通转本考试后参军可退役免试转本，然后未参加考试参军，想问下24年3月退役，是24年三月参加转本考试，还是25年3月才能参军转本免试考试",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "304647",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=304647&sysid=34",
+   "question": "关于五年一贯制退役士兵免试专转本\n您好 21年五年制大专毕业 已拿到毕业证书 无学籍状态 21年九月入伍 两年退伍回来能参加免试专转本考试吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "304508",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=304508&sysid=34",
+   "question": "专转本成绩\n我想问一下，专转本的成绩和省控线分别是什么时候出来？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "304462",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=304462&sysid=34",
+   "question": "三年制专升本成绩\n江苏三年制专升本成绩大概什么时候能出来，与五年制专升本成绩出来的时间一致么",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "304455",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=304455&sysid=34",
+   "question": "想咨询一下自学考试免考\n免考实施细则里：获得全国计算机等级考试二级及以上合格证书者，或获得全国计算机应用技术证书考试（NIT）中的《管理系统中信息技术的应用》模块证书者可免考非计算机专业的“00051管理系统中计算机应用”课程（包括理论考试",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "304418",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=304418&sysid=34",
+   "question": "江苏专转本成绩公布时间\n贵厅何时发布关于5月22日举行的专转本考试的考试成绩",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "304154",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=304154&sysid=34",
+   "question": "江苏省五年一贯制专转本\n请问五年一贯制专转本什么时候可以出分数，等的很着急。希望尽快出分数",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "304152",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=304152&sysid=34",
+   "question": "江苏专转本考试\n你好，我想咨询一下普通高职（专科）学生符合直接录取本科政策的，报考志愿时是否可以报考与专科学习时不同的专业大类，比如我现在是物流大类专业，申请直接录取时可以申请计算机大类的专业吗？感谢老师回复！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "304114",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=304114&sysid=34",
+   "question": "五年制专转本\n您好，请问2022年江苏五年一贯制专转本成绩和录取结果什么时候公布",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "304059",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=304059&sysid=34",
+   "question": "咨询下五年制专转本成绩\n请问下五年制专转本成绩的公布时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "304048",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=304048&sysid=34",
+   "question": "退役复学政策咨询\n教育部、退役军人事务部、全国征兵网发布的文件中都有 高职（专科）在校生（含高校新生）入伍经历可作为毕业实习经历 ；这一政策具体怎么实行。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "302670",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=302670&sysid=34",
+   "question": "关于专转本AB答题卡\n尊敬的各位领导，您好，我想问一下今年专转本答题卡有没有座位号单数A答题卡，座位号双数答题卡B一说，果然有，单双数答题卡弄反了会影响成绩吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "302569",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=302569&sysid=34",
+   "question": "咨询一下江苏省专转本\n您好，我想咨询一下21年春季入学的20级社招大专生可以参加江苏省专转本吗？可以的话是参加23年的还是24年呢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jyt2",
+   "id": "302132",
+   "url": "https://jyt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=302132&sysid=34",
+   "question": "2022年还会有高职扩招吗\n你好我想咨询一下今年还会有高职扩招吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

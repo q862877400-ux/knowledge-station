@@ -1,0 +1,585 @@
+{
+ "A_考卷": [
+  {
+   "source": "sc-zigong-zwfw",
+   "id": "2545b700-648f-49a5-b8f1-9de5f3ff5624",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=2545b700-648f-49a5-b8f1-9de5f3ff5624",
+   "question": "【助企纾困】关于消防问题\n你好领导，我想咨询消防重点单位，在咱们自贡市开展消防维保和消防年度检测，可以用同一家单位么？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国消防法",
+     "lib_no": "消防法(2021修正全本)",
+     "weak": false
+    },
+    {
+     "name": "社会消防技术服务管理规定",
+     "lib_no": "中华人民共和国应急管理部令（第23号）社会消防技术服务管理规定",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "四川省消防条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-zigong-zwfw",
+   "id": "054347cc-7338-4075-b539-152120363cce",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=054347cc-7338-4075-b539-152120363cce",
+   "question": "荣县交警无故扣车是否故意为难企业\n我司采购的无人车载具荣县交警无相关扣车依据！强制让厂家给我推车。直接导致我的运营成本增加数倍。本周不处理不放车我将同步申请国家政务平台介入调查。到底是国家鼓励企业发展还是地方执法残害企业生存。",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国道路交通安全法",
+     "lib_no": "道路交通安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "智能网联汽车道路测试与示范应用管理规范（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-zigong-zwfw",
+   "id": "bb71e11a-80e5-4694-92a8-8f046b826a6b",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=bb71e11a-80e5-4694-92a8-8f046b826a6b",
+   "question": "四川盼之网络科技有限公司投诉\n1:对四川盼之网络科技有限公司，简称盼之代售平台进行投诉，2:我本人在四川盼之代售平台购买了两个游戏账户，不知道什么情况被永久封禁，我让平台去联系卖家，提供支付凭证以及流水记录，盼之交易平台，一直以敷衍、拖延、",
+   "cited_hits": [
+    {
+     "name": "市场监督管理投诉举报处理暂行办法",
+     "lib_no": "市场监督管理投诉举报处理暂行办法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "sc-zigong-zwfw",
+   "id": "8f8be4b6-546d-420f-ba3e-aa5c37495948",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=8f8be4b6-546d-420f-ba3e-aa5c37495948",
+   "question": "婚假咨询\n请问下目前自贡市婚假是多少天？如果有婚前检查，是否在原有的婚假天数外多加5天？",
+   "cited_hits": [],
+   "cited_missing": [
+    "四川省劳动和保障厅关于企业职工请婚丧假规定的复函",
+    "四川省人口与计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-zigong-zwfw",
+   "id": "68135671-38a7-429c-a69d-119f59e385d9",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=68135671-38a7-429c-a69d-119f59e385d9",
+   "question": "姓名更改\n想咨询一下自贡市富顺县姓名更改流程，",
+   "cited_hits": [],
+   "cited_missing": [
+    "户口居民身份证管理工作规范（试行）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-zigong-zwfw",
+   "id": "cdef6771-f0f0-4067-97a5-dd4ba12aabda",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=cdef6771-f0f0-4067-97a5-dd4ba12aabda",
+   "question": "灵活就业缴纳社保人员社保补贴\n您好，\n     请问农村户口女性40岁以上，无城镇商品房，购买了灵活就业人员社保，可以申请灵活就业人员社保补贴嘛？可以的话申请流程是怎样的？需要那些材料，可否线上申请？谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "自贡市人力资源和社会保障局自贡市财政局关于进一步做好就业困难人员等灵活就业社会保险补贴相关工作的通知",
+    "沿滩区关于进一步加强灵活就业社会保险补贴审核工作的通知 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-zigong-zwfw",
+   "id": "722a8f1c-9a1e-4e10-b771-eb63253ce268",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=722a8f1c-9a1e-4e10-b771-eb63253ce268",
+   "question": "车库补贴\n本人于2024.4月购买学府苑A区车库，到现在都没有收到车库购房补贴，是什么情况呢",
+   "cited_hits": [],
+   "cited_missing": [
+    "不动产权证书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-zigong-zwfw",
+   "id": "96cbd8b3-c104-46dd-8853-02cffa90f55e",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=96cbd8b3-c104-46dd-8853-02cffa90f55e",
+   "question": "申请公租房\n给伤残老兵申请公租房",
+   "cited_hits": [],
+   "cited_missing": [
+    "自贡市公共租赁住房管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-zigong-zwfw",
+   "id": "a269f612-aa71-4304-bc79-40dbabba6e81",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=a269f612-aa71-4304-bc79-40dbabba6e81",
+   "question": "改名字\n自贡市富顺县户籍怎么申请改名，需要什么材料，有什么流程",
+   "cited_hits": [],
+   "cited_missing": [
+    "户口居民身份证管理工作规范（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-zigong-zwfw",
+   "id": "5123c51b-2d4c-4e46-b293-2820b514630b",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantproposaldetail.html?cguid=5123c51b-2d4c-4e46-b293-2820b514630b",
+   "question": "关于在春风九里、东城一号、天骄城等小区间增设公共乒乓球活动场地的后续建议\n尊敬的领导：\n您好！\n感谢您此前的详尽回复，我们获悉了团标寺农贸市场乒乓球活动室因招商未到位无法开放、开发商资金困难以及争取公共健身项目存在客观难处等情况。在理解现状",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好2026年中央集中彩票公益金支持地方建设全民健身场地设施项目和全民健身赛事活动项目申报工作的通知",
+    "关于做好2026年中央集中彩票公益金支持地方建设全民健身场地设施项目和全民健身赛事活动项目申报工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-zigong-zwfw",
+   "id": "ee2b3c8a-b0a8-4291-9682-bec7d83bf95b",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantproposaldetail.html?cguid=ee2b3c8a-b0a8-4291-9682-bec7d83bf95b",
+   "question": "高新区工会板仓包车\n自贡市高新区工会板仓包车有两班都是走的同一路线，建议七点四十五那班走南湖泰丰国际城那边方便一下那边的上班群众，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于实施新一轮“工会定制免费专线车”普惠项目的请示"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-zigong-zwfw",
+   "id": "fd3eb209-047a-49f9-be22-61b862b00539",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantproposaldetail.html?cguid=fd3eb209-047a-49f9-be22-61b862b00539",
+   "question": "给自贡市经济发展和人才引进的一些建议\n尊敬的自贡市领导及相关部门：\n   你们好！我是一名从自贡走出来的学子，现为中山大学在读博士研究生。\n   我一直心系家乡的发展，此次想为家乡的人才引进/产业发展等建言献策：\n（1）保留对环境污染较小的",
+   "cited_hits": [],
+   "cited_missing": [
+    "自贡市人才安居保障办法",
+    "支持高校毕业生来市就业创业的实施办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-zigong-zwfw",
+   "id": "30d4b51d-a465-4b79-8c51-c4f14eee666b",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=30d4b51d-a465-4b79-8c51-c4f14eee666b",
+   "question": "单证。无证非法运营。希望我们的监管部门彻查。保障我们双证合规司机合法权益\n希望我们的监管部门加大力度查处网约车单证。无证车辆，保障我们合法合规司机的权益。现在各大平台一样无视法规给单证，无证司机派单，希望我们相关部门也管一管，查一查。。政府",
+   "cited_hits": [],
+   "cited_missing": [
+    "网络预约出租汽车经营服务管理暂行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-zigong-zwfw",
+   "id": "6bd57a2d-8221-4e2d-a532-5e41e9c70d43",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=6bd57a2d-8221-4e2d-a532-5e41e9c70d43",
+   "question": "不让补办护照\n你好官方，由于我之前受到过刑事处罚，现在已经结束了，现在去当地出入境证件办理中心，他们不让办理护照，也不说什么理由，也不出具证明说为什么不让我办理，我也查询过我并没有什么被限制出境的，本人想出国去旅游，都不方便，去过好几次了也",
+   "cited_hits": [],
+   "cited_missing": [
+    "反诈法",
+    "出入境管理法",
+    "关于加强打击治理电信网络诈骗违法犯罪工作的意见"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "sc-zigong-zwfw",
+   "id": "9754d71f-dfcd-4002-bda2-3e03d1c207ec",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=9754d71f-dfcd-4002-bda2-3e03d1c207ec",
+   "question": "医保咨询\n自贡市医保连续缴费最低年限是多年？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-zigong-zwfw",
+   "id": "e6a5b945-44f6-48c3-8072-b02f0dc6124f",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=e6a5b945-44f6-48c3-8072-b02f0dc6124f",
+   "question": "公租房申请\n公租房申请条件、要求、程序",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-zigong-zwfw",
+   "id": "a4f605c1-b982-45ff-846b-93adc1794d53",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=a4f605c1-b982-45ff-846b-93adc1794d53",
+   "question": "怎么办无犯罪记录证明\n我人在外地手机卡被封了打10086要我去申请无犯罪记录证明",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-zigong-zwfw",
+   "id": "8d1f35ee-4b04-4b27-a726-a91db597da07",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=8d1f35ee-4b04-4b27-a726-a91db597da07",
+   "question": "个体工商户登记\n天府通办线上怎么办理营业执照",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-zigong-zwfw",
+   "id": "c66d7410-210e-4933-8c1a-2cc5c0342ba3",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=c66d7410-210e-4933-8c1a-2cc5c0342ba3",
+   "question": "线上个体工商注销\n在营商环境云地图里申请了个体工商注销，一周多过去了，还是现实业务在办理中，然就在我的待办事项里也找不到我的办理中业务",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-zigong-zwfw",
+   "id": "e0bda1ac-5712-47d2-ad3d-06e18e63d806",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=e0bda1ac-5712-47d2-ad3d-06e18e63d806",
+   "question": "新生儿医保\n您好，我家新生儿在富顺办理城乡居民医保，之前通过‘出生一件事’提交了申请，系统提示‘已申请请勿重复提交’，但缴费后查不到参保信息，还提示存在‘未复核的居民参保登记信息’，麻烦帮忙查询一下进度并处理这个未复核记录，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-zigong-zwfw",
+   "id": "7fca3328-5bed-4e4c-a824-cd5ccbdb2e66",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=7fca3328-5bed-4e4c-a824-cd5ccbdb2e66",
+   "question": "生育报销\n职工缴纳几个月的保险后可以申请生育保险",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-zigong-zwfw",
+   "id": "fe5c2043-dd6a-4f9f-9c27-72bc2b9c9210",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=fe5c2043-dd6a-4f9f-9c27-72bc2b9c9210",
+   "question": "养老金\n除了死亡和达到法定年龄、残疾，怎么取出里面的钱",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-zigong-zwfw",
+   "id": "7c492523-3a82-4ecb-b89c-c8c20318c98f",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=7c492523-3a82-4ecb-b89c-c8c20318c98f",
+   "question": "2026年上半年自贡教资认定工作时间\n2026年上半年自贡教资认定工作开始时间是多久？在哪里查询相关信息？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-zigong-zwfw",
+   "id": "84929c49-394b-44e6-8a7f-00dde3cef048",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=84929c49-394b-44e6-8a7f-00dde3cef048",
+   "question": "个体营业执照注销\n个体营业执照注销",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-zigong-zwfw",
+   "id": "0209e008-5a59-4309-b5b9-56dd15405675",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=0209e008-5a59-4309-b5b9-56dd15405675",
+   "question": "育儿补贴\n自贡育儿补贴多久到账",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-zigong-zwfw",
+   "id": "629c397c-cbfa-4a0f-826a-9d529aa9f2ae",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=629c397c-cbfa-4a0f-826a-9d529aa9f2ae",
+   "question": "在线上哪里申请公租房\n在线上哪里申请公租房，给个详细操作流程",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-zigong-zwfw",
+   "id": "c9a8fc91-5cf7-42fa-aa2d-e5994819a1d9",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=c9a8fc91-5cf7-42fa-aa2d-e5994819a1d9",
+   "question": "育儿补贴\n育儿补贴申请一个月了还没有通过，其他人都过了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-zigong-zwfw",
+   "id": "7deeb717-b2bf-4bc0-9761-5c9b0be17848",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=7deeb717-b2bf-4bc0-9761-5c9b0be17848",
+   "question": "三类经营许可证的库房面积要求、质量负责人社保何时买？\n注册三类经营许可证的库房面积要求？对质量负责人的社保是否有要求？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-zigong-zwfw",
+   "id": "53ff45e1-83e3-44de-ae35-44fc4ed59f2c",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=53ff45e1-83e3-44de-ae35-44fc4ed59f2c",
+   "question": "失业保险\n失业保险关系转移网上操作流程，国家政务服务平台没有关系转移的相关事项",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-zigong-zwfw",
+   "id": "254c13da-d60e-4ae2-9334-edac6da908be",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantproposaldetail.html?cguid=254c13da-d60e-4ae2-9334-edac6da908be",
+   "question": "汇东盐都印象—一对山商业城缺少直达路线\n汇东盐都印象，南湖丽景到一对山商业步行街没有直达公交车路线，转车时间高达40分钟，给出行造成极度不便，望增加相应公交路线",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-zigong-zwfw",
+   "id": "efed87ca-54f7-4515-bd2b-c29aea5c997b",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantproposaldetail.html?cguid=efed87ca-54f7-4515-bd2b-c29aea5c997b",
+   "question": "公交站点设置优化建议\n本人家住河府苑，经常坐高铁G4公交去高铁站。小区门口就有高铁G4公交经过，但是不停靠小区门口公交站“同兴大酒店站”，每次都需要去更远的“新桥站”，因此十分不便。建议高铁G4公交将“同兴大酒店站”增设为招呼站，方便群众出",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-zigong-zwfw",
+   "id": "bb68bed5-7e54-4821-92ac-f05a83ce688c",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantproposaldetail.html?cguid=bb68bed5-7e54-4821-92ac-f05a83ce688c",
+   "question": "增加公交线路\n您好，我是自流井区卧龙湖西区名门麓城二期业主，小区入住数千户常住居民，旁边还有龙樾台小区，周边现有307、809等线路仅通达华商、汇东，无直达自贡高铁站的公交。目前居民前往高铁站只能打车、长途绕行换乘G3/G1高铁专线，单程耗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-zigong-zwfw",
+   "id": "55ec9960-3173-4051-971b-6810337b0890",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantproposaldetail.html?cguid=55ec9960-3173-4051-971b-6810337b0890",
+   "question": "共享电动车的投放\n自贡能不能加一下共享电动车啊，出租车的风气也太差了，每次两三公里出行打车又贵，走路又累，引进一下共享电动车吧",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-zigong-zwfw",
+   "id": "e2f2df2d-05e7-4ecc-9036-3918e6f142a5",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantproposaldetail.html?cguid=e2f2df2d-05e7-4ecc-9036-3918e6f142a5",
+   "question": "自贡市政务服务中心三楼办事窗口过少\n自贡市政务服务中心三楼115号（医疗器械、药师、药品、食品许可）办事窗口每次去办事都很拥挤，少则七八个人排队，多则二十左右的人排队，办事所需资料繁杂，业务复杂，需要办事的人员很多，但是办事窗口只有一个，工",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-zigong-zwfw",
+   "id": "8e986d67-74e2-4b41-b048-b042f9946b63",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantproposaldetail.html?cguid=8e986d67-74e2-4b41-b048-b042f9946b63",
+   "question": "建议优化自贡高铁站网约车出站线路规划\n自贡高铁站网约车出站线路规划明显不合理，明明可以规划就近线路出站，目前却要在站前来回绕路大约1.5公里才能进入站前快速路，人为加重了打车人的费用负担及增加时间成本，极为不合理，不知是否刻意为之，建议优化",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-zigong-zwfw",
+   "id": "045bedda-5dd7-4b63-a01b-224f58a3613b",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantproposaldetail.html?cguid=045bedda-5dd7-4b63-a01b-224f58a3613b",
+   "question": "省内异地就医医保报销比例不一致\n很多老人随子女在异地居住、生活，但户籍没有迁移，还是在老家，相应的医保参保还是在老家，就医时就出现一个问题，在现在居住地就医时的医保报销比例比参保地（户籍地）就医的医保报销比例更低，无形中增加了就医负担，增加",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-zigong-zwfw",
+   "id": "349203b6-2817-4817-a083-ee4970844d87",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantproposaldetail.html?cguid=349203b6-2817-4817-a083-ee4970844d87",
+   "question": "修路\n荣县至龙潭镇的双龙路，特别烂，烂了两三年了还没修，建议修缮一下。龙潭至桥头的路也特别烂，但有计划开始修缮了。建议也修缮一下双龙路",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-zigong-zwfw",
+   "id": "f23503d5-35e6-4438-9f1c-1d1f4a09ac1a",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantproposaldetail.html?cguid=f23503d5-35e6-4438-9f1c-1d1f4a09ac1a",
+   "question": "纠错\n如图示，广华路全季酒店附近路段的灯带出现单词拼写错误，将welcome拼成了welcom，希望尽快将其修正，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-zigong-zwfw",
+   "id": "eb73ee0a-22ca-49c9-9d1b-e08fb8c674fa",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantproposaldetail.html?cguid=eb73ee0a-22ca-49c9-9d1b-e08fb8c674fa",
+   "question": "建议保障金碧城步行街行车畅通\n荣县青阳街道金碧社区—金碧城步行街路段（宫廷糕点至渝饱饱山野火锅），该路段在高峰期经常拥堵，已严重影响周围小区住户出行。大概原因一是违规停车导致堵塞，二是部分垃圾箱放置于马路占用车道。相关部门是否可以采取措施保",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-zigong-zwfw",
+   "id": "0f592ff9-f564-4023-83a0-0e367ba1d617",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantproposaldetail.html?cguid=0f592ff9-f564-4023-83a0-0e367ba1d617",
+   "question": "育儿补贴\n我是四川省自贡市荣县人。关于育儿补贴事情，我想表达几点个人的意见和建议。我家育儿补贴申请时用的重庆社保卡，被退回。之后修改成银行卡，之后就没信息了，发放速度太慢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-zigong-zwfw",
+   "id": "813a7c02-2c84-4712-8268-65435f8629a7",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantproposaldetail.html?cguid=813a7c02-2c84-4712-8268-65435f8629a7",
+   "question": "育儿补贴审核慢\n育儿补贴还没有下来",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-zigong-zwfw",
+   "id": "8ea148df-ef87-42a8-87a3-dafa6b36096d",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantproposaldetail.html?cguid=8ea148df-ef87-42a8-87a3-dafa6b36096d",
+   "question": "川超足球赛自贡队主场直播\n关于请求自贡电视台直播川超足球赛自贡主场赛事的建议尊敬的自贡市人民政府：川超足球赛自开赛以来，自贡主场的赛事备受市民关注与喜爱，现场氛围热烈。然而，部分市民反映，通过手机观看赛事存在屏幕过小、体验不佳的问题，尤其对",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-zigong-zwfw",
+   "id": "e2c07dfc-025b-4244-aada-0a71b844aff1",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantproposaldetail.html?cguid=e2c07dfc-025b-4244-aada-0a71b844aff1",
+   "question": "硬化道路\n自贡市荣县双石镇蔡家堰村还有部分未进行道路硬化，询问后队长告知没有资金，其不认可，现希望进行道路硬化。（不建立三方通话）",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-zigong-zwfw",
+   "id": "4349a3b1-f495-4c1f-bb05-a5971c0285bc",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantproposaldetail.html?cguid=4349a3b1-f495-4c1f-bb05-a5971c0285bc",
+   "question": "关于在自流井丹桂\n丹桂小区是自贡市最早期开发的商品小区，时至今日，那么大一个片区目前倘没有一个新能源汽车充电站，给想换新能源车的不敢换，也给买了新能源车的充电造成不便，且也不符合国家的新能源发展战略，建议相关部门根据这个实际情况，考虑一下充",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-zigong-zwfw",
+   "id": "6b1d274d-3e9d-48da-b7ba-55cf896477c5",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=6b1d274d-3e9d-48da-b7ba-55cf896477c5",
+   "question": "浪费电力\nG348沙坪段早上7:26天已大亮路灯还未关，应根据天气适时调整开关时间，去年也是我投诉后调整的，今天未投拆浪费了一个夏天的电",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-zigong-zwfw",
+   "id": "8ecc774f-b59c-4537-9deb-c86147206c6c",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=8ecc774f-b59c-4537-9deb-c86147206c6c",
+   "question": "盐都花园物业不作为，车辆堵塞消防通道\n盐都花园该小区物业不作为，车辆堵塞消防通道，现在天气炎热，如遇火灾险情，会产生致命隐患，拍照只是冰山一角，相关部门可以实地调查该小区乱停乱放的实际情况",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-zigong-zwfw",
+   "id": "a1471c15-e1f7-4562-833e-25de41af7600",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=a1471c15-e1f7-4562-833e-25de41af7600",
+   "question": "公交站附近机动车违停占道\n东源半岛小区门口公交站长期大量社会机动车占道违停，公交站台前后30米内禁止停车，违反《道路交通安全法实施条例》第六十三条。车辆长期占用候车区域，公交车无法正常靠边进站，造成拥堵；同时旁边尚东时代小区出行，岔口处左侧",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-zigong-zwfw",
+   "id": "697a8088-c5ec-4f0d-a71e-f8e54a219916",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=697a8088-c5ec-4f0d-a71e-f8e54a219916",
+   "question": "噪音污染\n1.地址：自流井区东兴寺街道釜溪印象小区2.问题：现在非规定施工时段，工地还在机械作业、敲打轰鸣，噪音特别大3.影响：严重影响家中老人、小孩正常休息，日常居家没法安静4.诉求：①要求工地立刻停止超时噪音施工②严格遵守自贡市施工作息",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-zigong-zwfw",
+   "id": "fed6586f-2081-4436-b8ea-d25bdb0888ce",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=fed6586f-2081-4436-b8ea-d25bdb0888ce",
+   "question": "公交G2不停靠致高铁延误\n根据掌上公交及高德地图引导在西苑街招呼站候车G2号线，公交高铁G2号线在此站点并不停靠致高铁延误",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-zigong-zwfw",
+   "id": "bd0dd500-4c3d-4e64-a021-7436ba7033d5",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=bd0dd500-4c3d-4e64-a021-7436ba7033d5",
+   "question": "工资社保\n四川梦帆建筑工程有限责任公司25年至今拖欠本人工资和社保，老板失联！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-zigong-zwfw",
+   "id": "b15fc550-da2b-42da-9f87-53460661d6aa",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=b15fc550-da2b-42da-9f87-53460661d6aa",
+   "question": "创兴城小区地下车库不具备停车场收费条件准备进行收费\n创兴城小区地下车库不具备停车场收费条件，准备对车辆进行收费，该停车场是否满足收费条件，收费标准由哪个部门进行核算，核算依据是什么？物业公司是否有权利进行收费，该情况是否属于乱收费？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-zigong-zwfw",
+   "id": "e3b350b0-c845-4d60-89db-5b07b6af9d50",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=e3b350b0-c845-4d60-89db-5b07b6af9d50",
+   "question": "浪费电力\nG348沿滩段早上7:40已天亮路灯还未关闭浪费电力",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-zigong-zwfw",
+   "id": "a161dac4-7e2a-4889-afc7-9599df4631f6",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=a161dac4-7e2a-4889-afc7-9599df4631f6",
+   "question": "消防安全问题\n钰茗茶坊自2006年成立起没办消防证至今都在经营，高新消防队也知晓。高新消防队解释经查该茶坊整栋大楼都缺水导置没有办消防证，也让该茶坊正常经营，所以请相关部门重视此事上次7.17事件是个悲剧",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-zigong-zwfw",
+   "id": "2c3c08d1-95f5-47bc-8887-b357e5cf263a",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=2c3c08d1-95f5-47bc-8887-b357e5cf263a",
+   "question": "占道经营\n双凤滨河公园路边商贩占道经营，小朋友去耍儿差点被他们的东西拌摔跤了，作为家长真的也是很无语，也很生气，要是其他那个小朋友或者老年人摔跤了咋办，建议取消占道经营，真的有很大的安全隐患，我需要保密，不需要任何负责人联系我，只希望得到解",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-zigong-zwfw",
+   "id": "4f5de518-f13f-4d16-a216-fad139de8b00",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=4f5de518-f13f-4d16-a216-fad139de8b00",
+   "question": "道路通行受阻\n磨子咀水库道路改造2个多月没有计划施工造成下雨通行被阻断，施工方以下雨为由没办法不管周围几公里居民无法通行路边存在安全隐患。有苦难言",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-zigong-zwfw",
+   "id": "b3b5a9d1-d91b-4c93-9546-b64d4456f75d",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=b3b5a9d1-d91b-4c93-9546-b64d4456f75d",
+   "question": "民警驾驶无牌警车上路执勤查酒驾\n今天是11月7日，在上午11点左右，荣县保华镇派出所警察同志在保华镇留乐路兴旺加油站往西150米左右（保华镇往礼佳场方向），设卡查酒驾和机动车证件，卡点停着执勤警车，前后都没悬挂牌照，请问警车没有悬挂牌照，可",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-zigong-zwfw",
+   "id": "c4ac35f6-5487-4ca9-a85f-91eb3a0fe694",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=c4ac35f6-5487-4ca9-a85f-91eb3a0fe694",
+   "question": "求助制止噪音扰民\n荣县金河湾小区对面梧桐酒店夜色烧烤和雅翻烧烤晚上经常用音响唱歌，噪音严重扰民，现希望制止店铺噪音扰民，请职能部门调查处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-zigong-zwfw",
+   "id": "3cb19825-001f-4d97-b8d3-caaab9977f9a",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=3cb19825-001f-4d97-b8d3-caaab9977f9a",
+   "question": "华商未来酒店欺诈消费者\n酒店环境脏乱差，协商酒店不处理，推脱，告诉我们尽管去投诉，床单被罩潮湿怪消费者提出问题太慢，提出更换房间后因房间不足无法处理，经过平台投诉后酒店态度恶劣，就是不处理让我们随便投诉，态度很强硬。附宣传图与实际入住体验。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

@@ -1,0 +1,197 @@
+{
+ "A_考卷": [
+  {
+   "source": "nx-igi-240",
+   "id": "10149571",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10149571",
+   "question": "1.宁夏润本设计有限公司盗用本人职称证书，未经同意为本人购买社保，严重影响了本人的正常工作生活。 2.宁夏任友设计有限公司盗用本人职称证书，未经同意为本人购买社保，目前已中断购买社保，侵犯了本人的权益。 以上为陈思睿本人的诉求，望住建局领导",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国行政许可法",
+     "lib_no": "行政许可法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "nx-igi-240",
+   "id": "10155596",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10155596",
+   "question": "你好：请问一下，西安建筑劳务劳务公司在宁夏吴忠施工，需要备案吗？在西安开发区已取消建筑劳务资质许可，在宁夏怎么施工？还需要什么手续？",
+   "cited_hits": [],
+   "cited_missing": [
+    "住房城乡建设部关于印发推动建筑市场统一开放若干规定的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-240",
+   "id": "10155205",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10155205",
+   "question": "尊敬的领导您好！之前由于受上级主管部门关于建筑资质政策影响，我公司叁级资质一直未做跨市迁移（由中卫市迁移至银川市），我公司二级资质在银川市，想将之前已拥有的三级资质迁移至银川市。现上级部门建筑工程资质政策已出台。经咨询中卫市建设主管部门答复",
+   "cited_hits": [],
+   "cited_missing": [
+    "住房和城乡建设部办公厅关于做好建筑业“证照分离”改革衔接有关工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-240",
+   "id": "10150135",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10150135",
+   "question": "分给我嘉润雅居的棚改房，质量有问题，房屋质量有问题，窗门不正，倾斜，地下室分摊面积过大，（12平米的地下室分摊下来变成19多平米了），反应过去无人解决，望领导能给我们解决处理",
+   "cited_hits": [],
+   "cited_missing": [
+    "房产测量规范 GB/T 17986.1-2000",
+    "房产测量规范 GB/T 17986.1-2000",
+    "GB/T 17986.1-2000",
+    "GB/T 17986.1-2000"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-240",
+   "id": "10145575",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10145575",
+   "question": "尊敬的厅长您好： 我是咱们宁夏一名施工作业从业人员，现在因为家庭原因，工作地点到了内蒙古乌海市，请问咱们二级建造师能不能在内蒙古执业？还有就是能不能跟内蒙古互认？？感谢尊敬的厅长。",
+   "cited_hits": [],
+   "cited_missing": [
+    "建造师执业资格制度暂行规定",
+    "中华人民共和国二级建造师执业资格证书"
+   ],
+   "has_clause_no": true
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "nx-igi-240",
+   "id": "10155659",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10155659",
+   "question": "二级建造师证书已经下来了，但是二级建造师管理系统没有我的相关数据，请问这是怎么回事？ 导致我的建造师无法注册",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-240",
+   "id": "10155478",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10155478",
+   "question": "您好领导，麻烦问下22年考试合格的二级建造师啥时候发放证书呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-240",
+   "id": "10155233",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10155233",
+   "question": "您好，请问一级建造师成绩什么时候发布？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-240",
+   "id": "10154995",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10154995",
+   "question": "本人与宁夏中砥建设工程有限公司解除劳动合同，宁夏中砥建设工程有限公司不配合注销二级建造师及安全B证注册证书，并不予退还二级建造师执业资格证书原件，宁夏中砥建设工程有限公司强制使用本人相关证件",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-240",
+   "id": "10154275",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10154275",
+   "question": "本人：万自威，身份证：430122198410024516。实名举报宁夏鑫原通建设有限公司，宁夏仁捷建设工程有限公司，这两家企业在申报建筑时存在违规行为，擅自使用我的工程师证书，我本人并不知情，并且这两家企业都给我缴纳过社保，我有社保记录为",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-240",
+   "id": "10153405",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10153405",
+   "question": "固原龙源电力勘测咨询有限公司解除二级结构师聘用，只传了电子扫描件，但解聘原件一直不给，多方联系就是不理和被拉黑，怎么解决，只用扫描件允许吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-240",
+   "id": "10152685",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10152685",
+   "question": "领导您好，我公司现申请开发“保障性”住房（公租房、廉租房）系统开发项目，以实现线上申请住房、线上年审、部门审批、线上缴费、催收提醒、报修、智能门锁远程下发密码、小区门禁远程管理、合同线上签约的智能化。集中管理中心数据大屏显示等众多功能。 现",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-240",
+   "id": "10152658",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10152658",
+   "question": "请问区直职工购买统建房（二手房）资格审核是通过住建厅哪个部门进行，10月8日跟住建厅住房保障处（电话5030373）联系，该处室说让拨打电话5064583联系咨询，从10月8日开始5064583这个座机号码就一直无人接听，10月27日疫情封",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-240",
+   "id": "10151243",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10151243",
+   "question": "工业热工控制技术（热工检测与控制技术）可以报考一级建造师吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-240",
+   "id": "10151101",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10151101",
+   "question": "你好，领导，二建考试已经过去3个月了，成绩什么时候出来啊",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-240",
+   "id": "10149933",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10149933",
+   "question": "宁夏国桢园林绿化建设工程有限公司与本人2021年10月签订劳动合同，11月未经本人同意私自用于招投标并且中标。12月解除劳动合同。从2022年1月份至今未缴纳社会保险且从签订合同至今从未发工资，截至目前本人证书还用于中宁县项目未解除。本人无",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-240",
+   "id": "10149503",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10149503",
+   "question": "您好，我是一名高校研究生，由于科研项目所需，向贵厅咨询是否有建设省级传统村落、省级历史文化名镇名村，如果有希望能提供一份包括批次年份的名单，希望贵厅整理提供！万分感激！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-240",
+   "id": "10147449",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10147449",
+   "question": "本人于5月13号在厅长信箱投诉宁夏宁瑞建筑设计有限公司与宁夏沙星建筑工程有限公司，盗用本人职称证书一事，（证书编号:B08183010100002818）现本人与宁夏沙星建筑工程有限公司联系经核查并无使用证书事实，双方互不追责。宁夏宁瑞建筑",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-240",
+   "id": "10146744",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10146744",
+   "question": "本人于4月15日在厅长信箱投诉宁夏煜泽建筑工程有限公司，盗用本人职称信息一事，现该公司已与本人取得联系，经协商，该公司同意办理相关解聘手续，并承诺以后未经本人同意不得以任何方式使用本人职称资格证书，本人已与宁夏煜泽建筑工程有限公司和解，不再",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

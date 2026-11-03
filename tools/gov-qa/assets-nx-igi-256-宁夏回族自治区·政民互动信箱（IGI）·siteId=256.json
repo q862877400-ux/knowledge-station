@@ -1,0 +1,78 @@
+{
+ "A_考卷": [],
+ "B_补料": [
+  {
+   "source": "nx-igi-256",
+   "id": "10072693",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072693",
+   "question": "您好，我是去年毕业的大学生能不能到贵单位实习？对专业有什么要求？",
+   "cited_hits": [],
+   "cited_missing": [
+    " 关于做好 2021 年高校毕业生到机关事业单位实习工作的通知 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-256",
+   "id": "10072690",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072690",
+   "question": "您好,我写了一篇理论文章,想在&lt;宁夏经济&gt;发表,请问投稿要求都有哪些",
+   "cited_hits": [],
+   "cited_missing": [
+    "宁夏经济",
+    "宁夏经济",
+    "宁夏经济"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-256",
+   "id": "10072686",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072686",
+   "question": "您好，我一直是贵单位《宁夏经济》的忠实读者。《宁夏经济》里部分内容值得借鉴，不知贵单位能否年底给我邮寄2020年出版的一整套？",
+   "cited_hits": [],
+   "cited_missing": [
+    "宁夏经济"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "nx-igi-256",
+   "id": "10126454",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10126454",
+   "question": "您好，我想咨询贵单位专家服务办联系方式",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-256",
+   "id": "10072692",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072692",
+   "question": "请问你单位2020年1月1日-2020年12月30日制发的规范性文件有哪些？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-256",
+   "id": "10072689",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072689",
+   "question": "咨询公务员考试时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-256",
+   "id": "10072685",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072685",
+   "question": "办公时间会因为疫情而变化吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

@@ -1,0 +1,230 @@
+{
+ "A_考卷": [
+  {
+   "source": "gd-jiangmen",
+   "id": "3527589",
+   "url": "http://www.jiangmen.gov.cn/gzhd/lyxd/content/post_3527589.html",
+   "question": "关于法定年假的问题\n2026年10月01日职工保险满20年，按国家规定2026年可以休15天的法定年假吗？",
+   "cited_hits": [
+    {
+     "name": "职工带薪年休假条例",
+     "lib_no": "职工带薪年休假条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jiangmen",
+   "id": "3527579",
+   "url": "http://www.jiangmen.gov.cn/gzhd/lyxd/content/post_3527579.html",
+   "question": "江门在哪里办养犬许可证\n万科金色城央东苑小区内立着牌，需养犬许可证方能套狗绳外出遛狗，我也不知道江门什么时候有这个地方法规了，麻烦政府有关部门协助答疑，提供详细办理指南",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国治安管理处罚法",
+     "lib_no": "治安管理处罚法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "中华人民共和国传染病防治实施办法",
+    "广东省犬类管理规定",
+    "广东省爱国卫生工作条例"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "gd-jiangmen",
+   "id": "3553908",
+   "url": "http://www.jiangmen.gov.cn/gzhd/lyxd/content/post_3553908.html",
+   "question": "咨询蓬江区的小学入学条件\n外地户口在当地上小学要啥条件，其他地方社保可用不江海的社保也属于江门内的可行不？",
+   "cited_hits": [],
+   "cited_missing": [
+    "江门市蓬江区2026年义务教育阶段学校招生工作意见",
+    "居住证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jiangmen",
+   "id": "3543451",
+   "url": "http://www.jiangmen.gov.cn/gzhd/lyxd/content/post_3543451.html",
+   "question": "咨询江门市教育局为准高三学生办理转学是否合规\n根据《广东省教育厅关于中小学生学籍管理的实施细则（试行）》（粤教基〔2014〕24号）第二十五条规定，普通高中学校之间的学生转学以学校等级相同、年级相衔接为原则，高一上学期和高三年级不接收转学学",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省教育厅关于中小学生学籍管理的实施细则（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jiangmen",
+   "id": "3528021",
+   "url": "http://www.jiangmen.gov.cn/gzhd/lyxd/content/post_3528021.html",
+   "question": "咨询台山市人才房票问题\n见2026年6月1日台山发布（公众号）的有关《台山市2026年度“人才房票”试行工作方案》推文，按照文内指引，符合条件的可通过江门市房屋交易“云链签”小程序查询相关资料申请，但选择意向城市时没有台山市选项。问题一：请",
+   "cited_hits": [],
+   "cited_missing": [
+    "台山市2026年度“人才房票”试行工作方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jiangmen",
+   "id": "3527605",
+   "url": "http://www.jiangmen.gov.cn/gzhd/lyxd/content/post_3527605.html",
+   "question": "储能电池仓等专业性设施是否需要办理施工证\n独立储能电站项目中储能电池仓等专业性设施是否需要办理建设工程规划许可证和建筑工程施工许可证，如需办理，政策依据是什么？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省城乡规划条例",
+    "广东省住房和城乡建设厅关于调整房屋建筑和市政基础设施工程施工许可证办理限额的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jiangmen",
+   "id": "3527596",
+   "url": "http://www.jiangmen.gov.cn/gzhd/lyxd/content/post_3527596.html",
+   "question": "育儿假\n请问育儿假10天一次性休假时，是否包括法定假、公休日？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省人口与计划生育条例",
+    "广东省职工假期待遇和死亡抚恤待遇规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jiangmen",
+   "id": "3527592",
+   "url": "http://www.jiangmen.gov.cn/gzhd/lyxd/content/post_3527592.html",
+   "question": "独生子女陪护假\n如果本年我第一次休了5天独生子女陪护假用于父母住院，后续我还能休5天独生子女陪护假在家陪父母吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省人口与计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jiangmen",
+   "id": "3527581",
+   "url": "http://www.jiangmen.gov.cn/gzhd/lyxd/content/post_3527581.html",
+   "question": "咨询关于江门城乡居民医疗保险参保人在广州手术住院的报销问题\n您好！我想咨询关于江门城乡居民医疗保险参保人在广州手术住院的报销问题，具体情况如下： 病人系在江门市城乡居民医疗保险参保人，未参职工医保，经江门市中心医院医生诊断后，认为病情复杂，",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于公布2026年度江门市基本医疗保险（含生育保险）待遇标准的通知"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "gd-jiangmen",
+   "id": "3536021",
+   "url": "http://www.jiangmen.gov.cn/gzhd/lyxd/content/post_3536021.html",
+   "question": "建议尽快处理新会区会城街道圭峰山永镇山门广场沿石步梯上玉台寺约200米路段路灯不亮的问题\n由新会圭峰山永镇山门广场沿石步梯上玉台寺，在距离玉台寺大约200米这段路的所有路灯都不亮，这段路漆黑一遍（已有超过一个月时间了），望转有关部门处理维修",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jiangmen",
+   "id": "3528074",
+   "url": "http://www.jiangmen.gov.cn/gzhd/lyxd/content/post_3528074.html",
+   "question": "关于台山东湖公园改造的问题\n2026年7月8日，台山文旅集团对台山东湖公园改造，本身是一件好事，但现在把打乒乓球的地方改为游乐场，对一些每天喜欢乒乓球的老年人不是好事。每天都有老年人打乒乓球，早上、中午、晚上都有，特别是晚上更多，天气没有那",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jiangmen",
+   "id": "3528093",
+   "url": "http://www.jiangmen.gov.cn/gzhd/lyxd/content/post_3528093.html",
+   "question": "建议告知电动车加装电池的要求\n五邑地区对黄牌电摩电池有没有特别要求？标配铅酸电池续航太少，加装或更换同伏数但大安时数的，符合3C要求的整装锂电池如比亚迪， 小哈，亿纬等品牌的两三轮专用整装电池，如原车配的是铅酸72V24AH或者32AH,加",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jiangmen",
+   "id": "3527998",
+   "url": "http://www.jiangmen.gov.cn/gzhd/lyxd/content/post_3527998.html",
+   "question": "建议告知江门市企业高技能人才养老保险补贴政策实施地区\n江门市企业高技能人才养老保险补贴，2011年开始江门三区开始有政策补贴，现在开平、鹤山也有，其他市什么时候可以有这个政策，如有那证书规定年限要不要考虑截止到2011年前拿到？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jiangmen",
+   "id": "3527604",
+   "url": "http://www.jiangmen.gov.cn/gzhd/lyxd/content/post_3527604.html",
+   "question": "医保关系转移\n我在2006年将在北京的社保转移到江门（当时的政策，只能转社保，不能转医保），我在国家医保服务平台APP可以查到之前在北京的医保购买记录，请问，现在我可以将之前在北京购买的医保转移过来吗，将年限合并到一起？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jiangmen",
+   "id": "3527600",
+   "url": "http://www.jiangmen.gov.cn/gzhd/lyxd/content/post_3527600.html",
+   "question": "如何注销营业执照\n个体工商户如何注销营业执照？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jiangmen",
+   "id": "3527599",
+   "url": "http://www.jiangmen.gov.cn/gzhd/lyxd/content/post_3527599.html",
+   "question": "公积金贷款\n您好，想咨询一下，本人公积金是安徽合肥的，能否在江门新会走公积金贷款买房？如果可以，贷款计算公式是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jiangmen",
+   "id": "3527593",
+   "url": "http://www.jiangmen.gov.cn/gzhd/lyxd/content/post_3527593.html",
+   "question": "请问在哪里查看本网已公开的留言信息？\n请问在哪里查看本网已公开的留言信息？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jiangmen",
+   "id": "3527591",
+   "url": "http://www.jiangmen.gov.cn/gzhd/lyxd/content/post_3527591.html",
+   "question": "想咨询一下关于簕杜鹃种植和养护有没有标准？\n请问有没有关于市花簕杜鹃繁殖、养护等技术标准？应该在什么地方查询？据说是市监局有相关信息，但是不知道用什么方式查询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jiangmen",
+   "id": "3527590",
+   "url": "http://www.jiangmen.gov.cn/gzhd/lyxd/content/post_3527590.html",
+   "question": "公积金\n申请的公积金几天才能到账",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jiangmen",
+   "id": "3527584",
+   "url": "http://www.jiangmen.gov.cn/gzhd/lyxd/content/post_3527584.html",
+   "question": "江门市汽车购新补贴已经核销，如何取消\n之前领取了汽车新购补贴，已经核销，现在重新申请置换国补，需要取消新购补贴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jiangmen",
+   "id": "3527574",
+   "url": "http://www.jiangmen.gov.cn/gzhd/lyxd/content/post_3527574.html",
+   "question": "工商年审\n请问如何在手机操作工商年审？我在江门市监公众号无法找到此操作，另外在粤商通APP内提示停止办理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

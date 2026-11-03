@@ -1,0 +1,782 @@
+{
+ "A_考卷": [
+  {
+   "source": "gd-zhaoqing",
+   "id": "3270165",
+   "url": "https://www.zhaoqing.gov.cn/hdjlpt/detail?pid=3270165",
+   "question": "二手车\n我在阳江买了一辆国六标准的二手车，能否到肇庆过户上牌",
+   "cited_hits": [
+    {
+     "name": "机动车登记规定",
+     "lib_no": "机动车登记规定(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zhaoqing",
+   "id": "2991157",
+   "url": "https://www.zhaoqing.gov.cn/hdjlpt/detail?pid=2991157",
+   "question": "关于请明确《肇庆市城镇供水管理办法》 法规效力的问题\n关于《肇庆市人民政府关于公布规范性文件清理结果的通知》（肇府规〔2018〕3号），发现《肇庆市城镇供水管理办法》（肇府〔1997〕39号）被列为修订的规范性文件名单之一，但至今仍未颁布最",
+   "cited_hits": [
+    {
+     "name": "城市供水条例",
+     "lib_no": "城市供水条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "肇庆市城镇供水管理办法",
+    "肇庆市城镇供水管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zhaoqing",
+   "id": "2988876",
+   "url": "https://www.zhaoqing.gov.cn/hdjlpt/detail?pid=2988876",
+   "question": "未婚生育的女职工 能否享受产假？\n广东省肇庆市:未婚生育的女职工 能否享受产假？",
+   "cited_hits": [
+    {
+     "name": "女职工劳动保护特别规定",
+     "lib_no": "女职工劳动保护特别规定(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-zhaoqing",
+   "id": "2618187",
+   "url": "https://www.zhaoqing.gov.cn/hdjlpt/detail?pid=2618187",
+   "question": "关于废旧轮胎裂解炼油项目\n您好，请问肇庆市是否能批废旧轮胎炼油项目？批的话有没有区域限制？能否给个具体的位置范围？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国环境保护法",
+     "lib_no": "环境保护法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国环境影响评价法",
+     "lib_no": "环境影响评价法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "废旧轮胎综合利用指导意见",
+    "肇庆市“三线一单”生态环境分区管控方案",
+    "中华人民共和国工业和信息化部公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zhaoqing",
+   "id": "2592687",
+   "url": "https://www.zhaoqing.gov.cn/hdjlpt/detail?pid=2592687",
+   "question": "关于父母房产过户给子女的流程以及办理部门\n您好，请问一下端州区的房子，之前以父母的名义购买，已供8年，现在想变更为自己的名字，相关的流程是怎样的，需要到哪些相关部门进行办理，相关的费用如何定？ 谢谢",
+   "cited_hits": [
+    {
+     "name": "不动产登记暂行条例实施细则",
+     "lib_no": "不动产登记暂行条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "民法典"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-zhaoqing",
+   "id": "2351710",
+   "url": "https://www.zhaoqing.gov.cn/hdjlpt/detail?pid=2351710",
+   "question": "企业诚信管理体系认证证书废止了吗？\n请问企业诚信管理体系认证证书废止了吗？在国家市场监督总局全国认证认可信息公共服务平台里面并没有此证书的信息，是不是已经废止了这个证书呢？",
+   "cited_hits": [
+    {
+     "name": "企业诚信管理体系",
+     "lib_no": "GB/T 33300-2016",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "GB/T 31950-2015",
+    "GB/T 31950-2015"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "gd-zhaoqing",
+   "id": "3500614",
+   "url": "https://www.zhaoqing.gov.cn/hdjlpt/detail?pid=3500614",
+   "question": "端州户口迁到农村\n您好，我这婆婆和他儿子的户口都在村里，现在婆婆的儿媳妇想要把户口迁到村里和他们一个户口，请问这个迁户口流程是怎样的？",
+   "cited_hits": [],
+   "cited_missing": [
+    "出生医学证明",
+    "收养登记证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zhaoqing",
+   "id": "3416550",
+   "url": "https://www.zhaoqing.gov.cn/hdjlpt/detail?pid=3416550",
+   "question": "关于广州公积金贷款购买肇庆房产\n您好！我是茂名户籍在广州工作并缴纳公积金的职工，请问我能使用广州公积金贷款购买肇庆市区的房产吗？或者在肇庆市办理公积金贷款购买肇庆市区的房产？如果可以，请给出可行的操作流程，谢谢。 同样的问题已经问过广州公积",
+   "cited_hits": [],
+   "cited_missing": [
+    "肇庆市住房公积金个人住房贷款办理须知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zhaoqing",
+   "id": "3320961",
+   "url": "https://www.zhaoqing.gov.cn/hdjlpt/detail?pid=3320961",
+   "question": "市场业务咨询\n询问一些关于企业开展市场商铺和摊位出租，需要配备哪些资料文件",
+   "cited_hits": [],
+   "cited_missing": [
+    "公司登记（备案）申请书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zhaoqing",
+   "id": "3300710",
+   "url": "https://www.zhaoqing.gov.cn/hdjlpt/detail?pid=3300710",
+   "question": "如何申请肇庆市端州区保租房\n在哪申请肇庆市端州区的保租房",
+   "cited_hits": [],
+   "cited_missing": [
+    "肇庆市端州区住房和城乡建设局关于印发2025年端州区公共租赁住房申请准入条件的通知",
+    "肇庆市端州区2025年公共租赁住房申请受理通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zhaoqing",
+   "id": "3259999",
+   "url": "https://www.zhaoqing.gov.cn/hdjlpt/detail?pid=3259999",
+   "question": "就业补贴\n我是2025届毕业的学生 是第二批申请就业补贴的 是给资料学校帮忙申请的 但一直预审不通过 是怎么回事呢",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省人力资源和社会保障厅 广东省财政厅关于印发〈广东省就业创业补贴申请办理指导清单（2021年修订版）〉的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zhaoqing",
+   "id": "3234315",
+   "url": "https://www.zhaoqing.gov.cn/hdjlpt/detail?pid=3234315",
+   "question": "公积金提取\n从中山市转入肇庆市的住房公积金可以马上提取吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "肇庆市住房公积金提取办理须知（2024版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zhaoqing",
+   "id": "3230702",
+   "url": "https://www.zhaoqing.gov.cn/hdjlpt/detail?pid=3230702",
+   "question": "异地购房提取\n你好，打算在新兴全款买套二手房。是在买房前还是买房后，再去申请肇庆的公积金异地购房提取呢？要带什么资料吗？有咨询电话吗？谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "肇庆市住房公积金提取办理须知（2024版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zhaoqing",
+   "id": "3160071",
+   "url": "https://www.zhaoqing.gov.cn/hdjlpt/detail?pid=3160071",
+   "question": "公积金余额做首付款\n在深圳工作交社保公积金，户籍不是肇庆，能在肇庆使用公积金贷款买房吗？ 肇庆何时能开放 公积金余额能用作买房首付款。",
+   "cited_hits": [],
+   "cited_missing": [
+    "肇庆市住房公积金个人住房贷款办理须知",
+    "商品房预售许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zhaoqing",
+   "id": "3135286",
+   "url": "https://www.zhaoqing.gov.cn/hdjlpt/detail?pid=3135286",
+   "question": "高校毕业生就业补贴\n我在条款上看到关于粤东粤西粤北地区就业补贴的标准：在珠三角地区就业(服务)的，按每人3000元标准给予补贴，在粤东西北地区就业(服务)的，按每人5000元标准给予补贴。 请问毕业两年内的高校毕业生，已签订一年以上劳动合同",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于优化调整稳就业政策措施全力促发展惠民生的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zhaoqing",
+   "id": "3113676",
+   "url": "https://www.zhaoqing.gov.cn/hdjlpt/detail?pid=3113676",
+   "question": "律师查询婚姻登记信息需要提供什么材料\n律师查询婚姻登记信息需要提供什么材料",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省民政厅关于婚姻登记工作的规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zhaoqing",
+   "id": "3078732",
+   "url": "https://www.zhaoqing.gov.cn/hdjlpt/detail?pid=3078732",
+   "question": "申请国补\n2025年肇庆地区商家申请国补流程？",
+   "cited_hits": [],
+   "cited_missing": [
+    "肇庆市商务局关于组织发动企业预报名参加2025年肇庆市消费品以旧换新活动的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zhaoqing",
+   "id": "3077875",
+   "url": "https://www.zhaoqing.gov.cn/hdjlpt/detail?pid=3077875",
+   "question": "互联网营销师考证补贴\n广东省或者肇庆市是否有政策是关于考取互联网营销师证书有补贴的，或者是这个证书是否人社局认可的？是否有补贴？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省人力资源和社会保障厅 广东省财政厅关于印发广东省职业技能培训补贴管理办法的通知",
+    "广东省职业技能提升补贴（指导）标准目录",
+    "广东省职业技能提升补贴（指导）标准目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zhaoqing",
+   "id": "3043457",
+   "url": "https://www.zhaoqing.gov.cn/hdjlpt/detail?pid=3043457",
+   "question": "执业药师补贴申请\n您好，我想问一下。现在广东省肇庆市取得了职业药师证书后还能申请技能补贴的吗？如果可以申请的流程又是怎样的？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省人力资源和社会保障厅 广东省财政厅关于印发广东省职业技能培训补贴管理办法的通知",
+    "广东省职业技能提升补贴（指导）标准目录",
+    "广东省职业技能提升补贴（指导）标准目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zhaoqing",
+   "id": "3027470",
+   "url": "https://www.zhaoqing.gov.cn/hdjlpt/detail?pid=3027470",
+   "question": "公积金提取\n您好，请问第一套房在端州商贷提取过公积金然后房子出售了；又自建房提取过一次公积金，无发生过公积金贷款，想问一下再购房或自建房公积金还能再提取余额吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "肇庆市住房公积金提取办理须知（2023版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zhaoqing",
+   "id": "2987427",
+   "url": "https://www.zhaoqing.gov.cn/hdjlpt/detail?pid=2987427",
+   "question": "绿卡\n若曾在省内他市以职工医保办理过慢性病卡，后期断保，若今欲以改换本市城乡医保，慢性病卡可有效？若无效，是否重新办理？办理手续如何？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省医疗保障局 广东省财政厅关于建立广东省医疗保障待遇清单制度的实施方案",
+    "肇庆市基本医疗保险办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zhaoqing",
+   "id": "2979835",
+   "url": "https://www.zhaoqing.gov.cn/hdjlpt/detail?pid=2979835",
+   "question": "三支一扶\n我想问一下，我现在在三支一扶服务期内，我没有签合同或者协议书，我该怎么证明我的劳动关系，还有我能申请那些基层补贴或者就业补贴吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于优化调整稳就业政策措施全力促发展惠民生的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zhaoqing",
+   "id": "2967119",
+   "url": "https://www.zhaoqing.gov.cn/hdjlpt/detail?pid=2967119",
+   "question": "单位公积金三方扣款协议签订\n您好， 想问一下新开户的公积金账号三方扣款业务是需要去线下办理吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "肇庆市住房公积金缴存业务办理须知",
+    "肇庆市住房公积金委托扣款协议"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zhaoqing",
+   "id": "2964182",
+   "url": "https://www.zhaoqing.gov.cn/hdjlpt/detail?pid=2964182",
+   "question": "职业技能证书补贴\n你好，我想了解一下肇庆市对公共营养师和健康管理师证书是否有补贴，如果有的话补贴金额是多少？相关要求有什么？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省职业技能培训补贴管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zhaoqing",
+   "id": "2900641",
+   "url": "https://www.zhaoqing.gov.cn/hdjlpt/detail?pid=2900641",
+   "question": "关于生育险新规问题\n至2023年7月那条生育险新规，生育保险支付范围内百分百报销的。 请问一下，配偶没有工作，男方的生育险享受这次新规不？ 还有配偶只购买了灵活就业人医保，能不能享受一样的？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于生育险新规问题",
+    "广东省职工生育保险规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-zhaoqing",
+   "id": "2859495",
+   "url": "https://www.zhaoqing.gov.cn/hdjlpt/detail?pid=2859495",
+   "question": "专业技术岗位等级晋升条件\n您好，请问专业技术岗位十二级晋升十一级的条件是什么？ 本人在专技十二级（在编）岗位工作已满三年（含试用期一年），但获得初级（助理级）职称证书时间不足一年，请问满足晋升专技十一级岗位的条件吗？ 期待您的答复！",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发&lt;广东省事业单位岗位设置管理实施意见&gt;的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-zhaoqing",
+   "id": "2813846",
+   "url": "https://www.zhaoqing.gov.cn/hdjlpt/detail?pid=2813846",
+   "question": "外籍电动自行车在肇庆使用问题\n广州牌的电动自行车能否在肇庆市内通行？如不可以需要如何办理迁移手续？",
+   "cited_hits": [],
+   "cited_missing": [
+    "肇庆市电动自行车管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-zhaoqing",
+   "id": "2795975",
+   "url": "https://www.zhaoqing.gov.cn/hdjlpt/detail?pid=2795975",
+   "question": "关于二孩家庭教职工购买改善型二套房使用公积金贷款相关事宜\n一、基本情况 本人夫妻双方均属怀集县公办学校在职在编教师，二孩家庭，在怀集县建设银行缴交公积金。目前在怀集县拥有一套商品房，五年前已全部供完且双方名下没有任何贷款业务，当时使用的是纯",
+   "cited_hits": [],
+   "cited_missing": [
+    "个人住房公积金贷款申请审批表",
+    "住房公积金贷款申请人基本情况调查表",
+    "家庭住房产权登记证明",
+    "商品房买卖合同",
+    "商品房预售许可证",
+    "商品房权属登记证明书",
+    "暂停支取住房公积金授权书",
+    "家庭住房产权登记证明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zhaoqing",
+   "id": "2770233",
+   "url": "https://www.zhaoqing.gov.cn/hdjlpt/detail?pid=2770233",
+   "question": "职称继续教育\n想咨询一下，现在评职称需要提供当年继续教育记录。但如果已经有证且不打算再评的话，继续教育可以不学吗？还是有了职称证就必须每年都要进行继续教育？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省专业技术人员继续教育条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-zhaoqing",
+   "id": "2749902",
+   "url": "https://www.zhaoqing.gov.cn/hdjlpt/detail?pid=2749902",
+   "question": "育儿假\n员工2023年1月入职，于2022年10月（入职本公司前）育有一女，2023年10月前（子女满一周岁前）是否完整享有10天育儿假吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省人力资源和社会保障厅 广东省卫生健康委员会关于进一步做好〈广东省人口与计划生育条例〉相关假期贯彻落实工作的通知",
+    "计生条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zhaoqing",
+   "id": "2732196",
+   "url": "https://www.zhaoqing.gov.cn/hdjlpt/detail?pid=2732196",
+   "question": "电动车上牌\n请问我在佛山有一个电动车牌在肇庆还能不能上电动车牌",
+   "cited_hits": [],
+   "cited_missing": [
+    "肇庆市电动自行车登记规定（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zhaoqing",
+   "id": "2725664",
+   "url": "https://www.zhaoqing.gov.cn/hdjlpt/detail?pid=2725664",
+   "question": "异地就医\n因本人在肇庆大旺买的社保，户口是四会的，预产期在11月份，已在大旺医院定点，做了生育备案，但是想回老公家（阳江市）生小孩，现在想咨询一下省内异地生小孩是否需要备案，去哪里备案，需要走什么流程及准备什么资料，生小孩的费用是否可以报销",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于完善我市职工生育保险业务经办流程的通知",
+    "广东省异地就医生育保险登记备案表（肇庆）",
+    "肇庆市职工生育保险产前检查定点备案表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zhaoqing",
+   "id": "2679890",
+   "url": "https://www.zhaoqing.gov.cn/hdjlpt/detail?pid=2679890",
+   "question": "硕士毕业生返肇工作购房补贴\n您好，我是一名在读硕士，明年毕业，作为肇庆本地人，现正考虑是否毕业后返肇工作，但了解到目前肇庆市对于硕士毕业生的购房补贴只有2万元，与本科毕业生享受的补贴金额一致，所以想请问何时会出台针对本科、硕士、博士不同层次",
+   "cited_hits": [],
+   "cited_missing": [
+    "肇庆市保障企业用工十条措施"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zhaoqing",
+   "id": "2564557",
+   "url": "https://www.zhaoqing.gov.cn/hdjlpt/detail?pid=2564557",
+   "question": "人才补贴问题\n问题1：取得职业技能技师资格证，在哪里申请补贴？补贴标准是什么？ 问题2：取得广东省技术能手荣誉是否有补贴？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省职业技能提升补贴（指导）标准目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zhaoqing",
+   "id": "2534595",
+   "url": "https://www.zhaoqing.gov.cn/hdjlpt/detail?pid=2534595",
+   "question": "个体户营业执照注销\n如何简单快捷办理营业执照注销",
+   "cited_hits": [],
+   "cited_missing": [
+    "个体工商户登记（备案）申请书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zhaoqing",
+   "id": "2388041",
+   "url": "https://www.zhaoqing.gov.cn/hdjlpt/detail?pid=2388041",
+   "question": "80天奖励工资怎么发\n80天奖励假工资应该怎么发放？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省人口与计划生育条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-zhaoqing",
+   "id": "2282141",
+   "url": "https://www.zhaoqing.gov.cn/hdjlpt/detail?pid=2282141",
+   "question": "身份证过期补办\n身份证过期补办需要多久？我从上个月4月18提交的资料，到今天5月25了身份证还没拿到。在粤省事上面查进度显示还在制卡中…。都一个多月了！",
+   "cited_hits": [],
+   "cited_missing": [
+    "居民身份证申请登记表"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "gd-zhaoqing",
+   "id": "3512527",
+   "url": "https://www.zhaoqing.gov.cn/hdjlpt/detail?pid=3512527",
+   "question": "高考报名\n1. 我是往届生，在家自学备考，不进复读学校，能不能在肇庆报考2027春季高考依学考？ ​ 2. 往届生报名的地点是市招生办，还是回户籍地（德庆县）招考办现场审核？ ​ 3. 报名需要准备哪些材料？身份证、户口本、高中毕业证之外，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zhaoqing",
+   "id": "3490182",
+   "url": "https://www.zhaoqing.gov.cn/hdjlpt/detail?pid=3490182",
+   "question": "驾驶证换证\n我的驾驶证快到期了，想要换证，请问在端州区哪里办理？需要什么资料？星期六日可以办理吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zhaoqing",
+   "id": "3466454",
+   "url": "https://www.zhaoqing.gov.cn/hdjlpt/detail?pid=3466454",
+   "question": "公积金代际互助提取\n全国大部分地方都有公积金代际互助政策，请问肇庆公积金能否跟上，一家人一边承担房贷压力，一边有公积金却提不出，十分矛盾。其他地方有该政策，我们跟上应该不存在什么影响吧，请回复为盼，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zhaoqing",
+   "id": "3459808",
+   "url": "https://www.zhaoqing.gov.cn/hdjlpt/detail?pid=3459808",
+   "question": "关于积分入学相关问题咨询\n你好，我想了解一下关于灵活就业人员缴纳的养老保险年限是否会有效累计到积分入学的范畴，还是说必须为公司职工社保缴纳才算有效累计。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zhaoqing",
+   "id": "3443153",
+   "url": "https://www.zhaoqing.gov.cn/hdjlpt/detail?pid=3443153",
+   "question": "如何查询车辆备案照片\n想查询车辆网络备案的图片，交管12123上面没显示 没有地方可以查询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zhaoqing",
+   "id": "3427750",
+   "url": "https://www.zhaoqing.gov.cn/hdjlpt/detail?pid=3427750",
+   "question": "摩托车上牌问题\n我现在名下有一辆带端州指标的摩托车即将报废，想咨询一下报废后，该指标能否用于购买二手摩托车上端州区牌照。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zhaoqing",
+   "id": "3416426",
+   "url": "https://www.zhaoqing.gov.cn/hdjlpt/detail?pid=3416426",
+   "question": "如何变更公积金提取频次\n如何变更公积金提取频次，由原来的半年提取变更为1个月提取？系统自行变更还是个人申请变更？变更的流程如何？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zhaoqing",
+   "id": "3371334",
+   "url": "https://www.zhaoqing.gov.cn/hdjlpt/detail?pid=3371334",
+   "question": "城乡居民养老保险是否能提档，父母未满60岁\n城乡居民养老保险是否能提档，父母买的是农村养老保险最低档，未满60岁，是否可以办理提档，如果可以怎么办理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zhaoqing",
+   "id": "3357009",
+   "url": "https://www.zhaoqing.gov.cn/hdjlpt/detail?pid=3357009",
+   "question": "社保卡\n您好，为什么就业补贴一定要发到社保卡？没毕业怎么能申领社保卡？目前家人和本人都不在广东，如何申领啊？普通的银行卡不行吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zhaoqing",
+   "id": "3342527",
+   "url": "https://www.zhaoqing.gov.cn/hdjlpt/detail?pid=3342527",
+   "question": "外省\n贵州省人民在广州肇庆市办理广澳通行证最快多久，需要什么材料",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zhaoqing",
+   "id": "3331374",
+   "url": "https://www.zhaoqing.gov.cn/hdjlpt/detail?pid=3331374",
+   "question": "普通话测试\n请问一下，全国普通话测试报名时间，在什么时候开放报名，2026年有几场？分别什么时候",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zhaoqing",
+   "id": "3268628",
+   "url": "https://www.zhaoqing.gov.cn/hdjlpt/detail?pid=3268628",
+   "question": "港澳通行证办理问题\n询问有关外省人能否在广东省肇庆市端州区信安大道行政服务中心处办理港澳通行证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zhaoqing",
+   "id": "3208693",
+   "url": "https://www.zhaoqing.gov.cn/hdjlpt/detail?pid=3208693",
+   "question": "罗素银综合征是否可以申请特殊门诊\n罗素银综合征是否可以申请特殊门诊",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zhaoqing",
+   "id": "3181709",
+   "url": "https://www.zhaoqing.gov.cn/hdjlpt/detail?pid=3181709",
+   "question": "关于为新进入初中一年级女生免费接种HPV疫苗第二针的问题。\n您好，四会市大沙镇xx实验学校在2025年3月组织了七年级（即2024年新进入初一年级）未接种过HPV疫苗且未满14周岁的女生免费接种了国产二价HPV疫苗第一针，现已进入六月份，已",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zhaoqing",
+   "id": "3089188",
+   "url": "https://www.zhaoqing.gov.cn/hdjlpt/detail?pid=3089188",
+   "question": "肇庆市开发商使用非资金监管账户收取预售房款，该交易合同是否可以办理网签备案登记？\n购房者购买开发商预售商品房，开发商未向购房者明示预售资金监管账户，并指示购房者将购房款支付至非预售资金监管账户内，该交易合同是否可以办理商品房网签备案登记？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zhaoqing",
+   "id": "3088839",
+   "url": "https://www.zhaoqing.gov.cn/hdjlpt/detail?pid=3088839",
+   "question": "肇庆市商品房出售价格超出预售或现售备案价格上限的15%，是否可以办理买卖合同网签备案？\n（请予以详细的书面文字答复，感谢） 根据肇庆市政府政策规定，肇庆市商品房买卖预售及现售价格就备案价格上下浮动比例不得超过系统备案价格的15%。那么，如果",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zhaoqing",
+   "id": "3002223",
+   "url": "https://www.zhaoqing.gov.cn/hdjlpt/detail?pid=3002223",
+   "question": "医保个人余额问题\n您好，我想咨询一下，就是我从2023年8月份开始缴纳社保，但是个人账户余额是从12月份才开始返的，请问为什么8~11月这4个月没有返？如何返？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zhaoqing",
+   "id": "2943023",
+   "url": "https://www.zhaoqing.gov.cn/hdjlpt/detail?pid=2943023",
+   "question": "关于公积金调整事宜\n请问公积金不是每年7月份调整的吗？我单位从2022年9月调整过到现在没有调整了，据我了解兄弟单位每年都在调，我咨询了我单位财务，回复说财政没有通知不能调，请问是否一定要等财政通知才能开展调整业务？难道区内都是不统一的吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zhaoqing",
+   "id": "2917652",
+   "url": "https://www.zhaoqing.gov.cn/hdjlpt/detail?pid=2917652",
+   "question": "危险品道路运输资格证\n危险品道路运输资格证如何报考，报名资格和方式是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zhaoqing",
+   "id": "2872591",
+   "url": "https://www.zhaoqing.gov.cn/hdjlpt/detail?pid=2872591",
+   "question": "汽车解押\n各位领导好！想咨询一下汽车贷款还完了，咱肇庆现在是否支持网上办理解押业务，我看到广州已经可以直接网上办理了。平时要上班，现居住地去一趟肇庆也很远，到现场办理解押费时费力。另外如果去现场办理，是否需要预约？预约的渠道是什么？有说法是",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zhaoqing",
+   "id": "2856286",
+   "url": "https://www.zhaoqing.gov.cn/hdjlpt/detail?pid=2856286",
+   "question": "外地摩托车进入肇庆端州区建设三路可行吗？\n你好，建设三路，肇庆商业大厦路段限制外地摩托车吗？3.30日想从佛山顺德开摩托过去跑半程马拉松，经阅江大桥进入，转建设三路，到肇庆商业大厦（城市便捷酒店）",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zhaoqing",
+   "id": "2838114",
+   "url": "https://www.zhaoqing.gov.cn/hdjlpt/detail?pid=2838114",
+   "question": "外省迁入肇庆\n在肇庆鼎湖购有房产，户口需要从四川迁入肇庆，需要什么手续 谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zhaoqing",
+   "id": "2817418",
+   "url": "https://www.zhaoqing.gov.cn/hdjlpt/detail?pid=2817418",
+   "question": "关于农用地的相关问题\n尊敬的领导您好！本人想咨询下农用地的问题，在肇庆市人民政府关于公布实施征收农用地区片综合地价的公告（肇府函〔2021〕33号）文件中，请问下上述文件的农用地包括哪些？林地，园地，旱地属于文件的农用地吗？谢谢解答",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zhaoqing",
+   "id": "2716311",
+   "url": "https://www.zhaoqing.gov.cn/hdjlpt/detail?pid=2716311",
+   "question": "认房不认贷政策实施\n想咨询一下8月25日国家出台的“认房不认贷”政策纳入城市楼市调控工具箱，请问肇庆市是否会使用这一政策，如实施何时会实施？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zhaoqing",
+   "id": "2705991",
+   "url": "https://www.zhaoqing.gov.cn/hdjlpt/detail?pid=2705991",
+   "question": "异地投保如何转回当地社保？\n您好！我在江西人宜春市买过社保，后离职就学，现在回肇庆工作，单位也买了肇庆的社保，请问如何将江西宜春购买的社保记录转回肇庆？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zhaoqing",
+   "id": "2660329",
+   "url": "https://www.zhaoqing.gov.cn/hdjlpt/detail?pid=2660329",
+   "question": "私家车上牌免验\n我想咨询下肇庆作为私家车新上牌免查验新增城市试点，是不是现在购买所有属试点个业预查验车辆，新车上牌时，车不用去车管所查验了。不知免检新规政策现在是否已实施执行？车管所现是否已与所有相对免验试点车企实现信息互联，若还没有，那请",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zhaoqing",
+   "id": "2517554",
+   "url": "https://www.zhaoqing.gov.cn/hdjlpt/detail?pid=2517554",
+   "question": "关于个人商业贷款是否可以转公积金贷款问题\n领导你好，2018年我在肇庆买了首套房，由于不在肇庆上班，未缴纳公积金，所以采用的商业贷款； 现回到肇庆上班，已正常缴纳肇庆市公积金，请问我之前房子的商业贷款可否转成公积金贷款？具体怎么申请？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zhaoqing",
+   "id": "2499222",
+   "url": "https://www.zhaoqing.gov.cn/hdjlpt/detail?pid=2499222",
+   "question": "电动车上牌问题\n因个人疏忽，忘记名下已有一辆车，新车上牌审核失败。现已申请旧车过户。新车第一次申请时，合格证和发票已上交，重新申请应该怎么办？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zhaoqing",
+   "id": "2439077",
+   "url": "https://www.zhaoqing.gov.cn/hdjlpt/detail?pid=2439077",
+   "question": "应届大学生就业补贴\n就业补贴的程序和资料是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zhaoqing",
+   "id": "2320361",
+   "url": "https://www.zhaoqing.gov.cn/hdjlpt/detail?pid=2320361",
+   "question": "咨询人社局返还给企业的稳岗补助、一次性留工补助可用于什么方面\n你好，我们想咨询2022年人社局返还给企业的稳岗补助、一次性留工补助可用于什么方面，是否可用于职工生活补助呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zhaoqing",
+   "id": "2249732",
+   "url": "https://www.zhaoqing.gov.cn/hdjlpt/detail?pid=2249732",
+   "question": "社保\n你好！居委会以前帮我办过肇庆社保卡，然后学校也办了广州社保卡，居委会的社保卡没有发下来，现在只有广州社保卡，公司买了职工医保差不多一年，现在只能查到缴费记录，医保余额一直为0，是什么问题呢，是否需要办回肇庆社保卡",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zhaoqing",
+   "id": "2214705",
+   "url": "https://www.zhaoqing.gov.cn/hdjlpt/detail?pid=2214705",
+   "question": "社保\n父亲户籍肇庆市，在江门工作，在职但未买过社保，怎么办？可否自行购买社保？如若可以，如何办理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zhaoqing",
+   "id": "2185903",
+   "url": "https://www.zhaoqing.gov.cn/hdjlpt/detail?pid=2185903",
+   "question": "开户条件\n房产证上的名字是父母的，该房产地址子女是否能开户并作独立户主？ 父母户籍另有其他住址。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zhaoqing",
+   "id": "2152076",
+   "url": "https://www.zhaoqing.gov.cn/hdjlpt/detail?pid=2152076",
+   "question": "户口迁入\n请问将户口从广州单位集体户迁到肇庆端州区（肇庆有房产），具体去哪里办理，是去行政服务中心办理还是去居住地派出所？需要准备什么资料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

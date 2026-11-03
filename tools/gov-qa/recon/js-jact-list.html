@@ -1,0 +1,400 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>江苏省生态环境厅_咨询建言</title>
+<script type="text/javascript" src="../widgets/cookie/jquery.cookie.js"></script>
+<script type="text/javascript" src="../resources/security/jsencrypt.min.js"></script>
+<script type="text/javascript" src="../resources/security/rsa_util.js"></script>
+<link type="text/css" href="./template/143/images/hanweb.css" rel="stylesheet"/>
+<link type="text/css" href="./template/143/images/jact_style.css" rel="stylesheet"/>
+<script type="text/ecmascript" src="./template/143/images/jquery.min.js"></script>
+<script type="text/javascript" src="./template/143/images/mailwrite.js"></script>
+<script type="text/javascript" src="./template/143/images/popwin.js"></script>
+<script type="text/javascript" src="/jact/front/js/frontValidate.js" type="text/javascript"></script>
+<script type="text/javascript" src="/jact/front/js/m_jpage/import.js"></script>
+<script type="text/javascript" src="../ui/widgets/My97DatePicker/WdatePicker.js"></script>
+<script language="javascript">
+$(function(){
+		var sysname = '江苏省生态环境厅_咨询建言';
+		//切分_
+		var arr_name = sysname.split('_');
+		if(arr_name.length>1){
+			$("#div_head").html(arr_name[1]);
+			$("#div_left").html(arr_name[1]);
+			$("#div_curApartment").html("当前部门："+arr_name[0]);
+		}
+});
+
+	//办件查询
+	function frm_querysubmit() {
+		var form2 = document.getElementById("form2");
+		if (form2.mailnumber.value.length == 0) {
+			alert("办件编号不能为空");
+			document.form2.mailnumber.focus();
+			return;
+		}
+		if (form2.querycode.value.length == 0) {
+			alert("查询码不能为空");
+			document.form2.querycode.focus();
+			return;
+		}
+		var cxcode=document.getElementById("cxcode");
+		if(cxcode.value.length == 0){
+			alert("验证码不能为空");
+			document.form2.cxcode.focus();
+			return;
+		}
+		jQuery.ajax({
+			type:"POST",
+			url:"reg_checkregcode.do",
+			data:"registercode=" + encodeURI(document.getElementById("cxcode").value),
+			async: false,
+			success:function (msg) {
+				if(msg != 1){
+					alert( "验证码错误");
+					$("img[src*='verifyCode']").click();
+					return;
+				}else{
+					document.getElementById("querycode").value = RSAencode(form2.querycode.value);
+form2.submit();
+				}
+			}
+		});	
+	}
+
+	/*---- 下面主题可以根据需要加载 ----*/
+	//默认主题
+	$import("css", "/jact/front/js/m_jpage/jpage/theme/default/css/jpage.css");
+
+	/*---- 动态加载所需js文件 ----*/
+	$import("js", "/jact/front/js/m_jpage/jpage/jquery.jpage.js");
+	$import("js", "/jact/front/js/m_jpage/cookie/jquery.cookie.js");//不用cookie，可以不加载，但需要将openCookies置为false
+	
+	$(document)
+			.ready(
+				function() {
+					$(".show_01").click(function(){
+						$(this).toggleClass("show_01_active ")
+						$(".open_01").slideToggle()
+					});
+					$(".show_02").click(function(){
+							$(this).toggleClass("show_02_active ")
+							$(".open_02").slideToggle()
+					});
+					$(".abc tr:even").css("background-color","#f6f6f6");
+					var strBefore = "<table style='display: table;width:720px;max-width:720px;table-layout: fixed;'>"
+							+ "<tr>"
+							+ "  <th width='130' align='center' >办件编号</th>"
+							+ "  <th width='200' align='center' >标题</th>"
+							+ "  <th width='110' align='center' >受理时间</th>"
+							+ "</tr>";
+					var strAfter = "</table>";
+					$('#pagetest2').jpage({
+						themeName : 'default', //主题名称
+						openCookies : false, //关闭cookies
+						showMode : 'full', //显示模式
+						totalRecord : '431', //记录总数
+						dataBefore : strBefore, //循环前内容
+						//dataStore:initData,												//循环数据初始值
+						dataAfter : strAfter, //循环后内容
+						groupSize : 3, //分组大小
+						proxyUrl : 'dataproxy_mailpublist.do', //代理页地址
+						perPage : '19', //每页记录数
+						barPosition : 'bottom', //分页条位置
+						nodatashow : true,
+						ajaxParam : //参数传递，自定义参数
+						{
+							'sysid' : '143',
+							'datadetailid' : '',
+							'dicvalue' : '',
+							'mailnumber' : '',
+							'querycode' : '',
+							'groupid' : '',
+							'mailstate' : '',
+							'starttime' : '',
+							'endtime' : '',
+							'keyword' : '',
+							'orderfield' : '1'//用于排序，可以按提交时间（1，默认）或回复时间（2）或公开时间（3） 例：'orderfield':'1'
+						}
+					});
+
+				})
+</script>
+</head>
+<body>
+	<input type="hidden" id="openmobile" value="{openmobile}" />
+	<script language="JavaScript" src="/jact/front/js/mobile.js" type="text/javascript"></script>
+	<input type="hidden" name="sysname" id="sysname" value="江苏省生态环境厅_咨询建言"/>
+
+	<!--head start-->
+<script src="//sthjt.jiangsu.gov.cn/script/0/2406201118521467.js"></script> 
+        <div id="div_head" style=" width:1000px; height:95px;margin:0 auto;position:absolute; top:95px; left:0; right:0; text-align:right; font-size:28px; font-weight:bold; color:#369"> - </div>
+		<!--head over-->
+		<style type="text/css">
+			body {
+				background: #FFFFFF;
+			}
+			
+			.newCur,
+			.newCur a {
+				color: #454545;
+				font-size: 13px;
+			}
+			.jact_box_blueNew{background-color: #FFFFFF;padding: 40px 0;}
+		</style>
+		<div style="width: 100%;background: #ededed;" class="newCur">
+			<div style="width: 1200px;margin: 0 auto;line-height: 40px;background: url(./template/143/images/newCur.png) no-repeat 15px center;padding-left: 35px;">
+				<table border="0" cellpadding="0" cellspacing="0">
+					<tr>
+						<td height="40">当前位置：</td>
+						<td height="40">
+							<a>政民互动</a>>
+							<a>统一咨询投诉</a>>
+							<a>信件列表</a>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	
+	<!--main start-->
+		<div class="jact_box_blue jact_box_blueNew" style="width: 1200px;">
+			<!--修改后缀red为blue-->
+			<div class="jact_left bt-left" style="width: 340px;">
+				<!--<div class="jact_left_title jact_left_change"><span>江苏省生态环境厅_咨询建言</span></div>-->
+				<!--one start-->
+				<div class="jact_left_box_01" style="width: 340px;height: auto;border: 1px solid #e3e3e3;padding: 0 20px;position: relative;">
+					<div style="width: 186px;height: 2px;background: #355e92;position: absolute;top: 33px;right: 20px;"></div>
+					<div id="div_left" style="font-size: 23px;color: #bb2335;line-height: 64px;">-</div>
+					<ul>
+						<style type="text/css">
+							.jact_left_box_01 li.newColList {
+								background: #f2f2f2;
+								border-bottom: 0;
+								margin-bottom: 20px;
+								height: 50px;
+							}
+							
+							.jact_left_box_01 li.newColList a {
+								font-size: 19px;
+								color: #355e92;
+								display: block;
+								height: 50px;
+								line-height: 50px;
+								padding-left: 117px;
+							}
+							
+							.jact_left_box_01 li.newColList01 a {
+								background: url(./template/143/images/newZxxz.png) no-repeat 65px center;
+							}
+							
+							.jact_left_box_01 li.newColList02 a {
+								background: url(./template/143/images/newWyzx.png) no-repeat 67px center;
+							}
+							
+							.jact_left_box_01 li.newColList03 a {
+								background: url(./template/143/images/newXjlb.png) no-repeat 68px center;
+							}
+                    .jact_left_box_01 li.newColList04 a{background:url(//sthjt.jiangsu.gov.cn/picture/248/2312062105370593649.png) no-repeat 68px center;}
+						</style>
+						<li class="newColList newColList01">
+							<a href="main.do?sysid=143">写信须知</a>
+						</li>
+						<li class="newColList newColList02">
+							<a href="mailwrite.do?sysid=143">我要写信</a>
+						</li>
+						<li class="newColList newColList03">
+							<a href="mailpublist.do?sysid=143">信件列表</a>
+						</li>
+                 <li class="newColList newColList04"><a href="//sthjt.jiangsu.gov.cn/jact/front/mail-responserate-stat.do?sysid=143">答复率统计</a></li>          
+					</ul>
+				</div>
+				<!--one over-->
+				<div class="jact_left_box_01" style="width: 340px;border: 1px solid #e3e3e3;position: relative;height:267px;padding:0;margin-top:30px;">
+					<iframe src="/jact/datacall/model/datacallsummary/datacallsummary_1627012342582.htm" frameborder="0" allowtransparency="true" scrolling="no" width="338" height="265">
+					</iframe>
+				</div>
+				<!--two start-->
+				<style type="text/css">
+					.jact_left_box_02New {
+						border-top: 0;
+						width: 340px;
+						height: 307px;
+						border: 1px solid #e3e3e3;
+						margin: 30px 0 0 0;
+						padding: 0 20px;
+						position: relative;
+					}
+					
+					.jact_base_from .textNew01 {
+						width: 100%;
+						height: 40px;
+						background: #f2f2f2 url(./template/143/images/newXjcxLogo01.png) no-repeat 15px center;
+						border: 0;
+						padding-left: 66px;
+					}
+					
+					.jact_base_from .textNew02 {
+						width: 100%;
+						height: 40px;
+						background: #f2f2f2 url(./template/143/images/newXjcxLogo02.png) no-repeat 15px center;
+						border: 0;
+						padding-left: 66px;
+						margin-top: 20px;
+					}
+					
+					.jact_base_from .textNew03 {
+						width: 100%;
+						height: 40px;
+						border: 0;
+						margin-top: 20px;
+					}
+					
+					.jact_text_01New {
+						width: 100%;
+						height: 40px;
+						border: 0;
+						line-height: 40px;
+						font-size: 15px;
+						color: #666666;
+					}
+					
+					.jact_text_01New_spl {
+						width: 172px;
+						height: 40px;
+						background: #f2f2f2 url(./template/143/images/newXjcxLogo03.png) no-repeat 15px center;
+						padding-left: 66px;
+						display: block;
+						float: left;
+					}
+					
+					.jact_box_blue .jact_bnt_01New {
+						display: block;
+						float: left;
+						width: 142px;
+						height: 40px;
+						background: #355e92;
+						line-height: 40px;
+						text-align: center;
+						font-size: 17px;
+						color: #FFFFFF;
+						letter-spacing: 10px;
+					}
+					
+					.rsetNew01 {
+						margin-left: 14px;
+						display: block;
+						float: left;
+						background: #FFFFFF;
+						width: 142px;
+						height: 40px;
+						border: 1px solid #355e92;
+						line-height: 40px;
+						text-align: center;
+						font-size: 17px;
+						color: #355e92;
+						letter-spacing: 10px;
+					}
+				</style>
+				<form id="form2" action="maildetail.do?sysid=143" name="form2" method="post" target="_blank">
+					<div class="jact_left_box_02 jact_left_box_02New">
+						<div style="width: 186px;height: 2px;background: #355e92;position: absolute;top: 33px;right: 20px;"></div>
+						<!--<div class="jact_base_title"><span>我的办件查询</span></div>-->
+						<div style="font-size: 23px;color: #bb2335;line-height: 64px;">信件查询</div>
+						<div class="jact_base_from">
+							<!--<span class="name">办件编号</span>--><span class="text textNew01">
+          <label for="textfield"></label>
+          <input class="jact_text_01 jact_text_01New" onfocus="if(this.value=='请输入信件编号'){this.value=''}" onfocus="if(this.value==''){this.value='请输入信件编号'}" value="请输入信件编号" type="text" name="mailnumber" id="mailnumber" />
+          </span>
+							<!--<span class="name bt-margin-top-10">查询码</span>--><span class="text textNew02">
+          <input class="jact_text_01 jact_text_01New" autocomplete="off" type="password" name="querycode" id="querycode" />
+          </span>
+							<!--<span class="name bt-margin-top-10">验证码</span>--><span class="text textNew03">
+          <input  class="jact_text_01 jact_text_01New jact_text_01New_spl" onfocus="if(this.value=='请输入验证码'){this.value=''}" value="请输入验证码"  type="text" name="cxcode" value="" id="cxcode" />
+          <span style="display:block;float:left;width: 119px;margin-left:7px;height: 40px;background: #f2f2f2;">
+          	<img style="display: block;max-width: 100%;height: auto;margin: 5px auto;" src="../verifyCode.do" onclick="this.src='../verifyCode.do?random=' + Math.random();" title="如果看不清数字，请点图片刷新验证码" style="cursor: pointer" width="80" height="30"/></span>
+							<!--<span class="bnt bt-margin-top-15"></span>-->
+							</span>
+						</div>
+						<div style="height: 40px;margin-top: 20px;">
+							<input name="" type="button" class="jact_bnt_01 jact_bnt_01New" value="搜索" onclick="frm_querysubmit();" />
+							<input name="" type="reset" value="重置" class="rsetNew01" />
+						</div>
+					</div>
+				</form>
+				<!--two over-->
+				<!--three start-->
+				<!--three over-->
+				<!--four start-->
+				<!--four over-->
+			</div>
+	    
+   <!-- login start-->
+			<div class="jact_main bt-right shadow shadowNew" style="width: 824px;">
+				<style type="text/css">
+					.curApartment {
+						height: 52px;
+						width: 824px;
+						background: #ededed;
+						padding-left: 20px;
+						font-size: 19px;
+						font-weight: bold;
+						color: #355E92;
+						line-height: 52px;
+					}
+					
+					.shadowNew {
+						box-shadow: none;
+						-webkit-box-shadow: none;
+					}
+					
+					.jact_boxNew {
+						padding: 0;margin-top: 20px;position: relative;
+					}
+					.jact_box_fontNew{border: 1px solid #e3e3e3;padding: 0 20px;}
+.abcNew tr,.abcNew td{border: 0px;}
+#pagetest2 table{width: 782px!important;max-width: 782px!important;}
+.abcNew{margin-top: 20px;}
+.abcNew th{line-height:45px;height:45px;background:#f2f2f2;font-size:17px;color:#355e92;font-weight:normal;}
+.abc td,.abc tr{background:#ffffff!important;}
+#pagetest2 tr{background:none!important;}
+.tr_main_value_odd{height:40px!important;text-align:center;}
+				</style>
+                <script type="text/javascript">
+				$("#pagetest2 table tr").eq(0).attr("style","background:#f2f2f2")
+				</script>
+				<div id="div_curApartment" class="curApartment">-</div>
+				<!--<div class="prefix"></div>-->
+				<div class="jact_box jact_boxNew">					
+            <div class="jact_box_font jact_box_fontNew">
+						<!--<div class="jact_base_title"><span>我的办件查询</span></div>-->
+						<div style="font-size: 23px;color: #bb2335;line-height: 64px;height:64px;border-bottom: 1px solid #e3e3e3;">
+							<div style="padding: 0 15px;border-bottom: 2px solid #bb2335;float: left;height: 64px;">信件列表</div>
+                            
+						</div>
+				<table align="center" class="abc abcNew" style="min-height:561px;width: 100%;border: 0;">
+					<tr>
+						<td valign="top">
+						<div id="pagetest2">
+							<div class="default_pgContainer"></div>
+						</div>
+						</td>
+					</tr>
+				</table>
+                <script type="text/javascript">
+				$(".abcNew tr").first().attr("style","background-color:#fff")
+				</script>
+            </div>
+        </div>
+	</div>
+    <div class="bt-clear"><!--华丽的分割线--></div>
+</div>
+<!--main over-->
+
+	<!--footer start-->
+	<script src="//sthjt.jiangsu.gov.cn/script/102/2111261457221582.js"></script>
+	<!--footer over-->
+</body>
+</html>

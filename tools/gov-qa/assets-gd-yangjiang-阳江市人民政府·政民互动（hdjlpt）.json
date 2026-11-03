@@ -1,0 +1,798 @@
+{
+ "A_考卷": [
+  {
+   "source": "gd-yangjiang",
+   "id": "3431984",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=3431984",
+   "question": "难产界定\n医院出院小结中注明是“钳产”，请问属于难产吗？有界定的文件吗？可以延长多少天产假？",
+   "cited_hits": [
+    {
+     "name": "广东省实施〈女职工劳动保护特别规定〉办法",
+     "lib_no": "女职工劳动保护特别规定(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yangjiang",
+   "id": "3424858",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=3424858",
+   "question": "电动自行车是否需要上牌？\n可骑可电动的",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国道路交通安全法",
+     "lib_no": "道路交通安全法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "电动自行车安全技术规范",
+     "lib_no": "GB 17761-2024",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "阳江市公安局关于对全市电动自行车进行注册登记的通告",
+    "GB17761-2024"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yangjiang",
+   "id": "3348432",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=3348432",
+   "question": "公积金装修提取\n领导们好，最近全国都在说公积金改革这一事，作为一名在阳江地区买了毛坯房，没有钱装修的人，又急需房子住的，是否可以考虑开放让这一部分人提取自己账户里的公积金用来装修呢？",
+   "cited_hits": [
+    {
+     "name": "住房公积金管理条例",
+     "lib_no": "住房公积金管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yangjiang",
+   "id": "2914497",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=2914497",
+   "question": "收养\n本人育有一女，想收养哥哥的儿子（哥哥育有三个孩子），请问需要什么手续?",
+   "cited_hits": [
+    {
+     "name": "中国公民收养子女登记办法",
+     "lib_no": "中国公民收养子女登记办法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yangjiang",
+   "id": "2892030",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=2892030",
+   "question": "车辆转入转出\n就是我想问问本人非阳江户口人 摩托车可以转入阳江辖区吗 如果可以的话需要带什么资料 该摩托车非本人名下系自己亲属。",
+   "cited_hits": [
+    {
+     "name": "机动车登记规定",
+     "lib_no": "机动车登记规定(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于市区限制摩托车入户方案的办理方案报告"
+   ],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "gd-yangjiang",
+   "id": "3488553",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=3488553",
+   "question": "对《阳江市市级政府投资管理办法》的咨询\n“第四十条 涉及预算调整或者调剂的，按以下程序办理： 经参建各方（项目单位、代建单位、勘察单位、设计单位、监理单位和施工单位，下同）共同确认变更后的工程造价在工程合同价范围内，且增加造价不超过200万",
+   "cited_hits": [],
+   "cited_missing": [
+    "阳江市人民政府关于印发阳江市市级政府投资管理办法的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yangjiang",
+   "id": "3487956",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=3487956",
+   "question": "咨询小升初双胎同取问题\n双胞胎当时报名没选择双胎同取，现在一个孩子中了阳江一中（初中部），另一个小孩三间公办摇号都没中，现想申请在阳江一中可以吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "阳江市直属义务教育学校2026年招生方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yangjiang",
+   "id": "3465011",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=3465011",
+   "question": "小升初咨询\n1.在阳江市有房产有户口需要迁去城区读六年级吗？如果在乡镇六年级毕业属于第一批次安排入学吗？ 2.买二手房前业主户口已经迁出去了，假如学籍还在占用，影响新业主使用学位吗？ 3.如果在乡镇六年级毕业小升初是直接按户口自动分配市区学",
+   "cited_hits": [],
+   "cited_missing": [
+    "阳江市直属义务教育学校2026年招生方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yangjiang",
+   "id": "3462933",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=3462933",
+   "question": "公积金提取额度公式疑问\n此前咨询公积金的问题，贵局回复：对自住住房进行翻建或加层的可在《建设工程规划许可证》或《不动产权证书》核发之日起三年内申请提取，提取额度=翻建、加层扩建费用发票实际支付金额（如无法提供发票的，可自愿选择参考此标准计算",
+   "cited_hits": [],
+   "cited_missing": [
+    "阳江市住房和城乡建设局关于公布2024年度阳江市市区住宅工程预算造价参考指标信息的函",
+    "建筑结构可靠性设计统一标准",
+    "GB50068-2018"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yangjiang",
+   "id": "3451951",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=3451951",
+   "question": "阳江市政府质量奖\n阳江市的政府质量奖是不是没办了？还会办吗？下一届什么时候办？企业如何申请？",
+   "cited_hits": [],
+   "cited_missing": [
+    "阳江市政府质量奖评审管理办法",
+    "阳江市政府质量奖评审管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yangjiang",
+   "id": "3339125",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=3339125",
+   "question": "国补\n我父亲有一台09年的旧车，我现在想买新车，但是我父亲已经不在了，我买新车，能不能拿我父亲的旧车走国家补贴啊，",
+   "cited_hits": [],
+   "cited_missing": [
+    "商务部等8部门办公厅关于印发&lt;2026年汽车以旧换新补贴实施细则&gt;的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yangjiang",
+   "id": "3322121",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=3322121",
+   "question": "文件询问\n您好，我目前正在研究环保垂直改革，从公开渠道检索不到相关文件，因此想请问《阳江市生态环境机构监测监察执法垂直管理制度改革实施方案》颁布时间是什么时候？",
+   "cited_hits": [],
+   "cited_missing": [
+    "阳江市生态环境机构监测监察执法垂直管理制度改革实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yangjiang",
+   "id": "3297051",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=3297051",
+   "question": "阳江汽车运营证的办理相关问题\n我想咨询一下私家小汽车办理运营证的相关问题： 1、车龄多久以内的新能源车可以办理运营证（例如：购车几年后失业想跑网约车） 2、对新源车的轴距有规定吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "出租汽车运营服务规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yangjiang",
+   "id": "3297084",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=3297084",
+   "question": "高龄补贴资料\n请问超过80岁的高龄补贴如何申请，需要携带什么资料？能线上办理吗？盼复！",
+   "cited_hits": [],
+   "cited_missing": [
+    "阳江市人民政府办公室关于印发阳江市80周岁以上高龄老人津贴发放方案的通知",
+    "阳江市80周岁以上高龄老人津贴申请审批表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yangjiang",
+   "id": "3256990",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=3256990",
+   "question": "《阳江市工程建设项目招标评标定标办法》适用问题\n《阳江市人民政府关于印发《阳江市工程建设项目招标评标定标办法》的通知》（阳府〔2023〕29号）适用阳江市水利工程项目吗？阳江市水利工程项目需要按照什么文件规定来执行？",
+   "cited_hits": [],
+   "cited_missing": [
+    "阳江市工程建设项目招标评标定标办法",
+    "水利工程建设项目招标投标管理规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yangjiang",
+   "id": "3218157",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=3218157",
+   "question": "办理异地就医备案\n为什么？在职职工办理异地长期居住人员备案需提供用人单位出具需长期异地居住的有关证明材料(内容需注明:派遣具体时间、长期居住地址、用人单位联系方式)。不是上传居住证、居民户口簿(户口簿首页和本人常住人口登记卡)、房产证、就读",
+   "cited_hits": [],
+   "cited_missing": [
+    "阳江市医疗保障事业管理中心关于落实异地就医相关工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yangjiang",
+   "id": "3185563",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=3185563",
+   "question": "注销个体户\n注销个体户是一个什么流程 需要什么资料 可以线上全流程嘛？营业执照可以寄快递回交嘛？ 阳春市、阳江市江城区、阳江市阳东区、阳西县",
+   "cited_hits": [],
+   "cited_missing": [
+    "个体工商户登记（备案）申请书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yangjiang",
+   "id": "3133027",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=3133027",
+   "question": "户口迁回原户籍办理\n想迁户口回母亲这边需要提供什么证件资料办理？",
+   "cited_hits": [],
+   "cited_missing": [
+    "居民户口簿",
+    "居民身份证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yangjiang",
+   "id": "3074014",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=3074014",
+   "question": "关于2025年公务员省考报考\n尊敬的阳江市公安局领导您好，请问贵单位2025年公务员省考的第一强制隔离戒毒所招考的职位代码“21400012546002”及第二强制隔离戒毒所招考的职位代码“21400012546003”为医学类职位，是否属",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省2025年考试录用公务员公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yangjiang",
+   "id": "3043479",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=3043479",
+   "question": "医保三目录中的耗材目录，在哪里可以查询到？\n医保三目录中的耗材目录，在哪里可以查询到？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省基本医疗保险、工伤保险和生育保险医用耗材目录（2022年）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yangjiang",
+   "id": "3034665",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=3034665",
+   "question": "关于医疗保障等待期的问题\n问题一：连续缴纳阳江市江城区的居民医保并且中途缴纳过两个月的阳江市职工医保的人员，现在想要转换为缴纳阳江市灵活就业医保，请问是否有医疗保障等待期？如果有的话等待期是多久？ 问题二：在其他城市缴纳了职工医保的人员，现",
+   "cited_hits": [],
+   "cited_missing": [
+    "阳江市城镇灵活就业人员基本医疗保险暂行办法的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yangjiang",
+   "id": "3032529",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=3032529",
+   "question": "公积金供房\n现在是有公积金供房，请问如果到时候断了公积金的话，每个月供房的钱又要怎么样重新计算，有没有自由人交公积金的说法的？每个月自己交多少钱。",
+   "cited_hits": [],
+   "cited_missing": [
+    "阳江市住房公积金个人住房贷款管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yangjiang",
+   "id": "3013925",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=3013925",
+   "question": "机动车辆检验\n机动车辆检验周期的部门规章是什么，小汽车注册登记时间是2016年10月，到现在刚8年，请问：在线上申请领取免检标志，或者到检测机构办理车辆检验呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于深化机动车检验制度改革优化车检服务工作的意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yangjiang",
+   "id": "2975282",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=2975282",
+   "question": "普通高考报名\n高中毕业生在家自学可以报名普通高考吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好广东省2024年普通高校招生统一考试报名工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yangjiang",
+   "id": "2901188",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=2901188",
+   "question": "汽车以旧换新\n请问09年注册的（国4段）汽油乘用车，报废换新政策符合马？",
+   "cited_hits": [],
+   "cited_missing": [
+    "汽车以旧换新补贴问答手册（第2批）",
+    "轻型汽车污染物排放限值及测量方法（中国III、IV阶段）",
+    "GB18352.3-2005"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yangjiang",
+   "id": "2883187",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=2883187",
+   "question": "异地公积金可以在阳江买房贷款吗\n各位领导好，我想咨询一下关于异地公积金的问题，我缴纳的是深圳的公积金，非阳江户籍。但配偶有阳江户籍，请问在阳江买房可以使用公积金贷款吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "阳江市住房公积金个人住房贷款管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yangjiang",
+   "id": "2848950",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=2848950",
+   "question": "夫妻两人的公积金可以分别对冲两套不同的房子吗？\n我与我妻子都有公积金，她名下有一套房子A，正使用她自己的公积金对房子A进行每月对冲还款，然后我名下新买了家庭的第二套房子B，请问可以用我的公积金对这第二套房子B进行每月对冲还款吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "阳江市住房公积金提取管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yangjiang",
+   "id": "2847763",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=2847763",
+   "question": "新生儿上户口需要哪些材料\n新生儿上户口需要哪些材料",
+   "cited_hits": [],
+   "cited_missing": [
+    "出生医学证明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yangjiang",
+   "id": "2834495",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=2834495",
+   "question": "关于胰岛素笔式注射器及针头医保政策的咨询\n阳江市医保局： 老师你好! 想咨询下笔式胰岛素注射器（国家C码为C16010110200001和C16010110200002）及胰岛素笔用针头（国家C码为C160201032）医保政策，有如下几个",
+   "cited_hits": [],
+   "cited_missing": [
+    "医用耗材目录",
+    "医用耗材目录",
+    "医用耗材目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yangjiang",
+   "id": "2821947",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=2821947",
+   "question": "农村宅基地建房提取公积金的流程和条件及额度\n已办理好《乡村建设规划许可证》、《农村宅基地批准书》，在阳春市缴纳公积金，致电公积金中心回复说可以在竣工后申请提取但是不能超过规划许可证发证日期一年，现在房子还未开工，预计8月份开工建设，规划许可",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设工程规划许可证",
+    "不动产权证书",
+    "不动产权证书",
+    "建设工程规划许可证",
+    "不动产权证书",
+    "不动产权证书",
+    "不动产权证书"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "gd-yangjiang",
+   "id": "3511454",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=3511454",
+   "question": "政府工作报告在哪里查看\n2025年市政府工作报告在哪里查看，可以给个链接吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yangjiang",
+   "id": "3510854",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=3510854",
+   "question": "电动车牌撞坏了\n电动车牌被人撞坏缺损了，这种情况可以申请更换车牌吗？车是23年4月上的电动车白牌",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yangjiang",
+   "id": "3494582",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=3494582",
+   "question": "为阳江市图书馆漠阳书屋（丰怡豪庭）增设公共卫生间\n漠阳书屋没有公共卫生间，对于前来学习、看书的人员不太方便，建议增设可使用的公共卫生间。之前在隔壁楼梯二楼有一个厕所，但是没有通水，也没有人员进行定期清理。虽然附近有一个漠阳湖居委会，但是他们",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yangjiang",
+   "id": "3482380",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=3482380",
+   "question": "物业维修基金缴纳\n商品房物业维修基金是房款总额比例缴纳，还是按面积缴纳？例如130方的商品房物业维修基金大概是多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yangjiang",
+   "id": "3486049",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=3486049",
+   "question": "咨询身份证换领\n我想咨询一下，四川省的身份证到期可以在阳江市政务大厅办理换证吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yangjiang",
+   "id": "3466179",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=3466179",
+   "question": "建议设置江城区图书馆江湾书屋\n近年来，阳江市江城区高度重视公共阅读空间建设，已初步形成以区图书馆为总馆、街道（乡镇）综合文化站为分馆、村（社区）综合性文化服务中心为基层服务点的总分馆制体系。江城区已通过“漠阳书屋”品牌成功建设了丰怡分馆、和",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yangjiang",
+   "id": "3447018",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=3447018",
+   "question": "取消提前还款\n已申请公积金部分还款，能否取消？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yangjiang",
+   "id": "3450632",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=3450632",
+   "question": "农田补贴绑定的银行卡更正\n农田补贴绑定的银行卡更换，之前绑定错误的银行卡，怎么更正正确的？ 1.具体的办理流程 2.去哪里办理 3.需要准备什么材料",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yangjiang",
+   "id": "3449489",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=3449489",
+   "question": "文旅宣传语\n您好，我最近在完成一篇课程论文，是关于城市文旅宣传语的，想了解阳江市近几年使用过的或者过去比较常用的官方文旅宣传语，希望能提供帮助，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yangjiang",
+   "id": "3421166",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=3421166",
+   "question": "恳请增开全市至阳西粤超阳江队主场球迷专线（重点阳春方向）\n恳请增开全市至阳西粤超阳江队主场球迷专线（重点阳春方向） 尊敬的领导： 您好！我是一名阳春市的足球球迷。5月17日起，粤超阳江队5个主场赛事将在阳西县体育馆举办，全市球迷都热切期盼能",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yangjiang",
+   "id": "3411947",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=3411947",
+   "question": "激活电子医保卡\n我前几年在广州上班，社保卡也是广州设立的，一直在广州正常参保。在2025年底到现在，从广州换到阳江江城区参保，现在去医院和药店都刷不了阳江电子医保卡，想要咨询如何线上激活阳江电子医保卡（方便使用阳江社保个人和统筹），但不新增",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yangjiang",
+   "id": "3397091",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=3397091",
+   "question": "定向越野\n您好！我是一名定向越野运动爱好者，有意向代表阳江市参加2026年广东省第十七届运动会（茂名）定向越野项目的比赛，现就相关选拔报名事宜向贵单位咨询，麻烦予以解答，非常感谢！ 具体咨询内容如下： 1. 本届省运会定向越野项目，阳江市是",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yangjiang",
+   "id": "3379643",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=3379643",
+   "question": "阳江市儿童公园\n阳江市有着五金刀之都，绿能标杆城市、海丝名城、最具幸福感城市等这么称号，又位居衔接粤港澳大湾区与粤西的门户地理位置优势，竟然连一个市级的儿童公园都没有？市里面什么时候可以立项并建设好市级的儿童公园？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yangjiang",
+   "id": "3378554",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=3378554",
+   "question": "没有实体卡只激活医保账号，会被永久锁住余额无法取出无法解锁吗？\n因为我以前在广州上班有一张广州的社保实体卡，目前回到阳江上班没有阳江社保实体卡。我不想去注销广州的那张社保卡，但只想激活阳江这个医保账号方便在药店和医院买药。此前打电话咨询阳江",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yangjiang",
+   "id": "3378724",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=3378724",
+   "question": "2026阳江市专升本考场\n尊敬的市教育局:您好!由于即将临近2026年广东普通专升本考试时间，在此向教育局咨询一下今年考场的情况，请问主次设置考杨是否和去午相同?如若不同分别是哪几个学校?期待得到教育局的回复!非常感谢!",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yangjiang",
+   "id": "3358392",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=3358392",
+   "question": "阳江市港澳运输公司的上级主管部门管理及归属等情况咨询\n我方为阳江市港澳运输公司的债权人，想咨询一下阳江市港澳运输公司目前的主管部门是那间公司或部门？是否都归属阳江市港航事务中心又或者阳江市航务管理局、阳江市国有资产管理局主管？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yangjiang",
+   "id": "3357046",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=3357046",
+   "question": "省内异地门特慢病种\n谢谢。 一，按各地文件，“非放、化疗”属不属门特慢病种？ 二、如属，哪里领“申请表”。 麻烦了，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yangjiang",
+   "id": "3359157",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=3359157",
+   "question": "提取公积金\n去年商贷购置了第二套房,如何申请提取公积金余额,需要什么材料?由于二套房是我个人名字,如何代申请提取我妻子公积金余额,需要什么材料?以上2个问题,",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yangjiang",
+   "id": "3349129",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=3349129",
+   "question": "异地公积金转移政策咨询\n我在外地工作过，已在当地缴纳住房公积金，现在准备到阳江市发展，想了解异地转移手续流程及所需材料。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yangjiang",
+   "id": "3340537",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=3340537",
+   "question": "线上或者线下提取公积金的方法\n我没房产，在江城工作，是租房住的。 请问能否在线上提取公积金，如可以，应该登录什么网站进行线上提取，提取时应该准备什么资料？ 如不可以线上提取，线下是到阳江市住房公积金管理中心申请提取还是到江城区住房公积金管理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yangjiang",
+   "id": "3317963",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=3317963",
+   "question": "关于考研文具携带问题\n准考证上写只能带2b铅笔，三角板跟橡皮擦，但是自命题考试有画画的，需要带专业的模板尺，还有不同b数的铅笔和各种橡皮擦。这是允许的吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yangjiang",
+   "id": "3273065",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=3273065",
+   "question": "2023年阳江市全市图书馆藏书量\n您好！因论文需要，现向贵单位咨询关于2023年阳江市全市图书馆藏书量。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yangjiang",
+   "id": "3268758",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=3268758",
+   "question": "关于异地公积金贷款提前还款事宜\n您好，相关部门负责人，本人公积金缴存地在“深圳”，已在购房地“阳江”购买不动产，使用异地公积金贷款，现咨询能否在线上办理“异地贷款提前部分还款”？亦或者能否在线上办理异地贷款对冲业务？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yangjiang",
+   "id": "3245243",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=3245243",
+   "question": "广州缴纳的公积金可否在阳江申请商转公业务？\n广州缴纳的公积金可否在阳江申请商转公业务？如果可以是否需要额外的资料？需要那些资料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yangjiang",
+   "id": "3225977",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=3225977",
+   "question": "国补\n国家第三批已发放，购买的东西还是显示阳江暂无享受国补。请问阳江明确什么时候可享受国补补贴呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yangjiang",
+   "id": "3204595",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=3204595",
+   "question": "城乡居民医保普通门诊报销问题\n购买了新农合，在市人民医院普通门急诊治疗，门诊费用是否可以报销？报销需要什么资料和流程；小孩没有实体社保卡，其报销又需要什么资料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yangjiang",
+   "id": "3171636",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=3171636",
+   "question": "如何线上办理无房证明\n本人打算提取商品房租房的公积金提取，住房公积金中心要求提供无房证明，请问如何线上办理无房证明？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yangjiang",
+   "id": "3161816",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=3161816",
+   "question": "关于异地就医报销政策的咨询\n本人在阳江市参加职工医保，需要前往南方医科大学口腔医院（广东省口腔医院）看普通门诊，是否需要做异地就医备案手续？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yangjiang",
+   "id": "3162118",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=3162118",
+   "question": "汽车置换补贴\n个人于2024年12月份购买了新车A，参加了2024年度的汽车置换补贴，于2025年3月份领取了2024度资金。现在需要购买新车B，能否用A车参加2025年度的置换补贴。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yangjiang",
+   "id": "3144814",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=3144814",
+   "question": "商业贷款提前部分还款后提取公积金\n纯商业贷款，已办理按月对冲业务，对冲还款后公积金还有余额。 申请提前部分还款，还款后按月对冲时是否会将提前还款部分金额转到还款卡？ 如果不能，请问如何提取提前还款部分？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yangjiang",
+   "id": "3108266",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=3108266",
+   "question": "异地公积金转入进度在哪里可以查询\n外省的公积金转入阳江公积金账户，进度在哪里可以查询，或者提交转入申请后，几个工作日能够到个人阳江公积金账户",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yangjiang",
+   "id": "3110613",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=3110613",
+   "question": "机动车牌\n小汽车机动车牌才7年蓝色底色已经褪色了请问是否需要更换？去哪里更换？需要准备什么材料？是否收费？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yangjiang",
+   "id": "3097065",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=3097065",
+   "question": "为未成年人购买医保\n父母在阳江购买了社保，想为阳江小学在读生投保，户籍在广州，请问是否可以在阳江购买医保？可以通过线上或线下什么方式为孩子办理医保？需要提供或者携带什么资料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yangjiang",
+   "id": "3084936",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=3084936",
+   "question": "动物检疫合格证明（动物A）宠物航空托运\n请问办理动物检疫合格证明需要什么材料办理，动物检疫合格证明用于托运宠物上飞机的。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yangjiang",
+   "id": "3073842",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=3073842",
+   "question": "异地长期居住人员办理特殊门诊和异地就医备案\n请问，我外婆在阳春购买了城乡居民医疗保险，但是长期在茂名居住，患有高血压、心脏疾病等，那异地长期居住人员办理特殊门诊和异地就医备案可以在茂名就诊医院办理吗？需要如何办理，资料需要什么",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yangjiang",
+   "id": "3051090",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=3051090",
+   "question": "城南清华坊小区东门口沙井盖噪音扰民\n领导好！ 我是江城区城南洛东大道1号清华坊小区的居民，现小区东门，（城南三中学校足球场这边门口），有个沙井盖又出现了松动，前面反映过该情况非常有效率的处理，现在又出现了高低不平衡，每天汽车压过都产生呯呯呯",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yangjiang",
+   "id": "3020869",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=3020869",
+   "question": "子女户口迁出后，医保如何迁出\n本人及子女今年1月迁户口至肇庆市鼎湖区，但是今年10月末银行医保自动扣费（阳江城乡居民基本医疗保险），没来得及办理医保迁出，请问要如何处理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yangjiang",
+   "id": "2997076",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=2997076",
+   "question": "未出生胎儿预参保\n您好， 1、请问未出生胎儿预参保需要什么资料以及办理流程？ 2、可否只在粤省事办理还是需要到社保局办理？？ 感谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yangjiang",
+   "id": "2986516",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=2986516",
+   "question": "异地户口参加居民医保，及职工医保\n你好，我原是江城户口现在已经迁移至深圳市户口，但是一直在阳江本地参加工作参加职工医保，后续如果就医保销是直接可以在阳江报销吗，如果后续辞职了是否可以在阳江市参加居民医保，报销待遇是否跟阳江本地户口一样，如需",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yangjiang",
+   "id": "2977802",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=2977802",
+   "question": "新生儿医保相关问题\n1.出生时候未办理医保预登记，出生住院产生的费用如何报销？ 2.未办理入户之前，已经通过出生证编号在粤省事缴费了2024年度医保费用（380元），现在已经办理好了入户信息，已购买的医保如何关联到新生儿身份证信息？ 3.新",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yangjiang",
+   "id": "2949192",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=2949192",
+   "question": "如何办理施工许可证\n施工许可证到那个部门或窗口办理，需要什么资料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yangjiang",
+   "id": "2943931",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=2943931",
+   "question": "初中学业水平考试\n在参加初中学业水平考试时粘贴条形码有一点褶皱会影响扫描结果吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yangjiang",
+   "id": "2918593",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=2918593",
+   "question": "文物保护单位数量\n由于课程学习需要，特向你部门咨询阳江市国家级、省级文物保护单位数量，望告知，感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yangjiang",
+   "id": "2875639",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=2875639",
+   "question": "初次领驾驶证是可以自己去车管所拿驾驶证的吗？\n在阳江江城区，第一次领驾驶证是可以自己去车管所拿驾驶证的吗？这个车管所具体的位置是哪里？详细地址是哪里？是不是当天完成最后一科考试就可以直接去领取驾驶证？需要拿些什么资料去领取驾驶证，麻烦请详细",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yangjiang",
+   "id": "2838804",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=2838804",
+   "question": "继承车辆异地上牌\n我父亲过世了，他是深圳户口深圳车牌，我是阳江户口，我想继承他的车，上阳江车牌，请问需要什么资料和手续？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yangjiang",
+   "id": "2821802",
+   "url": "https://www.yangjiang.gov.cn/hdjlpt/detail?pid=2821802",
+   "question": "关于调整甘泉路与东门路交界处红绿灯放行时间的建议\n尊敬的领导，您好。近日早高峰期间，东门路人民广场至实验学校段异常拥堵，车辆通行效率极低。经现场观察，怀疑其原因与东门路和甘泉路交界处红绿灯放行时间由先前的30秒缩短至20秒有关。 东门路和甘",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

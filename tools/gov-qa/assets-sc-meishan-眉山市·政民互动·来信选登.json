@@ -1,0 +1,1129 @@
+{
+ "A_考卷": [
+  {
+   "source": "sc-meishan",
+   "id": "c48ef1eb-5eaf-4812-aa69-594b7af53b0a",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=c48ef1eb-5eaf-4812-aa69-594b7af53b0a",
+   "question": "咨询修路问题\n群众咨询：能否占用标准农田修路。",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国土地管理法",
+     "lib_no": "土地管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "永久基本农田保护红线管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "fbb84b7e-0e16-4d5a-b344-f561c95925aa",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=fbb84b7e-0e16-4d5a-b344-f561c95925aa",
+   "question": "关于群众反映悬挂国旗的求助\n群众求助：国庆将至，天府新区视高街道天府大道上悬挂了国旗，但国旗都是倒挂的，有损国体。希望更正国旗悬挂方式。",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国国旗法",
+     "lib_no": "国旗法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "sc-meishan",
+   "id": "9ed70ebc-5797-4ac6-bc76-1f21b1abecf6",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=9ed70ebc-5797-4ac6-bc76-1f21b1abecf6",
+   "question": "关于群众了解燃气安装问题的咨询\n天府新区贵平镇群众咨询：退役军人在只有退役军人优待证，没有社保、低保的前提下，请问安装天然气是否有相应的优惠？",
+   "cited_hits": [],
+   "cited_missing": [
+    "四川省建设工程工程量清单计价定额"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "b62f3a22-37b9-493b-807d-86a112a119c3",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=b62f3a22-37b9-493b-807d-86a112a119c3",
+   "question": "关于群众反映核实医保问题的求助\n群众反映：2017年左右开始自行购买职工医疗保险，并缴费至今，希望部门告知个人还需缴纳多久的医保，以及每年的缴费金额是多少。\n医保参保地：东坡区。",
+   "cited_hits": [],
+   "cited_missing": [
+    "眉山市人民政府办公室关于印发眉山市职工医疗保险与生育保险管理办法的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "5ebf5675-cd69-48f7-9738-58ed77036597",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=5ebf5675-cd69-48f7-9738-58ed77036597",
+   "question": "关于群众了解职业病鉴定的咨询\n仁寿县群众咨询：职业病鉴定在哪里办理？",
+   "cited_hits": [],
+   "cited_missing": [
+    "职业病诊断与鉴定管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "f8e69d41-e57b-4801-87e1-b6cd0ac7b3d3",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=f8e69d41-e57b-4801-87e1-b6cd0ac7b3d3",
+   "question": "关于群众了解独生子女补贴的咨询\n群众咨询：领取独生子女补贴政策。",
+   "cited_hits": [],
+   "cited_missing": [
+    "四川省卫生健康委员会关于农村部分计划生育家庭奖励扶助政策的实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "aab85855-9a0d-49b3-b979-143c7fdd16aa",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=aab85855-9a0d-49b3-b979-143c7fdd16aa",
+   "question": "关于眉山市战略性新兴产业发展十五五的实施建议，请眉山市部门就建议可行性可操作性做具体详细技术性分析回复，请对建议内容作出实质性回应。",
+   "cited_hits": [],
+   "cited_missing": [
+    "实施建议",
+    "实施建议"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "9481594f-5152-4b22-9704-a131c27a2f74",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=9481594f-5152-4b22-9704-a131c27a2f74",
+   "question": "关于群众了解动物检疫的咨询\n天府新区视高街道园中大溪地小区业主咨询：动物检疫合格证明的办理地点、办理电话、办理时间、办理流程？",
+   "cited_hits": [],
+   "cited_missing": [
+    "猫产地检疫规程"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "5728c9bc-3e20-4e48-9b49-727126493904",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=5728c9bc-3e20-4e48-9b49-727126493904",
+   "question": "关于居民养老保险问题\n城乡居民基本养老保险参保登记的办理条件、申请材料、线上线下办理方式、办理结果查询反馈等相关问题的咨询？",
+   "cited_hits": [],
+   "cited_missing": [
+    "城乡居民基本养老保险参保登记表",
+    "四川省社会保险业务办理结果通知单"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "dff64a5f-ba23-4406-a926-8145bce203e9",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=dff64a5f-ba23-4406-a926-8145bce203e9",
+   "question": "无犯罪记录证明办理问题\n线上如何办理无犯罪记录证明？",
+   "cited_hits": [],
+   "cited_missing": [
+    "无犯罪记录证明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "f16fb2ee-18c8-4ac4-9998-a70c622048b8",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=f16fb2ee-18c8-4ac4-9998-a70c622048b8",
+   "question": "关于群众了解补贴标准的咨询\n群众咨询：天府新区高家镇五保户丧葬补贴标准？",
+   "cited_hits": [],
+   "cited_missing": [
+    "四川省特困人员救助供养工作规程"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "2ec57271-2f54-404b-8242-1e1339ae39ae",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=2ec57271-2f54-404b-8242-1e1339ae39ae",
+   "question": "关于群众了解报社的咨询\n群众咨询：补办出生证明需进行登报申明，希望告知报社电话和地址。",
+   "cited_hits": [],
+   "cited_missing": [
+    "眉山日报"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "24ee11b8-0a77-4a76-a1de-6a97fac44eb1",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=24ee11b8-0a77-4a76-a1de-6a97fac44eb1",
+   "question": "关于群众了解食品经营许可证的咨询\n自己（公司注册地不在眉山市）准备租用视高街道的办公楼，公司内部使用的食堂是否需要办理食品经营许可证？若需要办理，现场布置需满足什么条件？",
+   "cited_hits": [],
+   "cited_missing": [
+    "四川省食品经营许可管理实施办法",
+    "四川省食品经营许可管理实施办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-meishan",
+   "id": "d39fd0f1-c629-4b6f-a8e6-3698878eff92",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=d39fd0f1-c629-4b6f-a8e6-3698878eff92",
+   "question": "关于群众了解公章注销的咨询\n群众咨询：眉山天府新区公司的公章如何自行注销。",
+   "cited_hits": [],
+   "cited_missing": [
+    "准予注销登记通知书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "2e2f2d41-998a-472c-96ce-59da938273e1",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=2e2f2d41-998a-472c-96ce-59da938273e1",
+   "question": "群众咨询无人机补贴问题\n群众咨询：从事无人机业务扶持补贴对象。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于实施植保无人驾驶航空器农机购置与应用补贴的通知",
+    "青神县 2024—2026 年农机购置与应用补贴实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "f42e1dde-cc72-4d9e-a9e7-a69238205840",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=f42e1dde-cc72-4d9e-a9e7-a69238205840",
+   "question": "咨询乡厨业务证件问题\n群众咨询：开展乡厨业务需要置办哪些证件？",
+   "cited_hits": [],
+   "cited_missing": [
+    "眉山市农村集体聚餐食品安全协议",
+    "眉山市农村集体聚餐报告表",
+    "农村集体聚餐食品安全承诺书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "f86e1f9b-bf8d-475f-8691-8403bdbe88da",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=f86e1f9b-bf8d-475f-8691-8403bdbe88da",
+   "question": "咨询医保局电话\n群众咨询：公司想给新增员工购买医保，请问医保咨询电话是多少？",
+   "cited_hits": [],
+   "cited_missing": [
+    "职工基本医疗保险参保登记表"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "sc-meishan",
+   "id": "c8c6754b-c2af-4a7f-a8a0-b1d883dda109",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=c8c6754b-c2af-4a7f-a8a0-b1d883dda109",
+   "question": "凌晨两点钟了旁边工地还在不停的工作浇混泥土\n群众反映：岷江序建设项目夜间施工，噪声扰民。希望禁止夜间施工。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "cd632346-297b-4758-824a-ce3c88d71a47",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=cd632346-297b-4758-824a-ce3c88d71a47",
+   "question": "关于群众反映对工作人员的表扬\n群众表扬：2026年9月29日09:40拨打东坡区区行政服务大厅市场监督管理局电话，接听电话的工作人员态度好、细心，在指导操作后完成业务办理，故给予表扬！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "ba6477ff-4f25-4fb5-b586-db4d6bda610c",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=ba6477ff-4f25-4fb5-b586-db4d6bda610c",
+   "question": "关于群众反映合理调整开灯时间的求助\n群众反映：9月26日前往天府新区青龙街道龙都体育公园游玩，当天19:20公园还未打开路灯，存在安全隐患。希望合理调整开灯时间。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "f8914f47-40d4-4ba6-8f63-23c1596c38c2",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=f8914f47-40d4-4ba6-8f63-23c1596c38c2",
+   "question": "关于群众了解户口本补办的咨询\n天府新区高家镇花园社区群众咨询：自家户口本遗失，急需补办。咨询能否线上申请户口本补办。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "20759976-4d9d-4c5f-b234-eb0c89a1102b",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=20759976-4d9d-4c5f-b234-eb0c89a1102b",
+   "question": "关于群众反映购物券的求助\n群众反映：前往超市使用青神县商务局在云闪付APP上面发放的消费券购物，被告知限额，无法使用。希望告知无法使用原因。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "692721e5-ab6c-42c6-83c2-8d96f7f4d771",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=692721e5-ab6c-42c6-83c2-8d96f7f4d771",
+   "question": "普外科主任接待患者耐心细致，医术高\n中秋节上午去眉山市某镇卫生院普外科看病，主任接诊全程耐心细致，对待患者温声细语，医术精湛，希望对医生进行表扬。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "e7543447-69d5-4d42-b8a0-8b82810a3ccb",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=e7543447-69d5-4d42-b8a0-8b82810a3ccb",
+   "question": "咨询医保报销的问题\n各级领导部门，你们好，因家中父亲，患特大疾病，由于买的是上海职工医保，现在需要回老家治疗，询问上海部门领导老家的报销问题，上海领导工作人员表示，需要咨询当地政策，所以现在咨询老家各级领导部门，上海的职工医保门急诊看病报不",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "349da7cc-3ec9-44a3-89af-773c0600996a",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=349da7cc-3ec9-44a3-89af-773c0600996a",
+   "question": "关于群众反映制止放花箱的求助\n群众反映：洪雅县洪州大桥往实验中学方向200米处（位于滨江路），有人在该处道路上放了两个花箱，把道路占用，影响群众出行。\n希望制止在道路上放花箱。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "face47e8-1593-46fc-be63-0f23f608dcd3",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=face47e8-1593-46fc-be63-0f23f608dcd3",
+   "question": "关于群众反映道路问题的求助\n群众咨询：井洪路是否可以正常通行。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "72545405-8e3f-44a6-bb99-f81ed5437e3a",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=72545405-8e3f-44a6-bb99-f81ed5437e3a",
+   "question": "关于群众反映道路问题的求助\n群众求助：半年前，洪雅县柳江镇到高庙镇的道路被挖开重新修建，至今一直未完工，现场也没有施工人员，影响正常出行。\n希望尽快完成施工。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "72599d74-b99e-4c82-8656-4897533157ee",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=72599d74-b99e-4c82-8656-4897533157ee",
+   "question": "关于群众反映开灯的求助\n群众反映：9月初开始，丹棱县万景2期附近白塔路的路灯未开，出行不便，存在安全隐患。希望尽快开灯。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "a33fcfbb-bbaa-418f-b0ce-ddc6beffe395",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=a33fcfbb-bbaa-418f-b0ce-ddc6beffe395",
+   "question": "关于群众反映对民警的表扬\n群众反映：2026年9月25日14点左右在东坡区苏辙公园将手机遗失，随后使用另一号卡拨打110，东坡区某派出所民警回电沟通时态度非常好，出警迅速，办事效率很高，一个小时内找回了手机。在归还手机时，路边有老人需要护送",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "6f91932a-47f9-40ed-8bed-5cba559f827f",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=6f91932a-47f9-40ed-8bed-5cba559f827f",
+   "question": "关于群众反映路灯问题的求助\n群众反映：天府新区的商业街三段与红星大道一段、同心一街、同心二街的交叉口，该区域车流量较大，附近居民常在此散步，但相关十字路口没有路灯，灯光晦暗不明，夜晚出行存在安全隐患。\n希望在该区域相关路口增设路灯。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "970765b1-6679-4854-90b0-adeb4a3c5206",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=970765b1-6679-4854-90b0-adeb4a3c5206",
+   "question": "关于群众反映办理过户的求助\n群众向女士反映：2026年9月17日购买了天府新区的法拍房，相关的文书法院已经送达到了天府新区政务中心，2026年9月22日前往天府新区不动产登记中心办理过户，缴税的时候工作人员让提供原始的增值税发票，但自己并没",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "b058a69d-85f5-4009-af5f-cb9d399beb5c",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=b058a69d-85f5-4009-af5f-cb9d399beb5c",
+   "question": "关于群众反映禁止采摘桂花的求助\n群众反映：洪雅县县城到柳江镇的旅游西环线道路两旁种植了很多桂花树，9月21日发现有人在止戈镇政府这段道路敲击树干，打落桂花，不认可。\n希望禁止采摘桂花。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "0a66e584-cfa6-4393-b252-639c521f1f1d",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=0a66e584-cfa6-4393-b252-639c521f1f1d",
+   "question": "关于群众反映硬化道路的求助\n洪雅县止戈镇群众反映：自家房屋周边的道路是黄土路，路面全是泥巴和石头且坑洼不平，出行严重不便，现需要硬化该道路。希望尽快硬化道路。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "fb4ec99d-17cf-453e-950d-ea6237bb2a53",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=fb4ec99d-17cf-453e-950d-ea6237bb2a53",
+   "question": "关于群众反映设置垃圾站的求助\n群众反映：天府新区视高街道红沙社区1组没有设置垃圾站，导致周围居民直接往河里丢垃圾，影响生态环境，希望设置垃圾站。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "be2092c1-281c-41fb-9128-50688e7d6cac",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=be2092c1-281c-41fb-9128-50688e7d6cac",
+   "question": "关于群众反映完成工程的求助\n群众反映：罗波乡龙泉村桥梁修缮中无故停工，影响出行。希望尽快完成工程。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "ca24aadb-0bd1-4b3b-a88a-72c385461192",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=ca24aadb-0bd1-4b3b-a88a-72c385461192",
+   "question": "关于群众了解修路收费的咨询\n村里修建水泥路需由村民筹资，咨询该收费是否合理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "16c68788-3f28-4f0b-9f96-971b6cea5f57",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=16c68788-3f28-4f0b-9f96-971b6cea5f57",
+   "question": "关于群众反映申请低保的求助\n天府新区龙马镇群众反映：父亲患有肾病、糖尿病、高血压等疾病，长期吃药且经常住院，现家里无力支付其每年的医疗费，希望告知需要提供哪些资料申请低保。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "e4d1801c-99d4-4d8b-96c9-9a128193b3f8",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=e4d1801c-99d4-4d8b-96c9-9a128193b3f8",
+   "question": "关于群众反映路灯问题的求助\n群众反映：天府新区视高街道视高小学大门外道路的路灯，每天晚上接近20:00才打开，21:00多路灯就关闭，影响市民出行，存在安全隐患，希望提前打开路灯并延迟关闭。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "37d80a63-762a-4d2f-bb87-17a3bdfe936b",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=37d80a63-762a-4d2f-bb87-17a3bdfe936b",
+   "question": "关于群众反映对工作人员的表扬\n群众反映：9月22日9点左右，车辆没有油，停在距离东坡区诗书路北段某加油站一公里左右的位置，加油站某经理态度周到，冒雨骑摩托车送油，花费一个多小时解决自己的问题，特来电进行表扬，对城市形象和城市服务态度表示非常",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "64bb6ab4-3f64-4e0d-9d2d-8835be23380e",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=64bb6ab4-3f64-4e0d-9d2d-8835be23380e",
+   "question": "关于群众反映对环卫工人的表扬\n群众蒲先生反映：2026年9月21日上午在天府新区青龙街道邻里中心的轿车充电桩遗失了钱包，被环卫工人捡到后保存完好并归还，为自己省去很多麻烦，特来电表达感谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "91f2b785-9ada-4a62-b806-4a9b88e6c233",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=91f2b785-9ada-4a62-b806-4a9b88e6c233",
+   "question": "有车停在路口骑电动车根本不好进\n群众反映，龙马镇派出所斜对面这条路本就不宽，老是有两辆车停路口，有次更过分直接出不去，留出来的都是一些坑坑洼洼的路，建议整治乱停乱放问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "8cd66eb4-76f9-461e-bf84-b8b9d4cc6806",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=8cd66eb4-76f9-461e-bf84-b8b9d4cc6806",
+   "question": "关于群众反映对民警的表扬\n9月20日晚上孩子走丢，当天晚上7点左右向东坡区某派出所报警，当时值班的几位民警非常热心，并很迅捷的出警，最后在9公里远的地方找到了孩子，特来电表示感谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "034a8d3b-d099-47f9-94f8-75bec2fae34a",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=034a8d3b-d099-47f9-94f8-75bec2fae34a",
+   "question": "关于群众了解房屋网签备案编号的咨询\n群众杨先生咨询：2023年购买了天府新区视高街道天府云城的房屋，2025年11月交房。咨询房屋网签备案编号？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "44356579-212a-4f33-91ab-ef7d7197cb62",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=44356579-212a-4f33-91ab-ef7d7197cb62",
+   "question": "关于群众反映支付工资的求助\n群众求助：2026年2月-6月在东坡区尚义镇某建材工厂内做开装载机的工作，未签订劳动合同，现拖欠2500元工资未支付。\n希望尽快支付工资。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "d98171e6-99e3-4ad9-9237-d3acbfcc9eef",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=d98171e6-99e3-4ad9-9237-d3acbfcc9eef",
+   "question": "关于群众了解办证的咨询\n天府新区高家镇群众高先生咨询：现村上通知需要更换集体土地使用证，前往市民服务中心办理被告知没有新的集体土地使用证，自己是否可以不用更换该证？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "44480104-8629-4fb8-b70d-4dab818a248d",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=44480104-8629-4fb8-b70d-4dab818a248d",
+   "question": "关于群众反映协助退还费用的求助\n群众求助：9月19日下午16点打算驾驶车辆在洪雅县瓦屋山镇金花路昆仑网电汽车充电站打算给车辆充电，后续扫码打算在左边第一个充电枪充电，但平台必须充值50元才能启动电枪，自己使用了其他平台充电，现该平台的费用无",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "9aa0c38b-78e5-4e6c-993e-4f3a8bd3f86a",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=9aa0c38b-78e5-4e6c-993e-4f3a8bd3f86a",
+   "question": "仁寿县视高兴安大道，天府学校旁有个钉子\n视高兴安大道，天府学校旁有个钉子，此处有大量小学生出入，风险很高，需要尽快处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "bec0a459-57c1-4e43-b935-baa98f71d1de",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=bec0a459-57c1-4e43-b935-baa98f71d1de",
+   "question": "办理健康证问题\n在仁寿县怎么办健康证？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "11fafc3d-a918-4196-b4e3-97b9cb8257a8",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=11fafc3d-a918-4196-b4e3-97b9cb8257a8",
+   "question": "关于群众反映退款的求助\n群众吴先生反映：2026年9月15日花费85元在天府新区恒大金碧天下某超市购买了拖把，9月16日第一次使用时发现拖把损坏，认为拖把存在质量问题。9月17日前往超市要求换货，商家表示需要包装盒才能更换，但自己已将包装盒",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "05c58e7f-2a8e-4620-9894-4e81275bccb2",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=05c58e7f-2a8e-4620-9894-4e81275bccb2",
+   "question": "关于群众反映车辆违停问题的求助\n群众反映：9月18日上午11:16左右，自己把车辆停放在洪雅县雅风小区商铺外面的停车位里面，却收到交警部门发送的两条违停短信。1、希望部门告知是否产生了罚单。2、希望核实交警部门的系统是否有问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "77431528-7c4e-4f41-b2be-29e8ab10bdc7",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=77431528-7c4e-4f41-b2be-29e8ab10bdc7",
+   "question": "关于群众反映核实燃气费用的求助\n群众咨询：天然气开户是否收取户头费，具体收费明细。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "bc58d361-edff-4aa5-a103-36a47f5903b3",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=bc58d361-edff-4aa5-a103-36a47f5903b3",
+   "question": "关于群众反映禁止收费的求助\n洪雅县群众反映：2026年9月13日13:20使用松果出行公司共享单车前往观澜城邦小区，未到达小区车辆突然断电，联系客服了解是超出运行范围，还让支付24元的调度费，不认可没有任何提示情况下突然断电，存在安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "e6a2078d-8c7a-409a-94db-230b59a06b13",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=e6a2078d-8c7a-409a-94db-230b59a06b13",
+   "question": "关于群众反映解决污水井盖问题的求助\n群众反映：天府新区腾飞大道三段路过四川阿格瑞新材料有限公司右转往清华附中方向行驶转角处，有两个污水井盖是打开的，未设立警示标识，导致9月16日19:30左右路过差点掉落，存在安全隐患，希望解决污水井盖问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "8f2fb3e2-4b1e-4d67-9464-6c369f97051d",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=8f2fb3e2-4b1e-4d67-9464-6c369f97051d",
+   "question": "咨询医保窗口电话\n企业咨询：县医保局窗口公开电话。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "b650f18e-dd9b-436b-a47f-d9a8e263a545",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=b650f18e-dd9b-436b-a47f-d9a8e263a545",
+   "question": "健康证如何办理\n群众来电反映在眉山市东坡区的健康证如何办理，需要哪些材料。\n诉求：希望相关部门告知。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "e7fb6616-39bf-4115-90a9-7e1b7f2ea7e4",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=e7fb6616-39bf-4115-90a9-7e1b7f2ea7e4",
+   "question": "关于群众反映清理电线的求助\n群众反映：电线从小区楼顶掉落至三楼与四楼之间，存在安全隐患。希望清理电线。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "c01cd346-9712-4e3f-9820-11f373eff40c",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=c01cd346-9712-4e3f-9820-11f373eff40c",
+   "question": "电瓶车违规占道锁车造成交通堵塞\n电瓶车常常违规占道停放，且联系不上车主，造成店铺前及道路堵塞，车辆上锁无法移动，车主联系不上，请相关部门加强管理，加强对违规停放电瓶车的惩处。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "e1fc3829-0654-43f6-b580-31f26526986b",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=e1fc3829-0654-43f6-b580-31f26526986b",
+   "question": "步行街高噪音违规施工\n群众反映：步行街改造工程未张贴公示，12:00—14:00施工，噪声扰民。希望禁止噪声扰民。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "8b9f727b-20b4-4529-a1dc-9a65dfa45361",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=8b9f727b-20b4-4529-a1dc-9a65dfa45361",
+   "question": "关于群众反映修复井盖的求助\n群众反映：丹棱县城隍街中泰花园东侧约100米明淮书院旁的井盖开裂，存在安全隐患。\n希望修复井盖。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "d786218b-f4c4-4a61-bf03-6b019d668793",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=d786218b-f4c4-4a61-bf03-6b019d668793",
+   "question": "关于群众反映噪音扰民的投诉\n群众反映：2026年9月13日上午，青神县某小学开展活动，音响噪声扰民。希望禁止周末开展活动。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "108e352e-19d8-4c75-8ad3-b368bf1579d4",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=108e352e-19d8-4c75-8ad3-b368bf1579d4",
+   "question": "关于群众反映安装公共健身器材的求助\n洪雅县群众求助：村上的广场上未安装公共健身器材，但是百花滩电站旁的广场上（属于其他村，不知道具体村子名称）有安装公共健身器材。1、希望告知本村未安装公共健身器材的原因。2、希望安装公共健身器材，满足村民日",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "5823a37e-6884-4e2f-8c95-fef49532baf7",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=5823a37e-6884-4e2f-8c95-fef49532baf7",
+   "question": "关于群众反映洒水车问题的投诉\n群众反映：9月6日上午9点26分左右骑车经过洪雅县广场南路69号水岸新都外面，洒水车经过不避让行人，直接洒了自己一身水。希望洒水车能避让行人。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "7603329d-5076-4674-a10d-b3ac60e1b221",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=7603329d-5076-4674-a10d-b3ac60e1b221",
+   "question": "关于群众反映建渣问题的求助\n群众反映：小区住户将建筑垃圾堆放在门口未清理，存在安全隐患。希望清理建筑垃圾。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "b7942510-4518-41af-a296-3fc404f88bc4",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=b7942510-4518-41af-a296-3fc404f88bc4",
+   "question": "关于群众了解政策的咨询\n天府新区龙马镇世享村1组群众胡女士咨询：了解到现国家有双女补贴，且同事在成都已领取了相应的补贴，想了解当地是否有相关政策。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "f1093f8a-cad4-48b1-b78e-3a1f2d0e242e",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=f1093f8a-cad4-48b1-b78e-3a1f2d0e242e",
+   "question": "关于群众反映退费的求助\n群众反映：2026年上半年，与朋友在天府新区通用航空职业学院内游泳场馆购买游泳课程，总计花费1800元，现游泳场馆倒闭，每人剩余4课时未使用，希望部门协助退费（两人剩余课时共计720元）。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "b4a79306-20fc-4011-9eea-68d5e8d94e16",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=b4a79306-20fc-4011-9eea-68d5e8d94e16",
+   "question": "感谢综合执法局环卫园林部门（特别是小陈）\n昨天反映的我们理想城周边绿化带和道路以及青林公园的卫生没有管理和养护，没几个小时就回复跟进有关部门，今天上午就回复该属的区域会彻底打扫管理和养护的。为您们的办事效率点赞，感谢为民着想。特别感谢零零后",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "7ad088ff-989e-4b47-a2f2-5b520a283b8e",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=7ad088ff-989e-4b47-a2f2-5b520a283b8e",
+   "question": "无犯罪证明\n咨询如何开局无犯罪证明？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "27869d17-7050-4faf-b642-aee8d1628682",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=27869d17-7050-4faf-b642-aee8d1628682",
+   "question": "关于群众反映核实消防设备的求助\n群众反映：青神县某超市未配备任何消防设备。希望核实超市是否配备消防设备。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "186dd93c-bba6-4771-ab22-3d290635bf84",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=186dd93c-bba6-4771-ab22-3d290635bf84",
+   "question": "关于群众反映取消处罚的求助\n群众郭先生反映：2026年9月3日上午9点34分，开车经过眉山天府新区视高街道大学路与商业二街交叉路口被电子眼抓拍闯红灯，实际当时自己需要左转，因左转后有断道施工，无法通行，故只能掉头并继续行驶，电子眼拍摄的前两",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "f000bbdf-d449-4897-85bd-a5726e55135f",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=f000bbdf-d449-4897-85bd-a5726e55135f",
+   "question": "关于群众反映清洗路面的求助\n群众反映：2026年9月4日，洒水车清洗黉门外街路面时，将泥水喷溅至沿街商铺玻璃及车辆上，增加商户清洁负担。希望洒水车远离商铺开展作业。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "0092f00c-f9a8-4130-85df-1daa00e5e1b3",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=0092f00c-f9a8-4130-85df-1daa00e5e1b3",
+   "question": "关于群众反映噪音扰民的求助\n群众反映：近期每天19点过，丹棱县正街某服装店店员在外唱歌揽客，使用音响外放，噪音扰民严重。\n希望禁止使用音响唱歌揽客，解决噪音扰民。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "e4a3fc40-4dd3-4947-89a3-c0691d66b2f9",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=e4a3fc40-4dd3-4947-89a3-c0691d66b2f9",
+   "question": "关于群众反映处罚车辆的求助\n群众反映：2026年9月1日12时20分在彭山区武阳镇卫生院对面发现一辆小轿车逆行通过S03线，存在危险驾驶现象。希望部门核查，并进行处罚。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "e62e2c9d-a4fd-450d-8b5d-cb02680a7b70",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=e62e2c9d-a4fd-450d-8b5d-cb02680a7b70",
+   "question": "关于群众反映开灯的求助\n群众反映：2026年8月31日晚上8点半，天府新区视高街道运动公园足球场的灯未打开，不合理，希望开灯。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "c897b54f-e5ed-41b5-9904-b269a64fd603",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=c897b54f-e5ed-41b5-9904-b269a64fd603",
+   "question": "关于群众反映医保问题的求助\n群众反映：持有成都市的社保卡，医保参保地为青神县，前往成都医院做手术时，医保不能正常使用。希望尽快处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "8aa51124-1204-4190-a5d2-e06458cf5d3b",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=8aa51124-1204-4190-a5d2-e06458cf5d3b",
+   "question": "咨询建筑施工安全许可证问题\n企业咨询：如何办理建筑施工企业安全许可证？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "a292421b-aeaa-4866-bd5c-8d9693e220dd",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=a292421b-aeaa-4866-bd5c-8d9693e220dd",
+   "question": "关于群众反映垃圾车问题的求助\n群众反映：垃圾车每天晚上9-10点在天府新区视高街道清西街和太平街收垃圾，垃圾车设备疑似损坏，每次收完垃圾后，整条街都会流一地脏水，味道刺鼻，易滋生细菌，影响周边居民正常居住。\n希望检修垃圾车并清洗道路。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "e53993c4-0020-4903-adf7-d0dbc8ada1e9",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=e53993c4-0020-4903-adf7-d0dbc8ada1e9",
+   "question": "关于群众反映禁止占用消防通道的求助\n群众反映：2026年8月29日13:00丹棱县南门集市消防通道大门处堆满了电动车和摩托车，违规占用消防通道，存在安全隐患，影响通行。\n希望禁止占用消防通道乱停乱放。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "0d3572e0-eb4e-4f58-946a-3ba0c7718b62",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=0d3572e0-eb4e-4f58-946a-3ba0c7718b62",
+   "question": "关于群众反映公交车司机问题的求助\n群众反映：2026年8月27日中午12点半左右，自己骑行电动车在丹棱县新南东路与齐乐大道十字路口红绿灯处等待直行的绿灯，身后的公交车需要右转，司机便一直按喇叭，但前方是红灯自己无法避让，与其产生口角。后自己",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "a46b1ecb-e7d3-4226-880c-9123b2c0c7e2",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=a46b1ecb-e7d3-4226-880c-9123b2c0c7e2",
+   "question": "关于群众反映厕所门损坏的求助\n兴业路公厕的男厕所门锁坏了，找人处理一下。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "1119dad3-da31-4c14-b31b-cde7ed3d6082",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=1119dad3-da31-4c14-b31b-cde7ed3d6082",
+   "question": "关于群众反映对燃气公司的投诉\n群众反映：罗波乡龙泉村修建桥梁损坏燃气管道，导致多户村民家中停气，影响日常生活。希望尽快维修燃气管道，恢复供气。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "3eaf343a-941c-45ff-a92b-f34c34c09287",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=3eaf343a-941c-45ff-a92b-f34c34c09287",
+   "question": "关于群众了解申请条件的咨询\n群众咨询：岷投·云栖人才家保障性租赁住房申请条件。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "8cf6b9bd-60db-490d-8d84-6694919d775b",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=8cf6b9bd-60db-490d-8d84-6694919d775b",
+   "question": "关于群众反映安装监控的求助\n群众反映：2026年8月23日早上10点-11点在洪雅县余坪镇往乐山市夹江县的道路上发生事故，因无监控无法判定责任，洪雅县交警告知此处事故频发，已上报要求安装监控，至今未落实。\n希望在此处安装监控。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "f720e955-683c-4f7e-ae3a-65b981fb053d",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=f720e955-683c-4f7e-ae3a-65b981fb053d",
+   "question": "关于群众了解携带宠物的咨询\n群众咨询：青神国际竹产业展览中心内是否允许携带宠物？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "537322c0-3eb0-4eb4-8859-d3103fbaac3a",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=537322c0-3eb0-4eb4-8859-d3103fbaac3a",
+   "question": "关于群众反映噪声扰民的求助\n群众反映：黉门外街施工方在破损路面上放置钢板，车辆通行时噪声扰民。希望禁止噪声扰民。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "6f7170c3-70b8-4e75-ab78-eafa6996b1b3",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=6f7170c3-70b8-4e75-ab78-eafa6996b1b3",
+   "question": "微户政身份证待缴费订单锁单，申请后台撤销\n群众在眉山公安微户政提交身份证网上换补领申请，业务状态为网上换补领待缴费，未缴费，也没有做人像拍照采集。小程序办事记录显示0条，手机端看不到订单，自己无法取消。现在就近派出所办理身份证被该网上订单锁",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "8f499aa1-2e6d-4241-9ef4-099eceb44445",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=8f499aa1-2e6d-4241-9ef4-099eceb44445",
+   "question": "关于群众反映噪音扰民的求助\n群众反映：2026年8月23日中午12点过天府新区柴桑河湿地公园附近城市驿站外有人使用音响放歌，已持续一个多小时，噪音扰民非常严重。希望禁止噪音扰民。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "dc7f4a4b-f0ce-4d8a-acf1-6ad6b29bab9f",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=dc7f4a4b-f0ce-4d8a-acf1-6ad6b29bab9f",
+   "question": "关于群众反映修剪树枝的求助\n群众反映：成都兴科大道与兴化五路交叉的丁字路口，过了丁字路口成都往彭山方向主路的红绿灯（属于彭山区地界）被路边的树枝遮挡了，存在安全隐患，希望修剪树枝。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "258b84f5-7c25-4bdb-90b1-97af034a6453",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=258b84f5-7c25-4bdb-90b1-97af034a6453",
+   "question": "关于群众了解残疾问题的咨询\n天府新区视高街道群众朱先生咨询：自己孩子患有一级残疾，咨询天府新区范围内是否有可供残疾人锻炼（康复训练）的地方？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "524537ca-3136-4c20-aa80-0568ccedc94a",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=524537ca-3136-4c20-aa80-0568ccedc94a",
+   "question": "关于群众反映瓦屋山塌方问题的求助\n群众求助：2026年8月19日在洪雅县瓦屋山景区游览结束后，沿景区道路返程途中（仅一条返程道路），下午2时左右突遇道路山体塌方，导致道路阻断，无法通行，现场有大量游客滞留，进退两难，无法行进，已滞留于此较长",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "97623c8d-1393-4f7c-ab4e-db9b87411613",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=97623c8d-1393-4f7c-ab4e-db9b87411613",
+   "question": "关于群众反映对派出所的表扬\n群众反映：自己是东坡区琼州路某石油加油站的收银员，2026年8月21日下午有客人加油后逃单，于8月22日向东坡区派出所报案后，顺利帮自己找到对方并支付油费。\n故希望对派出所进行表扬。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "99347d1b-4c9d-475a-9fc2-f6c1237fd945",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=99347d1b-4c9d-475a-9fc2-f6c1237fd945",
+   "question": "关于群众反映修剪树枝的求助\n群众反映：洪雅县洪川镇修文路四段商铺外面的行道树很茂盛，前几天已有树枝被吹断。\n希望尽快修剪树枝。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "682931d2-050d-4647-a5b1-95152feaec81",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=682931d2-050d-4647-a5b1-95152feaec81",
+   "question": "房产查询\n如何查询个人在仁寿县内的不动产登记资料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "af30e26c-8695-4945-82b3-a5b0cde43a36",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=af30e26c-8695-4945-82b3-a5b0cde43a36",
+   "question": "关于群众反映取消停车位的求助\n群众反映：洪雅县水岸新都小区后门外面有一个智慧停车位距离小区门口太近了，影响视线，业主不管是骑车还是开车进出小区，都容易发生擦挂。\n希望取消靠近小区后门口的智慧停车位。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "c82127a5-379d-456c-a7a5-ead0546e60e9",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=c82127a5-379d-456c-a7a5-ead0546e60e9",
+   "question": "关于群众反映车辆遗撒问题的求助\n群众反映：洪雅县洪川镇祝山村某木材厂往来运输时，在村道上经常发现其遗撒的木头渣屑，影响道路安全。\n希望部门督促整改，采取有效措施解决车辆遗撒问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "6c060984-dfcf-4a0a-aedb-77dc0b3ebeeb",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=6c060984-dfcf-4a0a-aedb-77dc0b3ebeeb",
+   "question": "关于群众反映物流公司问题的求助\n群众反映：物流公司未填写详细的收货地址，导致取货不便。希望将货物送到指定的收货地址。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "ac401373-cb52-4304-8acf-b0f0ad9d8d68",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=ac401373-cb52-4304-8acf-b0f0ad9d8d68",
+   "question": "乱停乱放影响进出，把路口堵死。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "31a01b73-57a0-4d43-a5d6-a137e7d11859",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=31a01b73-57a0-4d43-a5d6-a137e7d11859",
+   "question": "关于群众反映清理积水的求助\n群众反映：丹棱县齐乐镇大林村南环线的桥下有大量积水，无人清理，农户无法出行。\n希望部门尽快清理积水。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "db764741-5c82-462d-b32e-d5a2ae00ef5c",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=db764741-5c82-462d-b32e-d5a2ae00ef5c",
+   "question": "关于群众反映噪声扰民的投诉\n群众反映：近期凌晨6点过，洪雅县余坪镇胜利新村有人用高音喇叭宣传领鸡蛋、面食等，大量人员聚集此处，严重扰民。\n希望禁止噪声扰民。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "16f47eaa-2601-4573-a1b9-03e61d6de763",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=16f47eaa-2601-4573-a1b9-03e61d6de763",
+   "question": "关于群众反映办理迁户的求助\n群众反映：需要把户口从彭山区谢家街道石山村迁到彭山区谢家街道邓庙村，村两边都已经同意，但前往彭山区谢家派出所办理迁户的时候，工作人员告知政策不允许，没有办法办理迁户。希望部门协助尽快办理迁户。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "031f5471-e1de-49f9-be5a-7507f9d6490b",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=031f5471-e1de-49f9-be5a-7507f9d6490b",
+   "question": "关于群众反映提升服务态度的求助\n群众反映：2026年8月15日下午3点10分左右和朋友一起前往七里坪高空玻璃漂流景区游玩，朋友先将车停到景区停车场内，并告诉自己还有很多车位。但景区停车场工作人员却告知没有车位，自己将车停在景区门口的路边后，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "ab55eee5-78c9-4f67-859b-9b0d7fe596ef",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=ab55eee5-78c9-4f67-859b-9b0d7fe596ef",
+   "question": "关于更改新丹蒲快速路路灯照明时间的建议\n新丹蒲快速路从丹名路交叉口往龙鸪村方向的一段路的路灯，夜间不亮，早上5点过开始亮到上午9、10点，建议尽快检修调整。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "7b207631-49c9-478c-8a28-52adca0b4193",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=7b207631-49c9-478c-8a28-52adca0b4193",
+   "question": "关于群众反映对占用停车位的举报\n群众反映：大南街个别商家用摩托车和共享电瓶车占用路边公共停车位，导致群众无法停车。希望禁止占用公共停车位。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "a63f287f-ff94-4193-86e4-e828d3e12491",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=a63f287f-ff94-4193-86e4-e828d3e12491",
+   "question": "关于群众反映对工作人员的表扬\n群众李女士表扬：因需办理施工变更项目经理，天府新区视高街道政务服务中心3楼住建审批科杨姓工作人员，2026年8月18日通过线上与自己沟通具体办理流程，在沟通过程中耐心认真帮助解决问题，特此进行表扬。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "dae210ad-1435-4f93-abcc-0a5758c8d88d",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=dae210ad-1435-4f93-abcc-0a5758c8d88d",
+   "question": "关于群众反映调整红绿灯时长的求助\n群众反映：洪雅县宏程加油站外大峨眉三山旅游环线与花溪河大桥道路交叉口处的红绿灯时长设置不合理，大峨眉三山旅游环线通行车辆过多，但绿灯时长较花溪河大桥道路上的过短，导致交通拥堵。\n希望调整红绿灯时长，延长大峨",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "a13ce2b3-dd86-4ad7-8e53-21eb36320c7c",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=a13ce2b3-dd86-4ad7-8e53-21eb36320c7c",
+   "question": "关于群众反映开启路灯的求助\n群众反映：丹棱县齐乐镇齐民路两侧路灯均未开启，已持续多日，夜间出行存在安全隐患。\n希望尽快开启路灯。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "90abad2a-4142-473c-aeab-5831199f01a9",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=90abad2a-4142-473c-aeab-5831199f01a9",
+   "question": "关于群众反映树枝问题的求助\n群众反映：8月12日20点左右经过洪雅县G351国道，整条路段中间的花坛，树枝较茂盛，现已严重影响正常通行。希望调查核实并修剪树枝，排除道路安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "b4084afd-b0eb-448d-832b-d5c6dfc63a1a",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=b4084afd-b0eb-448d-832b-d5c6dfc63a1a",
+   "question": "关于群众反映洒水车的投诉\n群众反映：8月12日14点30分左右驾驶电动车在洪雅县洪川镇西门加油站外面正常行驶，对向行驶的洒水车看见自己和同事，未关闭洒水系统，导致水洒在自己和同事身上，其他司机看见有人都会关闭洒水系统。希望对洒水车司机进行批",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "d08ecba8-72f4-40b8-a82f-ed0cfada62ee",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=d08ecba8-72f4-40b8-a82f-ed0cfada62ee",
+   "question": "关于群众反映处理猪的求助\n洪雅县止戈镇群众反映：2026年8月14日12:20家中养殖的猪得病死掉，因存在疾病传播风险，则联系村委沟通，但拒绝上门处理，现个人身体患病无法自行处理。\n希望安排工作人员上门处理死猪。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "5e2d4e1c-e997-48de-bbaa-4a2b61cac8d1",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=5e2d4e1c-e997-48de-bbaa-4a2b61cac8d1",
+   "question": "关于群众反映退费的求助\n群众反映：2026年8月12日在抖音花费317元预订了两间酒店房间，预订后十分钟显示未预约成功，随后自己在平台进行退费，但只有一间退费成功，还有一间未退款，随即查看页面发现有一排小字显示下午2点后预定的酒店不予退款，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "1c0f6ef8-0caf-46b2-87be-8f8ed6bbbe93",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=1c0f6ef8-0caf-46b2-87be-8f8ed6bbbe93",
+   "question": "群众咨询变更艺术培训机构地址问题\n群众咨询：艺术培训机构地址变更审批流程？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "37116bf4-fc03-4460-991a-69ecca0e4613",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=37116bf4-fc03-4460-991a-69ecca0e4613",
+   "question": "关于群众反映玻璃问题的求助\n群众反映：青衣大道路边广告展示牌玻璃损坏，存在安全隐患。希望处理破损玻璃。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "f99ac24c-ba26-428e-8476-8058241dc9ab",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=f99ac24c-ba26-428e-8476-8058241dc9ab",
+   "question": "关于群众反映退费的求助\n群众反映：2025年7月花费200元在洪雅县某店充值会员，2026年8月12日带孩子前往游玩，被告知会员过期，不能使用，要求给予合理解释，但3楼前台的服务人员告知负责人均出差，无法给予解释。1、希望退费并进行十倍赔偿",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "a2fbc82f-444f-4266-9e92-898411dbca73",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=a2fbc82f-444f-4266-9e92-898411dbca73",
+   "question": "咨询青神县2009-2018年的统计年鉴问题\n群众咨询：青神县2009-2018年的统计年鉴数据查询途径。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "a97564ef-0b19-4d19-93e3-6613dd158a0a",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=a97564ef-0b19-4d19-93e3-6613dd158a0a",
+   "question": "关于群众反映公交站台问题的求助\n群众求助：2026年8月9日14点左右在天府新区锦江幼儿园站点准备乘坐T54公交车，但是公交站台的指示牌安装得太低，导致自己的头被指示牌撞到，认为存在安全隐患，希望能够重新安装指示牌。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "9821f2e2-3ada-42f8-be95-8a39b922347f",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=9821f2e2-3ada-42f8-be95-8a39b922347f",
+   "question": "关于群众反映对民警的表扬\n自己和家人常年在外务工，最近，前往东坡区太和镇派出所给孩子上户口，因部分资料缺失，警官耐心指导和加班加点帮助自己完善，过程中很耐心、很专业，特来电表扬。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "f84f01fd-2af3-4f49-bec3-789f494913e4",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=f84f01fd-2af3-4f49-bec3-789f494913e4",
+   "question": "关于群众反映规范堆放材料的求助\n群众反映：天府新区视高街道视高大道二段正在埋下水管道，施工将管道等材料堆放在另一半道路上，导致车辆无法通行，希望施工方规范堆放材料，不要影响通行。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "954627e8-2720-4c7c-804b-f8986a64aab0",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=954627e8-2720-4c7c-804b-f8986a64aab0",
+   "question": "关于群众反映维修红绿灯的求助\n群众反映：天府新区视高街道视高大道与环天快速通道交叉口的红绿灯损坏，存在严重安全隐患，不便通行，希望尽快维修。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "f827500c-d2a1-4560-9ef2-150c665dfb7d",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=f827500c-d2a1-4560-9ef2-150c665dfb7d",
+   "question": "表扬网格员\n领导好，我是一名普通群众，在此感谢网格员，大石桥街道定江社区的网格员，她在我每次需要帮助的时候，都给予我耐心细致周到的回复，刚刚又是避免了我在这大热天出门白跑路。感谢这位善良很有责任心的妹子！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-meishan",
+   "id": "a82d6837-8617-4fec-8293-6a18e299efe0",
+   "url": "http://www.ms.gov.cn/old13/list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433&guid=a82d6837-8617-4fec-8293-6a18e299efe0",
+   "question": "关于群众反映核实保险的求助\n群众反映：8月7日应洪雅县交警号召办理两轮电动车车牌，前往的槽渔滩镇广场点位办理时工作人员告知需缴纳270元保险方可办理。据自己网上了解，该类型电动车（小型两轮电动车）无需购买保险即可办理牌照，对该项保险收费是否",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

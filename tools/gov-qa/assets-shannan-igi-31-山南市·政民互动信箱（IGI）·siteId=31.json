@@ -1,0 +1,15 @@
+{
+ "A_考卷": [],
+ "B_补料": [],
+ "C_无依据": [
+  {
+   "source": "shannan-igi-31",
+   "id": "10004008",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10004008",
+   "question": "申请实习岗位",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

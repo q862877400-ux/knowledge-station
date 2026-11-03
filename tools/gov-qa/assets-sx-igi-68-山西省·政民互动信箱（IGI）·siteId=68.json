@@ -1,0 +1,561 @@
+{
+ "A_考卷": [
+  {
+   "source": "sx-igi-68",
+   "id": "2164161",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2164161",
+   "question": "最近来我中心办理粮食收购备案的主体有个体工商户和农民专业合作社，我中心根据《粮食流通管理条例》第九条 第二款 “从事粮食收购的企业（以下简称粮食收购企业），应当向收购地的县级人民政府粮食和储备行政管理部门备案企业名称、地址、负责人以及仓储设",
+   "cited_hits": [
+    {
+     "name": "粮食流通管理条例",
+     "lib_no": "粮食流通管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-68",
+   "id": "923115",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=923115",
+   "question": "尊敬的陈省长： 您好！感谢您百忙中查阅我的信件。 兹武田文1950年出生于山西省原平市上大林村，中共党员。1973年与原平县粮食局、原平县劳动局、大林乡大队共同签署了用工协议，在原平县粮食局工作。期间曾在原平县粮食局下属大牛店粮站工作，19",
+   "cited_hits": [
+    {
+     "name": "信访条例",
+     "lib_no": "信访条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-68",
+   "id": "923109",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=923109",
+   "question": "尊敬的局长： 您好！感谢您在百忙中查阅我的信件。 兹有武田文同志，1950年出生于山西省原平市大林乡上大林村，于1973年与当时的原平县粮食局，原平市劳动局，大林乡大队共同签署了就业协议，在原平县粮食局大牛店粮库工作。1975年凭借介绍信调",
+   "cited_hits": [
+    {
+     "name": "信访条例",
+     "lib_no": "信访条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-68",
+   "id": "923025",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=923025",
+   "question": "根据中央储备粮管理条例和粮食流通管理条例修改的要求，结合粮食安全省长负责制和我省国企改革做大做强的实际，还有丁局长在山西日报的文章”要推进储备粮管理体制改革，减少管理层级。“建议成立山西储备粮管理集团有限公司，将太原市的储备粮企业及部分市县",
+   "cited_hits": [
+    {
+     "name": "粮食流通管理条例",
+     "lib_no": "粮食流通管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "储备粮管理条例",
+    "山西省省级储备粮管理条例"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "sx-igi-68",
+   "id": "2549306",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2549306",
+   "question": "在写毕业论文的过程中发现山西的稻谷生产者价格数据是在《全国农产品成本收益资料汇编》中是缺失的，想问下这部分是没有统计的吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "全国农产品成本收益资料汇编"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-68",
+   "id": "2495763",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2495763",
+   "question": "粮油仓储企业备案程序？央企是否在本地备案？",
+   "cited_hits": [],
+   "cited_missing": [
+    "粮油仓储管理办法",
+    " 山西省粮油仓储企业备案管理办法 ",
+    " 山西省粮油仓储企业备案管理办法 "
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-68",
+   "id": "2189446",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2189446",
+   "question": "我想咨询一下，2025年个人如何考取粮油保管员证书。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好水平评价类技能人员职业资格退出目录有关工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-68",
+   "id": "2115913",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2115913",
+   "question": "您好，请问下粮食化验证书和保管员证书在哪里考试发证？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好水平评价类技能人员职业资格退出目录有关工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-68",
+   "id": "1897928",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1897928",
+   "question": "轮换计划数与实际轮换数量不一样怎么办、？实际数量小于计划数量",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于改革完善体制机制切实加强粮食储备安全管理的若干措施",
+    "山西省省级储备粮管理办法",
+    "朔州市市级储备粮管理办法",
+    "国家粮食流通统计",
+    "中央储备粮轮换管理办法",
+    "省级储备粮油轮换管理办法",
+    "市级储备粮油轮换管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sx-igi-68",
+   "id": "1757160",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1757160",
+   "question": "2006年，省粮食局和省编办要求，各县区都要成立粮食稽查队伍，机构为全额拨款事业单位，人员从粮食系统职工中解决，就此阳泉市及所辖阳泉市郊区、平定县均相应成立了粮食稽查队伍，原粮食局机关工作人员身份待遇也都得到了妥善的解决，而盂县截止今日也未",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于建立健全市县两级粮食流通监督检查行政执法体系的意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-68",
+   "id": "1692084",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1692084",
+   "question": "尊敬的王局长您好: 我想问下领导山西省大同市广灵县拆除广灵县粮食局直属库、广灵县粮食局加工厂、广灵县粮食局第二门市部、广灵县粮食局饲料工业公司四家粮食企业向咱们粮食行政管理部门什么时候报备的？",
+   "cited_hits": [],
+   "cited_missing": [
+    "山西省国有粮油仓储物流设施备案管理制度"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "sx-igi-68",
+   "id": "2469472",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2469472",
+   "question": "粮食熏蒸作业工作人员有没有补助？怎么补？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-68",
+   "id": "2380065",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2380065",
+   "question": "储备粮轮换轮空期时间点怎么确定？轮出轮入开始算还是结束算。具体解释一下。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-68",
+   "id": "2294724",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2294724",
+   "question": "界面新闻山西频道是上海日报社界面财联社在山西设立的办公单位，2025年7月上线。侧重关注山西财经动态，上市企业、中小企业发展状况、山西省最新动态等领域内容，因贵局的职能/新闻发布/企业活动等与我司有业务关联，故尝试以此渠道建立与贵局的工作联",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-68",
+   "id": "2210693",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2210693",
+   "question": "尊敬的各位领导，您好！我是北营库的一名保管，最近得到单位通知，让我们这个月准备证书考试。通知说，在去榆次库培训前，要求我们先完成线上培训:登 录山西省粮食和物资储各局官网——山西省粮食行业协会专栏设置的学习平台,线 上不限次“学练测”(教 ",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-68",
+   "id": "2136454",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2136454",
+   "question": "你好，我是地方粮食战略储备有限责任公司的总仓容建设项目的管理人员，该项目属于二类粮库，新建17座浅圆仓、2座平房仓、油罐区及成品库。 按照《中央直属粮库新仓初始装粮压仓的暂行规定》要求进行装粮压仓试验，其它新建粮库可参照执行。根据《粮油仓库",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-68",
+   "id": "2102795",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2102795",
+   "question": "尊敬的领导，您好 根据国务院2017年9月29日发布的《国务院关于取消一批行政许可事项的决定》（国发〔2017〕46号），“电工进网作业许可证核发”将被取消[2]。 《决定》规定：取消审批后，通过以下措施加强事中事后监管： 1．由安全监管部",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-68",
+   "id": "2074834",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2074834",
+   "question": "国家和山西省粮食和物资储备局对于粮食熏蒸营养补助有没有明确的规定或参考文件",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-68",
+   "id": "2066980",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2066980",
+   "question": "最近有安排粮食保管员及粮食检验员培训班的计划吗？在哪里进行报名取得证书？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-68",
+   "id": "2055593",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2055593",
+   "question": "尊敬的局长： 您好！我是抗日老革命白玉兰同志的亲侄子、保护基本农田志愿者、“山西省助残先进个人”获得者、山西省晋中市平遥县低保兜底勉强脱贫的一户多残零就业家庭的41亩树苗权属人、手无缚鸡之力的肢体残疾人白长茂，联系电话为：1********",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-68",
+   "id": "2036689",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=2036689",
+   "question": "我是轮式联合收割机的车主，我想问一下2023年山西省大同市的玉米收割开始到截止时间？准备今年参加大同市的玉米收割工作。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-68",
+   "id": "1987244",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1987244",
+   "question": "单位有新进入职员，省局最近有安排保管员及检验员培训班的计划吗？如何取得资格证？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-68",
+   "id": "1979796",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1979796",
+   "question": "背景：众所周知，杭州海康威视是中标了山西省粮食和物资储备局视频联网平台的供应商生产厂家，也就是说杭州海康威视是省粮食局视频平台提供者。按照国家、省、市平台建设标准，要求平台至少支持视频国标协议，以满足不同品牌，不同厂家的前端采集、网关等设备",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-68",
+   "id": "1969260",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1969260",
+   "question": "乡镇上原先的粮食储备库已不再储备粮食，请问怎么租用呢，联系哪个部门呢？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-68",
+   "id": "1943203",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1943203",
+   "question": "尊敬的局长： 您好！ 党的十八大以来，党中央、国务院高度重视“粮食安全”和“耕地保护”。为保障国家粮食安全，保护基本农田志愿者近三个月来分别向山西省晋中市平遥县各有关部门多次求助让其批准并支持“恢复基本农田种粮”和“开垦荒山荒坡移林”重点民",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-68",
+   "id": "1929633",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1929633",
+   "question": "绝不允许上有政策、下有对策，坚决防止不切实际唱高调、光说不练喊口号。——吴汉圣 尊敬的局长： 您好！请求人强烈不服曾经历“塌方式”腐败的山西省地方负责信访工作的领导干部不仅违反党中央、国务院和《信访工作条例》的有关文件规定，违背习近平总书记",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-68",
+   "id": "1924486",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1924486",
+   "question": "山西省粮食和物资储备局、尊敬的局长： 您好！ 为实现“确保国家粮食安全、促进乡村振兴、解决残疾同胞就业从而巩固脱贫成果和助力残疾同胞早日实现共同富裕、打造红色革命基地绿水青山”强国建设的宏伟目标而请求支持为“恢复基本农田种粮”而“开垦荒山荒",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-68",
+   "id": "1876236",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1876236",
+   "question": "王志中同志在一九八六年十一月十七日在翼城县粮食局安装机器设备，手拿电钻，肩扛皮带，工作时因工死亡。当时由劳动局，粮食局，公安局，检查院，工会，地区粮食局，共同办理认定王志中因工死亡，根据劳动保险条例、第六章:第二十二条、因工死亡，领取抚恤费",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-68",
+   "id": "1699716",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1699716",
+   "question": "农民可以非农化，但耕地不能非农化；如果耕地都非农化了，我们赖以吃饭的家底就没有了。—— 习近平 低保兜底脱贫的残疾夫妇联名实名反映涉及粮食安全的耕地非农化问题 尊敬的局长： 您好！低保兜底脱贫的残疾夫妇我和妻子张燕感谢党的好政策，为保障国家",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-68",
+   "id": "1380260",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1380260",
+   "question": "王治中同志在一九八六年十一月十七日在粮食局(粮食加工厂)按装机器设备、手拿电钻，肩扛皮带工作时因工死亡。当时由劳动局、粮食局、公安局、检查院、工会、地区粮食局共同办理认定王治中为工之、根据劳动保险条例、第六章第二十二条规定、因工死亡、领取抚",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-68",
+   "id": "1236798",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=1236798",
+   "question": "数据分析需要，急需2000，2010，2020年太原市粮食收购均价的，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-68",
+   "id": "923185",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=923185",
+   "question": "请问2020年的山西省谷子（小米）的购销数据在哪里找呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-68",
+   "id": "923179",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=923179",
+   "question": "尊敬的王云龙局长，我是山西运城人，是一名毕业的本科生。您从我的名字中也可以看出，我渴望投身国家的粮食与物资储备建设工作中去。贵机关历届并未招录生物工程专业毕业生。我想请问一下是否必须去读贵单位要求专业的硕士研究生，才有机会。 祖国发展迅速，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-68",
+   "id": "923173",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=923173",
+   "question": "领导，您好，我想反映一下，山西的玉米价格太高了，鸡饲料涨幅过大，鸡蛋价格平平，在玉米价格过高的情况下，养鸡户一直赔钱，赔得家里已经撑不住了，等待您的答复，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-68",
+   "id": "923167",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=923167",
+   "question": "山西粮食银行发展现状及我省对计划做粮食银行企业有什么政策或者资金上的扶持吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-68",
+   "id": "923159",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=923159",
+   "question": "请问国家粮食和物资储备系统事业单位公开招聘准考证打印时间为何时",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-68",
+   "id": "923139",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=923139",
+   "question": "晋城市城区的粮食收购许可证在哪里办理，找了好几天找不到地方",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-68",
+   "id": "923133",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=923133",
+   "question": "请问网站年度报表在什么位置？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-68",
+   "id": "923127",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=923127",
+   "question": "您好，2001年到2015年太原市粮食单价是多少啊，急需",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-68",
+   "id": "923121",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=923121",
+   "question": "尊敬的领导:我是一名县级粮食工作人员，由于我们粮食部门一直需要对储存粮食进行熏蒸，并且在咱省里每年举办的保管员培训的教材中也明确说明了对参与熏蒸人员给与补助，并且在这几年也给与了发放，但最近审计单位对我单位审计中却发现省里2009年清仓查库",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-68",
+   "id": "923103",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=923103",
+   "question": "泽州县民营粮食收购企业如何进行保管员培训？ 今年我们进行培训通知，9月山西省粮食学院（原）组织，可是在网上的报名时间特别短，只有3、4天，大部分企业都没能够报上名。培训名额100名，并没有报满。 其他省份，报名时间都在一个月以上，或培训名额",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-68",
+   "id": "923097",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=923097",
+   "question": "王局长，您好！我一位在外工作的山西人，看到您在推动山西小米等特色农产品所做的努力有目共睹，深感敬佩。对于一个地方特色，有其都有的文化内涵，而科技的发展推动了产业与文化的融合，作为内陆省份，我们更应该拥抱新技术结合省情搭上新的科技技术实现弯道",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-68",
+   "id": "923091",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=923091",
+   "question": "尊敬的王局长您好： 智能化粮库升级即将开始，粮食数量在线监测系统是我公司自主研发生产的传感器，是粮仓内部真正需要的一款产品，是上级监管单位真正需求的产品。 真实可靠，产品自带功能实现了数量、视频、报警及联动一体化 1、粮食数量监测与视频监控",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-68",
+   "id": "923085",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=923085",
+   "question": "尊敬的王局长： 您好！ 苏州光格设备有限公司拥有一批光电子、告诉信号处理、传感器设计、嵌入式软件等方面的资深专家，承担参与过多项863计划。现成功研发一套分布式超高精度抗熏蒸电子测温系统。打破传统D*****0隔几米一个点的测温盲区。本系统",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-68",
+   "id": "923079",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=923079",
+   "question": "尊敬的王局长您好： 粮食数量在线监测系统是我公司自主研发生产的传感器，是粮仓内部真正需要的一款产品，是上级监管单位真正需求的产品。 真实可靠，产品自带功能实现了数量、视频、报警及联动一体化 1、粮食数量监测与视频监控一体化配置可以共用一个技",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-68",
+   "id": "923073",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=923073",
+   "question": "孙中泉请求与局长沟通！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-68",
+   "id": "923067",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=923067",
+   "question": "局长你好！ 打扰了，去年9月参加你们山西省粮食局向社会公开征集“山西小米”品牌形象标志（LOGO）的活动，10月份公布获奖名单，我是优秀奖获得者，但几个月过去了负责些工作的办事人员很不负责任人，据悉其他获奖作者都收到当时征集条文约定的奖金，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-68",
+   "id": "923061",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=923061",
+   "question": "尊敬的领导您好！感谢您百忙之中查看我的信息。大连捷世达环保技术开发有限公司成立于2007年，我公司与部队科研院校共同研发的国家专利产品【高效恒湿剂】已通过华测认证，该产品的特点是吸湿速率快，用量少，环保无毒，能在短时间内让一相对密闭的空间湿",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-68",
+   "id": "923055",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=923055",
+   "question": "我是山西省一家饲料厂的采购人员。到山西工作半年觉得咱们山西玉米的质量非常好，但是玉米贸易的规模普遍较小。我们是全国范围内的集团公司。山西分公司一年大概万吨左右的玉米。我想咱们粮食局能不能向我们这样的玉米收购企业推荐个规模比较大的玉米烘干企业",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-68",
+   "id": "923049",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=923049",
+   "question": "局长你好。非常感谢您把我于2018年2月9日反应的泽州县南村粮站服务人员态度不好的情况于解决。南村站长于2月23日亲自带着他本人过来给我道歉。态度很真诚站长也很认真处理此事。我以经原谅他了。肯请领导免于他的处分。再此感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-68",
+   "id": "923037",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=923037",
+   "question": "您好： 我想咨询忻州市董村镇粮站库房每年租金多少。 谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-68",
+   "id": "923031",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=923031",
+   "question": "相关领导您好： 我们是2016年成立的一家专注小杂粮供应链和服务商的初创实体互联网企业，经过近一年的运营，已经创办了及电商平台、线下加盟、活动联动、智能服务、跨境贸易等为一体的综合运营体系。因业务开展需求，需要了解本市及我省从事农产品加工和",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-68",
+   "id": "923019",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=923019",
+   "question": "尊敬的丁局长：我是风陵渡粮库派驻永和县打石腰乡李家垣村第一书记。今年我们主要从三个方面做过精准扶贫工作，一是搞好红枣销售。红枣是当地的支柱产业，做好红枣销售是我们今后的主导工作，如何做？一方面走出去，据市场了解，四川、重庆市场潜力巨大，其次",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-68",
+   "id": "923013",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=923013",
+   "question": "尊敬的丁局长，您好！我是山西省汾阳市粮食局下属单位职工，我想咨询您一下，现在的粮食局还有没有粮油批发市场，包括粮油稽查队，还有粮油质检中心，还希望您能给予回复为盼！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-68",
+   "id": "923007",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=923007",
+   "question": "您好！ 我是太原的企业。今年推出以服务太原居民为主的电商平台。特别需要了解咱山西从事农产品加工和流通的知名企业。2016年山西粮食（小杂粮玉米）产销衔接会 参会名单。特别是生产加工企业 和流通企业 的参会名单。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-68",
+   "id": "923001",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=923001",
+   "question": "我是忻州市宁武县阳方口粮站职工，为什么我们就不能上班领工资，为什么领导的亲戚和朋友都可以上班赚钱:为什么我们的社保卡就不能在药店买药?为什么我们就没有公积金?请领导看到请答复谢谢。电话1*********2",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

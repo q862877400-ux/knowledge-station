@@ -1,0 +1,544 @@
+{
+ "A_考卷": [
+  {
+   "source": "hb-wuhan-27",
+   "id": "24533",
+   "url": "https://www.wuhan.gov.cn/?id=24533",
+   "question": "建议上传湖北省及武汉市相关文物保护的政策及法律法规供大家学习。",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国文物保护法",
+     "lib_no": "文物保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "湖北省文物安全管理办法",
+    "武汉市文物保护若干规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-27",
+   "id": "16786",
+   "url": "https://www.wuhan.gov.cn/?id=16786",
+   "question": "您好， 我这边是钱币收藏爱好者，现在想把收藏爱好做成事业，在互联网上直播带货，平台要求我办理文物经营许可证，想了解一下办理的流程和要求。谢谢！",
+   "cited_hits": [
+    {
+     "name": "文物保护法",
+     "lib_no": "文物保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "hb-wuhan-27",
+   "id": "68747",
+   "url": "https://www.wuhan.gov.cn/?id=68747",
+   "question": "请问下端午期间，武汉人艺剧院有什么演出呀，有没有适合全家人一起观看的",
+   "cited_hits": [],
+   "cited_missing": [
+    "大禹治水",
+    "尼尔斯骑鹅历险记",
+    "金瓶外传",
+    "大禹晴川情",
+    "大禹晴川情"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-27",
+   "id": "67428",
+   "url": "https://www.wuhan.gov.cn/?id=67428",
+   "question": "五一期间，武汉市内会有哪些展览活动，票价多少钱？",
+   "cited_hits": [],
+   "cited_missing": [
+    "霸府名都 ——太原市博物馆藏北朝隋唐文物展",
+    "霸府名都——太原市博物馆藏北朝隋唐文物展",
+    "天地一飞鸿 —— 岭南文化传奇的诞生与演绎",
+    "光辉永存——武昌毛泽东旧居人物展",
+    "紧急时期的艰难探索——中国共产党第五次全国代表大会历史陈列",
+    "纪律建设永远在路上——中国共产党纪律建设历史陈列",
+    "学习革命先辈树立和践行正确政绩观——淮海战役文献图片展",
+    "而今迈步从头越——纪念长征胜利90周年连环画展",
+    "党之元老 人民公仆——纪念董必武诞辰140周年生平展",
+    "方寸书香——上海鲁迅纪念馆藏名家藏书票展",
+    "自强致远：船政与中法文化交流",
+    "气蕴华夏 象动楚天——中国气象事业历程展",
+    "禹功·江汉——武汉大禹治水文化陈列展"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-27",
+   "id": "51128",
+   "url": "https://www.wuhan.gov.cn/?id=51128",
+   "question": "您好，我即将来武汉旅游，想知道武汉博物馆是否有比较推荐的展览，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    " 历代文物珍藏陈列 ",
+    "墨拓千秋 ——金石器物全形传拓技艺保护成果展",
+    "纳福呈祥 花样子 ——鄂州雕花剪纸展"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-27",
+   "id": "43502",
+   "url": "https://www.wuhan.gov.cn/?id=43502",
+   "question": "五一期间想来武汉旅游，武汉美术馆有什么展览推荐吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "艺起杰作",
+    "形意之变——水松石山房主人"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-27",
+   "id": "40684",
+   "url": "https://www.wuhan.gov.cn/?id=40684",
+   "question": "您好，请问下正月十五之前武汉图书馆还有什么活动可以参加吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    " 龙吟书香：甲辰新春贺岁展",
+    " 春节灯谜趣话"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-27",
+   "id": "36376",
+   "url": "https://www.wuhan.gov.cn/?id=36376",
+   "question": "您好，我们近期带孩子来武汉游玩，博物馆有适合的展览吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "江汉朝宗 ——武汉城市现代化历程",
+    "武汉古代历史陈列"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-27",
+   "id": "18119",
+   "url": "https://www.wuhan.gov.cn/?id=18119",
+   "question": "你好，请问当前武汉市各大旅游景点的入园要求是什么？国务院行程卡中含有＊号是否可以正常入园（健康码及行程码均为绿码，有核酸阴性报告）",
+   "cited_hits": [],
+   "cited_missing": [
+    "国内重点地区人员健康管理措施",
+    "国内重点地区人员健康管理措施"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-27",
+   "id": "15628",
+   "url": "https://www.wuhan.gov.cn/?id=15628",
+   "question": "文化部门领导您们好， 现投诉江岸区塔子湖东路越秀星汇君泊喵莱网咖大量网名吸烟，乌烟瘴气，存在很大的消防安全隐患，和随处可见的禁烟标志和禁烟广播形成强烈讽刺，创建文明武汉需要你们的帮助，希望有关部门严加管理！",
+   "cited_hits": [],
+   "cited_missing": [
+    "武汉市控制吸烟条例",
+    "武汉市控制吸烟条例",
+    "武汉市控制吸烟条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-27",
+   "id": "6099",
+   "url": "https://www.wuhan.gov.cn/?id=6099",
+   "question": "所谓的医护人员免门票，难道就只有医生和护士算医护人员吗，像临床医学检验人员呢，我们也是冒着被感染的风险，接触病人的样本，还要从事核酸检测工作，这样是否未免太不公平了。",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖北省文化和旅游厅关于组织对医护人员开展抗击疫情感恩回馈活动的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-27",
+   "id": "1345",
+   "url": "https://www.wuhan.gov.cn/?id=1345",
+   "question": "请问武汉现在的网吧什么时候能够复工？",
+   "cited_hits": [],
+   "cited_missing": [
+    "支持文化旅游产业复苏发展的若干措施"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "hb-wuhan-27",
+   "id": "70763",
+   "url": "https://www.wuhan.gov.cn/?id=70763",
+   "question": "来武汉旅游，想咨询黄鹤楼一些事，请问咨询电话是多少",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-27",
+   "id": "69885",
+   "url": "https://www.wuhan.gov.cn/?id=69885",
+   "question": "看到武汉博物馆有消暑相关的展览活动，这些需要提前预约吗，在哪里预约",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-27",
+   "id": "66125",
+   "url": "https://www.wuhan.gov.cn/?id=66125",
+   "question": "元宵节少儿馆有没有开展活动，适合小朋友参加的那种",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-27",
+   "id": "65275",
+   "url": "https://www.wuhan.gov.cn/?id=65275",
+   "question": "元旦想来武汉玩，有没有好玩的活动推荐",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-27",
+   "id": "62893",
+   "url": "https://www.wuhan.gov.cn/?id=62893",
+   "question": "你好，请问一下，美术馆大概什么时候闭馆？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-27",
+   "id": "60339",
+   "url": "https://www.wuhan.gov.cn/?id=60339",
+   "question": "今年有什么夏令营？怎么参加夏令营的活动？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-27",
+   "id": "57719",
+   "url": "https://www.wuhan.gov.cn/?id=57719",
+   "question": "暑假期间，博物馆有没有适合小朋友看的展览？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-27",
+   "id": "55531",
+   "url": "https://www.wuhan.gov.cn/?id=55531",
+   "question": "五一期间，适合小朋友的活动有哪些？图书馆有没有适合小朋友的活动？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-27",
+   "id": "52556",
+   "url": "https://www.wuhan.gov.cn/?id=52556",
+   "question": "武汉最近有没有新活动可以领优惠券，线上线下都能用的。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-27",
+   "id": "49614",
+   "url": "https://www.wuhan.gov.cn/?id=49614",
+   "question": "您好，我想咨询下现在去武汉江汉关博物馆需要预约吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-27",
+   "id": "47695",
+   "url": "https://www.wuhan.gov.cn/?id=47695",
+   "question": "现在美术馆闭馆了吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-27",
+   "id": "45703",
+   "url": "https://www.wuhan.gov.cn/?id=45703",
+   "question": "暑假将至，有没有适合小朋友的读书阅读相关的活动？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-27",
+   "id": "39328",
+   "url": "https://www.wuhan.gov.cn/?id=39328",
+   "question": "您好，我是一名学生，因有关事情想要咨询，想问下贵局的联系电话和邮编地址，请麻烦告知，谢谢了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-27",
+   "id": "37571",
+   "url": "https://www.wuhan.gov.cn/?id=37571",
+   "question": "10月1日下午四点左右由梅园码头乘船前往行吟阁码头，由于游玩较累，在游船上休息，不慎将一部价值5000元的手机遗落在游船上。下船后，行走到听涛景区大门口时，才想起来手机遗失，然后进行寻找。通过行吟阁码头工作人员的帮助，联系了相关船只，等船只",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-27",
+   "id": "33241",
+   "url": "https://www.wuhan.gov.cn/?id=33241",
+   "question": "最近有适合小朋友的演出活动吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-27",
+   "id": "31316",
+   "url": "https://www.wuhan.gov.cn/?id=31316",
+   "question": "领导们好，我想要问一下武汉文旅相关政策的情况，能够上传网站供大家学习吗？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-27",
+   "id": "29634",
+   "url": "https://www.wuhan.gov.cn/?id=29634",
+   "question": "今天晚上江汉关博物馆和广场上有活动吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-27",
+   "id": "29120",
+   "url": "https://www.wuhan.gov.cn/?id=29120",
+   "question": "贵单位，您好，我是一名大学生，最近因为学习的要求，想要了解最近几年武汉市旅游规划的安排，贵单位能否为我解答一下吗？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-27",
+   "id": "26538",
+   "url": "https://www.wuhan.gov.cn/?id=26538",
+   "question": "三省一卡通什么时候发售啊，说是22年1月1号，现在都快10月份了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-27",
+   "id": "25456",
+   "url": "https://www.wuhan.gov.cn/?id=25456",
+   "question": "地面数字电视已停机两个月了，什么时候能收看？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-27",
+   "id": "23105",
+   "url": "https://www.wuhan.gov.cn/?id=23105",
+   "question": "全国大部分低风险区域都开放了跨省旅游，为什么湖北还不开放？请问封到什么时候？有答案吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-27",
+   "id": "21536",
+   "url": "https://www.wuhan.gov.cn/?id=21536",
+   "question": "我是北京大洋时代国际旅行社湖北分公司的，希望找到“武汉旅游协会”“湖北旅游协会”类似的组织，加入组织。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-27",
+   "id": "18967",
+   "url": "https://www.wuhan.gov.cn/?id=18967",
+   "question": "德国驻汉领事馆旧址原来参观的预约通道好像找不到了，现在如何预约去参观？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-27",
+   "id": "15110",
+   "url": "https://www.wuhan.gov.cn/?id=15110",
+   "question": "能否做一个武汉市旅游地图的购买渠道？？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-27",
+   "id": "14671",
+   "url": "https://www.wuhan.gov.cn/?id=14671",
+   "question": "为了便于公众知晓武汉市市级文物保护单位，也为了便于广大文物工作者开展工作，请市局公示武汉市市级文物保护单位名单。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-27",
+   "id": "11705",
+   "url": "https://www.wuhan.gov.cn/?id=11705",
+   "question": "您好，旅行社已经完成了税务工商注销，接下来需要到旅游局办理怎样的手续？需要带哪些东西前往？麻烦告知",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-27",
+   "id": "11271",
+   "url": "https://www.wuhan.gov.cn/?id=11271",
+   "question": "武汉市科技馆的沿江码头陈列有西安舰等退役军事舰艇，是非常好的游览景点，但是通过电话咨询武汉科技馆并未得知舰船展览区的开放时间和游览要求，并表示该区域不由武汉科技馆负责，那么该询问哪个单位？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-27",
+   "id": "9968",
+   "url": "https://www.wuhan.gov.cn/?id=9968",
+   "question": "今天去湖北博物馆参观，到了以后，保安说需要预约，于是我马上预约，但我发现5天内人都约满了！我只在武汉玩2天，确实等不了5天！这个政策对当地人可以，因为你们一直在这，什么时候参观都可以！但是对于我们外地游客等不了！给保安和工作人员沟通，他们就",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-27",
+   "id": "6334",
+   "url": "https://www.wuhan.gov.cn/?id=6334",
+   "question": "疫情已经得到控制，省博等各类博物馆早就“复工复产”，唯独盘龙城遗址博物院一直关闭，只开放室外的公园，在做好疫情防控的前提下，是不是可以考虑开放了，都关闭一年了！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-27",
+   "id": "5865",
+   "url": "https://www.wuhan.gov.cn/?id=5865",
+   "question": "便民伞损坏赔偿是否应该将破损物品交给责任方处理，如不给予凭什么原价赔偿，万一被拿走处理下又可以使用，我觉得不合理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-27",
+   "id": "5217",
+   "url": "https://www.wuhan.gov.cn/?id=5217",
+   "question": "今年的国庆期间大学生一直要上课，所以从6号起，一到早8点就开始预约11号的海昌极地海洋世界的门票，但连着几天都发现预约平台上根本就没有投放11号的票。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-27",
+   "id": "5205",
+   "url": "https://www.wuhan.gov.cn/?id=5205",
+   "question": "武汉欢乐谷武汉的预约为什么一下就预约完了，我要预约10月7日的门票，谢谢解决一下这个问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-27",
+   "id": "4888",
+   "url": "https://www.wuhan.gov.cn/?id=4888",
+   "question": "武汉动物园为什么不在预约平台上？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-27",
+   "id": "3813",
+   "url": "https://www.wuhan.gov.cn/?id=3813",
+   "question": "预约平台点都点不开，怎么回事？其他路径都是打不开的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-27",
+   "id": "3741",
+   "url": "https://www.wuhan.gov.cn/?id=3741",
+   "question": "根本就约不到，约了一个星期了，一进去就提示操作频繁，然后就一直这样，然后就没票了，如果系统真不行，就不要搞这些，不如继续用年卡，垃圾",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-27",
+   "id": "3582",
+   "url": "https://www.wuhan.gov.cn/?id=3582",
+   "question": "现在官方公布的预约免费游景点的方式只支持身份证，导致在华外籍留学生和港澳台人士无法参与，请问如果他们想游玩要怎么预约呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-27",
+   "id": "3458",
+   "url": "https://www.wuhan.gov.cn/?id=3458",
+   "question": "其预约只能一份，而且不能添加出行人。那么情侣和家庭要怎么玩？？让情侣中的一个人或家庭的小孩子一个人单独进去玩吗？？这样搞的话，还不如取消其资格。还有其他景点也存在类似问题，一个预约只能一个人。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-27",
+   "id": "3444",
+   "url": "https://www.wuhan.gov.cn/?id=3444",
+   "question": "我是一名高校教师，目前正在做一个省级课题，有关武汉市基础教育领域教育文物研究，需要武汉市第一次全国可移动文物普查工作（2012-2016年）登记的文物清单，以对其中有关基础教育领域的文物进行研究。据悉山东省建有省级可移动文物大数据平台，武汉",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-27",
+   "id": "3420",
+   "url": "https://www.wuhan.gov.cn/?id=3420",
+   "question": "不是说8月8日开始预约吗 怎么预约不了 什么时候才能好",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-27",
+   "id": "3380",
+   "url": "https://www.wuhan.gov.cn/?id=3380",
+   "question": "武汉疫情过后，7月底到武汉旅游，一家人在武汉消费一万元以上，还兴致冲冲的参与武汉消费券的抢券活动，登黄鹤楼都是自费上去的，现在湖北8月份所有收费景区都免费对全国开放，让我们这些花钱支持武汉经济的游客和不花钱的游客得到一样待遇太不公平了，所以",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-27",
+   "id": "1938",
+   "url": "https://www.wuhan.gov.cn/?id=1938",
+   "question": "你好，春节期间贵单位举报了一次网上的惠民预约，可以预约一些景区的门票。后来由于疫情原因，这个政策延期了。请问大概什么时候会重启这个预约？谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

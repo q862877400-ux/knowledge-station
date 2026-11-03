@@ -1,0 +1,1597 @@
+{
+ "A_考卷": [
+  {
+   "source": "js-fzggw",
+   "id": "462437",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=462437&sysid=112",
+   "question": "新购一栋商业办公楼，是否需要到发改委（审批局）办理项目备案？\n我公司在徐州新购置一栋商业写字楼，产权证已过户至我公司，到徐州供电公司咨询高压过户，徐州供电公司告知我司除了产权证以外，还需要提供项目工程备案。我司到行政审批局咨询如何申请项目备",
+   "cited_hits": [
+    {
+     "name": "企业投资项目核准和备案管理条例",
+     "lib_no": "企业投资项目核准和备案管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "452675",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=452675&sysid=112",
+   "question": "关于发改委对农村医院用电范围答复问题\n2025-09-30 10:26江苏省发展和改革委员会对农村医院用电范围的答复中几点问题请答复：1、“经县级及以上卫生行政主管部门执业资质认证”，是以县级及以上卫生行政主管部门颁发的《医疗机构执业许可证",
+   "cited_hits": [
+    {
+     "name": "医疗机构管理条例",
+     "lib_no": "医疗机构管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "医疗机构执业许可证",
+    "医疗机构执业许可证",
+    "卫生机构（组织）分类与代码",
+    "医疗机构执业许可证",
+    "医疗机构执业许可证",
+    "医疗机构执业许可证",
+    "关于印发江苏省电网销售电价分类适用范围说明的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-fzggw",
+   "id": "445341",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=445341&sysid=112",
+   "question": "关于居民光伏发电户发电总量超过自身用电总量的阶梯电价问题\n因家里有中央空调，用电较多，所以家里屋顶安装了光伏，除自发自用外，多余的电售给电网，但是晚上与阴雨天等还是要用电网的电。现在，我发现我家光伏发电的总量除自用外，还有相当多的绿电售给电",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国电力法",
+     "lib_no": "电力法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "户用光伏建设运行百问百答"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-fzggw",
+   "id": "430608",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=430608&sysid=112",
+   "question": "关于国企中标后采购咨询\n尊敬的领导您好，向您咨询一下关于国企中标后采购，国有施工企业中标一亿元国有资金大型民生基础设施EPC项目，作为EPC总承包国有施工企业，在采购1000万元等钢筋混凝土材料采购，按法律，还需要再对材料采购进行招标吗？谢",
+   "cited_hits": [
+    {
+     "name": "招标投标法实施条例",
+     "lib_no": "招标投标法实施条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-fzggw",
+   "id": "389053",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=389053&sysid=112",
+   "question": "咨询物业公司办理专变供电手续问题\n咨询房屋开发商或物业公司申请专变供电手续是什么，需要哪些材料？什么样的条件房屋开发商或物业公司才可以申请专变供电是否符合国民经济发展和电力发展规划？国家规定专变供电的法律规定？",
+   "cited_hits": [
+    {
+     "name": "电力法",
+     "lib_no": "电力法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "电力供应与使用条例",
+     "lib_no": "电力供应与使用条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "国家发改委国家能源局关于全面提升“获得电力”服务水平持续优化用电营商环境的意见",
+    "供电营业规则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "382043",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=382043&sysid=112",
+   "question": "关于发电企业直供电政策的咨询\n如果在江苏省建湖县开办一个企业。我是否能在附近的集中光伏电站通过直供的方式供电呢。或者在电网供电的同时向集中光伏电站通过直供的方式供部分的电？如果可以实现具体需要哪些流程，如果不可以实现请告知相关政策，谢谢。",
+   "cited_hits": [
+    {
+     "name": "电力供应与使用条例",
+     "lib_no": "电力供应与使用条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "供电营业许可证",
+    "供电营业规则",
+    "关于规范开展增量配电业务改革试点的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "361819",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=361819&sysid=112",
+   "question": "国有企业的招投标问题\n2023年3月1日《江苏省招标投标条例》第十一条规定”属于依法必须进行招标的项目，有下列情形之一的，经依法认定，可以不进行招标：……（四）采购人依法能够自行建设、生产或者提供；”。2018年江苏省人民政府出台的《江苏省",
+   "cited_hits": [
+    {
+     "name": "立法法",
+     "lib_no": "立法法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "江苏省招标投标条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-fzggw",
+   "id": "351151",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=351151&sysid=112",
+   "question": "备案项目是否需要按照2年周期进行备案变更或重新备案？\n按照企业投资项目事中事后监管办法，备案项目有两年有效期，那么分期建设项目或长周期建设项目，是否需要以两年为周期变更备案证，达到备案证落款时间始终在有效期内的效果？",
+   "cited_hits": [
+    {
+     "name": "企业投资项目核准和备案管理条例",
+     "lib_no": "企业投资项目核准和备案管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "企业投资项目事中事后监管办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "351119",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=351119&sysid=112",
+   "question": "核准权限问题\n除国家另有规定外，核准项目按资产权属实行属地管理。按照规定由地方政府核准的中央企业（事业单位、社会团体）投资项目，由省政府投资主管部门核准。请问，怎么理解“按资产权属实行属地管理”，是资产归属的属地还是资产所在地来核准",
+   "cited_hits": [
+    {
+     "name": "企业投资项目核准和备案管理条例",
+     "lib_no": "企业投资项目核准和备案管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "企业投资项目核准和备案管理办法"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "js-fzggw",
+   "id": "479650",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=479650&sysid=112",
+   "question": "关于长江经济带负面清单中高污染项目认定\n您好，根据《<长江经济带发展负面清单指南（试行，2022年版）>江苏省实施细则》（苏长江办发〔2022〕55号），禁止在合规园区外新建、扩建钢铁、石化、化工、焦化、建材、有色、制浆造纸等高污染项目，请",
+   "cited_hits": [],
+   "cited_missing": [
+    "环境保护综合名录（2021年版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "479128",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=479128&sysid=112",
+   "question": "2025年3月前已并网分布式光伏装机容量是否纳入7装机容量限\n某110KV企业2025年3月之前已经并网50MW光伏，发电模式为自发自用、余电上网，根据7号文描述“接点电压等级为110千伏（66千伏）、总装机容量原则上不超过50兆瓦的分布式",
+   "cited_hits": [],
+   "cited_missing": [
+    "分布式光伏发电开发建设管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-fzggw",
+   "id": "475029",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=475029&sysid=112",
+   "question": "关于项目核准批复资本金的问题咨询\n省发改委关于风电项目出具项目核准的批复，批复中约定了具体的项目总投资金额、项目资本金金额及资本金比例，现项目总投资金额减少，想咨询下资本金是按照批复约定的资本金金额执行，还是按照实际总投资金额的资本金比例重",
+   "cited_hits": [],
+   "cited_missing": [
+    "省政府关于发布江苏省政府核准的投资项目目录（2017年本）的通知",
+    "江苏省政府关于印发江苏省企业投资项目核准和备案管理办法的通知",
+    "国务院关于加强固定资产投资项目资本金管理的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "474781",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=474781&sysid=112",
+   "question": "7号文发布之日前已并网分布式光伏装机容量是否纳入装机容量限制\n《分布式光伏发电开发建设管理办法》（国能发新能规[2025]7号）（以下简称7号文）发布前，某10千伏用电企业已并网9兆瓦分布式光伏，发电模式为自发自用余电上网。根据7号文第四条",
+   "cited_hits": [],
+   "cited_missing": [
+    "分布式光伏发电开发建设管理办法",
+    "分布式光伏发电开发建设管理办法",
+    "分布式光伏发电开发建设管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-fzggw",
+   "id": "473014",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=473014&sysid=112",
+   "question": "关于农业设施上方建设光伏的相关问题咨询\n在农业设施（土地为设施农用地，签订租赁协议，无房产证明）如猪圈等厂房上方建设光伏，是否可行，如何证明产权清晰，光伏项目周期为20-25年，土地租赁年限小于20年，这种条件下是否可以建设光伏项目。当地备",
+   "cited_hits": [],
+   "cited_missing": [
+    "分布式光伏发电开发建设管理办法",
+    "集中式光伏电站开发建设管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-fzggw",
+   "id": "472930",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=472930&sysid=112",
+   "question": "《江苏省分布式光伏发展实施方案》咨询\n尊敬的省发改委领导您好，我是基层窗口工作人员，今日在贵委官网学习了《江苏省分布式光伏发展实施方案（2026-2030年）》，结合日常工作实际情况，有如下疑问：1.方案第八节中明确“统一备案标准，项目单位",
+   "cited_hits": [],
+   "cited_missing": [
+    "分布式光伏发电开发建设管理办法",
+    "企业投资项目事中事后监管办法",
+    "分布式光伏发电开发建设管理办法",
+    "分布式光伏发电开发建设管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-fzggw",
+   "id": "472608",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=472608&sysid=112",
+   "question": "关于闲置公建（学校）是否可以做集中式光伏咨询\n尊敬的省发改领导好，      关于江苏闲置公建学校，因学校废弃多年且无任何用电，现想租赁学校用来自投光伏电站按集中式管理，因学校教学楼建设面积有限，是否可在学校操场建设光伏，烦请给予指导意见，",
+   "cited_hits": [],
+   "cited_missing": [
+    "分布式光伏发电开发建设管理办法",
+    "分布式光伏发电开发建设管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "472351",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=472351&sysid=112",
+   "question": "市属企业光伏项目备案权限\n领导你好 想咨询下市属企业投资的非跨区的光伏项目，是区级备案还是市级备案？盼回复，感谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省企业投资项目核准和备案管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "471633",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=471633&sysid=112",
+   "question": "分布式光伏的建设场所问题\n领导，《分布式光伏发电开发建设管理办法》（国能发新能规〔2025〕7号）及《关于贯彻落实〈分布式光伏发电开发建设管理办法〉的实施意见》（苏发改规发〔2025〕2号）要求建设场所“产权清晰、合法合规”怎么认定？是不是",
+   "cited_hits": [],
+   "cited_missing": [
+    "分布式光伏发电开发建设管理办法",
+    "分布式光伏发电开发建设管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "469705",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=469705&sysid=112",
+   "question": "户用光伏备案容量大了，是否可以变更？\n户用光伏用户的备案证容量是25kw,现场安装时考虑需要避让遮挡物，结果实际安装、并网了20kw.这种情况是需要注销原来的项目备案，再重新申请备案？还是直接申请变更备案容量？请给予回复！谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省企业投资项目核准和备案管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "468716",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=468716&sysid=112",
+   "question": "篮球场是否可以建设分布式光伏\n项目公司准备在各个村委的篮球场搭建光伏棚，根据分布式光伏发电开发建设管理办法，一般工商业分布式光伏是指利用党政机关、学校等公共机构以及工商业厂房等建筑物及其附属场所建设。篮球场仅有两个篮球架，是否属于附属场所，",
+   "cited_hits": [],
+   "cited_missing": [
+    "分布式光伏发电开发建设管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "468010",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=468010&sysid=112",
+   "question": "土地使用证和规划许可证可以作为分布式光伏备案的权属证明使用吗\n因为企业没有办理不动产权证，现在想申请安装自发自用余电上网分布式光伏，请问企业合法取得的《国有土地使用证》和《建设用地规划许可证》可以用来申请项目备案吗？谢谢!",
+   "cited_hits": [],
+   "cited_missing": [
+    "分布式光伏发电开发建设管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "466032",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=466032&sysid=112",
+   "question": "要求查处《新建居住区供配电设施服务协议》没有招投标\n诉求：1、要求查处东海县住房和城乡建设局(代替伊顿印象小区业主委员会)与国网江苏省电力有限公司东海县供电分公司签订的《新建居住区供配电设施服务协议》没有招投标。2、要求按照东海县住建局在2",
+   "cited_hits": [],
+   "cited_missing": [
+    "新建居住区供配电设施服务协议",
+    "江苏省建设项目招标投标行政监督部门责任分工"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "464910",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=464910&sysid=112",
+   "question": "集中式光伏发电项目备案权限\n请问江苏省集中式光伏电站的备案权限按什么标准分别在省市区哪一层级办理？",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省企业投资项目核准和备案管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "463369",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=463369&sysid=112",
+   "question": "集中式光伏和分布式光伏在备案管理方面有何区别？\n尊敬的领导，集中式光伏和分布式光伏立项都是走的备案，请问备案的要求是不是一样的？",
+   "cited_hits": [],
+   "cited_missing": [
+    "分布式光伏发电开发建设管理办法",
+    "光伏电站开发建设管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "462553",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=462553&sysid=112",
+   "question": "光伏发电户所有权咨询\n分布式光伏电站管理办法发布前，有一批自然人户用光伏，实际投资人是光伏公司，光伏公司租用农户屋顶，以农户名义并网后，在供电公司建档生成发电户，该发电户所属权归农户还是光伏公司，农户有没有权利在供电公司进行销户？",
+   "cited_hits": [],
+   "cited_missing": [
+    "分布式光伏发电开发建设管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-fzggw",
+   "id": "461425",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=461425&sysid=112",
+   "question": "关于企业内部吸收合并后被强制要求选用高成本的二部制电价问题\n江苏省发改委：       我所在企业为央企（华润集团旗下华润万家），2025年因央企治亏需要，我司旗下无锡润家投资有限公司（简称：无锡润家）吸收合并至江苏华润万家超市有限公司（简",
+   "cited_hits": [],
+   "cited_missing": [
+    "供电营业规则"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-fzggw",
+   "id": "460666",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=460666&sysid=112",
+   "question": "农户申请撤销备案\n省发改委领导您好：   现在基层有很多这种情况，某光伏公司租用农户屋顶或者庭院进行光伏备案，备案好了后，由于种种原因，农户后悔想撤销备案，但是联系光伏公司，光伏公司不帮其撤销，窗口审批人员联系光伏公司也没有任何进展，对于窗",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省人民政府关于印发江苏省企业投资项目核准和备案管理办法的通知",
+    "分布式光伏发电开发建设管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-fzggw",
+   "id": "460507",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=460507&sysid=112",
+   "question": "乡镇沿街房屋能否按照非自然人户用光伏备案\n领导您好！我是基层项目备案窗口工作人员，某光伏开发公司A租用乡镇沿街二层房屋屋顶建设分布式光伏项目，该处房屋无不动产权证书，属地镇政府为其出具了房屋土地产权证明（证明中写明土地为宅基地、房屋为自建房",
+   "cited_hits": [],
+   "cited_missing": [
+    "分布式光伏发电开发建设管理办法",
+    "分布式光伏发电开发建设管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "459516",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=459516&sysid=112",
+   "question": "光伏备案场所产权问题\n因光伏备案建设场所必须合法合规，手续齐全，产权清晰。想咨询现在不动产权证中载明了合法面积和超批准面积，超批准的面积是否可以备案光伏？对于农村自建房没有不动产权证的房屋，乡镇出具的房屋产权证明或者庭院证明是否可以替代不动",
+   "cited_hits": [],
+   "cited_missing": [
+    "分布式光伏发电开发建设管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "459491",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=459491&sysid=112",
+   "question": "企业自建分散式风力发电如何审批\n尊敬的政府领导，您好！    企业计划建设零碳园区，想在园区土地内，立1台750kW风力发电机，如果是“自发自用，余电上网”模式，请问我省对该类项目立项有哪些要求（或企业可依据哪个政策文件准备材料）？是到哪一",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省人民政府关于发布江苏省政府核准的投资项目目录（2017年本）的通知",
+    "江苏省政府核准的投资项目目录（2017年本）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "459272",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=459272&sysid=112",
+   "question": "关于分布式光伏发电项目按集中式光伏电站备案和管理的问题咨询\n为便于企业申报及备案部门审批，关于苏发改规发[2025]2号实施意见第(二)条、第(三)条中“按集中式光伏电站备案和管理”，咨询以下问题：1、分布式光伏“按集中式光伏电站备案和管理",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省企业投资项目核准和备案管理办法",
+    "关于贯彻落实〈分布式光伏发电开发建设管理办法〉的实施意见",
+    "光伏电站开发建设管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "459126",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=459126&sysid=112",
+   "question": "关于大型工商业分布式光伏备案咨询\n尊敬的省发改委领导，根据《关于贯彻落实<分布式光伏发电开发建设管理办法>的实施意见》（苏发改规发〔2025〕2号）第一、（二）条“按集中式光伏电站备案和管理的一般工商业和大型工商业分布式光伏发电项目，可全额",
+   "cited_hits": [],
+   "cited_missing": [
+    "分布式光伏发电开发建设管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "458254",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=458254&sysid=112",
+   "question": "关于设施农用地上道路两侧光伏安装备案问题\n尊敬的发改委领导您好:有一块土地性质为设施农用地，该土地现用于农业养殖，目前打算在养殖池(厂房)两侧道路上安装光伏板块，道路位于设施农用地块上。并网点为用户侧，装机容量为800KW。请问该类项目备案",
+   "cited_hits": [],
+   "cited_missing": [
+    "分布式光伏发电开发建设管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "457663",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=457663&sysid=112",
+   "question": "认为场所新能源充电设施独立计量点电价执行单一制电价不合理的诉\n你好领导，我是某新能源汽车充换电服务公司，请问关于苏发改价格发〔2023〕969号文件中提到的  《对党政机关、企事业单位和社会公共停车场等中设置的其他充换电设施用电，按其所在场",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于优化工商业分时电价结构促进新能源消纳降低企业用电成本支持经济社会发展的通知",
+    "供电营业规则"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-fzggw",
+   "id": "457166",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=457166&sysid=112",
+   "question": "设施农用地上的建筑是否可以建屋顶光伏\n尊敬的省发改委领导：      我是基层一名工作人员。有企业咨询在设施农用地的建筑上是否可以建屋顶分布式光伏，建筑物没有产权手续，是否可以办理？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "分布式光伏发电开发建设管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "455959",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=455959&sysid=112",
+   "question": "光伏项目备案权限问题咨询\n根据《江苏省企业投资项目核准和备案管理办法》（苏政发〔2017〕88号）和江苏省发展改革委江苏能源监管办关于贯彻落实《分布式光伏发电开发建设管理办法》的实施意见（苏发改规发〔2025〕2号），咨询下市属企业的光伏项",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省企业投资项目核准和备案管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-fzggw",
+   "id": "455929",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=455929&sysid=112",
+   "question": "个体工商户可以做分布式光伏备案吗\n现有在宅基地上建设的厂房，由客户自行投资在厂房屋顶建设分布式光伏，目前没有单独注册公司，但是有个体工商户的营业执照，麻烦咨询下可以以个体工商户名义进行备案吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省企业投资项目核准和备案管理办法",
+    "江苏省企业投资项目核准和备案管理办法",
+    "分布式光伏发电开发建设管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-fzggw",
+   "id": "455287",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=455287&sysid=112",
+   "question": "已取消化工定位的园区申请化工仓储项目立项\n江苏徐州贾汪徐州工业园区，我们想在该园区，利用原有徐州都邑化工物流有限公司旧厂区，重新技改立项，盘活旧的工业用地，对方给我们的答复是该园区不能新建，改建化工项目。根据政府2023第16号文，第五十条",
+   "cited_hits": [],
+   "cited_missing": [
+    "省政府关于印发江苏省化工园区管理办法的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "453416",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=453416&sysid=112",
+   "question": "非自然人户用光伏发电项目法人变更事宜\n我们有个非自然人户用光伏发电项目，2024年已经备案并建成并网，现在不想继续运营，想要变更项目法人单位，供电公司让去审批部门重新备案或变更备案，审批部门认为项目已经建成，且没有新的投资，无需重新备案或变",
+   "cited_hits": [],
+   "cited_missing": [
+    "分布式光伏发电开发建设管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "453195",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=453195&sysid=112",
+   "question": "已并网分布式光伏项目批文问题\n如果分布式光伏项目已经并网，更换投资主体后，是否需要重新进行备案",
+   "cited_hits": [],
+   "cited_missing": [
+    "分布式光伏发电开发建设管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "453029",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=453029&sysid=112",
+   "question": "关于两部制污水处理企业免收容量（需量）电费的问题\n省发改委领导，您好！国家发改委2018年发布的《关于创新和完善促进绿色发展价格机制的意见》（发改价格规【2018】943号）中规定两部制污水处理企业免收容量（需量）电费，将于25年底到期，是",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于完善长江经济带污水处理收费机制有关政策的指导意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "452768",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=452768&sysid=112",
+   "question": "关于分布式光伏备案中采用钢桁架形式铺设光伏组件的咨询\n尊敬的省厅领导：您好！现就分布式光伏项目备案中组件铺设形式的相关问题向领导咨询：在分布式光伏项目申报备案时，若采用钢桁架形式建设光伏组件（即完全不利用原住户屋顶面，通过在屋顶四周搭建钢结",
+   "cited_hits": [],
+   "cited_missing": [
+    "分布式光伏发电开发建设管理办法",
+    "分布式光伏发电开发建设管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "451847",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=451847&sysid=112",
+   "question": "使用厂区闲置土地建设分布式光伏项目是否还需办理相关使用手续\n咨询事宜如下：若厂区闲置空地与现有建筑物处于同一用地红线范围内，该闲置空地是否可用于建设分布式光伏项目？如该闲置空地可用于建设分布式光伏项目，除办理项目备案及电力接入手续外，是否还",
+   "cited_hits": [],
+   "cited_missing": [
+    "分布式光伏发电开发建设管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-fzggw",
+   "id": "451690",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=451690&sysid=112",
+   "question": "2018年发布的《江苏省培训收费行为规范》是否已经废止或者继\n您好，如题，《江苏省培训收费行为规范》本规范自 2018年11月1日起施行，有效期 5 年，现已经到期。因机构改革，价格政策文件制定由发改部门负责，请问《江苏省培训收费行为规范》",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省培训收费行为规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "447003",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=447003&sysid=112",
+   "question": "咨询大型工商业分布式项目并网的事宜\n咨询一下江苏省大型工商业分布式光伏项目，采用的自发自用，余电上网模式的项目，项目已经具备并网条件下。在2025年09月01日～2026年01月01日，江苏省电力现货市场连续运行期间，该项目是否允许并网发电",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于高质量做好全省分布式光伏接网消纳的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "445032",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=445032&sysid=112",
+   "question": "农村医院用电范围\n根据《江苏省电网销售电价分类适用范围说明》（苏价工 (2015) 334号)，农村医院用电执行居民生活电价（即其他居民生活电价）。农村医院用电，是指经县级及以上卫生行政主管部门执业资质认证，郊区的乡镇、县城以下（不含县城）",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发江苏省电网销售电价分类适用范围说明的通知",
+    "医疗机构执业许可证",
+    "卫生机构（组织）分类与代码",
+    "医疗机构执业许可证",
+    "卫生机构（组织）分类与代码"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "444212",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=444212&sysid=112",
+   "question": "关于农产品初加工用电相关问题咨询\n尊敬的领导您好，根据《关于明确农产品初加工用电价格有关事项的通知》，执行农业生产用电价格的农产品初加工范围中，粮食初加工用电未明确稻壳粉碎和稻壳颗粒压缩。请问稻壳粉碎和稻壳颗粒压缩可否纳入农产品初加工农业用",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于明确农产品初加工用电价格有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "443837",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=443837&sysid=112",
+   "question": "大型工商业项目上网模式的咨询\n根据苏发改规发〔2025〕2 号规定，电力现货市场连续运行前有自发自用、余电上网需求的大型工商业分布式光伏发电项目，按集中式光伏电站备案和管理。如果就按照（国能发新能规〔2025〕7号）规定，因江苏电力现货市场",
+   "cited_hits": [],
+   "cited_missing": [
+    "分布式光伏发电开发建设管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-fzggw",
+   "id": "443707",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=443707&sysid=112",
+   "question": "关于两高项目的审批流程\n请问两高项目的六部门联合论证是在项目立项前还是在项目立项后，1000吨以下的两高项目需不需要落实论证，购买可转移，还是只要做好节能承诺",
+   "cited_hits": [],
+   "cited_missing": [
+    "固定资产投资项目节能审查和碳排放评价办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "442689",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=442689&sysid=112",
+   "question": "关于上网模式的咨询\n尊敬的省发改委领导：  关于贯彻落实《分布式光伏发电开发建设管理办法》的实施意见（苏发改规发〔2025〕2号）中提到“利用村集体所有、具有公用性质的办公用房等建设的，可按非自然人户用光伏备案”。请问以上两个条件是同时满足",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于贯彻落实<分布式光伏发电开发建设管理办法>的实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "439787",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=439787&sysid=112",
+   "question": "关于企业境外投资备案的申报要求\n南京市企业在全国境外投资管理和服务网络系统申报境外投资备案，申报所需的材料清单要求提供最近年度经审计的审计报告，对于在2024年11月注册成立的企业，是否可提供2025年1月到2025年6月份的半年审计报告进",
+   "cited_hits": [],
+   "cited_missing": [
+    "境外投资核准备案百问百答"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "439623",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=439623&sysid=112",
+   "question": "关于分布式光伏发电项目按照集中式光伏电站备案管理的咨询\n尊敬的省发改委领导，根据《关于贯彻落实<分布式光伏发电开发建设管理办法>的实施意见》（苏发改规发〔2025〕2号）第一、（二）条“按集中式光伏电站备案和管理的一般工商业和大型工商业分布",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于贯彻落实<分布式光伏发电开发建设管理办法>的实施意见",
+    "分布式光伏发电开发建设管理办法",
+    "分布式光伏发电开发建设管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "439210",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=439210&sysid=112",
+   "question": "居民小区内部，汽车快充站执行电价\n参照2023-969号文件中，前边一二条中提到的小区内执行居民电价的非居民用户中设置的向电网企业直接报装的充换电设施用电，执行居民用电价格中的合表用户电价，并执行分时电价，（二）对向电网企业独立报装接电或具",
+   "cited_hits": [],
+   "cited_missing": [
+    "省发展改革委关于进一步明确我省电动汽车充换电设施用电价格有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "438046",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=438046&sysid=112",
+   "question": "光伏备案资料问题\n尊敬的省领导好，《关于贯彻落实<分布式光伏发电开发建设管理办法>的实施意见》征求意见稿中（九）中写的非常明确，分布式光伏发电和第（二）、第（三）条中按集中式光伏电站备案的项目，在提交并网申请时出具产权证明和荷载报告，但《实",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省企业投资项目核准和备案管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "429266",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=429266&sysid=112",
+   "question": "哪里可以查到过网发布的全部批次“两业融合”试点企业名单\n目前网站能查询到的名单只有2024年1月份最新的第三批两业融合试点单位名单，请问哪里可以查到过往的第一批、第二批具体名单",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于省级现代服务业高质量发展“331”工程综合评价认定名单的公示"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "428589",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=428589&sysid=112",
+   "question": "关于一个红线内（一个土地证）内开户问题\n我公司在开发区购买了一块地，办理了土地证，建了4栋标准厂房，分别办理的产权证，这4栋厂房是否可以单独向供电局申请单独开户。",
+   "cited_hits": [],
+   "cited_missing": [
+    "供电营业规则"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-fzggw",
+   "id": "422680",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=422680&sysid=112",
+   "question": "关于产业政策不一致的咨询\n省委办公厅省政府办公厅关于印发《江苏省化工产业安全环保整治提升方案》的通知 苏办(2019)96号中“四、严格化工产业准入。12.强化负面清单管理。..........禁止新(扩)建农药、医药和染料中和装备严格予以",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省化工产业安全环保整治提升方案",
+    "江苏省化工产业结构调整限制、淘汰和禁止目录（2020本）",
+    "省政府关于加快推动化工产业高质量发展的意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "422510",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=422510&sysid=112",
+   "question": "国家发改委出台的分布式管理办法\n国家能源局于2025年1月17日发布的《分布式光伏发电开发建设管理办法》（简称“《分布式光伏管理办法》”）明确户用光伏电站包括自然人利用自有庭院投资建设的户用光伏电站。根据前述规定，是否可以在宅基地院内建设户",
+   "cited_hits": [],
+   "cited_missing": [
+    "分布式光伏发电开发建设管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "416443",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=416443&sysid=112",
+   "question": "关于危化品的储存、分装和销售的问题\n请问一下，关于危化品的储存、分装和销售是否需要立项？是否需要进化工园区？",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省企业投资项目核准和备案管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-fzggw",
+   "id": "415915",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=415915&sysid=112",
+   "question": "关于光伏项目备案申请材料的问题\n根据《江苏省企业投资项目核准和备案管理办法》第四十一条“项目备案机关应当通过在线平台提供项目备案基本信息格式文本，具体包括以下内容：（一）项目单位基本情况；（二）项目名称、建设地点、建设规模、建设内容；（三）",
+   "cited_hits": [],
+   "cited_missing": [
+    "分布式光伏发电项目管理暂行办法",
+    "江苏省企业投资项目核准和备案管理办法",
+    "分布式光伏发电开发建设管理办法（征求意见稿）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-fzggw",
+   "id": "410541",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=410541&sysid=112",
+   "question": "关于工商业光分布式光伏接入等级\n尊敬的省领导您好！我想咨询一下目前江苏省有没有400千瓦要上高压的这么一件事。或者关于接入等级的详细情况。",
+   "cited_hits": [],
+   "cited_missing": [
+    "省发展改革委关于高质量做好全省分布式光伏接网消纳的通知",
+    "配电网规划设计技术导则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "409219",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=409219&sysid=112",
+   "question": "关于企业建设屋顶分布式光伏项目安全荷载报告前置条件的咨询\n尊敬的省发改委领导，我是一名基层审批人员，有企业在备案屋顶分布式光伏时，提供的荷载报告结论为：建筑物经过加固檩条后，满足结构自身承载能力，布置光伏组件后，结构整体荷载满足相关规范要求",
+   "cited_hits": [],
+   "cited_missing": [
+    "分布式光伏发电项目管理暂行办法",
+    "江苏省企业投资项目核准和备案管理办法",
+    "分布式光伏发电开发建设管理办法（征求意见稿）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-fzggw",
+   "id": "405454",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=405454&sysid=112",
+   "question": "想咨询下新版《供电营业规则》\n根据国家发改委新版《供电营业规则》 中第二十一条 申请高压需要 用电工程项目批准文件，此批准文件找哪个部门申请，需要哪些前置条件材料。谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "供电营业规则"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-fzggw",
+   "id": "403462",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=403462&sysid=112",
+   "question": "关于同一址安装多户变压器的事项咨询\n领导好，我区有一栋三层的标准厂房，现租用给两家公司使用，其中甲公司已租用多年，并已安装变压器，乙公司J近期计划搬入厂房的其中的一层，在去当地供电公司申请安装变压器时，不予安装，回复不符合国家发改委有关规定",
+   "cited_hits": [],
+   "cited_missing": [
+    "供电营业规则",
+    "供电营业规则"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-fzggw",
+   "id": "401834",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=401834&sysid=112",
+   "question": "成本监审时，固定资产折旧年限的确定\n我们是自来水BOT经营项目，咨询的问题是：成本监审时，关于固定资产折旧，我们的固定资产折旧是按照《成本监审办法》里固定资产折旧年限计提，还是按照BOT经营期限来平均分摊？",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省城镇供水定价成本监审办法",
+    "江苏省城镇供水定价成本监审办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "400257",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=400257&sysid=112",
+   "question": "查询苏发改能源发2024 906号文件\n从多家媒体平台看见这个文件，但在官网未找到，想寻求一下真实性",
+   "cited_hits": [],
+   "cited_missing": [
+    "省发展改革委关于高质量做好全省分布式光伏接网消纳的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "400118",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=400118&sysid=112",
+   "question": "关于节能审查若干问题的解读\n尊敬的领导，您好。之前在公众号看到一篇文章，是江苏省发改委对节能审查及节能评估报告中常见问题及相关政策的解答，大概有100条左右。由于未妥善保存记录，现已找不到文章的名称及内容。烦请领导能否告知文件名称或者链接，",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省固定资产投资项目节能审查百问百答应知应会手册"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "398857",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=398857&sysid=112",
+   "question": "水利工程供水价格\n根据《关于调整水利工程供水价格的通知》（苏价工〔2000〕142号），水利部门收取的水利工程供水价价格，属于什么性质？是经营服务性收费？还是非税收入？",
+   "cited_hits": [],
+   "cited_missing": [
+    "转发财政部等部门<关于取消农村税费改革试点地区有关涉及农民负担的收费项目的通知>的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "391960",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=391960&sysid=112",
+   "question": "社会汽车车辆改装可以属地县级备案部门备案吗？\n尊敬的省发改委领导你好：         我是从事项目备案工作的窗口工作人员，现遇到一个企业投资建设社会汽车车辆改装，麻烦问下这样的项目能否在建设点所属县级备案部门办理项目备案？盼复为感，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "汽车产业投资管理规定",
+    "关于印发汽车产业投资项目服务指南的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "389475",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=389475&sysid=112",
+   "question": "光伏项目立项\n尊敬的省发改委领导，我是基层窗口工作人员，日前收到相关企业关于租用农户屋顶建设分布式光伏项目（全额上网或自发自用余电上网）的立项申请咨询，根据国家能源局《关于印发分布式光伏发电项目管理暂行办法的通知》第12条规定：对个人利用自",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省企业投资项目核准和备案管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "386979",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=386979&sysid=112",
+   "question": "供电线路迁改工程项目审批立项咨询\n我县某镇为了预留地块建设项目，计划由镇政府出资对地块上部分供电线路进行迁改，线路是220千伏双回路，长度约900米，由原来的横跨地块，改为绕地块边缘。请问项目是否属于核准目录中的电网工程类项目？因为项目是镇",
+   "cited_hits": [],
+   "cited_missing": [
+    "省政府关于印发江苏省政府投资管理办法的通知",
+    "关于做好电力项目核准权限下放后规划建设有关工作的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-fzggw",
+   "id": "386034",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=386034&sysid=112",
+   "question": "造船行业项目审批产能指标\n铸造行业国家已放开产能审批设置，请问造船行业项目审批，现在是否还需要产能指标？",
+   "cited_hits": [],
+   "cited_missing": [
+    "国务院关于化解产能严重过剩矛盾的指导意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "386031",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=386031&sysid=112",
+   "question": "飞行营地项目立项权限\n请问，投资3架固定翼运动飞机，配套建设一条20米宽、600米长的草地跑道及通讯等附属设施的飞行营地项目立项权限在省市区哪一级？",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省政府投资管理办法",
+    "江苏省政府核准的投资项目目录（2017年本）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "384951",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=384951&sysid=112",
+   "question": "石油化工装置技改项目备案\n您好，石油化工装置如果进行简单的小技改，比如说加一个副线，或者仅增加一个机泵，几条短管道或仪表等，不涉及产能、生产工艺变化，是否还需要进行项目立项（备案）？",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省企业投资项目核准和备案管理办法",
+    "江苏省企业投资项目核准和备案管理办法",
+    "江苏省企业投资项目核准和备案管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-fzggw",
+   "id": "380750",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=380750&sysid=112",
+   "question": "关于涉农电价的咨询\n根据苏发改价格发【2020】360号文，对于家庭农场、农民合作社、供销合作社、邮政快递企业、产业化龙头企业等在农村（不含县城及所属街道）建设的保鲜仓储设施用电，执行农业生产用电价格。对于不属于家庭农场、农民合作社、供销合",
+   "cited_hits": [],
+   "cited_missing": [
+    "省发展改革委关于明确有关涉农行业用电价格政策的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "379007",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=379007&sysid=112",
+   "question": "充电桩项目备案要求\n尊敬的发改委领导您好，我是基层备案工作人员，现有公司咨询在农户家门口安装实施经营性充电桩备案项目，公司已办理营业执照，已与农户签订了租用协议，农户也提供了不动产权证。经查询《关于进一步提升电动汽车充电基础设施服务保障能力",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省新能源汽车充换电设施建设管理办法",
+    "关于进一步促进新能源汽车充换电设施健康发展的实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "377000",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=377000&sysid=112",
+   "question": "是否需要项目备案咨询\n我市企业准备租赁闲置房屋改造为实验室，设置现场仪器室、理化室、光学室、色谱室、土壤实验室、微生物实验室等功能分区；购置气相色谱仪、微波消解仪、天平、原子吸收分光光度计、原子荧光光度计、红外测油仪等采样及分析设备；用于含",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省人民政府关于印发江苏省企业投资项目核准和备案管理办法的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "376017",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=376017&sysid=112",
+   "question": "个人电动汽车充电桩共享政策及电价咨询\n各位领导： （一）现在农村地区充电桩少，电动汽车充电困难，国家正在大力发展新能源，随着新能源汽车的数量日益剧增，而农村公共充电基础设施缺乏。但是，如果个人充电桩可以开放共享，不但提升个人充电桩利用率，盘",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家发展改革委等部门印发〈关于促进汽车消费的若干措施〉的通知",
+    "关于进一步明确我省电动汽车充换电设施用电价格有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "374730",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=374730&sysid=112",
+   "question": "大豆压榨项目目前是否有什么备案限制要求？\n本市有一家企业，很多年前取得大豆压榨备案立项，目前因为原址拆迁，需要换区域重新建设，企业提出原址搬迁重建后，保持原有大豆压榨产能不变申请新备案，但根据“国发改委【令】第29号：产业结构调整指导目录-",
+   "cited_hits": [],
+   "cited_missing": [
+    "产业结构调整指导目录（2019年本）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "374549",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=374549&sysid=112",
+   "question": "关于MDI中试项目审批形式及权限\n尊敬的省发改委领导好！关于二苯基甲烷二异氰酸酯（MDI），如果是中试项目的话，请问审批形式是核准还是备案？如果是核准形式，权限是省投资主管部门，还是属地即可？感谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省化工中试基地和中试项目管理办法（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "373677",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=373677&sysid=112",
+   "question": "关于苏发改能源发〔2022〕831号的咨询\n领导您好，我是一名基层审批人员，在储能项目审批过程中对《江苏省“十四五”新型储能发展实施方案》中一些表述有一些疑惑——文件中“分级分类管理”一节指出“用户侧新型储能项目应纳入用户主体项目规划建设管",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发加快推动我省新型储能项目高质量发展的若干措施的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "373203",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=373203&sysid=112",
+   "question": "关于国有企业投资公益性项目的立项类型\n请教省发改委领导，国有企业利用自筹资金（非财政性资金），投资建设没有收益的公益性项目，例如市政道路、市政绿化等项目，立项类型是审批、还是核准、还是备案？",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省企业投资项目核准和备案管理办法",
+    "省政府关于发布江苏省政府核准的投资项目目录（2017年本）的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "373086",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=373086&sysid=112",
+   "question": "请问一级公路和二级公路的立项层级是哪一级?\n请问一级公路和二级公路的立项层级是哪一级?",
+   "cited_hits": [],
+   "cited_missing": [
+    "省政府关于发布江苏省政府核准的投资项目目录（2017年本）的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "370257",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=370257&sysid=112",
+   "question": "关于长江经济长江经济带发展负面清单中建材范围\n领导您好，《长江经济带发展负面清单指南（试行 2022年版）-江苏省实施细则》关于禁止在合规园区外新建、扩建建材等高污染项目，是指全部的建材类都需要进合规园区吗？建材行业包括范围有哪些？商品混凝",
+   "cited_hits": [],
+   "cited_missing": [
+    "长江经济带发展负面清单指南",
+    "环境保护综合名录（2021年版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "363581",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=363581&sysid=112",
+   "question": "商业写字楼电价咨询\n查询到《省发展改革委关于降低一般工商业电价有关事项的通知》（苏发改工价发〔2019〕396号），对商业电费有明确要求，请问这个政策现在还在有效期么",
+   "cited_hits": [],
+   "cited_missing": [
+    "省发展改革委关于降低一般工商业电价有关事项的通知",
+    "省发展改革委关于进一步完善分时电价机制有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "363473",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=363473&sysid=112",
+   "question": "绿电政策咨询\n省发展改革委等部门关于印发《江苏省促进绿色消费实施方案》的通知 苏发改就业发〔2022〕535号文中提及：“到2025年，高耗能企业电力消费中绿色电力占比不低于30%”。我想了解的问题是：“核电”是否属于绿电范畴？盼回复，谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好可再生能源绿色电力证书全覆盖工作促进可再生能源电力消费的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "361957",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=361957&sysid=112",
+   "question": "关于乡镇农文旅发展项目\n领导您好！我想请教一下，国资公司投资建设的乐园项目，零星用地约2.5万平方米，江南食谷、农业加工、创意工坊、特色旅游、亲子乐园等。此类项目是否属于核准目录中的“旅游”项目？应该走备案还是核准流程？",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省企业投资项目核准和备案管理办法",
+    "江苏省政府核准的投资项目目录（2017年本）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "360360",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=360360&sysid=112",
+   "question": "《丰县通创智慧综合体建设项目》是否是公开招标？\n2017年12月5日，《丰县通创智慧综合体建设项目》在中国采购与招标网www.chinabidding.com.cn、中国招投标网http://www.infobidding.com/  发布",
+   "cited_hits": [],
+   "cited_missing": [
+    "招标公告和公示信息发布管理办法",
+    "江苏省贯彻＜招标公告和公示信息发布管理办法＞的实施意见的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "356241",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=356241&sysid=112",
+   "question": "项目已进行到后期，备案是否可以进行修改\n新建类项目，房建部分已完工且进行已竣工验收备案，后续设备部门未完成，但是项目法人单位发生变更，根据《省政府关于印发江苏省企业投资项目核准和备案管理办法的通知》（苏政发〔2017〕88号）：项目备案后，",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省企业投资项目核准和备案管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "355647",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=355647&sysid=112",
+   "question": "重大节日深谷电价时间期限\n苏发改价格发〔2023〕555号文件对五一、十一、春节时间定义是5.1-5.5还是5.1-5.3？10.1-10.7还是10.1-10.3？春节按7天还是3天法定假日？",
+   "cited_hits": [],
+   "cited_missing": [
+    "省发展改革委关于进一步完善分时电价政策的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "354635",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=354635&sysid=112",
+   "question": "相关审批政府咨询\n你好！我是基层的一名审批人员，想咨询：对于机关团体办公用房，业务用房，技术业务用房怎样区分？如果审批业务用房该走怎样的流程？能不能告之省发改委此类业务处室的电话，方便请教学习。谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "党政机关办公用房管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "354628",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=354628&sysid=112",
+   "question": "不跨市企业能否不跨市的下属六市一县进行光伏备案\n领导，你好! 我公司是注册在南通市区崇川区的新能源企业，我想咨询我公司能否直接去下属的六市一县直接进行光伏备案？例如南通市如东县。",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省企业投资项目核准和备案管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "354213",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=354213&sysid=112",
+   "question": "关于新型储能项目的备案事宜\n目前，省里是否有关于新型储能项目的相关备案指导政策文件可供参考？",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省“十四五”新型储能发展实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "352643",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=352643&sysid=112",
+   "question": "关于在车棚顶搭建分布式光伏发电备案的咨询\n尊敬的领导您好，作为一名基层审批工作人员，向您咨询办理光伏备案的问题。《分布式发电项目管理暂行办法》提到分布式光伏发电项目所依托的建筑物及设施应具有合法性，目前车棚作为构筑物无法办理不动产证，是否可",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省企业投资项目核准和备案管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "342672",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=342672&sysid=112",
+   "question": "企业自建自发自用分布式风力发电如何审批\n领导，您好！     为积极响应国家发展低碳经济号召，现有一企业，计划在企业现有土地上，投资4台4兆瓦风力发电机，所发电量全部本企业使用。请问，我省对该类项目立项有没有新要求？，是到哪一级部门？核准还",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省政府核准的投资项目目录"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "js-fzggw",
+   "id": "482445",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=482445&sysid=112",
+   "question": "关于分布式沼气发电项目上网电价的咨询\n您好，我想咨询下，接入用户内部的分布式沼气发电项目，消纳模式为自发自用余电上网，上网电价应该按什么电价标准，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "471557",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=471557&sysid=112",
+   "question": "地面集中式光伏并网模式\n农光互补光伏、渔光互补光伏、地面集中式光伏能否采用自发自用余电上网模式并网。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "470287",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=470287&sysid=112",
+   "question": "关于《分布式光伏发电开发建设管理办法》第15条的理解\n贵委：国家能源局于2025年1月17日发布了关于印发《分布式光伏发电开发建设管理办法》的通知，该办法第15条项目备案后，项目法人发生变化，项目建设地点、规模、内容发生重大变更，或者放弃项",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "469257",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=469257&sysid=112",
+   "question": "《办法》实施之前 非自然人户用光伏发电项目法人如何变更？\n问题一：根据《分布式光伏发电开发建设管理办法》（国能发新能规〔2025〕7号），分布式光伏发电项目投资主体应当按照备案信息进行建设，不得自行变更项目备案信息的重要事项。项目备案后，项",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "464745",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=464745&sysid=112",
+   "question": "供电公司在楼道内加装了私人汽车充电电表\n供电公司擅自在楼道内加装了隔壁的的汽车充电电表，楼道的旁边就是隔壁的自有车库，想咨询一下 有没有发改委下发的法律依据或者规定条款，私人装汽车电表及电桩只能自己的固定车位，或者楼道内禁止安装私人汽车充电",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "461724",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=461724&sysid=112",
+   "question": "咨询光伏发电项目按哪种模式备案\n您好！我这边有个养牛场，土地性质是设施农用地，养牛棚为钢结构彩钢瓦屋顶，面积共约5万平方，屋顶高度约9米，在此厂房屋顶建设光伏发电项目，安装容量约5.7兆瓦，采用自发自用、余电上网的模式，请问此项目是按分布式",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "460962",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=460962&sysid=112",
+   "question": "抽水蓄能电站上水库量水堰工程立项是否需要省级部门核准\n原抽水蓄能电站项目已获省发改委核准批复，现计划新建该电站配套的上水库量水堰工程，请问是否需要到省发改委履行核准手续？如果不需要，是否需要到项目所在地进行备案？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "460905",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=460905&sysid=112",
+   "question": "一般工商业和大型工商业分布式光伏能否全额上网\n根据江苏省发展改革委 江苏能源监管办关于贯彻落实《分布式光伏发电开发建设管理办法》的实施意见（苏发改规发〔2025〕2号）规定，“按集中式光伏电站备案和管理的一般工商业和大型工商业分布式光伏发电",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "460552",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=460552&sysid=112",
+   "question": "关于户用光伏是否可以增加多期项目的咨询\n我是光伏投资方，想投资非自然人户用光伏。目前有个项目居民屋顶已有一期其他投资方投资的非自然人户用光伏项目，采用全额上网模式，2026年2月并网的。我公司想利于居民空余屋顶投资二期非自然人户用全额上网项",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "457177",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=457177&sysid=112",
+   "question": "电网侧新型储能项目\n根据《省发展改革委关于优化电网侧新型储能项目规划管理工作的通知》（苏发改能源发〔2025〕748号）“各设区市发展改革委自行规划布局、不在“苏发改能源发﹝2023﹞774号、891号、1259号”“苏发改能源发﹝2024",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "456857",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=456857&sysid=112",
+   "question": "关于“综合七级”物业服务收费与监管问题的咨询函\n本人系湖境天著雅苑业主。小区物业按《前期物业服务合同》约定，以“综合七级”最高标准（基准价1.45元/㎡·月上浮20%，合计1.74元/㎡·月）收费，但实际服务存在“夜间巡逻未达标”“公共维修",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "455604",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=455604&sysid=112",
+   "question": "举报阜宁文体中心政策定性错误并申请审查其违规收费计划\n尊敬的江苏省发展和改革委员会：现实名举报阜宁县文体中心运营方“阜宁阜铁投资有限公司”（下称运营方），在其对投诉的官方答复（没办法添加，本人已经保存）中存在根本性政策误读，意图架空公共体育",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "455060",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=455060&sysid=112",
+   "question": "关于泰州市靖江市工商业光伏全额上网备案不受理\n尊敬江苏发展和改革委员会：    您好，我司投资江苏青上不锈钢有限公司建设光伏电站，全额上网模式，资料齐全，产证，房屋荷载报告，营业执照，法人证明，能源管理协议，江苏省企业投资项目承诺书等一系列",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "451794",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=451794&sysid=112",
+   "question": "工业企业与公共连接点电压等级为220KV建设光伏电站怎么备案\n今年发布的《分布式光伏发电开发建设管理办法》未明确220kV用电企业是否可以建设分布式光伏电站的情形；并在2025年4月11日发布的《〈分布式光伏发电开发建设管理办法〉问答（20",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "441849",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=441849&sysid=112",
+   "question": "关于大型工商业分布式的备案问题\n尊敬的领导您好：最新的《分布式光伏发电开发建设管理办法》中第五条内“在电力现货市场连续运行地区，大型工商业分布式光伏可采用自发自用余电上网模式参与现货市场。”想咨询领导，在江苏省电力现货市场连续结算试运行之后",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "439407",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=439407&sysid=112",
+   "question": "在村集体房屋上还能新建户用分布式光伏嘛？\n根据国家能源局的规定，非自然人户用光伏仅限定于利用自然人房屋屋顶建设电站。那531后还能在村集体房屋上新建户用分布式光伏嘛？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "438965",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=438965&sysid=112",
+   "question": "关于光伏二次备案问题咨询\n尊敬的省发改领导您好，我想咨询并请教一个问题，企业房产证面积有3.8万平方，企业自投700千瓦光伏电站采用自发自用余电上网模式，700千瓦电站已建设成功并成功发电，剩余3万平方厂房面积，企业想用于租赁，并想找第三方",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "438201",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=438201&sysid=112",
+   "question": "居民屋顶光伏过户后可以享受原补贴政策吗？\n江苏居民屋顶光伏2018年并网，现在过户的话，还可以享受原有的补贴政策吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "437144",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=437144&sysid=112",
+   "question": "关于光伏备案相关问题\n尊敬的省领导，《分布式光伏发电开发建设管理办法》（国能发新能规〔2025〕7号）文件规定，大型工商业分布式光伏，应当选择全部自发自用模式，在电力现货市场连续运行地区，大型工商业分布式光伏可采用自发自用余电上网模式参与现",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "436257",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=436257&sysid=112",
+   "question": "非项目法人代为备案，出具的登记信息单可以作为备案证使用吗\n你好，咨询一下供电公司代自然人备案，备案填写项目法人单位信息时，因供电公司非项目法人单位，只是代为备案，所以选择了本项目未确定法人位，备案后当地发改局出具登记信息单，信息单上明确项目",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "431826",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=431826&sysid=112",
+   "question": "项目装修\n项目装修是不需要属于固定资产投资，是否需要单独进行项目备案或立项。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "429107",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=429107&sysid=112",
+   "question": "关于家庭储能的备案咨询\n您好，我想咨询一下关于家庭光储系统的备案，即针对安装光伏系统、储能系统的家庭，采取余电上网的模式，已知光伏系统需进行备案，请问：1）储能系统容量超出多少规模，或在什么情况下需要进行备案？2）如需备案，具体要准备哪些备",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "421362",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=421362&sysid=112",
+   "question": "网站工作年度报表\n您好，请问贵单位网站的2024年网站工作年度报表发布了吗？网址是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "421212",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=421212&sysid=112",
+   "question": "关于居民存在商业用电性质电价执行\n根据334号文，居民生活用电电价不包括经营性用电，想咨询居民家中存在其他性质用电行为，电价该如何执行。目前遇到一户家中多台电脑进行直播，用电量远超居民正常生活用电，是否需要对该部分用电执行商业电价？执行依据",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "411980",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=411980&sysid=112",
+   "question": "咨询下2023 969号文件中提到的小区内指的是啥意思\n各位领导你们好，想咨询一下在2023 969号文件内提到的小区内报装的新能源汽车公共充换电设施采用居民合表电价分峰谷，其中这个文件中提到的小区内指的是以什么为准？现在我在当地咨询供电部",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "411813",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=411813&sysid=112",
+   "question": "关于转供电主体收取电费事宜\n《省发展改革委关于降低一般工商业电价有关事项的通知》（2019 396号文）中指出，“我省转供电主体自5月1日起应当按照以下两种收费方式中的一种收取电费：一是按国家和省规定的目录销售电价向终端用户收取电费，变压器",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "410504",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=410504&sysid=112",
+   "question": "办公时间\n请问贵单位现在的办公时间是几点到几点？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "405174",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=405174&sysid=112",
+   "question": "光伏发电市场化并网项目的备案证是否体现配套建设储能项目\n关于渔光互补光伏发电项目备案证的建设规模及内容，请问是否体现：建设储能电站项目，储能系统按光伏电站功率10%配置，储能时长2小时？因为在办理光伏项目的配套储能接入批文的时候，供电公司要",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "396816",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=396816&sysid=112",
+   "question": "转供电具体细则\n苏发改工价发 〔2019 〕 396号），向非电网直供用户进行转供电的主体，应当在进入电力市场购电或由电网企业代理购电后，按照转供电主体市场交易到户电价 （或电网企业代理购电的到户电价）向终端用户收取电费，或者按照转供电主体",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "388333",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=388333&sysid=112",
+   "question": "抖音账号\n请问贵单位开设了抖音号吗？能否提供名称，想关注下。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "384393",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=384393&sysid=112",
+   "question": "关于工商业侧储能电池设备是否必须放在企业厂区红线内？\n项目基本情况：1）工商业侧储能；2）采用EMC能源合同管理；3）储能系统上、下电只有用户侧一个变压器；4）企业场地实在有限，而且化工企业装置防护距离要求较高；5）江苏省发改委[2022]",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "379990",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=379990&sysid=112",
+   "question": "关于变电站扩建立项类型的咨询\n领导好，想请教一下，我们辖区内一家配售电公司准备建设220千伏变电站主变扩建项目，建设内容包括地基处理、主变和110kV出线GIS设备基础及110kV一次电缆沟，项目不包含线路工程，仅为变电站本体扩建工程。请问",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "378712",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=378712&sysid=112",
+   "question": "2016-2019省市重大项目建设工程名单\n您好，因评审职称需要，麻烦能提供一下2016年-2019年的省市重点项目目录清单到wang0109@alu.cqu.edu.cn的邮箱么，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "378307",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=378307&sysid=112",
+   "question": "行业类别咨询\n橡胶制品项目（不含硫化）是否属于化工项目",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "376694",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=376694&sysid=112",
+   "question": "个体工商户是否可以作为法人单位办理项目备案\n本人注册了一家个体工商户，需对经营地点进行装修，住建局要求二次消防改造必须有项目备案证，请问个体工商户是否可以作为法人单位办理项目备案。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "374641",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=374641&sysid=112",
+   "question": "厂区闲置空地建光伏的相关问题\n尊敬的领导，我想咨询下在自有厂区的闲置空地上建光伏，有没有什么前置或者其他相关要求。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "373753",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=373753&sysid=112",
+   "question": "新高铁的规划建议\n皖南地区的高铁，虽然在近些年来取得很大的成就，比如说合福，宁安，乃至今年即将通车的昌景黄高铁，池黄等等等等，都相继要建成通车，但仍就于长三角一体化高质量发展相比，有很大的差距，皖南的铁路网还不太够密，交通出行还有待提升，望",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "371109",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=371109&sysid=112",
+   "question": "关于新沂河综合开发治理和航运规划方案设想\n尊敬江苏省发展和改革委员会 领导，您好：       我是一名沭阳人，非常关心和重视沭阳以及苏北的港口和航运的发展，以下是我经过多次研究，以及和当地有关部门领导的沟通，整理了一段论述，希望领导百忙之",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "370973",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=370973&sysid=112",
+   "question": "关于投资独立新型储能电站的咨询\n根据江苏省发展和政革委员会于2023年7月19日发布《关于加快推动我省新型储能项目高质量发展的若干措施》（苏发改能源发 [2023]775号）文件，我司拟于近期在泰州市投资建设独立储能电站，现对该文件关于有关",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "362151",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=362151&sysid=112",
+   "question": "再次感谢江苏人民对陕西经济的大力扶持\n陕西的贫困县区能有今天的发展，人民的生活水平明显提高，离不开江苏人民对陕西的大力扶持，再次感谢江苏人民，跪谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "360873",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=360873&sysid=112",
+   "question": "每天发布的蔬菜水产价格是哪个地区的价格\n你好，我想知道，每天发布的蔬菜肉水产是哪个城市、哪个区的菜场还是超市的价格，因为地区的差异对蔬菜的价格影响很大，考虑更多的影响因素后才能准确使用。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "356224",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=356224&sysid=112",
+   "question": "原有LNG储罐，现想增加LNG加气功能，仅用于自己车辆使用。\n您好，我园区有家公司，于2015.9.10取得过原市级审批部门（海门市发改委）的备案文件，备案通知书内容是在厂区内购置LNG储罐。现在该企业想对原LNG储罐进行改造升级，增加“加",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "356063",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=356063&sysid=112",
+   "question": "研发中心是否可以销售研发产品\n您好！我是一名基层审批人员！怎么认定一个项目为研发项目还是生产类项目？研发中心项目，所生产的产品可否销售？如其的玻璃类产品的研发项目，是否为两高项目？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "347902",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=347902&sysid=112",
+   "question": "物流公司自用撬装式加油装置是否可以备案？\n你好，物流公司想建设撬装式加油装置，自存自用，用来给自己公司物流车辆加油用，请问该类项目属于商务局审批还是由发改委进行备案？谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "347854",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=347854&sysid=112",
+   "question": "国家禁止和限制类产业目录\n请问国家禁止和限制类产业目录2020在哪里",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "347582",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=347582&sysid=112",
+   "question": "关于户用光伏备案的问题\n发改委的领导好！我是做户用光伏的企业，想咨询一下：在江苏省，农户个人安装光伏电站是否需要向市或县发改委备案？是否需要向发改委提交材料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "346500",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=346500&sysid=112",
+   "question": "火电项目项目公司何时可以进行股权转让\n请问煤电项目在取得发改委核准批复后，什么阶段前可以进行股权转让？是否对股权转让时间有限制？煤电项目若对项目公司进行主体变更，需要满足什么条件？如何申请变更？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-fzggw",
+   "id": "301168",
+   "url": "https://fzggw.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=301168&sysid=112",
+   "question": "玻璃纤维两高项目的认定\n根据省生态环境厅关于报送高耗能、高排放项目清单的通知及省发展改革委、省工业和信息化关于坚决抑制“两高”项目盲目发展的通知中的“两高”项目范围，将玻璃纤维及其制品制造归类为两高项目，本公司现从事玻璃纤维布的制造，外购成",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

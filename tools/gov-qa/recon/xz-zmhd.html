@@ -1,0 +1,1213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="X-UA-Compatible" content="ie=1123">
+    <!--站点类-->
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" >
+<meta name="renderer" content="webkit"> 
+<meta name="author" content="西藏自治区人民政府办公厅" >
+<meta name="Copyright" content="西藏自治区人民政府网" >
+<meta name="keywords" content="西藏政府，西藏自治区政府，西藏政府网，西藏自治区人民政府，西藏政府办，西藏政办，西藏自治区人民政府办公厅，西藏自治区人民政府官网">
+<meta name="description" content="西藏自治区人民政府门户网站(http://www.xizang.gov.cn)由西藏自治区人民政府主办。是展示西藏形象宣传自治区党和政府方针、政策的窗口，是一座沟通政府与社会各界的桥梁，是自治区政府各部门、直属机构信息发布的总平台。">
+<meta name="SiteName" content="西藏自治区人民政府门户网站">
+<meta name="SiteDomain" content="www.xizang.gov.cn">
+<meta name="SiteIDCode" content="5400000040">
+<!--栏目类-->
+<meta name="ColumnName" content="政民互动">
+  
+<meta name="ColumnDescription" content="政民互动">
+
+
+  
+<meta name="ColumnKeywords" content="政民互动">
+
+
+  
+<meta name="ColumnType" content="政民互动">
+
+
+    <title>西藏自治区人民政府-政民互动</title>
+    <link rel="stylesheet" type="text/css" href="../images/2025bj_zcwjk_common.css">
+    <link rel="stylesheet" type="text/css" href="../images/2025bj_common-static.css">
+    <link rel="stylesheet" type="text/css" href="../images/2025bj_main.css">
+    <link rel="stylesheet" type="text/css" href="../images/2025bj_zcwjk_swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="../images/2025bj_components.css">
+    <script type="text/javascript" src="../images/2025bj_jquery.min.js">
+    </script>
+    <script type="text/javascript" src="../images/2025bj_common.js">
+    </script>
+    <script type="text/javascript" src="../images/2025bj_zcwjk_swiper.min.js">
+    </script>
+    <script type="text/javascript" src="../images/2025bj_flexible.js">
+    </script>
+    <script type="text/javascript" src="../images/2025bj_fixedNav.js">
+    </script>
+    <script type="text/javascript" src="../images/2025bj_home.js">
+    </script>
+</head>
+<body>
+<script src="/images/chinese.js"></script>
+<div class="child-header m-auto">
+    <div class="head-con">
+        <div class="child-g-box m-auto">
+            <!-- 顶部主栏（左：logo，中：搜索，右：快捷入口）-->
+            <div class="top-row clearfix">
+                <div class="logo-con">
+                    <!-- 仅保留一个 logo 图（已包含徽章），避免重复徽章-->
+                    <img src="https://www.xizang.gov.cn/images/2025bj_child-logo.png" alt="" />
+                </div>
+                <div class="search-con">
+                    <form class="input-outer" action="javascript:;">
+                        <input class="input-text" type="text" placeholder="请输入您想要搜索的内容" id="textfield" />
+                        <button class="input-btn" type="submit" onclick="submitsearch()">
+                            <img class="icon-search" src="https://www.xizang.gov.cn/images/2025bj_search-icon.png" alt="" />
+                        </button>
+                    </form>
+                </div>
+                <script>
+                    function submitsearch() {
+                        var result = $("#textfield").val();
+                        result = $.trim(result);
+                        var reg = /[`~!@#$%^&*_+<>{}\/'[\]]/im;
+                        if (reg.test(result)) {
+                            alert('您输入的信息包含非法字符!');
+                            return false;
+                        }
+                        if (result == "请输入关键字" || result == "" || result == null) {
+                            alert("请输入检索条件!");
+                            return false;
+                        } else {
+                            result = result.replace("-", "\-");
+                            result = result.replace("(", "\(");
+                            result = result.replace(")", "\)");
+                        }
+                        window.location.href = "/site/xzzzqrmzf/search.html?searchWord=" + encodeURI(result) + "&siteId=2&orderBy=time&timeOrder=desc";
+                    }
+                </script>
+                
+                <div class="right-con">
+                    <div class="ops-block">
+                        <div class="top-link">
+                            <a class="gov-link" href="http://www.gov.cn/" target="_blank">
+                                <img class="icon-gh" src="https://www.xizang.gov.cn/images/2025bj_gh-icon.png" alt="" />
+                                <span class="text">
+                                    中央人民政府
+                                </span>
+                            </a>
+                            <span class="sep">
+										｜
+                            </span>
+                            <a class="xz-link" href="https://www.xzzwfw.gov.cn/" target="_blank">
+                                西藏政务服务网
+                            </a>
+                        </div>
+                        <div class="ops clearfix">
+                            <span class="lang">
+                                <a href="javascript:zh_tran('s');" style="color: #fff">简体</a> ｜<a  href="javascript:zh_tran('t');" style="color: #fff">繁体</a>
+                            </span>
+                            <a class="wza-link" href="javascript:;" title="无障碍浏览" onclick="aria.start()">
+                                <img class="icon-wza" src="https://www.xizang.gov.cn/images/2025bj_wza-icon.png" alt="" />
+                                <span class="text">
+                                    无障碍浏览
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                    <a class="elder-mode" href="javascript:;" title="长者模式" onclick="aria.oldFixedStart()">
+								<span class="line">
+									长者
+								</span>
+                        <span class="line">
+									模式
+								</span>
+                    </a>
+                    <!-- 移动端右上角侧边菜单按钮（PC端隐藏）-->
+                    <a class="menu-btn" href="javascript:;" title="打开侧边栏">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- 取消旧的 logo 与搜索重复区域-->
+    </div>
+    <div class="nav-row m-auto">
+        <div class="nav-list child-g-box m-auto">
+            <a class="nav-item" id="sy" href="https://www.xizang.gov.cn/">
+						<span class="nav-text">
+							首页
+						</span>
+            </a>
+            <a class="nav-item" id="xwzx_406" href="https://www.xizang.gov.cn/xwzx_406/">
+						<span class="nav-text">
+							要闻
+						</span>
+            </a>
+            <a class="nav-item" id="zwgk" href="https://www.xizang.gov.cn/zwgk/">
+						<span class="nav-text">
+							公开
+						</span>
+            </a>
+            <a class="nav-item" id="zwfw" href="https://www.xizang.gov.cn/zwfw/">
+						<span class="nav-text">
+							服务
+						</span>
+            </a>
+            <a class="nav-item" id="zmhd" href="https://www.xizang.gov.cn/zmhd/">
+						<span class="nav-text">
+							互动
+						</span>
+            </a>
+            <a class="nav-item" id="rsxz" href="https://www.xizang.gov.cn/rsxz/">
+						<span class="nav-text">
+							认识西藏
+						</span>
+            </a>
+        </div>
+    </div>
+    <!-- 移动端侧边栏（参考信用中国-模板5）-->
+    <div class="ft-mask wap-show">
+        <div class="title">
+            <img class="close" src="../../../images/2025bj_close-wap.png" alt="" />
+        </div>
+        <div class="buttons">
+            <div class="top-links">
+                <a class="gov-link" href="http://www.gov.cn/" target="_blank" title="中央人民政府">
+							<span>
+								中央人民政府
+							</span>
+                </a>
+                <a class="xz-link" href="javascript:;" title="西藏政务服务网">
+                    西藏政务服务网
+                </a>
+            </div>
+            <div class="ops">
+                <a class="xmt" href="javascript:;" title="新媒体分享">
+                    <img src="../../../images/2025bj_icon-wx.png" alt="" />
+                    <span>
+								新媒体分享
+							</span>
+                </a>
+                <a class="lnb" href="javascript:;" title="长者模式" onclick="aria.oldFixedStart()">
+                    长者模式
+                </a>
+                <a class="wza" href="javascript:;" title="无障碍浏览" onclick="aria.start()">
+                    无障碍浏览
+                </a>
+            </div>
+            <div class="lang-switch">
+                <a class="jt" href="javascript:zh_tran('s');">
+                    简体
+                </a>
+                <span class="sep">
+							｜
+						</span>
+                <a class="ft" href="javascript:zh_tran('t');">
+                    繁体
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    var uri = window.location.pathname;
+    $(".nav-list a").each(function () {
+        $(this).removeClass("'cur");
+    });
+    if(uri.indexOf("xwzx_406")>=0){
+        $(".nav-list a").eq(1).addClass('cur');
+    }else if(uri.indexOf("zwgk")>=0){
+        $(".nav-list a").eq(2).addClass('cur');
+    }else if(uri.indexOf("zwfw")>=0){
+        $(".nav-list a").eq(3).addClass('cur');
+    }else if(uri.indexOf("zmhd")>=0){
+        $(".nav-list a").eq(4).addClass('cur');
+    }else if(uri.indexOf("rsxz")>=0){
+        $(".nav-list a").eq(5).addClass('cur');
+    }else{
+        $(".nav-list a").eq(0).addClass('cur');
+    }
+</script>
+<div class="hdjl-page">
+    <div class="top-bg m-auto">
+    </div>
+    <div class="child-g-box m-auto">
+        <div class="letter-ope">
+            <div class="right-kslj rt">
+                <a class="ope-btn clearfix" href="http://xzxf.xizang.gov.cn/ocp/wsxx.html" target="_blank">
+                    <div class="left-icon lf">
+                        <img src="../images/2025bj_letter-ope-icon-1.png" alt="" />
+                    </div>
+                    <div class="right-desc lf">
+                        <div class="ope-name">
+                            我要写信
+                        </div>
+                    </div>
+                </a>
+                <a class="ope-btn clearfix" href="http://xzxf.xizang.gov.cn/ocp/wsxx.html" target="_blank">
+                    <div class="left-icon lf">
+                        <img src="../images/2025bj_letter-ope-icon-2.png" alt="" />
+                    </div>
+                    <div class="right-desc lf">
+                        <div class="ope-name">
+                            信件查询
+                        </div>
+                    </div>
+                </a>
+                <a class="ope-btn clearfix" href="http://xzxf.xizang.gov.cn/ocp/wsxx.html" target="_blank">
+                    <div class="left-icon lf">
+                        <img src="../images/2025bj_letter-ope-icon-3.png" alt="" />
+                    </div>
+                    <div class="right-desc lf">
+                        <div class="ope-name">
+                            留言选登
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="xjnr-ms">
+                欢迎您对西藏自治区政治、经济、文化、社会建设等方面提出宝贵意见和建议。对有合理诉求的信件，我们将通过一定的程序转给各有关部门，并在法定时限内由相关单位在网上向您反馈处理结果。
+            </div>
+        </div>
+        <div class="letter-sta clearfix">
+            <div class="left-letter-list lf">
+                <div class="common-box">
+                    <div class="title">
+                        <a href="javascript:;">
+                            意见征集
+                        </a>
+                    </div>
+                    <div class="content">
+                        <ul class="list">
+                            
+                                <li class="item">
+                                    <a class="clearfix" href="./yjzj/202510/t20251015_503962.html">
+                                    <div class="text lf">
+                                        西藏自治区政府启动2026年及“十五五”意见建议征集
+                                    </div>
+                                    <div class="time rt">
+                                        2025-10-15
+                                    </div>
+                                    </a>
+                                </li>
+                            
+                                <li class="item">
+                                    <a class="clearfix" href="./yjzj/202410/t20241015_441050.html">
+                                    <div class="text lf">
+                                        西藏自治区人民政府即日起征集2025年工作意见建议
+                                    </div>
+                                    <div class="time rt">
+                                        2024-10-15
+                                    </div>
+                                    </a>
+                                </li>
+                            
+                                <li class="item">
+                                    <a class="clearfix" href="./yjzj/202311/t20231110_387563.html">
+                                    <div class="text lf">
+                                        西藏自治区人民政府即日起征集2024年工作意见建议
+                                    </div>
+                                    <div class="time rt">
+                                        2023-11-10
+                                    </div>
+                                    </a>
+                                </li>
+                            
+                                <li class="item">
+                                    <a class="clearfix" href="./yjzj/202310/t20231018_381353.html">
+                                    <div class="text lf">
+                                        拉萨市林业和草原局关于转发《<国家林草种质资源库管理办法（征求意...
+                                    </div>
+                                    <div class="time rt">
+                                        2023-10-13
+                                    </div>
+                                    </a>
+                                </li>
+                            
+                                <li class="item">
+                                    <a class="clearfix" href="./yjzj/202310/t20231017_381119.html">
+                                    <div class="text lf">
+                                        关于公开征求《拉萨市燃气管理办法 （修订草案）》意见建议的公告
+                                    </div>
+                                    <div class="time rt">
+                                        2023-05-04
+                                    </div>
+                                    </a>
+                                </li>
+                            
+                                <li class="item">
+                                    <a class="clearfix" href="./yjzj/202310/t20231017_381117.html">
+                                    <div class="text lf">
+                                        关于《拉萨市出租汽车管理办法（征求意见稿）》 公开征求意见的公告
+                                    </div>
+                                    <div class="time rt">
+                                        2023-04-19
+                                    </div>
+                                    </a>
+                                </li>
+                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="sta-and-img rt">
+                <div class="sta-img">
+                    <a href="https://www.gov.cn/hudong/index.htm" target="_blank">
+                        <img src="../images/2025bj_letter-sta-img-1.png" />
+                    </a>
+                    <a href="https://www.xizang.gov.cn/zmhd/hygq/">
+                        <img src="../images/2025bj_letter-sta-img-2.png" />
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="zwft">
+        <div class="zwft-nr">
+            <div class="img-jz">
+                <a href="./zxft_483/"><img src="../images/2025bj_title-zwft.png" /></a>
+            </div>
+            <!-- 政务访谈卡片网格（PC：三列布局）-->
+            <div class="zwft-grid">
+                
+                    <a class="zwft-card" href="./zxft_483/202609/t20260929_561045.html">
+                        <div class="zwft-title">
+                            清理拖欠中小企业账款工作
+                        </div>
+                        <div class="zwft-guest">
+                            嘉宾：  江嘎  自治区经济和信息化厅党组成员、副厅长，一级巡视员
+                        </div>
+                        <div class="zwft-time">
+                            时间： 2026-09-29 10:48:26
+                        </div>
+                    </a>
+                
+                    <a class="zwft-card" href="./zxft_483/202608/t20260803_552393.html">
+                        <div class="zwft-title">
+                            深入实施提振消费专项行动
+                        </div>
+                        <div class="zwft-guest">
+                            嘉宾： 德吉措姆 自治区商务厅党组成员、副厅长 
+                        </div>
+                        <div class="zwft-time">
+                            时间： 2026-07-29 09:50:00
+                        </div>
+                    </a>
+                
+                    <a class="zwft-card" href="./zxft_483/202607/t20260707_548921.html">
+                        <div class="zwft-title">
+                            西藏自治区“十五五”规划《纲要》解读
+                        </div>
+                        <div class="zwft-guest">
+                            嘉宾： 王京彩：西藏自治区发展和改革委员会党组成员、副主任 
+                        </div>
+                        <div class="zwft-time">
+                            时间： 2026-07-02 10:00:00
+                        </div>
+                    </a>
+                
+                    <a class="zwft-card" href="./zxft_483/202512/t20251228_516329.html">
+                        <div class="zwft-title">
+                            锚定“高效办成一件事”  奏响标准化・一体化・数智化新乐章
+                        </div>
+                        <div class="zwft-guest">
+                            嘉宾： 陈钊：自治区政府办公厅政务办公室副主任    王琨璞：自治区政务服务工作专班负责人 
+                        </div>
+                        <div class="zwft-time">
+                            时间： 2025-12-27 23:47:51
+                        </div>
+                    </a>
+                
+                    <a class="zwft-card" href="./zxft_483/202512/t20251227_516326.html">
+                        <div class="zwft-title">
+                            ​自治区政务服务工作采访
+                        </div>
+                        <div class="zwft-guest">
+                            嘉宾： 李峰涛：自治区政府办公厅政务办公室副主任 
+                        </div>
+                        <div class="zwft-time">
+                            时间： 2025-12-24 18:15:00
+                        </div>
+                    </a>
+                
+                    <a class="zwft-card" href="./zxft_483/202512/t20251216_514356.html">
+                        <div class="zwft-title">
+                            惠民生增福祉—2025年民生有新保障
+                        </div>
+                        <div class="zwft-guest">
+                            嘉宾： 财政厅党组成员、副厅长：刘武 
+                        </div>
+                        <div class="zwft-time">
+                            时间： 2025-12-16 17:13:28
+                        </div>
+                    </a>
+                
+            </div>
+        </div>
+    </div>
+    <div class="hdjl-db-img">
+        <a class="lf" href="javascript:void(0);">
+            <img src="../images/2025bj_hdjl-db-img-1.png" />
+        </a>
+        <a class="rt" href="https://ducha.xizang.gov.cn/#/home" target="_blank">
+            <img src="../images/2025bj_hdjl-db-img-2.png" />
+        </a>
+    </div>
+</div>
+<style>
+    .group-title{
+        margin-bottom: 0.2rem;
+    }
+</style>
+<div class="footer">
+    <div class="f-link">
+        <div class="ft-link">
+            <div class="cm-drop clearfix">
+                <div class="lf">
+                    <div class="drop-select f-ib lf">
+                        <p class="select arrow clearfix">
+									<span class="tit text lf">
+										自治区政府部门网站
+									</span>
+                            <span class="f-ib arrow-icon rt">
+									</span>
+                        </p>
+                        <ul class="dropdown-menu cf-scroll">
+                            <div class="dmh-bottom">
+                                <div class="menu-group">
+                                    <div class="group-title text">
+                                        组成部门
+                                    </div>
+                                    <ul class="group-list clearfix">
+                                        
+                                            <li class="lf" style="width:300px">
+                                               <a class="ycyc text f-otw" href="http://drc.xizang.gov.cn/" TARGET="_blank">
+                                              <!-- <a href="http://drc.xizang.gov.cn/" title="自治区发展和改革委员会">自治区发展和改革委员会</a> -->
+自治区发展和改革委员会
+                                               </a>
+
+                                            </li>
+                                        
+                                            <li class="lf" style="width:300px">
+                                               <a class="ycyc text f-otw" href="http://edu.xizang.gov.cn/" TARGET="_blank">
+                                              <!-- <a href="http://edu.xizang.gov.cn/" title="自治区教育厅">自治区教育厅</a> -->
+自治区教育厅
+                                               </a>
+
+                                            </li>
+                                        
+                                            <li class="lf" style="width:300px">
+                                               <a class="ycyc text f-otw" href="http://sti.xizang.gov.cn/" TARGET="_blank">
+                                              <!-- <a href="http://sti.xizang.gov.cn/" title="自治区科学技术厅">自治区科学技术厅</a> -->
+自治区科学技术厅
+                                               </a>
+
+                                            </li>
+                                        
+                                            <li class="lf" style="width:300px">
+                                               <a class="ycyc text f-otw" href="http://jxt.xizang.gov.cn/" TARGET="_blank">
+                                              <!-- <a href="http://jxt.xizang.gov.cn/" title="自治区经济和信息化厅">自治区经济和信息化厅</a> -->
+自治区经济和信息化厅
+                                               </a>
+
+                                            </li>
+                                        
+                                            <li class="lf" style="width:300px">
+                                               <a class="ycyc text f-otw" href="http://mw.xizang.gov.cn/" TARGET="_blank">
+                                              <!-- <a href="http://mw.xizang.gov.cn/" title="自治区民族事务委员会">自治区民族事务委员会</a> -->
+自治区民族事务委员会
+                                               </a>
+
+                                            </li>
+                                        
+                                            <li class="lf" style="width:300px">
+                                               <a class="ycyc text f-otw" href="http://gat.xizang.gov.cn/" TARGET="_blank">
+                                              <!-- <a href="http://gat.xizang.gov.cn/" title="自治区公安厅">自治区公安厅</a> -->
+自治区公安厅
+                                               </a>
+
+                                            </li>
+                                        
+                                            <li class="lf" style="width:300px">
+                                               <a class="ycyc text f-otw" href="http://mzt.xizang.gov.cn/" TARGET="_blank">
+                                              <!-- <a href="http://mzt.xizang.gov.cn/" title="自治区民政厅">自治区民政厅</a> -->
+自治区民政厅
+                                               </a>
+
+                                            </li>
+                                        
+                                            <li class="lf" style="width:300px">
+                                               <a class="ycyc text f-otw" href="http://sft.xizang.gov.cn/" TARGET="_blank">
+                                              <!-- <a href="http://sft.xizang.gov.cn/" title="自治区司法厅">自治区司法厅</a> -->
+自治区司法厅
+                                               </a>
+
+                                            </li>
+                                        
+                                            <li class="lf" style="width:300px">
+                                               <a class="ycyc text f-otw" href="JavaScript:;" TARGET="_blank">
+                                              <!-- <a href="JavaScript:;" title="自治区财政厅">自治区财政厅</a> -->
+自治区财政厅
+                                               </a>
+
+                                            </li>
+                                        
+                                            <li class="lf" style="width:300px">
+                                               <a class="ycyc text f-otw" href="http://hrss.xizang.gov.cn/" TARGET="_blank">
+                                              <!-- <a href="http://hrss.xizang.gov.cn/" title="自治区人力资源和社会保障厅">自治区人力资源和社会保障厅</a> -->
+自治区人力资源和社会保障厅
+                                               </a>
+
+                                            </li>
+                                        
+                                            <li class="lf" style="width:300px">
+                                               <a class="ycyc text f-otw" href="http://zrzyt.xizang.gov.cn/" TARGET="_blank">
+                                              <!-- <a href="http://zrzyt.xizang.gov.cn/" title="自治区自然资源厅">自治区自然资源厅</a> -->
+自治区自然资源厅
+                                               </a>
+
+                                            </li>
+                                        
+                                            <li class="lf" style="width:300px">
+                                               <a class="ycyc text f-otw" href="http://ee.xizang.gov.cn/" TARGET="_blank">
+                                              <!-- <a href="http://ee.xizang.gov.cn/" title="自治区生态环境厅">自治区生态环境厅</a> -->
+自治区生态环境厅
+                                               </a>
+
+                                            </li>
+                                        
+                                            <li class="lf" style="width:300px">
+                                               <a class="ycyc text f-otw" href="http://zjt.xizang.gov.cn/" TARGET="_blank">
+                                              <!-- <a href="http://zjt.xizang.gov.cn/" title="自治区住房和城乡建设厅">自治区住房和城乡建设厅</a> -->
+自治区住房和城乡建设厅
+                                               </a>
+
+                                            </li>
+                                        
+                                            <li class="lf" style="width:300px">
+                                               <a class="ycyc text f-otw" href="https://jtt.xizang.gov.cn/" TARGET="_blank">
+                                              <!-- <a href="https://jtt.xizang.gov.cn/" title="自治区交通运输厅">自治区交通运输厅</a> -->
+自治区交通运输厅
+                                               </a>
+
+                                            </li>
+                                        
+                                            <li class="lf" style="width:300px">
+                                               <a class="ycyc text f-otw" href="http://slt.xizang.gov.cn/" TARGET="_blank">
+                                              <!-- <a href="http://slt.xizang.gov.cn/" title="自治区水利厅">自治区水利厅</a> -->
+自治区水利厅
+                                               </a>
+
+                                            </li>
+                                        
+                                            <li class="lf" style="width:300px">
+                                               <a class="ycyc text f-otw" href="http://nynct.xizang.gov.cn/" TARGET="_blank">
+                                              <!-- <a href="http://nynct.xizang.gov.cn/" title="自治区农业农村厅">自治区农业农村厅</a> -->
+自治区农业农村厅
+                                               </a>
+
+                                            </li>
+                                        
+                                            <li class="lf" style="width:300px">
+                                               <a class="ycyc text f-otw" href="http://swt.xizang.gov.cn/" TARGET="_blank">
+                                              <!-- <a href="http://swt.xizang.gov.cn/" title="自治区商务厅">自治区商务厅</a> -->
+自治区商务厅
+                                               </a>
+
+                                            </li>
+                                        
+                                            <li class="lf" style="width:300px">
+                                               <a class="ycyc text f-otw" href="https://wlt.xizang.gov.cn/" TARGET="_blank">
+                                              <!-- <a href="https://wlt.xizang.gov.cn/" title="自治区文化和旅游厅">自治区文化和旅游厅</a> -->
+自治区文化和旅游厅
+                                               </a>
+
+                                            </li>
+                                        
+                                            <li class="lf" style="width:300px">
+                                               <a class="ycyc text f-otw" href="http://wjw.xizang.gov.cn/" TARGET="_blank">
+                                              <!-- <a href="http://wjw.xizang.gov.cn/" title="自治区卫生健康委员会">自治区卫生健康委员会</a> -->
+自治区卫生健康委员会
+                                               </a>
+
+                                            </li>
+                                        
+                                            <li class="lf" style="width:300px">
+                                               <a class="ycyc text f-otw" href="http://tyjr.xizang.gov.cn/" TARGET="_blank">
+                                              <!-- <a href="http://tyjr.xizang.gov.cn/" title="自治区退役军人事务厅">自治区退役军人事务厅</a> -->
+自治区退役军人事务厅
+                                               </a>
+
+                                            </li>
+                                        
+                                            <li class="lf" style="width:300px">
+                                               <a class="ycyc text f-otw" href="http://yjt.xizang.gov.cn/" TARGET="_blank">
+                                              <!-- <a href="http://yjt.xizang.gov.cn/" title="自治区应急管理厅">自治区应急管理厅</a> -->
+自治区应急管理厅
+                                               </a>
+
+                                            </li>
+                                        
+                                            <li class="lf" style="width:300px">
+                                               <a class="ycyc text f-otw" href="http://sjt.xizang.gov.cn/" TARGET="_blank">
+                                              <!-- <a href="http://sjt.xizang.gov.cn/" title="自治区审计厅">自治区审计厅</a> -->
+自治区审计厅
+                                               </a>
+
+                                            </li>
+                                        
+                                            <li class="lf" style="width:300px">
+                                               <a class="ycyc text f-otw" href="http://wsb.xizang.gov.cn/" TARGET="_blank">
+                                              <!-- <a href="http://wsb.xizang.gov.cn/" title="自治区外事办公室">自治区外事办公室</a> -->
+自治区外事办公室
+                                               </a>
+
+                                            </li>
+                                        
+                                    </ul>
+                                </div>
+                                <div class="menu-group">
+                                    <div class="group-title text">
+                                        直属特设机构
+                                    </div>
+                                    <ul class="group-list clearfix">
+                                        
+                                            <li class="lf" style="width:300px">
+                                                <a class="ycyc text f-otw" TARGET="_blank" href="javascript:;" title="自治区人民政府国有资产监督管理委员会">
+自治区人民政府国有资产监督管理委员会
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                </div>
+                                <div class="menu-group">
+                                    <div class="group-title text">
+                                        直属机构
+                                    </div>
+                                    <ul class="group-list clearfix">
+                                        
+                                            <li class="lf" style="width:300px">
+                                                <a class="ycyc text f-otw" TARGET="_blank" href="http://amr.xizang.gov.cn/index.htm">
+自治区市场监督管理局
+                                                </a>
+                                            </li>
+                                        
+                                            <li class="lf" style="width:300px">
+                                                <a class="ycyc text f-otw" TARGET="_blank" href="http://gdj.xizang.gov.cn/">
+自治区广播电视局
+                                                </a>
+                                            </li>
+                                        
+                                            <li class="lf" style="width:300px">
+                                                <a class="ycyc text f-otw" TARGET="_blank" href="http://sport.xizang.gov.cn/">
+自治区体育局
+                                                </a>
+                                            </li>
+                                        
+                                            <li class="lf" style="width:300px">
+                                                <a class="ycyc text f-otw" TARGET="_blank" href="https://xzxf.xizang.gov.cn/">
+自治区信访局
+                                                </a>
+                                            </li>
+                                        
+                                            <li class="lf" style="width:300px">
+                                                <a class="ycyc text f-otw" TARGET="_blank" href="http://tjj.xizang.gov.cn/">
+自治区统计局
+                                                </a>
+                                            </li>
+                                        
+                                            <li class="lf" style="width:300px">
+                                                <a class="ycyc text f-otw" TARGET="_blank" href="http://www.xzly.gov.cn/">
+自治区林业和草原局
+                                                </a>
+                                            </li>
+                                        
+                                            <li class="lf" style="width:300px">
+                                                <a class="ycyc text f-otw" TARGET="_blank" href="javascript:;">
+自治区能源局
+                                                </a>
+                                            </li>
+                                        
+                                            <li class="lf" style="width:300px">
+                                                <a class="ycyc text f-otw" TARGET="_blank" href="https://tzcjj.xizang.gov.cn/">
+自治区投资促进局
+                                                </a>
+                                            </li>
+                                        
+                                            <li class="lf" style="width:300px">
+                                                <a class="ycyc text f-otw" TARGET="_blank" href="http://ylbzj.xizang.gov.cn/">
+自治区医疗保障局
+                                                </a>
+                                            </li>
+                                        
+                                            <li class="lf" style="width:300px">
+                                                <a class="ycyc text f-otw" TARGET="_blank" href="http://drc.xizang.gov.cn/gfdy/">
+自治区国防动员办公室
+                                                </a>
+                                            </li>
+                                        
+                                            <li class="lf" style="width:300px">
+                                                <a class="ycyc text f-otw" TARGET="_blank" href="http://cn.zyw.xizang.gov.cn/">
+自治区藏语委办
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                </div>
+                                <div class="menu-group">
+                                    <div class="group-title text">
+                                        驻内地办事处
+                                    </div>
+                                    <ul class="group-list clearfix">
+                                        
+                                            <li class="lf" style="width:300px">
+                                                <a class="ycyc text f-otw" TARGET="_blank" href="JavaScript:;">
+驻北京办事处
+                                                </a>
+                                            </li>
+                                        
+                                            <li class="lf" style="width:300px">
+                                                <a class="ycyc text f-otw" TARGET="_blank" href="https://cdbsc.xizang.gov.cn/index.html">
+驻成都办事处
+                                                </a>
+                                            </li>
+                                        
+                                            <li class="lf" style="width:300px">
+                                                <a class="ycyc text f-otw" TARGET="_blank" href="https://xab.xizang.gov.cn/index.html">
+驻西安办事处
+                                                </a>
+                                            </li>
+                                        
+                                            <li class="lf" style="width:300px">
+                                                <a class="ycyc text f-otw" TARGET="_blank" href="https://shb.xizang.gov.cn/index.html">
+驻上海办事处
+                                                </a>
+                                            </li>
+                                        
+                                            <li class="lf" style="width:300px">
+                                                <a class="ycyc text f-otw" TARGET="_blank" href="http://gem.xizang.gov.cn/index.html">
+驻格尔木办事处
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                </div>
+                            </div>
+                        </ul>
+                    </div>
+                    <div class="drop-select f-ib lf">
+                        <p class="select arrow clearfix">
+									<span class="tit text lf">
+										地方门户网站
+									</span>
+                            <span class="f-ib arrow-icon rt">
+									</span>
+                        </p>
+                        <ul class="dropdown-menu cf-scroll">
+                            <div class="dmh-bottom">
+                                
+                                    <li class="lf" style="width:300px">
+                                        <a class="ycyc text f-otw" TARGET="_blank" href="https://www.lasa.gov.cn/">
+拉萨市人民政府
+                                        </a>
+                                    </li>
+                                
+                                    <li class="lf" style="width:300px">
+                                        <a class="ycyc text f-otw" TARGET="_blank" href="http://www.rikaze.gov.cn/">
+日喀则市人民政府
+                                        </a>
+                                    </li>
+                                
+                                    <li class="lf" style="width:300px">
+                                        <a class="ycyc text f-otw" TARGET="_blank" href="http://www.shannan.gov.cn/">
+山南市人民政府
+                                        </a>
+                                    </li>
+                                
+                                    <li class="lf" style="width:300px">
+                                        <a class="ycyc text f-otw" TARGET="_blank" href="http://www.linzhi.gov.cn/">
+林芝市人民政府
+                                        </a>
+                                    </li>
+                                
+                                    <li class="lf" style="width:300px">
+                                        <a class="ycyc text f-otw" TARGET="_blank" href="http://www.changdu.gov.cn/">
+昌都市人民政府
+                                        </a>
+                                    </li>
+                                
+                                    <li class="lf" style="width:300px">
+                                        <a class="ycyc text f-otw" TARGET="_blank" href="http://www.naqu.gov.cn/">
+那曲市人民政府
+                                        </a>
+                                    </li>
+                                
+                                    <li class="lf" style="width:300px">
+                                        <a class="ycyc text f-otw" TARGET="_blank" href="https://www.al.gov.cn/">
+阿里地区行政公署
+                                        </a>
+                                    </li>
+                                
+                            </div>
+                        </ul>
+                    </div>
+                    <div class="drop-select f-ib lf">
+                        <p class="select arrow clearfix">
+									<span class="tit text lf">
+										各省（区市）政府门户网站
+									</span>
+                            <span class="f-ib arrow-icon rt">
+									</span>
+                        </p>
+                        <ul class="dropdown-menu cf-scroll">
+                            <div class="dmh-bottom">
+                                
+                                    <li class="lf" style="width:300px">
+                                        <a class="ycyc text f-otw" TARGET="_blank" href="https://www.beijing.gov.cn/">
+北京
+                                        </a>
+                                    </li>
+                                
+                                    <li class="lf" style="width:300px">
+                                        <a class="ycyc text f-otw" TARGET="_blank" href="https://www.tj.gov.cn/">
+天津
+                                        </a>
+                                    </li>
+                                
+                                    <li class="lf" style="width:300px">
+                                        <a class="ycyc text f-otw" TARGET="_blank" href="http://www.hebei.gov.cn/">
+河北
+                                        </a>
+                                    </li>
+                                
+                                    <li class="lf" style="width:300px">
+                                        <a class="ycyc text f-otw" TARGET="_blank" href="http://www.shanxi.gov.cn/">
+山西
+                                        </a>
+                                    </li>
+                                
+                                    <li class="lf" style="width:300px">
+                                        <a class="ycyc text f-otw" TARGET="_blank" href="https://www.nmg.gov.cn/">
+内蒙古
+                                        </a>
+                                    </li>
+                                
+                                    <li class="lf" style="width:300px">
+                                        <a class="ycyc text f-otw" TARGET="_blank" href="https://www.ln.gov.cn/">
+辽宁
+                                        </a>
+                                    </li>
+                                
+                                    <li class="lf" style="width:300px">
+                                        <a class="ycyc text f-otw" TARGET="_blank" href="http://www.jl.gov.cn/">
+吉林
+                                        </a>
+                                    </li>
+                                
+                                    <li class="lf" style="width:300px">
+                                        <a class="ycyc text f-otw" TARGET="_blank" href="https://www.hlj.gov.cn/">
+黑龙江
+                                        </a>
+                                    </li>
+                                
+                                    <li class="lf" style="width:300px">
+                                        <a class="ycyc text f-otw" TARGET="_blank" href="https://www.shanghai.gov.cn/">
+上海
+                                        </a>
+                                    </li>
+                                
+                                    <li class="lf" style="width:300px">
+                                        <a class="ycyc text f-otw" TARGET="_blank" href="http://www.jiangsu.gov.cn/">
+江苏
+                                        </a>
+                                    </li>
+                                
+                                    <li class="lf" style="width:300px">
+                                        <a class="ycyc text f-otw" TARGET="_blank" href="https://www.zj.gov.cn/">
+浙江
+                                        </a>
+                                    </li>
+                                
+                                    <li class="lf" style="width:300px">
+                                        <a class="ycyc text f-otw" TARGET="_blank" href="https://www.ah.gov.cn/">
+安徽
+                                        </a>
+                                    </li>
+                                
+                                    <li class="lf" style="width:300px">
+                                        <a class="ycyc text f-otw" TARGET="_blank" href="http://www.fujian.gov.cn/">
+福建
+                                        </a>
+                                    </li>
+                                
+                                    <li class="lf" style="width:300px">
+                                        <a class="ycyc text f-otw" TARGET="_blank" href="http://www.jiangxi.gov.cn/">
+江西
+                                        </a>
+                                    </li>
+                                
+                                    <li class="lf" style="width:300px">
+                                        <a class="ycyc text f-otw" TARGET="_blank" href="http://www.shandong.gov.cn/">
+山东
+                                        </a>
+                                    </li>
+                                
+                                    <li class="lf" style="width:300px">
+                                        <a class="ycyc text f-otw" TARGET="_blank" href="https://www.henan.gov.cn/">
+河南
+                                        </a>
+                                    </li>
+                                
+                                    <li class="lf" style="width:300px">
+                                        <a class="ycyc text f-otw" TARGET="_blank" href="http://www.hubei.gov.cn/">
+湖北
+                                        </a>
+                                    </li>
+                                
+                                    <li class="lf" style="width:300px">
+                                        <a class="ycyc text f-otw" TARGET="_blank" href="http://www.hunan.gov.cn/">
+湖南
+                                        </a>
+                                    </li>
+                                
+                                    <li class="lf" style="width:300px">
+                                        <a class="ycyc text f-otw" TARGET="_blank" href="http://www.gd.gov.cn/">
+广东
+                                        </a>
+                                    </li>
+                                
+                                    <li class="lf" style="width:300px">
+                                        <a class="ycyc text f-otw" TARGET="_blank" href="http://www.gxzf.gov.cn/">
+广西
+                                        </a>
+                                    </li>
+                                
+                                    <li class="lf" style="width:300px">
+                                        <a class="ycyc text f-otw" TARGET="_blank" href="https://www.hainan.gov.cn/">
+海南
+                                        </a>
+                                    </li>
+                                
+                                    <li class="lf" style="width:300px">
+                                        <a class="ycyc text f-otw" TARGET="_blank" href="https://www.cq.gov.cn/">
+重庆
+                                        </a>
+                                    </li>
+                                
+                                    <li class="lf" style="width:300px">
+                                        <a class="ycyc text f-otw" TARGET="_blank" href="https://www.sc.gov.cn/">
+四川
+                                        </a>
+                                    </li>
+                                
+                                    <li class="lf" style="width:300px">
+                                        <a class="ycyc text f-otw" TARGET="_blank" href="http://www.guizhou.gov.cn/">
+贵州
+                                        </a>
+                                    </li>
+                                
+                                    <li class="lf" style="width:300px">
+                                        <a class="ycyc text f-otw" TARGET="_blank" href="https://www.yn.gov.cn/">
+云南
+                                        </a>
+                                    </li>
+                                
+                                    <li class="lf" style="width:300px">
+                                        <a class="ycyc text f-otw" TARGET="_blank" href="http://www.shaanxi.gov.cn/">
+陕西
+                                        </a>
+                                    </li>
+                                
+                                    <li class="lf" style="width:300px">
+                                        <a class="ycyc text f-otw" TARGET="_blank" href="http://www.gansu.gov.cn/">
+甘肃
+                                        </a>
+                                    </li>
+                                
+                                    <li class="lf" style="width:300px">
+                                        <a class="ycyc text f-otw" TARGET="_blank" href="https://www.nx.gov.cn/">
+宁夏
+                                        </a>
+                                    </li>
+                                
+                                    <li class="lf" style="width:300px">
+                                        <a class="ycyc text f-otw" TARGET="_blank" href="http://www.qinghai.gov.cn/">
+青海
+                                        </a>
+                                    </li>
+                                
+                                    <li class="lf" style="width:300px">
+                                        <a class="ycyc text f-otw" TARGET="_blank" href="http://www.xinjiang.gov.cn/">
+新疆
+                                        </a>
+                                    </li>
+                                
+                                    <li class="lf" style="width:300px">
+                                        <a class="ycyc text f-otw" TARGET="_blank" href="https://www.gov.hk/sc/residents/">
+香港
+                                        </a>
+                                    </li>
+                                
+                                    <li class="lf" style="width:300px">
+                                        <a class="ycyc text f-otw" TARGET="_blank" href="https://www.gov.mo/zh-hant/">
+澳门
+                                        </a>
+                                    </li>
+                                
+                                    <li class="lf" style="width:300px">
+                                        <a class="ycyc text f-otw" TARGET="_blank" href="http://www.gwytb.gov.cn/">
+台湾
+                                        </a>
+                                    </li>
+                                
+                                    <li class="lf" style="width:300px">
+                                        <a class="ycyc text f-otw" TARGET="_blank" href="http://www.xjbt.gov.cn/">
+新疆生产建设兵团
+                                        </a>
+                                    </li>
+                                
+                            </div>
+                        </ul>
+                    </div>
+                    <div class="drop-select f-ib lf">
+                        <p class="select arrow clearfix">
+									<span class="tit text lf">
+										其他
+									</span>
+                            <span class="f-ib arrow-icon rt">
+									</span>
+                        </p>
+                        <ul class="dropdown-menu cf-scroll">
+                            <div class="dmh-bottom">
+  
+                                    <li class="lf" style="width:300px">
+                                      <a class="ycyc text f-otw" TARGET="_blank" href="https://www.xzdw.gov.cn/" title="中国共产党西藏自治区委员会">
+中国共产党西藏自治区委员会
+                                      </a>
+                                    </li>
+                                
+                                    <li class="lf" style="width:300px">
+                                      <a class="ycyc text f-otw" TARGET="_blank" href="http://www.xizangrd.gov.cn/" title="西藏自治区人民代表大会常务委员会">
+西藏自治区人民代表大会常务委员会
+                                      </a>
+                                    </li>
+                                
+                                    <li class="lf" style="width:300px">
+                                      <a class="ycyc text f-otw" TARGET="_blank" href="https://www.xizangzx.gov.cn/" title="中国人民政治协商会议西藏自治区委员会">
+中国人民政治协商会议西藏自治区委员会
+                                      </a>
+                                    </li>
+                                
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="f-bottom">
+        <div class="f-info-box">
+            <div class="level-1 clearfix">
+                <a class="lx lf" href="https://www.xizang.gov.cn/qt/gywm/">
+                    <img src="https://www.xizang.gov.cn/images/2025bj_f-lxwm.png" alt="2025bj_f-lxwm.png" title="2025bj_f-lxwm.png" />
+                    <span>
+								关于我们
+							</span>
+                </a>
+                <a class="lx lf" href="https://www.xizang.gov.cn/qt/wzsm/">
+                    <img src="https://www.xizang.gov.cn/images/2025bj_f-sm.png" />
+                    <span>
+								网站声明
+							</span>
+                </a>
+                <a class="lx lf" href="https://www.xizang.gov.cn/qt/sitemap/">
+                    <img src="https://www.xizang.gov.cn/images/2025bj_f-wzdt.png" />
+                    <span>
+								网站地图
+							</span>
+                </a>
+                <div class="info lf">
+							<span>
+								主办单位：西藏自治区人民政府
+							</span>
+                    <span>
+								地址：拉萨市城关区康昂东路1-2号
+							</span>
+                    <span>
+								联系电话：0891-6318179（仅受理网站建设维护相关事宜）
+							</span>
+                </div>
+                <a class="lx lf dzjg" href="https://bszs.conac.cn/sitename?method=show&id=1589DF9E0F6A0D79E053012819ACA151" target="_blank">
+                    <img src="https://www.xizang.gov.cn/images/2025bj_f-dzjg.png" alt="" />
+                </a>
+                <a class="lx lf zc" href="https://zfwzgl.www.gov.cn/exposure/jiucuo.html?site_code=5400000040">
+                    <img src="https://www.xizang.gov.cn/images/2025bj_f-zc.png" alt="" />
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="f-bot">
+        <div class="f-info-box">
+            <div class="level-2 clearfix">
+						<span class="lf">
+							网站标识码：5400000040
+						</span>
+                <a class="ba lf" href="http://beian.miit.gov.cn">
+                    藏ICP备07000001号-1
+                </a>
+                <a class="ga lf" href="https://www.beian.gov.cn/portal/registerSystemInfo?recordcode=54010202000164">
+							<span>
+								藏公网安备54010202000164号
+							</span>
+                </a>
+                <a href="https://jubao.xzdw.gov.cn/">
+                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;西藏互联网违法和不良信息举报中心</span>
+                </a>
+                <span class="rt">
+							网站支持IPV6
+						</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="fixed-nav">
+    <div class="top-list">
+        <div class="fixed-nav-link wx">
+            <i class="icon"></i>
+            <div class="hover-box">
+               <!-- 
+                    <a class="img-outer" href="">
+                        <img src="../../ewm/202511/W020260302403364924087.jpg" />
+                        <div class="text">
+                            微信名称
+                        </div>
+                    </a>
+                 -->
+                     <a class="img-outer" href="">
+                          <img src="../../../images/wxewm.jpg" alt="wxewm.jpg" title="wxewm.jpg" />
+                        <div class="text">
+                            微信名称
+                        </div>
+                    </a>
+            </div>
+        </div>
+        <div class="fixed-nav-link wb">
+            
+                <a class="icon" href="https://weibo.com/u/5948876166" target="_blank"></a>
+            
+        </div>
+    </div>
+    <div class="back-btn">
+        <a class="fixed-nav-link back" href="javascript:;">
+            <i class="icon">
+            </i>
+        </a>
+    </div>
+</div>
+<!--无障碍和适老化-->
+<script defer async type="text/javascript" src="//gov.govwza.cn/dist/aria.js?appid=e3928bbe5401cbc5f7d34f1acbfbf041" charset="utf-8"></script>
+</body>
+
+</html>

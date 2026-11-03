@@ -1,0 +1,4194 @@
+{
+ "A_考卷": [
+  {
+   "source": "zhangye-igi-23",
+   "id": "82822",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=82822",
+   "question": "请问公司法人不参与实际经营需要交社保吗？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国社会保险法",
+     "lib_no": "保险法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "82355",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=82355",
+   "question": "尊敬的政府工作人员： 您好！我是南二环世纪宝源小区业主，现向贵单位咨询、反映小区停车管理不合理问题，恳请核实并协调处理。 本小区物业以小区仅能容纳 60 个停车泊位为由（实际停车远超60个），规定仅限 60 名固定业主办理月租停车，且明确该",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国民法典",
+     "lib_no": "中华人民共和国民法典",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "张掖市住宅小区机动车停放服务收费管理办法",
+    "张掖市物业管理实施办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "82311",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=82311",
+   "question": "您好，麻烦咨询一下，缴纳物业费、停车费等住房其他服务能不能提取住房公积金",
+   "cited_hits": [
+    {
+     "name": "住房公积金管理条例",
+     "lib_no": "住房公积金管理条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "住房公积金管理条例",
+     "lib_no": "住房公积金管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "张掖市住房公积金提取管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "82058",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=82058",
+   "question": "你好领导，我是甘州区滨湖南苑的一名住户，我所处的区域每天早上8点的时候可以清晰听到北京时间的播报，由于所处位置无高楼大厦，听到播报的声音会比较大，因为本人在医院上班，有时下夜班会在白天休息，播报声音较大可能会影响休息。目前建议在周末时可以把",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国人民防空法",
+     "lib_no": "人民防空法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "82039",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=82039",
+   "question": "物业公司因业主未交纳物业费从而拒绝给业主充电费、水费，根据《物业管理条例》和《民法典》的相关规定，物业不得因未交暖气费或其他费用而拒绝提供水电服务。这种行为侵犯了业主的合法权益，严重时可能导致业主生活受困。物业公司的这种行为属于违法行为。希",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国民法典",
+     "lib_no": "中华人民共和国民法典",
+     "weak": false
+    },
+    {
+     "name": "物业管理条例",
+     "lib_no": "物业管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81999",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81999",
+   "question": "领导你好，我于3月初于高台参加低压电工培训，已于3月10完成有关要求的相关培训，但考试时间一拖再拖，安排到月底26日考试是否合理，作为一个打工人都是抽时间参加培训考试，跨度太长对个人精力财力都是巨大消耗，能否将培训时间与考试时间安排紧凑一些",
+   "cited_hits": [
+    {
+     "name": "特种作业人员安全技术培训考核管理规定",
+     "lib_no": "中华人民共和国应急管理部令（第19号）特种作业人员安全技术培训考核管理规定",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "甘肃省安全生产培训考试管理规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81639",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81639",
+   "question": "首先，我提议延长张掖市二中，张中这些高校的元旦假期，按小时计算的假期给了孩子们太多可恨的压力，让孩子们对于学校充满了怨言。国家建议的调休安排是三天的假期，高中牲有繁重的学习压力，有迫在眉睫的高考，但是重压之下的心理关注依然很有必要，我们不希",
+   "cited_hits": [
+    {
+     "name": "全国年节及纪念日放假办法",
+     "lib_no": "全国年节及纪念日放假办法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81461",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81461",
+   "question": "尊敬的领导：您好！甘肃省张掖市甘州区蓝山公馆六期为2023年通过消防验收得新建小区，带有地下停车场，本人为该小区业主，购有地下停车场固定停车位。本人购买国产新能源车1辆，为出行方便，去年曾申请在该车位安装家用充电桩（慢充，充电最大功率7kw",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国安全生产法",
+     "lib_no": "安全生产法(2021修正)",
+     "weak": false
+    },
+    {
+     "name": "安全生产法",
+     "lib_no": "安全生产法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "电动汽车分散充电设施工程技术标准",
+    "GB/T51313-2018"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81402",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81402",
+   "question": "关于请求查处甘肃裕登丰农业科技开发有限公司侵犯 “利油杂 107” 油菜品种行为的申请书 呈交单位：甘肃省张掖市农业农村局、民乐县农业农村局 一、基本情况 请求人：湖北利众种业科技有限公司 联系人：张浩柏 联系方式：18124253478 ",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国植物新品种保护条例",
+     "lib_no": "植物新品种保护条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国种子法",
+     "lib_no": "种子法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "产品加工合同"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81393",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81393",
+   "question": "尊敬的领导您好！ 本人与十月九号在新闻大厦鼎和国际五楼鼎和茶餐厅工作至十月三十一号，老板因某些原因店铺停止营业。说好十一月中旬结算工资，而现在电话打不通，发微信也不回，肯请领导帮我解决一下问题。本人一共工作21.5天，工资3440元整。非常",
+   "cited_hits": [
+    {
+     "name": "劳动保障监察条例",
+     "lib_no": "劳动保障监察条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "关于实施＜劳动保障监察条例＞若干规定",
+     "lib_no": "劳动保障监察条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81391",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81391",
+   "question": "尊敬的领导您好，我是一名普普通通的打工人，今年十月九号应聘到鼎和茶餐厅工作21天半，到月底后老板因某种原因打算停业，说好的工资3440元到十一月中旬给我结算，到今天为止，老板电话打不通，发微信不回，我实在是没有办法了，只能通过这种方式想让领",
+   "cited_hits": [
+    {
+     "name": "劳动保障监察条例",
+     "lib_no": "劳动保障监察条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "关于实施＜劳动保障监察条例＞若干规定",
+     "lib_no": "劳动保障监察条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81349",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81349",
+   "question": "投诉信 致12345热线及物业主管部门： 我是景隆瑞园小区的业主，针对物业服务中心计划于2025年11月5日单方面启用电梯层控系统的行为，我表示坚决反对，并依法提出以下投诉意见： 一、物业单方面启用电梯层控系统程序违法，侵犯业主共同决定权 ",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国民法典",
+     "lib_no": "中华人民共和国民法典",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "张掖市物业管理实施办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81332",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81332",
+   "question": "张掖市黑河水务投资有限责任公司建设的张掖经济技术开发区循环经济示范园水源保障项目，（临河泵站项目，输水管线项目）。施工单位：甘肃导航标建设工程有限公司张掖分公司，农民工欠薪167.8万、机械费用欠款84万。",
+   "cited_hits": [
+    {
+     "name": "保障农民工工资支付条例",
+     "lib_no": "保障农民工工资支付条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81329",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81329",
+   "question": "尊敬的各位市领导; 我想咨询一下个人开荒未利用的荒滩，且荒滩是自己耕地附近能随意开荒吗？如果能需要什么手续才能成为合法用地,如果不能随意开荒，对擅自开荒平整土地的是否违反了《土地管理法》第四十一条开发未确定使用权的国有荒山、荒地、荒滩从事种",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国土地管理法",
+     "lib_no": "土地管理法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国土地管理法实施条例",
+     "lib_no": "土地管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "甘肃省未利用地开发利用审批管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81177",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81177",
+   "question": "甘州区北环路阳光曦华源小区系张掖市鑫发物业管理有限公司管理的小区，该物业公司违规占用两间社区用房用于办公，还将一间社区用房出租盈利，导致业主没有活动场所。根据甘州区住建局出具的本小区地上物业管理用房建筑面积564平方米，地上社区服务用房建筑",
+   "cited_hits": [
+    {
+     "name": "物业管理条例",
+     "lib_no": "物业管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "行政处罚事先告知书"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81042",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81042",
+   "question": "1.本人于8月24日19：00于甘州区爱倍宠物店购买宠物猫一只，带回家后发现其存在连续打喷嚏情况且与家内其他猫无法共同相处。发现此情况后，本人前往店内希望可以进行退款（前后不超过两小时），却被告知店内明确标明“活体”不退不换，但在购买付款时",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国动物防疫法",
+     "lib_no": "动物防疫法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81021",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81021",
+   "question": "请问2002年退伍的农村籍退役军人怎么补交办理养老保险，具体在户籍地办理还是居住地办理",
+   "cited_hits": [
+    {
+     "name": "退役士兵安置条例",
+     "lib_no": "退役士兵安置条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80827",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80827",
+   "question": "2025年5月29日，作为成小红的代理律师，依照规定，就成小红的工伤事宜向张掖市甘州区人力资源和社会保障局提交了工伤认定申请，依法提交了工伤认定申请表、申请人身份证件，委托代理律师委托手续，劳动合同、疾病诊断证明书、证人证言、受伤照片、微信",
+   "cited_hits": [
+    {
+     "name": "工伤保险条例",
+     "lib_no": "工伤保险条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "甘肃省职工工伤认定调查举证通知书",
+    "工伤认定办法",
+    "甘肃省职工工伤认定中止通知书"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80762",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80762",
+   "question": "尊敬的领导：今年甘州区小学招生入学，根据甘州区教育局招生办法，入学条件：“租住房为入学依据的需提供不动产登记中心备案的租赁合同”，此条件是否有法律依据。开具备案的租房合同，导致不动产中心排队人满为患，无形给不动产工作人员和入学家长带来工作负",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国城市房地产管理法",
+     "lib_no": "城市房地产管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "商品房屋租赁管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80723",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80723",
+   "question": "张掖市甘州区北环路阳光曦华源居住组团住宅小区系张掖市鑫发房地产有限公司开发修建的小区，2018年该开发商未经招投标标程序和备案，引进前期物业张掖市鑫发物业管理有限责任公司，为小区提供6年多物业服务，并将564平米的物业管理用房的一部分出租超",
+   "cited_hits": [
+    {
+     "name": "物业管理条例",
+     "lib_no": "物业管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "建设工程设计方案核定通知书",
+    "物业用房证明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80711",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80711",
+   "question": "请问，张掖市行政区域内的食品生产经营者生产经营的食品未在产品或其说明书、包装物上标注所执行标准的名称，是否违反《中华人民共和标准化法实施条例》第二十四条的规定？请及时作出答复，将纸质答复书扫描后发送至本人的电子邮箱, 非常感谢！",
+   "cited_hits": [
+    {
+     "name": "食品安全法",
+     "lib_no": "食品安全法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "预包装食品标签通则",
+     "lib_no": "GB 7718-2025",
+     "weak": false
+    },
+    {
+     "name": "食品安全法",
+     "lib_no": "食品安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "食品标识管理规定",
+    "甘肃省食品小作坊小经营店小摊点监督管理条例",
+    "甘肃省食品小作坊小经营店小摊点监督管理条例",
+    "GB 7718-2011"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80610",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80610",
+   "question": "本人近期计划饲养一只人工繁育的绿颊锥尾鹦鹉（俗称“小太阳鹦鹉”）作为陪伴宠物。经查询《国家林业和草原局关于规范禁食野生动物分类管理范围的通知》（林护发〔2020〕90号）及《国家重点保护野生动物名录》，获悉绿颊锥尾鹦鹉（Pyrrhura m",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国野生动物保护法",
+     "lib_no": "野生动物保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "国家林业和草原局关于妥善解决人工繁育鹦鹉有关问题的函"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80605",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80605",
+   "question": "尊敬的领导您好！我是甘州区妇幼保健院的一名普通职工，按照《职工带薪年休假条例》第二条 机关、团体、企业、事业单位、民办非企业单位、有雇工的个体工商户等单位的职工连续工作1年以上的，享受带薪年休假（以下简称年休假）。单位应当保证职工享受年休假",
+   "cited_hits": [
+    {
+     "name": "职工带薪年休假条例",
+     "lib_no": "职工带薪年休假条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80594",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80594",
+   "question": "张掖市甘州区北环路阳光曦华源居住组团住宅小区系张掖市鑫发房地产有限公司开发修建的小区，其中开发商张掖市鑫发房地产有限公司在小区临街开发修建了A,B两座对外宾馆，宾馆于2024年9月开始动工装修，其中位于小区东门南侧的A座宾馆计划在小区里面修",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国城乡规划法",
+     "lib_no": "城乡规划法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国城乡规划法",
+     "lib_no": "城乡规划法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "建设工程规划许可证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80580",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80580",
+   "question": "张掖市甘州区北环路阳光曦华源居住组团住宅小区系张掖市鑫发房地产有限公司开发修建的小区，其中开发商张掖市鑫发房地产有限公司在小区临街开发修建了A,B两座对外宾馆，宾馆于2024年9月开始动工装修，其中位于小区东门南侧的A座宾馆计划在小区里面修",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国城乡规划法",
+     "lib_no": "城乡规划法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国城乡规划法",
+     "lib_no": "城乡规划法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "建设工程规划许可证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80494",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80494",
+   "question": "312国道沙井收费站向西一公里处，甘肃华瑞恒祥种业门口处有一处路口，由西往东方向车辆、农用三轮车存在逆行、借道前往加油站加油的现象，由于该国道车流量大，车速过快，并且夜间挡光板存在一定的视野盲区，发生过多次交通事故和人员伤亡。向东200米处",
+   "cited_hits": [
+    {
+     "name": "道路交通安全法",
+     "lib_no": "道路交通安全法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "道路交通标志和标线",
+     "lib_no": "GB 5768.2-2022",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80482",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80482",
+   "question": "各位领导，您好，本人是西安建筑科技大学建筑硕士研究生，出于研究张掖市古民居特征，想要获得张掖市古民居历史建筑名录（文庙巷32号古民居等），感谢！",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国文物保护法",
+     "lib_no": "文物保护法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "历史文化名城名镇名村保护条例",
+     "lib_no": "历史文化名城名镇名村保护条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "张掖市历史建筑保护名录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80442",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80442",
+   "question": "小区内有些住户不能在规定时间内装修，早上七点二十就开始使用高分贝的器具，中午十二点不能正常停工，一直持续到十二点四十左右才能停工，中午一点四十左右又开始装修，严重影响已入住业主的休息",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国噪声污染防治法（2024版）",
+     "lib_no": "噪声污染防治法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "责令停止（改正）违法行为通知书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80432",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80432",
+   "question": "文广新局的领导你们好： 我是一名返乡创业人员，利用北京汇隆科技的智能影像技术开了一家传媒工作室，现在我联合甘州市场举办了一场主题为《丝路霓裳。塞上江南》的汉服走秀活动，想咨询一下，是否需要和贵单位进行报备，如需报备的话需要哪些材料？还有是否",
+   "cited_hits": [
+    {
+     "name": "营业性演出管理条例",
+     "lib_no": "营业性演出管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "丝路霓裳.塞上江南",
+    "丝路霓裳.塞上江南"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80404",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80404",
+   "question": "领导你好，我们几人在2024年8月份到Ⅱ月份在肃南裕固族自治县祁隆建筑公司西岔河项目部，做木工活，活完后帐也算清了，工资结算单也开了，我们把工资的上税票也都开了，可公司一直欠我们7万元钱没给，我们反映到隶南县劳局，经劳动局协调后，前几天给了",
+   "cited_hits": [
+    {
+     "name": "劳动保障监察条例",
+     "lib_no": "劳动保障监察条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "关于实施＜劳动保障监察条例＞若干规定",
+     "lib_no": "劳动保障监察条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "zhangye-igi-23",
+   "id": "82785",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=82785",
+   "question": "近期，在缴纳2026年供暖费的过程中，供暖公司按照《张掖市城市供暖管理办法》，第6章，第四十四条规定，按照房屋建筑面积收取供暖费（含公摊面积），但是按照‌国家发展改革委和建设部联合印发‌的《城市供热价格管理暂行办法》(发改价格〔2007〕1",
+   "cited_hits": [],
+   "cited_missing": [
+    "城市供热价格管理暂行办法",
+    "民用建筑能耗标准",
+    "供热术语标准",
+    "张掖市城市供热管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "82665",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=82665",
+   "question": "物业公司未提供业主大会表决书面材料，擅自在小区楼前公共空地划定车位收取租金，违规利用业主共有部位经营，侵占业主公共收益，如何维护业主合法权益？",
+   "cited_hits": [],
+   "cited_missing": [
+    "张掖市住宅小区机动车停车收费管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "82612",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=82612",
+   "question": "尊敬的领导您好! 我是甘州区盛和名园14号楼6单元502室的居民，我家供暖情况多年以来一直不好，家里温度不高,甚至只有12度左右，因为供暖温度过低从而导致孩子生病，老人住院，冬天靠电暖气维持，最终严重影响了家庭的正常生活。自集中供暖开始，每",
+   "cited_hits": [],
+   "cited_missing": [
+    "张掖市城市供热管理办法",
+    "民法典",
+    "供用热合同"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "82361",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=82361",
+   "question": "我是党寨镇上寨村九社居民，今年村委会通知要停止原饮用水官网，建设新的饮用水管网，向村民收缴1000元，村民户内管网费用由用户自主承担，我想咨询这1000元收费是否合理。",
+   "cited_hits": [],
+   "cited_missing": [
+    "张掖市农村饮用水供水管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "82191",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=82191",
+   "question": "我投诉富德生命人寿保险股份有限公司拒赔。保单号P00000047739625.被保人殷彩花于2017年5月向富德生命人寿保险股份有限公司投保，投保险种名称：①富德生命康健无忧A款重大疾病保险、②富德生命附加意外门急诊医疗保险、③富德生命附加",
+   "cited_hits": [],
+   "cited_missing": [
+    "富德生命康健无忧A款重大疾病保险",
+    "富德生命附加住院费用补偿医疗保险（D款）",
+    "富德生命附加住院每日补贴医疗保险（A款）",
+    "富德生命附加意外门急诊医疗保险",
+    "富德生命康健无忧A款重大疾病保险",
+    "富德生命附加住院每日补贴医疗保险（A款）",
+    "富德生命附加住院费用补偿医疗保险（D款）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "82095",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=82095",
+   "question": "领导好，我们是融达小区住户。融达小区是老旧小区，当初水表安装在户内，水费由物业公司代收。据物业公司说，从住户家收取的水费出现了倒挂，欠自来水公司9万多，我们不明白的是，住户交纳的水费每吨还贵一毛钱，为什么会出现倒挂。现在物业公司要把水费的代",
+   "cited_hits": [],
+   "cited_missing": [
+    "张掖市城市供水管理办法",
+    "关于城市供水水表出户改造临时价格标准的批复"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "82009",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=82009",
+   "question": "投诉内容： 本人已全额缴纳金硕铂悦府房屋全款、地下室费用及住宅专项维修资金，已满足全部收房条件。在前往物业领取钥匙时，物业强制收取装修期间电梯管理费、楼道二次粉刷费，否则拒绝交房。本人要求物业出示政府相关收费文件及合法依据，物业无法提供，仅",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于规范甘州区物业服务收费行为的通知",
+    "物业服务合同",
+    "金硕铂悦府物业服务合同"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81991",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81991",
+   "question": "尊敬的有关部门领导： 您好！我是本市甘州区杏林南路西花苑小区的一位居民。随着全民健身意识的提高，我和孩子都非常热爱体育运动。但现实情况是，我们家门口附近的公共运动场所较少，难以满足日常锻炼需求。我们发现，张掖医专拥有非常完善的操场和运动设施",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于推进学校体育场馆向社会开放的实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81980",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81980",
+   "question": "尊敬的领导，您好。感谢您百忙之中回复留言！有关2025年张掖市市直医疗卫生单位公开引进高层次人才最终结果公示大概什么时候公布？由于目前属于毕业生春招就业期，本人属应届毕业生，需根据本次人才引进结果决定后续是否需要参加其他单位的就业招聘。感谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "张掖市2025年市直医疗卫生单位公开引进高层次人才公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81853",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81853",
+   "question": "我想购买愿景城的一套房子，但是了解到愿景城房屋产权均为40年，在张掖40年产权房屋到期后的政策是什么样的，到期后房屋归谁所有，要不要交钱，我不是太清楚，找不到哪里可以了解到这方面的情况，且愿景城的房屋水电费是居民水电费标准还是商用水电标准，",
+   "cited_hits": [],
+   "cited_missing": [
+    "张掖市住房公积金个人住房贷款管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81701",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81701",
+   "question": "以前买房子或买商铺会取得房屋所有权证和国有土地使用证，那张掖市是具体那一年那一月办理登记的商铺或房子，会取得不动产权证书，也就是说张掖市具体那一年那一月实行办理商铺或房子的登记是两证合一？（房屋所有权证和国有土地使用证合为不动产权证书）",
+   "cited_hits": [],
+   "cited_missing": [
+    "张掖市机构编制委员会关于组建市级不动产登记机构的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81686",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81686",
+   "question": "我是北环路花园小区住户，我想请问新能源汽车停车费的收费标准以及优惠标准，这是以政府相关规定为准，还是物业公司说了算，以物业的说法车牌号甘G-F开头的新能源汽车不算新能源汽车，不能享受新能源汽车停车费优惠政策，请相关部门给予答复，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发张掖市住宅小区机动车停放服务收费管理办法的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81685",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81685",
+   "question": "请问在甘快办申领3C数码和智能产品的购新补贴优惠券资格码发放时间是什么时候，在什么地方可以查到，有公告吗？为什么在12点点进去一直领不到？真的在发吗？？请告知具体发放时间",
+   "cited_hits": [],
+   "cited_missing": [
+    "2026年张掖市消费品以旧换新补贴政策指南"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81664",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81664",
+   "question": "金地盛世园小区自从入住以来，小区内没有规划停车位，无法停车，每次问得到的回复都是让我们小区大门外边找的乱停去呢，金地盛世园北门现在停车现状不堪入眼，车停外面交警又贴罚单，这让住户们停车真是苦不堪言，多次找物业、社区，也打了12345热线咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "张掖市住宅小区机动车停放服务收费管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81658",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81658",
+   "question": "尊敬的领导，你好，想咨询一下2025年9月份申请的就业见习补贴什么时候发放？",
+   "cited_hits": [],
+   "cited_missing": [
+    "甘肃省就业补助资金管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81646",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81646",
+   "question": "尊敬的市长，您好！我是甘州区南关开发公司家属楼居民代表。我们小区暖气不热已经有一个月多月了，我们多次投诉，暖气公司入户以室内温度18度为由说是合格！但是，我们小区居民冻得室内都要穿棉衣。晚上十一点之后就不烧了，暖气片摸一下温度只有不冰而已。",
+   "cited_hits": [],
+   "cited_missing": [
+    "张掖市城市供热管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81606",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81606",
+   "question": "我是七九六小区一名住户，今年冬天全额缴纳暖气费后，家中实际温度早上为12度，中午为16度，远低于国家要求的供暖温度18度，其他住户温度都在20度以上，我联系维修人员，维修人员上面看了一圈就走并没有解决任何问题，第二次打电话直接不上门不管，最",
+   "cited_hits": [],
+   "cited_missing": [
+    "张掖市城市供热管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81599",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81599",
+   "question": "张掖市幸福阳光房地产开发有限责任公司给业主交房时收取电表费450元，水表费450元，幸福家园物业每年收取公摊电费120元，据我了解，其他新建小区交房时都未收取水表费和电表费，公摊电费；并且每年公摊电费只有十几元或者几十元。另外张掖市幸福阳光",
+   "cited_hits": [],
+   "cited_missing": [
+    "张掖市住宅专项维修资金管理办法",
+    "张掖市住宅专项维修资金管理办法",
+    "甘州区住宅小区物业服务标准化建设实施方案",
+    "关于规范甘州区物业服务收费行为的通知",
+    "购房合同"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81580",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81580",
+   "question": "您好！我家暖气费已在供暖前缴纳完毕，但今冬供暖效果实在不理想，室内温度始终仅17℃左右，出太阳时才能接近18℃。我自11月起多次向供暖公司反映，维修师傅起初判断是分水器堵塞，于是我们自费更换了新分水器（事后证明旧分水器并未堵塞）。然而问题依",
+   "cited_hits": [],
+   "cited_missing": [
+    "张掖市城市供热管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81571",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81571",
+   "question": "尊敬的市领导： 您好！ 我是甘肃省张掖市新城丽景小区的的住户。 我向领导反映，自供热期以来我家供暖极差，在家还要穿棉衣，如果不供暖，家里面温度是12° 13°，供暖暖之后，温度就上升了几度，实在无助，特向各位领导求助。且怀疑供热主管网压力严",
+   "cited_hits": [],
+   "cited_missing": [
+    "张掖市城市供热管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81560",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81560",
+   "question": "本人于2025年11月30日咨询关于蓝山公馆六期自购车位是否可以安装新能源的问题，甘州区人民政府西街街道办事处以小区建设时为规划为由告知我，不可以安装，目前也不具备改造条件，对于此问题，本人查阅相关政策法规： 2018年，国家住房和城乡建设",
+   "cited_hits": [],
+   "cited_missing": [
+    "前期物业管理服务合同",
+    "前期物业服务合同",
+    "张掖市住宅小区物业服务星级标准（修订）",
+    "张掖市住宅小区物业服务星级标准",
+    "张掖市住宅小区物业服务星级标准（修订）",
+    "甘州区住宅小区物业服务一、二、三、四星级考核标准",
+    "考核标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81557",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81557",
+   "question": "家里暖气差，分户门口至楼梯口处防火门损坏关不严，分户门变形，变形处有1-2cm门缝，开发商交房没有将房内所有钥匙转交，以上问题找物业多次都能决不了，请相关部门给予解决，谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "张掖市城市供热管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81548",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81548",
+   "question": "领导你好，我们现住在甘州区粮食局粮油开发公司家属楼2楼，2O2室，双方年龄巳经73岁了，由于几年长期室内暖气不热，经过多次找热力公司及片管员处理，尽尽是过来放放水而异走人，根本就木有解决实质问题，最近几天经过热力公司有关人员指导进行了室内所",
+   "cited_hits": [],
+   "cited_missing": [
+    "张掖市供热管理办法",
+    "张掖市城市供热管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81509",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81509",
+   "question": "你还，本人由于工作需要租房，需要用公积金支付房租，在支付宝公积金程序中提交了租房的公积金提取申请，工作人员要求提供网签备案的租房合同，由于房东不在本市，不方便提供网签备案的合同，只有普通合同，请问能否继续提取公积金？",
+   "cited_hits": [],
+   "cited_missing": [
+    "张掖住房公积金提取业务操作规程"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81494",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81494",
+   "question": "尊敬的市长：您好，我是北兴家园4号楼2单元601的住户，2025年度我房子里暖气温度很低，在家里属于冻人的状态，2025年12月6日供热站在不通知我的情况下将我的暖气管道直接截断，我们打了供热站的电话，他们的工作人员在电话里明确表示，不交暖",
+   "cited_hits": [],
+   "cited_missing": [
+    "张掖市城市供热管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81493",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81493",
+   "question": "尊敬的市长：您好，我是北兴家园4号楼2单元601的住户，2025年度我房子里暖气温度很低，在家里属于冻人的状态，2025年12月6日供热站在不通知我的情况下将我的暖气管道直接截断，我们打了供热站的电话，他们的工作人员在电话里明确表示，不交暖",
+   "cited_hits": [],
+   "cited_missing": [
+    "张掖市城市供热管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81462",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81462",
+   "question": "尊敬的工作人员： 您好！ 本人于8月初以旧换新购置电动自行车，甘快办系统于8月11日之后升级为以资格码为准进行国补资格核验，自8月13日开始至今每天中午12点整准时守候抢资格，每天都是刚到12点00分00秒就提示为空，后咨询相关县区有关部门",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于继续开展甘州区2025年商务领域消费品以旧换新补贴活动的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81431",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81431",
+   "question": "相关部门领导你们好： 针对以下几项物业服务不到位的问题，作为业主进行投诉，望解决！ 1.小区内减速带采用钢管作为自制减速带，车辆通过时声音大、对车辆损害大，同时影响小区美观； 2.小区单元门多年来破损，没有门禁，人员进出随意，住户安全问题难",
+   "cited_hits": [],
+   "cited_missing": [
+    "甘肃省发展和改革委员会关于规范电价管理有关问题的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81429",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81429",
+   "question": "尊敬的各位领导，悉闻张掖市甘州区村干部落实最低报酬标准事宜，但为何不能一视同仁，跨村任职的村干部虽然一个月合计工资是3000元，但请甘州区财政局的相关领导仔细查询一下跨村任职的村干部，工资2500元，交通补贴500元，这是文里面写的非常清楚",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于调整村社干部报酬发放政策的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81426",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81426",
+   "question": "寒冬供暖本是民生底线，中环寰慧（张掖）节能热力有限公司却对顺祥鑫苑业主的冷暖视若无睹。近两年来，该小区供暖季室温长期以达到18度为标准，不作为 业主们多次通过电话、上门等方式反馈，该公司始终以空话推诿，未开展任何实质性排查整改，完全无视供暖",
+   "cited_hits": [],
+   "cited_missing": [
+    "张掖市城市供热管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81421",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81421",
+   "question": "尊敬的领导 本人是张掖是甘州区新港城三期五号楼一单元702的住户 暖气问题每年都解决不了 联系暖气公司好几次了 还是解决不了问题 每年都要反应一次 反应完暖气公司才能给我解决一下问题 这几天家里很冷 待不住人 麻烦领导帮忙解决一下",
+   "cited_hits": [],
+   "cited_missing": [
+    "张掖市城市供热管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81419",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81419",
+   "question": "尊敬的各位领导，悉闻张掖市甘州区村干部落实最低报酬标准事宜，但为何不能一视同仁，跨村任职的村干部虽然一个月合计工资是3000元，但请甘州区财政局的相关领导仔细查询一下跨村任职的村干部，工资2500元，交通补贴500元，这是文里面写的非常清楚",
+   "cited_hits": [],
+   "cited_missing": [
+    "甘肃省村级干部管理办法",
+    "甘州区村社干部报酬和村级办公经费管理制度",
+    "甘州区村社干部报酬和村级办公经费管理制度"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81418",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81418",
+   "question": "尊敬的领导，育儿补贴政策我已申请并审核通过，麻烦问一下大概什么时候能发放下来",
+   "cited_hits": [],
+   "cited_missing": [
+    "甘肃省育儿补贴方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81414",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81414",
+   "question": "尊敬的市长： 你好，为什么我家的暖气一打投诉电话8886666就会热一天，不打就不会热。难道需要我天天打投诉电话吗？另外我也不知道是谁胆大包天，在我们单元的供暖主管上私自接分支，穿墙过去给别的地方供暖？每年一到冬天就郁闷死了，但凡我条件好些",
+   "cited_hits": [],
+   "cited_missing": [
+    "张掖市城市供热管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81377",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81377",
+   "question": "河西学院西侧100米处行人通道的标识牌高度过低，行人需要低头或弯腰才能观察车辆情况，因标识牌遮挡，影响驾驶人员观察行人视线，建议进行调试。",
+   "cited_hits": [],
+   "cited_missing": [
+    "道路交通标志标线"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81363",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81363",
+   "question": "请问张掖市教育考试院：1、我家孩子是张掖市户籍，曾经在外省求学。2、孩子已于2025年6月毕业，在外省参加了高考，现在属于往届生。3、根据甘肃省2026年高考报名通知，我家孩子在外省就读的是中等职业学校，可否在家乡报名参加2026年普通高考",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好2026年甘肃省普通高校招生统一考试报名工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81360",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81360",
+   "question": "尊敬的各位领导： 您好！我于2025年9月参加全国中小学教师资格考试笔试，考前已按考试要求系统备考、认真复习。成绩公布后，经查询，我科一成绩为67分、科三成绩为69分。 为确保成绩统计的准确性，现正式向贵单位提出成绩复核申请，恳请各位领导在",
+   "cited_hits": [],
+   "cited_missing": [
+    "2025年下半年中小学教师资格考试笔试成绩发布及复核通告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81340",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81340",
+   "question": "尊敬的市领导： 您好，我是滨河新区锦绣南苑9号楼一住户，2022年至今，我一直响应取暖公司物业的收缴暖气费通知，8月份提前缴费，但是家里暖气一直不热。2025年以前，自费找了三次暖气清理工人清理自家暖气，暖气公司也上门三次修理暖气，但均没有",
+   "cited_hits": [],
+   "cited_missing": [
+    "张掖市城市供热管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81328",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81328",
+   "question": "您好，请问一下张掖现在还发放电动车国补名额吗？是在每天都要发放还是集中在一天。集中的话，具体实在哪一天。谢谢您。",
+   "cited_hits": [],
+   "cited_missing": [
+    "机动车销售统一发票"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81302",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81302",
+   "question": "最近几天温度下降太厉害，室外最低温度今天已经零下5度，室内温度14度，酒泉市已于10月20日零时起提前供暖了，张掖市是否考虑一下也提前供暖。",
+   "cited_hits": [],
+   "cited_missing": [
+    "张掖市城市供热管理办法",
+    "张掖市城市供热管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81292",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81292",
+   "question": "尊敬的各位领导：您好！ 我是金沙苑小区的一名住户，现就本小区供暖服务存在的严重问题，向您进行反映，并恳请相关部门介入调查、协调解决。 一、供暖温度长期不达标，多次报修无效 自2024年供暖季开始，我家中的供暖温度一直未能达到国家规定的舒适标",
+   "cited_hits": [],
+   "cited_missing": [
+    "张掖市城市供热管理办法",
+    "张掖市城市供热管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81226",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81226",
+   "question": "尊敬的领导： 你好！ 我是民乐县金地名都28号楼2单元501室的住户。由于房屋空置，今年冬天没有供暖需求，于9月27日下午打电话（4423130）给民乐县供暖公司，要求报停暖气。电话接通后一位女性工作人员以“已经过了9月20日的报停时间，金",
+   "cited_hits": [],
+   "cited_missing": [
+    " 张掖市城市供热管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81193",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81193",
+   "question": "市委组织部、市财政局、市审计局： 各位领导你们好！本人因取得学历证书，相关费用已参照原张地财行(1991)60号文件，于2021年按照70%比例报销。请问现在需要退还吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于严格规范领导干部参加社会化培训有关事项的通知",
+    "关于严格规范、专项整治领导干部参加社会化培训的通知",
+    "关于严格规范专项整治领导干部参加社会化培训的通知",
+    "干部教育培训工作条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81189",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81189",
+   "question": "请问张掖市科技局，我市在发明专利和实用新型专利方面有何补助或奖励政策，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "张掖市促进科技创新若干措施"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81182",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81182",
+   "question": "尊敬的张掖市政府： 我是甘州区滨河新区的一名住户。又到了供暖季，缴纳取暖费的时间到了，我始终有一个疑问：大多数地方的供暖费收取都是按照室内套内面积收取，而这里的供暖费是按照建筑面积收取，这显然是不合适的，因为公摊面积部分并没有供暖。况且，每",
+   "cited_hits": [],
+   "cited_missing": [
+    "张掖市城市供热管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81178",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81178",
+   "question": "甘快办国补资格码领取页面明确：8月11日系统升级前，按照旧系统流程已购买补贴产品，但仍未提交发票、签购单等材料的消费者，可通过点击\"提交材料\"上传并提交补贴申请。请问，8月11日前购买的补贴类家电，还需要抢资格码吗？还是直接可以提交材料申请",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于启用全省消费品以旧换新升级系统的公告",
+    "关于启用全省消费品以旧换新升级系统的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81176",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81176",
+   "question": "尊敬的商务局工作人员，你们好！请问最近张掖市是否有新车购买补贴？如果有的话能否介绍一下详细政策，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "2025年甘肃省加力扩围支持消费品以旧换新实施细则",
+    "减免车辆购置税的新能源汽车车型目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81174",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81174",
+   "question": "本来高中生从早上6点半起床到晚上12点睡觉已经很累，却还要单休而且还有作业，希望各位领导能解决一下",
+   "cited_hits": [],
+   "cited_missing": [
+    "甘肃省教育厅关于进一步规范普通中小学办学行为的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81166",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81166",
+   "question": "您好，由于课程需要，《张掖国家历史文化名城保护规划（2021-2035）》的文本和图集是否可以公开或者发于我，仅用作课程分享。",
+   "cited_hits": [],
+   "cited_missing": [
+    "张掖历史文化名城保护规划（2021-2035）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81091",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81091",
+   "question": "最近有声称是社区工作人员的上门收取垃圾处理费，还请给解释下垃圾处理费从何而来，市区上面有没有相关的文件，有文件的话请展示文件，而且我们业主缴纳的物业费不是包含垃圾处理费用吗，这个费用收取是否合理，收取后的费用主要用途",
+   "cited_hits": [],
+   "cited_missing": [
+    "甘州区城区生活垃圾处理费委托代征工作实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81077",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81077",
+   "question": "尊敬的各位领导： 您好！ 自“两新”政策发布，相关大规模设备和消费品给予国家补贴。百忙之中来信，是希望向相关部门反映我在申请电动自信车补贴时遇到的困难，恳请您的关注与帮助。 我是张掖市辖区的一名2025年应届毕业入职于普通民营企业员工。于2",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于启用全省消费品以旧换新升级系统的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81074",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81074",
+   "question": "本人于2024年12月初通过法拍竞得吉祥苑小区9号楼201室住房一套，竞拍前及至今该房屋入户暖气管处于被热力公司切断状态，前几天前往吉祥苑内换热站沟通供暖事宜，被告知需缴清2023/2024/2025连续三年的全部供暖费及相应滞纳金，不缴清",
+   "cited_hits": [],
+   "cited_missing": [
+    "张掖市城市供热管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81069",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81069",
+   "question": "举报某出租车司机坐地起价。我在康乐草原游玩，网上发帖想找顺分车司机带我深度游玩。有位出租车司机联系我，可以深度游 回市区，谈好价格一口价180元。达到九排松时，司机通知我要加价40。我有司机的联系方式，如果投诉受理，可以联系我沟通",
+   "cited_hits": [],
+   "cited_missing": [
+    "巡游出租汽车经营服务管理规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81047",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81047",
+   "question": "领导您好，本人于2024年在甘州区购房一套，当时因为没有公积金，所以用商业贷款购买，目前本人商业贷款已经还贷一年，公积金也已经连续缴纳6个月，想咨询一下商业贷款转公积金贷款的事项，目前购房小区（怡和园小区）还没有办理房产证。如果转不了，想问",
+   "cited_hits": [],
+   "cited_missing": [
+    "张掖市住房公积金管理中心关于进一步规范“商转公”业务办理有关事项的通知",
+    "张掖市住房公积金提取管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81026",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81026",
+   "question": "尊敬的相关部门领导： 您好！ 我是一名准备申请 2025 年生源地助学贷款的研究生三年级学生，于 8 月 21 日前往办理相关手续，然而在办理过程中遭遇了诸多问题，给我及其他办理贷款的同学带来了极大的不便，在此向您反馈并提出一些建议 ，希望",
+   "cited_hits": [],
+   "cited_missing": [
+    "认定预申请表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81025",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81025",
+   "question": "尊敬的相关部门领导： 您好！ 我是一名外市的公务员，目前正处于试用期阶段。由于职业发展规划以及个人生活等多方面因素的综合考虑，我打算辞去现职，回到家乡张掖发展 。在此，我有一些关于未来报考张掖公职岗位的问题，想向您咨询，烦请您在百忙之中予以",
+   "cited_hits": [],
+   "cited_missing": [
+    "新录用公务员试用期管理办法（试行）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80990",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80990",
+   "question": "尊敬的商务局领导：自8月11日起在甘快办APP上申领家电以旧换新补贴资格码以来，申领太难太难了，咨询以下问题：一是家电以旧换新补贴什么时间结束。二是我们张掖市中午12点到14点是每天都能申领资格码，还是另有规定，或是每月哪天或每周周几才能申",
+   "cited_hits": [],
+   "cited_missing": [
+    "2025年甘肃省加力扩围支持消费品以旧换新实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80981",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80981",
+   "question": "张掖市委书记及相关领导： 我是张掖市高台县东辰嘉苑1号楼3楼的业主。2025年6月24日-7月18日本人多次反映高台县东辰嘉苑二楼商户甘肃天泽汇农种业有限公司擅自违法悬挂广告牌于三楼住户阳台外立面。经高台县巷道镇人民政府干预，广告牌仅下移5",
+   "cited_hits": [],
+   "cited_missing": [
+    "甘肃省城市市容和环境卫生管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80873",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80873",
+   "question": "尊敬的市委书记及相关领导： 我是高台县东辰嘉苑1号楼3楼的业主，现就坐落于高台县东辰嘉苑1号楼2楼的承租商户甘肃天泽汇农种业有限公司将其广告牌违法悬挂至其所在的三楼住户阳台外侧问题，向您们紧急反映。该问题已通过张掖12345热线及县信访等渠",
+   "cited_hits": [],
+   "cited_missing": [
+    "整改通知书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80872",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80872",
+   "question": "1.关于顺祥嘉苑乱收费问题--本人认为顺祥嘉苑小区存在以下两点乱收费的情况：1）门禁系统录脸需要每人交20元。2）地下室物业费按照1.5元每平米收费，收费是否合理？是否有相关文件规定？ 2.关于停车场商住两用问题：顺祥嘉苑前后共有两个酒店，",
+   "cited_hits": [],
+   "cited_missing": [
+    "中华人民共和国物权法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80864",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80864",
+   "question": "张掖市实施无偿献血三免政策两三年以来，一直未有公开渠道查询到张掖市无偿献血三免政策（张掖市无偿献血荣誉卡）可游览景区名单，希望能够在张掖市中心血站微信公众号公布实施三免政策景区名单、免门诊诊查费医院名单、免费乘坐的公交公司、线路名单，并可以",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于落实全国无偿献血获奖者表彰奖励政策的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80851",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80851",
+   "question": "您好，请问下“通知”第七条中的“全日制普通高校大专及以上毕业证书”这个条件，包含自考本科毕业证吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "张掖市人民政府办公室关于印发张掖市鼓励支持体校运动员继续深造和就业安置及教练员奖励实施办法的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80843",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80843",
+   "question": "您好，我想咨询一下，我户籍是事业编制人员，现配偶为现役军人且处于二类区艰苦边远地区，请问一下我享有去配偶部队探亲的探亲假？具体多少？如何休？能否给我一个红头文件？便于我向单位出示享受相关福利待遇谢谢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于职工探亲待遇的规定",
+    "甘肃省实施细则",
+    "关于肃南县机关事业单位干部请休假管理制度的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80812",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80812",
+   "question": "1、住建部门明知物业超前收取暖气费不合规，确默许物业公司肆意妄为，不能采取有力手段，化解矛盾，600户业主，物业违规提前收取几百万的暖气费！住建部门有能力解决，确多次推诿扯皮，为房地产公司站台。2、在协调会上，政府公职人员表示，其本人也未缴",
+   "cited_hits": [],
+   "cited_missing": [
+    "金硕铂悦府购房协议书",
+    "张掖市城市供热管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80752",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80752",
+   "question": "张掖市中考招生平台无法重置密码造成无法填报志愿，显示业务停机",
+   "cited_hits": [],
+   "cited_missing": [
+    "张掖市2025年高中阶段学校招生录取工作方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80751",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80751",
+   "question": "我弟弟刘俊灵今年参加中考，今天打算在张掖市中考招生平台没进行登陆报名，我们试了很多密码，什么身份证后六位，学籍号后六位，都不可以，然后我们点忘记密码，但是手机号码又不正确。因此，我反应让学校教务处重置一下密码，我们就可以登进去填写志愿，但是",
+   "cited_hits": [],
+   "cited_missing": [
+    "张掖市2025年高中阶段学校招生录取工作方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80745",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80745",
+   "question": "张掖市委办发〔2021〕71号文件内容与2025年5月2日中共中央、国务院发布《党政机关厉行节约反对浪费条例》内容有冲突。 其中，国务院发布的条例内容中没有提及商务接待这一接待形式，也没有提及其他可以单独制定特殊接待形式的内容，而张掖市委、",
+   "cited_hits": [],
+   "cited_missing": [
+    "党政机关厉行节约反对浪费条例",
+    "党政机关厉行节约反对浪费条例",
+    "张掖市市级党政机关接待管理暂行办法",
+    "党政机关厉行节约反对浪费条例",
+    "张掖市市级党政机关公务接待管理办法",
+    "张掖市市级党政机关商务接待管理暂行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80744",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80744",
+   "question": "我是西站铂悦府准备装修新住户，投诉金辉物业，1、2025年6月26日物业公司以领取钥匙为依据，必须强制缴纳2025到2026年暖气费、物业费，不交费不能领取钥匙。2、购房协议只是明确缴费标准，没有缴纳时间。3、物业公司相关人员态度恶劣，好似",
+   "cited_hits": [],
+   "cited_missing": [
+    "金硕铂悦府购房协议书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80743",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80743",
+   "question": "我作为交通巷（金脉步行街）内居民（已居住20多年）街道内部有居民楼（日杂公司家属楼，赢丰居民楼）与停车场（金都停车场，金脉停车场），居民楼院内也有居民自用机动车与非机动车车位。 现在金脉步行街南口被物业封闭，需要回家只能通过交通巷（金脉步行",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于修建商业步行一条街立项的批复"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80732",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80732",
+   "question": "新购金硕铂悦府房屋，近期交房，装修后今年不住，请问是否需要交暖气费？是否可以报停？",
+   "cited_hits": [],
+   "cited_missing": [
+    "购房协议",
+    "张掖市城市供热管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80713",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80713",
+   "question": "滨河小镇的公共维修基金是开发商代收的，这个合规吗，还有收费标准开发商说是89/㎡，这个收费标准是开发商自己定的还是根据住建局规定的收费标准走，这个收费标准有没有相关文件，是根据什么时候的收费标准走，现在住建局发布的收费标准是小高层是60/㎡",
+   "cited_hits": [],
+   "cited_missing": [
+    "张掖市住宅专项维修资金管理办法",
+    "张掖市住宅专项维修资金管理办法",
+    "张掖市住宅专项维修资金管理办法",
+    "张掖市住宅专项维修资金管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80705",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80705",
+   "question": "尊敬的领导，您好： 本人于2024年十一月下旬购买长安新能源旗下新车，2024年12月16日所有资料齐全后首次在甘快办小程序提交置换补贴申请，12月17号收到短信未通过，修改后第二次提交；12月31号收到短信未通过审核（原因是不能有空格），",
+   "cited_hits": [],
+   "cited_missing": [
+    "张掖市2024年消费品以旧换新超支资金兑付方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80695",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80695",
+   "question": "领导，你好！专利发明证书已经拿到手，也已经做了转化应用。职称评审需要做登记，想咨询哈就目前这个发明专利还能在贵单位做登记吗？如果能做登记需要提交哪些资料，请告知，多谢！！！！1",
+   "cited_hits": [],
+   "cited_missing": [
+    "职称评审监管暂行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80693",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80693",
+   "question": "金地盛世园小区物业费每月每平米1.4元，一年物业费2000左右，此小区业主曾多次问物业工作人员索要物业费里所包含的项目明细，物业工作人员每次不是含糊其辞，就是不予理睬，电费水费也只有收据没有发票，并且物业人员以不交物业费不给交住户水电费为由",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于嘉州花园小区等14个普通住宅小区物业服务星级标准核定等级的批复",
+    "甘州区住宅小区物业服务星级标准和物业服务收费标准对照表",
+    "甘州区城区生活垃圾处理费委托代征工作实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80689",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80689",
+   "question": "举报人：余宝明（该订单预定人） 联系方式：19029332788 被举报酒店：张掖崇文酒店（地址：滨河新区宣化路和肃南南路交汇处西北角崇文丽景B区9号楼二层） 事由：酒店单方违约、强制消费、服务态度恶劣 一、事实经过 1. 预定与到店 本人",
+   "cited_hits": [],
+   "cited_missing": [
+    "健康教育成长"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80667",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80667",
+   "question": "领导您好！我是甘州区润泽庭院小区居民，怀着诚挚的心情向您反映家庭实际困难，恳请协调解决二胎孩子（2018年12月出生）2025年秋季入学事宜。具体情况如下： 我家大孩于2023年依据当时学区划分政策入读南关小学（现就读二年级）。近日获悉学区",
+   "cited_hits": [],
+   "cited_missing": [
+    "张掖市义务教育阳光招生专项行动（2025）实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80663",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80663",
+   "question": "你好，我想咨询下张掖市2025年《关于激发市场活力扩大住房消费促进房地产市场平稳健康发展的若干措施》的具体政策，其中支持多孩、孝老家庭改善性换房需求，由各县区制定具体实施措施，原则对符合生育政策的多孩(二孩及以上，下同)家庭，每新购一套改善",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于促进全市房地产市场平稳健康发展的若干措施的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80629",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80629",
+   "question": "领导好：本人意向在张掖市民乐县从事烟花爆竹经营批发工作，现在在张掖镇原县、民乐县关于办理《烟花爆竹经营(批发)许可证》有以下问题：1、能不能办理烟花爆竹批发公司布点、需要哪些手续；2、若可以办理，该证件办理需准备哪些资料？祝工作顺利，谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "烟花爆竹经营许可实施办法",
+    "烟花爆竹经营（批发）许可证",
+    "烟花爆竹经营许可实施办法",
+    "烟花爆竹经营（零售）许可证",
+    "民乐县烟花爆竹零售店布点规划"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80619",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80619",
+   "question": "据悉，近年来张掖市民政局深化地名普查成果转化应用，整理地名普查档案143卷，编纂《张掖市标准地名录》《张掖标准地名图集》《张掖市行政区划图》等地名图集，收录地名词条2.3万余条，收集地名资料4.3万份，为提供便捷高效的地名公共服务奠定良好基",
+   "cited_hits": [],
+   "cited_missing": [
+    "甘肃省标准地名录",
+    "中华人民共和国地名词",
+    "甘肃省标准地名图集",
+    "张掖市行政区划图",
+    "张掖标准地名图集",
+    "甘肃省标准地名图集",
+    "张掖标准地名图集"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80606",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80606",
+   "question": "尊敬的领导： 您好！ 因最近准备购买新车，麻烦问一下，张掖市的2025年汽车置换补贴政策还有嘛？是什么时间范围？ 是先够买新车还是先过户旧车呢？ 相关手续的时间节点是什么样的呢？ 是线上进行申请还是线下购车厂家指导申请啊？ 置换补贴流程具体",
+   "cited_hits": [],
+   "cited_missing": [
+    "减免车辆购置税的新能源汽车车型目录",
+    "机动车登记证书",
+    "机动车销售统一发票",
+    "机动车登记证书",
+    "机动车登记证书",
+    "机动车销售统一发票",
+    "机动车登记证书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80599",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80599",
+   "question": "市委组织部、市财政局、市审计局： 各位领导你们好！本人于2021年6月取得了甘肃省委党校（甘肃行政学院）录取通知书，于2024年6月取得了甘肃省委党校（甘肃行政学院）在职研究生毕业证书，在省委党校学习期间共缴纳学费16500元，有省委党校正",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于严格规范领导干部参加社会化培训有关事项的通知",
+    "关于严格规范、专项整治领导干部参加社会化培训的通知",
+    "关于严格规范专项整治领导干部参加社会化培训的通知",
+    "干部教育培训工作条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80565",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80565",
+   "question": "尊敬的领导，您好！ 本人系西北师范大学一名在读研究生，因科研工作需要，经过查询贵网站的数据专栏，缺失2000年统计年鉴，现申请2000年《张掖市统计年鉴》和2000-2020年均降水量和年均温数据，希望贵单位能提供电子版至电子邮箱z5704",
+   "cited_hits": [],
+   "cited_missing": [
+    "张掖市统计年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80564",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80564",
+   "question": "在张掖甘州区欧式街安心6号楼优冠体育俱乐部，三月份交暖气费没有效果，现在交暖气费一直联系不上，热力公司没人来处理问题，一直拖到现在也联系不上，导致我们房租到期合同解除不了，恳请政府出面解决相关问题。",
+   "cited_hits": [],
+   "cited_missing": [
+    "张掖市城市供热管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80537",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80537",
+   "question": "您好！我是一名在校研究生，最近正在对您市的张掖世界地质公园进行经济研究，分析其对张掖市经济的带动作用和影响程度。但我目前从统计年鉴和各个网站上搜集到的数据有限，难以支持我完成客观且正确的分析，故需要您的帮助。 目前我需要张掖市2010年-2",
+   "cited_hits": [],
+   "cited_missing": [
+    "张掖市统计年鉴",
+    "2024年张掖市国民经济和社会发展统计公报"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80529",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80529",
+   "question": "你好！张掖市现在对生育二胎的家庭有相关扶持政策吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "甘州区优化生育政策促进人口长期均衡发展的实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80528",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80528",
+   "question": "尊敬的领导，您好！政府倡导大家合法依规经营，结果大家买了正规营运车，可以现在满大街都是非法营运的黑车扰乱市场，正规营运车的权益谁来维护和保证，望领导重视。",
+   "cited_hits": [],
+   "cited_missing": [
+    "高度疑似非法营运车辆台账"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80519",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80519",
+   "question": "现在申请查询或者公开以下信息： 1.根据《物业服务条例》第二十四条 国家提倡建设单位按照房地产开发与物业管理相分离的原则，通过招投标的方式选聘物业服务企业。 住宅物业的建设单位，应当通过招投标的方式选聘具有相应资质的物业服务企业；投标人少于",
+   "cited_hits": [],
+   "cited_missing": [
+    "整改通知书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80510",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80510",
+   "question": "本人于2024年12月23日，在张掖德益商贸有限责任公司购得吉利牌新能源汽车一辆。购买当时向车行询问置换补贴相关事宜，被告知2024年政府补贴活动已停止，后来也再无得知补贴活动开始的消息。直至2025年4月，得知别人已享受到置换补贴。与20",
+   "cited_hits": [],
+   "cited_missing": [
+    "2025年甘肃省加力扩围支持消费品以旧换新实施细则",
+    "机动车登记证书",
+    "机动车销售统一发票",
+    "机动车登记证书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80500",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80500",
+   "question": "尊敬的领导您好，我在三益渠承包的土地，种的小麦和玉米，至今小麦第一个水浇了三分之一，剩余的几乎快要旱死了，我前后找了相关部门20多天，各部门在踢皮球，未曾解决根本上的问题，望有关领导能尽快解决此事，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步加强地下水管理的实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80470",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80470",
+   "question": "公积金政策咨询： 问题一：同一套住房提取额加贷款额合计不超过购房总价，在购买二手房进行公积金提取和贷款时，这里的购房总价是如何确定的？是不是指已备案的存量房买卖合同的上的购房总价？公积金提取和贷款是否与存量房合同购房总价挂钩？ 问题二：依据",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于整合优化住房公积金若干政策的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80464",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80464",
+   "question": "您好！我是2023届6月毕业的高校毕业生，户籍地和居住地都是张掖市甘州区，目前离校两年内未就业未交纳社保，符合大学生就业见习政策，想参加今年的就业见习。因此，想咨询一下2025年张掖市机关事业单位就业见习什么时候开始？如何报名？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "甘肃省财政厅甘肃省人力资源和社会保障厅关于印发＜甘肃省就业补助资金管理办法＞的通知",
+    "甘肃省人力资源和社会保障厅等10部门关于进一步推进百万就业见习岗位募集计划的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80459",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80459",
+   "question": "您好，我是一名研究生，需要研究2003-2023年张掖市农业发展方面的文章。需要一些关于农业方面的数据，如果可以，可以向我提供一些20年的统计年鉴吗？目前需要的具体农业指标如下：节水灌溉面积，农用柴油使用量，农业用电量，粮食成灾面积。在此保",
+   "cited_hits": [],
+   "cited_missing": [
+    "张掖市统计年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80444",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80444",
+   "question": "网上看到了【植树造林 防风固沙】新闻及照片，像是表演，还用六十，七十年代的方法植树效率太低。 感觉这个年代，植树效率应该加快，应该采用植树挖坑机（拖拉机带动）提高植树速度，义务植树所以出人埋树搭支架， 机器挖坑，机器浇水，应该比人工挖坑快很",
+   "cited_hits": [],
+   "cited_missing": [
+    "重点区域生态保护修复项目投资估算指南",
+    "国务院办公厅关于科学绿化的指导意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80440",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80440",
+   "question": "请问叉车证过期还能复审吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "特种设备作业人员考核规则",
+    "特种设备作业人员资格复审申请表",
+    "特种设备安全管理和作业人员证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80433",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80433",
+   "question": "尊敬的张掖市人民政府： 您好！我是张掖市市民，就张掖市电动汽车充电基础设施建设及个人充电桩安装事宜，提出以下几点咨询与建议： 1、关于个人充电桩安装正常咨询 根据甘肃省发布的《甘肃省电动汽车充电基础设施建设运营管理办法》第十二条，明确了个人",
+   "cited_hits": [],
+   "cited_missing": [
+    "甘肃电动汽车充电基础设施建设运营管理办法",
+    "管理办法",
+    "关于提升甘肃省电动汽车充电基础设施服务保障能力的实施方案"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80429",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80429",
+   "question": "武威市永全发电有限责任公司关于皇城抽水蓄能电站建设施工存在严重安全隐患问题的反映尊敬的市长：您好！百忙之中打扰实属无奈之举，对此深感歉意。 我是武威市永全发电有限责任公司双窑湾一号水电站负责人王飞，代表公司向市长反应三个关于皇城抽水蓄能电站",
+   "cited_hits": [],
+   "cited_missing": [
+    "枢纽区域安全生产管理协议",
+    "枢纽区域安全生产管理协议",
+    "3号、4号涵洞区域安全生产管理协议"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80419",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80419",
+   "question": "市长您好！ 我们原不是张掖本地人，因为旅游视频介绍甘肃的原因，去年从杭嘉湖地区过来，在张掖买了房子，准备每年冬天来过冬，游览大西北。 我们在张掖所住的小区位于西环路，是个老小区，住的大多是退休老人。“物业”（其实就是门房）收取了我们每户一年",
+   "cited_hits": [],
+   "cited_missing": [
+    "清洁煤",
+    "GB34170-2017"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80411",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80411",
+   "question": "中国铁塔作为央企，应该本着为人民服务的宗旨，服务人民群众，而不是为了敛财生存，铁塔的电动自行车充电桩服务费高到离谱，每次充完电，电费占总费用的20%-25%，剩余部分全是服务费，问了小区内的工作人员说是价格是由发改委定下的（不知道是不是推脱",
+   "cited_hits": [],
+   "cited_missing": [
+    "甘肃省发展和改革委员会 甘肃省市场监督管理局关于规范全省电动自行车充电收费行为的通知",
+    "甘肃省电动自行车充电收费行为合规指南"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80394",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80394",
+   "question": "我公公与2024年10月与临泽捷临公交退休，2025年1月1日，驾驶证已恢复A1驾照，但是上岗证一直没有恢复，根据国家退休要求延迟3年退休，麻烦问一下上岗证什么时候恢复。",
+   "cited_hits": [],
+   "cited_missing": [
+    "道路运输从业人员管理规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80392",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80392",
+   "question": "张掖市内医疗卫生单位是否有药学专业的人才引进或招聘计划？市内所有医疗机构基本只能看到临床医学专业的招聘计划，偶尔可见护理专业，完全不见药学专业招聘，在之后的招聘工作中药学专业还是否能有机会参与呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "医疗卫生单位人才引进专业",
+    "张掖市2025年上半年事业单位公开招聘工作人员公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80375",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80375",
+   "question": "我们小区的物业一天只管收物业费 家里的窗户坏掉直接关不住 自己用胶带粘 给物业打电话 物业让我们给别人在打电话 电话发过去物业维修的态度太差 恶狠狠的 还骂人 态度太差 小区的消防设施直接没有 电动车到处连的插线板再充电 楼道连烟雾报警器都",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于张掖市志才物业管理有限责任公司工作人员服务态度差等问题的整改通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80368",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80368",
+   "question": "尊敬的各位领导，参加居家适老化改造，2024年10月11日第一次在甘快办APP提交信息已经审核完毕，等待补贴发放期间先关工作人员告知我们发放补贴的银行卡有问题，导致资金不能到账，随即在甘快办APP进行第二次提交信息。2024年11月19日提",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于消费品以旧换新居家适老化改造补贴工作实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80364",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80364",
+   "question": "各位领导好：想咨询一下革命烈士的档案查询问题。情况是这样，我是甘州区明永镇的居民，家族里有个爷爷，是民国时期国立西北农学院的大学生，叫何多士。在大概49年到50年这段时间，加入解放军，并随军去解放新疆，但不多久就成了革命烈士。当时有政府送的",
+   "cited_hits": [],
+   "cited_missing": [
+    "甘州区烈士英名录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80354",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80354",
+   "question": "您好，我是2021年3月通过张掖市卫健委，人才引进到市直单位———张掖市第二人民医院的，是学硕硕士研究生，来之后没有任何补贴，也一直在医院6人间宿舍交钱住宿，现在想买房子，问一下政府有没有针对人才引进的补贴、优惠政策?",
+   "cited_hits": [],
+   "cited_missing": [
+    "市直事业单位人才引进人员在张掖购买唯一首套新房是否有政策补助"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "zhangye-igi-23",
+   "id": "82827",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=82827",
+   "question": "您好！今天我陪着家里老人去河附院体检，特意写这封信，表扬咱们前台的工作人员。 老人年纪大了，腿脚不方便，对体检的流程也搞不清楚，问题问得多，记性也不好。前台的工作人员态度特别好，说话温和有耐心，一遍一遍给老人讲解，没有一点不耐烦。 看到老人",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "82821",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=82821",
+   "question": "尊敬的张掖市卫生健康委员会领导： 您好！我是兰州大学的一名研究生，目前正在开展硕士学位论文数据收集工作，拟以甘肃省各县（市、区）为研究单元，建立2017—2024年连续年度数据库，开展县域气候脆弱性研究。 研究中需要使用“每千人口医疗卫生机",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "82779",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=82779",
+   "question": "甘肃省“支持1万名未就业高校毕业生到基层就业”的项目人员，在项目期内或项目期满后，是否属于事业单位公开招聘人员招考要求的“民生实事项目人员”，麻烦解答，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "82740",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=82740",
+   "question": "您好，想咨询张掖市公安局2026年度是否有辅警公开招聘计划，如果有，预计大概几月份发布招考公告？麻烦予以告知，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "82733",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=82733",
+   "question": "尊敬的张掖市公安局领导： 您好！ 我们是来自江西省萍乡市莲花县的游客，趁着今年的年假，终于圆了多年来的“大西北梦”，想亲眼看看七彩丹霞的壮美。然而，旅途中的一段小插曲，却让我们收获了一份比风景更珍贵的温暖——那是贵局两位警号为FJ0109和",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "82697",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=82697",
+   "question": "尊敬的领导： 您好！ 由于本人想参加张掖市事业单位考试，上半年由于种种原因，未能如愿参加。所以我想问一下，张掖市今年后半年是否还有事业单位招聘考试？在人社局招聘会上投的简历，希望无论被不被录用都能接到通知，给用人单位打电话是无人接听的状态，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "82675",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=82675",
+   "question": "张掖市公安局交管支队： G227线作为联通甘青两省的主干道，旅游旺季车流量大、通行需求高，道路通行安全与效率直接关系群众出行安全和县域交通形象，但经本人长期观察，民乐县境内G227线设置的多处红绿灯十字路口，其设置及信号配时存在明显不合理问",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "82655",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=82655",
+   "question": "准备在张掖买房，麻烦咨询一下张掖市教育局铂林府小区小学初中属于哪个学校的片区",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "82651",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=82651",
+   "question": "尊敬的市长 您好 我是一名考驾照的考生，现在考试到科目三了，现在考试预约成功之后，到考试日期要进行提前排队，在交警支队驾驶人考试中心，因为考生排队是一个铁栏杆围着组成一个通道，好多人都通过通道进行排队，这就导致好多人为了提早排到前面在凌晨三",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "82650",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=82650",
+   "question": "张掖市商务局关于开展“金张掖欢购节”个人乘用汽车购新促消费活动，我是活动开始第一天就提交了相关资料，5月24日云闪付app显示审核通过，这都8月份了，油品补贴究竟啥时候发",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "82648",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=82648",
+   "question": "尊重的甘州区相关领导及部门： 您好！ 首先，非常感谢各位领导和相关部门一直以来为甘州区城市建设与发展付出的辛勤努力。近年来，甘州的城市面貌日新月异，市民的生活品质和旅游生态环境得到了显著提升，作为本地居民，我感到十分自豪。 在日常生活中，我",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "82637",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=82637",
+   "question": "北环路河西学院对面路段，在高峰时段非机动车通行压力大。此前甘州区交警大队在此处非机动车道施划虚线，对非机动车通行进行分向优化，该举措有效改善了非机动车拥堵问题，通行秩序得到明显好转。 但目前出现新问题：交通标线施划完成后，部分机动车依旧在该",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "82632",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=82632",
+   "question": "尊敬的民警同志： 您们好！在此，我怀着无比感激的心情，向甘肃省张掖市肃南县康乐派出所尽职尽责、热心为民的韩宇、车辙警察同志致以最诚挚的感谢和最崇高的敬意！ 2026年8月2日，我不慎在康乐草原遗失了个人手机。手机中储存着我大量的个人重要资料",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "82627",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=82627",
+   "question": "临泽县颐和小区存在犬只管理乱象：有住户长期在小区草坪散养犬只，吸引大量流浪狗聚集，形成犬群。犬只日常在小区追逐游荡、互相撕打，面对行人有呲牙示威行为，具备伤人风险；并且经常在深夜持续吠叫，严重干扰居民夜间休息。 半年前我已经针对该问题进行过",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "82623",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=82623",
+   "question": "尊敬的张掖文旅局和七彩丹霞景区管理处 您好！ 我们是来自重庆的游客，游览七彩丹霞景区期间不慎遗失租车钥匙，当时万分焦急，十分担心耽误后续全部环线行程。 危急之时，客服中心蒋月婷和保安DX00929热心接待我们，细致了解情况、安抚我们情绪，并",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "82504",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=82504",
+   "question": "2025年8月民乐县农商银行三堡支行将我家一张大额存单违法冻结,原因是五户联保一社员逾期未偿还贷款,现我对当初放款流程存疑,要求提供贷款合同原件,及对联保人范正华签字笔迹进行确认。至今冻结已有将近一年，投诉无门，维权成本高昂，我父亲也因此突",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "82375",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=82375",
+   "question": "尊敬的临泽县公安局丹霞派出所警务人员： 您好！ 我是一名即将毕业的研究生，独自前往七彩丹霞旅游景区进行毕业旅行。在景区游玩乘车过程中，我于4号观景台下车时不慎将手机遗落在景区大巴车上。由于我只身出游，身边无人陪同，手机是我“食住行”的关键工",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "82358",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=82358",
+   "question": "各位同志好，我想就共享单车的配备提一些建议。我认为应该在诸多驾校附近配备共享单车，以前进驾校为例。 理由如下：报考驾校人员中午吃饭，非常不方便，花钱坐出租车又不划算。我是乡村的，坐班车到前进驾校。再进城去很不方便。 驾校门口车水马龙。一部分",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "82343",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=82343",
+   "question": "尊敬的张掖市教育局领导： 您好！我要投诉张掖市山丹县培黎职业学院学校在2026年端午节期间违规占用法定节假日，强制组织学生集体上课。 具体情况：我校通知，端午节假期（×月×日至×月×日）不放假，要求全体×年级学生到校上课，属于违规集体补课/",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "82091",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=82091",
+   "question": "尊敬的领导： 您好，我想咨询一下关于张掖市上半年事业单位招聘考试还会举行吗？举行的话预计是几月份？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "82075",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=82075",
+   "question": "你好！我问下26年上半年张掖市事业单位还会单独进行考试招聘吗，如果举行的话预计是几月份",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "82041",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=82041",
+   "question": "我咨询下甘肃普惠健康保的问题，我是张掖的我想买普惠健康保但是张掖没有，我看兰州金城•惠医保、天水龙城•惠民保、武威天马•医惠保、金昌镍都•惠民保都有了，张掖的在哪里买，啥时候能买上，啥时候开通",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "82032",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=82032",
+   "question": "1:2026年张掖市上半年事业单位招聘还举行吗，如果举行的话预计是几月份。咨询2:今年后续还会有教师招聘的岗位吗，如甘州区幼师招聘今年是否正常举行？。感谢您的解答，目前就业情况复杂，希望您能谅解！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "82029",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=82029",
+   "question": "尊敬的领导: 我是滨河明源B区的住户，咨询一下这个小区当前是否可以办理房产证？如不能办证，预计到什么时候能办？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81996",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81996",
+   "question": "领导您好，有以下几项问题需要咨询，盼您回复。1.2026年张掖市上半年事业单位招聘还举行吗，如果举行的话预计是几月份，考试形式是否有变化。2.2026年山丹县事业单位考试还参加张掖市联考吗，考试形式是否有变化，是考察综合基础知识还是职测综应",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81986",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81986",
+   "question": "尊敬的政府网领导：您好！我是张掖市甘州区思源文庭小区居民，母亲于2024年因车祸致I级伤残，现家中常年卧床，生活不能自理。按照相关政策法规，本人于2025年11月份通过白塔社区为老人申请办理残疾证，但迟迟没有结果，多次向社区社区工作人员咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81948",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81948",
+   "question": "尊敬的领导，您好。感谢您百忙之中回复留言！咨询1:2026年张掖市上半年事业单位招聘还举行吗，如果举行的话预计是几月份。咨询2:今年后续还会有教师招聘的岗位吗。感谢您的解答，目前就业情况复杂，希望您能谅解！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81934",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81934",
+   "question": "尊敬的领导： 最近天暖和起来了，骑单车的人多了。城区里的共享单车冬天都拉到城边上了。这几天早上上班，跑遍城中心找不到一辆可骑的共享单车。希望有关单位，急群众之所急，尽快往城区投放共享单车，已解燃眉之急。另外，投放前能不能洗一洗，擦一擦，去年",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81931",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81931",
+   "question": "看到甘肃其它城市打车，有很多类型网约车，比如：曹操出行、T3等等，张掖市现在想跑滴滴、高德等平台，除了平台审核通过，还需要做那些准备工作，麻烦提供办理途径和时效。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81919",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81919",
+   "question": "尊敬的张掖市住房公积金管理中心民乐管理部： 您好！我是异地缴存公积金的购房人杲吉祥和钱晓芸，近期我夫妻二人在贵中心办理异地公积金贷款及提取业务，现已顺利办结。在此，我夫妻二人谨以个人名义，向贵中心及全体窗口工作人员致以最诚挚的感谢！ 办理异",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81889",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81889",
+   "question": "尊敬的领导您好，我和我媳妇籍贯都是张掖，04年至今一直在河北省秦皇岛市求学工作。我今年40岁，从事工程造价行业，函授本科学历（无学位证），有一级注册造价师（建筑专业和交通专业）、监理工程师、副高级职称，从事造价咨询行业十余年，经验丰富。我媳",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81861",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81861",
+   "question": "金阳大厦十字路口红绿灯设置时间，建议相关部门合理设置。每天上班、下班的高峰期，十字路口南北方向道路，车辆很少，每次红灯等候时只有稀疏的几辆。但是南北方向拥堵特别严重，甚至从甘州中学十字路口拥堵到金阳大厦十字路口。建议相关部门领导可以上班高峰",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81851",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81851",
+   "question": "您好，麻烦问一下张掖市参加2026上半年事业单位联考吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81800",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81800",
+   "question": "尊敬的张掖市人民政府： 您好！ 我是一名返乡学生，于2026年2月3日约13:30左右在张掖西站下车，在车站内发现了一些可能存在的问题，特此反映建议： 一、站内缺乏直梯等无障碍设施，不便携带大件行李的旅客（老人或者行动不便者）出站； 二、站",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81786",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81786",
+   "question": "张掖市科学技术局： 在党中央全面领导下，立足“十五五”规划部署与科技强国战略布局，现咨询申报科技型中小企业认定，计划持续加大研发投入力度，为区域产业升级与科技强市建设贡献力量。为确保申报工作规范推进、政策红利精准享受，现就相关事项咨询如下：",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81780",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81780",
+   "question": "尊敬的领导，您好，本人是张掖市甘州区南关路1号幸福家园小区6号楼一单元的业主，本人当初在开发商张掖市幸福阳光房地产开发有限公司买房时，房地产开发公司承诺所买房屋为商品房，并可办理商品房房产证，但是网上相关资料一直显示该小区是安置房，本人想向",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81746",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81746",
+   "question": "尊敬的领导： 我是民乐县第一中学学生家长，现就该校违规补课问题反映如下： 一、具体情况 学校名称：民乐县第一中学 补课时间：寒假期间1.26开始，1.27日暂时离校，预计1.28日再次开始 补课形式：\"自愿\"名义但实际强制 收费情况：无 二",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81741",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81741",
+   "question": "张掖市购买第二套房在哪些方面费用会更高，具体高多少？第一套房、第二套房住房公积金提取比例分别是多少，具体有什么规定？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81731",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81731",
+   "question": "您好！本人为西南财经大学硕士研究生，为完成我的毕业论文，特向贵市申请2007-2023年政府性基金支出分类明细，请发送至13389324965@163.com 本人承诺，所获取的统计年鉴资料仅用于科研，不用于任何商业用途，且将对数据保密负责",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81730",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81730",
+   "question": "您好！本人为西南财经大学硕士研究生，为完成我的毕业论文，特向贵市申请2023年一般公共预算支出分类明细（比如211节能环保支出等等），请发送至13389324965@163.com 本人承诺，所获取的资料仅用于科研，不用于任何商业用途，且将",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81728",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81728",
+   "question": "您好，我是一名复旦大学的硕士生，因论文需要想了解张掖市的城市精神，在网上查询到张掖市宣传部在2025年2月征集过张掖市城市精神表述语，所以想询问工作人员张掖市的城市精神是否确定，如有望告知。如果方便的话，可以把文件发送到我的电子邮箱，不胜感",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81720",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81720",
+   "question": "张掖中学高三年级补课要补到2月7号，不知道这种情况教育局是否允许",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81716",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81716",
+   "question": "今年上半年联考328就要考张掖是不是会参加上半年联考",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81711",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81711",
+   "question": "尊敬的相关领导： 你好！ 1.张掖市第三中学官网、豆包、deepseek等各种平台显示，张掖市第三中学为九年义务一贯制学校，但现实情况，去年招生开始，只有初中、高中，想知道后续会不会开设小学部的计划，目前居住在丹马小区，北街小学确实比较远，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81708",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81708",
+   "question": "由于北部湾嘉园小区地下停车场长年脏乱差，冬天地下停车场直接是冰洞到处都是从下水管道漏下来的臭水，且不符合地下停车的规范，业主们每月都在交地下停车费，但不班回家没地方停车，恳请有关部门领导高度重视就北部湾嘉园小区地下停车问题，修复设施设备及地",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81707",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81707",
+   "question": "我方作为张掖市甘州区北部湾嘉苑小区业主，现就小区停车管理相关问题正式投诉，具体问题如下： 1.小区物业已按规定收取停车费用，但却无故占用、阻挡规划停车位，导致业主无法正常停放车辆； ​ 2.地下停车场长期环境脏乱差，卫生清理不及时，既不符合",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81706",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81706",
+   "question": "我方作为张掖市甘州区北部湾嘉苑小区业主，现就小区停车管理相关问题正式投诉，具体问题如下： 1.小区物业已按规定收取停车费用，但却无故占用、阻挡规划停车位，导致业主无法正常停放车辆； ​ 2.地下停车场长期环境脏乱差，卫生清理不及时，既不符合",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81704",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81704",
+   "question": "关于张掖市甘州区新区居民暖气不热问题的投诉信 尊敬的市长： 您好！ 我们是张掖市甘州区新区的居民，怀着焦急与期盼的心情，就家中长期暖气不热的问题向您投诉，恳请您关注民生困境，督促相关部门予以有效解决。 冬季供暖关乎居民基本生活质量，是最基础",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81702",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81702",
+   "question": "想咨询一下张掖事业单位什么时候发布公告，笔试时间是几月份。最近看到平凉要参加2026全国上半年事业单位联考，想知道张掖是不是一样也是2月下旬份发布公告，3月底笔试",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81700",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81700",
+   "question": "本月15号，因为小区物业蓄水池的水未及时处理导致溢出，业主地下室被淹，因为地下室装修为木制柜，且存放衣物和鞋子被泡，多次联系物业，物业只是排查出问题，但未及时整改，地下室板材，杂物被浸泡，和物业协调，物业不处理，而且态度极其恶劣，现要求物业",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81694",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81694",
+   "question": "市长信箱投诉信 尊敬的市长： 您好！ 我是甘州区西街街道文庭苑小区7栋1单元居民，现就楼下唐宫洗浴足浴会所夜间营业时增压水泵低频噪音长期扰民，且多方反馈无果、自身身心健康受损一事向您投诉，恳请协调解决。 该足浴中心夜间营业期间，增压水泵持续",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81692",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81692",
+   "question": "尊敬的市长：您好！ 我是本市[甘州区西街街道文庭苑小区7号楼1单元302室]的居民，联系电话[15529553553]，今日怀着焦急又恳切的心情，就楼下[唐宫洗浴足浴中心]夜间增压水泵低频噪音扰民的问题向您求助，盼能得到重视并推动彻底解决。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81688",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81688",
+   "question": "请问张掖市“普惠健康保”具体上线时间？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81669",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81669",
+   "question": "领导你好，我是咱甘州区火车站街道道北小区5号楼三单元一楼中套住户，因下水管网半年内多次淤堵，向政府求助！具体情况如下： 之前楼下管网改造时，也有问题，整改后好多了。也就凑合用着一楼基本上就是，我和对门大套两家在维修，不是他家掏，就是我掏。一",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81667",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81667",
+   "question": "尊敬的相关主管部门领导： 政府单位作为服务群众、办理政务的核心场所，其周边停车便利性直接关系到政务服务效率与群众获得感，由于财智世家东北角政务大厅及附近商户较多，上班工作人员较多，办理业务事务人员较多，停车非常不便，也是辛苦交警同志们了，大",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81656",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81656",
+   "question": "本人系新墩镇南闸村卫生室负责人，诊室主要用于日常诊疗服务，供暖质量直接关系医患就诊体验与诊疗安全。现就2025-2026供暖期内诊室温度持续过低、多次投诉未获解决的情况，作如下说明。 一、基本情况与温度不达标事实 缴费情况：已足额缴纳本供暖",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81652",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81652",
+   "question": "前期通过信访反映，张掖市文化广电和旅游局法制监督科已经推动张掖市13个国有景区（含11个国有收费景区）落实无偿献血三免政策，信访材料要求张掖市文化广电和旅游局做好信息发布工作，信访回复已近半个月过去了，张掖市文化广电和旅游局依然没有在官方微",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81612",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81612",
+   "question": "尊敬的各位领导： 我是一名博馨苑的业主，我在博馨苑16楼入住期间，发现三大运营商的电话卡在不同品牌手机上通话时均出现声音时断时续，手机信号差的问题。物业、运营商均称不在他们管辖范围内。我的诉求如下： 1.向市政府询问该问题到底由那个部门管辖",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81609",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81609",
+   "question": "你好，近日全国2026年上半年事业单位联考时间已出，请问张掖是否参与甘肃省事业单位联考，甘肃是否参与全国事业单位联考。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81579",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81579",
+   "question": "尊敬的领导您好，我是甘州区富民小区的一位业主，从我2月份入住以来发现很多小区内有关物业以及影响其他住户安全的问题，跟物业多次沟通无果后只能选择向平台反映，希望可以得到解决. 1.小区内电动车违规飞线充电，严重影响消防安全及居民安全，物业却从",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81574",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81574",
+   "question": "尊敬的领导：您好！我是内蒙古师范大学的一名研究生，因学术论文数据需要，特向贵局申请以下数据：张掖市2023年的规模以上工业总产值；2011年的专利授权数和专利申请数；2022年-2023年专利申请数；2019年-2023年的的工业废水排放总",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81573",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81573",
+   "question": "您好，我是厦门大学的硕士生，目前的研究论文需要用到《2023年张掖市政府工作报告》原文，但在网上无法查询到，所以只能询问工作人员，多有打扰。如果方便的话，可以把文件发送到我的电子邮箱，不胜感激。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81556",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81556",
+   "question": "名门首府东区早晨天未亮时，部分路灯不亮，多次反馈物业不予理睬，不修理。联系甘州区物业服务中心说路灯点亮时间不归其管理。请问领导小区路灯点亮时间最低要求是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81555",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81555",
+   "question": "在张掖市甘州区的沙井镇、党寨镇、长安镇的下属村基本进行了农村的电网升级改造，把以前的裸导线改造成了绝缘导线，现在咨询一下三闸镇三闸村什么时候进行电网改造？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81553",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81553",
+   "question": "中和园地下车库出入口目前未与主干道直接连通，车辆出入必须借由辅路转向。近期，辅路两侧均被划设停车位，导致路面有效通行宽度严重不足。一旦出口右侧停放车辆，从车库驶出的车辆便因转弯半径被严重挤占而难以右转，给住户日常出行带来极大困扰。同时，狭窄",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81543",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81543",
+   "question": "本月，张掖市的河西学院附属张掖人民医院发信息要退门诊预交的押金，本人打电话过去咨询得知必须要本人或者委托别人去线下办理，退的是现金，我的投诉是，本人在张掖生活过一段时间，期间在医院有过一次门诊手术缴纳过押金以及费用，现在本人没有在张掖市生活",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81532",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81532",
+   "question": "西花苑南区楼下新乐超市近期装修，已持续一周，多次反馈12345处理无果。具体情况：楼下新乐超市在工作日（周一至周五）中午一点半左右开始装修，噪音极大，严重影响正常休息。且在非工作日，全天补休依然进行装修，违反相关规定，已属于严重扰民行为。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81529",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81529",
+   "question": "甘州区名门首府东区20号楼3单元东侧电梯上下停止时有明显的撞击声音。且运行时的声音也比较大，不知道是不是调试的不合适，存在明显的安全隐患。2023年反映过类似问题，甘州区市场监管局过来处理过，说是要增加止振隔音装置，调试电梯，后面也没有实际",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81528",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81528",
+   "question": "尊敬的统计局领导： 您好！我是一名武夷学院的本科生，应毕业论文课题研究需要，向贵单位申请2014年-2023年张掖市统计年鉴资料，需冷链相关数据（冷藏车数量，冷库容量，农产品冷链货运量，冷量流通率，冷链服务网点数量等5项）进行查询。本人承诺",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81522",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81522",
+   "question": "金源明珠上海滩物业，服务不到位，没交物业费不给业主充电，试问：这一做法对吗？谁给他的权利不让充书费、电费？他要是服务做到位了，物业费能不交嘛？楼道、地下室太脏，好长时间没人打扫，电动车乱停乱放…",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81521",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81521",
+   "question": "尊敬的领导: 您好，现在各地方育儿补贴都已陆续发放，麻烦问一下我们张掖这边育儿补贴大概什么时候能发放下来。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81518",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81518",
+   "question": "北兴家园小区2025年交完暖气费的住户暖气不达标，怀疑限流问题，周边公园道一号小区和北辰紫薇花园的都热，还存在冻感冒住户问题。多次找物业和供暖公司，全部都是做样子到现场排查，没用从根本上解决问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81510",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81510",
+   "question": "上海滩物业不作为，卫生卫生不打扫，公共区域卫生差，不交物业费不充电费，这样合理嘛？如果天然气管道冻坏物业负责？？冰箱东西冻坏物业负责？去充电费，物业直接一句话，不充物业费不给交电费，物业要是把卫生啥的，服务搞起来，那个业主不愿意交物业费？？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81507",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81507",
+   "question": "各位领导好！ 关于滨河小镇物业我要反映以下几点问题： 1.人车分流问题：行人与车从北门进小区以后只有一条道路并且两边并未设有停车位，但是车辆停满着呢，小区内设有幼儿园，就在此道路旁边，因道路两边车辆停车较多，导致视野盲区较大，很容易发生交通",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81504",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81504",
+   "question": "问题：丁字路口东面两个路口与东面路口错位严重，给路人过马路带来很大不便，且南北向红绿灯时如有停止车辆会造成盲区，导致饮马桥西路左转车辆与过马路行人在马路中间造成堵塞，更甚者会导致交通事故发生，个人已在路口多次看到放学学生与车辆发生碰撞，尤其",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81500",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81500",
+   "question": "尊敬的市长，您好，我是中央金融委地方联络人，自2023年开始中央金融委牵头，国家发改委，中纪委，中国人民银行，安全委，财政部等部门共同执行的托管资金（境外回流资金，罚没资金，捐赠资金，数字货币等）之前一直用于雄安新区及雅江电站建设以及国防建",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81491",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81491",
+   "question": "张掖市委党校在其大门口非机动车道上非法安装四条机动车减速带，阻碍非机动车正常通行。该四条减速带的安装存在以下问题:1、未经过交管部门批准非法在非机动车道安装；2、安装的减速带数量过多，对非机动车通行造成极大阻碍；3、安装的减速带过高，明显为",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81484",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81484",
+   "question": "1、甘州区北辰丽家物业最近加装了道路隔离栏，把小区本就不宽敞的道路一分为二后导致小区道路较窄，加之道路两侧停满车辆，行人只能在主通道上行走，身边是快速穿梭的车辆或跟在身后狂按喇叭的车辆，对老人小孩有较大安全隐患。应该清理路边停车问题，让行人",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81474",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81474",
+   "question": "您好！ 我是西财一名在读博士生，我目前的博士毕业论文需要用到张掖市2003-2023年市级实际利用外资金额，但我在查询统计年鉴和统计公报之后发现部分年份的数据有缺失，不知道贵单位是否有统计相关数据，是否可以帮忙查询。这是我的邮箱，zhouw",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81472",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81472",
+   "question": "尊敬的有关部门领导您好，本人于2025年2月份到张掖市甘州区青年西街36号溢香园火锅店任职，于2025年8月份离职，剩余8月份工资还有1084元，多次上门讨要无果，一拖再拖，恳请有关部门领导展开调查帮我解决拖欠工资一事，本人愿意配合提交有关",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81470",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81470",
+   "question": "详见附件《甘州区美联国际小区物业公司消防安全管理缺位的投诉》",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81469",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81469",
+   "question": "详见附件《甘州区美联国际小区物业公司违规违约的投诉》",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81468",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81468",
+   "question": "尊敬的领导：您好！我于2024年5月在甘州区爱玩爱游游泳馆给孩子办理会员卡并进行充值2140元，(地址位于县府街延伸段)，此卡于2026年5月到期，在2025年9月商家发消息称设备损坏需要引进设备，需要停业一个月左右！直到2025年11月还",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81465",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81465",
+   "question": "尊敬的有关部门领导您好，我于2025年二月份与张掖市甘州区青年西街36号溢香园火锅店老板赵志飞取得联系，并到其店里工作，于8月19号离职，离职后一直拖欠本人工资1084元，多次讨要无果，一拖再拖，一直未给出一个明确的支付时间和支付方式，因此",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81463",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81463",
+   "question": "本人于2023年8月张掖广电大厦下天猫家电核销家电补贴券，但商家因政府资金不到位为由不予发货，后经协商由本人先垫付，时隔两年，催了N次都不退，询问商家让去找商务局，找了商务局让找住建局，住建局说财政局没有拨付。投诉N次政府人员都是推来推去，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81455",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81455",
+   "question": "尊敬的市长：您好，我是东湖小区鹤园一号楼101住户，2022年度、2023年度我房子里暖气温度只有11度13度14度最高没达到过16杜，属于供暖不达标，依据供热管理办法规定，暖气供暖要保证室内温度至少18度。因为暖气不达标2022年我的暖气",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81450",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81450",
+   "question": "甘州区西花苑小区北区污水管井内经常被小区门店餐饮店排入餐饮污物，造成小区内污水管井经常被排污车清理，造成小区内臭味难闻，影响小区内居民日常生活。小区居民通过小区物业微信群反映该问题，但小区物业置之不理且态度蛮横，不予解决。当前，全省正在开展",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81422",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81422",
+   "question": "本人于2019年12月进入甘肃河西学院汽车驾驶员培训有限责任公司就职，于2024年4月份离职，从2019年12月开始至2020年11月这一年时间内甘肃河西学院驾驶员培训有限责任公司未与本人签订劳动合同，未按规定给予本人社平工资及缴纳社保，期",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81415",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81415",
+   "question": "清晨约7:35，我驾驶车辆沿301省道向城区方向行驶，途中遇到车牌号为甘 G11311D 的公交车。因该车行驶速度较慢，我按规完成了超车操作。不料，我驾驶的车辆因车型较老，超车后突然出现挂挡失灵的情况，于是我打算靠边停车检查。可此时从后视镜",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81413",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81413",
+   "question": "尊敬的张掖市人民政府工作人员： 您好，我是合肥工业大学经济学院程立雪，因未在官网查询到该报告，现贵单位申请“张掖市2015-2016年决算报告”。感谢贵单位的支持!",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81412",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81412",
+   "question": "2025年本人核查社保缴费年限时发现，2010年8月至2012年1月就职于甘肃张掖巨龙建材有限公司期间，该公司未给本人缴纳社保。请问这十年前欠缴的社保是否能要求企业补缴，是否可以请求社会保险机构责令甘肃张掖巨龙建材有限公司限期缴纳或者补足。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81406",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81406",
+   "question": "拥有独生子女证书人员退休，当地是否有相应奖励政策呢。比如一次性奖励或者一个月退休工资增加相应金额等。如有奖励，退休人员是否需要满足相应条件呢？要取得相应奖励，需要准备那些材料如何办理呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81405",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81405",
+   "question": "领导您好！麻烦问下咱们张掖市有没有人才回流相关政策，我目前是在玉门市事业单位工作，因回家不便，无法顾及家庭，想咨询下外地事业编工作人员是否可以通过人才回流方式回去张掖，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81383",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81383",
+   "question": "关于甘州区盛世锦园小区地下停车场新能源车禁停、地下停车场产权归属及物业违规管理问题的投诉 尊敬的张掖市住建局、张掖市不动产登记中心、城乡物业服务管理中心（或相关物业监管部门）： 本人是甘州区盛世锦园小区1号楼1单元1502住户（住户车牌号：",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81333",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81333",
+   "question": "您们好，我是一名行政管理专业的本科生，目前的研究论文需要用到2023年张掖市政府工作报告原文，但是在网上无法查询到，所以只能询问工作人员，多有打扰。如果方便的话，可以把文件发送到我的电子邮箱，不胜感激。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81331",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81331",
+   "question": "尊敬的领导：您好！ 现在国家第四批以旧换新的资金已经下达，想咨询一下领导，张掖市汽车置换补贴资格码申请何时再次开放？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81325",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81325",
+   "question": "泰安嘉园每天17:30-18:30时段，存在多项影响居民正常生活的问题，具体如下：外小区接送学生家长在小区内长时间逗留，且在小区东门随意停放车辆，导致区域交通严重拥堵；小区内多数电动车无序停放，占用公共停车位；此外，外小区学生频繁从本小区穿",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81323",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81323",
+   "question": "政府公告是10月25日供暖，但是管道一点热气也没有，今年天气冷的早，家里冷的都睡不着觉，应及时迅速给住户供暖，但中环寰慧公司阳奉阴违，不按政府规定政策实施，一味的就知道向住户收取暖气费，不作为，住户的暖气费拖欠一毛都不行，为啥供暖不及时，不",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81321",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81321",
+   "question": "关于张掖市肃南县明花乡撤乡建镇委托编制咨询项目不付款不签合同的二次信访 市长您好: 事由:2021年3月，张掖市肃南县明花乡通过询价的方式，正式确认委托张掖顺峰评估咨询有限责任公司(以下简称“我公司”)负责编制肃南县明花乡撤乡建镇重大决策社",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81317",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81317",
+   "question": "尊敬的各位领导：您们好！我是一位来自党寨镇农村老人慢阻肺慢性病患者的家属。前20天在甘州区天慈阳光医院住院接受治疗，于10月2日基本治愈出院。患者于10月22日病情再次复发，当天下午7点钟左右紧急送往该医院接受治疗，值班医生陈大夫说送的太迟",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81316",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81316",
+   "question": "为了确保驾驶人依法持证驾驶，现在车管所考试中心增驾D照人员较多，考证时间较长，建议张掖甘州区车管所可否在D照考试预约安排上予以优化，建议增加网络预约科目一和科目三安全文明驾驶（俗称科目四）同时预约功能，考试人员可根据自身情况选择连考或单考科",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81315",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81315",
+   "question": "尊敬的领导，育儿补贴政策我已申请并审核通过，麻烦问一下大概什么时候能发放下来",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81314",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81314",
+   "question": "领导您好： 想咨询一下国补是结束了吗？以前直接上传相关票据就可以，后期每天得抢资格资格码，抢就抢吧，专门还定闹钟到点12点准时开抢，01都不到，就显示的区域资格码当日库存为0，已经连续抢半月多。请问，这个资格码是该如何才能抢到，还是说直接库",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81281",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81281",
+   "question": "名门首府西区金辉物业，无论物业费、暖气费是否已缴纳，限制家用水费缴纳，每次仅可缴纳100元，且缴纳后还需要门卫上门刷卡。该行为给居民造成极大困扰，缴纳费用只能在物业上班时间，与居民上班时间一致，只得翘班缴纳，且因欠费断水时间均在中午下班或夜",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81264",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81264",
+   "question": "各位领导，我是美联国际小区4号楼1单元住户。自2025年9月20号左右本单元一部电梯出现故障截至今日迟迟没有维修。截至9月30号物业发出公示电梯故障配件无法维修徐更换新配件，使用维修基金申请已提交住建局，申请使用流程比较长，最快的办法是费用",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81261",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81261",
+   "question": "新安贞医院门口停车位经交警大队，经公安部门核查，未申请门口公共停车位（此事件已多次向公安以及交警核实），该门店违法私自涂改停车位内内容，私自用自家椎体占用五个公共资源停车位，交警下发清除涂改，恢复公共资源的通知后，仍然半个月了还未涂改，依然",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81257",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81257",
+   "question": "节假日金安苑小广场公共资源被不知名公司摆摊设点，影响老人孩子活动，然后登记信息冒充社区志愿人员上门检测网络，上门也不告知哪家通信公司，骚扰家人，影响恶劣，凡请处理以后不要乱巧自家门，不要占用公共资源，给老人孩子一点活动空间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81247",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81247",
+   "question": "山丹县汽车站综合楼购房前周围环境很平坦，居住几年后不知是政府规划还是开发商原因使汽车站综合楼前面新增一条路，导致路面升高（相应住户楼周围地面下降）比原地面升高一米多，严重影响孩子上学安全，在刮风时垃圾成堆、下雨时雨水全部聚集在下沉地方，有大",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81243",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81243",
+   "question": "请问张掖奥体中心游泳馆什么时候正式营业，游泳如何收费",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81242",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81242",
+   "question": "关于德和园小区人车混杂通行存在安全隐患问题的反映材料",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81240",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81240",
+   "question": "尊敬的领导: 您好，在百忙之中打扰你们实在是不好意思，可是不向你们反应问题又得不到解决，领导你好，我是张掖市甘州区你们首府东区的住户，因我和家人下班时间不同，所以需要两辆车停放和进出小区，可是当我向物业说明情况的时候，物业却说一户只能停进去",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81239",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81239",
+   "question": "为什么在国庆节假日期间专门针对外地牌照的车辆收费？而张掖本地车辆停靠不收费呢？这样的停车收费标准难道是专门针对外地游客制定的吗？ 还有特别提示内容，既然收费了，为什么不提供车辆保管，这样的营商环境真的有利于地方三产发展吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81234",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81234",
+   "question": "尊敬的各位领导，我是高台县城关镇华龙嘉园的住户，天然气立管装好已经2个月了，入户表一直没有架设，小区作业时老是挑着弄，就不能挨个楼栋安装吗？问了燃气公司和社区互相扯皮，当初社区通知架设天然气特别积极，立管装好就不管了，微信群里通知安装的时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81221",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81221",
+   "question": "张掖市甘州区汇丰大厦前后两部电梯，因为年久失修，被强制停运，联系汇丰商贸公司，却各种推辞不进行电梯维修，我们租户按时缴纳房租物业费，权益缺得不到保障，每天所有人都在爬9楼，目前已经严重影响到我们的工作和公司的运营。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81219",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81219",
+   "question": "尊敬的领导您好！我在2025年8月25日提交了育儿补贴申请，截止2025年9月25日现在还在受理中。根据育儿补贴制度管理规范：明确育儿补贴的申领资格，精简申领材料，优化申领程序，以线上申领为主。强调审核工作要充分发挥大数据审核作用，切实减轻",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81212",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81212",
+   "question": "您好，我是中国农业大学的一名硕士研究生，因科研工作需要，需要2024版统计年鉴农业部分的查阅使用，具体为各区县畜牧业方面的猪、肉牛、奶牛、羊、蛋鸡、肉鸡出栏量与存栏量共六种主要畜禽养殖数量，以及猪肉、牛肉、牛奶、羊肉、禽肉及禽蛋共六种主要畜",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81202",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81202",
+   "question": "领导您好： 我想咨询一下新建张掖三中南面（金湖湾大东区东面），临近东方明珠小区西面那一片可有规划?向南是否要修一条路？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81158",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81158",
+   "question": "你好，我想咨询一下2024年上半年和2025年上半年张掖市各区县地区生产总值和增速，仅供个人参考使用，麻烦请发到邮箱3866121840@qq.com上去，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81157",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81157",
+   "question": "世贸大厦南侧工地存在问题如下： 1、施工围挡设置不合理，施工围挡堵塞行人通道，导致甘泉街小学学生上学，放学不能走人行道，只能绕到马路上。上学、放学时间与上下班时间重合，该路段通行车辆较多且车速很快，存在严重的交通安全隐患。 2、该工地车辆出",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81149",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81149",
+   "question": "您好：我是南关新世纪教师公寓1号楼四单元601室用户，本人房屋已经五年未居住，因为房屋是一梯四户老房子结构，暖气管道经过隔壁邻居家，考虑到邻里关系暖气费近年来一直按时缴纳（房屋无人居住）。小区因为暖气管道老化，多数住户反映暖气不热问题，20",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81144",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81144",
+   "question": "尊敬的张掖市人民政府办公室 您好！ 据悉，张掖市近年来积极推动人才引进工作，为经济社会发展注入了强劲动力，对此我深感钦佩。为进一步了解张掖市在人才引进方面的具体举措，特此函询：2025年秋季张掖市是否有针对各类人才的引进计划？若有相关计划，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81134",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81134",
+   "question": "尊敬的领导你好： 我是甘肃农垦祁连牧业有限公司一名员工，公司自1月份停产以来一直未发放工资长达8个月，且社保自2月份已断缴，公司涉多家官司，账户已被冻结，我们咨询了劳动局建议我们上诉，但是全部供应商已提前上诉，法院会根据顺序解决，我们的工资",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81131",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81131",
+   "question": "领导您好 本人于2010年5月至2012年4月在张掖巨龙建材工作，离职后好多年才发现单位没有给缴社保，我想咨询一下我可以现在要求单位缴纳当年的社保吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81129",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81129",
+   "question": "蔚来城新建的房子，厨房天然气管道一个是穿过室内，另一个是这个位置出现在远离窗户的墙边，且不在墙角，一方面影响装修，另一方面是否存在安全隐患或者是否合规，进行咨询。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81121",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81121",
+   "question": "尊敬的市领导：您好！我目前在玉门市应急系统工作，因与家人、配偶两地分局，日常照护多有不便，家乡近年来发展日新月异，我始终密切关注，也迫切希望希望回到这片生养育我的土地，以更饱满的热情投入工作，为家乡的安全稳定与发展贡献自己的全部力量。恳请领",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81117",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81117",
+   "question": "本人于2023年8月在张掖广电大厦下天猫家电核销家电补贴券，但商家因政府资金不到位为由不予发货，后经协商由本人先垫付，待资金到位后立即退还，时隔两年，催了N次都不退，询问商家让去找政府，投诉N次政府人员让等等，没有解决实际问题，最终承诺在2",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81101",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81101",
+   "question": "因为工作定居到张掖，快5年的时间感觉张掖这座城市对外地人挺友好，最近却因为孩子幼儿园上学第一二批次招满，我们的条件异地户籍属于第三批，进不了离家最近的公立幼儿园，给我们带来了极大的困扰。现在幼儿园招生是不是就近原则，异地户籍的孩子上不了离家",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81098",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81098",
+   "question": "请问，市里可以进行小学教师资格证认证吗？在哪里？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81097",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81097",
+   "question": "请问，今年市里会组织教师资格考试吗？有考点吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81078",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81078",
+   "question": "张掖市第二人民医院妇产科，10点04挂号，等待一小时，之间不停有拿着单子的患者来复诊，谁进去了就给谁看，导致新挂号患者等待过久。致电医务部，接电话的工作人员表示复诊是需要重新排号的，说明医院是有相关条例的。此次致信希望在有关部门的监督督促下",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81075",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81075",
+   "question": "尊敬的张掖人民政府： 您好！ 冒昧致函邀请，是为向您呈递一项可能改写地方制造业发展格局的革新技术——由我司成功研发，南通大学水污染重点实验室鉴定的电镀废水零排放系统设备（详见发明专利及鉴定），现已在江苏南通苏锡通科技产业园建成了2000T/",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81072",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81072",
+   "question": "张掖市生态环境局工作人员：您好！我是一名研究生，因论文写作需求，需要张掖市2020-2022年的工业废水排放量、因多方查阅相关资料无果，望贵单位能提供帮助，烦请将数据发送至预留邮箱，本人保证数据仅限于学术研究，绝不用于其他用途。万分感谢！祝",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81070",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81070",
+   "question": "尊敬的住建局领导： 请问新港城3期的住房什么时候能办理房产证，物业部门给我的回复是新港城3期的住户现在还没有办房产证的，到底是哪个部门的问题，该如何解决这个问题？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81062",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81062",
+   "question": "您好，我需要贵市2010-2013年金融机构本外币贷款余额数据，在已公开统计公报和统计年鉴中均未找到。若方便请将我需要的数据发送到我的邮箱，或者告知我在哪里可以获取。感谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81059",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81059",
+   "question": "咨询一下，现在社保缴纳年限调整为20年，假如我到退休年龄了，达不到20年的要求，能否正常办理退休？是否需要补缴够20年的保费才能办理退休？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81050",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81050",
+   "question": "致商务局领导： 甘快办APP上申领家电以旧换新补贴资格码以来，申领二维码太难了，每天都在那个时间段进去申请二维码，提示当日库存以为零，是甘州区的额度已用完吗？根本没机会抢到。咨询一下：怎样才能抢到二维码？望领导百忙之中能回复！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81043",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81043",
+   "question": "尊敬的各位领导： 我有一个小小建议，建议市畜牧局新世纪小区到南关学校这段路段的右侧的停车位能不能取消，原本这段路面就窄，右侧的一排停车位又占据一半的路面，在上下学时段这段路段特别拥挤，虽然这段路是单行道，但是在上下学时段也避免不了行人、自行",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81031",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81031",
+   "question": "领导，您好！请问育儿补贴跟着国家基本的标准还是有新的政策？具体什么时候可以开始申领？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81028",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81028",
+   "question": "我是一名行政管理专业的学生，目前在做关于甘肃省地方政府跨部门数据共享方面的研究，不知道能否对相关部门做个简单的电话访谈",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81027",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81027",
+   "question": "愿景城物流园12栋一单元一楼装修，不按照规定的装修时间施工，之前中午装修跟物业沟通过，于是楼下两点准时开始装修。装修期间，二楼噪音超级大，之前是电钻类的声音，现在是锤子类的声音。暑假期间装修，导致我们无法在家学习，花钱在外学习。装修表示理解",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81024",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81024",
+   "question": "捷途山海4s店在客户购车后在车主不知情的情况下将本人及购车视频发布至网络平台，已经涉嫌侵犯本人肖像权，经与店内沟通赔偿无果且过程糟心，且在购车后车辆存在大灯漏水问题（目前此问题已协商解决），购车一月内接连问题已身心俱疲，请求相关部门解决！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81020",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81020",
+   "question": "尊敬的领导： 您好！因论文写作需要2017-2023年的张掖市耕地面积（公顷）。若您有相关的数据，烦请发到邮箱：17353899136@163.com，希望能得到您的帮助，万分感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81015",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81015",
+   "question": "本人于2023年8月在张掖名豪家电核销家电补贴券，但商家因政府资金不到位为由不予发货，后经协商由本人先垫付，待资金到位后立即退还，时隔两年，催了三次都不退，第一次留言板留言后，商家承诺2024年12月底退还，承诺未履行后我在留言板二次留言，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81001",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81001",
+   "question": "您好！目前我正在备考C1驾驶证，已通过科目一与科目二，在备考科目三期间进行了姓名更改，旧的身份证信息已过期。请问在去考科目三前去哪里更新信息能够不妨碍我顺利考试以及需要准备哪些所需材料及流程。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "81000",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=81000",
+   "question": "受赵广社、张渊远委托投诉张掖市筑达劳务有限公司、甘肃盛世万塬建设有限公司。 赵广社、张渊远两人为中级技术工人，两人均未去过张掖市，也没有授权两家企业使用其本人任何信息，在录入住建平台时显示为未离职，经过智慧住建技术支持人员查询，两人均在甘肃",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80999",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80999",
+   "question": "甘州中学西南角丁字路未能向南延伸至山丹南路，车辆经过张电嘉苑什字、瑞祥花苑什字通行，通行压力大，交通事故频发，是否有打通丁字路口计划？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80997",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80997",
+   "question": "尊敬的车管所领导，您好！ 本人系天津大学一名在读研究生，因科研工作需要贵地甘州区家用新能源汽车保有量数据，经过查询公开专栏没有相关数据。因以上数据为笼统数据，应不涉及隐私或保密要求，恳请领导能提供相关数据至电子邮箱1921343395@qq",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80993",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80993",
+   "question": "本人已通过姓名更改，现需要进行医保社保的姓名更改，烦请相关部门给出具体流程与所需材料。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80985",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80985",
+   "question": "高铁西站广场北侧门店垃圾处理不及时，影响市容。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80980",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80980",
+   "question": "张掖房地产开发总公司的金房裕园10号楼二单元802厨房靠东墙体位置大面积空鼓。且墙体质量松散装修工人连钉子都打不进去，墙和土一样一扣就掉。瓷砖没法贴。从8月10日发现问题向负责这片小区的盛诺物业反应到现在为止，一直催物业每次都说联系就是没人",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80976",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80976",
+   "question": "按理说普通话考试成绩是考试后40个工作日出，四月份考的到八月份还没出，那预计什么时候出呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80972",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80972",
+   "question": "在缴纳社保时被告知失业保险需个人缴纳部分个人不需要缴纳，失业金还可以领取吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80966",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80966",
+   "question": "甘肃省2025年注册会计师报名费发票怎么申请开具？考试在即，甘肃省注会协会，甘肃省财政 都没有发布任何信息。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80964",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80964",
+   "question": "请问一下，我市甘州区基准地价技术结果公布了吗？政府官网未查到，若未公布，能否提供甘州区城区和乡镇基准地价技术结果报告，若中标评估公司未提交成果，能否给出一个预期的公布时间，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80955",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80955",
+   "question": "领导您好： 2024年11月7日委托我单位（江西清析检测技术有限公司）鉴定，2025年3月底我单位完成并签发鉴定报告，5月7日开具发票给与报账，期间已电话多次联系临泽县公安局工作人员关于鉴定费何时支付，答复说是已申报财政，等待付款，然而至今",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80949",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80949",
+   "question": "您好，我是事业编人员，家在异地。这种情况下，请问是否有探亲假，能休的话应该怎么申请？除了1981年国务院发布的文件外，本省或者本市是否有其他的规定，请给我具体的文件，谢谢您！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80943",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80943",
+   "question": "尊敬的领导，您好，我是一名自然资源行业工作人员，因项目研究需要，需要张掖市及下辖各县（区）2024年的常住人口、城镇人口、农村人口、户籍人口、GDP增速、地区生产总值可比价、工业增加值、规模以上能源消费量(万吨标准煤)、能源消费总量(万吨标",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80935",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80935",
+   "question": "领导您好！ 我是羊头巷居民，现反映一些羊头巷乱停车的情况。道路西侧原本设置了收费停车位导致路面变窄，部分车辆为逃避停车费把车辆停放在道路东侧人行道及无障碍通道上面，导致行人只能走在机动车道上面这样人车混杂通行十分不安全，道路东侧车辆随意停放",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80932",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80932",
+   "question": "尊敬的领导: 您好！我是宁和园B区住户，我反映的问题是:2015年7月16日下午去甘州区西大街电信营业厅2楼柜台办理家里的电信套餐降费业务。（本人家的电信套餐是99＋3）＝102元的，并且网络也不稳定，当时柜台的工作人员（女）告知我，有个5",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80927",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80927",
+   "question": "尊敬的市委市政府领导：本人于2023年1月19日在张掖市甘州区甘州院子购买住宅房一套，后参加甘州区住房和城乡建设局关于印发《甘州区2022年阶段性住房支持政策实施方案》的通知活动，通过申报程序符合住房补助政策的条件。于2023年5月21日在",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80919",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80919",
+   "question": "Q1：大学生创业有哪些补贴，应该如何办理？ Q2：灵活就业大学生如何自行购买社保/公积金？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80915",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80915",
+   "question": "张掖市人民政府： 您好 我是南京审计大学社会实践团队成员，我们的实践主题与东数西算有关，在网络上查阅到张掖市的政策、战略方向与东数西算有关，希望能就基础建设，社会发展，经济效益等方面对相关领域负责人进行一个采访或咨询，不知是否可以有这个机会",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80914",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80914",
+   "question": "张掖市北环路胡家园子公园是2020年政府投资3500万建设的，该公园规划总面积72.8亩，以“百年梨园”为自然基底，按照“古树保护、诗春满园”的理念进行打造，于2020年10月底建成投入使用。张掖市胡家园子公园作为城市公共空间，主要发挥以下",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80909",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80909",
+   "question": "领导您好 自2025年2月以来，滨河新区山丹南路与临松东街十字（海尔家电门口）道路局部施工后，导致由北向南右侧道路局部下陷、坑洼，无人处理路面问题，导致周边居民平时上下班骑电动车十分不便，如遇下雨天路面经常积水；加之周边有思源学校平时接送孩",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80907",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80907",
+   "question": "尊敬的各位领导： 您好！我是IU酒店（张掖高铁西站店）的前台员工：闫星星，现向贵平台反映该酒店负责人拖欠工资、辱骂员工并恶意删除联系方式的情况，值得注意的是，自入职至离职，酒店始终未与我签订书面劳动合同，这已违反《中华人民共和国劳动合同法》",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80904",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80904",
+   "question": "尊敬的领导您好！我是一名在读研究生，由于学术科研需要，需要2000-2024年张掖市固体废物污染环境防治公告，现已在官网收集到2020、2021、2023年固体废物污染环境信息公告，因此公告为公开信息，所以现特此向您申请获取其他年份的信息公",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80887",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80887",
+   "question": "根据中共中央办公厅、国务院办公厅印发的《育儿补贴制度实施方案》及通知，主要通过育儿补贴信息管理系统线上申请。请问我市是否发放？我市育儿补贴信息管理系统申请入口在哪里？如果发放，我市发放日期是什么时间？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80879",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80879",
+   "question": "致市长的一封信 尊敬的市长： 您好！ 我是张掖市的一名大学生，这是我第二次就家中低保事宜向您致信。首先，我想对我市公务人员的工作态度表达一份特别的“敬意”——他们在处理我家低保问题时，展现出的“认真”与“细致”，确实让我们印象深刻。 第一次",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80874",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80874",
+   "question": "尊敬的领导： 您好！本人的人事档案于2025年7月5日被人社局档案室签收，上周7月16 日从组织部开得查档函用于转接党组织关系，便前往人社局进行调档，被告知我的档案还没有被整理出来，在本周四周五可前往调档，昨日去往人社局又被告知还未整理，可",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80871",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80871",
+   "question": "尊敬的领导： 近期滨河社区下辖各小区都在积极响应号召组建物业管理委员会，竞选物业管理委员会成员的条件设置有一条必须是物业费及各种费用缴清的，这一条件的设置有失公允，也没有考虑到各小区实际的物业服务情况。就嘉州花园小区而言，物业服务公司为瑞家",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80868",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80868",
+   "question": "尊敬的领导您好！我是一名在读研究生，由于学术科研需要，现特此向您申请张掖市历史文化街区甘州区西街-劳动南街街区、文庙巷、西来寺巷街区三个街区的历史文化街区保护范围及内部历史建筑名录，现特此向您申请，不知您是否方便，方便的话请发至我的邮箱。不",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80867",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80867",
+   "question": "部门领导您好：最近听说张掖市肃南森林消防大队与张掖市森林消防支队将要合并，肃南将没有森林消防队伍。部分人员将集中在张掖森林消防支队。对此请问有没有相关文件证明是否要合并",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80865",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80865",
+   "question": "领导您好，目前了解到兰州、酒泉市肃州区等地2025年汽车置换补贴政策暂停，张掖市2025年汽车置换补贴政策是否已暂停，如已暂停，第三季度购车以旧换新补贴什么时候重新上线",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80862",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80862",
+   "question": "关于高铁西站秩序有效性，不知能否采用道路中间设置护栏有效提高出租车秩序性及游客打车秩序性，有效分流。设置护栏有利于出租车有序进场，避免游客哄抢车辆。希望本条建议能起到帮助，更希望相关部门能够提出并实行更有效的解决方式，让高铁西站更为有序，游",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80861",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80861",
+   "question": "您好！首先感谢贵部门长期以来对润泉湖公园的精心管理与维护，为市民提供了优美的休闲环境。近日，学生放假，张掖迎来酷暑，市民朋友晚饭后会前往润泉湖公园纳凉赏花，但天黑后公园却存在以下问题： 1、目前公园步道、绿化带、湖边等照明严重不足，夜间能见",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80858",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80858",
+   "question": "今日，我就相关事宜向肃南县人社局工作人员咨询。过程中，接待我的工作人员态度极其诚恳，全程耐心倾听我的疑问，没有丝毫敷衍或不耐烦。面对我提出的多个细节问题，对方始终以平和的语气逐一回应，用通俗易懂的语言解释政策条款和办理要求，确保我完全理解。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80852",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80852",
+   "question": "本人于2023年购入住房一套，依据当时购房政策，可享受家电补贴1.5万元，后将补贴券提交至家电指定门店。2024年下半年询问该店家，告知无法配送，2025年上半年再次询问，依然告知无法配送，后续询问工作人员，告知正在协调处理。现在希望能告知",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80849",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80849",
+   "question": "前期因为圆通服务问题多次投诉，在张掖市邮政管理局反馈的处理结果都是用户反映属实。圆通速递针对后期的快递服务问题加强关注，提升服务质量，感谢您的信任和支持，将继续履行职责，做好相关工作。但是今年7月我一个月之内连续两个快递圆通快递员反馈我快递",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80847",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80847",
+   "question": "欧式街马场干休所m2号楼楼顶水泥墙块脱落，幸好没有伤到人，希望有关单位能够排查一下，以免发生伤人事件。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80846",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80846",
+   "question": "欧式街马场干休所m2号楼楼顶水泥墙块脱落，幸好没有伤到人，希望有关单位能够排查一下，以免发生伤人事件。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80836",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80836",
+   "question": "我想咨询一下通过2025年初级会计考试需要去现场提交或者审核资料吗 什么时候可以领证，在哪领证， 谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80828",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80828",
+   "question": "我想咨询一下2025年初级会计证书在哪里领取，什么时间领取",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80824",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80824",
+   "question": "关于张掖市甘州区富明小区旧城区改造加装电梯问题，2023年缴纳电梯加装费用，为何截止2025年7月15日还未加装电梯？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80820",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80820",
+   "question": "了解到乌江镇有房屋改造重建的政策，想咨询一下怎么提交办理？政策一户补贴多少钱？补贴的钱要求盖几间房？这个户是怎么定义的，一个临街的大门算一户，还是一个户口算一户？80岁的低保老人有没有权利再重新翻盖？想要最新的政策文件及办理程序及乌江镇相关",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80818",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80818",
+   "question": "相关部门领导： 你们好，长话短说，城南口袋公园（康乐路周边），八一街（新区特殊教育学校东北一整条街），滨河大道，玉水苑，还有我没看到没发现的地方。这些地方没到下午至晚上大量视频野炊，一是对城市环境造成严重破坏，而是使用明火对周围树木林草带来",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80817",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80817",
+   "question": "网页非关怀版存在bug,关键信息无法填写，建议不能提交，所以向省政府网做过反馈。 恒达美食街，长期堆放装修建材，占用交通要道，过往车辆多次反馈，物业和施工单位无回复。 建材垃圾同生活垃圾一起在街道尽头堆放，不通风，堆放不合理，长期堆积，天气",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80816",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80816",
+   "question": "您好！ 请问困难大学生一次性求职补贴何时发放，我了解到部分同学已经发放到了相关补贴，剩余的补贴何时落实呢。期待您们的回复，感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80815",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80815",
+   "question": "我是张掖市甘州区蓝山公馆六期1号楼2单元1001室的住户张宏，我于2023年买了蓝山公馆六期的房子，并在下半年进行装修。但是在2024年下半年发现两间卧室的墙壁出现多处裂缝，房屋发生质量问题。多次与物业房产公司反应后都无果，2025年6月份",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80814",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80814",
+   "question": "第二批国补政策已经停止，想买个电动车，后续国补还会继续嘛",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80810",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80810",
+   "question": "《甘肃省供用电条例》（2006年实施，2023年修订）第二十九条“城乡居民电力用户有权要求供电企业按照国家规定落实一户一表、抄表到户；供电企业应当根据城乡电网建设与改造规划有计划地实施。供电企业可以运用网络和移动通信等技术手段，实行远程抄表",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80748",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80748",
+   "question": "尊敬的领导：您好！我关注到张掖市甘州区2025年公开招聘43名幼儿园教师公告招聘中所有岗位都要求历全日制本科及以上学历，对比2024年同岗位招考要求，大专及以上学历均可参加考试；然而今年招考限制全日制本科及以上学历 ，能否今年招考给大专学历",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80746",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80746",
+   "question": "不知从什么时候开始 ，在县府街延伸段鼎和大厦至亮泽肉店这一段，多了好多花箱，原本划的停车位也进行了重新划线，试问有关部门，像这种停车路段，究竟是属于哪里？是属于资本还是属于人民？这种放花箱圈停车位是经过哪些部门批准的？经过公开招标或拍卖了没",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80740",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80740",
+   "question": "尊敬的领导您好！我咨询一下张掖市2020-2024年全市玉米制种面积、亩均产量2个方面的具体数据。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80736",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80736",
+   "question": "请问甘州区的小学暑假放假时间具体是几号",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80735",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80735",
+   "question": "本人与2025年6月24日下午7.35分在恒食易购超市购物出来，开车准备走，车已经快行驶到停车场的西出口，这时张掖市勤和物业管理有限责任公司的员工保安大叔，指挥让我从东出口出，我没有听从保安大叔的指挥，保安大叔便开始辱骂本人。骂的还比较难听",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80731",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80731",
+   "question": "尊敬的领导： 您好！ 咱们张掖市市级骨干教师隔几年一评选？2025年不评选的话，啥时候才能评选？评选条件是啥？谢谢解疑！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80730",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80730",
+   "question": "尊敬的领导： 您好！ 咱们张掖市市级骨干教师隔几年一评选？2025年不评选的话，啥时候才能评选？评选条件是啥？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80728",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80728",
+   "question": "尊敬的领导，我媳妇朱彦平女士（622826199112030622，手机号15193403681）从2024年3月份至2024年12月份在甘肃泓森林业发展有限公司担任会计职务。但从2024年9月份至12月份工资一直未发，且一直未缴纳社保，多",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80722",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80722",
+   "question": "欣闻张马高速已开工建没，甘金高速在规划中，能否告之线路走向，未来互联互通及统筹规划情况，请预留未来发展空间，并设计统筹考虑，为今后互联互通打好基础，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80721",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80721",
+   "question": "欣闻张马高速已开工建没，甘金高速在规划中，能否告之共线部分及统筹规划情况，请预留未来发展空间，并设计统筹考虑，为今后互联互通打好基础，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80720",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80720",
+   "question": "张掖西站做为张掖市民及外地游客进出张掖的主要枢纽，承载着支持张掖发展的重任，随着兰张三四线武威至张掖段接入张掖西站，西宁成都高铁加紧建设，未来3-5年，成都至张掖高铁通道将打通，张掖西站将成为兰新高铁与兰张高铁的交汇枢纽，必将为张掖带来极大",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80718",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80718",
+   "question": "连着上9天课无论是老师还是学生都无法忍受，唯一可以休息的一个早上还要参加化学竞赛，拜托给我们一个完整的周末吧！！！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80712",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80712",
+   "question": "领导好，我是甘州区新乐小区菊园3号楼2单元601室的住户，我家的天燃气是2023年下半年装的，燃气炉也是天燃气公司装的，但炉子打着火后火势太弱，无法使用，上周反应后，一直没有人来处理，请领导在百忙之中过问一下此事，帮我解决一下我生活中的难题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80710",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80710",
+   "question": "在市委市政府坚强领导下，中央八项规定得到有效落实，但甘州区滨河新区中央公园3号楼一单元地下室电表设施区域漏下水污水问题一直存在，住户在社区网格群多次反应（4月19日、5月2日、6月18日），未解决任何问题，可以说是你发你反应的问题，我就是看",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80709",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80709",
+   "question": "尊敬的市人社局领导你好： 本人现为事业单位工勤技能岗高级工人员，于2024年考取了技师资格证，但由于高级工聘用年限（高级工2021年聘用）未达到五年，所以至今仍为高级工。2023年本人考取了国家一级注册消防工程师资格证，现在如果要向单位申请",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80707",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80707",
+   "question": "您好： 我想咨询一下大学生就业补贴，连续三年每月1500元怎么申请，需要些什么，或者有什么要求。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80699",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80699",
+   "question": "尊敬的张掖市农业农村局： 您好！ 我是一名河海大学的研究生，现进行农业灌溉相关课题研究。因研究需要，在网上没有查找到相关数据，想向贵单位咨询一些数据： 1.玉米种植面积：张掖市近年的玉米总种植面积，包括制种玉米和普通商品玉米各自的种植面积，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80698",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80698",
+   "question": "尊敬的市政府领导： 您好！ 2023年10月，我所与张掖市城市管理行政执法局（下称张掖市城管局）签订《司法鉴定委托书》，受托对一起砍伐柳树案件进行鉴定并出具鉴定意见书，约定鉴定费用为人民币陆仟元整（¥6,000.00）。依据委托书条款，张掖",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80696",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80696",
+   "question": "我是2017年办理的该号码19993619999，与电信公司未签订携转合约，经几次贵单位投诉，电信公司回复第一次说是终身的合约，第二次说是20年合约，第三次说是让我交20年的违约金5万多，第四次说是给我降低保底，第五次说是合约10年，这几次",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80694",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80694",
+   "question": "本人在果树村有30亩土地，全村要制种，不让我的地制种，那就隔离，又说隔离也不行.制种不行，商品玉米也不让种。村委会要我必须种麦子，30亩地全部种麦子，不种麦子就不给水，我的地租给农户在种，人家肯定不愿意，种麦子没有收入，所以导致他种的玉米没",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80692",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80692",
+   "question": "6月16日早上8点50左右打市政府热线咨询医保消费事由，经了解拨打区医保局电话0936-8551943再次咨询，接线员是一名男性工作人员，刚开始语气就不好，我大概问了一下消费情况，解释过程也全程不耐烦。态度强硬让人很不舒服，我也一直在忍受这",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80677",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80677",
+   "question": "本人于2025年6月5日骑行路过甘肃，在该车行更换摩托车链条，明确要求使用520型号，但经营者告诉我525型号更耐用，导致车辆离甘后出现严重安全隐患，导致链条脱落、齿轮损坏后续在新疆重新维修，维修技师明确说明我车不适用525型号链条。经多次",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80660",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80660",
+   "question": "遵敬的区政府领导： 我们是甘州区南关社区退休职工，一直以来我们在南关老年活中心（原甘州区水务局附楼）活动（主要是打乒乓球）。去年该活动中心被指定某个人负表后，先是不提供开水，后是断电，不提供照明（向市民政局投诉后恢复照明）。现如今，又把乒乓",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80659",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80659",
+   "question": "就 2025060362066536 信件 反映的事件 高台县相关部门回复不满意，且目前为止道路管控这块无任何回复。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80652",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80652",
+   "question": "尊敬的相关监管部门： 本人现就甘州区北街延伸段中国农商银行在业务办理过程中存在的服务僵化、便民措施缺失及异地社保卡业务指引不清等问题进行建议投诉，具体情况如下： 一、养老金交易明细查询受阻问题 2025年5月7日，本人持父亲社保卡、身份证及",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80639",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80639",
+   "question": "尊敬的领导您好，本人是一名硕士研究生，由于科研需要，想要获得张掖市西街-劳动南街历史文化街区的项目模型和西街-劳动南街历史文化街区的保护规划，以及项目的施工图，望批准。谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80631",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80631",
+   "question": "请问有哪些景点推荐外地游客去体验当地风情",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80622",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80622",
+   "question": "领导您好，我想咨询一下，下半年张掖市辖区内是否有医疗事业单位招聘，比如甘州区妇幼保健院，甘州区医院，卫健委下属等，如果有，大概什么时候，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80617",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80617",
+   "question": "尊敬的领导： 您好！ 近期收到出租车公司通知，说是从6月1日起凡是被投诉通报的车辆，不管什么原因，不管对错，一律停运整改学习。这个通知我们在春运期间也收到过。请问相关部门工作人员“不分原因，不论对错”这种要求是执法科向各公司提出的要求吗？这",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80601",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80601",
+   "question": "本人金湖湾小区4号楼住户，近期旁边锦华名院小区挖地基建设，虽然用了一定的防护措施，但防护措施不太到位，致使金湖湾车棚及部分道路地基下陷，出现裂缝。目前只见施工方对车棚进行了加固，但对地基等防护未做其他处理，还在挖地基施工作业。为保障业主权益",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80600",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80600",
+   "question": "您好，因本人需要撰写论文，需要用到张掖市七彩丹霞2019-2024年客流量数据做研究，希望可以提供一下每天的客流量数据，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80591",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80591",
+   "question": "尊敬的领导你好！我是张掖市事业单位普通职工，想咨询一下，延迟退休张掖这边的政策情况，事业单位女职工50周岁能不能申请延迟退休，据我了解的政策，根据人力资源社会保障部 中共中央组织部 财政部关于印发《实施弹性退休制度暂行办法》的通知， 第四条",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80588",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80588",
+   "question": "尊敬的叶市长您好！我家孩子今年在甘州区劳动街小学上六年级，即将迎来小升初考试，学校、老师着急，想要促进学生成绩，让孩子们都能交出一份完美答卷，这个出发点是好的，作为家长我们也完全理解，但是有些措施有些欠妥，主要问题有以下几点：1.在校时间过",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80586",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80586",
+   "question": "今天早上本人到高台县政务大厅民政服务窗口代为岳父岳母咨询补办结婚证事宜，工作人员在电脑系统查询后告知我系统内没有档案信息，需要到户籍所在地村委会开具证明后才能办理，当时我问工作人员证明怎么开？工作人员答复村委会都有模版知道怎么开。随后我便带",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80576",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80576",
+   "question": "您好，本人户籍为甘肃张掖，于2017年大专护理学毕业（2023年考取新疆师范大学法学非全日制本科），2019年考录至新疆阿克苏地区库车市艾滋病防治委员会办公室管理岗，2020年借调至库车市新冠疫情指挥部从事疫情工作，2023年因机构调整合并",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80572",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80572",
+   "question": "尊敬的住房和城市建设局领导： 您好！ 我是中广大厦办公楼的一名上班人员，我现在要投诉张掖市金辉物业管理有限责任公司在我不知情的情况下，擅自把我停在车位里的车移动至马路边停放，且没有任何安全看管措施，严重损害居民个人财产的恶劣行为。 在202",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80570",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80570",
+   "question": "您好，我是一名集美大学硕士研究生，因科研需要，特申请2023年张掖市政府工作报告原文，若方便可发送至邮箱1468381322@qq.com,非常感谢您的支持！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80569",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80569",
+   "question": "2021年4月6日，张掖奥体中心建设项目在 甘州区正式开工建设，标志着张掖体育事业进入了一个新阶段，作为张掖民生工程，规划水平高、功能定位全，建成后将成为张掖城区地标性建筑、填补全市大型体育场馆空白，对完善城市综合功能、提升城市形象品位、满",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80566",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80566",
+   "question": "去年12月，我参加的张掖市创建全国文明城市征文活动揭晓，我获得三等奖，有奖金300元，但半年了，一直没有兑现，请主办方中共张掖市委宣传部、张掖市创建全国文明城市指挥部办公室、张掖市精神文明建设委员会办公室、张掖市文学艺术界联合会、张掖市作家",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80559",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80559",
+   "question": "尊敬的领导您好！我是衡阳师范学院一名在读研究生，由于学术科研需要，现特此向您申请以下农业相关数据： ①2000-2023年张掖市氮肥、磷肥、钾肥、复合肥使用量（折纯量）、农用柴油使用量、农药使用量，灌溉电力施用量，由于翻阅统计年鉴无果，现特",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80552",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80552",
+   "question": "您好，我是兰州大学一名研究生，最近在做关于张掖市绿色低碳循环农业的研究，有一些数据并未在网上或张掖市年鉴中找到，所以发这封邮件希望获取以下数据：张掖市2013年至2023年十年间的畜禽粪污综合利用率、秸秆综合利用率、农用地膜回收率、尾菜回收",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80543",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80543",
+   "question": "关于张掖市环碧再生资源有限责任公司5名员工的社保等问题 尊敬的市委、市政府领导 你们好！ 我们是张掖市环碧再生资源有限责任公司(原张掖市污水处理厂)的员工；我们也是张掖市绿水青山的守护人；是市污水处理厂2019年张掖市应急污水处理站CWT招",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80527",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80527",
+   "question": "尊敬的领导，您好！咨询一下农村土地整改塘坝修建，村民是否分摊塘坝施工费用。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80522",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80522",
+   "question": "尊敬的张掖市人民政府： 您好！我是张掖市市民，根据张掖市人民政府网站留言回复情况（地址为http://www.zhangye.gov.cn/hdjl/ldxx/content.html?metadataId=80433），个人申请充电桩安装",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80520",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80520",
+   "question": "尊敬的领导：您好！我关注到张掖市上半年事业单位招聘中所有本科学历岗位虽未要求全日制，但均要求提供学士学位证书，而现实中绝大部分非全日制本科生都只有毕业证，没有学位证，能否考虑给予取得国民本科学历但没有学位的考生一些机会，在下半年联考及以后的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80513",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80513",
+   "question": "尊敬的领导： 您好！ 我是一名先天性心脏病患儿的妈妈，2024年12月26日我的孩子出生了，我的天也塌了，孩子出生一天确诊复杂性先天性心脏病：肺静脉异位引流。2025年1月15日，孩子在上海交通大学儿童医学中心进行了手术。想咨询下，对于此类",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80508",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80508",
+   "question": "尊敬的市委市政府领导：本人于2023年在张掖市甘州区怡和园小区购买住宅房一套，后参加甘州区住房和城乡建设局关于印发《甘州区2022年阶段性住房支持政策实施方案》的通知活动，通过申报程序符合住房补助政策的条件。于2023年10月8日在张掖市河",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80499",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80499",
+   "question": "领导好， 本人今日登录本人工作生活所在地武汉政务服务平台“鄂汇办”查询个人证照，发现一张由张掖市卫健委颁发的“张掖市健康证”。本人从未在张掖办理过该证件。也未授权过任何人办理该证件。烦请注销和本人身份证相关的张掖市健康证。谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80497",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80497",
+   "question": "尊敬的领导： 你好！我是上秦镇庙儿闸村村民，我村修建的储水塘坝，在农户土地流转地租费用中扣除塘坝费用，我村村民多方打听其他乡镇村社修建塘坝后，都未收过费用。恳请领导咨询下我村塘坝收费的依据和理由。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80495",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80495",
+   "question": "尊敬的各级领导 如题，上半年张掖市人才引进名额较少，就张掖市下半年是否还会有第二批人才引进，以及具体举行时间，是各县区单独举办还是统一发布公告？还请领导回复。 此致 敬礼",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80489",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80489",
+   "question": "各位领导，您好！我是一名营运车旅游司机，近几年随着旅游的火爆，现在市面上有好多黑车非法营运，扰乱营运市场，现在有好多东北车，宁夏车，四川车来甘肃接游客跑旅游，再加之现在旅行社雇佣黑车跑旅游现象严重，严重侵害正规营运车权益，请领导重视。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80478",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80478",
+   "question": "敬爱的各级领导 如题，上半年事业单位名额较少，就张掖市下半年是否会组织事业单位考试，以及具体举行时间，是单独举办还是参加联考有疑问。并且公告发布网站是哪些。还请领导回复。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80476",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80476",
+   "question": "尊敬的监管部门领导你们好，本人举报张掖移动通信公司，在本人不知情的情况下移动公司给本人开设了一项宽带业务，此业务非本人授权办理，此业务非本人使用，移动公司这种行为合法合规吗？请张掖移动通信公司给与答复，就算不收费本人也有知情权吧，难道忘记了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80471",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80471",
+   "question": "尊敬的市长，您好！我们县这两年刚脱贫，我去年好不容易找到个工作，全家就指望着这一个月两三千工资，现在又失业了，初中毕业找不到活儿干，听说贵市工作机会多，工资也高，想带着一家去贵市生活，但又没有认识的当地亲戚和朋友，不了解政策，担心在外地生活",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80469",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80469",
+   "question": "想问一下甘州区有没有科技馆，是否对外开放、开发时间以及具体的门票预约流程等详细事宜。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80468",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80468",
+   "question": "想问一下甘州区有没有科技馆，是否对外开放、开发时间以及具体的门票预约流程等详细事宜。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80456",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80456",
+   "question": "恳请政府督办解决沙井镇水管站轮灌方法不能保证农业生产用水，影响农业生产问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80455",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80455",
+   "question": "您好！我是张掖市甘州区返乡青年，现就农业相关扶持政策咨询以下问题，恳请予以解答： 1.植保无人机购置补贴 据悉我市对新型农业机械有补贴政策，请问2024年新购置植保无人机的补贴申请需提交哪些材料？具体办理流程如何？是否有指定受理部门或线上申",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80452",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80452",
+   "question": "关于甘肃蓝浩达汽车服务有限公司拖欠工资及未签订劳动合同的情况反映 致：张掖市市长热线办公室 反映人信息 姓名：李子豪 联系电话：16699634686 身份证号：622621200011090012 联系地址：甘肃省陇南市武都区 被反映单位",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80445",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80445",
+   "question": "1. 挖坑机（机械挖坑）效率 效率范围： 小型手持式挖坑机（汽油/电动）：30~80个坑/小时（直径20~40cm，深度50~80cm）。 拖拉机悬挂式挖坑机：80~200个坑/小时（适用于大面积造林，直径更大）。 大型专业植树机（全自动）",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80443",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80443",
+   "question": "你好领导，想咨询一下新乐派出所门口，怡和园小区北门口，这个地方的马路会不会修通？计划啥时候修呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80434",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80434",
+   "question": "本人是甘州区金源明珠上海滩小区业主，在购房时本小区地下停车场购买了固定停车位，去年积极响应国家新能源汽车发展和节能减排战略部署，购买了新能源汽车，充电不方便，花费时间成本太高，还要交停车费、服务费，电费还贵，自己拥有停车位却不能安装充电桩，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80416",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80416",
+   "question": "尊敬的张掖市相关部门领导： 您们好！近年来甘肃旅游一直处于持续火爆的状态，天水麻辣烫、兰州黄河风情线、鸣沙山万人大合唱等争相出圈。张掖作为青甘大环线与丝绸之路河西走廊线交汇的十字路口上的城市，自然景观人文历史交相辉映，去年全市旅游取得较大成",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80415",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80415",
+   "question": "您好，因本人需要撰写论文，需要用到张掖市七彩丹霞2019-2024年客流量做研究，希望可以提供一下每天的客流量。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80409",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80409",
+   "question": "各位领导： 您好，因本人需要撰写论文，需要用到张掖市乡村旅游人次及收入情况数据，并对此进行乡村旅游市场研究。希望可以提供一下数据。谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80408",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80408",
+   "question": "您好，我是甘州区流泉社区润阳佳苑小区居民，咨询问题如下：居民家中装修产生的建筑垃圾扔到哪？ 因装修产生一些装修废料，此部分属于建筑垃圾，因小区物业没有收取建筑垃圾清运费所以禁止扔，垃圾不多我不想找垃圾清运公司想自己扔。随后咨询了12345热",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80405",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80405",
+   "question": "甘州区图书馆家属楼化粪池堵塞导致我家被淹两次，反映给社区，社区反馈无法解决，现在损失无人承担，问题也没有部门牵头解决",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80398",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80398",
+   "question": "本人于3月26下午3点多去城乡规划设计院办事，开车至图片中红圈圈住的车辆处时（当时那个停车位上没有车）准备把车停在那个车位上，由于前后右边都有车没有停进去，此时这个停车场西入口也进来了一辆车，于是我就出也出不去，停也停不进去。我就跟旁边白色",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80397",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80397",
+   "question": "目前甘州区饮马桥西路与龙首路交汇丁字路口处，龙首路东北处路口与对向路口偏差较大，导致拐弯车辆存在视觉盲区，不能及时观察到过马路的路人，存在安全隐患，望引起重视，重新调整路口位置或将停车线后移，保障群众生命安全，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80385",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80385",
+   "question": "各位领导： 您好，因本人需要撰写论文，需要用到张掖市农文旅产业融合项目或者乡村旅游项目统计表做研究，并对此进行案例研究。希望可以提供一下项目名录。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80383",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80383",
+   "question": "因研究需要，请分享张掖市2022、2023年全社会用电量，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80371",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80371",
+   "question": "本人于1995年大学毕业后入职张掖市职教中心，因个人原因，于1996年7月调动到山东省青岛莱西市，现临近退休，梳理档案，缺失在张掖市职教中心任教的入职及调出档案等，这期间整个资料空白，请帮忙落实如何补办，找具体哪个部门办理，怎么办理。谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80370",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80370",
+   "question": "您好，我是浙江大学经济学院2024级研究生。这边计划做个有关全国地级市零基预算的研究，请问张掖市什么时候开始的零基预算？谢谢。（若方便麻烦优先邮件bjtdmmf@163.com 回复，谢谢）",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80359",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80359",
+   "question": "一、本人2014年在新疆工作，现在在张掖工作。 1.现在可以把以前的社保转移过来吗？ 2.转移过来后对现在的社保有什么影响？ 3.转移手续怎么办理？ 二、社保缴纳期间，中间断缴几年有什么影响？断缴部分可以补缴吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80346",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80346",
+   "question": "河西学院门口，非机动车道设置摩托车停车位，人行道有设计汽车停车位，经常堵车，交通秩序混乱，建议重新设计规划规划，保持交通畅通。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zhangye-igi-23",
+   "id": "80344",
+   "url": "https://www.zhangye.gov.cn/IGI/nbhd/openGovmsgbox.do?id=80344",
+   "question": "尊敬的政府领导您好： 我是河海大学水文水资源学院的学生，研究方向是水资源调度，因研究需要，需要张掖市下辖甘州区、临泽县、高台县三区域历史用水数据（包括农业、生活、工业用水，城镇公共用水）在网络包括水资源公报、统计年鉴等搜寻均没有结果，县区年",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

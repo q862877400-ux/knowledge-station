@@ -1,0 +1,159 @@
+{
+ "A_考卷": [
+  {
+   "source": "gx-igi-280",
+   "id": "157814432955",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814432955",
+   "question": "百色市生态环境局2021年至今的人大建议、政协提案答复处理情况，我已经通过网页进行过全局搜索，目前贵局网站上只公开了2021年及之前的答复情况，需要具体每年主办与协办建议提案数据，该数据属于法定主动公开内容，谢谢！",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-280",
+   "id": "1578122522",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=1578122522",
+   "question": "尊敬的领导您好，在建的万达广场.万年城日夜播放商业广告，声音太大，影响周边居民日常作息，特此投诉，望予以解决答复为盼！",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国噪声污染防治法",
+     "lib_no": "噪声污染防治法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "gx-igi-280",
+   "id": "100268980",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=100268980",
+   "question": "您好，本人因毕业论文写作数据需要，向贵单位请求获取2017-2022年百色市生活污水化学需氧量和工业需氧量数据。",
+   "cited_hits": [],
+   "cited_missing": [
+    "生态环境统计管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gx-igi-280",
+   "id": "157830056207",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157830056207",
+   "question": "尊敬的百色市环境生态局领导：&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 您好，我是一名南宁师范大学在读研究生，因毕业论文写作数据需要，向贵单位请求获取百色市2002、2007、2012、",
+   "cited_hits": [],
+   "cited_missing": [
+    "生态环境统计管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gx-igi-280",
+   "id": "157814188562",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814188562",
+   "question": "百色市生态环保局：&nbsp; 《榜圩镇永旺村伏旺屯东南方向大型养猪场选址问题》一、平果市长信箱答复中：“市生态环境局将切实加强事中事后监管，我们也将定期组织市疾病预防控制中心对伏旺屯饮用水卫生状况进行采样监测，如发现污染问题将立即责令整改",
+   "cited_hits": [],
+   "cited_missing": [
+    " 建设项目环境影响评价分类管理名录 ",
+    "建设项目环境影响评价分类管理名录",
+    "农田灌溉水质标准",
+    " 建设项目环境影响评价分类管理名录 ",
+    "建设项目环境影响评价分类管理名录",
+    "农田灌溉水质标准",
+    "GB5084-2005",
+    "GB5084-2005"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "gx-igi-280",
+   "id": "157830015295",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157830015295",
+   "question": "领导您好！我是安徽大学一名研究生，最近由于论文撰写中需要百色市2020-2022年的工业废水排放量以及工业固废物综合利用率的数据，通过广西统计年鉴及各市的统计年鉴和统计公报等资料中无法查询到，希望可以得到帮助。如有数据麻烦发送到101746",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-280",
+   "id": "157814421717",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814421717",
+   "question": "您好，我是一名在读研究生，现因科研需要2006-2014年一般工业固体废物产生量以及综合利用率的数据，希望有关部门可以给予提供，谢谢！相关数据可发送至我的邮箱1299820936@qq.com",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-280",
+   "id": "157814418623",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814418623",
+   "question": "您好，我是一名研究生，正在写学术论文，需要用到2017-2022年白色市的工业二氧化硫、工业氮氧化合物、工业烟尘（粉尘或颗粒物）以及工业废水排放数据，但省统计年鉴、市年鉴、环境统计公报并未有完整的数据，不知道贵单位能否提供相应的数据，如果有",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-280",
+   "id": "157814411932",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814411932",
+   "question": "尊敬的百色市生态环境局工作人员： 我是一名研三的学生，由于毕业论文的写作需要，需要贵市2019-2021的工业废水排放量、工业二氧化硫排放量、一般工业固体废弃物综合利用率（或者一般工业固体废弃物产生量和综合利用量）以及互联网宽带接入用户数，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-280",
+   "id": "157814410375",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814410375",
+   "question": "品润国宾府经常在中午施工，声音太大影响休息，请相关部门处理，让施工队中午不要施工。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-280",
+   "id": "157814403326",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814403326",
+   "question": "你好，我是河北地质大学2022级经济学院应用统计硕士研究生，导师让我做一个资源型城市减污降碳的研究，需要用到2010年到2021年空气质量优良天数或空气质量优良率数据。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-280",
+   "id": "157814213084",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814213084",
+   "question": "根据政府信息公开条例建议广西壮族自治区百色市生态环境局信息公开主管部门补充在线受理信息公开申请的途径。推动信息化、无纸化落实。现在的受理方式只存在两种方式，缺少在线申请的方式，给申请政府信息公开带来不必要的碳排，提高了申请的门槛，十分不便民",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-280",
+   "id": "157814203387",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814203387",
+   "question": "您好，我想咨询生态环保环评审批流程是怎样的，相关部门电话是多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-280",
+   "id": "157814196645",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814196645",
+   "question": "尊敬的领导：&nbsp; 我是右江民族医学院的一名学生，现向您投诉学校13栋宿舍楼后化粪池堵塞的相关情况。&nbsp; 宿舍楼早在两周前遭遇过化粪池排泄物过满，导致排泄物顺着井盖向外冒出，仅仅几天宿舍楼后就已经充满排泄物，臭气熏天，严重影响",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

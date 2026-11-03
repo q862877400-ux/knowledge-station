@@ -1,0 +1,701 @@
+{
+ "A_考卷": [
+  {
+   "source": "nx-igi-269",
+   "id": "10154937",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10154937",
+   "question": "厅长： 您好，本人想咨询一下，对于发电企业员工连续中断三个月以上返岗，用人单位未对返岗员工组织进行三级安全教育培训即要求上岗，并且员工也未对此问题进行提出即返岗。并且在两个月后易燃未对此进行整改，那么用人单位和员工双方是否涉及到违法行为?",
+   "cited_hits": [
+    {
+     "name": "生产经营单位安全培训规定",
+     "lib_no": "应急管理部关于公开征求《生产经营单位安全培训规定（征求意见稿）》意见的通知",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "nx-igi-269",
+   "id": "10152517",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10152517",
+   "question": "尊敬的万厅长您好： 我是中卫市沙坡头区应急管理局聘任的工程师，本科学历，专业：安全工程，中级职称，从事安全工作13年，从2020年2月我被中卫市沙坡头区应急管理局聘任为工程师，主要负责对辖区企业的安全检查指导服务工作，危化方面的文件起草，局",
+   "cited_hits": [
+    {
+     "name": "应急管理综合行政执法技术检查员和社会监督员工作规定（试行）",
+     "lib_no": "应急管理部   司法部关于印发《应急管理综合行政执法技术检查员和社会监督员工作规定（试行）》的通知",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-269",
+   "id": "10144971",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10144971",
+   "question": "您好，我想咨询一下，从事化工厂区一般焊接作业能用质监发的特种设备焊接作业证吗？还是说从事化工厂区一般焊接作业必须得要应急管理局的熔化焊接与热切割作业证？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国安全生产法",
+     "lib_no": "安全生产法(2021修正)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "中华人民共和国特种作业操作证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nx-igi-269",
+   "id": "10143632",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10143632",
+   "question": "%E5%8E%85%E9%95%BF%E6%82%A8%E5%A5%BD%EF%BC%9A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%E5%AE%81%E5%A4%8F%E4%B8%8B%E5%8F",
+   "cited_hits": [
+    {
+     "name": "安全生产法",
+     "lib_no": "安全生产法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "宁夏回族自治区企业安全总监制度实施办法（试行）",
+    "注册安全工程师管理规定",
+    "安全生产举报奖励实施办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nx-igi-269",
+   "id": "10073271",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10073271",
+   "question": "%E5%8D%B1%E9%99%A9%E5%8C%96%E5%AD%A6%E5%93%81%E7%94%9F%E4%BA%A7%E3%80%81%E7%BB%8F%E8%90%A5%E5%8D%95%E4%BD%8D%E5%AE%89%E5",
+   "cited_hits": [
+    {
+     "name": "生产经营单位安全培训规定",
+     "lib_no": "应急管理部关于公开征求《生产经营单位安全培训规定（征求意见稿）》意见的通知",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "安全生产培训管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nx-igi-269",
+   "id": "10072670",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072670",
+   "question": "尊敬的领导。你好。特种作业证外地的可以在宁夏申请6年一审吗，已经取证10年以上了",
+   "cited_hits": [
+    {
+     "name": "特种作业人员安全技术培训考核管理规定",
+     "lib_no": "中华人民共和国应急管理部令（第19号）特种作业人员安全技术培训考核管理规定",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-269",
+   "id": "10072669",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072669",
+   "question": "近日，应急管理部、工业和信息化部、公安部、交通运输部和海关总署联合印发了《关于进一步加强硝酸铵安全管理的通知》（应急〔2021〕64号），要求库房内须完善强制通风、远红外热成像监测报警、喷淋降温和视频监控等安全设施，库房外须设置火焰视频识别",
+   "cited_hits": [
+    {
+     "name": "关于进一步加强硝酸铵安全管理的通知",
+     "lib_no": "应急管理部 工业和信息化部 公安部 交通运输部 海关总署关于进一步加强硝酸铵安全管理的通知",
+     "weak": true
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-269",
+   "id": "10072661",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072661",
+   "question": "您好，电石生产工艺为重点监管化工工艺，专家检查时要求提供电石生产工艺特种作业操作证，宁夏应急管理厅是否可以办理？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国安全生产法",
+     "lib_no": "安全生产法(2021修正)",
+     "weak": false
+    },
+    {
+     "name": "特种作业人员安全技术培训考核管理规定",
+     "lib_no": "中华人民共和国应急管理部令（第19号）特种作业人员安全技术培训考核管理规定",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "第二批重点监管危险化工工艺目录"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nx-igi-269",
+   "id": "10072653",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072653",
+   "question": "从事电工检修工作，会接触到低压作业、高压作业，考取电工特种作业证是需要低压作业证、高压作业证双证都取得，还是只考一项高压作业证可以含概低压作业。谢谢！",
+   "cited_hits": [
+    {
+     "name": "特种作业人员安全技术培训考核管理规定",
+     "lib_no": "中华人民共和国应急管理部令（第19号）特种作业人员安全技术培训考核管理规定",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-269",
+   "id": "10072647",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072647",
+   "question": "现重点监管危险化工工艺目录中明确了18种工艺，但考试机构只能培训15种，新增的3种工艺（新型煤化工工艺、电石生产工艺、偶氮化工艺）如何取证，咨询了几家都办不了，考取相近工艺的证可以吗？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国安全生产法",
+     "lib_no": "安全生产法(2021修正)",
+     "weak": false
+    },
+    {
+     "name": "特种作业人员安全技术培训考核管理规定",
+     "lib_no": "中华人民共和国应急管理部令（第19号）特种作业人员安全技术培训考核管理规定",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "第二批重点监管危险化工工艺目录"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nx-igi-269",
+   "id": "10072639",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072639",
+   "question": "泾源县八方隆小区消防不合格，由于将院内地上停车位，私自改成了消防通道，以疫情防控为理由，挡住大门口，让住户的车进不去，只能停到外面马路两边，小区住户没有停车的地方，车被交警拖走以，请消防部门来核实，看如何解决我们停车的事情和消防的事情，因为",
+   "cited_hits": [
+    {
+     "name": "建筑设计防火规范",
+     "lib_no": "GB 50016-2014",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-269",
+   "id": "10072581",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072581",
+   "question": "信件内容见附件。",
+   "cited_hits": [
+    {
+     "name": "煤矿安全监察条例",
+     "lib_no": "煤矿安全监察条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国刑事诉讼法",
+     "lib_no": "刑事诉讼法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "煤矿生产安全事故报告和调査处理规定",
+    "自治区党委办公厅人民政府办公厅关于印发く自治区应急管理厅斤职能配置内设机构和人员编制规定 &gt; 的通知"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "nx-igi-269",
+   "id": "10151804",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10151804",
+   "question": "1.根据国家标准GB3608-93《高处作业分级》规定，凡在坠落高度基准面2m以上有可能坠落的作业都称为高处作业，需持证和办理相关作业票后开展工作，我司有架空平台高度10米，平台采用爬梯上下，爬梯栏杆1.2米高，平台四周均设置护栏，护栏高度",
+   "cited_hits": [],
+   "cited_missing": [
+    "特种作业目录",
+    "工贸企业有限空间作业安全管理与监督暂行规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nx-igi-269",
+   "id": "10151366",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10151366",
+   "question": "我之前在宁夏回族自治区取得注册安全工程师证书，但近期由于工作原因，在内蒙古自治区上班，需重新注册证书到内蒙古，需要在宁夏办理什么手续",
+   "cited_hits": [],
+   "cited_missing": [
+    "注册安全工程师管理规定",
+    "注册安全工程师执业资格制度规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nx-igi-269",
+   "id": "10149417",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10149417",
+   "question": "这条规定我个人认为是针对安全监控系统提出的要求，1、比如精确人员定位系统的隔爆兼本质安全型防爆电源箱是否允许设置在此区域，如不可以精确人员定位系统的覆盖范围就达不到全覆盖。2、矿压在线检测系统的电源箱是否也不允许设置。2022年上级检查部门",
+   "cited_hits": [],
+   "cited_missing": [
+    "煤矿安全监控系统及检测仪器使用管理规范",
+    "煤矿安全监控系统及检测仪器使用管理规范",
+    "关于印发矿山安全标准目录的通知",
+    "煤矿井下作业人员管理系统通用技术条件",
+    "煤矿井下作业人员管理系统使用与管理规范",
+    "矿山压力监测系统通用技术条件"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-269",
+   "id": "10146521",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10146521",
+   "question": "本人登高作业证03.06日，电工证04月10日需要到期复审，单位要求持有效期内的证件上岗，但培训机构都不开班，可否适当延期进行复审，是否下发过类似文件。",
+   "cited_hits": [],
+   "cited_missing": [
+    "自治区安全生产“三项岗位”人员考试和证书管理实施细则（试行）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nx-igi-269",
+   "id": "10145447",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10145447",
+   "question": "贵厅：您好！我是西夏区国企（银川市上宸科技服务有限公司），近期有宁夏梓宸教育管理有限公司，法人：马勇，以合作名义找到我公司，称其独家与贵厅开展消防设施操作员，应急救援员认证合作，（全区该公司是独家授权）特向贵厅咨询，情况是否属实",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家职业资格目录（2021年版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-269",
+   "id": "10143247",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10143247",
+   "question": "%E6%A0%B9%E6%8D%AE%E3%80%8A%E5%AE%89%E5%85%A8%E7%94%9F%E4%BA%A7%E5%9F%B9%E8%AE%AD%E7%AE%A1%E7%90%86%E5%8A%9E%E6%B3%95%E3",
+   "cited_hits": [],
+   "cited_missing": [
+    "安全生产培训管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nx-igi-269",
+   "id": "10072672",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072672",
+   "question": "领导您好！我想咨询一下关于危险化学品生产单位安全管理人员考核合格证复审的相关规定，安全管理人员在取得此证后，需要每年参加复审考试吗？需要委托第三方培训机构进行再教育吗？这方面的具体规定能否提供学习一下，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "安全生产培训管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nx-igi-269",
+   "id": "10072664",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072664",
+   "question": "危险化学品生产企业安全生产管理人员（安全员）安全知识考核合格证有效期为三年，在全国安全生产资格证书查询系统显示为应复审日期也是三年，都在有效期内，但有人说每年复审一次？这种情况证件是否有效？",
+   "cited_hits": [],
+   "cited_missing": [
+    "安全生产培训管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nx-igi-269",
+   "id": "10072659",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072659",
+   "question": "我公司自有车辆100辆左右，我想自购一台企业内部自用橇装加油装置，存储柴油，为我公司自有车辆加油，不对外经营，是否需要到应急办理相关手续",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家安全监管总局办公厅关于自用撬装式加油装置安全监管问题的复函"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-269",
+   "id": "10072656",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072656",
+   "question": "我想咨询有关规程第168条的解读掘进工作面回风流中的水泵、皮带机头等电器设备是否均需要增设甲烷传感器？若需要增设，是否与现行AQ1029-2019冲突，且断电范围如何确定？两个电器设备之间间距10m是否需要安设2个甲烷传感器？此条款因不明确",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家煤矿安全监察局办公室关于&lt;m煤矿安全规程&gt;第132条有关规定的复函",
+    "煤矿安全监控系统及检测仪器使用管理规范（AQ1029-2019）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nx-igi-269",
+   "id": "10072646",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072646",
+   "question": "您好，关于4月30日印发的关于初级安全注册工程师的考试办法，我想问一下2021年有考试安排吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "宁夏回族自治区初级注册安全工程师职业资格考试实施办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-269",
+   "id": "10072637",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072637",
+   "question": "尊敬的领导，我是一名企业职工，根据“《宁夏回族自治区职业技能提升行动实施方案（2019年-2021年）》宁就业领导小组发〔2019〕1号”文件精神，想知道为什么我们企业2019年和2020年企业职工职业技能提升和安全管理人员合格证的复审培训",
+   "cited_hits": [],
+   "cited_missing": [
+    "宁夏回族自治区职业技能提升行动实施方案（2019年-2021年）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-269",
+   "id": "10072635",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072635",
+   "question": "宁夏关于高级注册安全工程师的取得政策有没有形成？看到有些省已经出台，宁夏应急厅是否参考？方便安全管理人员能力资质提升。",
+   "cited_hits": [],
+   "cited_missing": [
+    "注册安全工程师职业资格制度规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nx-igi-269",
+   "id": "10072632",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072632",
+   "question": "宁夏企业安全生产标准化评审工作管理办法还有十天就过期了，请问过期后如何开展安全生产标准化建设。",
+   "cited_hits": [],
+   "cited_missing": [
+    "自治区企业安全生产标准化评审工作管理办法",
+    "自治区企业安全生产标准化评审工作管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-269",
+   "id": "10072622",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072622",
+   "question": "特种作业人员证件查询找不到入口，建议网页中显示明确入口方便用人单位查询",
+   "cited_hits": [],
+   "cited_missing": [
+    "应急管理部办公厅关于更新安全生产知识和管理能力考核合格证、特种作业操作证式样的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-269",
+   "id": "10072604",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072604",
+   "question": "根据《国家安全监管总局 住房城乡建设部关于进一步加强危险化学品建设项目安全设计管理的通知》（安监总管三〔2013〕76 号），涉及“两重点一重大”和具有爆炸危险性的危险化学品建设项目应至少满足《石油化工企业设计防火标准》等现行标准规范的要求",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步加强危险化学品建设项目安全设计管理的通知",
+    "石油化工企业设计防火标准",
+    "精细化工企业工程设计防火标准",
+    "精细化工企业工程设计防火标准",
+    "GB51283-2020"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-269",
+   "id": "10072597",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072597",
+   "question": "自治区应急管理厅什么时候可以恢复特种作业考试？",
+   "cited_hits": [],
+   "cited_missing": [
+    "自治区应急管理厅关于有序恢复线下安全生产培训考试工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-269",
+   "id": "10072586",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072586",
+   "question": "关于吴忠市利通区乡镇应急管理体系建设的建议",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于加强乡镇（街道）基层应急管理工作的意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-269",
+   "id": "10072583",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072583",
+   "question": "领导好！ 经市场调查，我省内道路运输危险货物运输车辆配置的《机动车排气火花熄灭器（防火罩）、标志灯、导静电橡胶拖地带》超8成过期失效或使用假冒伪劣产品，安全生产责任大于天，一个小小的失误便会造成很大的损失，生命和财产完全得不到保障，国家所说",
+   "cited_hits": [],
+   "cited_missing": [
+    "全区危险货物运输车辆安防产品排查统计的通知"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "nx-igi-269",
+   "id": "10148575",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10148575",
+   "question": "您好，我是危险化学品经营单位，前段时间办理危险化学品经营许可证。由应急管理局指派3名专家对我单位编制的应急预案进行审核签字，过程中一个专家收取签字费1000元。当时为了抓紧出证就给了，现在就想确定一下，专家私自收费是否合理，如果合理的话有什",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-269",
+   "id": "10147038",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10147038",
+   "question": "您好，请问一下咋们应急厅什么时候能恢复考试，全区疫情都在可控范围，且长时间无新增，为什么不像其他地区省份一样正常开考？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-269",
+   "id": "10146233",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10146233",
+   "question": "特种作业证复审在培训学校已报名并参加培训了，但是有于最近疫情原因，应急局通知学校暂停考试，证件已到复审时间了，不知证件作废不？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-269",
+   "id": "10146188",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10146188",
+   "question": "你好，请问最近何时能够回复特种作业人员证件的复审考试？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-269",
+   "id": "10144529",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10144529",
+   "question": "本人2021年10月15日，向贵厅反应银川市高新技术开发区宁夏沁浩置业发展有限公司在开发区再生资源集散地项目发生2020年3.5作业场所亡人事故，涉嫌瞒报举报，经银创市应急局答复本人，瞒报属实，会在法定时间内公开事故调查报告，时至今日，事故",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-269",
+   "id": "10126230",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10126230",
+   "question": "厅长，您好。 我所服务的企业位于宁夏中卫市，近期取得了危险化学品经营许可证，按照中华人民共和国安全生产法，是否将认定该企业为危险化工生产经营单位而需要投保安全生产责任保险？ 宁夏中卫本地是否对投保该险种有政策要求或指示等？比如，是否外地保险",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-269",
+   "id": "10072671",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072671",
+   "question": "2020年3月5日17时许，银川市高新技术开发区，由宁夏沁浩置业发展有限公司开发的再生资源集散基地项目，宁夏沁灏建筑安装工程有限公司职工马芳，女，该公司测量员，施工现场拉土垫路过程中，因施工现场嘈杂灰尘较大，倒车影像不清楚，宁夏沁灏建筑安装",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-269",
+   "id": "10072668",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072668",
+   "question": "本人实名举报 羊场湾煤矿涉嫌瞒报、谎报事故。2021年5月4日中班晚6时许，羊场湾煤矿二分区运输三队（主管胶轮车）员工陈光平驾驶胶轮车在井下发生一起跑车事故，事故造成陈光平本人死亡。2021年5月12日早班中午11点许、羊场湾煤矿二分区运输",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-269",
+   "id": "10072663",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072663",
+   "question": "尊敬的领导您好： 我是原宁夏阳光行安全技术服务公司员工。现就原我公司培训中心存在问题进行举报。 一：宁夏阳光行安全技术服务公司培训中心基本不符合培训资质申请要求。公司无固定培训场地、无培训相关老师及设施。 二：公司法人李海啸为套取人设局资金",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-269",
+   "id": "10072634",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072634",
+   "question": "我是原宁夏鑫盛起重设备租赁公司的负责人，安玉龙，现向你们反映一件非常离谱的事，事情是这样的，2017年4月26日，宁夏天元运输公司副经理孙海斌让我帮忙介绍一辆吊车给他干活，由孙海斌安排到《宁夏天元新能源科技有限公司》给其吊人洗墙，到当月30",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-269",
+   "id": "10072629",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072629",
+   "question": "之前有听说二消会开考，今年考试时间表也没有关于二消的，想问一下，二消什么时候会考，具体报名条件是什么",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-269",
+   "id": "10072627",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072627",
+   "question": "宁夏回族自治区安全工程系列中高级专业技术职务任职资格评审条件由自治区人社厅发布，建议应该由自治区应急管理厅和人社厅共同发布此文件，其中应该加入应急管理专业的评审要求",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-269",
+   "id": "10072625",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072625",
+   "question": "您好我想请问下2021年消防设施操作员职业技能鉴定考试恢复了吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-269",
+   "id": "10072618",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072618",
+   "question": "我是石嘴山市惠农区金富小区居民，根据《宪法》、《消防法》、《道路交通安全法》、《城市道路管理条例》等有关法律、法规的规定，现咨询惠农区银龙路及金富小区消防通道有关问题，请予以答复。1、咨询南大街、广西路和银龙路是否属于消防车通道？或者具备消",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-269",
+   "id": "10072608",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072608",
+   "question": "领导您好！打扰您一下！我想咨询一下关于招聘问题，贵单位是否紧缺应急管理人才？对于招聘生源学校有没有要求？比如非双一流学校不要?我是一名国家应急管理部直属的学校——华北科技学院的一名学生，学的是矿山救援指挥.",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-269",
+   "id": "10072607",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072607",
+   "question": "您好 我是一个农民工今年7月22号在吴忠恒通职业技能学校办理焊工融化焊与热切割作业证！当考试理论考了80分，实操灭火器考了55分，电脑考了94分 实操合计86分。 一星期后一起考的同事都拿到了证，我的证没拿到问他们学校怎么回事他说实操没及格",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-269",
+   "id": "10072605",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072605",
+   "question": "领导： 您好。位于银川市金凤区宁安街与悦凤路交汇处向西100米的银川市钢瓶检修厂属于重大危险源，此区域属于银川市中心位置，该厂区四周居民小区密集，且政府已规划准备在此建设中学，如此人员密集区域，不应该有重大危险源存在。该厂区内有很多大型液化",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-269",
+   "id": "10072601",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072601",
+   "question": "清水湾社区银税花园、幸福枫景、国子城、西溪港住宅小区道路应急车道在傍晚19点至第二天早8点时间段，被居民私家车占用严重，影响居民出行及消防安全。强烈建议政府部门对此现象进行整治，确保消除安全隐患！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-269",
+   "id": "10072598",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072598",
+   "question": "尊敬的市委领导你们好：我在四月底认识了一位网友，被他骗着进入了一个网络诈骗的软件，害我损失接近61万，遭遇了网络所说的杀猪盘，这些钱都是借的或者网贷跟信用卡，现在网贷逾期了，没法偿还，现在生活都是问题，现在我上不能赡养老人下不能扶养孩子，还",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-269",
+   "id": "10072595",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072595",
+   "question": "各位相关领导能不能尽快安排特殊作业培训考试，现在工作需要低压电工证，已经等待了好久。期待能获得您的回复。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-269",
+   "id": "10072594",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072594",
+   "question": "厅长：您好。我是金凤区幸福枫景小区的业主。目前我们小区、银税花园、国子城、西溪港大概有3600户，应该有近200个孩子在金凤区第7小学上学，吉泰润园也有很多孩子在九中上学。以我们小区为例，去七小上学需要从我们小区东侧道路绕行800米进入吉泰",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-269",
+   "id": "10072593",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072593",
+   "question": "大部门省份都恢复了特种作业培训考试工作，一直未恢复也无法外出工作，宁夏人力资源部门都已经恢复培训取证工作。我们特种合适恢复？好安排自行的行程外出工作",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-269",
+   "id": "10072592",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072592",
+   "question": "近期灵武白芨滩林场有一人肢体被机器严重绞伤，王兴东违反《安全生产法》第一百零六条隐瞒生产安全事故，不立即将人送往医院抢救，反而先开党委会研究能不能送医院，耽误救治、安排人员统一口径、封锁消息、欺上瞒下、分责分锅，不认定工伤。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-269",
+   "id": "10072591",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072591",
+   "question": "关于初级安全工程师的考试，宁夏今年会组织吗？关",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-269",
+   "id": "10072589",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072589",
+   "question": "在这里根本没有查询特种作业操作证，如何查求解",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-269",
+   "id": "10072587",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072587",
+   "question": "宁夏润德生物科技有限责任公司成立于2013年，注册资金5000万元，位于宁夏吴忠市，是一家专业从事枸杞种植、研发、加工农业企业。 1、其建设项目分为三期，一期、二期工程于2014年竣工，在缺乏前期手续的情况下，违法建设，也未进行竣工验收，便",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-269",
+   "id": "10072580",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072580",
+   "question": "近期，宁夏回族自治区应急管理厅直属机构，宁夏回族自治区安全生产宣传教育中心坚定的，电工，焊工，登高作业特种操作证在市面上流传特别广泛，考试流程简单，通过率很高，听闻采用了了独特灵活的教学方式，让建筑领域的工人学到了真技术，拿到了上岗证，为全",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-269",
+   "id": "10072579",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072579",
+   "question": "厅长您好： 我是受伤家属，我父亲在2019年10月31号下午在石嘴山市惠农区达家梁子村中铁北京局包银铁路惠银项目工程段正常施工中，由于一辆压路机在施工中违规发生溜坡将一段23米钢梁撞到，将我父亲郑逢然压伤，造成左侧肋骨全部骨折，右侧肋骨多出",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-269",
+   "id": "10072578",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072578",
+   "question": "2019年11月19日中午一点左右，同心县宁夏生海房地产有限公司清水湾南区B区5号楼和6号楼之间，一施工的挖掘机误操作把现场施工的另一个生海公司的员工周生洪左腿膝盖及小腿压成粉碎性骨折。 事发至今，受害人拜访的地方政府相关部门总计有：同心县",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

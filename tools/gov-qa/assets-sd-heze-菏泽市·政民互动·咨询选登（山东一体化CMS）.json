@@ -1,0 +1,6092 @@
+{
+ "A_考卷": [
+  {
+   "source": "sd-heze",
+   "id": "2102929283918991360",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=2102929283918991360",
+   "question": "我想给我的私家车改改车身颜色，听说还需要备案，想问问是先改色还是先备案?",
+   "cited_hits": [
+    {
+     "name": "机动车登记规定",
+     "lib_no": "机动车登记规定(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sd-heze",
+   "id": "2095446356524142592",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=2095446356524142592",
+   "question": "工作时受伤了，但是单位没有给交工伤保险，想了解一下，这种情况，能申请工伤认定吗?",
+   "cited_hits": [
+    {
+     "name": "工伤保险条例",
+     "lib_no": "工伤保险条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sd-heze",
+   "id": "2084914015024320512",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=2084914015024320512",
+   "question": "尊敬的领导，您好，我是在菏泽务工的外地人，2023年9月份的时候在江苏考了电工证，现在也快到复审期限了，像这种情况，能不能在菏泽复审考试？还是需要再回江苏?",
+   "cited_hits": [
+    {
+     "name": "特种作业人员安全技术培训考核管理规定",
+     "lib_no": "中华人民共和国应急管理部令（第19号）特种作业人员安全技术培训考核管理规定",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "2072854248693043200",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=2072854248693043200",
+   "question": "领导，您好。我的鲁R车牌丢了一块，可以只申请一块新车牌吗?",
+   "cited_hits": [
+    {
+     "name": "机动车登记规定",
+     "lib_no": "机动车登记规定(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sd-heze",
+   "id": "2070330836242272256",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=2070330836242272256",
+   "question": "尊敬的领导，您好。我想了解一下单位按照什么要求为员工缴纳社保费？可以选择按最低缴费基数为员工缴纳社保费吗？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国社会保险法",
+     "lib_no": "保险法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "2057620691536187392",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=2057620691536187392",
+   "question": "尊敬的领导，您好。我想了解一下外地的驾驶证，在菏泽被扣满12分，可以在菏泽进行满分教育吗?",
+   "cited_hits": [
+    {
+     "name": "道路交通安全违法行为记分管理办法",
+     "lib_no": "道路交通安全违法行为记分管理办法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sd-heze",
+   "id": "2044702942992404480",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=2044702942992404480",
+   "question": "领导，您好，我家人还有几个月就满63周岁了，想要继续开大客车，怎么办？",
+   "cited_hits": [
+    {
+     "name": "机动车驾驶证申领和使用规定",
+     "lib_no": "机动车驾驶证申领和使用规定(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sd-heze",
+   "id": "2009534480158691328",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=2009534480158691328",
+   "question": "尊敬的领导，您好，我想在我的车顶装一个行李架，有什么要求吗?听说像这种情况还需要去车管所办理登记？具体是怎么规定的？",
+   "cited_hits": [
+    {
+     "name": "机动车运行安全技术条件",
+     "lib_no": "GB 7258-2017",
+     "weak": false
+    },
+    {
+     "name": "机动车登记规定",
+     "lib_no": "机动车登记规定(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "GB7258-2017"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1996875522306609152",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1996875522306609152",
+   "question": "领导，您好，我们的新房目前正在装修，现在计划装修为开放式厨房，但听邻居说不安装推拉门不行，不然不给通气，我想问问厨房没有安装推拉门可以开通天然气吗？",
+   "cited_hits": [
+    {
+     "name": "燃气工程项目规范",
+     "lib_no": "GB 55009-2021",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "家用燃气燃烧器具安装及验收规程",
+    "GB55009-2021"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1981649594676809728",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1981649594676809728",
+   "question": "尊敬的领导，您好，想要咨询一下机动车过户的相关规定，需要哪些材料？",
+   "cited_hits": [
+    {
+     "name": "机动车登记规定",
+     "lib_no": "机动车登记规定(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sd-heze",
+   "id": "1946019363878473728",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1946019363878473728",
+   "question": "尊敬的领导，您好。请问车辆报废后，原车牌号可以保留多长时间?",
+   "cited_hits": [
+    {
+     "name": "机动车登记规定",
+     "lib_no": "机动车登记规定(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sd-heze",
+   "id": "1933070418067984384",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1933070418067984384",
+   "question": "尊敬的领导，您好：我的身份证因到期已更换新身份证，请问之前已考取的驾驶证要跟着更换吗？",
+   "cited_hits": [
+    {
+     "name": "机动车驾驶证申领和使用规定",
+     "lib_no": "机动车驾驶证申领和使用规定(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sd-heze",
+   "id": "1921746144799625216",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1921746144799625216",
+   "question": "能在我市的河道堤防上随意取土吗？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国防洪法",
+     "lib_no": "防洪法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1914964381783953408",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1914964381783953408",
+   "question": "尊敬的领导，您好。我想要替家人咨询一下：B1驾驶证在一个记分周期内没有记分记录，需要参加审验教育吗?",
+   "cited_hits": [
+    {
+     "name": "机动车驾驶证申领和使用规定",
+     "lib_no": "机动车驾驶证申领和使用规定(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sd-heze",
+   "id": "1910632836508028928",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1910632836508028928",
+   "question": "1996年入伍，2001年退伍，鄄城户籍，20年社保年限快交够了，想问一下当兵5年的视同缴费年限认定怎么办理，谢谢！",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国军人保险法",
+     "lib_no": "保险法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于解决部分退役士兵社会保险问题的意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1887412898465189888",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1887412898465189888",
+   "question": "持有特种作业证（熔化焊接与热切割）十年了，可以申请六年复审一次吗？申请流程是什么？谢谢。",
+   "cited_hits": [
+    {
+     "name": "特种作业人员安全技术培训考核管理规定",
+     "lib_no": "中华人民共和国应急管理部令（第19号）特种作业人员安全技术培训考核管理规定",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sd-heze",
+   "id": "1868475477279248384",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1868475477279248384",
+   "question": "初领日期：2022.5.23，复审日期：2025.5.22前，请问现在是否可以报名参加学习申请复审？",
+   "cited_hits": [
+    {
+     "name": "特种作业人员安全技术培训考核管理规定",
+     "lib_no": "中华人民共和国应急管理部令（第19号）特种作业人员安全技术培训考核管理规定",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sd-heze",
+   "id": "1839235080946585600",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1839235080946585600",
+   "question": "尊敬的领导，您好！我正在准备C1驾驶证考试，因工作原因，时间安排存在很大不确定性，想要咨询一下驾驶证考试预约后，如后期发现时间不允许，如何取消考试预约？",
+   "cited_hits": [
+    {
+     "name": "机动车驾驶证申领和使用规定",
+     "lib_no": "机动车驾驶证申领和使用规定(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sd-heze",
+   "id": "1826545117104836608",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1826545117104836608",
+   "question": "尊敬的领导，您好。我的驾驶证是A1驾驶证，在一个记分周期内没扣分，我还要参加审验学习吗?",
+   "cited_hits": [
+    {
+     "name": "机动车驾驶证申领和使用规定",
+     "lib_no": "机动车驾驶证申领和使用规定(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sd-heze",
+   "id": "1807970310096556032",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1807970310096556032",
+   "question": "在我市应急管理局颁发的特种操作人员证书的使用范围和说明",
+   "cited_hits": [
+    {
+     "name": "特种作业人员安全技术培训考核管理规定",
+     "lib_no": "中华人民共和国应急管理部令（第19号）特种作业人员安全技术培训考核管理规定",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "特种作业目录"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sd-heze",
+   "id": "1803983101823684608",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1803983101823684608",
+   "question": "尊敬的领导，您好！我的车快到审车日期了，能提前去审车吗?",
+   "cited_hits": [
+    {
+     "name": "机动车登记规定",
+     "lib_no": "机动车登记规定(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sd-heze",
+   "id": "1793113963735683072",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1793113963735683072",
+   "question": "如果临时临时征地进行工程施工（半年内），那么还需要征收植被恢复费吗",
+   "cited_hits": [
+    {
+     "name": "森林法",
+     "lib_no": "森林法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "国家林业和草原局公告"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sd-heze",
+   "id": "1781262344484163584",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1781262344484163584",
+   "question": "尊敬的市长，您好！我是菏泽市居民，常年在外工作，私家车在工作地落户安牌，目前在菏泽探亲短时间内居住，近日发现我的车牌号损坏了，请问外地的车牌号损坏可以在菏泽换领吗？",
+   "cited_hits": [
+    {
+     "name": "机动车登记规定",
+     "lib_no": "机动车登记规定(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sd-heze",
+   "id": "1764558812930510848",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1764558812930510848",
+   "question": "到哪里办理出国务工报名登记手续",
+   "cited_hits": [
+    {
+     "name": "对外劳务合作管理条例",
+     "lib_no": "对外劳务合作管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "对外劳务合作服务平台建设试行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1740606909083422720",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1740606909083422720",
+   "question": "尊敬的领导，您好：我多年前购买的私家车，近期因发动机频繁故障，到4S店进行维修时，维修人员告知需要更换发动机，并告知我更换后需要在车管部门备案，请问更换发动机后是否还需要登记备案？",
+   "cited_hits": [
+    {
+     "name": "机动车登记规定",
+     "lib_no": "机动车登记规定(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sd-heze",
+   "id": "1738013360114503680",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1738013360114503680",
+   "question": "领导，您好，我想要办烟花爆竹经营许可证，据了解，还需要考烟花爆竹安全管理证，我想要咨询一下如何考取？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国环境保护法",
+     "lib_no": "环境保护法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国大气污染防治法",
+     "lib_no": "大气污染防治法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "烟花爆竹安全管理条例",
+     "lib_no": "烟花爆竹安全管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "菏泽市烟花爆竹燃放管理条例",
+    "菏泽市人民政府关于禁止燃放烟花爆竹的通告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1734858964547538944",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1734858964547538944",
+   "question": "领导您好，请问异地户籍可以在本地领结婚证吗？需要的申请材料是什么？",
+   "cited_hits": [
+    {
+     "name": "婚姻登记条例",
+     "lib_no": "婚姻登记条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "军人婚姻登记证明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1732333936522170368",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1732333936522170368",
+   "question": "菏泽城区三轮载货摩托车白天不让上路，骑电动自行车可以载货吗？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国道路交通安全法",
+     "lib_no": "道路交通安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1721454003130339328",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1721454003130339328",
+   "question": "护照办理必须本人去吗？可以委托他人办理吗？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国护照法",
+     "lib_no": "护照法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1688473313585795072",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1688473313585795072",
+   "question": "我们小区都入住10年了，最近开发商突然开始卖地下停车位，他们说没有产权，但可以签买卖协议，请问这种没有产权的地下车位是不是属于人防车位？业主是否能购买人防车位？应该去哪查询准备购买的车位是不是人防车位，查询需要什么手续或证明吗？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国人民防空法",
+     "lib_no": "人民防空法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国民法典",
+     "lib_no": "中华人民共和国民法典",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sd-heze",
+   "id": "1686221891506933760",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1686221891506933760",
+   "question": "请问报名考试电工证可以不经过培训机构报名，个人直接去应急管理局报名考试吗。已经有丰富的电工工作经历和经验，不需要培训机构培训",
+   "cited_hits": [
+    {
+     "name": "特种作业人员安全技术培训考核管理规定",
+     "lib_no": "中华人民共和国应急管理部令（第19号）特种作业人员安全技术培训考核管理规定",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sd-heze",
+   "id": "1685135896288038912",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1685135896288038912",
+   "question": "我公司是一家精细化工企业，有甲类区，现在做DCS的系统公司杭州和利时给推荐做OCS电子布线系统，不知这个系统安全验收能否通过，请帮忙咨询相关专家",
+   "cited_hits": [
+    {
+     "name": "危险化学品生产建设项目安全风险防控指南",
+     "lib_no": "关于印发《危险化学品生产建设项目安全风险防控指南（试行）》的通知",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "全省危险化学品安全生产“机械化换人、自动化减人”工作方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1669250685394358272",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1669250685394358272",
+   "question": "中华人民共和国陆生野生动物保护实施条例目前有效吗？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国陆生野生动物保护实施条例",
+     "lib_no": "陆生野生动物保护实施条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1665644807424446464",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1665644807424446464",
+   "question": "领导，您好，我朋友已在食品厂上班两年，上班期间公司给交了失业保险，近期，公司内部进行部门整合时，我朋友被辞退了，请问像我朋友这种情况，可以申请领取失业金吗？应该怎么申请？",
+   "cited_hits": [
+    {
+     "name": "失业保险条例",
+     "lib_no": "失业保险条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1631213466486444032",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1631213466486444032",
+   "question": "集体林改革后林农手中有的林权，为国家一级公益林或者一级以下公益林，能否正常流转。",
+   "cited_hits": [
+    {
+     "name": "森林法",
+     "lib_no": "森林法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sd-heze",
+   "id": "1603302430160850944",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1603302430160850944",
+   "question": "退役军人可以不在入伍地安置吗，随父母的地方安置。",
+   "cited_hits": [
+    {
+     "name": "退役士兵安置条例",
+     "lib_no": "退役士兵安置条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sd-heze",
+   "id": "1602951744436965376",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1602951744436965376",
+   "question": "申请律师执业需要什么条件？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国律师法",
+     "lib_no": "律师法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "关于修改〈中华人民共和国律师法〉的决定",
+     "lib_no": "律师法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "关于修改〈中华人民共和国律师法〉的决定",
+     "lib_no": "律师法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "关于修改〈中华人民共和国法官法〉等八部法律的决定",
+     "lib_no": "法官法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sd-heze",
+   "id": "1602567978484895744",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1602567978484895744",
+   "question": "请问风电建设项目能否占用湿地？政策规定是什么？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国湿地保护法",
+     "lib_no": "湿地保护法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国土地管理法",
+     "lib_no": "土地管理法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国水法",
+     "lib_no": "水法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国森林法",
+     "lib_no": "森林法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国草原法",
+     "lib_no": "草原法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国海域使用管理法",
+     "lib_no": "海域使用管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sd-heze",
+   "id": "1602493440581570560",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1602493440581570560",
+   "question": "人防工程是国防工程吗？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国人民防空法",
+     "lib_no": "人民防空法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "sd-heze",
+   "id": "2100508339120246784",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=2100508339120246784",
+   "question": "领导，您好，我的《护士执业注册证书》丢了，想问问怎么补办，补证的时候需要带什么材料？",
+   "cited_hits": [],
+   "cited_missing": [
+    "护士执业注册证书",
+    "山东省护士执业注册管理规定",
+    "山东省护士执业注册申请审核表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "2087019337817919488",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=2087019337817919488",
+   "question": "我媳妇下个月就要生育了，现在缴纳灵活就业医保，可以生育报销吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步规范基本医疗保险参保缴费与待遇支付有关问题的通知",
+    "山东省人民政府办公厅关于印发山东省全面推进生育保险和职工基本医疗保险合并实施方案的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "2075404335847706624",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=2075404335847706624",
+   "question": "领导，您好。我想把我的旧车卖掉，换一辆新车，听说可以申请置换补贴，想了解一下目前的补贴政策？",
+   "cited_hits": [],
+   "cited_missing": [
+    "减免车辆购置税的新能源汽车车型目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "2054856396641538048",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=2054856396641538048",
+   "question": "尊敬的领导，您好。我之前在菏泽工作时缴存过住房公积金，现在上外地上班去了，想要提取公积金，请问可以代办吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "菏泽市住房公积金提取办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "2047508605422407680",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=2047508605422407680",
+   "question": "领导，您好，我想以灵活就业人员的身份参加职工医疗保险，想了解一下目前的缴费政策是怎么规定的？",
+   "cited_hits": [],
+   "cited_missing": [
+    "山东省人民政府关于印发山东省职工基本医疗保险省级统筹实施意见的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "2032646811927318528",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=2032646811927318528",
+   "question": "尊敬的领导，您好，我是一名退伍军人，我的户口不在菏泽，但我现在在菏泽长期居住，我想问问，像我这种情况，可以在菏泽申请免费进行 B2 驾驶证培训学习吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于全面做好退役士兵教育培训工作的实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "2029742041977720832",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=2029742041977720832",
+   "question": "尊敬的领导，您好，我养的宠物狗，已经在外地办了养犬证，以后要一直呆在菏泽了，外地办的养犬证，在菏泽可以用吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "菏泽市养犬管理条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sd-heze",
+   "id": "2027560062330998784",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=2027560062330998784",
+   "question": "领导，您好，我最近正在找工作，管招聘的人说需要健康证，我想请问一下，办健康证什么流程，需要带什么材料？",
+   "cited_hits": [],
+   "cited_missing": [
+    "营业执照",
+    "健康证明",
+    "健康证明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "2019684672505778176",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=2019684672505778176",
+   "question": "领导，您好，公司给我发了一张超市购物卡，我去超市买东西，收银员却说不能再开发票，这符合规定吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家税务总局关于营改增试点若干征管问题的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "2017074014178119680",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=2017074014178119680",
+   "question": "领导，您好，我的私家车最近该年审了，想问问有啥规定？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于深化机动车检验制度改革优化车检服务工作的意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "2004807915147497472",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=2004807915147497472",
+   "question": "领导您好，我们夫妻两人户口登记的是不同的民族，现在想给刚出生的小孩落户，想问问落户的时候怎么给孩子登记民族，我们自己可以选择吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "中国公民民族成份登记管理办法",
+    "山东省公民民族成份登记管理实施细则",
+    "民族成份填报申请书"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sd-heze",
+   "id": "1991781649347645440",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1991781649347645440",
+   "question": "尊敬的领导，您好，本人9月13日购买新车，旧车报废，但相关手续和发票9月17日才出来，菏泽市商务局于9月15日通知系统升级，对15日以后的申报不予办理，现在听说新政策下来了，不知道像我这样的情况还可以申请补贴吗，想了解一下最新补贴政策，如何",
+   "cited_hits": [],
+   "cited_missing": [
+    "机动车销售统一发票",
+    "机动车销售统一发票"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1986633805502484480",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1986633805502484480",
+   "question": "1在鲁西新区境内三级驾校目前或者未来是否可以增设分训练场,如若可以具体由什么要求？ 2在鲁西新区境内关于建设三级驾校的具体要求有哪些? 谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "机动车驾驶员培训机构业务条件",
+    "机动车驾驶培训教练场技术要求",
+    "机动车驾驶员培训机构业务条件",
+    "机动车驾驶培训教练场技术要求",
+    "GB/T30340-2025",
+    "GB/T30341-2025",
+    "GB/T30340-2013",
+    "GB/T30341-2013"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1984183396183707648",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1984183396183707648",
+   "question": "尊敬的领导，您好，听说可以申领电子版出生医学证明，想咨询一下如何申领、下载电子版出生医学证明？",
+   "cited_hits": [],
+   "cited_missing": [
+    "山东省出生医学证明管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1976849621988806656",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1976849621988806656",
+   "question": "领导，您好，家中有老人即将到达退休年龄，一直正常缴纳职工养老保险，但老人在多个城市都有参保信息，想问问像这种情况如何确定其养老保险待遇领取地？",
+   "cited_hits": [],
+   "cited_missing": [
+    "城镇企业职工基本养老保险关系转移接续暂行办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sd-heze",
+   "id": "1971528931177795584",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1971528931177795584",
+   "question": "领导，您好，家中老人已年满60周岁，为方便出行，我们想替他申请老年人电子优待证，请问可以通过哪个渠道申请，具体的申领流程是什么？",
+   "cited_hits": [],
+   "cited_missing": [
+    "老年人电子优待证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1958827479804284928",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1958827479804284928",
+   "question": "尊敬的领导，您好，我因工作原因现在牡丹区辖区内居住，想要办理居住证，请问可以通过哪些渠道办理？办理时限是怎么规定的？",
+   "cited_hits": [],
+   "cited_missing": [
+    "山东省流动人口服务管理暂行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1951196348736999424",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1951196348736999424",
+   "question": "领导，您好：因特殊情况导致结婚证、身份证丢失，近日，我们计划去补办结婚证，请问补办结婚证不能出具身份证的情况下，是否可以提供临时身份证？",
+   "cited_hits": [],
+   "cited_missing": [
+    "婚姻登记工作规范"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sd-heze",
+   "id": "1948683454992486400",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1948683454992486400",
+   "question": "尊敬的领导，您好：请问符合什么条件的灵活就业人员可以在菏泽市申请参加住房公积金？灵活就业人员缴存住房公积金设立个人账户，请问应提供哪些材料？",
+   "cited_hits": [],
+   "cited_missing": [
+    "菏泽市自愿缴存住房公积金开户登记申请表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1944564748033069056",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1944564748033069056",
+   "question": "6月30日在济南住院治疗，7月10日出院，7月11日在菏泽医保小程序进行长期异地备案，备案开始日期为7月6日，在出院结算时，为何7月6日至7月10 日产生的费用不能按照长期异地备案政策执行",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于转发鲁医保发〔 2022〕26号文件进一步做好基本医疗保险跨省异地就医直接结算工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1940589994561376256",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1940589994561376256",
+   "question": "1.2020年开展此项工作以来，项目主体是否已经完成。 2.菏泽市是否对曹县房地一体宅基地确权登记进行了检查验收，是否是委托第三方进行的验收，是否有验收意见，能否公开。 3.菏泽市全市分类化解历史遗留问题和房地一体宅基地确权登记是不是同一个",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于开展农村不动产确权登记发证成果市级检查验收的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1925385132869554176",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1925385132869554176",
+   "question": "尊敬的领导，您好：本人有以下问题需要给予答疑解惑：小学教师资格证丢失后补办需要提供什么材料？补办流程是什么？请问是否还需要登报声明？",
+   "cited_hits": [],
+   "cited_missing": [
+    "教师资格证书补发换发申请表",
+    "教师资格认定申请表",
+    "教师资格证书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1922486739390304256",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1922486739390304256",
+   "question": "请问办理外国人来华邀请函收吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "外国人来华邀请核实单"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1919579044588949504",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1919579044588949504",
+   "question": "请问，普通退伍老兵在市医院大病住院，医保报销后个人承担部分还能否二次报销？感谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "菏泽市人民政府关于印发<菏泽市抚恤定补优抚对象医疗保障办法>的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1914162227984863232",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1914162227984863232",
+   "question": "领导好！本人在菏泽市学习，看到去年菏泽市图书馆在2024年5月1日到10月7日期间进行了延时开放政策，想咨询一下今年是否还考虑施行相关延时政策，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "山东省文化和旅游厅关于推进全省公共文化服务单位延时开放工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1913736472943529984",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1913736472943529984",
+   "question": "我是一名刚确诊为IGA肾病的患者，布地奈德肠溶胶囊价格昂贵，目前仅在我市部分双通道药店配置。",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家药品目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1911059700468813824",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1911059700468813824",
+   "question": "大专学历，有一级注册消防工程师证书、消防设施操作员中级证书、中级电工资格证书。。能否进专家库？？ 进应急专家库条件是什么？",
+   "cited_hits": [],
+   "cited_missing": [
+    "菏泽市应急管理专家管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sd-heze",
+   "id": "1907702205994110976",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1907702205994110976",
+   "question": "领导，您好。听说电动自行车以旧换新也有补贴了，想了解一下活动时间？补贴对象和补贴标准是什么？",
+   "cited_hits": [],
+   "cited_missing": [
+    "电动自行车行业规范条件",
+    "电动自行车用锂离子蓄电池安全技术规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1900084984128081920",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1900084984128081920",
+   "question": "领导，您好。看到新闻媒体报道家电以旧换新也有补贴了，请问补贴范围有哪些？补贴标准是什么？如何领取补贴券？",
+   "cited_hits": [],
+   "cited_missing": [
+    "山东省2025年家电以旧换新实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1895004752018804736",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1895004752018804736",
+   "question": "尊敬的领导，您好！我们夫妻二人均为菏泽市户籍，目前在外地工作生活，近期准备在工作地办理不动产证时，发现结婚证丢失了，现在想要在户籍地菏泽补领结婚证，想问问可以委托办理吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "山东省婚姻登记工作指引",
+    "军人婚姻登记证明"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sd-heze",
+   "id": "1893936827262439424",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1893936827262439424",
+   "question": "想考电焊上岗证，在哪里报名，去哪里培训。",
+   "cited_hits": [],
+   "cited_missing": [
+    "菏泽市安全生产培训机构基本情况表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1883314911191371776",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1883314911191371776",
+   "question": "请问菏泽法定婚假现在是15+3天吗？请假的时间领结婚证多少时间内有效？",
+   "cited_hits": [],
+   "cited_missing": [
+    "山东省人民代表大会常务委员会关于修改〈山东省人口与计划生育条例〉的决定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1875433976815030272",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1875433976815030272",
+   "question": "《菏泽市抚恤定补优抚对象医疗保障办法》（菏政发〔2018〕18号）的对象是否包括因公致残的国家公务人员（6级）？",
+   "cited_hits": [],
+   "cited_missing": [
+    "菏泽市抚恤定补优抚对象医疗保障办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sd-heze",
+   "id": "1872545996500766720",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1872545996500766720",
+   "question": "你好，请问初级会计考试已通过，怎么领取会计证书呢，什么时候可领取呢",
+   "cited_hits": [],
+   "cited_missing": [
+    " 关于领取2024年度初级会计专业技术资格证书的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1871747094327463936",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1871747094327463936",
+   "question": "您好，我是一名三支一扶人员，现两年服务期已满，请问在原单位转编后是否再设试用期，是否有相关政策文件或公告等（上级及本级）明确表示，如果有此类文件能否公开，如何查询？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于转发人社部发 〔2021〕32号文件实施我省第四轮高校毕业生“三支一扶”计划的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sd-heze",
+   "id": "1870860532848922624",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1870860532848922624",
+   "question": "咨询鲁西新区停车场最高标准的收费。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于菏泽城区停车服务收费标准的意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1864596676921135104",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1864596676921135104",
+   "question": "尊敬的领导，您好！近日，家中老人发现他的退役军人优待证丢了，因我们姐弟两人都在外地工作，想通过贵平台咨询一下该怎么补办？",
+   "cited_hits": [],
+   "cited_missing": [
+    "退役军人、其他优抚对象优待证管理办法（试行）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sd-heze",
+   "id": "1863508668025278464",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1863508668025278464",
+   "question": "领导您好，请问，化学、化工、安全等相关专业中，染整技术属于化学、化工相关专业吗？由于公司需要上报以上人员，我学的染整技术，不知道是否属于以上人员，请领导给予答复，谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "研究生教育学科专业目录",
+    "普通高等学校本科专业目录",
+    "普通高等学校高等职业教育（专科）专业目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1852245889163333632",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1852245889163333632",
+   "question": "请问因意外住院治疗期间，发现身体有别的疾病，就同时治疗了，请问意外造成的治疗和身体疾病的治疗是否可以分开报销",
+   "cited_hits": [],
+   "cited_missing": [
+    "菏泽市居民基本医疗保险意外伤害事故认定及医疗服务管理办法",
+    "菏泽市统一意外伤害事故认定及经办服务实施意见",
+    "菏泽市居民基本医疗保险意外伤害事故认定及医疗服务管理办法",
+    "菏泽市统一意外伤害事故认定及经办服务实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1849014742019084288",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1849014742019084288",
+   "question": "您好，若父母为不同民族，新生儿落户如何选择民族？",
+   "cited_hits": [],
+   "cited_missing": [
+    "民族成份填报申请书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1848754487024553984",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1848754487024553984",
+   "question": "目前山东省其他地市均已明确2025年事业单位招聘进行改革，参与全省联考，只有菏泽市一直未出通知，请领导给解答一下明年菏泽市的事业单位录用考试形式，是否参与全省联考，考察采用原有的公基还是职测加综应",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于调整省属事业单位初级综合类岗位公开招聘笔试科目的公告",
+    "公共基础知识",
+    "职业能力倾向测验",
+    "综合应用能力"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1844588330268889088",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1844588330268889088",
+   "question": "尊敬的领导，您好！我国庆节期间在咱们菏泽老家换领了即将到期的身份证，当时未办理身份证邮寄业务，现因事需要外出，请问身份证制作出来后，是否可以由家人代领？",
+   "cited_hits": [],
+   "cited_missing": [
+    "居民身份证申领登记表",
+    "居民身份证领取凭证",
+    "居民身份证申领登记表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1843946172037861376",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1843946172037861376",
+   "question": "2024年2月结肠癌于齐鲁医院手术治疗，2024年3.2号急诊胰腺炎胆囊炎结肠造口术后护理入齐鲁急诊门诊，5号入住院治疗。期间3.4号通过线上办理慢特病。请问急诊门诊期间（3.4号前后，特别是3.2、3、3、3.4号这三天）可否享受慢特病门",
+   "cited_hits": [],
+   "cited_missing": [
+    " 菏泽市居民基本医疗保险实施办法 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1837649985823444992",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1837649985823444992",
+   "question": "医保局领导你好:咨询一个关于医保限价问题:例如:菏医保(2023）34号文中一个收费项目规定二级医院执行100元，现地纬系统中执行限价90元。医院his收费系统是否也调价执行90元?如果医院his系统继续执行收费标准中100元，是否医保违规",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于调整部分医疗服务项目价格的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1837074053232463872",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1837074053232463872",
+   "question": "尊敬的领导，您好！我想要咨询：补办出生医学证明是否都要在报纸上登遗失声明？都需要什么材料？",
+   "cited_hits": [],
+   "cited_missing": [
+    "山东省出生医学证明管理办法",
+    "山东省出生医学证明管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sd-heze",
+   "id": "1831878902285471744",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1831878902285471744",
+   "question": "尊敬的领导，您好！我想要更换家中代步用的燃油汽车，但是不知道我的车辆是否符合置换条件，请问汽车以旧换新的补贴范围和标准是什么？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发〈汽车以旧换新补贴实施细则〉的通知",
+    "减免车辆购置税的新能源汽车车型目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1831535477128302592",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1831535477128302592",
+   "question": "高层次人才随迁配偶，具有事业单位人员身份的高层次人才，其配偶是否可对口安排到相关事业单位？若单位已满编的，是否可以申请使用高层次人才专项事业编制。",
+   "cited_hits": [],
+   "cited_missing": [
+    "菏泽市高层次人才绿色通道服务事项办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1830774169395138560",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1830774169395138560",
+   "question": "菏泽市陪产假有几天？对于晚育的有没有增加陪产假天数？",
+   "cited_hits": [],
+   "cited_missing": [
+    "山东省人口与计划生育条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sd-heze",
+   "id": "1828278709497499648",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1828278709497499648",
+   "question": "居民医保是菏泽市鄄城县，先因胰腺肿瘤需要每月在济南市三级医院注射一种名为《注射用醋酸奥曲肽微球》的药物。 想咨询以下几个问题 1、居民医保关于《注射用醋酸奥曲肽微球》的报销比例、起付线、年度限额分别是多少？ 2、居民医保省内市外异地就医注射",
+   "cited_hits": [],
+   "cited_missing": [
+    "网站信件受理登记表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1824348812358062080",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1824348812358062080",
+   "question": "请问菏泽市市属2024年事业单位考试是否还组织，大约什么时候组织？如组织考试，内容是否跟随省里最新政策改为职测还是公基？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于调整省属事业单位初级综合类岗位公开招聘笔试科目的公告",
+    "公共基础知识",
+    "职业能力倾向测验",
+    "综合应用能力"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1821473939621285888",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1821473939621285888",
+   "question": "领导，您好。我们小区内电动自行车乱停乱放比较严重，我们业主强烈要求建设非机动车棚，请问如何办理规划手续？",
+   "cited_hits": [],
+   "cited_missing": [
+    "民法典"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1818928142111346688",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1818928142111346688",
+   "question": "尊敬的领导，您好！听说最近菏泽市调整了住房公积金缴存基数，请问最新政策如何规定的？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于调整2024年度住房公积金最高和最低缴存基数的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1818538729300692992",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1818538729300692992",
+   "question": "民办非盈利企业是中小企业吗？享受中小企业待遇和权益吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "中小企业划型标准规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1808793427656183808",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1808793427656183808",
+   "question": "尊敬的领导，您好！孩子已办完《出生医学证明》,现在给孩子落户，不想再使用《出生医学证明》上的姓名，请问该怎么落户？",
+   "cited_hits": [],
+   "cited_missing": [
+    "山东省出生医学证明管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sd-heze",
+   "id": "1804080877555290112",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1804080877555290112",
+   "question": "成为一名科技特派员需要什么条件",
+   "cited_hits": [],
+   "cited_missing": [
+    "山东省科技特派员管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1803596297194835968",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1803596297194835968",
+   "question": "领取一般是每年的什么时候，会有电话或者短信通知吗，还是需要我经常查看一下这个网站",
+   "cited_hits": [],
+   "cited_missing": [
+    " 关于领取2023年度初级会计专业技术资格证书的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1800431145654030336",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1800431145654030336",
+   "question": "你好，目前新申请的线下医保定点药店已经可以在国家医保服务平台APP里面的定点零售药店已查到，问下大约什么时候能开通医保移动支付，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "医疗保险协议定点零售药店申请表",
+    "药店从业人员名册",
+    "药品经营许可证",
+    "营业执照"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1796472291853471744",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1796472291853471744",
+   "question": "领导，您好！听说最近省发改委出台了最新的居民电动汽车充电桩电价政策，想要了解一下这方面的政策，希望能得到答复？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步完善居民电动汽车充电桩分时电价政策的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1796197668557557760",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1796197668557557760",
+   "question": "你好，网约车营运证停办好几个月了，什么时候再次开始办理呀？菏泽市交通运输局关于《菏泽市网络预约出租汽车经营服务管理实施细则（征求意见稿）》公开征求意见的通知，征求意见截止也一个多月了，快能办理运输证了吗？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "山东省行政规范性文件制定和监督管理办法",
+    "菏泽市网络预约出租汽车经营服务管理实施细则（征求意见稿）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1793928658268852224",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1793928658268852224",
+   "question": "尊敬的市长，您好。我在菏泽居住，但非菏泽本地居民，请问是否可以在菏泽本地申领拖拉机、联合收割机驾驶证？",
+   "cited_hits": [],
+   "cited_missing": [
+    "拖拉机和联合收割机驾驶证管理规定",
+    "居民身份证",
+    "临时居民身份证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sd-heze",
+   "id": "1793118793841643520",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1793118793841643520",
+   "question": "想问一下咱们菏泽市小区楼间距有没有明确的规定，是一个小区一个样，还是有统一的标准。如果有标准，什么样的标准。",
+   "cited_hits": [],
+   "cited_missing": [
+    "菏泽市建筑工程规划管理技术标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1787687541307215872",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1787687541307215872",
+   "question": "请问 这个文件【菏泽市医疗保障局关于做好2022年国家医保谈判药品落地完善“双通道”管理机制工作的通知菏医保函〔2023〕9号】中附件excel表格内的药品与这个网站【http://heze.dzwww.com/h5/ydcx/#/drug",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好2023年国家医保谈判药品落地完善“双通道”管理机制工作的通知",
+    "关于做好2022年国家医保谈判药品落地完善“双通道”管理机制工作的通知",
+    "关于做好2023年国家医保谈判药品落地完善“双通道”管理机制工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1778985606823677952",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1778985606823677952",
+   "question": "请问参加2024年会计专业技术初级资格考试需要单位开具证明或者在报名信息表上盖章吗",
+   "cited_hits": [],
+   "cited_missing": [
+    " 2024年度会计专业技术初级资格考试报名明白纸 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1777315380960825344",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1777315380960825344",
+   "question": "领导您好！我想咨询一下，我3月份的职工医保忘了缴纳了，我4月份补缴上了，那我4月份还能享受医保待遇吗？非常感谢您的回答！谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步规范基本医疗保险参保缴费与待遇支付有关问题的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1760572886608908288",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1760572886608908288",
+   "question": "2023年新毕业，入职市直机关单位，在本地无房，本人名下无房产，可以申请安居齐鲁公租房吗？流程有哪些？需要准备哪些材料？",
+   "cited_hits": [],
+   "cited_missing": [
+    "菏泽市公共租赁住房管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1743126044514324480",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1743126044514324480",
+   "question": "领导，您好！邻居大伯50多岁了，有类风湿病，妻子打零工，儿子尚未大学毕业，女儿就读高中，托我向政府咨询什么样的家庭和个人才符合低保条件？希望能得到回复。",
+   "cited_hits": [],
+   "cited_missing": [
+    "菏泽市最低生活保障管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1741864308536643584",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1741864308536643584",
+   "question": "申请空置房得条件和对水、电使用的要求",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于牡丹区、鲁西新区普通住宅物业服务收费基准价格及相关问题的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sd-heze",
+   "id": "1739108935098568704",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1739108935098568704",
+   "question": "请问菏泽市长期空置的房子物业费的收取标准是多少？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于牡丹区、鲁西新区普通住宅物业服务收费基准价格及相关问题的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sd-heze",
+   "id": "1735200806916984832",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1735200806916984832",
+   "question": "领导，您好：我是新疆户籍，目前一直在菏泽工作、生活，近日，我发现我的身份证丢失了，请问身份证能否异地办理？丢失补办身份证，原身份证还需要挂失吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于开展居民身份证异地受理挂失申报和丢失招领工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1719927554946764800",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1719927554946764800",
+   "question": "尊敬的领导，您好：我邻居是一位残疾人，说是有二级残疾证，之前每年都是政府给交的养老保险费，因出行不便，想要托我咨询一下：他今年已经54岁了，听说残疾人可以提前领取养老金，想要问一下有没有这样的政策？",
+   "cited_hits": [],
+   "cited_missing": [
+    "中华人民共和国残疾人证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1715989562569920512",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1715989562569920512",
+   "question": "领导您好，我想咨询以下问题：（1）从哪里可以了解到自己检查的项目是否在报销范围内？不在报销范围内的检查项目和用药是医生告知还是需要本人通过文件去查找？；（2）医生开的发票医保类型为：全自费，这种情况是否能报销。",
+   "cited_hits": [],
+   "cited_missing": [
+    "菏泽市建立健全职工基本医疗保险门诊共济保障机制实施细则"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sd-heze",
+   "id": "1706583334999691264",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1706583334999691264",
+   "question": "领导，您好：我是菏泽市曹县居民，今年考上了济南的一所大学，听家人说现在村内正在广播缴纳2024年医保费，以前每年家里都给我缴费，因现在我在济南上学，请问我需要在哪里缴纳2024年的医保费？",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家医保局办公室 财政部办公厅 国家税务总局办公厅关于印发<基本医疗保险参保管理经办规程>的通知",
+    "国家医保局办公室 教育部办公厅关于做好大学生参加基本医疗保险相关工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1693958595173027840",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1693958595173027840",
+   "question": "你好，我8月初提交了生育津贴申请，到现在已经20多天了，依然没有审核和进展，希望相关部门给予关注和解决。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步完善职工生育保险政策的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1688744753987981312",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1688744753987981312",
+   "question": "请问牡丹区小留镇赵庄村是否有搬迁撤并的规划？我查询到“十四五”规划专题中区域规划——《小留镇土地利用总体规划图》是把赵庄村（赵庄和邵庄）规划成了耕地，那么请问这个规划时限是多久？就是在十四五内完成吗？第二个问题是，如果该村搬迁，那么搬迁到哪",
+   "cited_hits": [],
+   "cited_missing": [
+    "牡丹区小留镇土地利用总体规划（ 2006-2020 年）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1687636641197461504",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1687636641197461504",
+   "question": "男方的生育险有什么作用 有什么待遇 生完孩子多久可以报销享受待遇 女方无工作有居民医疗保险",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步完善职工生育保险政策的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1686703589835280384",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1686703589835280384",
+   "question": "领导，您好，我今年刚刚参加完高考，是一名即将进入大学校园的学生，家在牡丹区，因家庭并不富裕，我想申请助学贷款，减轻父母压力，请问办理助学贷款需要准备什么材料？如何申请？",
+   "cited_hits": [],
+   "cited_missing": [
+    "家庭经济困难认定申请表",
+    "国家开发银行生源地贷款受理证明",
+    "贷款受理证明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1684377846451146752",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1684377846451146752",
+   "question": "领导，您好，请问如何知道我们企业是否需要申领排污许可证？该如何申领排污许可证？申领排污许可证会不会很复杂？",
+   "cited_hits": [],
+   "cited_missing": [
+    "国民经济行业分类",
+    "固定污染源排污许可分类管理名录（2019年版）",
+    "GB/T 4754-2017"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1675811372446912512",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1675811372446912512",
+   "question": "我为无偿献血者，持有《山东省无偿献血荣誉证（菏泽）》，想要咨询可以享受菏泽那些旅游景点的免费政策，希望能一一列举出来。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于贯彻落实<山东省人民政府办公厅关于优化无偿献血者奖励有关规定的通知>的通知",
+    "山东省无偿献血荣誉证（菏泽）",
+    "山东省无偿献血荣誉证（菏泽）",
+    "山东省无偿献血荣誉卡（菏泽）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1670725766607933440",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1670725766607933440",
+   "question": "领导你好，我在厂区内开叉车，我的特种设备作业证即将到期，想要咨询一下怎么换证？",
+   "cited_hits": [],
+   "cited_missing": [
+    "特种设备作业人员资格复审申请表",
+    "特种设备作业人员证",
+    "特种设备作业人员证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1658015111538937856",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1658015111538937856",
+   "question": "您好，我从新闻中了解到菏泽市工信局针对重点产业全面实施“链长制”，请问各条产业链以及链长的全部详细信息能否告知?若有官方推行方案能否直接告知?",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于实行重点产业“链长制”的通知",
+    "关于实行重点产业“链长制”的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1656198376171114496",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1656198376171114496",
+   "question": "生孩子可以用男方的生育险吗？女方没有工作",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步完善菏泽市职工生育保险政策的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1655568897417547776",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1655568897417547776",
+   "question": "本人位于菏泽市成武县内，母亲因病需每月注射一种名为《注射用醋酸奥曲肽微球》的药物，本市内所有医院都没有该药物，每月都需要去济南三级医院注射，路途遥远加上慢性病济南三级医院报销比例较低，身体以及经济上有较大压力。但是在国家医保平台上查询到，本",
+   "cited_hits": [],
+   "cited_missing": [
+    "菏泽市门诊慢特病转外就医表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1645268838784307200",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1645268838784307200",
+   "question": "领导，您好：之前上学时我在济南考取的驾驶证，现在已回菏泽老家工作，近日，我的驾驶证不小心丢了，我想问一下可不可以在菏泽补证？",
+   "cited_hits": [],
+   "cited_missing": [
+    "机动车驾驶证申请表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1636298341484728320",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1636298341484728320",
+   "question": "领导，您好：家中孩子于2017年出生，最近几日整理家中物品时，发现孩子的出生医学证明找不到了，请问如何补办？需要提交什么材料？",
+   "cited_hits": [],
+   "cited_missing": [
+    "出生医学证明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1623282552943022080",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1623282552943022080",
+   "question": "你好，菏泽最近有汽车消费卷发放吗，我是青岛人在菏泽能领取菏泽的汽车消费券吗，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于支持商贸流通行业促进居民消费的政策措施"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1614813592065019904",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1614813592065019904",
+   "question": "2023年会计考试怎么报名？",
+   "cited_hits": [],
+   "cited_missing": [
+    "菏泽市财政局 菏泽市人力资源和社会保障局 关于做好2023年度全国会计专业技术资格考试报名工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1612761287262081024",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1612761287262081024",
+   "question": "关于烟花爆竹，咱们菏泽是不也应该学习学习其他城市，而不是不作为的简单的一刀切？一年365天，也就过年这三五天的放烟花，能有多污染环境？菏泽那么多化工厂，一年到头天天污染环境，怎么不见禁止？是否可以考虑划定区域燃放和禁止？好的方式方法不学，净",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于禁止燃放烟花爆竹的通告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1610557363994103808",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1610557363994103808",
+   "question": "2022年12月份开始交职工医保，那么从什么时候才可以用医保？个人账户里的钱什么时候才会有余额？",
+   "cited_hits": [],
+   "cited_missing": [
+    "市长信箱处理单",
+    "关于进一步规范职工医保参保缴费与待遇支付有关问题的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1608737774578569216",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1608737774578569216",
+   "question": "希望限放",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于禁止燃放烟花爆竹的通告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1603575977798144000",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1603575977798144000",
+   "question": "请问有建筑工程施工总承包二级、三级的单位是否可承担单项和他金额在3000万元以上的建筑工程？如果承担了3000万元以上的建筑工程是否属于超资质承揽项目的行为。",
+   "cited_hits": [],
+   "cited_missing": [
+    "建筑业企业资质管理规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1603315629501321216",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1603315629501321216",
+   "question": "儿童身份证出生日期是错的，可以变更吗？需要什么材料?",
+   "cited_hits": [],
+   "cited_missing": [
+    "出生医学证明"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sd-heze",
+   "id": "1603306039384608768",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1603306039384608768",
+   "question": "我是一家化工企业的安全管理人员，前两天县应急局来检查，说我们不应该把安全管理人员的工资、安全补助纳入安全生产费用进行管理，请问领导这种说法对吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "山东省生产经营单位安全生产主体责任规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sd-heze",
+   "id": "1603305336880631808",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1603305336880631808",
+   "question": "想咨询一下，重大危险源的专项检查都是检查什么内容？",
+   "cited_hits": [],
+   "cited_missing": [
+    "危险化学品重大危险源企业安全专项检查细则（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1603298220908351488",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1603298220908351488",
+   "question": "退役军人优待证如何办理，退伍证丢失，现在户口已转入河北",
+   "cited_hits": [],
+   "cited_missing": [
+    "退役军人和其他优抚对象优待证管理办法（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1603294445351079936",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1603294445351079936",
+   "question": "1、《山东省民间融资机构监督管理办法》（鲁金监发〔2020〕7号）第三条规定“依法向借款人借出本金并按约定收回本金及其收益的投资行为。”中的“借款”与《中华人民共和国商业银行法》第三条“发放短期、中期和长期贷款‘中的’贷款”有什么差别吗？2",
+   "cited_hits": [],
+   "cited_missing": [
+    "山东省民间融资机构监督管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1603289178051842048",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1603289178051842048",
+   "question": "您好，我是2020届应届大专毕业生，现在两年兵马上结束，请问一下我回山东省免试本科还可以吗，今年回去了今年还能参加考试升本吗，还是明年，谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好2022年普通高等教育专科升本科考试招生工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1603207741235662848",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1603207741235662848",
+   "question": "我在4S店买一辆汽车，4S店要求我要在店内购买保险，请问是否合理？",
+   "cited_hits": [],
+   "cited_missing": [
+    "汽车销售管理办法",
+    "汽车销售管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sd-heze",
+   "id": "1602979505025191936",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1602979505025191936",
+   "question": "企事业单位应该配备内部审计相关专业知识人员几名，应该怎么设置审计机构，依据是什么？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "审计署关于内部审计工作的规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1602976230578196480",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1602976230578196480",
+   "question": "中小学校要设置内部审计机构吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "教育系统内部审计工作规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sd-heze",
+   "id": "1602956076305747968",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1602956076305747968",
+   "question": "一伤后多长时间可以进行伤残鉴定及解析？",
+   "cited_hits": [],
+   "cited_missing": [
+    "道路交通事故受伤人员治疗终结时间",
+    "人体损伤致残程度分级"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1602938341509173248",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1602938341509173248",
+   "question": "想问儿童是否可以变更姓名，需要什么材料？",
+   "cited_hits": [],
+   "cited_missing": [
+    "山东省公安厅关于在全省户籍管理领域推行“1+6”服务模式的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1602859187807850496",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1602859187807850496",
+   "question": "居民养老保险缴费档次内容规定是什么？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于完善居民基本养老保险政策有关问题的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1602491697219112960",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1602491697219112960",
+   "question": "是否结合民用建筑修建防空地下室必须与地面建筑同步设计、同步施工？",
+   "cited_hits": [],
+   "cited_missing": [
+    "人防条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sd-heze",
+   "id": "1602486930812047360",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1602486930812047360",
+   "question": "请明确下生产生活中“民用建筑”的范畴？",
+   "cited_hits": [],
+   "cited_missing": [
+    "人防法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1602236193704120320",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1602236193704120320",
+   "question": "普通国省道增设了很多中央护栏，封堵了很多开口，给沿线群众通行带来了诸多不便，请问公路事业发展中心为什么要进行封堵，我们还能申请开口吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "山东省道路交通安全责任制规定",
+    "关于在全省开展“公路安全设施整治提升”专项行动的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1602233072735096832",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1602233072735096832",
+   "question": "当前社会公众比较关心大气污染问题，公路建设也会产生扬尘污染，请问是怎样防治的？",
+   "cited_hits": [],
+   "cited_missing": [
+    "实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1602232577408765952",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1602232577408765952",
+   "question": "升级改建一条国省道，需要经过哪些程序才能开工建设？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好占用永久基本农田重大建设项目用地预审的通知"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "sd-heze",
+   "id": "2098222153722892288",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=2098222153722892288",
+   "question": "我想把名下的营业执照注销，发现营业执照丢了，请问需要先补原证后才能申请注销吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "2090369174118469632",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=2090369174118469632",
+   "question": "今天郓城发生了地震，我朋友手机上收到了地震预警，我也想通过手机第一时间收到预警，请问这个是怎么设置的？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "2082765613012488192",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=2082765613012488192",
+   "question": "尊敬的领导，您好，我家老人一直跟着我在外地生活，已经办了异地长期居住备案，想问问以后临时回老家还能看病报销吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "2080230437850058752",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=2080230437850058752",
+   "question": "领导，您好，想问问每年缴纳一次的车船税，如果年中想报废车，能申请退税吗？或者把车过户给别人，还要再交吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "2077327118479527936",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=2077327118479527936",
+   "question": "尊敬的领导，您好。我住的房子已经交了专项维修资金，听说可以提取住房公积金，用来支付这套住房的专项维修资金支出，请问如何提取公积金？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "2067438180717694976",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=2067438180717694976",
+   "question": "尊敬的领导，您好。我以前都是以灵活就业人员的身份交的养老保险，现在找到工作了，单位说给交保险，负责人让我自己去申请减员，中断参保。我想问问我这种情况怎么申请办理减员？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "2065241818064359424",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=2065241818064359424",
+   "question": "领导，您好。近期我想购买一辆二手车，想了解一下需要缴纳车辆购置税吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "2062695209787068416",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=2062695209787068416",
+   "question": "领导，您好。我想咨询一下申请法律援助需要提交哪些材料？去哪里申请法律援助？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "2059919412374409216",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=2059919412374409216",
+   "question": "尊敬的领导，您好。我来菏泽工作半年多了，可以把之前在外地缴存的公积金转到菏泽来吗？需要满足什么条件？怎么办理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "2052289019785646080",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=2052289019785646080",
+   "question": "领导，您好，我最近打算把老房子卖了换套大点的学区房，听说有个税优惠？什么条件下才可以享受这个优惠？我想了解一下最新政策？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "2042074892031102976",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=2042074892031102976",
+   "question": "领导，您好，我交的是职工医保，目前正在住院，个人账户没有余额了，是否影响住院报销?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "2039550465468928000",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=2039550465468928000",
+   "question": "领导，您好，今年我们想去菏泽看牡丹，想问问咱菏泽除了牡丹园还有哪些景区可以游玩？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "2034526238512648192",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=2034526238512648192",
+   "question": "尊敬的领导，您好，家里老人交的是城乡的养老保险，已经60岁了，年前办了手续，现在开始领保险金了，老人现在和我一起在外地生活，听说领保险还需要认证？想了解一下该咋认证？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "2022513387833004032",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=2022513387833004032",
+   "question": "尊敬的领导，您好，我之前几年都是以个人身份交的保险，现在在公司上班了，想问问社保怎么合并?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "2015688105880850432",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=2015688105880850432",
+   "question": "尊敬的领导，您好，听说2026年的家电以旧换新又开始了，还有手机方面的补贴，想问问最新政策的具体情况。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "2012092416231870464",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=2012092416231870464",
+   "question": "尊敬的领导，您好，我想了解一下工伤认定的相关问题，想知道发生工伤后多长时间内可以申请工伤认定？由谁提出申请，去申请的时候，都需要提供什么材料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "2007072634294112256",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=2007072634294112256",
+   "question": "济商高速济宁段已经通车，菏泽段的单县部分也已经完成了竣工验收，菏泽段具体通车时间？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "2003035779571519488",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=2003035779571519488",
+   "question": "领导，您好：我交的是灵活就业人员的养老保险，听说现在的缴费基数变了，有的人还需要补交,我想了解一下现在啥政策?怎么交？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "2001508699591544832",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=2001508699591544832",
+   "question": "我的医保已经连续缴费4个月了，但是个人账户余额一直显示是0元，但是还显示每个月都有收入进账，这是什么原因",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1999040929767493632",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1999040929767493632",
+   "question": "领导您好，我最近换了个手机号，但机动车和驾驶证绑定的联系方式还是原来的手机号，我害怕以后收不到违章信息，想问问怎么改联系方式？最好在手机上就能修改？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1994325244831207424",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1994325244831207424",
+   "question": "尊敬的领导，您好，听说菏泽惠民保上线了，我想了解一下今年的参保政策，参保人群及参保费用是如何规定的？还有如何理赔？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1989225343105503232",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1989225343105503232",
+   "question": "尊敬的领导，您好，我因为工作原因，不得不取消，已经预约好的驾考考试，该如何取消预约？考试费如何退？需要提前多久取消预约？预约考试是否有次数限制？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1986342625728401408",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1986342625728401408",
+   "question": "尊敬的领导，您好，我参保的是职工医疗保险，听说医保个人账户不光能自己用，还能开通“医保钱包”，给家人“钱包转账”，请问什么是“医保钱包”，怎么开通“医保钱包”？“医保钱包”有什么特别之处？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1982777479827427328",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1982777479827427328",
+   "question": "如何查询各小区在售楼房",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1979129099720986624",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1979129099720986624",
+   "question": "尊敬的领导，您好，我想咨询一下2026年城乡居民医疗保险的参保政策，今年的医保待遇有无调整之处。具体体现在哪些方面？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1977300061784248320",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1977300061784248320",
+   "question": "尊敬的领导您好，我想问下2024年度巨野县民营企业引进高校毕业生县级补贴政策还有吗，有的话什么时候下发通知",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1976244848335917056",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1976244848335917056",
+   "question": "请问菏投热电报名材料中的个人公共信用报告怎么弄啊，可不可以线上办理，或者相关部门帮忙查询一下给发至邮箱。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1968976366175129600",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1968976366175129600",
+   "question": "领导，您好，开车出门路上遇到查车查证总是忘带纸质驾驶证，想要咨询如何申领电子驾驶证，在什么情况下可以使用？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1966344283367804928",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1966344283367804928",
+   "question": "领导，您好，老年人不会用智能手机，听说可以通过自己的医保账户，为父母、子女、配偶等家庭成员绑定医保电子凭证，之后在就医、购药时，只需打开自己手机里的亲情账户，出示家人的医保码就能直接结算。请问如何绑定亲情账户？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1963866564310732800",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1963866564310732800",
+   "question": "领导，您好，我因工作要求，需要打印养老保险缴费记录，请问可以通过哪种途径打印？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1962706224449458176",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1962706224449458176",
+   "question": "尊敬的领导，您好，在外地务工被欠薪，因工作地与公司注册地不在同一地方，我们想申请劳动仲裁，请问应向何处提出仲裁申请？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1962334724227731456",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1962334724227731456",
+   "question": "怎么报名参加农民培训？都有哪些培训内容？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1958471132302675968",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1958471132302675968",
+   "question": "领导，您好。我母亲目前办理了骨髓移植抗排异门诊慢特病，需要服用泊沙康唑肠溶片以及磷酸芦可替尼片，在异地医院门诊上先自费拿这个药可以再回当地报销吗，请问有没有抗排异的药品目录可以参考啊，因为移植后以后还吃着其他的一些药品，不知道哪些是可以报销",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1957258384013135872",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1957258384013135872",
+   "question": "请问申请外国人来华工作许可业务需要满足哪些条件？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1956266619990839296",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1956266619990839296",
+   "question": "尊敬的领导，您好，听说持有AB类驾驶证的驾驶人，如果记分1-8分可以线上参加审验，请问如何参加审验?什么情况下需要到现场参加审验教育?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1956253641065238528",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1956253641065238528",
+   "question": "因科研需要菏泽市主城区共享电单车投放数量，特此想咨询贵单位，希望贵单位给予帮助，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1955110359408971776",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1955110359408971776",
+   "question": "中级审计师几月份报名考试",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1955076244810895360",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1955076244810895360",
+   "question": "育儿补贴申请需要哪些材料？是否必须提交婴儿本人的社会保障卡金融账号？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1953754701304565760",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1953754701304565760",
+   "question": "领导，您好：我购房时通过银行办理的商业贷款，听说现在的政策是：商业贷款可以转住房公积金组合贷款了。想了解一下：商业贷款转住房公积金组合贷款是什么样的业务？业务办理模式是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1949639031960768512",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1949639031960768512",
+   "question": "24年在烟台取得初级会计师，今年专科毕业，不过通过专升本考上了本科，需要进行会计继续教育嘛？如果需要我需要进行什么操作，不需要我需要进行什么操作呢？不需要继续教育，是不是本科毕业之后才进行继续教育呀？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1949476025096343552",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1949476025096343552",
+   "question": "尊敬的领导你好，请问整备质量4495千克的冷藏车，给自己养猪场买菜用，需要办理营运证吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1943225927836241920",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1943225927836241920",
+   "question": "尊敬的领导，您好：社保卡在本人手中，但从未激活，想咨询如何激活?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1941039988007374848",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1941039988007374848",
+   "question": "尊敬的领导 您好！ 我是一名在省内外市工作的机关事业单位人员，怀着对家乡的深厚感情，我一直关注着菏泽的发展，并渴望有机会回乡工作、贡献力量。 特此致信，主要想了解： 菏泽市及下属各县区目前是否有针对在异地工作的机关事业单位人员（公务员、事业",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1940962084917481472",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1940962084917481472",
+   "question": "尊敬的领导，您好，我家人即将出国，但驾驶证半年后到期，请问现在可以办理延期换证吗?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1939870324300582912",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1939870324300582912",
+   "question": "请问初级会计成绩合格后还需要审核吗？ 电子证书下载和纸质证书发放大概在什么时候？ 现在怎么查询不了2025的合格信息？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1938534530453475328",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1938534530453475328",
+   "question": "我想咨询下，申请法律援助需要提供什么材料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1938523249742843904",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1938523249742843904",
+   "question": "尊敬的领导，您好，我想咨询一下：“惠享菏泽 消费有礼”抽奖活动参与条件和参与方式？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1938055745471909888",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1938055745471909888",
+   "question": "港澳台通行证可以让家人代办吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1937803369963982848",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1937803369963982848",
+   "question": "过年的时候网上办理的，3三月份网络现实就办理完成了，到现在也没收到，也没打电话，请问能不能给查查弄哪去了吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1937778514623336448",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1937778514623336448",
+   "question": "查询购房合同",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1937027867040944128",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1937027867040944128",
+   "question": "领导您好，我办理了慢病门诊和省内异地就医备案，但是所在地医院没有我用的药，药品也不在“双通道药品名单 ”，请问医生开处方，我去药店买药，这种情况医保可以报销吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1935630671758364672",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1935630671758364672",
+   "question": "尊敬的领导，您好：我是城镇职工基本医疗保险参保人员，现在想要咨询一下职工基本医疗保险参保人员发生的住院费用，具体报销政策是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1935625979733086208",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1935625979733086208",
+   "question": "我们市是没有高校毕业生入伍一次性奖励金嘛，还有入藏补助，什么的，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1933714387881824256",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1933714387881824256",
+   "question": "备案信息价怎么查询？原网站备案信息板块删了？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1930538462440722432",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1930538462440722432",
+   "question": "尊敬的领导，您好：我们参保的是城乡居民医疗保险，现在想要咨询生育医疗待遇？请问具体是怎么规定的？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1929598583775039488",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1929598583775039488",
+   "question": "菏泽今年有计划取消商品房的公摊面积吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1929560269231624192",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1929560269231624192",
+   "question": "今年交灵活就业医保生孩子有生育津贴吗，产检能报销吗，如果可以领，需要在生孩子前多长时间开始交。产检报销是当时就能报销还是生完报销？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1928252712810582016",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1928252712810582016",
+   "question": "尊敬的领导，您好：我想了解一下市区公交哪些公交卡需要年审？请问年审需要准备哪些材料，有哪些年审方式？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1927295620498984960",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1927295620498984960",
+   "question": "最近的领导您好，想问下2023年鲁西新区博士硕士研究生购房补贴何时能够发放？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1927215682437648384",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1927215682437648384",
+   "question": "我在国家药品监督管理局医疗器械栏下的备案数据及历史备案数据均查询不到该备案号鲁菏械备20220014，故向贵单位咨询一下这个备案号的情况",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1922484312444375040",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1922484312444375040",
+   "question": "2025届公费医学生可选岗位有哪些，会按照合同送去规培三年吗？如果是，规培医院是如何选择的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1921741030227578880",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1921741030227578880",
+   "question": "听说有个科技成果转化贷款，利率比较低，请问利率大概能到多少，能在哪些银行办理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1920761591192752128",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1920761591192752128",
+   "question": "请问市国资委的职能是什么",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1920666506304294912",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1920666506304294912",
+   "question": "我昨天5月8号交了职工医疗保险，上一年11月份交了居民医疗保险，现在能退居民医疗保险费用吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1920026332096499712",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1920026332096499712",
+   "question": "领导，您好：应单位工作要求需要开具无犯罪记录证明，请问如何线上开具无犯罪记录证明？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1917381472877154304",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1917381472877154304",
+   "question": "您好领导，根据人力资源社会保障部关于延续实施失业保险稳岗惠民政策措施的通知人社部发〔2025〕18号文件，第二条延续实施技能提升补贴政策。初级等级技能证书，可以申请1000元补贴，这在哪里申请？需要提交哪些资料？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1915250364496613376",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1915250364496613376",
+   "question": "退役优待证丢了，能不能补办",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1912796768681201664",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1912796768681201664",
+   "question": "领导，您好：近日我发现自己的社保卡丢失了，想要通过贵平台咨询社保卡挂失方式？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1909076662654472192",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1909076662654472192",
+   "question": "菏泽移动、联通、电信公司的电信业务主管单位是否是菏泽市工业和信息化局？上述三家公司在日常业务中虚假宣传、强制消费是否由菏泽市工业和信息化局监督管理？菏泽市工业和信息化局的职权清单？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1906894205263941632",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1906894205263941632",
+   "question": "我想咨询一下菏泽市人才服务绿卡的申请条件、流程、材料，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1902642291387011072",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1902642291387011072",
+   "question": "领导，您好。我马上要进行驾驶证科目二考试了，近日发现我的身份证丢失了。请问可以使用临时身份证参加驾驶证考试吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1901095973019586560",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1901095973019586560",
+   "question": "已缴纳一年多职工医疗保险，但是一直没有办理社保卡，25年3月份刚办理了社保卡，但是个人医保账户余额为0，如何获取之前的个人缴费余额",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1900420111689453568",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1900420111689453568",
+   "question": "领导您好、有看到在广州路妇幼保健院内新增设一处鲁西新区婚姻登记处、想了解一下、是否开始正常办公、网上何时可以预约登记办理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1897850695332270080",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1897850695332270080",
+   "question": "领导，您好！听说类风湿性关节炎在居民甲类门诊慢特病病种范围，想要了解一下居民甲类门诊慢特病病种包括哪几种？报销政策是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1890223870041001984",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1890223870041001984",
+   "question": "尊敬的领导，您好，众所周知，在车辆办理注销登记后会开具《机动车注销证明书》证明车辆确已注销，但如果车主因个人原因无法到车管所窗口领取纸质版，为了方便车主，是否可以提供电子版注销证明？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1889863745715441664",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1889863745715441664",
+   "question": "考取了初级会计师证书，不从事会计工作，还用继续教育吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1882621493104480256",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1882621493104480256",
+   "question": "尊敬的领导，您好，我们是2024年初搬进新小区开始使用天然气做饭的，我们家一共6口人，家庭用气量挺高的，听说多人口家庭可以申请增加用气量，请问多人口家庭怎样办理增加居民阶梯气量？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1881957029942267904",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1881957029942267904",
+   "question": "应急管理局事业编人员，考取中级注册安全工程师证书后，可以领取专业技术人员职业资格补贴吗？取得注册安全工程师证书后多久可以聘任中级职称？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1881945271294889984",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1881945271294889984",
+   "question": "鲁西新区，已过90岁老人是否有高龄补贴，如果有，如何申领？具体需要准备什么资料，及相关负责部门的咨询电话",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1881176135614730240",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1881176135614730240",
+   "question": "因交通事故住院，按照交通事故责任划分，自己承担的交通事故责任比例的医疗费用能不能按照合作医疗报销比例报销？如果可以报销具体流程怎么走？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1880149168908013568",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1880149168908013568",
+   "question": "领导，您好，我的驾驶证已过期两个月，请问还能否通过“交管12123”APP申请换证?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1877633809940353024",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1877633809940353024",
+   "question": "您好，我看到贵单位在20241211日关于灵活就业医保办理问题的回复，提到外地社保医保断交后可以在菏泽凭借身份证在现住地附近人社局或所就近办理。我对您的回复中就近办理的理解是与户籍地无关。但是我电话咨询了您留的电话号码，人工客服却回复说必须",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1877547302114168832",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1877547302114168832",
+   "question": "尊敬的领导，您好，“菏泽惠民保”已经开始缴费了，请问“惠民保”参保后怎么申请理赔报销？需要提交什么报销材料吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1876149636130017280",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1876149636130017280",
+   "question": "申请邮寄初级证书，已按照要求提交了资料，为啥一直不给邮寄",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1875096464569536512",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1875096464569536512",
+   "question": "尊敬的领导，您好，听说以前的惠菏保改名为“菏泽惠民保”上线了，请问“惠民保”保费是多少？如何购买？购买保险有什么限制吗？什么人都可以购买吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1874278792122470400",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1874278792122470400",
+   "question": "想要咨询2025年菏泽市执业医师资格考试报名是否需要社保流水证明",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1872653235068735488",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1872653235068735488",
+   "question": "2025.1.1号民政局上班吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1872176941063344128",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1872176941063344128",
+   "question": "父母马上60岁了，最近了解到咱们的子女资助政策非常好，计划在父母60岁之前申请子女资助，但由于父母和兄弟都在外地且距离较远，实在抽不出时间回老家办理该业务，马上临近25年了，想问下咱们有没有线上渠道可以办理这个业务？ 十分感谢，盼回复！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1871777961192067072",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1871777961192067072",
+   "question": "没有找到查询入口，关键词搜索也尝试了很多没有搜到，请告知下查询途径，发送到邮箱237567033@qq.com，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1871472119762784256",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1871472119762784256",
+   "question": "家庭户口想要分户，需要什么材料，怎么办理啊",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1871471603683037184",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1871471603683037184",
+   "question": "我驾驶机动车被处罚啦，但行政处罚决定书找不到了，怎么缴纳罚款？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1870017837653954560",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1870017837653954560",
+   "question": "尊敬的领导，您好, 听说我们每年都交的居民医疗保险费用，除了门诊、住院费用可以报销外，还可以享受居民大病保险待遇，想了解一下详细的大病保险报销政策？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1868655710489939968",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1868655710489939968",
+   "question": "如题，惠菏保2025年还能投保吗，什么时候开始？省内其他城市惠民保，都在正常投保，唯独惠菏保没有2025年度的投保消息，是产品终止了吗？省医保局2023年底刚出台《关于推动定制型商业医疗保险可持续发展的意见》，提出到2025年参加基本医保人",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1867113607809077248",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1867113607809077248",
+   "question": "领导，您好,我已在菏泽城区工作生活1年多，现在想要在牡丹区辖区内申请公租房，请问符合什么样的条件才可以申请公租房？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1866779599648722944",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1866779599648722944",
+   "question": "您好,领导: 我之前是在北京单位给交的职工医保，但是现在离职了 职工医保也就断交了，没有交 现在想在菏泽缴纳灵活就业社保缴纳，需要怎么办理呢 ？在线上是否能直接办理呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1863522015693115392",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1863522015693115392",
+   "question": "中级会计证大约什么时间领取，需要提供什么申材料，或者我应该从哪个网站上查看领取中级会计证的材料",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1862727697801809920",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1862727697801809920",
+   "question": "你好，没有缴纳或断缴城乡居民养老保险的居民，目前政策允许其在60周岁之前按最高8000元每年的标准补缴。但是已缴纳城乡养老保险的居民却不允许提档补缴已交年份。这个政策从长期来看，不利于养老保险费的征缴，积极响应政策按时缴纳的居民不能提档补缴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1861695611749928960",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1861695611749928960",
+   "question": "光荣之家牌子红色字体，已全部脱色，需要更换。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1861679927435333632",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1861679927435333632",
+   "question": "五屯路红汤羊汤馆作为商家为了一己私利 把十字路口西南角的围栏私自拆除 在大马路上设置斜坡，私自改造建设停车场，并且十字路口四面均有红绿灯，已经严重的影响了交通，导致车辆不能正常行驶，在车流量比较较大的时候，来来往往非常危险，他们这种行为涉及",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1861292750872383488",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1861292750872383488",
+   "question": "尊敬的领导，您好！ 我是中国地质调查局南京中心的一名科研人员。因工作需要，向贵部门申请2000年以后的水资源公报（可能贵部门不足23年，可能是2010年后的）用于淮河流域农业耗水量统计。希望您能提供下菏泽市2000-2023年水资源公报发送",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1859952739065401344",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1859952739065401344",
+   "question": "发生交通事故，肇事车辆与受害人同等责任，受害人花费了10万左右的医疗费用，现在肇事方医疗费已赔付6万元，还有受害人自已负担的医疗费4万元，请问受害人自费人的4万元还可不可以走医保报销?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1859758499463041024",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1859758499463041024",
+   "question": "安运江本人的养老保险开始缴费时间1996年，目前属于灵活就业人员缴费，2016年至2019年4年时间由于经济原因没能按时缴纳养老保险，这4年属于断交期，能否帮助办理补缴事宜，切盼！谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1858308498903928832",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1858308498903928832",
+   "question": "因换工作，中间衔接没有衔接好，出现一个月的空档，能自己去补缴上一个月的社保。如果可以的话，需要什么材料去医保局",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1857626682245124096",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1857626682245124096",
+   "question": "家中老人身体不便，我暂未在家中，请问线上如何缴纳医保，如何享受到低保户缴纳医保的优惠。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1857236238159974400",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1857236238159974400",
+   "question": "领导，您好！我们村民每年都会按时缴纳居民医疗保险费，但有些详细的就医报销政策不太明白，听说患有高血压、糖尿病的人，没有申请办理慢性病卡，在门诊拿药也可以报销？ 请问怎么报销的？需要提供什么材料才可以报销？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1856224598425735168",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1856224598425735168",
+   "question": "尊敬的菏泽市水务局您好： 我是来自山东省烟台市鲁东大学本科学生，同是也是菏泽籍在外大学生。因参加山东省大创赛需要菏泽市近五年关于黄河水资源公报中的数据和本市水利水政关于黄河的数据和报道以及菏泽地区与黄河有关的农林牧渔产业的相关报道和数据作为",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1855882010019631104",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1855882010019631104",
+   "question": "领导好： 有两个问题想要咨询下,我爸今年59周岁，一直缴纳的是农村的新农合社保。 1、农村居民养老金子女资助补交如何办理，我在小红书中查询到可进行子女资助补交，但都是说到线下办理，咱们菏泽市定陶区是否可办理。具体是个什么流程？ 2、前几年在",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1853440452590702592",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1853440452590702592",
+   "question": "我在郓城双桥镇梁西卫生室工作多年.今年考取了临床执业医师.看到今年相关文件.在卫生室工作的.执业范围能加全科医学.问我怎么办理?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1853040011621044224",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1853040011621044224",
+   "question": "13年退伍还能办理吗，需要怎么办理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1852231004316635136",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1852231004316635136",
+   "question": "我妻罹患肝癌，花费较大，她是职工医保，请问住院报销后还有其他救助吗？听说有大病医保，如何办理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1851633289916452864",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1851633289916452864",
+   "question": "希望帮忙查一下24年中级会计实务考试的成绩",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1851170286821576704",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1851170286821576704",
+   "question": "你好，打扰了，我是 2022 年 9 月 退伍的菏泽开发区陈集镇籍退役军人，之前优待证一直没有办理，现在想尽快办理优待证，请问现在还可以在网上申请办理优待证吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1849360306829135872",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1849360306829135872",
+   "question": "尊敬的领导，您好。目前正在居民医疗保险的集中缴费期，我想了解一下目前针对老年人、残疾人、低保对象是否有相关缴费优惠政策？需要自行缴纳医保费用吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1849014990623870976",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1849014990623870976",
+   "question": "边境管理区通行证是都可以申请吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1847116494434078720",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1847116494434078720",
+   "question": "领导，您好！9月底，家中新生儿出生后，在未落户的情况下凭出生医学证明参保了居民医疗保险，现在已经给孩子落户了，请问还需要重新办理参保手续吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1845661074049863680",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1845661074049863680",
+   "question": "为什么在菏泽市慢特病报销只能在定点医院？在其他地方任何多家医院都可以走慢特病报销，比如我们今年在省肿瘤和省中医都用了慢特病报销。据说是因为那些能报销的医院是“联网”了，而菏泽的医院没联网，菏泽市什么时候能解决这个民生大事！？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1844666628931981312",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1844666628931981312",
+   "question": "您好 领导我之前是单位给交和职工医保，但是现在离职了 职工医保也就断交了 一直没有交 现在想转成居民医保合作医疗，需要怎么办理呢 ？在线上是否能直接办理呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1844307428842278912",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1844307428842278912",
+   "question": "想请问一下，菏泽市农村居民养老金，由基础养老金和个人账户养老金两部分组成吗，另外基础养老金是不是固定值，不随个人缴纳的金额而变化？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1843917558382727168",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1843917558382727168",
+   "question": "因工作需要，需要2024年城市低保正式公文进行相关补助发放，电子版也可以，希望贵单位能够提供获取渠道，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1843840098911784960",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1843840098911784960",
+   "question": "人民南路东侧京九星港A区西侧规划是绿地吗？现在是建筑垃圾存放地和祠堂，能否在绿地规划时将该处改造成街头公园",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1843225140024971264",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1843225140024971264",
+   "question": "您好，我是在校研究生，因论文研究需要2011年-2022年各区县规模以上工业企业分行业工业总产值，希望您能提供相应数据或者该时间段的区县统计年鉴，非常希望能得到您的帮助!!",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1840254910529146880",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1840254910529146880",
+   "question": "菏泽市发的保育员证书官方网站查不到",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1839946324800311296",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1839946324800311296",
+   "question": "我看到咱们文件上说： 会在本地公共服务网站设置政策宣传和就业指导专栏,集中发布就业创业政策,推出线上政策宣讲和就业指导直播(录播)课,提升毕业生求职就业能力。具体在哪里呀？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1839222278680875008",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1839222278680875008",
+   "question": "单位面试的时候的时候明确说了211、985入职研究生有1500的补贴以及购房补贴，现在又说不发了，我想咨询一下是今年的政策取消了吗，还是其他原因，以及取消原因。在现在的就业形势下，如果没有人才补贴，我认为吸引人才的力度不大，本来就是基于有人",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1837035277797953536",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1837035277797953536",
+   "question": "户口簿可以让户主以外家庭成员补办吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1837034875425787904",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1837034875425787904",
+   "question": "想问一下，补办户口簿需要多长时间？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1836949679984742400",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1836949679984742400",
+   "question": "我父母本年度已缴纳了城乡居民养老保险。作为子女是否可以进行资助缴纳城乡居民养老保险，即再多缴纳一笔。如果可以，缴纳的方式和档次是如何规定的呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1836322121685536768",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1836322121685536768",
+   "question": "请问怎么预约参观菏泽市国防动员宣教体验馆",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1836224729485283328",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1836224729485283328",
+   "question": "农村垃圾卫生费收费标准是多少？是按照家庭总人数收费，还是按照长期在家居住人员数量收费，还是依照家庭为单位收费？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1835158994419847168",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1835158994419847168",
+   "question": "自9月份来家庭用水有一股腥味，烧开的水水渍多，有腥臭味。以为小区供水清理问题，打电话咨询物业，物业回复菏泽市诸多小区大都是这样，其他小区也有这种情况，水是生命之源，望相关领导重视，尽快给与回复。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1834440233366720512",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1834440233366720512",
+   "question": "2024年度菏泽市技术创新中心何时公示",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1834052532658376704",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1834052532658376704",
+   "question": "尊敬的领导，您好！村里面宣传今年的医保费用增加到每人400元了，说是报销政策也好了，所以想要详细了解一下外出就医政策？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1831961190297899008",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1831961190297899008",
+   "question": "尊敬的领导您好，我是一名农村中学教师2017年招考入职，入职前有2年军龄和6年的工龄，入职后已经接续。当前晋级按照教龄我是7年的时间，按照工龄是15年，两者差距很大。以当前40岁入职到60岁退休为例，最多只能晋个中级职称，甚至一辈子都是个初",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1831511161208705024",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1831511161208705024",
+   "question": "您好，感谢您一直以来的帮助 1.《菏泽市高层次人才绿色通道服务事项办法》（菏委人组办发〔2022〕7号）是否涵盖了高层次人才的所有绿色服务，共24项服务？ 2.关于知识产权、法律法务两项，文件中未提及，是否目前菏泽市高层次人才绿色服务并未涉",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1830216021185794048",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1830216021185794048",
+   "question": "您好，我是甘肃农业大学2022级农业管理的学生，我写论文需要关于山东菏泽牡丹的数据，如果可以，请发送到我的邮箱，谢谢~所需数据如下： 2012-2023年 山东菏泽的牡丹种植面积、牡丹产量、牡丹产业产值、牡丹种类、从事牡丹产业的就业人数、有",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1827174776439967744",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1827174776439967744",
+   "question": "你好，请问现在强直性脊柱炎可以申请慢性病吗，可以的话办理的流程是哪些呢，现在治疗这个病花费非常高，家里经济快要支撑不住了。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1826167735198027776",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1826167735198027776",
+   "question": "国防动员包括哪些方面",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1826152852683362304",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1826152852683362304",
+   "question": "尊敬的菏泽市人社局老师好 我于今年8月份新进入事业单位，获悉有全日制硕士研究生在工作满三年之后可以直接认定为中级资格职称，请问现在这个政策还施行吗？ 另外，想请问下，要求的从事专业技术三年是进入事业单位三年还是工作满三年？因为我是2021年",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1825824793547640832",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1825824793547640832",
+   "question": "菏泽市缴纳医保，一直没有在菏泽开社保卡，但是有泰安的社保卡，如果从菏泽离职去往别的省份，菏泽医保个人账户能否网上申请一次性支取，不去线下办理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1825498202409930752",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1825498202409930752",
+   "question": "人社局同志您好：想咨询本人学籍档案是否存放在于菏泽市人才服务中心。具体情况如下：本人2019年于四川工商学院退学，退学后档案归属未知。本人中小学阶段一直在济南市上学，已咨询济南市人才中心，得到回复是档案不在此处，线特咨询贵单位是否有接收到本",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1825410271187963904",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1825410271187963904",
+   "question": "目前菏泽市相关医保政策规定，居民医保门诊慢特病关于恶性肿瘤患者的报销上限设置是5万元。医保局的领导和医院的专家都有清晰的认知，5万元远远低于实际病人年度支出的金额。 我想领导们已经关注到相关问题，在2023年10月12日菏泽市医保局下发：《",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1825137885918138368",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1825137885918138368",
+   "question": "2024年考过中级护理学证书的能申请职业技能补贴吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1824383208754647040",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1824383208754647040",
+   "question": "领导，您好。前段时间，山东省政府召开新闻发布会，会上表示山东将启动适龄女孩HPV疫苗免费接种，请问免费接种人群具体是怎么规定的？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1823892120730210304",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1823892120730210304",
+   "question": "职工医保门诊报销的期限是多久？因自己之前不懂职工报销的政策，在2021年8月之后的门诊花费都没有报销过，现在问一下还能报吗？医保在今年的2月-4月断缴了3个月，影响之前的报销吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1823536697196023808",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1823536697196023808",
+   "question": "想考试应急管理局颁发证书，没有报名流程，在哪里报名，在哪里培训，官网没有介绍。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1823355677561720832",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1823355677561720832",
+   "question": "您好，我即将开学，学校要求我退掉居住地医保、改交学校所在地医保。请问我应该去何地办理？办理时需要哪些纸质材料？办理时效大概多少个工作日？感谢您的解答。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1823294609476947968",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1823294609476947968",
+   "question": "尊敬的菏泽市水务局您好： 我是来自江苏省徐州市中国矿业大学的一名全日制研究生，因论文需要贵市2014年——2018年的水资源公报中的数据做分析，因在查询后在无果，特来申请数据，烦请贵单位将数据发送至本人邮箱（18949938490@163.",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1822209515291021312",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1822209515291021312",
+   "question": "微型消防站配置规范、标准",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1821820151318843392",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1821820151318843392",
+   "question": "南城街道国色天香小区北区发生停水情况，原因为中山路北侧小区门口管道破裂。但是自2024年8月7日开始停水，物业通知说期间会临时供水，但中间一直未能供水，今日资讯维修师傅说未来三天都不能修好。已严重影响居民生活。望有关部门调查一下情况，及时帮",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1821010601783201792",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1821010601783201792",
+   "question": "1.在选择系列和职称时，是选择和单位职能相关的即可，还是要看单位具体设置了什么专业的中级岗呢？ 2.具体需要哪些附件材料？ 3.聘任的时候是要求证书的职称和单位设置的岗位名称完全一致才行吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1818814115867660288",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1818814115867660288",
+   "question": "菏泽市牡丹区人民路八一路交叉口西南角，牡丹帝都大厦，属帝都花园小区，属于商住两用楼房，其一二单元的电梯，均存在大量住户、办公人员电瓶车乘电梯上下楼情况，存在极大安全隐患，希望及时监督予以改正，保障群众的生命和财产安全！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1817343609591173120",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1817343609591173120",
+   "question": "您好，目前菏泽市只有牡丹区进行了本年度的事业单位招聘考试，我想咨询一下其它地区的招聘考试时间，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1816461457940942848",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1816461457940942848",
+   "question": "尊敬的各位领导好: 本人想承包部分林地，想做家禽饲养或药材种植，请问咱们有向外出租的林地吗？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1816299318521499648",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1816299318521499648",
+   "question": "尊敬的领导，您好！听说可以通过“手机视频办医保”申请领取生育津贴了，我想要咨询一下需要提交什么材料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1813735065600004096",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1813735065600004096",
+   "question": "尊敬的领导，您好！我所在单位已经给予缴纳职工医保半年多了，但我一直未办理社保卡，请问我可以使用电子医保凭证在药店买药吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1813176242724278272",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1813176242724278272",
+   "question": "领导您好，我来自山东省菏泽市曹县的一个农村，我的爸爸是一位普通的农民，医疗保险缴纳的是普通居民医疗保险，我爸爸去年确诊了原发性血小板增多症，属于，这个病是一个慢性病，需要长期吃药，每个月的医药费需要4000多元，这对于我们农村家庭来说是一笔",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1813032249571020800",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1813032249571020800",
+   "question": "前期购房时，开发商沙盘及所给规划图中未标明有垃圾中转站，现在开发商要在小区内建设垃圾中转站，是否在规划范围内，是否合规？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1811692121648926720",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1811692121648926720",
+   "question": "尊敬的领导，您好！我在年前考取了C1驾驶证，目前还在实习期内，请问实习期驾驶机动车能否上高速?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1810104843428302848",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1810104843428302848",
+   "question": "您好，我是青海大学一名农学研究生，同时也是一名菏泽人。对于我市“一村一品”发展，我想要写一篇论文来讨论高质量发展问题，想请问，目前我市是否还存在“一村一品”建设单位，如有存在，数量以及相关细节是否可以透露。万分感谢您能够解答我的问题!",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1806625710551470080",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1806625710551470080",
+   "question": "尊敬的领导，您好。家中老人即将年满60周岁，我想要咨询如何办理老年优待证？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1803620851938103296",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1803620851938103296",
+   "question": "你好，初级考过需要审核吗？审核的话需要什么资料？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1802705396536840192",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1802705396536840192",
+   "question": "你好,申请会计人员信息跨省调入办理网站其办理流程是什么",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1801565251838283776",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1801565251838283776",
+   "question": "领导，您好。 我前几年考取的教师资格证，近日发现找不到了，想要咨询：如何补办教师资格证？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1800520353462751232",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1800520353462751232",
+   "question": "初级会计证书的领取都需要哪些证件？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1798549864179699712",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1798549864179699712",
+   "question": "会计报名信息表未打印对后续领证有影响吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1798529212538294272",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1798529212538294272",
+   "question": "领导你好，我想咨询一下我们是装饰工程和安装工程的专业资质中标的专业工程总承包项目，是否可以对下进行专业分包？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1797955118914736128",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1797955118914736128",
+   "question": "咨询一下生育津贴领取步骤和领取条件，是否可以线上办理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1796375572918702080",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1796375572918702080",
+   "question": "经济责任审计的对象有哪些",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1795647951956217856",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1795647951956217856",
+   "question": "23年上半年卫生专业技术资格证书怎么领取？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1793911299290304512",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1793911299290304512",
+   "question": "孩子出生后户口随父亲登记在荷泽市牡丹区李村镇，参加基本医疗保险，并按时缴费。现孩子户口随母亲迁出到外省(陕西)，如何变更参保信息。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1792920193836650496",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1792920193836650496",
+   "question": "2024菏泽建筑类国企会招人吗？不是人才引进",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1792460020231835648",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1792460020231835648",
+   "question": "有顺风车的政策吗顺风车平台接单就是为了出行节省开支不让接是有什么限制吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1791390692082323456",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1791390692082323456",
+   "question": "尊敬的市长，您好！请问菏泽市有无电子版的结婚证？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1791017897691320320",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1791017897691320320",
+   "question": "菏泽公开招聘医疗卫生编今年还有招聘计划吗?大概什么时候出？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1790647570587062272",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1790647570587062272",
+   "question": "高层次人才引进，有牡丹惠才卡，在人才引进的3年内的住院报销比例是多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1788491271854231552",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1788491271854231552",
+   "question": "尊敬的领导，您好，想要咨询一下前段时间看病就医的发票丢失了，还能报销吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1788138755375370240",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1788138755375370240",
+   "question": "请问在牡丹路以西，五屯路是如何规划的。 一是在新石铁路以南还是在新石铁路以北呢？ 二是会延续到西安路吗？ 谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1785120687074185216",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1785120687074185216",
+   "question": "本人今年二月份结婚落户菏泽市东明县，暂未在菏泽交纳职工医保。想咨询交纳灵活就业医保可不可以领取到生育津贴？1，咨询若能领取生育津贴要交多久灵活就业医保？2，一个月交纳多少钱？3，产后多久能领取？4，若能领取生育津贴那么领取的金额怎么计算？5",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1783771253954449408",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1783771253954449408",
+   "question": "尊敬的市长，您好！我父亲每年都是按照500元的标准缴纳城乡居民养老保险，前两天他自己又交了2024年的养老保险，但是我想给他提高缴费档次，请问今年可以再次缴费吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1782939071379804160",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1782939071379804160",
+   "question": "咨询一下，了解到山东省其他地市案件里已经实行了《最高人民法院关于审理人身损害赔偿案件适用法律若干问题的解释》 第七条，误工费赔偿的原则，无法举证收入情况，起码可以按照省级的同行业平均工资计算误工费。菏泽市巨野县中国人民保险员工，与一名当地律",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1782925098836168704",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1782925098836168704",
+   "question": "在青岛医院进行癌症的放疗，容积弧形调强放疗(ARC) 螺旋断层放疗(TOMO) 问一下这两种方式可以报销吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1780778488194797568",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1780778488194797568",
+   "question": "没有做过税务登记，任何操作没有进行过，只是申领过电子版营业执照，现在想要注销，应该怎么操作？具体需要哪些资料？线上是否能进行办理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1780520587815424000",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1780520587815424000",
+   "question": "想问一下，在济宁缴纳的住房公积金，在单县买房子，为什么不能够使用贷款，或者使用账户余额里的钱，导致买房压力很大，使用商业贷款还款数额太大。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1780051847478906880",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1780051847478906880",
+   "question": "准考证什么时候打印以及在哪个网站打印",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1779557645418631168",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1779557645418631168",
+   "question": "现在交的居民医保，但是长期在济南工作，长在济南缴纳灵活就业医保，需要在菏泽备案吗，还是要先停用居民医保才能交灵活就业，灵活就业医保需要缴纳几个月才能统筹报销和办理慢性病，而且我在爱山东申请的济南灵活就业医保增员很久了没有人给办理也取消不了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1778262116822814720",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1778262116822814720",
+   "question": "领导您好，我想咨询单位平时不是已经给我们代扣过个税了，为什么还要个人进行年度汇算清缴呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1777958750670426112",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1777958750670426112",
+   "question": "本人是广播听众，请问单县中波台承担的广播频率有哪些？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1775891087697776640",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1775891087697776640",
+   "question": "您好，我想咨询一下，不在医保集中缴费期缴费的，医保等待期是三个月，三个月怎么算？是从缴费之日起满三个月吗？如果在4月6号缴费，那么满三个月是到7月6号码？是7月份7号可以享受医保待遇，还是在8月1号可以享受医保待遇？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1775449866378547200",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1775449866378547200",
+   "question": "尊敬的市长，您好！想问问牡丹区昆仑路与西安路与黄河路五岔口桥梁修建完成后，是否还保留昆仑路，希望能得到回复。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1774776999324291072",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1774776999324291072",
+   "question": "本人为了支持菏泽大开发大建设，与2016年在牡丹区中华路与点将台路购买了润泽中心之城27号楼商品房一套，到现在已经过去8年了，至今未能按时交付，现在一家老小还在外面租着房子住，流离失所，请看到留言的各相关部门领导给与我们这些小老百姓问题予以",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1774624221788508160",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1774624221788508160",
+   "question": "尊敬的领导，您好。我想问问多大年龄可以申请个人创业担保贷款？我本人现有8万元的信用卡分期贷款，可以申请吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1774616307552096256",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1774616307552096256",
+   "question": "请问会计专业技术考试的信息在哪里发布？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1773556171651813376",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1773556171651813376",
+   "question": "我的房屋问题已经多处反应一个多月了，到现在还没有彻底维修好，只是窗户安装，还不是你们说的十九号安装完成，到21才安装完成，还有其他的问题至今没有整理完成，窗户漏缝下雨都能进去水，墙面砂浆强度不足部分也没有彻底维修好，开关面板一碰都掉，家里面",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1773179043299069952",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1773179043299069952",
+   "question": "请问城乡居民医保，扭伤等意外门诊是否享受门诊200元报销政策",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1772543388680327168",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1772543388680327168",
+   "question": "义务兵家庭优待金什么时候发",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1772274865118777344",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1772274865118777344",
+   "question": "您好，我想请问一下为什么这次人才引进设置了音体美岗位，但是艺体类专业院校的毕业生不可以参加呢？艺体类专业院校的毕业生不考虑吗？是否可以放宽条件？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1770286842437046272",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1770286842437046272",
+   "question": "您好，我想咨询一下近几年菏泽市的常住人口数量，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1770274910258728960",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1770274910258728960",
+   "question": "市属国企员工可以向其他国有企业调动吗？条件是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1769640734589325312",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1769640734589325312",
+   "question": "您好：我是丹阳街道庞楼社区天安福园1号楼的业主，即鲁西新区府南街728号1号楼（天安国际广场小区1号楼），向贵部门咨询1号楼的规划区域，容积率大小。以及对应的规划变动、变动日期及变动原因。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1769524871685083136",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1769524871685083136",
+   "question": "曹县s329庄青路双向2车道，车流量巨大，前期也有很多群众咨询过s329修路问题，回复说已经纳入规划，规划为双向4车道，暂时因资金和其他问题制约不能实施修路。 2024.3.18从媒体上了解到，曹县公路事业发展中心正在就s329庄青路路面改",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1769328939039330304",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1769328939039330304",
+   "question": "尊敬的领导： 您好！ 我是青岛工学院的一名大三学生，山东菏泽牡丹区人。我们菏泽市是牡丹的重要发源地，并成为菏泽经济支柱型产业之一，本课题现在正在做一项关于调查菏泽牡丹产业竞争力及助推菏泽乡村振兴的调查，希望各位领导、专家能够予以支持，学生在",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1769288764577943552",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1769288764577943552",
+   "question": "查询企业及法定代表人（身份证号码）的信息。本人与“一公（山东）教育科技有限公司”的纠纷需要仲裁，因没有企业法定代表人的身份证号码，而无法提出申请。请求工商部门帮助提供。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1767529792128815104",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1767529792128815104",
+   "question": "我在网络上看到之前有过契税补贴，我今年交的房，请问24年还有契税补贴或补贴吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1766287038044311552",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1766287038044311552",
+   "question": "23年说有两批汽车消费券发放，为什么只有上半年一批发放，都24年了迟迟未见到第二批消费券发放",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1765935412985073664",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1765935412985073664",
+   "question": "领导，您好，三角花园和大学路菏泽学院周边共享电车乱停乱放现象严重，有些车辆随意停放在路边，影响通行，请问政府有没有什么有效的治理措施？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1765907998431121408",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1765907998431121408",
+   "question": "菏泽市最新的建设工程规费中的住房公积金费率是多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1764570569451376640",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1764570569451376640",
+   "question": "你好，我认为菏泽市新建商品房买卖合同（预售）中有内容不合理的地方。我的合同号是2022030927，在第十条9中“以上设施未达到上述条件的，双方同意按照以下方式处理：小区内绿地率未达到上述条件的，不给予交付。”其中“不给予交付”是填写内容。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1764543651599486976",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1764543651599486976",
+   "question": "你好想咨询一下阳光城翡丽雅苑全部验收是否通过，什么时间通过的。二是阳光城大证是否办理，办理进度到那一步，什么时候能下大证，办理材料是否提供完整，办理大证小区一二三次验收，是否全部验收，如果没有进行到那一步，请详细告知谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1763468212525207552",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1763468212525207552",
+   "question": "领导，您好，我原在济南上班，缴纳过3年的职工养老保险，现已在菏泽工作安家，请问如何办理企业养老保险关系转入？如果不需要转移，那在不同地方缴纳的养老保险如何处理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1762476998288084992",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1762476998288084992",
+   "question": "您好，本人不清楚名下房产处于什么状态，是否已经网签或者其它状态，请您查询一下，期待您的回复，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1761994085310271488",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1761994085310271488",
+   "question": "南京失火给我们敲响了警钟，希望菏泽能够采取措施，在每个电梯内安装设备，电瓶车进楼则报警。阻止电瓶车进楼充电。希望落实到行动上。像南京这样的事故不再重演。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1760543405450072064",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1760543405450072064",
+   "question": "尊敬的领导，您好，我的车牌被刮坏了，需要重新换一副新号牌，请问是否可以网上申请换领？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1755146273922617344",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1755146273922617344",
+   "question": "尊敬的领导，您好，春节期间，想要带着孩子去科技馆参观，请问春节期间是否允许参观？是否需要提前预约？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1753307629918228480",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1753307629918228480",
+   "question": "我是一位刚刚步入社会的应届大学毕业生，工作闲暇之余，看到媒体有报道志愿活动的新闻，就有想参与的想法。请问如何才能注册成为志愿者？为社会尽一份微薄之力。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1750886258185474048",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1750886258185474048",
+   "question": "老康庄市场是否还有继续规划的可能，如果有计划，请大概说明下规划方案。 老市场的整体经商环境大大不如以前，希望政府也能出台相关扶持优惠政策给老商户，让他们去新市场发展未来。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1750781710179635200",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1750781710179635200",
+   "question": "近日，我骑两轮电动车上班途中因未戴头盔被交警查到，请问怎么缴纳罚款？能不能网上缴罚款？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1748199068544405504",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1748199068544405504",
+   "question": "领导，您好，因工作原因，无法现场办理生育登记，请问是否可以代办？是否必须现场办理，有无其他办理方式？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1745650633773551616",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1745650633773551616",
+   "question": "我想问问：2023年12月份出生的婴儿，已落户，现在想要为其缴纳居民医疗保险，请问是否必须现场办理？是否有便捷办理方式？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1741990138109628416",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1741990138109628416",
+   "question": "今日我去嘉丽学府物业公司接房时，在我与物业明确近一两年不会装修的情况下，告知我他们物业公司不管你装修与否，何时装修必须要交装修押金拿钥匙，我想问一下住建局领导，咱们市物业条例规定有强制必须要交装修押金才能接房嘛，望住建局部门领导给个满意的答",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1738374433489424384",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1738374433489424384",
+   "question": "黄河路提升改造已列入2023年菏泽重点建设项目，马上年底了，迟迟未见动工，请问建设的具体时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1734554939159613440",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1734554939159613440",
+   "question": "您好，我是一名在读研究生，由于学术研究需要，现需要菏泽市2022年市水环境质量指数，在各网站查询均为找到准确数值，如果方便，能否将相关数据发至邮箱15264651022@163.com，十分感谢！祝您生活愉快，万事顺意！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1734118222204112896",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1734118222204112896",
+   "question": "本人于今年3月份申请菏泽至济南的医保关系转移，目前关系已转移完成，经了解，关系转移完成后，医保个人账户里余额会转入当地社保卡金融账户内，但由于在菏泽工作期间未办理社保卡，目前原菏泽医保个人账户里余额不知去向，希望领导给出处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1731581922536198144",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1731581922536198144",
+   "question": "想查询一下我小区所在的物业星级,物业公司名为:碧桂园生活服务集团股份有限公司菏泽分公司,",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1729785488069496832",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1729785488069496832",
+   "question": "您好，我家人因工作要求，需要查询和打印社保个人参保缴费证明，请问需要她本人去办事大厅打印吗？请问有没有便捷方式可以办理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1727586973893398528",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1727586973893398528",
+   "question": "尊敬的领导，您好，我原在济南上班，已参保职工医疗保险，因个人原因，现已回老家菏泽工作，社保关系已转至菏泽，请问我的社保卡是否可正常接收医保个人账户资金？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1726054277467738112",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1726054277467738112",
+   "question": "老婆怀孕之后离职，导致社保断缴，想重新交上新农合，但是发现交不上。 曾在中山路曹州医院参保，请问需要怎么处理才能交上新农合，需要去哪个地方处理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1725108948677300224",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1725108948677300224",
+   "question": "尊敬的市领导，您好：由于长江路快速道路的建设，长江路快速路地面辅道目前有较多井盖凸起，给市民出行带来不便，希望能尽快优化。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1724266766638649344",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1724266766638649344",
+   "question": "你好，我想咨询一下，卖鸡蛋，需不需要办理食品经营许可证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1721419465893220352",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1721419465893220352",
+   "question": "想要查询“ 菏泽鲁西新区云快网络科技经营部”办理进度",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1721323084398596096",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1721323084398596096",
+   "question": "尊敬的领导您们好，想咨询大学路以南人民路以西有否控制性规划。此位置紧邻赵王河，地理位置优越、环境非常优美，且为菏泽北向主要出入口，请对此片区休闲商业论证并及早公示。另外，牡丹区东向人口稠密、群众基数大，原规划的大学路人民路交叉口位置的中小学",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1717444109192531968",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1717444109192531968",
+   "question": "您好！我想咨询一下菏泽在校小学生合作医疗缴纳是否有优惠政策。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1717023437718949888",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1717023437718949888",
+   "question": "领导，您好。我妻子户籍在河南，今年国庆节期间，我们在成武县举行婚礼，为方便下一年生育报销，我妻子能不能在成武县交纳新农合？如果可以，我们需要提供什么材料，如何办理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1715320766347743232",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1715320766347743232",
+   "question": "各位尊敬的领导你们好！ 我是一名外地来菏泽的学生家长，想咨询一下： ① 东关八一路与振兴路交汇处八一路小学北侧，之前是规划中学，现在是否还是规划中学？什么时候能开始建设？ ② 位于振兴路丹阳路交汇处东北侧，路牌显示是学校，周边的老百姓说之前",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1714217459172642816",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1714217459172642816",
+   "question": "领导，您好，我是曹县磐石办事处湖畔壹号小区业主，听说我们小区北侧有建设小学的计划，请问是否属实？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1711582563266596864",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1711582563266596864",
+   "question": "领导，您好。我需要申请道路运输《从业资格证》，需提供《驾驶人安全驾驶记录》，请问怎么办理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sd-heze",
+   "id": "1708109932953473024",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1708109932953473024",
+   "question": "您好，我家住在菏泽农村，农村旱厕问题一直没有解决，我想自费改造，但是通过查询网络，发现有各种问题，比如冬天冻住问题，使用年限问题。所以寻求政府支持，请问政府有没有针对咱们菏泽地区旱厕改造使用效果很好的方案，可以给我作为参考。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1704413416648740864",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1704413416648740864",
+   "question": "二级残疾人员需要缴纳农村合作医疗吗，是不是可以免交",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1704059666335666176",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1704059666335666176",
+   "question": "您好，我想问一个关于社保卡的问题，我之前在咱们曹县办理了一张社保卡，现在工作调动的关系，目前在咱们城区工作，我现在工资卡什么的都是建行的，想把社保卡也换成咱们建行的，之前问过，说需要去开什么证明太麻烦了，能优化一下这个流程吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1701865059577368576",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1701865059577368576",
+   "question": "领导，您好，我想咨询一下，房贷贷款还清后解除抵押登记需要房主到场吗，需要出具哪些材料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1698969561782685696",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1698969561782685696",
+   "question": "尊敬的领导，您好，我去年考试并通过了小学语文和初中英语两种教师资格笔试及面试，今年可以都认定吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1698588637672902656",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1698588637672902656",
+   "question": "尊敬的领导： 您好！我是2017年全日制硕士研究生毕业，2020年通过省考入职市直单位；我爱人2018年全日制硕士研究生毕业，同年入职于中国人民银行菏泽市中心支行（因国家机构改革现已改名为中国人民银行菏泽市分行），为正式职工。 2021年（",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1697475169213353984",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1697475169213353984",
+   "question": "我母亲有职工医保，2021年于菏泽市立医院做了无痛肠镜，妇科超声等检查，但因为各种原因2021年度以上检查未去医院医保窗口办理门诊检查报销，请问2021年未报销的门诊检查现在还能够去医院办理报销手续吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1696685328074674176",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1696685328074674176",
+   "question": "你好，请问物理学学硕是与教育教学相关的专业吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1696355379111399424",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1696355379111399424",
+   "question": "朱赵新河能不能用网捕鱼",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1696347369848836096",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1696347369848836096",
+   "question": "敬爱的局长你好，我是菏泽市郓城县唐庙镇常庄村的一位村民，今年七月底不知为何水井里出的水是黑色的，想知道是什么原因，将近一个月的时间还是没有改变，已经影响到居民的正常生活了，作为一位公民我想我应该有水为什么变黑无法正常饮用和使用的知情权，期待",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1696346056410927104",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1696346056410927104",
+   "question": "如果法人不在本地，且回不来，通过视频可否办理法人变更事项。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1696093808749580288",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1696093808749580288",
+   "question": "你好，请问面向菏泽市的公费师范生在考研时可以选择学科教学以外的专业吗？比如说本专业学硕，具体像物理学学硕这样的专业，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1695359074918600704",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1695359074918600704",
+   "question": "请问2023年初级会计证书什么时候发放？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1695230846065315840",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1695230846065315840",
+   "question": "宫外孕灵活就业保险可以报销吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1694549325432098816",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1694549325432098816",
+   "question": "尊敬的领导你好：中南花城南区18号楼2022年12月30号交房 至今燃气不能使用 无法正常生活 天气越来越冷 家里基本生活无法保障 请领导重视",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1692457670679859200",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1692457670679859200",
+   "question": "家住农村，家里二楼闲置，大面积养殖鹌鹑售卖是否合规合法？规模一万只左右。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1692344474098864128",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1692344474098864128",
+   "question": "现在3个孩子在北京上小学，把孩子转学到菏泽的小学。咨询下流程和准备的材料。一胎大娃10岁是菏泽户口，二胎双胞胎7岁，是张家口（母亲）户口。 怎么才能顺利转到菏泽的小学。谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1692230838693007360",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1692230838693007360",
+   "question": "2023年郓城县会计继续教育的网站是哪个？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1692118264844521472",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1692118264844521472",
+   "question": "我想了解一下就是作为公费师范生在公费范围内转专业，需要达成一些什么样的条件如何去操作这件事情，因为家里的人是面向菏泽就业的，也不会说有违约这件事情，就是想要转一个专业",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1692045836726439936",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1692045836726439936",
+   "question": "毕业之后在青岛工作，公司要交医保，但是我在家交了一份，所以现在交不了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1691340573086191616",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1691340573086191616",
+   "question": "现在正值夏季，气温很高，我市各县区晚上的亮化灯大量布置，不仅造成了光污染，而且升高了夜间气温，而且浪费了大量的电力，建议非必要建筑物夜间关闭亮化灯，尤其是居民楼体的亮化灯最应该关闭，还清凉予市民，节约电力。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1691072917716209664",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1691072917716209664",
+   "question": "我属于引进高层次人才，单位在定陶区，家庭住址在牡丹区西关，租赁的房屋，孩子该上一年级了，请问按照政策就读哪个学校啊？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1690974466349338624",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1690974466349338624",
+   "question": "尊敬的山东省菏泽市文化和旅游局您好！我们是来自安徽师范大学教育科学学院的调研团队，正在做大学生创新创业项目题目是以曹州面人为例的非遗与课后服务机制的实践研究。我们现在希望向您咨询有关曹州面人非遗传承人的联系方式，希望联系到传承人向他了解相关",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1690686883903967232",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1690686883903967232",
+   "question": "尊敬的领导;您好！ 我是巨野县的一名工厂电工，去年我们公司因响应国家双高政策停产，现在在家里待业。因为我们巨野县没有特种作业考试的考点，大家复审特种操作证的时候很不方便，需要去外县考试，我和几个同事商量了一下，准备自己创业，开办一家特种作业",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1690319413036847104",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1690319413036847104",
+   "question": "尊敬的菏泽市水利局领导，您好： 我是华北水利水电大学的硕士研究生，目前正在做水资源的相关研究，因研究需要，请求贵单位帮助提供部分数据，详细如下： 2011年~2021年菏泽市的年均蒸发量（或干旱指数）、工业COD排放量、工业废水排放量、水功",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1690283105082019840",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1690283105082019840",
+   "question": "尊敬的菏泽市生态环境局领导，您好： 我是华北水利水电大学的硕士研究生，目前正在做水资源的相关研究，因研究需要，请求贵单位帮助提供部分数据，详细如下： 2011年~2021年菏泽市的工业COD排放量、工业COD排放浓度、工业氮氧化物排放量、工",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1690282194867720192",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1690282194867720192",
+   "question": "您好，想问一下公费师范生违约的诚信问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1689457319550783488",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1689457319550783488",
+   "question": "随迁子女入学 要求的社保：灵活就业养老保险1年以上是否可以 居住证有时限要求吗 哪几所学校可以收纳 还是按租住房屋所在区就近报名",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1688733192300924928",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1688733192300924928",
+   "question": "您好，想咨询一下马沙路这次作为机场东南北连接线，马沙路北段(马驿店——徐垓)具体规划道路规格？道路扩宽后修多宽？具体的什么时间修有没有时间点？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1686555033480597504",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1686555033480597504",
+   "question": "网站上没有强农惠农政策，怎么获取？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1686186332516388864",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1686186332516388864",
+   "question": "本人于2022年缴纳曹县医保，今年在济南工作却缴纳不上济南的医保，问该怎么办呐，曹县的怎么退掉缴纳济南医保",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1685109464149135360",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1685109464149135360",
+   "question": "菏泽卫生编今年还有招生计划吗?大概什么时候出？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1684089818923012096",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1684089818923012096",
+   "question": "暂停缴费后，查询参保信息时，提示“该人员存在未圈存的医疗账户”是什么意思？需要个人怎么处理呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1683787006741712896",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1683787006741712896",
+   "question": "您好，本市直肠癌患者术后不但要面临重大的心理负担，还面临巨大的经济压力，请问造口用品什么时候纳入医保报销，其他地市已纳入医保，已反映多次，请给个准确时间，谢谢！！！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1683264282302746624",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1683264282302746624",
+   "question": "什么时候发放，有具体时间吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1682642802862854144",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1682642802862854144",
+   "question": "初级会计证书什么时候发放。为什么还没有接到通知呢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1681618848375246848",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1681618848375246848",
+   "question": "山东菏泽市成武县郭庄行政村步庄，自来水被污染，浑浊且有鱼腥味，我村村民多次反应县政府无果，希望有关部门可以尽快解决，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1681499956998967296",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1681499956998967296",
+   "question": "已经考取中级注册安全工程师（建筑工程），并且注册完成。请问还需要考取建安B或者建安C证么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1681147725279793152",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1681147725279793152",
+   "question": "菏泽市图书馆现在的开放时间是每周二到周天，上午9:00-下午5:00，开放8个小时。菏泽很多准备公务员事业编研究生等考试的人，需要更长的学习时间。另外，寒暑假图书馆的人流量更多，如果不在上午九点前到图书馆门口排队，在自习的地方都找不到可以坐",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1680831155387109376",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1680831155387109376",
+   "question": "我入单位了给交五险，需不需要把城乡医疗给退了。如果需要退的话就给退了吧",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1680392611946434560",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1680392611946434560",
+   "question": "你好，我想请问2023年初级会计通过后需要考后审核吗？是不是不需要？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1678421408323080192",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1678421408323080192",
+   "question": "领导您好，7月7日，我收到了署名为山东省应急管理厅的公益短信，短信内容大概为“山东省行政区域内人员都免费享有一份财政资金投保的“灾害民生综合保险”保障，如在省内因洪涝、台风等自然灾害或溺水、居家煤气中毒等特定意外事故，对住房和人身造成了损害",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1678179651316486144",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1678179651316486144",
+   "question": "山东省菏泽市曹县庄寨镇常碱路一排商铺涉嫌违法和侵权纠纷事件，将问题反应至省巡检组，后转办省资源厅逐级转办菏泽市自然资源局，告知答复：曹县是试点县，根据政策，已把非法用地、采矿等的行政执法权转交给曹县综合执法局，市局无管理和监督职能权限。 咨",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1677191279789871104",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1677191279789871104",
+   "question": "2021年为了进城买房把村里的菏泽农村户口转移成了青岛城镇户口，请问现在还有没有转回农村户口的政策",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1676787803394019328",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1676787803394019328",
+   "question": "申请实习律师步骤",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1674424017236398080",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1674424017236398080",
+   "question": "我是在菏工作人员，有居住证。想咨询怎样为孩子在菏泽申办居民医保。谢谢 孩子2岁10个月。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1673271557230825472",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1673271557230825472",
+   "question": "领导，您好，我公公为退伍军人，前几年已响应政府号召采集信息，听说现在退伍军人可以办理拥军卡，免费乘坐公交车，请问办理拥军卡需要符合什么条件？如何办理？在哪办理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1673250965144342528",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1673250965144342528",
+   "question": "高新区实验小学和幼儿园所在位置正好位于中和路两侧，但是路不通，接送孩子上学特别不方便，既然学校规划在那里，路为什么不打通呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1671522820317908992",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1671522820317908992",
+   "question": "4月份去药店买药的时候医保卡里还有2800元左右，今天我再去买药的时候变成了0元，医保电子凭证的最后一次使用记录还是4月份的，医保卡一直都在家里，最近这两年根本就没有用过。 麻烦问下为什么余额变成了0元？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1670042467111669760",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1670042467111669760",
+   "question": "您好，请问取得2023年度初级会计职称是否可以申请职业技能提升补贴？如果可以怎么申请？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1669541332718325760",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1669541332718325760",
+   "question": "2022年的执业医师资格证从哪里拿",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1669261309088239616",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1669261309088239616",
+   "question": "你好、想咨询一下23年初级会计证书在成绩合格后是否需要提交资料审核、需要的话如何提交、提交哪些资料、然后初级证书大概在什么时间发放、现场领取的话是在哪里领取、邮寄方式是在哪里申请邮寄？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1669179609163370496",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1669179609163370496",
+   "question": "尊敬的领导您好，听说家庭用电可以选择峰谷分时电价，想咨询一下这方面的政策？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1668303288036102144",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1668303288036102144",
+   "question": "菏泽市初级会计证书在什么时间申领，是否有邮寄选项",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1667873805244174336",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1667873805244174336",
+   "question": "官网上现只可查询到第七、六、五批市级非遗名录，其它批次未见，建议整理一个各级非遗名录合集，便于学者查询，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1667044344496001024",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1667044344496001024",
+   "question": "请问菏泽2023下半年普通话报名在什么时候呢？在外省上学的应届生可以用社会人员参加菏泽市普通话考试吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1666410046742990848",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1666410046742990848",
+   "question": "农机消费者投诉时应提供哪些材料",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1666407304968409088",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1666407304968409088",
+   "question": "怎么申领农机购置补贴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1665953237242613760",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1665953237242613760",
+   "question": "我的户口所在地是菏泽市曹县的 前两年已经迁移至山东省烟台市，但是新农合是在支付宝购买的 显示医保所在地是菏泽市，如果办理慢性病是怎么办理的？需要什么材料？后期必须去制定医院就医吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1665645818440454144",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1665645818440454144",
+   "question": "2023年初级会计什么时候出成绩？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1665159813476257792",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1665159813476257792",
+   "question": "2023年导游证什么时候下发啊？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1664037126444027904",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1664037126444027904",
+   "question": "每天早晨5点30左右练太极的大爷大妈，播放高音喇叭太扰民。多次去劝阻无效，希望有关领导部门管理。谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1663704725348028416",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1663704725348028416",
+   "question": "请问一下，位于八一东路以北鲁西新区新建的八一路实验学校，今年小学和初中都招生吗？是否都有招生计划？家里孩子今年该上初一了，想咨询一下，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1663466135288418304",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1663466135288418304",
+   "question": "我的驾驶证快要到期了，因是第一次换证，不太了解，想提前问问换证需要拿哪些材料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1662327237564829696",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1662327237564829696",
+   "question": "2019级公费师范生未就业解约，没有发通知公告，流程怎么操作？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1661241690217910272",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1661241690217910272",
+   "question": "家中亲戚之前在企业上班，缴纳了几年的职工养老保险，下一年就到法定退休年龄了，听说保险没有交够15年，就没办法领取养老金，像这种情况应该怎么处理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1659485144240754688",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1659485144240754688",
+   "question": "未经同意随意修改套餐，增加套餐费，要求退费未给退费，办事效率低，不给及时回复",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1658718572404412416",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1658718572404412416",
+   "question": "2021年过的中级，想咨询一下，什么时候可以报告高级会计考试，高级会计什么要求",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1656487256120233984",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1656487256120233984",
+   "question": "领导，您好，我近期购买了一条泰迪宠物狗，听说养犬需要办证，请问怎么进行登记办证？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1656188910751059968",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1656188910751059968",
+   "question": "出国旅游如何办理护照，需要什么手续？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1654311484123123712",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1654311484123123712",
+   "question": "领导，您好：2023年的5月20日和5月21日均为周末，作为年轻人，我们想在这个特殊、有纪念意义的日子里办理结婚登记，请问今年的5月20日和5月21日是否可以办理结婚登记？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1654265136107622400",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1654265136107622400",
+   "question": "请问广州路北头规划同济医院，啥时候开始建设？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1653932615918555136",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1653932615918555136",
+   "question": "我父亲是菏泽市鄄城县人，参加的菏泽居民医保,在济南医院检查出来乙肝，在济南的医院了解到必须要回参保地办理门诊慢特病病种待遇认定，于是联系菏泽医保局，答复说可以通过微信小程序-手机视频办医保在线办理，于是抓紧提交资料，结果通过视频5分钟就认定",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1651865315002421248",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1651865315002421248",
+   "question": "4月29日从聊城去菏泽郓城办理慢性病手续，能否手机上办理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1651063670811267072",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1651063670811267072",
+   "question": "领导，您好。我是菏泽曹县一个常年在外打工的人，孩子已在外地出生2个月，还没有落户，我想在5月1放假期间回老家为孩子落户，想问一下5月1期间派出所户籍室上班吗？可以办理业务吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1650763304366379008",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1650763304366379008",
+   "question": "申请换发的导游IC卡去哪里领？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1650416466618617856",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1650416466618617856",
+   "question": "我父亲是巨野的职工医保，因为脑梗需要后续在康复医院进行治疗，因为照顾不便，由我接来我的居住地济南的医院进行来住院康复治疗，想问住院的报销比例是多少？会因为跨市异地就医降低报销比例吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1650299995062145024",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1650299995062145024",
+   "question": "小学今年专科可以考吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1649598955400597504",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1649598955400597504",
+   "question": "股东股权变更",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1649222060947410944",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1649222060947410944",
+   "question": "咨询菏泽市职工医保在济南市就医报销政策，二次报销政策，办理流程",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1649033918881599488",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1649033918881599488",
+   "question": "你好，请问导游电子证照什么时候更新？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1648646864595193856",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1648646864595193856",
+   "question": "今年菏泽教师招聘有限制专业的岗位吗？ 初中尤其是高中数学限制数学专业吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1647901943953231872",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1647901943953231872",
+   "question": "尊敬的市长，您好：2022年底，我在鲁西新区买了一套房屋，2022年2月份，我已签订购房合同，我想要咨询了解一下我买的房屋是否已经备案？请问怎么查询？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1646763199657283584",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1646763199657283584",
+   "question": "我要投诉牡丹国际商品交易中心有限公司 我是徐艳玲；联系电话 13704344825；身份证号码 22028119700724502X。我是一名做过大蒜现货的储存商，后来有个老师联系我，说是什么期现结合，以为能挺好就加了当时开快手的一位主播的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1646760536739811328",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1646760536739811328",
+   "question": "想电话咨询菏泽小巨人企业申报条件，5333907这个电话无人接听",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1645979024402550784",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1645979024402550784",
+   "question": "菏泽现代医药港规划多少了个园区，长江路南侧是否有规划的园区，有没有近几年开动建设的园区",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1645961588236226560",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1645961588236226560",
+   "question": "本人家住阅城国际，近期向当地不动产登记中心咨询办理居住权登记业务。 但是不动产登记中心工作人员明确答复：虽然民法典有这项规定，但是市不动产登记中心始终未出台相关政策，市不动产登记系统中也未增加此项业务，因此无法为居民办理此项业务。 根据《中",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1644540617314930688",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1644540617314930688",
+   "question": "注册办理营业执照需要什么手续",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1644305518854017024",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1644305518854017024",
+   "question": "请问，初级会计的准考证的打印时间，具体什么时候开始？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1643795989259227136",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1643795989259227136",
+   "question": "领导好，鲁西新区陈集镇高铁旁常店村，近几年都一直在传拆迁，请问领导是否有拆迁计划？ 高铁东苍南路西向东路上竖立无数根电线杆 存在安全隐患 是否还进行改良 苍南路是否有扩建计划？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1643783216601108480",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1643783216601108480",
+   "question": "我的导游证审批已经通过，但是在全国导游之家app上电子证照信息还是之前的信息未更新是咋回事呀？还有就是新申请的导游IC卡是去旅游局领吗？可以邮寄吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1642407664736669696",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1642407664736669696",
+   "question": "老师，你好。今年菏泽专升本考点是在市区考吗？会不会跨区考试？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1641609906417176576",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1641609906417176576",
+   "question": "2022年4月缴纳的职工医疗保险为什么个人帐户没有余额，是没有返款吗？不是应该按比例返还吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1640267159697494016",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1640267159697494016",
+   "question": "领导，您好。我是一名大学生，听闻牡丹花即将开放，清明假期期间，想要和同学去曹州牡丹园看牡丹，请问门票有什么优惠吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1640166324351143936",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1640166324351143936",
+   "question": "2022年2月至2023年3月山东省菏泽市牡丹区黄堽镇蔡庄村复垦大坑，村民集体土地，承包出去被承包人将垃圾偷埋置复耕大坑，说有手续让把垃圾倒入土地大坑，一直给政府打多次电话都了无音讯。倾倒偷埋的垃圾对我们村民以及环境造成了很大的伤害和污染，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1638467953076867072",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1638467953076867072",
+   "question": "您好，我想咨询一下巨野县2023年会计继续教育什么时候开始，在哪个网站学习",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1637730229558579200",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1637730229558579200",
+   "question": "你好，我是一名学生为做学术研究，想咨询一下该市（所属县/区）首次开展领导干部自然资源资产离任审计的时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1637060149141180416",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1637060149141180416",
+   "question": "俺要咨询: 在菏泽创业创新科技孵化基地院内，有一个 山东博济法医司法鉴定所 是否一个正规的法医司法鉴定所？ 俺想去做司法鉴定",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1636924356401696768",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1636924356401696768",
+   "question": "本人的导游证于2023年1月1日到期，本人于3月12日登录全国导游之家平台在线申请换发，上面提示审核需要5个工作日，现在一个星期过去了为什么还没有审核呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1636662385794224128",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1636662385794224128",
+   "question": "领导，您好：请问市区永安行共享助力车如何使用？怎么收费？我居住的小区为新建小区，我发现已有站点距离我们小区较远，借车还车需要步行一段距离，请问是否可以申请在小区附近安装永安行共享助力车站点？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1636562883271856128",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1636562883271856128",
+   "question": "男方有生育保险，女方没有，如何报销",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1635477731057733632",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1635477731057733632",
+   "question": "你好，想咨询一下，灵活就业人员可以办理医疗和养老保险2种吗？交费标准是多少，去哪里办理，需要带什么资料？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1632696478206136320",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1632696478206136320",
+   "question": "2023年普通话什么时候开始报名？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1632609033770897408",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1632609033770897408",
+   "question": "特应性皮炎是否可以享受门诊慢特病待遇",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1632587680049139712",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1632587680049139712",
+   "question": "菏泽开发区广美达广告设计部提交的联系方式为我个人联系方式，经常收到骚扰电话，给我个人的正常工作生活造成了困扰，我与该公司无任何关联，现要求工商部门立即撤销该公司提交的我的手机号，停止对我的非法侵害行为",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1632560791267971072",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1632560791267971072",
+   "question": "你好，已于一周前通过会计人员信息采集系统-证书邮寄申请模块申请邮寄证书服务，一直显示“待审核”状态。请问大概多久会通过审核？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1631274003928846336",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1631274003928846336",
+   "question": "居民转职工",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1630739013168140288",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1630739013168140288",
+   "question": "之前考试这个证书，众说纷纭，有的地方是政府直接给1000元奖励，有的地方说是退休后领取退休金会增加，到底考试了这个证书，菏泽市有没有什么实质的奖励？？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1630497618503274496",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1630497618503274496",
+   "question": "2022年的初级会计考试费用已经退了吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1630044939960324096",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1630044939960324096",
+   "question": "请问“送戏曲下乡、送电影下乡”活动与那个部门联系，电话多少？如申请，走什么流程？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1629444133393403904",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1629444133393403904",
+   "question": "强直性脊柱炎是否可以享受门诊慢特病待遇",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1628765531211436032",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1628765531211436032",
+   "question": "别的城市都可以办理商业贷款转公积金，菏泽的经济条件办理这个业务，还能不能办理，还是一直经济实力不允许 。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1628263754284273664",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1628263754284273664",
+   "question": "我父亲是菏泽市牡丹区交的新农合医保，一年前查出肝硬化失代偿期和肾炎，合并腹水、低蛋白血症等并发症，想办理慢病门诊，这个怎么申请，需要携带什么资料，去哪里办理，有时间限制吗，可以定点医院设为济南的齐鲁医院吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1628228465612427264",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1628228465612427264",
+   "question": "报名了5月份的初级会计缴费，因为5月份是待产期，可以退费不",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1627936532415516672",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1627936532415516672",
+   "question": "你好，菏商务〔2023〕3号文说要发放汽车消费券，但是没有说明在哪个发票日期内的新车可以领取，并且2月24日商务局指导的车展就要来了，车展广告中说要发放消费券。想问一下，车展上买了车那几天的发票日期会不会在发放消费券日期内，如果发放，请告知",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1627207996662747136",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1627207996662747136",
+   "question": "请问2022年度退伍军人带病回乡复查工作什么时候开展？以前咨询过2022年度上半年进行过一次，下半年的原计划年底进行，如今已到了2023年2月份，有计划开展退伍军人带病回乡复查工作吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1626468969013710848",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1626468969013710848",
+   "question": "想咨询一下如何办理机动车辆报废资质",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1626421246524788736",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1626421246524788736",
+   "question": "反映镇政府强行征占农民基本农田不予补偿的问题 详情请见附件",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1626242142223601664",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1626242142223601664",
+   "question": "领导你好，位于黄河立交桥处的赵王河儿童公园的游乐设施之前因为疫情将入口锁住，目前疫情趋于好转，不少家长会带着自己的孩子到这里玩耍，儿童游乐设施入口是否会再次打开，供市民游玩。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1626039480731439104",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1626039480731439104",
+   "question": "11月22日，菏泽市召开优化登记财产营商环境新闻发布会。菏泽市不动产登记交易中心副主任曹庆军对二手房“带押过户”的办理流程和税费一窗办理业务流程进行了详细介绍。 但是实际办理时，大家都不知道该如何办理，请领导答疑解惑，解决燃眉之急。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1626028968090144768",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1626028968090144768",
+   "question": "我在2022年10月给牡丹区军人事务局联系因单位经营不善，已经一年多未发工资，工资每月只有2000多一点点还不发，申请公益岗，22年12月8号按照牡丹区军人事务局要求的所有材料递交了上去，无违纪，无公积金，名下无企业等，到现在快三个月了，我",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1626024040672137216",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1626024040672137216",
+   "question": "请问，中级会计证书发放有确定日期了吗？网上邮寄什么时候开通？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1625762118232051712",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1625762118232051712",
+   "question": "一直没有收到22年初级报名费的退费，是什么原因呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1625486690644791296",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1625486690644791296",
+   "question": "本人郓城县胜利街御龙湾小区业主，孩子3周岁了，可以入学那家公办幼儿园，入学报名时间，和报名流程手续，幼儿园联系电话多少。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1625401664984977408",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1625401664984977408",
+   "question": "本人16年考取的导游证.由于工作疫情原因近几年为年审导游证 请问想重新从事导游行业 如何换发新的导游证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1625061967121223680",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1625061967121223680",
+   "question": "中级会计证书2月份能领取吗？现在证书邮寄到菏泽市了吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1625060246559002624",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1625060246559002624",
+   "question": "优待证没收到，但网上显示已经完成了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1624958487006154752",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1624958487006154752",
+   "question": "想开一家烧烤店 问下可以使用木炭作为燃料吗？需要什么注意事项",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1624394373242425344",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1624394373242425344",
+   "question": "我想问一下，全日制本科，动画专业，在司法鉴定机构工作，可以考取司法鉴定执业证吗？ 在百度搜索报考条件：大学本科以上，（无专业要求）但有相关培训，可以报考， 大学专业（要求相关专业），才可以报考。 我想请问一下是这样吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1623935589034364928",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1623935589034364928",
+   "question": "请问2022年度中级会计专业技术资格证书预计什么时间发放？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1623563843995308032",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1623563843995308032",
+   "question": "我的户籍地是是菏泽市定陶区，但我想在菏泽市财政局考初级会计，因为离家近。为什么信息不能通过？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1623123542717632512",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1623123542717632512",
+   "question": "初级会计考试网上报名后提示请等待报名点审核您的个人信息。还需要去现场审核吗，报名点名称：菏泽市财政局",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1622784422342430720",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1622784422342430720",
+   "question": "康复治疗的技术资格证什么时候发放",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1622430848022351872",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1622430848022351872",
+   "question": "翡翠城小区2008年自建设以来，小区容积率经历历次变更。2008年小区容积率多少？2013年容积率多少？2019年容积率多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1612980162968817664",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1612980162968817664",
+   "question": "营运范围需要变更，请问需要怎么办理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1612722272949374976",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1612722272949374976",
+   "question": "2022年办理的郓城水浒好汉城年卡，在2022年闭园好几个月，无法进入游览。现在2023年1月已经开园，是否按照闭园天数进行延时，继续进园游览。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1609137359960543232",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1609137359960543232",
+   "question": "您好，前两天家里老人去世了，2023年的医保费用350元，怎么退？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1608643486574317568",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1608643486574317568",
+   "question": "我司生产药品骨痛灵酊2袋装国家医保代码为ZG02BAG0284050105583，现市场部门反应2袋装未在贵市医保目录范围内无法报销。致电贵市医保局未能接通人工，请解答若想在贵市地委系统维护该药品应该如何操作。 附国家药品目录骨痛灵酊所在页",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1606096919963242496",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1606096919963242496",
+   "question": "怎样查看自己小区的车位规划？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1603670972362264576",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1603670972362264576",
+   "question": "今年的年报什么时候截止？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1603662061223677952",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1603662061223677952",
+   "question": "成武中联水泥厂往河里排的油，味道很大，很远都能闻到，严重污染环境，而且这个水泥厂好多年了，一直是这样",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1603653196918689792",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1603653196918689792",
+   "question": "巨野县安起新型建材有限公司窑炉颗粒物疑似超标排放。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1603651822382354432",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1603651822382354432",
+   "question": "菏泽开发区岳程办事处境内有个碎石场长期污染环境，建议相关部门严查。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1603645347299725312",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1603645347299725312",
+   "question": "我们家附近的商场空调外机太响了，呜呜的响，影响孩子学习和休息",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1603638595447558144",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1603638595447558144",
+   "question": "冬天空气质量太不好了，开车都看不清路，呼吸都不舒服，希望环保部门做好工作",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1603566213395517440",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1603566213395517440",
+   "question": "请问市不动产中心大厅电话是多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1603366119740149760",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1603366119740149760",
+   "question": "孩子想去练习体育项目但不知道以后有什么出路",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1603365512027443200",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1603365512027443200",
+   "question": "孩子想去练习体育运动项目，想咨询市体校位置在哪儿",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1603317744554610688",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1603317744554610688",
+   "question": "你好，什么时候考普通话证？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1603314656250826752",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1603314656250826752",
+   "question": "货车在菏泽市区的通行证怎么办理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1603312876611833856",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1603312876611833856",
+   "question": "针对冬季的安全生产，危化品行业有没有什么特殊的要求？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1603311580349599744",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1603311580349599744",
+   "question": "手机视频办医保如何登录？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1603309482144829440",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1603309482144829440",
+   "question": "菏泽市国有企业什么时候招聘，能否落实菏泽市人才引进补贴政策？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1603306423561883648",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1603306423561883648",
+   "question": "汽车吊是否是特种设备，需要几年年检；操作汽车吊需要哪里发的操作证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1603305738447491072",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1603305738447491072",
+   "question": "针对夏季高温多雨的特点，应急部门有什么有效的防范措施吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1603302023678267392",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1603302023678267392",
+   "question": "请问档案赋分标准是全国统一的，还是菏泽市自行设计的？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1603300805878878208",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1603300805878878208",
+   "question": "光荣牌是那个单位发放 别的战友都有 没给我家发放",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1603299793260646400",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1603299793260646400",
+   "question": "退役军人申请补评残，去哪里办理 材料需要什么，联系不到直接相关负责人，需要协助，退役负伤老兵。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sd-heze",
+   "id": "1603295479234433024",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1603295479234433024",
+   "question": "请问今年市地方金融监管局的政府开放月大概什么时候举行？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1603295344932818944",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1603295344932818944",
+   "question": "请问市地方金融监督管理局,今年我市入选“金融英才”和“金融之星”情况如何？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1603295105899433984",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1603295105899433984",
+   "question": "请问市地方金融监督管理局对银行有监管权限吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1603293915702759424",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1603293915702759424",
+   "question": "请问市地方金融监督管理局工作时间及工作地点",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1603291879267504128",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1603291879267504128",
+   "question": "尊敬的领导，您好！本人家住346省道成武县汶上集镇路段附近，由于疫情原因，该线路原本由私人承包的往返菏泽市里方向的客运大巴汽车已停运数月（包括金乡、南鲁方向往返菏泽的客运汽车），因客运大巴停运，给该线路广大群众百姓去往菏泽乘坐火车、飞机、工",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1603286136137060352",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1603286136137060352",
+   "question": "想咨询一下，家庭取暖，进出水温度分别至少是多少？温差不超过多少？水压值多少？国家标准是多少？具体参考的是什么规范？菏泽市的规范和国家规范哪个更严格一些？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1603251925413924864",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1603251925413924864",
+   "question": "请问农作物秸秆综合利用方面有啥政策吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1603242762482880512",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1603242762482880512",
+   "question": "参加高素质农民培训怎样报名？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1603241490899931136",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1603241490899931136",
+   "question": "今年小麦要不要冬灌？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1603206486278934528",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1603206486278934528",
+   "question": "你好，我想问一下汽车消费券的发放、领取方式和使用规则。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1603201685671514112",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1603201685671514112",
+   "question": "您好：我想咨询一下：大学生创业，能否在耕地上开办养殖场，养的动物为大部分为羊，规模在五十只左右，可以的话，开办养殖场需要办理什么手续？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1603047591505956864",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1603047591505956864",
+   "question": "2022年度市直单位研究生住房补贴还有吗，为什么还没有下发通知？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1602979576965894144",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1602979576965894144",
+   "question": "菏泽市的水资源状况怎么样？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1602978909673099264",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1602978909673099264",
+   "question": "请问中级审计师需要参加继续教育吗？有没有相关的文件。谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1602978682719309824",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1602978682719309824",
+   "question": "报考初级审计师的条件是什么",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1602976583969280000",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1602976583969280000",
+   "question": "为什么称为“最严格水资源管理制度”？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1602975628037066752",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1602975628037066752",
+   "question": "请问单位有哪些职能职责",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1602963966160670720",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1602963966160670720",
+   "question": "政府采购项目监督电话？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1602963622374543360",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1602963622374543360",
+   "question": "因疫情取消的初级会计师考试退费还没有收到",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1602963203413905408",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1602963203413905408",
+   "question": "请问初级会计师考试报名遇到问题了怎么办？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1602958297466540032",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1602958297466540032",
+   "question": "今年市审计局安排了哪些民生类审计",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1602953054276161536",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1602953054276161536",
+   "question": "统计专业技术资格证怎样领取？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1602949421685936128",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1602949421685936128",
+   "question": "请问哪里可以找到最新的统计专业技术考试真题？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1602948964699738112",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1602948964699738112",
+   "question": "预制菜行业属于国民经济行业分类哪一类",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1602948615393906688",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1602948615393906688",
+   "question": "问：想要申请法律援助，该到市里还是县里啊？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1602948457918763008",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1602948457918763008",
+   "question": "请问今年的执法证什么时候考试？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1602947852408066048",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1602947852408066048",
+   "question": "请问下规上规下企业的认定标准是什么，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1602945043998576640",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1602945043998576640",
+   "question": "司法考试什么时间开始，有具体时间吗。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1602943187524128768",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1602943187524128768",
+   "question": "如何申请出版物经营许可证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1602942904710598656",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1602942904710598656",
+   "question": "在网站上未查到完整的市级非物质文化遗产保护项目名录。请及时更新，如周期较长可先回复邮箱，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1602940206233817088",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1602940206233817088",
+   "question": "营业性演出许可证如何在线办理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1602918325015416832",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1602918325015416832",
+   "question": "菏泽市紫金国际小区物业以不缴纳物业费为由停水，依据民法典此行为违法，请予以处理！希望物业办可以解决问题而不是协调。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1602864565123682304",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1602864565123682304",
+   "question": "您好，我厂的巴基斯坦客户有意向与我厂深度合作，近期要对我厂考察访问，需要我厂协助提供被授权单位邀请函，请问如何办理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1602860776857669632",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1602860776857669632",
+   "question": "康乐园小区，天然气改造已改造成功，但至今未通气，希望政府协调尽快开通",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1602860033253707776",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1602860033253707776",
+   "question": "中北新都心天玺小区于2022年5月办理交房手续，至今未开通燃气。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1602858853110779904",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1602858853110779904",
+   "question": "个人创业担保贷款的扶持对象范围是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1602857190698389504",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1602857190698389504",
+   "question": "名门世家西门南，该处附近工地施工时，有较多渣土车经过，车辆携带水及泥土，导致道路泥泞，希望政府帮助协调清理路面",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1602853699808530432",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1602853699808530432",
+   "question": "小区由广菏公司供气，但紧开通13号和14号楼的燃气，其他楼栋不予开通",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1602847927531868160",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1602847927531868160",
+   "question": "异地可以补办身份证吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1602638392812769280",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1602638392812769280",
+   "question": "请问，我有文书需要领事认证，是在贵单位办理吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1602619722564767744",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1602619722564767744",
+   "question": "我想办低保，需要满足什么条件？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1602618365724200960",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1602618365724200960",
+   "question": "离婚冷静期过了但是没有按规定时间内去确认,还需要重新办吗?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1602599673544183808",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1602599673544183808",
+   "question": "我户口是曹县的，可以去牡丹区办理婚姻登记吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1602598091977003008",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1602598091977003008",
+   "question": "办理离婚需要带什么证件？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1602594640035450880",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1602594640035450880",
+   "question": "我已经拿到了社会工作者证，怎么进行社工登记？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1602591572728352768",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1602591572728352768",
+   "question": "请问三有动物有哪些？说明是三有动物？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1602589690123390976",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1602589690123390976",
+   "question": "邀请函有效往返次数是多少次？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1602574912608931840",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1602574912608931840",
+   "question": "重点项目申报的条件",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1602574164768722944",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1602574164768722944",
+   "question": "如何在信用中国网站进行信用修复",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1602573935419985920",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1602573935419985920",
+   "question": "重点项目申报时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1602573386834382848",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1602573386834382848",
+   "question": "信用服务机构违规情况的处罚有哪几种",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sd-heze",
+   "id": "1602572947262935040",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1602572947262935040",
+   "question": "2022年投资的有关情况",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1602571818860941312",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1602571818860941312",
+   "question": "市发展改革委主要职责",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1602568277396164608",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1602568277396164608",
+   "question": "2022年购房补贴什么时候可以申请",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1602553785161486336",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1602553785161486336",
+   "question": "您好，请问菏泽市一级造价师还会不会补考？如果会补考大概在什么时候安排补考？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1602551696767193088",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1602551696767193088",
+   "question": "我户口是牡丹区的，办结婚证需要带什么证件？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1602502518460518400",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1602502518460518400",
+   "question": "菏泽市的普通话考试什么时候开始？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1602493103137230848",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1602493103137230848",
+   "question": "外国也搞人防工程建设吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1602492527716470784",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1602492527716470784",
+   "question": "为什么说城市地下空间开发要兼顾人民防空需要？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1602490996048924672",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1602490996048924672",
+   "question": "想咨询国家是哪一年规定“结建”的？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1602236390387617792",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1602236390387617792",
+   "question": "东明黄河公路大桥新桥啥时候通车？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1602233862321213440",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1602233862321213440",
+   "question": "市区通往鄄城、郓城的路口天天堵车，怎么解决",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1602233662403907584",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1602233662403907584",
+   "question": "濮新高速啥时候通车",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1602232804442247168",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1602232804442247168",
+   "question": "能不能介绍一下国省道项目的前期工作内容？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1602192806238097408",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1602192806238097408",
+   "question": "关于什么时间能重启普通话水平测试",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1602114831853424640",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1602114831853424640",
+   "question": "按灵活就业人员缴纳医疗保险，生育孩子后能否报销生育医疗费、产前检查费和领取生育津贴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1601882048656707584",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1601882048656707584",
+   "question": "我家平时用电量在8度左右，不知道问什么在11月份的时候一个月的用电量在接近410度，找物业去解决在他们的错误引导下，说我家的用电量是正确的，可是我家里白天没有人，我老婆和我白天上班，孩子上学，大部时间白天家里是没有人的，11月9日至11月-",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1601050734202327040",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1601050734202327040",
+   "question": "领导你好，我从10月份开始在菏泽缴纳医保，11月份我在临沂医保局官网申请了医保转出到菏泽曹县医保局，系统显示已完成，我打菏泽医保局电话说系统后台已经有了我的医保记录，但是我在官网和爱山东上都查不到医保记录，是需要我这进行什么操作还是再等一段",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1600664846695796736",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1600664846695796736",
+   "question": "市文化和旅游局的官方邮箱是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1599725368091217920",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1599725368091217920",
+   "question": "医保关系跨市转移，社保卡用办转移吗，个人账户余额如何合并",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1594956929619333120",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1594956929619333120",
+   "question": "您好，我公司是运营冰雪项目（真冰滑冰场，有专业的冰球和冰上花样滑冰教练员团队），咨询许昌有没有冰雪醒目的扶持政策或合作规划。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-heze",
+   "id": "1578565288834764800",
+   "url": "http://www.heze.gov.cn/zmhd/lyxq/?id=1578565288834764800",
+   "question": "您好，请问2022年度初级会计职称报名费退费，什么时候能到账？说给退费的时间可不短了。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

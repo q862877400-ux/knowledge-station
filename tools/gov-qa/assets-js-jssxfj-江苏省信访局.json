@@ -1,0 +1,1151 @@
+{
+ "A_考卷": [
+  {
+   "source": "js-jssxfj",
+   "id": "393837",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=393837&sysid=208",
+   "question": "信访回复时间\n本人于2024年5月30日通过常州市人大网站主任信箱上访，按法律规定最迟几天作出受理与不受理决定，最迟几个月告知处理结果。",
+   "cited_hits": [
+    {
+     "name": "信访工作条例",
+     "lib_no": "信访工作条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "385756",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=385756&sysid=208",
+   "question": "针对信访事项提出复查申请\n申请人于 2024 年 1 月 3 日向江苏阳光信访系统提交标题为“11 户房间剪电线 14 天了，老百姓恢复供电太难了，相关部门推脱不作为严重。不顾民生，纵容违法行为”的信访事项（编号：3200202401032",
+   "cited_hits": [
+    {
+     "name": "信访工作条例",
+     "lib_no": "信访工作条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "339348",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=339348&sysid=208",
+   "question": "对建议意见类信访事项的处理结果不满意怎么办？\n就无锡市梁溪区公共文化宣传工作中存在的若干问题，我向区文化体育和旅游局提出了信访，也如期收到了处理意见书，但我对处理意见不满意，遂通过区信访局提出了复查申请，区信访局书面回复如下：“经核实，您申",
+   "cited_hits": [
+    {
+     "name": "信访工作条例",
+     "lib_no": "信访工作条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "324332",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=324332&sysid=208",
+   "question": "信访复查（二级）能否延长答复时间？\n尊敬的领导，您好！    我们知道《信访条例》中有三级程序：即信访初次受理（一级）；信访复查（二级）；信访复核（三级）。信访初次受理（一级）情况复杂的，可以适当延长不超过30日办理。但《信访工作条例》中没",
+   "cited_hits": [
+    {
+     "name": "信访工作条例",
+     "lib_no": "信访工作条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "300520",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=300520&sysid=208",
+   "question": "请帮助界定‘咨询”是否属于信访受理范围？\n我是一名基层税务人员。近日，我单位收到一封纳税人信件，信中，该纳税人假设了几种经营活动，对如何开具发票进行了咨询。我单位收到信件后，已经约请咨询人到单位，面对面进行了解答。但该咨询人还是想要单位出具",
+   "cited_hits": [
+    {
+     "name": "信访工作条例",
+     "lib_no": "信访工作条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "江苏省信访条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "282172",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=282172&sysid=208",
+   "question": "关于江苏省信访条例与国务院信访条例规定不一致的咨询\n江苏省信访条例规定信访受理期限为七个工作日，国务院信访条例规定受理期限为15日，在处理江苏省信访案件时，应当以什么为准呢",
+   "cited_hits": [
+    {
+     "name": "信访条例",
+     "lib_no": "信访条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "江苏省信访条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "262974",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=262974&sysid=208",
+   "question": "江苏省委书记信箱回复时效规定\n请问，如果给江苏省委书记信箱反映问题，回复时效规定是什么，是30天内回复吗？",
+   "cited_hits": [
+    {
+     "name": "信访条例",
+     "lib_no": "信访条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "信访条例",
+     "lib_no": "信访条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "江苏省信访条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "256079",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=256079&sysid=208",
+   "question": "咨询\n反馈给省信访的问题，都被转到当地信访，当地信访给回复的结果有异议，回复的最后一段写的30日内可提起上级部门复审！请问这个上级部门到底是哪里，我反馈到省信访局，省信访反馈到市信访，市信访反馈给市卫健委，市卫健委给与书面答复的，请问回复中",
+   "cited_hits": [
+    {
+     "name": "信访条例",
+     "lib_no": "信访条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "172331",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=172331&sysid=208",
+   "question": "网上信访的答复期限\n请问在信访app提交诉求，答复期限是否与信访条例规定的一致，为60天？超期该如何举报处理？",
+   "cited_hits": [
+    {
+     "name": "信访条例",
+     "lib_no": "信访条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "154717",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=154717&sysid=208",
+   "question": "请问如何进行信访复核和复查？\n请问：1、我因请求徐州市沛县栖山镇政府侵权我家土地要求归还的信访诉求被沛县人民政府给予答复，但其答复的内容都是胡编乱造、完全不符合事实情况的，包庇纵容、偏听偏信、官官相护，导致我家土地50年都没得到解决，请问我",
+   "cited_hits": [
+    {
+     "name": "信访条例",
+     "lib_no": "信访条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "信访条例",
+     "lib_no": "信访条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "153954",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=153954&sysid=208",
+   "question": "关于信访\n信访受理后，信访办理结果一栏为“已办结”，实际问题并未处理。是否只需要有回复就属于“已办结”，还是需要把问题处理完毕才算“已办结”？如果有回复就算已办结的话，是否对回复合理、合法、合规性需要核查？",
+   "cited_hits": [
+    {
+     "name": "信访条例",
+     "lib_no": "信访条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "信访条例",
+     "lib_no": "信访条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "152566",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=152566&sysid=208",
+   "question": "如何对信访件答复结果进行满意度评价，如何申请行政复议\n我的信访编号32002019101511051979237信访件，承办单位已经办结，并出具答复意见书，但我无法在信访局网站进行满意度评价，请问如何进行满意度评价，在查询评价页面按要求输入",
+   "cited_hits": [
+    {
+     "name": "信访条例",
+     "lib_no": "信访条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "信访事项办理群众满意度评价工作办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "148096",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=148096&sysid=208",
+   "question": "咨询信访方面的问题\n向江苏省信访局咨询信访方面的问题，具体问题如下：国务院《信访条例》第三十四条、第三十五条规定“信访人对行政机关作出的信访事项处理意见不服的，可以自收到书面答复之日起30日内请求原办理行政机关的上一级行政机关复查。收到复查",
+   "cited_hits": [
+    {
+     "name": "信访条例",
+     "lib_no": "信访条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "信访条例",
+     "lib_no": "信访条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "江苏省信访事项复查复核工作实施细则"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "147227",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=147227&sysid=208",
+   "question": "信访事项评议会\n咨询一下行政机关不予立案的信访事项评议会的录音录像资料，能否申请政府信息公开？属不属于信息公开的范围？能否申请行政复议",
+   "cited_hits": [
+    {
+     "name": "政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "146082",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=146082&sysid=208",
+   "question": "请问我该向哪一级政府提出复查申请\n尊敬的工作人员，我有两个问题需要咨询，期盼答复。1、我于2019年7月8日通过连云港市书记信箱反映灌云县经济开发区城管暴力执法，后经信件转发至灌云县开发区处理回复，我于2019年10月2日收到处理意见书，回",
+   "cited_hits": [
+    {
+     "name": "信访条例",
+     "lib_no": "信访条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "信访条例",
+     "lib_no": "信访条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "140109",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=140109&sysid=208",
+   "question": "2018年新版江苏省省长信箱如何注册?\n尊敬的江苏省信访局:听很多群众说从2017年底开始，江苏省人民政府官网上开发了新版的江苏省省长信箱系统，但是群众不知道怎么进行注册，就是想咨询一下这个新版的江苏省长信箱是什么时候开始运行的?怎么注册?",
+   "cited_hits": [
+    {
+     "name": "信访条例",
+     "lib_no": "信访条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "信访条例",
+     "lib_no": "信访条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "信访条例",
+     "lib_no": "信访条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "js-jssxfj",
+   "id": "435746",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=435746&sysid=208",
+   "question": "怎样申请复查\n对信访件回复不服，不能接受，怎样申请复查？     在江苏智慧信访的主页里有复查申请，但点进去后在可申请复查里没有数据。",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省信访事项复查复核办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "393977",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=393977&sysid=208",
+   "question": "提交的信访事项复查申请没有音讯\n江苏省信访局：        根据《江苏省信访事项复查复核办法》的规定，我在2024年4月18日和2024年4月29日，就两项信访事项“办理结果”不服，分别向江苏省人民政府信访复查复核委员会邮寄提交了两项信访",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省信访事项复查复核办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "349963",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=349963&sysid=208",
+   "question": "咨询信访听证方面规定\n请问 《江苏省信访听证暂行办法》（苏办发[2005]27号 2005年10月28日发布施行）是否被新的听证方面规定取代？该《暂行办法》现在是否继续有效。谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省信访听证办法",
+    "江苏省信访听证暂行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "341460",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=341460&sysid=208",
+   "question": "2023年财政预算\n请问2023年的财政预算发布了吗？查看网址是什么？",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省政府信访局2023年度部门预算公开"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "272254",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=272254&sysid=208",
+   "question": "财政决算报告\n您好，请问贵单位网站的2020年财政决算报告发布了吗？能否提供网址链接给我？",
+   "cited_hits": [],
+   "cited_missing": [
+    "2020年度江苏省政府信访局部门决算公开"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "267307",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=267307&sysid=208",
+   "question": "建议江苏省信访局能在各地所有信访接待窗口多放置些江苏信访条例\n建议江苏省信访局能在江苏省全省各地所有信访接待窗口多放置些新版《江苏省信访条例》单行本手册，以方便广大群众取阅！谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省信访条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "261603",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=261603&sysid=208",
+   "question": "进出南京问题\n本人准备国庆节期间去江苏省省人民医院手术，有以下几点疑问:①去南京时需要带核酸检测证明吗？因为到南京后，需要各种交通工具才能到达省人民医院②从南京回来后(苏州昆山)，需要隔离吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于调整离宁抵宁人员健康管理措施的通告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "241458",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=241458&sysid=208",
+   "question": "2021年财政预算报告\n您好，请问贵单位网站的2021年财政预算报告发布了吗？能否提供网址链接给我？",
+   "cited_hits": [],
+   "cited_missing": [
+    " 2021年度江苏省政府信访局部门（单位）预算公开 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "229740",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=229740&sysid=208",
+   "question": "咨询\n请求回复2006年[江苏省人民政府信访事项复查复核工作实施细则]笫14条内容，再说明下该文是否还有效。苏政信2019年8号文是否替代代",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省信访事项复查复核工作实施细则",
+    "复查复核工作规范"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "221868",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=221868&sysid=208",
+   "question": "2019年部门决算\n您好，请问贵单位2019年的财政决算信息公布了么？链接是什么？",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省政府信访局 2019 年度部门决算公开"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "205469",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=205469&sysid=208",
+   "question": "通过什么途径可以获得江苏省《复查复核工作规范》\n尊敬的省信访局领导，我想咨询通过什么途径可以获得江苏省2019年发布的《复核复查工作规范》文件？",
+   "cited_hits": [],
+   "cited_missing": [
+    "复查复核办理工作规范",
+    "省政府信访局关于印发群众来信办理等工作规范的通知 ",
+    "复查复核办理工作规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "168259",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=168259&sysid=208",
+   "question": "2020年财政预算信息\n您好，请问贵单位2020年的财政预算信息公布了么？链接是啥？",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省政府信访局2020年度部门预算公开"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "157809",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=157809&sysid=208",
+   "question": "何时接访？\n申请信访复核已有2个多月，因不能接访，没有结果，请问何时接访？",
+   "cited_hits": [],
+   "cited_missing": [
+    "通知公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "145317",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=145317&sysid=208",
+   "question": "江苏省信访局电话\n请告知江苏省信访局联系电话，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "信访指南"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "137503",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=137503&sysid=208",
+   "question": "部门职能咨询\n您好，前段时间江苏省机构改革，请问贵单位现在的部门职能是什么？在网站上哪里能找到？能否提供网址给我？谢谢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省政府信访局主要职责"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "js-jssxfj",
+   "id": "451522",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=451522&sysid=208",
+   "question": "信访复核申请对象咨询\n本人不服市人社局复查意见，市政府信访部门建议向省人社厅申请复核，是否符合相关规定？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "450135",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=450135&sysid=208",
+   "question": "信访APP\n请问江苏有没有信访APP，名称是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "445841",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=445841&sysid=208",
+   "question": "密码修改\n江苏信访官网，密码忘了，原预留手机号码换了，接收不到验证码，现在有事要信访，急啊",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "442301",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=442301&sysid=208",
+   "question": "密码修改问题\n由于注册时手机号已注销使用，无法收取验证码，而原有密码也已忘记，请问如何修改手机号。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "424870",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=424870&sysid=208",
+   "question": "省政府官网，政府公报栏有缺失\n经查询，省政府官网www.jiangsu.gov.cn，政府信息公开-法定公开内容-政府公报栏目中，2023年-2025年，仅有第一期，后续公报期刊无法查阅。请相关负责部门尽早补上，方便查阅。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "420625",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=420625&sysid=208",
+   "question": "密码修改问题\n由于注册时手机号已注销使用，无法收取验证码，而原有密码也已忘记如何修改",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "419625",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=419625&sysid=208",
+   "question": "关于信访回复时间问题\n我在2024年11月10日提交的问题现在还在“受理中“状态,请问信访办结的期限是多少天?截止日期是2月10号,还是2月25号? 如果到期没有得到任何回复,我应该接下来怎么办?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "409416",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=409416&sysid=208",
+   "question": "阳光信访平台附件文件格式问题\n1、阳光信访平台上附件上传了word,提交以后，在网上再下载下来，发现文件里数字信息都变成方框，请问受理端也会这样吗，如果文件因上传格式导致显示有问题，如何解决。2、在阳光平台上上传的信访件提交以后，选中提交的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "405160",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=405160&sysid=208",
+   "question": "网络信访后，如何查询进展流程\n我于9月21日在省信访平台留言反映问题，收到短信告知已经下发到地方处理，我想请问，我该通过何种途径查询进展。地方政府这些天来，无人与我或者家人沟通。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "398756",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=398756&sysid=208",
+   "question": "关于7月16日寄给省信访局反映信的处理情况的问题\n我与2024年7月16日通过EMS特快专递（单号1211782495908）将诉求为督办华士镇华馨苑一期拆迁安置房未办证问题让我们的安置房尽快办证的反映信寄给江苏省信访局办信处，显示7月17",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "398044",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=398044&sysid=208",
+   "question": "江苏省信访局门户网站首页“网上投诉”平台无法登录\n之前曾经在江苏省信访局门户网站首页“网上投诉”平台上（http://ygxf.jssxfj.jiangsu.gov.cn:8899/wstsqts_hlw6/login?redirect＝a",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "392007",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=392007&sysid=208",
+   "question": "关于大专转学\n尊敬的信访局领导，你好  我是一名大专生，目前就读于常州工程职业技术学院，但因身体原因水土不服，无法在本院校继续完成学业，想转学到江苏电子信息职业学院继续学习，想请问一下要走哪些流程",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "382153",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=382153&sysid=208",
+   "question": "抖音账号\n请问贵单位开设了抖音号吗？能否提供名称，想关注下。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "380697",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=380697&sysid=208",
+   "question": "申请复查\n本人对淮安区征收服务中心的处理意见书淮房征信号（2023）058-2不服，现申请江苏信访局督查室复查督办",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "379531",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=379531&sysid=208",
+   "question": "关于《人民调解员“以奖代补”激励机制实施办法》（草案）的建议\n您好！我是一名来自上海的大学生，在2023年8月的暑假，我和另外三名同为法学专业的同学在各自的家乡（上海、江苏、浙江、遵义、佛山、邯郸等八个地区）进行了暑期社会调查，我们的调查内",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "379412",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=379412&sysid=208",
+   "question": "2024年放假时间\n请问你们2024年春节放假几天，我们年底最晚什么时候可以上访另年后你们什么时候上班",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "378196",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=378196&sysid=208",
+   "question": "ZIXUN\n请问江苏省信访局的邮递地址是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "376629",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=376629&sysid=208",
+   "question": "密码修改问题\n领导:你好！网上信访账号密码忘记，原手机号不用了，怎么改密码。无法上传图片。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "371216",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=371216&sysid=208",
+   "question": "高考\n江苏省户籍的人，初中毕业，可以高考吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "364412",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=364412&sysid=208",
+   "question": "微信公众号\n请问你们单位有没有官方微信？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "361206",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=361206&sysid=208",
+   "question": "关于复审问题\n省信访局：        《信访工作条例》第三十六条规定，信访人对意见不服的，可以自收到书面答复之日起30日内向复查机关、单位的上一级机关、单位请求复核。 信访编号：2023052405118       请问：梁溪区教育局不",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "358331",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=358331&sysid=208",
+   "question": "查询信访平台用户名\n您好，我的信访平台用户名记不得了，麻烦帮我查询一下，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "357217",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=357217&sysid=208",
+   "question": "咨询“局长信箱”职能\n江苏省信访局网上信访大厅中既有“网上投诉”入口也有“局长信箱”入口，想咨询这里的“局长信箱”是承担什么职能？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "337547",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=337547&sysid=208",
+   "question": "咨询2022年12月17日发出的申请复查信函事宜\n本人吕双林，身份证320106********2919，手机号：13951799515，关于江苏省总工会苏公信字（2022）4号，《关于吕双林信访事项处理意见书》，表示不服，于2022年12",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "335211",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=335211&sysid=208",
+   "question": "咨询有关复核问题\n省信访局：        《信访工作条例》第三十六条规定，信访人对复查意见不服的，可以自收到书面答复之日起30日内向复查机关、单位的上一级机关、单位请求复核。        请问：如不服省人社厅的复查意见，可以向人社部请求",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "330399",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=330399&sysid=208",
+   "question": "关于安建麒2022年10月11日邮寄书信到省信访局收悉未回复\n尊敬的省信访局领导：            你们好！我是海南省海口市的安建麒信访人，我在2022年10月11日邮寄的信访件挂号信函，邮件编号：XA08569341546至今没有收",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "321826",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=321826&sysid=208",
+   "question": "关于依法分类处理信访事项\n乡镇（街道）在处理信访事项过程中，是否适用依法分类算是原则？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "315052",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=315052&sysid=208",
+   "question": "信访问题已沟通完毕，不需要再信访了\n8月9日在国家信访局留言我儿媳因报考2022年公务员不予录取的情况进行信访，今天上午我家人已经与徐州市组织部沟通完毕，不要再信访处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "313993",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=313993&sysid=208",
+   "question": "微博号\n您好，请问贵单位开设了官方微博号吗？想了解和关注下",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "306609",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=306609&sysid=208",
+   "question": "答复期限\n信访事项自受理之日起60日内办结，请问受理之日起是否包含受理当日，还是从受理当日的第二天开始计算？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "291721",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=291721&sysid=208",
+   "question": "何时建立江苏省内网上信访的复查、复核与评价系统，形成信访闭环\n目前在全省范围内，省、市、县、乡四级建立了比较完善的网上阳光信访平台，疫情防控背景下为人民群众的信访带来了很大便利，降低了成本。对国家机关来说，网络信访提高了信访工作效率和信访工",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "278183",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=278183&sysid=208",
+   "question": "建议村、镇、区的旅店实行住客分餐\n当前农村的旅店，入住的客人，用餐基本是在一桌上共用莱、汤。这是抗疫一个漏洞，建议严格实行旅客用餐分餐！！！建议省相关部门发文并严格监管执行！！！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "270864",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=270864&sysid=208",
+   "question": "申请公开\n申请公开2020该辖区违反中央八项规定精神问题被查处的人数及其级别构成情况。申请公开该辖区2020年政府预算执行和政府投资建设项目审计查出问题整改情况。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "257352",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=257352&sysid=208",
+   "question": "微信公众号\n您好，请问贵单位开设了官方微信公众号吗？想了解和关注下。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "257134",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=257134&sysid=208",
+   "question": "信访局投诉建议怎么撤销\n信访局投诉建议怎么撤销",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "255544",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=255544&sysid=208",
+   "question": "在哪里查看案件查询码？\n自己的信访件在哪里查看查询码？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "254532",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=254532&sysid=208",
+   "question": "忘记用户名，无法登录\n忘记用户名，无法登录",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "239944",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=239944&sysid=208",
+   "question": "请问去省信访局走访在工作日内随时能接访吗？\n尊敬的省局领导：我是无锡江阴的信访人，请问去省信访局走访要不要预约？在工作日内随去随访吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "239900",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=239900&sysid=208",
+   "question": "为什么信访回复的附件看不了呀，说文件已经破损\n信访号32002021031909510075581，回复内容看不了，是怎么回事？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "239160",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=239160&sysid=208",
+   "question": "我已经在地方信访，可是他不处理，我如何网上向上一级投诉，\n我之前已经在网上投诉，都转向地方处理，但是地方机构不知道有没有去调查处理，反映的问题不一样，处理结果都一样，如果在网上投诉，不转到地方",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "238450",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=238450&sysid=208",
+   "question": "本人信访请求为什么无疾而终，且不能对结果评价。\n关于信访编号32002021030509042213676的案件调查情况，本人已经向宝应市场质量监督局和应急管理局提出了抗议，为什么平台显示此案件已完结，而且不能对结果做出评价，是什么意思？难",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "238028",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=238028&sysid=208",
+   "question": "网上不能注册了吗\n网上还能信访吗，注册时为什么验证码收不到，是是现在要到现场啊？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "237456",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=237456&sysid=208",
+   "question": "向省政府进行信访复核的邮寄地址\n我收到了徐州市政府信访关于大屯矿区忠小学移交归属方面信访复查的答复，现在要对此进行复核，请问邮寄申请复核的材料寄送地址。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "236411",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=236411&sysid=208",
+   "question": "政府部门协调问题\n尊敬的领导，本人因孩子上学买了一套二手房，扬州市邗江区百祥路玫瑰花园小区，于年前拿到房产证，近期去邗上去上户口，却被告知这套房有户口未迁出，因此事本人已经多天不上班，奔走于户籍中心，房管局，和原房东。目前是这样的情况，玫瑰",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "232607",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=232607&sysid=208",
+   "question": "江苏省2020年二级造价师考试成绩什么时候能公布？\n江苏省二级造价师已于2020年11月份考完，同期的其他省份都已经公布，有的甚至比江苏考的还晚的省份比如安徽都已在一个月前公布成绩，不知江苏的成绩何时公布？   按照2020 年度二级造价工",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "231020",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=231020&sysid=208",
+   "question": "请问已经超过15天了，为何转交单位没有任何回复和调查？\n我于2020年12月31日投诉东郊国宾馆拖欠设计师设计费，信访号为：32002020123110485365238，目前时间已经超过信访的最高期限15天，期间信访局转交给了省级机关事务",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "228302",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=228302&sysid=208",
+   "question": "小孩玩游戏，商户拒绝退款\n本人小孩（未成年人）在家长不知情情况下，拿手机玩游戏，商户（华为软件技术有限公司）通过微信扣款4704元，多次与该商户客服沟通拒绝退款，请信访局帮忙协调处理，要求商户退款",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "225206",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=225206&sysid=208",
+   "question": "信访政策咨询\n现在有了网上信访渠道，非常方便，各级政府都设立了网上信访平台，如果就一个地方性的问题，跳过区长信箱、市长信箱，直接向省长信箱反映，请问该行为合法吗？是否会被认定为“越级上访”？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "220644",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=220644&sysid=208",
+   "question": "连云港市赣榆区多个楼盘违规销售，捆绑车位，或者储藏室\n根据国家相关规定，商品房不得捆绑车位储藏室，现在赣榆区很多开发商捆绑车位储藏室，比如碧桂园天樾府（还没开盘），但销售已经明确捆绑车位，或者先买车位才能买房子，易居易墅有的户型捆绑储藏室，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "206171",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=206171&sysid=208",
+   "question": "2020高考复读\n2020高考失利，能否复读",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "195501",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=195501&sysid=208",
+   "question": "信访栏目的问题\n我的信访栏目中的“满意度评价”怎么没了？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "190978",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=190978&sysid=208",
+   "question": "建议江苏省学习他省关心民生的优处\n请相关领导学习山东省的“问政山东”的节目，关注民生，及时解决民生问题。这档节目值得江苏省借鉴学习，江苏也应该开办个“问政江苏”的节目。希望领导考虑采纳。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "185139",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=185139&sysid=208",
+   "question": "事业编人员延期转正程序\n申请江苏省事业编人员延期转正程序或手续",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "182660",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=182660&sysid=208",
+   "question": "我想问一下\n我在江苏省纪委填完举报信点了提交之后出现您提交的信息有误可以返回重填异常页面或者非法访问这里我的电脑出现了问题吗?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "175842",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=175842&sysid=208",
+   "question": "江苏省是否会开放地摊经济\n尊敬的江苏省领导                      您好！        2020年由于疫情因数，国外疫情也逐渐严重，导致经济下降，各行各业都受到了很大的冲击，因此，很多人都失业了，找不到工作，没有经济来源",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "166795",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=166795&sysid=208",
+   "question": "武汉人员如何进入江苏省，是否互认湖北省健康码\n尊敬的江苏省政府：五一期间武汉人员是否可以凭湖北健康码绿码＋核算阴性结果检测报告进入江苏省，例如徐州市，可以自由探亲访友，不需要再重复隔离14天？建议予以研究考虑",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "161657",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=161657&sysid=208",
+   "question": "关于信访答复期限以及信访答复方式的疑问\n《信访条例》规定，信访事项应当自受理之日起60日内办结；情况复杂的，经本行政机关负责人批准，可以适当延长办理期限，但延长期限不得超过30日，并告知信访人延期理由。请问60日办理期限是指工作日还是自然日",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "160676",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=160676&sysid=208",
+   "question": "关于江苏人社与智慧南京系统中电子社保卡信息不同步的问题\n江苏智慧人社APP系统中无法查询到个人的电子社保卡信息；智慧南京APP系统中却能查到个人的电子社保卡信息；两个系统之间信息不互通的问题严重；亟待修理！特此投诉。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "158711",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=158711&sysid=208",
+   "question": "信访回复无法阅读\n2019年12月我做了网上信访，但是查询信访结果时，无法阅读信息回执，显示该文件已损坏",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "158587",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=158587&sysid=208",
+   "question": "2019年网站工作年度报表\n您好，请问贵单位网站的2019年网站工作年度报表发布了吗？能否提供网址链接给我？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "154605",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=154605&sysid=208",
+   "question": "拖欠农民工工资\n2018年我们大伙来到江苏博汇纸业厂内（福建汇三项目部）干活，2018年底福建汇三项目部经理姚曙光给了我们大伙工资80多万，还欠我们70于万。2019年初回到博汇纸业做收尾工程和等尾款。4月份完工（8月份以生产）一直到现在1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "153881",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=153881&sysid=208",
+   "question": "淘宝苏宁易购商家卖货出现问题不解决\n事情经过是这样的，2019年双十一在淘宝网苏宁易购买的电视冰箱给农村老人，货送到后快递员不给通电试机（无法认定机器好坏）就让老人签字装箱至今，近日我回老家给老人电视开箱通电发现电视内屏漏液不能正常观看，联",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "153272",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=153272&sysid=208",
+   "question": "退休金\n退休养老金，待遇问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "152349",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=152349&sysid=208",
+   "question": "禄口镇翠屏城上万人居住社区，请满足幼儿上公立幼儿园的请求\n翠屏城小区规模近7000户，目前常住人口近万人。幼儿园配套只有一个南边的私立幼儿园，设施老旧，师资缺乏。目前居民幼儿上学需求大，幼儿园人满为患，已超当初预计承担人数的上限。教室等基础",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "146316",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=146316&sysid=208",
+   "question": "阳光信访全程留痕\n江苏省信访局的领导：你们好！    我今天开始逐级上访了，我自从2019年8月25日按照信访条例通过扬州市政府网站寄语市长频道给扬州市教育局写了多封信咨询关于高中走读生在校集中学习的时间，可是，没有一封针对性的回复。201",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "145943",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=145943&sysid=208",
+   "question": "江苏气象局 地市天气中打开显示的都是深圳天气\n江苏气象局网站中省内各地气象为什么要显示深圳的气象，堂堂省网站不检查吗？还有想在省气象网站留言的，根本不能留言，那个验证码图标就是不显示。请信访局核实。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "144616",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=144616&sysid=208",
+   "question": "请求协调江退还购房款1万\n烦请转接住建局、市场监管局、发改委等，谢谢被投诉人（单位）：江苏润荣房地产有限公司联系电话： 0511-89988888(开发商) 18914572221（销售员）请求事项：请求江苏润荣房地产有限公司全额退还就镇江",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "144524",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=144524&sysid=208",
+   "question": "查询上次9月10号的反映的短信查询号码\n尊敬的吴省长你好:我是江苏创美物业张家港后塍项目的一名司机，自从去年9月26日驾驶的苏EY6982车前轮坏了，专业补轮胎师傅发现两个前轮花纹磨损严重超过警戒标准怕担风险不肯补，我向车队反映后车队长担保",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "142170",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=142170&sysid=208",
+   "question": "请求协调苏州融辉置业有限公司退还购房款2万元\n被投诉人：苏州融辉置业有限公司0512-68368888 苏州市吴中区临湖镇银藏路北侧、方庄路东侧【花漫四季花园】项目2幢704室1、涉嫌未明码标价的违规行为。2涉嫌捂盘惜售，销售员电话告知，说",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "142163",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=142163&sysid=208",
+   "question": "关于进一步规范基层人社平台建设的建议\n转发人社厅和编办：      江苏省基层人社平台经过几年建设，已经基本建成覆盖城乡的人力资源和社会保障体系，为城乡居民提供规范、便捷、高效、均等的公共服务，但是各县市在人社平台建设中也出现管理体制不一的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "141753",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=141753&sysid=208",
+   "question": "接收不到验证码\n近段时间，我在江苏网上信访个人中心登陆时点击了获取验证码后手机接收不到验证码。试了多次都是这样。请问这是为什么？怎么解决？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "141264",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=141264&sysid=208",
+   "question": "江苏省考试院PETS没办法报名\nPETS从网站开放就一直没办法报名，江苏省省内都一直显示名额已满，这个报名系统江苏省考试院准备不充分还是什么原因？一个报名已经2天都报不进去，一直显示名额已满！这是超市卖菜么还是淘宝作双11促销？还要抢购？那",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "141099",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=141099&sysid=208",
+   "question": "是从什么时候开始采用注册时必须要6位数字的手机短信验证码的?\n尊敬的江苏省信访局:现在江苏省人民政府官网上的江苏省省长信箱系统，是从什么时候开始采用注册时必须要6位数字的手机短信验证码的?是不是从采用注册时必须要6位数字的手机短信验证码以来",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "138941",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=138941&sysid=208",
+   "question": "4月底工厂解散，谁帮我们要回三个半月工资\n我是（正红镇健舒户外家具厂）唐书艳，4月底工厂停产，公司拖欠我们（去年七月份半个月工资，今年二月，三月，四月，合计三个半月工资）。我们厂员工多次向滨海县正红镇政府，滨海县劳动监察大队，市民热线，申诉",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "138181",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=138181&sysid=208",
+   "question": "关于苏北乡镇公交车\n关于徐州新沂市，的城乡公交车，目前还是私人承包制度，公交运行时间短，早上6点到晚上6点，有的时候2个时间段时间并成一个时间段。人工收费，费用不一，对于司机或是售票员的亲属不予收费，线路最高收费7元。遇到周五放学，一个车里",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jssxfj",
+   "id": "135670",
+   "url": "https://jssxfj.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=135670&sysid=208",
+   "question": "我要咨询\n我要咨询我要咨询我要咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

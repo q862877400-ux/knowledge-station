@@ -1,0 +1,21 @@
+{
+  "tag": "zhangye",
+  "base": "https://www.zhangye.gov.cn",
+  "referer": "https://www.zhangye.gov.cn/",
+  "range": [
+    1,
+    300
+  ],
+  "appId": "",
+  "sites": {
+    "9": 6,
+    "15": 1320,
+    "19": 59,
+    "20": 69,
+    "23": 5318,
+    "61": 500,
+    "67": 193,
+    "77": 312
+  },
+  "total": 7777
+}

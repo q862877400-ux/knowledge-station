@@ -1,0 +1,166 @@
+{
+ "A_考卷": [
+  {
+   "source": "gx-igi-101",
+   "id": "157814416239",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814416239",
+   "question": "2018年8月15日，广西壮族自治区柳北区人民法院作出民事判决，判决被告偿还原告的借款本金及利息，但判决至今，被告拒不履行，请问原告怎么维护自身的合法权益。",
+   "cited_hits": [
+    {
+     "name": "民事诉讼法",
+     "lib_no": "民事诉讼法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gx-igi-101",
+   "id": "92237",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=92237",
+   "question": "前段时间被老板无故辞退了，听朋友说这种情况可以申请法律援助，想问一下该如何办理？",
+   "cited_hits": [
+    {
+     "name": "广西壮族自治区法律援助条例",
+     "lib_no": "法律援助条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "gx-igi-101",
+   "id": "157814428786",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814428786",
+   "question": "报名专业学历条件中的“法学类”如何理解？",
+   "cited_hits": [],
+   "cited_missing": [
+    "普通高等学校本科专业目录（2024年）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-101",
+   "id": "157814205386",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814205386",
+   "question": "法律职业资格证书C证申请律师执业实习是否限制在户籍所在地律师事务所？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广西壮族自治区申请律师执业人员实习管理实施办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gx-igi-101",
+   "id": "157814189052",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814189052",
+   "question": "房客托欠我超过主6个月房租，可通过哪些法律途径解决",
+   "cited_hits": [],
+   "cited_missing": [
+    "中华人民共和国合同法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-101",
+   "id": "157814187551",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814187551",
+   "question": "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &",
+   "cited_hits": [],
+   "cited_missing": [
+    "国务院信访条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-101",
+   "id": "92239",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=92239",
+   "question": "请问通过了司法部颁发的企业法律顾问执业资格，可以申请基层法律工作者执业证书吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "基层法律服务工作者管理办法",
+    "基层法律服务工作者管理办法"
+   ],
+   "has_clause_no": true
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "gx-igi-101",
+   "id": "100077618",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=100077618",
+   "question": "请问关于法律职业资格考试报考条件中“从事法律工作满三年”的要求，是怎么理解的？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-101",
+   "id": "157814445702",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814445702",
+   "question": "人在外地工作，可以网上提交申请仲裁吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-101",
+   "id": "157814398002",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814398002",
+   "question": "申请授予法律职业资格证现场审核时需要带纸质照片吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-101",
+   "id": "157814222677",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814222677",
+   "question": "尊敬的领导，我咨询关于2022年以来来宾市制定印发了那些规范性文件？或是在哪里可以查询到？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-101",
+   "id": "157814187471",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814187471",
+   "question": "问：机动车一方无过错就等于无赔偿责任吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-101",
+   "id": "1578090147",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=1578090147",
+   "question": "您好，最近跟市区某医院因为诊疗问题有点纠纷，我想尽快解决这个问题，听朋友说有个医患纠纷人民调解委员会是由你们司法局负责的，请问我怎么可以联系到他们？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-101",
+   "id": "92238",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=92238",
+   "question": "我们这里有个案子需要申请行政复议，但是以前没写过，可以给一下建议吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-101",
+   "id": "92236",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=92236",
+   "question": "请问，来宾市司法局现在的最新地址在哪里，办公电话是多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

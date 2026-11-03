@@ -1,0 +1,255 @@
+{
+ "A_考卷": [
+  {
+   "source": "nx-igi-187",
+   "id": "10126762",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10126762",
+   "question": "本人2014年在星海时代花园预付首付款购买了房屋，江峰房地产开发商利用各种理由不为本人办理贷款，及房产手续，至今已住七年有余，仍无法落户，孩子无法上学，开发商却跑路。老百姓毫无办法，眼看孩子上学束手无策。特想政府恳求解决落户问题，万分感谢。",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国义务教育法",
+     "lib_no": "义务教育法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "大武口区 2021 年普通中小学招生入学工作方案",
+    "房屋所有权证",
+    "不动产登记证",
+    "购房合同",
+    "房屋所有权证",
+    "不动产登记证",
+    "购房合同",
+    "房屋所有权 证",
+    "不动产登记证",
+    "购房合同",
+    "房屋所有权证",
+    "不动产登记证",
+    "购房合同",
+    "房屋所有权证",
+    "不动产登记证",
+    "购房合同"
+   ],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "nx-igi-187",
+   "id": "10143707",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10143707",
+   "question": "本人想在宁夏大武口区开展合作社养殖蓝孔雀 想咨询一下政府当地的林下经济养殖是否有补贴政策 因为我们公司已经就蓝孔雀入中药材已经审批完成 正式挂牌合作农户养殖社了 所以想在宁夏也开展此工作 望政府能给予支持",
+   "cited_hits": [],
+   "cited_missing": [
+    "自治区山林权改革专项领导小组办公室关于印发〈关于引导社会资本进山入林推进以林养林以地换林指导意见〉的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-187",
+   "id": "10126791",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10126791",
+   "question": "自10月27日起，光明中学所有学生家长全部隔离，自今日已经15天了，再前天已经做了核酸检测，为何到今日还是不给答复，将家长封锁在家里有什么意义，本来说隔离七天，结果突然增加到14天，家长已经全力配合了，现在还不给答复是什么情况？",
+   "cited_hits": [],
+   "cited_missing": [
+    "自治区应对新冠肺炎疫情工作指挥部关于印发突发疫情集中 (居家)隔离医学观察人员和防控区域管控措施解除标准和流程的通知",
+    "自治区应对新冠肺炎疫情工作指挥部办公室关于做好突发疫情集中(居家)隔离医学观察人员和防控区域管控措施解除工作的补充通知",
+    "关于重点人群管控及核酸检测相关策略"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-187",
+   "id": "10126765",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10126765",
+   "question": "尊敬的领导您好： 城管这个执法部门我实在是不理解，究竟是为了因人而异的美化还是为了更为人性化的管理出整洁的城市而存在。我本人非常支持美丽的大武口创城，我也从各个方面为之努力着，但是今天城管的举动实在让我大跌眼镜。为了美化，一个腿脚不好的老太",
+   "cited_hits": [],
+   "cited_missing": [
+    "门前五包责任书"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "nx-igi-187",
+   "id": "10150606",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10150606",
+   "question": "%E5%B0%8A%E6%95%AC%E7%9A%84%E9%A2%86%E5%AF%BC%E6%82%A8%E5%A5%BD%EF%BC%81%E6%88%91%E6%98%AF%E6%98%9F%E6%B5%B7%E9%95%87%E4",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-187",
+   "id": "10150165",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10150165",
+   "question": "%E4%B8%89%E6%94%AF%E4%B8%80%E6%89%B6%E7%BE%A4%E6%85%A2%E4%BA%86%E6%B2%A1%E6%B3%95%E8%BF%9B%EF%BC%8C%E6%80%8E%E4%B9%88%E6",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-187",
+   "id": "10150164",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10150164",
+   "question": "%E4%B8%89%E6%94%AF%E4%B8%80%E6%89%B6%E7%BE%A4%E6%85%A2%E4%BA%86%E6%B2%A1%E6%B3%95%E8%BF%9B%EF%BC%8C%E6%80%8E%E4%B9%88%E6",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-187",
+   "id": "10150000",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10150000",
+   "question": "%E5%9C%A8%E7%BE%8E%E5%A5%BD%E7%9A%84%E7%9F%B3%E5%92%80%E5%B1%B1%E5%B8%82%E6%9C%89%E4%B8%80%E4%B8%AA%E6%9D%91%E5%BA%84%E6",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-187",
+   "id": "10149978",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10149978",
+   "question": "%E5%9B%BE%E4%B9%A6%E9%A6%86%E7%9A%84%E7%BD%91%E7%BB%9C%E4%B8%80%E7%9B%B4%E4%BF%A1%E5%8F%B7%E4%B8%8D%E7%A8%B3%E5%AE%9A%EF",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-187",
+   "id": "10149874",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10149874",
+   "question": "%E6%80%8E%E4%B9%88%E8%81%94%E7%B3%BB%EF%BC%8C",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-187",
+   "id": "10149864",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10149864",
+   "question": "%E5%9F%8E%E6%BA%90%E6%B5%8B%E7%BB%98%E4%B8%8D%E7%BB%99%E5%B7%A5%E8%B5%84%EF%BC%8C%E8%AF%B4%E5%89%8D%E4%B8%89%E4%B8%AA%E6",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-187",
+   "id": "10149861",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10149861",
+   "question": "%E5%85%B3%E4%BA%8E%E5%BB%BA%E8%AE%AE%E4%B8%BE%E5%8A%9E2022%E5%B9%B4%E5%A4%A7%E6%AD%A6%E5%8F%A3%E5%8C%BA%E5%8D%95%E8%BA%A",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-187",
+   "id": "10149473",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10149473",
+   "question": "%E5%BB%BA%E8%AE%AE%E9%BC%93%E5%8A%B1%E7%BB%84%E7%BB%87%E7%9B%B8%E4%BA%B2%E6%B4%BB%E5%8A%A8",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-187",
+   "id": "10148686",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10148686",
+   "question": "%E6%8C%AF%E6%96%B0%E4%B9%A1%E6%9D%91%E4%BF%AE%E7%9A%84%E8%B7%AF%E4%B8%8B%E5%AE%8C%E9%9B%A8%E4%B8%A5%E9%87%8D%E7%A7%AF%E6",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-187",
+   "id": "10145705",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10145705",
+   "question": "%E5%8D%97%E6%B2%99%E7%AA%9D%E5%85%AC%E5%9B%AD%E8%BF%99%E9%87%8C%E6%9C%89%E5%AE%A4%E5%A4%96%E7%9A%84%E4%B9%92%E4%B9%93%E7",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-187",
+   "id": "10145147",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10145147",
+   "question": "%E5%90%8C%E5%BF%97%EF%BC%9A%0A%20%20%20%E6%82%A8%E5%A5%BD!%0A%20%20%20%E6%88%91%E6%98%AF%E9%83%91%E5%B7%9E%E5%A4%A7%E5%A",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-187",
+   "id": "10144763",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10144763",
+   "question": "%E6%88%91%E6%98%AF%E6%AD%A6%E6%B1%89%E7%A7%91%E6%8A%80%E5%A4%A7%E5%AD%A6%E7%BB%99%E6%8E%92%E6%B0%B4%E7%A7%91%E5%AD%A6%E4",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-187",
+   "id": "10126756",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10126756",
+   "question": "领导您好！众安小区物业不作为，小区治安也不好，前不久就有人夜间打架，大喊大叫，小区摄像头基本摆设，电动车丢了找物业根本不管，可气的是物业费交了，楼道基本一个月打扫一次打扫。公共区域的垃圾，可以到绿化中看看，成了什么样子。一般业主家里有什么问",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-187",
+   "id": "10126753",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10126753",
+   "question": "我要投诉举报，煤苑小区的13号楼2单元有做性交易的。周围好多居民都知道的，影响特不好。派出所和居委会这些部门也不管。居民不可能每天什么事不做蹲点监视她们交易时间然后叫警察来抓。公安局的也不去排查。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-187",
+   "id": "10126669",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10126669",
+   "question": "盛景花园没有电信，希望能沟通下，安排电信网进入盛景花园",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-187",
+   "id": "10126666",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10126666",
+   "question": "领导你好： 我是大武口区兴民村的一名村民，我们村上领导在我们不知情的情况下，与石嘴山市环境生态局签下协议，在我们的农里埋压管道，后来我们去地里发现管道已埋完大部分，找到村上领导，领导拿出一份协议让我们签，但是协议简单其里面内容与实际不相符，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-187",
+   "id": "10126660",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10126660",
+   "question": "领导您好 我是宁夏石嘴山大武口的一名居民，我想向您反映一下位于朝阳东街太西家属院正门与大湖公馆路口规划不合理，车流量大并且车速行驶很快，既没有红绿灯，也没有行人通过的斑马线，经常发生交通事故，希望有关部门采取措施，安装红绿灯或者斑马线，尽量",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-187",
+   "id": "10126657",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10126657",
+   "question": "我们在南沙窝安康一区，从6.22号开始，到今天7.6号。基本上每天都会停水。定时定点！！（16--18或者到19点）有时后停一整天！我从6.22号跟我们的市政12345反应。跟星瀚集团反应，直到现在都没有得到为啥停水的明确答复！真的很闹心。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-187",
+   "id": "10126654",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10126654",
+   "question": "尊敬的领导你好，大武口街道种植臭椿树对于臭椿树花粉过敏的人们带来了不可避免的过敏性鼻炎过敏性哮喘症状，本人就是臭椿树过敏性哮喘患者每年这个季节都没办法正常工作甚至没办法在大武口家里住得去外地躲避。最近臭椿树开花哮喘发作一周晚上整夜不能睡觉没",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

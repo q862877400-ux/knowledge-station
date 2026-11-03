@@ -1,0 +1,2506 @@
+{
+ "A_考卷": [
+  {
+   "source": "js-sthjt",
+   "id": "479006",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=479006&sysid=143",
+   "question": "关于炼化加热炉启停炉过程中下 CEMS 折算浓度超标执法咨询\n您好！我单位属于石油炼制行业，执行《石油炼制工业污染物排放标准》（GB 31570‑2015）。现就加热炉启停炉非正常工况在线监测折算浓度相关执法判定问题，特向贵厅咨询。一、相关",
+   "cited_hits": [
+    {
+     "name": "排污单位环境管理台账及排污许可执行报告技术规范总则",
+     "lib_no": "总则(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于发布<污染物排放自动监测设备标记规则>的公告",
+    "排污许可证申请与核发技术规范 石化工业"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-sthjt",
+   "id": "475070",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=475070&sysid=143",
+   "question": "出租厂房后，无组织废气、厂界噪声检测的厂界问题\n请问，A公司将厂区内多栋厂房租赁给其他公司用于生产，A公司在实施无组织废气、厂界噪声检测时，厂界是按整个厂区的边界还是按实际使用区域的边界？若是按整个厂区的边界，是否要将承租公司纳入无组织废气",
+   "cited_hits": [
+    {
+     "name": "大气污染物综合排放标准",
+     "lib_no": "GB 16297-1996",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    " 大气污染物无组织排放监测技术导则 ",
+    " 工业企业厂界环境噪声排放标准 ",
+    "GB 16297-1996",
+    "GB12348-2008"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "473709",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=473709&sysid=143",
+   "question": "关于排污许可证排放标准问题\n环评中废水排放口污染物排放限值依据《生活垃圾填埋场污染控制标准》（GB16889-2008）表2制定目前该标准已废止，现行有效标准为《生活垃圾填埋场污染控制标准》（GB16889-2024）生产污水情况：废水经渗",
+   "cited_hits": [
+    {
+     "name": "生活垃圾填埋场污染控制标准",
+     "lib_no": "GB 16889-2024",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "GB 16889-2024"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "473483",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=473483&sysid=143",
+   "question": "排污许可和自行监测技术指南执行优先顺序的请示\n尊敬的领导您好，对于自行监测技术指南和排污许可核发技术规范都同为本行业，对于同一种因子监测要求频次不一样时，优先执行哪个标准？盼复",
+   "cited_hits": [
+    {
+     "name": "排污许可证申请与核发技术规范 总则",
+     "lib_no": "总则(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "排污单位自行监测技术指南 总则",
+     "lib_no": "总则(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "排污单位自行监测专项检查技术规程"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "473472",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=473472&sysid=143",
+   "question": "标准执行与适用问题\n本企业自建危废焚烧炉（固液焚烧炉）；危险废物焚烧设施除处置危险废物外（固体与液体），同步处理生产工段工艺有机废气，该工况下废气污染物的排放标准是按照GB18484-2020标准执行还是按照其他标准执行，还是对标从严的标准",
+   "cited_hits": [
+    {
+     "name": "危险废物焚烧污染控制标准",
+     "lib_no": "GB 18484-2020",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "排污单位自行监测技术指南 固体废物焚烧",
+    "江苏省污染源自动监测监控管理办法 （2022 年修订版 ） "
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-sthjt",
+   "id": "473449",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=473449&sysid=143",
+   "question": "关于废气焚烧类装置RTO出口污染物浓度是否需要折算的问题\n单位有一套罐区废气处理装置RTO，上游废气通过管线收集至RTO前尾气稳压罐，因废气中可燃气浓度较高，废气在进入处理装置前，向废气中补充部分空气，保证其LEL浓度至25%以下，之后混合",
+   "cited_hits": [
+    {
+     "name": "大气污染物综合排放标准",
+     "lib_no": "GB 16297-1996",
+     "weak": false
+    },
+    {
+     "name": "挥发性有机物无组织排放控制标准",
+     "lib_no": "GB 37822-2019",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "GB 37822-2019"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "473055",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=473055&sysid=143",
+   "question": "关于企业排污总量应如何正确核算的咨询\n一企业已获得2个项目的环评批复（一期、二期）。其中一期项目已建成投产，排污许可证载明的COD许可排放总量为一期项目的14.71吨/年，综合废水排口安装COD水污染源在线监测设施，并完成验收。经调阅重点排",
+   "cited_hits": [
+    {
+     "name": "排污许可证申请与核发技术规范 总则",
+     "lib_no": "总则(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "生态环境行政处罚办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-sthjt",
+   "id": "472864",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=472864&sysid=143",
+   "question": "关于养殖塘增氧泵噪声的问题\n农村里面个人承包的养殖塘，主要养殖螃蟹，夜间需要增氧泵给水里增加氧气，请问：1、增氧泵产生的噪声属于工业噪声还是社会生活噪声？属于哪个部门管理？2、如开展监测，监测点位布设在什么位置，测量的结果参照什么标准评价？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国噪声污染防治法",
+     "lib_no": "噪声污染防治法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国治安管理处罚法",
+     "lib_no": "治安管理处罚法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": " 社会生活环境噪声排放标准 ",
+     "lib_no": "GB 22337-2008",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "GB 22337 — 2008"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-sthjt",
+   "id": "472219",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=472219&sysid=143",
+   "question": "环保手续履行类别咨询\n某企业，从事一般工业固废综合利用，年综合利用处置能力80万吨，利用后产物为人造土和路基材料，人造土和路基材料共用1套生产设备，工艺为人造土：粉碎-上料-输送-搅拌-成品；路基材料：破碎（部分）-计量-上料-输送-搅拌-",
+   "cited_hits": [
+    {
+     "name": "排污许可管理条例",
+     "lib_no": "排污许可管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "省生态环境厅关于加强涉变动项目环评与排污许可管理衔接的通知",
+    "环评名录",
+    "环评名录",
+    "建设项目验收后变动环境影响分析"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "472070",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=472070&sysid=143",
+   "question": "危废经营企业废机油吨桶贮存改造为储罐相关事项咨询\n我司为盐城市持有危险废物综合经营许可证企业，计划取消原有吨桶集中堆放贮存模式，改为密闭储罐贮存 HW08 废机油；配套围堰防渗、应急收集池、油气收集治理设施；仅贮存、不开展任何加工处置。技改",
+   "cited_hits": [
+    {
+     "name": "排污许可管理条例",
+     "lib_no": "排污许可管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "省生态环境厅关于加强涉变动项目环评与排污许可管理衔接的通知",
+    "环评名录",
+    "环评名录",
+    "建设项目验收后变动环境影响分析"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "471822",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=471822&sysid=143",
+   "question": "请问TPR材料挤出废气执行什么标准？\n您好，企业主要从事牙刷生产制造，其中部分产品需要使用外购成品TPR材料对牙刷柄进行填充或包裹，TPR粒子经电加热熔融后挤出到半成品牙刷上，请问TPR挤出废气执行什么标准？《合成树脂工业污染物排放标准》还",
+   "cited_hits": [
+    {
+     "name": "合成树脂工业污染物排放标准",
+     "lib_no": "GB 31572-2015",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "GB 31572-2015"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "471536",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=471536&sysid=143",
+   "question": "柠檬酸替代氟化氢溶液（纯酸）\n现有工艺是设备组装，原环评中涉及氟化氢溶液的使用，用于不锈钢材料的钝化；为降低环境污染（对外）和职业危害（对内），计划使用柠檬酸用于不锈钢材料钝化，请问这个工艺改进，是否需要办理新环评，如不需要，请问如何处理能",
+   "cited_hits": [
+    {
+     "name": "排污许可管理条例",
+     "lib_no": "排污许可管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "省生态环境厅关于加强涉变动项目环评与排污许可管理衔接的通知",
+    "环评名录",
+    "环评名录",
+    "建设项目验收后变动环境影响分析"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "471282",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=471282&sysid=143",
+   "question": "关于企业排口是否需要安装在线监控的问题\n尊敬的省生态环境厅领导好，按照相关法律法规要求，重点排污单位以及排污许可重点管理单位等应安装自动监控设备并联网。对照《江苏省污染源自动监控管理办法（试行）》，涉及VCOs排放且风量超3万的排口应安装V",
+   "cited_hits": [
+    {
+     "name": "排污单位自行监测技术指南 总则",
+     "lib_no": "总则(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "江苏省固定污染源废气挥发性有机物监测工作方案",
+    "江苏省污染源自动监控管理办法（ 2022 年修订） "
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-sthjt",
+   "id": "468529",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=468529&sysid=143",
+   "question": "咨询环保手续办理\na公司已取得建设项目环评审批和排污许可证，因经营不善，a公司整体出租给B公司生产经营，项目产品、规模、生产工艺、污染防治措施均未发生变化，请问：b公司是否可以使用a公司的环评手续和排污许可证，如果不能使用，b公司如何办理相",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国环境影响评价法",
+     "lib_no": "环境影响评价法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-sthjt",
+   "id": "468451",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=468451&sysid=143",
+   "question": "废水自动监测\n您好，一家企业如果有两个排水口，每个排水口的排水量均小于100吨/d，但是两个排水口的排水量大于100吨/d，这样的情况下，企业是否需要安装水自动监测设施，是否需要列入水重点排污单位？",
+   "cited_hits": [
+    {
+     "name": "排污许可管理条例",
+     "lib_no": "排污许可管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "江苏省排污口设置及规范化整治管理办法",
+    "环境监管重点单位名录管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-sthjt",
+   "id": "468410",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=468410&sysid=143",
+   "question": "隧道窑废气执行标准问题的相关咨询\n尊敬的领导！某隧道窑制砖企业使用淤泥、建筑弃粘土、废炉渣粉煤灰、污泥、一般固废污染土、煤矸石为原料烧制保温砌块砖，生产过程中隧道窑废气应执行《工业炉窑大气污染物排放标准》（DB32/3728-2020）相关",
+   "cited_hits": [
+    {
+     "name": "江苏省大气污染物综合排放标准",
+     "lib_no": "GB 16297-1996",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "工业炉窑大气污染物排放标准",
+    "工业炉窑大气污染物排放标准",
+    "工业炉窑大气污染物排放标准",
+    " 工业炉窑大气污染物排放标准 ",
+    "砖瓦工业大气污染物排放标准",
+    "砖瓦工业大气污染物排放标准",
+    "GB 46790—2025",
+    "GB 16171.1-2024",
+    "GB 25466.1—2025",
+    "GB 31572—2015",
+    "GB 4915-2013",
+    "GB 9078-1996",
+    "GB29620-2013",
+    "GB29620-2013"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "467395",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=467395&sysid=143",
+   "question": "总量核算问题\n根据《危险废物焚烧污染控制标准》（GB18484-2020），颗粒物、二氧化硫、氮氧化物均有小时值和日均值标准，请问排污许可在申领时，计算污染物最大排放申请量，因按日均值计算还是小时值计算，可以的话，尽量给书面回复，谢谢！",
+   "cited_hits": [
+    {
+     "name": "危险废物焚烧污染控制标准",
+     "lib_no": "GB 18484-2020",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "排污许可证申请与核发技术规范 危险废物焚烧",
+    "GB 18484-2020"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "466492",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=466492&sysid=143",
+   "question": "关于柴油发电机试机废气执行标准的问题\n现有一企业生产柴油发电机组，生产工艺中有试机工序，请问试机工序产生废气（颗粒物、二氧化硫、氮氧化物）能否执行《大气污染物综合排放标准》（DB32/4041-2021）中的相关污染物标准，还是执行《非道路",
+   "cited_hits": [
+    {
+     "name": "大气污染物综合排放标准",
+     "lib_no": "GB 16297-1996",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "非道路移动机械用柴油机排气污染物排放限值及测量方法（中国第三、四阶段）（含修改单）",
+    "非道路柴油移动机械污染物排放控制技术要求",
+    "GB20891-2014"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "466183",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=466183&sysid=143",
+   "question": "石化企业设备与管线泄漏检测周期（泄漏点LDAR检测）\n某石化企业在大维修后，需要对企业设备与管线泄漏的进行检测（企业泄漏点LDAR检测），相关标准规定如下：     1）《挥发性有机物无组织排放控制标准》（GB 37822-2019）8.3",
+   "cited_hits": [
+    {
+     "name": "挥发性有机物无组织排放控制标准",
+     "lib_no": "GB 37822-2019",
+     "weak": false
+    },
+    {
+     "name": "石油炼制工业污染物排放标准",
+     "lib_no": "GB 31570-2015",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "GB37822-2019",
+    "GB31570-2015",
+    "GB37822-2019",
+    "GB31570-2015"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "454125",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=454125&sysid=143",
+   "question": "《固体废物鉴别标准 通则》（GB34330-2025）\n《固体废物鉴别标准 通则》（GB34330-2025）6.1a)“2）市场上使用正常原料生产的同类物质的质量标准”指的是公开发布的国家标准或者行业标准吗？很多物质是没有国家标准或者行业",
+   "cited_hits": [
+    {
+     "name": "固体废物鉴别标准通则",
+     "lib_no": "GB 34330-2017",
+     "weak": false
+    },
+    {
+     "name": "固体废物鉴别标准通则",
+     "lib_no": "GB 34330-2017",
+     "weak": false
+    },
+    {
+     "name": "固体废物鉴别标准通则",
+     "lib_no": "GB 34330-2017",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "453573",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=453573&sysid=143",
+   "question": "低浓度颗粒物的测定相关问题咨询\n尊敬的领导，您好：关于低浓度颗粒物的测定有2个问题要咨询省厅，感谢！1.依据《固定污染源废气 低浓度颗粒物的测定 重量法》HJ 836-2017进行低浓度颗粒物的监测，要测试含湿量，干湿球法和阻容法两种方法是",
+   "cited_hits": [
+    {
+     "name": "排污单位自行监测技术指南 总则",
+     "lib_no": "总则(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "固定污染源废气 低浓度颗粒物的测定 重量法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "452574",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=452574&sysid=143",
+   "question": "To焚烧炉中非甲烷总烃折算问题\nTo焚烧炉的非甲烷总烃在排污许可证中执行化学工业挥发性有机物排放标准DB 32/3151-2016，是否还需要依据GB 37822中10.3.3进入VOCs燃烧（焚烧、氧化）装置的废气需要补充空气进行燃烧、氧",
+   "cited_hits": [
+    {
+     "name": "挥发性有机物无组织排放控制标准",
+     "lib_no": "GB 37822-2019",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "化学工业挥发性有机物排放标准",
+    "GB 37822-2019"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "445718",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=445718&sysid=143",
+   "question": "地下水中阴离子表面活性剂分析方法\n您好：关于地下水中阴离子表面活性剂分析方法的咨询：《地下水质量标准》（GB/T 14848-2017）附录B中阴离子表面活性剂（LAS）推荐的方法是“分光光度法”，目前LAS的分析方法有GB/T 7494-",
+   "cited_hits": [
+    {
+     "name": "地下水质量标准",
+     "lib_no": "GB/T 14848-2017",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "GB/T 14848-2017",
+    "GB/T 14848-2017",
+    "GB/T 7494-87",
+    "GB/T 14848-2017",
+    "GB/T 14848-2017"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "443627",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=443627&sysid=143",
+   "question": "地下水采样因子\n请问，土壤污染状况调查过程中，《地下水质量标准》（GB/T14848-2017）中“表1 感官性状及一般化学指标”及毒理学指标，是否为地下水必测项？",
+   "cited_hits": [
+    {
+     "name": "地下水质量标准",
+     "lib_no": "GB/T 14848-2017",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "GB/T14848-2017"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "437557",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=437557&sysid=143",
+   "question": "排污许可证是否可以转让\n我方与某单位多年前签订了加油站租赁经营协议，今年因多方原因解除了租赁经营协议，我方停止了此加油站经营，但以我方名义申领的排污许可证怎么处理？可不可以转让给后续经营者？如果能转让，需要办理什么手续？",
+   "cited_hits": [
+    {
+     "name": "排污许可管理条例",
+     "lib_no": "排污许可管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-sthjt",
+   "id": "436988",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=436988&sysid=143",
+   "question": "关于执行标准中采样频次的问题\n您好，请问污染源废气排放浓度执行标准为DB32/4041标准中限值，按照该污染物排放标准中“5.4单位边界监测”中要求5.4.1监测按照HJ/T55：可以1h内等时间间隔采集4个样品，计算平均。或者5.4.2：",
+   "cited_hits": [
+    {
+     "name": "大气污染物综合排放标准",
+     "lib_no": "GB 16297-1996",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "435361",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=435361&sysid=143",
+   "question": "关于比对验收的问题咨询\n我公司是一家专业从事ABS塑料粒子生产加工的化工企业。目前，公司建设危废焚烧炉1台，用于处理厂内自身生产产生的危险废物，根据我公司实际焚烧的物质成分及相关环评手续，我公司焚烧物质中不含卤素、氯化氢等相关物质。根据《危",
+   "cited_hits": [
+    {
+     "name": "危险废物焚烧污染控制标准",
+     "lib_no": "GB 18484-2020",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "固定污染源废气 一氧化碳和氯化氢自动监测技术规范",
+    "GB 18484-2020"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "434709",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=434709&sysid=143",
+   "question": "电厂粉煤灰处理方式\n1、电厂的粉煤灰合同承接一定得是终端处置利用单位嘛？是否可以是中间的贸易商？因为现在粉煤灰处理现状是很多是贸易商承接，然后再转运到下游水泥厂或者搅拌站的。2、如果下游处置利用的水泥厂或搅拌站环评文件的原辅料表没有“粉煤灰",
+   "cited_hits": [
+    {
+     "name": "固体废物污染环境防治法",
+     "lib_no": "固体废物污染环境防治法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "江苏省固体废物污染环境防治条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-sthjt",
+   "id": "424823",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=424823&sysid=143",
+   "question": "关于监测标准选择的问题\n问题1：《镇污水处理厂污染物排放标准》（DB32 4440-2022 ） 5.2.5 大气污染物测定方法按附录A执行，表A.2 大气污染物测定硫化氢方法为《空气质量 硫化氢、甲硫醇、甲硫醚和二甲二硫的测定 气相色谱法",
+   "cited_hits": [
+    {
+     "name": "排污许可管理条例",
+     "lib_no": "排污许可管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "城镇污水处理厂污染物排放标准",
+    "空气和废气监测分析方法"
+   ],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "js-sthjt",
+   "id": "483417",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=483417&sysid=143",
+   "question": "关于固废利用类型归属的问题\n我公司经营一家烧结砖厂，利用淤泥、黄土等为原材料隧道窑生产烧结砖。根据《江苏省固体废物污染环境防治条例》第二十三条 鼓励通过工业窑炉协同处置工业废水处理产生的污泥。根据条例内容，我公司拟利用工业污泥代替部分原材料",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省固体废物污染环境防治条例",
+    "中华人民共和国生态环境法典"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "482852",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=482852&sysid=143",
+   "question": "医疗机构污水站在线监测运维人员资质\n您好，我单位是医疗机构，院区内污水站配备在线监测设备，请问下我单位污水站在线监测设备运维人员是否需要取得生态环境管理部门的授权或资质认证。",
+   "cited_hits": [],
+   "cited_missing": [
+    "生态环境监测条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-sthjt",
+   "id": "482568",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=482568&sysid=143",
+   "question": "咨询关于养殖场周边臭气浓度使用标准问题\n目前对于畜禽养殖场周边的臭气浓度，监测评价标准是以恶臭污染物排放标准（GB 14554-93）为标准还是以畜禽养殖业污染物排放标准（GB 18596-2001）？",
+   "cited_hits": [],
+   "cited_missing": [
+    "畜禽养殖业污染物排放标准",
+    "畜禽养殖业污染物排放标准",
+    "畜禽养殖业污染物排放标准",
+    "GB 18596-2001",
+    "GB 18596-2001",
+    "GB 18596-2001"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "482320",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=482320&sysid=143",
+   "question": "钢渣是否按照废弃资源综合利用业(金属废料和碎屑加工处理)来做\n因我地区有钢铁企业，因此涉及到废钢渣综合利用，一般工艺流程为上料-破碎-筛分磁选一破碎-筛分-磁选-筛分·成品。(纯物理加工）产品方案涉及到铁粉、铁粒子、铁豆以及非磁性废料。非磁",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设项目环境影响评价分类管理名录（ 2021年版）",
+    "固定污染源排污许可分类管理名录（2019年版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "482302",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=482302&sysid=143",
+   "question": "生物质蒸汽发生器、模温机是否属于锅炉？哪类生物质锅炉要淘汰？\n模温机主要用来给模具加热或冷却，保持温度稳定的设备。模温机、蒸汽发生器使用生物质为燃料，模温机加热介质是导热油，蒸汽发生器加热介质是水。企业使用生物质蒸汽发生器、模温机等加热设施",
+   "cited_hits": [],
+   "cited_missing": [
+    "锅炉大气污染物排放标准",
+    "锅炉大气污染物排放标准",
+    "江苏省生物质电厂与锅炉综合治理实施方案",
+    "锅炉大气污染物排放标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "482257",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=482257&sysid=143",
+   "question": "厂中厂的位置发生变化，是否需要重新编制环评\n我司项目原拟租赁某企业厂区内其中一间车间实施生产，已完成环评审批手续；原环评中建设地点为该具体车间，并非整个厂区范围。现因实际情况变化，项目拟调整至同一厂区、同一宗地块内的另一间车间实施，两处车间",
+   "cited_hits": [],
+   "cited_missing": [
+    "污染影响类建设项目重大变动清单（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "482191",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=482191&sysid=143",
+   "question": "家庭豆制品生产作坊是否需要办理环评手续\n我家是个体工商户，取得食品小作坊登记证；从事豆制品加工，主要产品为豆腐和豆干，家庭成员从事加工，每天加工300斤黄豆，采购蒸汽加热无锅炉，废水量为4吨左右，已配置污水处理设施，2024年取得排水许可证",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设项目环境影响评价分类管理名录（ 2021 年版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "482109",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=482109&sysid=143",
+   "question": "关于地表水采样自然静置问题\nHJ 91.2—2022地表水环境质量监测技术规范4.2.4.4 采样方法中采集的水样倒入静置容器中，保证足够用量，自然静置30 min。请问当几个采样点位离得比较近时，是否可以每个点先采集到静置容器里，然后在最",
+   "cited_hits": [],
+   "cited_missing": [
+    " 地表水环境质量监测技术规范 ",
+    "关于印发《国家地表水环境质量监测网监测任务作业指导书（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "481929",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=481929&sysid=143",
+   "question": "关于环保手续办理的咨询\n我司为提升清洁生产水平，投资为增设旁路列管换热器回收湿氯气余热，该余热回收除去增加换热器和管道外不涉及新增其他设备，也不涉及改变我司现有污染物排放情况。对照行业排污许可证核发技术规范，换热器无需在排污许可证中载明。综",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设项目环境影响评价分类管理名录（2021年版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "481730",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=481730&sysid=143",
+   "question": "关于造粒废气产污系数问题\n有个企业造粒的产能为5万吨/年（使用碳酸钙粉体做为填料用，年使用量为4万吨，树脂年用量1万吨，助剂年用量为78.1645吨）；根据《排放源统计调查产排污核算方法和系数手册》292塑料制品业系数手册中2926 塑料零",
+   "cited_hits": [],
+   "cited_missing": [
+    "排放源统计调查产排污核算方法和系数手册",
+    " 污染源源强核算技术指南   准则 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "481638",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=481638&sysid=143",
+   "question": "环评中不锈钢切割问题\n本项目涉及不锈钢板材切割、打磨、焊接、抛丸、喷砂，上述工序产生粉尘中是否需要考虑重金属铬及其化合物、镍及其化合物。该项目500m范围内规划有居住用地、教学用地，地块现状为空地，尚未实施建设，无现状居民、师生等人群。现开",
+   "cited_hits": [],
+   "cited_missing": [
+    "环境影响评价技术导则 大气环境"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "481459",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=481459&sysid=143",
+   "question": "不正常运行治理设施或擅自闲置环保治理设施方面咨询\n我司为长流程钢铁企业，配套建设高炉煤气发电机组项目，机组锅炉燃烧废气采用低氮燃烧＋SCR脱硝＋石灰石-石膏法脱硫污染治理工艺，环评批复及排污许可等行政审批手续齐全。依据《关于推进实施钢铁行业",
+   "cited_hits": [],
+   "cited_missing": [
+    "中华人民共和国生态环境法典"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "481303",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=481303&sysid=143",
+   "question": "咨询电磁流量计验收问题\n请问电磁流量计是否需要验收？如需验收的话，具体验收流程有哪些？需要准备什么材料谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    " 水污染源在线监测系统（COD Cr 、NH 3 -N等）验收技术规范 ",
+    "环境保护产品技术要求 电磁管道流量计"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "480909",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=480909&sysid=143",
+   "question": "咨询\n咨询：上海、江苏、浙江、安徽8月27日联合出台的《长三角区域生态环境行政处罚裁量规则》（沪环规（2026）23号），其中表6-1中的“标准状态下的小时排气流量”，请问是指标准状态（换算至一个标准大气压、0摄氏度）下排气流量，还是标干状",
+   "cited_hits": [],
+   "cited_missing": [
+    "长三角区域生态环境行政处罚裁量规则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "480869",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=480869&sysid=143",
+   "question": "锅炉备用炉变更为常用炉问题\n集中供热企业一期建设两台35t/h主用生物质锅炉，年工作时间7200h；二期扩建一台36t/h备用生物质锅炉，年工作时间500h。现企业想把一期中一台35t/h生物质锅炉变更为备用炉（年工作时间500h），二期3",
+   "cited_hits": [],
+   "cited_missing": [
+    "省生态环境厅关于加强涉变动项目环评与排污许可管理衔接的通知",
+    "污染影响类建设项目重大变动清单（试行）",
+    "建设项目环境影响评价分类管理名录（ 2021 年版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "480597",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=480597&sysid=143",
+   "question": "关于使用酚醛树脂生产碳分子筛项目环境影响评价类别的咨询\n省厅领导见信好。咨询项目原料为碳分子筛，主要用于空气分离生产氮气、氧气。主要原料为发泡酚醛树脂(俗称“花泥”）、原料酚醛树脂（半固态工业酚醛树脂）。主要生产工艺为破碎、混合、挤出、碳化",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设项目环境影响评价分类管理名录（2021年版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "480512",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=480512&sysid=143",
+   "question": "检测原始记录留存问题\n尊敬的厅领导，《生态环境监测条例》第二十六条要求企事业单位应当依照法律、法规规定的期限保存自行监测的原始监测记录；法律、法规没有规定保存期限的，原始监测记录至少保存5年。目前企业委托有资质的第三方监测机构开展自行监测，",
+   "cited_hits": [],
+   "cited_missing": [
+    "生态环境监测条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "480264",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=480264&sysid=143",
+   "question": "改扩建项目土壤评价面积问题\n一个污染型改扩建项目依托现有厂区的一个车间进行生产，同时依托现有厂区污水处理站和危废库，不新增永久占地面积。本次改扩建项目土壤环境影响评价等级判定时，采用全厂面积考虑占地规模是评价等级一级，如果以车间面积考虑则是",
+   "cited_hits": [],
+   "cited_missing": [
+    "环境影响评价技术导则 土壤环境（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "479996",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=479996&sysid=143",
+   "question": "废水的水温调试和验收频次怎么做?\n我是一家运维单位，水温设备安装后，上级单位要求对设备进行调试和验收，但（HJ353-2019）《水污染源在线监测系统 CODcr、氨氮等安装技术规范》、（HJ354-2019）《水污染源在线监测系统 COD",
+   "cited_hits": [],
+   "cited_missing": [
+    " 水污染源在线监测系统（CODCr、NH3-N 等）运行技术规范 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "479936",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=479936&sysid=143",
+   "question": "环保手续办理问题\n我公司主要从事非金属矿及制品制造、销售，产品为高纯石英晶体材料硅微粉，项目使用的主要原辅料有石英块、熔融石英、废石英管、废石英舟、废石英棒、石英玻璃、废石英坩埚、石英碎片，原环评中明确项目生产原料废石英管、废石英舟、废石英",
+   "cited_hits": [],
+   "cited_missing": [
+    "污染影响类建设项目重大变动清单（试行）",
+    "省生态环境厅关于加强涉变动项目环评与排污许可管理衔接的通知",
+    "环评名录",
+    "环评名录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "479873",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=479873&sysid=143",
+   "question": "有组织硫化氢分析方法（HJ1388）适用问题\n您好：HJ 1388-2024有组织硫化氢分析方法规定：二氧化硫浓度大于 70 mg/m3 或氮氧化物浓度大于 20 mg/m3 时，不适用本标准。当采集固定污染源中烟气（二氧化硫或氮氧化物）超",
+   "cited_hits": [],
+   "cited_missing": [
+    "固定源废气监测技术规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "479732",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=479732&sysid=143",
+   "question": "综合医院排污许可管理类别确认\n现有一个二级综合医院，卫健委备案床位为100张，实际规模为60张床，是否可以按照实际床位规模，根据《固定污染源排污许可分类管理名录（2019年版））》四十九、卫生84行业大类中医院841（行业类别），登记管理“",
+   "cited_hits": [],
+   "cited_missing": [
+    "固定污染源排污许可分类管理名录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "479619",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=479619&sysid=143",
+   "question": "企业环评问题咨询\n我公司从事医药制造，主要生产：单磷酸阿糖腺苷、乙酰左卡尼汀、米格列奈钙等医药产品，生产工序为：氨解反应、真空抽滤、洗涤抽滤、真空干燥、环合反应、离心分离、洗涤甩干、溶解、脱色过滤、洗涤甩干、烘干。由于市场原因，准备利用现有",
+   "cited_hits": [],
+   "cited_missing": [
+    "制药建设项目重大变动清单（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "479602",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=479602&sysid=143",
+   "question": "环评手续办理问题\n我司接收外购废纺一般固废，只做物理破碎加工，产出破碎料；无水洗、无热加工、不造粒、不处理危废，需要申请环评文件吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设项目环境影响评价分类管理名录（ 2021 年版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "479549",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=479549&sysid=143",
+   "question": "关于建设项目环境影响报告表编制风险专项的事情咨询\n您好，我企业有原有项目，但本次想新建一款全新的产品，与原有项目产品完全无关，原有项目风险按照应急预案中显示Q值大于1，但本次新产品所用原辅料仅有一种原辅料与原有项目一致，本次新产品的建设项目",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设项目环境风险评价技术导则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "479466",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=479466&sysid=143",
+   "question": "关于工业帘子布浸胶项目环评类型的咨询\n我司以坯布、乳胶（丁苯、丁吡、丁腈）、渗透剂、分散红、环氧树脂、异氰酸酯、氯丁胶为原料，通过浸胶、烘干等工艺生产工业帘子布，请问对照分类名录，该项目的环评类别是报告书还是报告表，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "国民经济行业分类",
+    "建设项目环境影响评价分类管理名录（2021年版）",
+    "GB/T4754-2017"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "478976",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=478976&sysid=143",
+   "question": "卫生防护距离的设置是否一定要写进生态环境影响报告书内？\n因为《大气有害物质无组织排放卫生防护距离推导技术导则》（GB/T39499-2020）由国家市场监督管理总局和国家标准化管理委员会联合发布的，而且《环境影响评价技术导则 大气环境》（H",
+   "cited_hits": [],
+   "cited_missing": [
+    "环境影响评价技术导则大气环境 (HJ2.2-2008) ",
+    "大气有害物质无组织排放卫生防护距离推导技术导则",
+    "GB/T39499-2020"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "478859",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=478859&sysid=143",
+   "question": "HJ 354-2019在线验收问题咨询\n按照《水污染源在线监测系统验收技术规范》（HJ 354-2019）开展COD在线验收，HJ 354-2019附录B的验收比对监测报告是推荐性的报告格式还是强制性的？是否必须要有资质的第三方检测机构完全",
+   "cited_hits": [],
+   "cited_missing": [
+    "水污染源在线监测系统验收技术规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "478822",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=478822&sysid=143",
+   "question": "铝灰渣危废界定\n我公司属于铝锭融容铸造行业，工艺：将铝锭在蓄热式加热炉内熔化（温度约700℃），熔化过程中无任何添加物加入，熔融后将熔液表面浮渣撇出(冷却后形成铝渣块)，请问浮渣撇出物是“铝渣”还是“铝灰渣”，属于危废物还是一般固废物？",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家危险废物名录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "478780",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=478780&sysid=143",
+   "question": "关于企业行业类别及代码和排污许可管理级别咨询\n我单位为矿渣微粉生产单位，主要生产工艺：将湿矿渣（高炉水渣）、脱硫石膏购进，堆存于密封的堆棚内，由输送带输送至立磨机（立磨机是集烘干、冷却、细碎、粉磨、提升、输送为一体的机械设备）内，矿渣经烘干",
+   "cited_hits": [],
+   "cited_missing": [
+    "固定污染源排污许可分类管理名录（ 2019 年版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "478741",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=478741&sysid=143",
+   "question": "关于中转空桶清洗的事项沟通\n我司在生产过程中使用专用中转桶用于酸碱等化学品的临时承接与转运。为确保容器清洁及后续安全使用，在中转作业完成后，执行以下标准化操作：1、清洗方式：使用清水对桶内残留酸碱进行冲洗；2、废水去向：产生的清洗废水全部纳",
+   "cited_hits": [],
+   "cited_missing": [
+    "污染影响类建设项目重大变动清单（试行）",
+    "省生态环境厅关于加强涉变动项目环评与排污许可管理衔接的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "478674",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=478674&sysid=143",
+   "question": "关于企业排污许可证办理的咨询\n我公司从事电池薄膜制造，行业为C2929其他塑料制品行业，生产过程中新增油萃取、溶剂工段，使用三氯乙烯作为萃取剂对薄膜进行处理，年使用量为3000吨，含三氯乙烯废气通过冷凝回收处理后排放。目前办理排污许可登记管",
+   "cited_hits": [],
+   "cited_missing": [
+    "国民经济行业分类",
+    "固定污染源排污许可分类管理名录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "475357",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=475357&sysid=143",
+   "question": "危废代码问题\n尊敬的省厅领导，您好！一家医药企业，制药过程中会使用甲苯（反应溶剂）、甲醇（打浆、结晶溶剂）等有机溶剂，设置有溶剂回收装置，分离产生的溶剂母液经蒸馏后大部分继续生产套用，甲醇、甲苯母液单独蒸馏回收，残余的蒸馏杂质合并作为危废处",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家危险废物名录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "475300",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=475300&sysid=143",
+   "question": "HJ 1444—2026实施后，硫化氢四版书方法还能用吗？\n您好，方法标准《环境空气10种含硫化合物的测定 罐采样-预浓缩/气相色谱法》HJ1444—2026“气相色谱法”是第一次发布，2026年8月1号实施后是否只取代了《空气质量硫化氢、",
+   "cited_hits": [],
+   "cited_missing": [
+    "环境空气10种含硫化合物的测定 罐采样-预浓缩/气相色谱法",
+    "空气和废气监测分析方法",
+    "关于实施国家环境监测方法标准问题的函",
+    "空气和废气监测分析方法",
+    "GB/T 14678-1993",
+    "GB/T 14678-1993"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "475226",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=475226&sysid=143",
+   "question": "建材厂资源综合利用烧结砖瓦项目煤矸石使用问题的相关咨询\n尊敬的领导！建材厂资源综合利用烧结砖瓦项目以河道淤泥、煤矸石、建筑废弃土、一般污泥、粉煤灰等为原辅材料，生产烧结砖产品；项目煤矸石年使用量占比28%。生产工艺为各类固废原料统一配比破碎",
+   "cited_hits": [],
+   "cited_missing": [
+    "高污染燃料目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "475144",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=475144&sysid=143",
+   "question": "咨询固定污染源排污登记问题\n《固定污染源排污许可分类管理名录（2019 年版）》序号 87 为输配电及控制设备制造 382，属于名录 1～107 类行业，适用第六条。本行表格 “登记管理” 栏单元格文字为 “其他”，并非 “登记管理”。名录",
+   "cited_hits": [],
+   "cited_missing": [
+    "固定污染源排污许可分类管理名录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "475065",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=475065&sysid=143",
+   "question": "咨询排污登记注销手续办理\n辖区内某企业为排污登记管理企业，该企业现已全面停产，生产设备已全部拆除，工商营业执照已在市场监管部门完成注销，法人主体彻底灭失。请问，生态环境部门可否直接注销其固定污染源排污登记？如允许，详细办理流程是什么？如不能",
+   "cited_hits": [],
+   "cited_missing": [
+    "中华人民共和国生态环境法典",
+    "排污许可管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-sthjt",
+   "id": "474695",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=474695&sysid=143",
+   "question": "咨询项目厂界达标的问题\n咨询一下：如果项目因为围墙的阻挡作用，在围墙外1m、高1.2m处噪声贡献值达标；但噪声绕过了围墙，在5m以外一定距离又超标了；项目周边没有敏感点。这种情况算厂界达标吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "工业企业厂界环境噪声排放标准",
+    "GB12348—2008"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "474448",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=474448&sysid=143",
+   "question": "污水处理站应该做报告书还是报告表？\n根据《建设项目环境影响评价分类管理名录(2021年版)》：报告书：新建或者扩建工业废水集中处理的报告表：新建或者扩建其他工业废水处理的现有4家喷水纺织企业共同出资建设一座污水处理站，仅限于处理4家喷水织机",
+   "cited_hits": [],
+   "cited_missing": [
+    "纺织工业水污染物排放标准",
+    "建设项目环境影响评价分类管理名录 （2021 年版 ） ",
+    "GB4287 — 2026"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "474421",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=474421&sysid=143",
+   "question": "关于熟制冷冻调味鱼虾水产品加工项目环评分类及国民经济行业类别\n【江苏12345热线】于2026-08-07 15:33:32反映的诉求DH000026080701308，连云港12345于2026-08-11 16:27:44已办理，办理结",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设项目环境影响评价分类管理名录（ 2021 年版）",
+    "固定污染源排污许可分类管理名录（ 2019 年版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "474263",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=474263&sysid=143",
+   "question": "稻壳在热解炭化过程中产生的副产物、植物焦油，属于危险废物吗?\n环保厅领导：请问：稻壳和秸秆等农林废弃物，在热解炭化工艺过程中产生的副产物、植物焦油，属于2016版《国家危险废物名录》中的“HW11精(蒸）馏残 渣，非特定行业，900-013",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家危险废物名录",
+    "国家危险废物名录",
+    "危险废物鉴别标准",
+    "危险废物鉴别技术规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "474149",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=474149&sysid=143",
+   "question": "关于高耗能行业判定的咨询\n根据《环境影响评价技术导则 大气环境》（HJ 2.2‑2018）中5.3.3.2内容：对电力、钢铁、水泥、石化、化工、平板玻璃、有色等高耗能行业的多源项目，并且编制环境影响报告书的项目评价等级提高一级。企业为有色金",
+   "cited_hits": [],
+   "cited_missing": [
+    "环境影响评价技术导则 大气环境"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "474090",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=474090&sysid=143",
+   "question": "交通相关专业检测人员能否纳入生态环境监测领域的问题咨询\n本科专业为交通工程、土木工程类的专业检测人员，从事单位已获CMA资质的室内环境空气中甲醛、TVOC等项目分析，现单位准备申请生态环境类的相关资质，上述人员是否满足生态环境监测领域相关专",
+   "cited_hits": [],
+   "cited_missing": [
+    "检验检测机构资质认定生态环境监测机构评审补充要求 （2025年）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-sthjt",
+   "id": "473960",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=473960&sysid=143",
+   "question": "竣工环境保护验收咨询\n某企业，从事废弃资源综合利用生产新型低碳胶凝材料，部分原辅材料为周边企业一般固废，项目已经完成环评批复和排污许可证申领，现正在进行竣工环境保护验收，在利用现有生产设备情况下想做如下调整：保证年利用一般工业固废总量和产品",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设项目竣工环境保护验收技术指南   污染影响类",
+    "污染影响类建设项目重大变动清单（试行）",
+    "省生态环境厅关于加强涉变动项目环评与排污许可管理衔接的通知",
+    "建设项目一般变动环境影响分析"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "473401",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=473401&sysid=143",
+   "question": "环评问题咨询\n本公司是昆山高新区一家从事智能设备加工生产的企业，涉及机加工、装配工序，以装配为主，有一个机加工部，现有CNC加工中心2台，磨床1台，铣床3台，现打算添购CNC加工中心10台，铣床8台、磨床2台，机加工时使用切削液，这种情况是",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设项目环境影响评价分类管理名录 （2021年版） "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "473145",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=473145&sysid=143",
+   "question": "生态环境分区管控中一般管控单元问题\n请教领导，江苏省生态环境分区管控中一般管控单元范围内可以新、改、扩建工业项目吗？依据是什么？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "中华人民共和国生态环境法典"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-sthjt",
+   "id": "472916",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=472916&sysid=143",
+   "question": "判定机加工件表面润滑油通过烘干加速干燥是否要做环评报告表\n企业年产浴室用换气干燥取暖机42万台/年、加热器40万个/年。属于C3859 其他家用电力器具制造。现有项目浴室用换气干燥取暖机生产过程中外购散热器直接进入组装加工工艺，现厂区拟购置",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设项目环境影响评价分类管理名录 （2021年版） "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "472889",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=472889&sysid=143",
+   "question": "关于码头建设项目环评类别的咨询\n我公司某码头项目位于长江下游扬中河段太平洲右汊（扬中夹江）南岸。该项目已于2008年获环评批复，批复内容为3000吨级泊位两个，原主要运输物品类别为件杂货钢坯。现我公司拟改造现有2个泊位，增加砂石装卸功能，改",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于项目是否涉及环境敏感区咨询的回复",
+    "建设项目环境影响评价分类管理名录（2021年版）",
+    "省政府办公厅关于印发江苏省省级生态环境行政主管部门审批环境影响评价文件的建设项目目录（2025年版）的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "472844",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=472844&sysid=143",
+   "question": "轧钢工业大气污染物排放标准中硝酸雾检测方法的确认\n关于《轧钢工业大气污染物排放标准》（GB 28665-2012）中“硝酸雾”的检测方法为《固定污染源排气中氮氧化物的测定 紫外分光光度法》HJ/T 42和《固定污染源排气中氮氧化物的测定 盐",
+   "cited_hits": [],
+   "cited_missing": [
+    "轧钢工业大气污染物排放标准",
+    "固定污染源排气中氮氧化物的测定 紫外分光光度法",
+    "固定污染源排气中氮氧化物的测定 盐酸萘乙二胺分光光度法",
+    "固定污染源废气 硝酸雾的测定 离子色谱法",
+    "轧钢工业大气污染物排放标准",
+    "GB 28665-2012",
+    "GB 28665-2012"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "472725",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=472725&sysid=143",
+   "question": "项目咨询\n领导您好，我单位拟投资建设规模化蛋鸡养殖场，年出栏蛋鸡150万只。本项目选址距离最近的功能水体约为100米，根据《关于做好畜禽规模养殖项目环境影响评价管理工作的通知》（环办环评〔2018〕31号）要求，我单位计划采取生态环境部、农",
+   "cited_hits": [],
+   "cited_missing": [
+    "农业农村部办公厅生态坏境部办公厅关于印发 < 畜禽养殖场（户）粪污处理设施建设技术指南 > 的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "472724",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=472724&sysid=143",
+   "question": "关于DB32／4440-2022标准氨氮总量核算问题\n您好，请教一下，《城镇污水处理厂污染物排放标准》（DB32／4440-2022）中规定了氨氮、总氮在枯水期（11月1日至次年3月31）的标准限值以及时段外的限值，请问对于环评总量核定的角",
+   "cited_hits": [],
+   "cited_missing": [
+    "环境影响评价技术导则 地表水环境"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "472346",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=472346&sysid=143",
+   "question": "环评手续办理问题\n您好！我公司是从事废弃通讯设备回收的单位，主要工序是：设备外壳、内部元件切割分离；线缆剥皮分离除铜丝。废线路板作为危废委外处理，其余元器件、废金属、废塑料均外售处理。根据建设项目管理名录（2021版），废弃电器电子产品仅破",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设项目环境影响评价分类管理名录（ 2021 年版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "472191",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=472191&sysid=143",
+   "question": "关于一般固废转移的问题\n我司进行一般固废利用，根据环评，接受的一般固废均为8为数字＋字母组合，如900-099-S07，现我司是否可以在江苏省固体废物管理信息系统中添加同类型的十位数字代码，如900-099-S07-99、900-099-S",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于调整省固体废物信息管理系统中固体废物分类和代码的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "472110",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=472110&sysid=143",
+   "question": "在线设备环保认证过期是否可以验收\n企业以前买的设备，现在组织验收，发现CCEP认证证书过期了，但设备本身性能指标等都符合标准要求，比对检测合格，如果因证书问题而导致不能验收，对企业来说更换所有在线设备将是很大负担。所以特咨询这种情况是否可以",
+   "cited_hits": [],
+   "cited_missing": [
+    "生态环境监测条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-sthjt",
+   "id": "471967",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=471967&sysid=143",
+   "question": "环保设备咨询\n现场情况:VOCs排放标准为10mg/m3,要求设置量程为排放限值的2~3倍。 现设备量程为0~50 mg/m3。需要咨询的是:1.需要强制更改设备,是设备达到2-3倍的范围内?2.有相关的国家或地方性的法规规定么?",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省污染源自动监测监控管理办法(2022年修订)",
+    "固定污染源废气非甲烷总烃连续监测系统技术要求及检测方法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-sthjt",
+   "id": "471903",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=471903&sysid=143",
+   "question": "关于橡胶制品工业污染物排放标准中基准排气量问题\n厅长，您好，目前企业有一个轮胎制造项目，在核算废气源强时需要折算基准排气量下的浓度再对标，按目前二污普产污系数核算出来再折算后都会出现超标情况，最近新的橡胶制品工业污染物排放标准也出了征求意见",
+   "cited_hits": [],
+   "cited_missing": [
+    "橡胶制品工业污染物排放标准",
+    "GB27632-2011"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "471829",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=471829&sysid=143",
+   "question": "关于一般固废代码的问题\n现有一般固废综合利用项目环评报告表，其中一般固废原料根据《固体废物分类与代码目录》均为8位数字＋字母组合，如900-099-S07，但是后期在江苏省固体废物管理信息系统中转移时部分代码为10位数字和字母组合，如900",
+   "cited_hits": [],
+   "cited_missing": [
+    "固体废物分类与代码目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "471609",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=471609&sysid=143",
+   "question": "环评分类名录\n张家港某企业产品为：工业滤材，原料为：PP聚丙烯颗粒，生产工艺为：原料配比混合→真空上料干燥→螺杆熔融挤出→熔体过滤计量→模头喷丝＋热风牵伸→负压冷却成网→打褶→卷筒。请问环评分类是对照C17纺织业豁免环评，还是按照C292塑",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设项目环境影响评价分类管理名录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "471608",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=471608&sysid=143",
+   "question": "环评类别咨询\n某单位主要从事液压设备的制造，制造项目环保手续已齐全，在产品质保期内部分产品须返厂维修，维修工艺主要为拆解、清洗、更换零部件、组装，由于使用过设备油污较多，清洗过程需使用溶剂型清洗剂进行清洗，年使用量预计5吨，对照《建设项目分",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设项目环境影响评价分类管理名录 （2021年版） "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "471379",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=471379&sysid=143",
+   "question": "关于新的《建设项目环境影响管理名录》\n请问新的《建设项目环境影响评价管理名录》什么时候出台",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设项目环境影响评价分类管理名录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "471253",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=471253&sysid=143",
+   "question": "生态环境监测相关专业问题\n您好，请问根据《检验检测机构资质认定生态环境监测机构评审补充要求》（2025年），建筑工程专业属于生态环境监测相关专业吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "检验检测机构资质认定生态环境监测机构评审补充要求（2025年）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-sthjt",
+   "id": "471247",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=471247&sysid=143",
+   "question": "审批权限\n领导，您好！       有个项目，根据《建设项目分类管理名录》（2021版），项目类别属于“有色金属合金制造324-全部”做报告书，那根据《省级生态环境行政主管部门审批环境影响评价文件的建设项目目录（2025版）的通知》，这个类",
+   "cited_hits": [],
+   "cited_missing": [
+    "省政府办公厅关于印发江苏省省级生态环境行政主管部门审批环境影响评价文件的建设项目目录（2025年版）的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "470885",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=470885&sysid=143",
+   "question": "雨水排放口调试验收咨询\n你好，关乎雨水排放口COD、氨氮、总磷、总氮、PH、流量等调试验收，执行参考哪一类标准进行，上传平台是否同步需要执行HJ212-2025协议要求。",
+   "cited_hits": [],
+   "cited_missing": [
+    " 水污染源在线监测系统（ COD Cr 、 NH 3 -N 等）验收技术规范 ",
+    "污染物自动监测监控系统数据传输技术要求"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "470698",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=470698&sysid=143",
+   "question": "建设项目新污染物评价要求及重点行业雨水排放管理要求相关问题咨\n您好，我们在为企业做环评过程中遇到两个问题，想向您咨询下，如果可以，能否请求文字回复？1、有1家企业从事机制纸及纸板制造〔C2221〕，仅现有项目涉及新污染物甲醛，该物质与本次扩",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于加强重点行业涉新污染物建设项目环境影响评价工作的意见",
+    "国民经济行业分类",
+    "GB/T4754-2017"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "470578",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=470578&sysid=143",
+   "question": "关于现有企业新增纯水制备系统项目环评类别咨询\n现有汽车零部件制造企业，拟将超声波清洗用水由自来水改为纯水，计划新增一套10m3/h纯水制备系统，工艺为原水-多介质过滤-活性炭过滤-软化器-保安过滤-RO处理系统-纯水，请问该项目国民经济行业",
+   "cited_hits": [],
+   "cited_missing": [
+    "国民经济行业分类",
+    "建设项目环境影响评价分类管理名录（ 2021 年版）",
+    "GB/T 4754 — 2017"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-sthjt",
+   "id": "470540",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=470540&sysid=143",
+   "question": "一般工业固废收集处置单位需要做哪些台账\n《一般工业固体废物管理台账制定指南》适用于规范产废单位制定一般工业固体废物管理台账，那么对于一般工业固废收集处置单位，需要做哪些台账留档，有没有文件规定。是否可以按照《一般工业固体废物管理台账制定指南",
+   "cited_hits": [],
+   "cited_missing": [
+    "省固废条例",
+    "一般工业固体废物管理台账制定指南"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-sthjt",
+   "id": "470438",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=470438&sysid=143",
+   "question": "危险废物小微收集量与环评不符问题\n我们是一个危险废物小微收集单位，由于对市场情况不熟悉，当初环评的时候对每一种危险废物的收集量预估不准，导致在运作过程中，某些单一危险废物的收集量大于环评量，但大多数低于环评量，危险废物总的收集量也没有突破环",
+   "cited_hits": [],
+   "cited_missing": [
+    "污染影响类建设项目重大变动清单 （试行） "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "470339",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=470339&sysid=143",
+   "question": "关于风力发电项目噪声防护距离的确定\n请问，关于风力发电项目，对于单个风机点位的噪声防护距离如何确定？有没有明确的文件要求？比如，环评中预测出单个风机在300米的夜间预测值接近声环境标准中的45分贝（1类标准），此时，噪声防护距离是否可以稍微",
+   "cited_hits": [],
+   "cited_missing": [
+    "环境影响评价技术导则 声环境"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "470338",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=470338&sysid=143",
+   "question": "环评咨询\n您好，在传感器制造过程中涉及金膏（成分含2-乙基己酸铬0.1-6%）、银膏（成分含氧化镍0.1-1%，玻璃或陶瓷原料（含铅）1-10%）的烧结工序，烧结温度在880摄氏度。问烧结废气中是否需要考虑重金属。如果考虑，因年使用量较少，",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设项目环境影响报告表编制技术指南（污染影响类）（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "470082",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=470082&sysid=143",
+   "question": "竣工环境保护验收\n企业环评分析焊接废气经废气处理设施处理后有组织排放，环评总量为不定量分析，给了废气排放执行标准，是否需要按竣工环境保护验收的标准进行验收监测，是否可以只测一天一个频次用以验证达标排放。",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设项目竣工环境保护验收技术指南 污染影响类"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "469993",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=469993&sysid=143",
+   "question": "厂区内电动叉车是否需要办理非道路移动机械信息编码登记？\n您好！请问：根据《江苏省机动车和非道路移动机械排气污染防治条例》第五十三条，违反本条例第十九条规定，重点管理非道路移动机械未按照规定进行信息编码登记的，由生态环境主管部门责令限期改正；",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于加快推进非道路移动机械摸底调查和编码登记工作的通知",
+    "江苏省生态环境厅关于开展非道路移动机械摸底调查和编码登记工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "469700",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=469700&sysid=143",
+   "question": "排污许可类别咨询\n固定污染源排污许可分类管理名录（2019 版）中“通用工序”中，表面处理的简化管理中有一条内容“年使用 10 吨及以上有机溶剂的”。这里的有机溶剂具体是指什么？本单位使用水性漆及水性清洗剂超10吨，水性漆及水性清洗剂无需单",
+   "cited_hits": [],
+   "cited_missing": [
+    "固定污染源排污许可分类管理名录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "468947",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=468947&sysid=143",
+   "question": "关于城市桥梁项目环评的咨询\n尊敬的省厅领导，我是基层工作人员，我们这两年批复了很多政府配套工程，比如关于锦城路（含锦城路跨陆家河桥）工程可行性研究报告的批复：项目长度约220米，规划宽9米。设计等级为城市支路，设计时速20km/h。工程包括",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设项目环境影响评价分类管路名录（ 2021 年版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "468575",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=468575&sysid=143",
+   "question": "关于重污染天气应急减排措施制定标准的问题\n我公司为炭黑制造行业，目前为重污染天气重点行业绩效B级企业，请问参照什么标准制定公司重污染天气应急减排措施？",
+   "cited_hits": [],
+   "cited_missing": [
+    "重污染天气重点行业应急减排措施制定技术指南（ 2020 年修订版）",
+    "〈重污染天气重点行业绩效分级及减排措施〉补充说明",
+    "江苏省重污染天气应急预案（ 2025 年版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "468538",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=468538&sysid=143",
+   "question": "生活垃圾焚烧装置增加一般工业固废协调处理环保手续办理\n我司生活垃圾焚烧装置及配套飞灰填埋场项目环评已取得批复，现工程已竣工，尚未进行环保验收。由于可焚烧的生活垃圾较少，焚烧能力尚有富余，拟增加纺织类、化纤制品、塑料制品类一般工业固废及城镇污",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设项目环境影响评价分类管理名录 （2021年版） "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "468493",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=468493&sysid=143",
+   "question": "关于烟气在线监测设备的量程问题\n尊敬的省厅领导好！企业烟气在线监测设备已完成验收备案并长期稳定运行，由于企业废气排放标准后来发生变化开始执行的新的排放标准，导致烟气分析仪二氧化硫量程不能满足《江苏省污染源自动监控管理办法》（2022年修订）",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好重点单位自动监控安装联网相关工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "468448",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=468448&sysid=143",
+   "question": "成品油调和企业是否办理排污许可证？\n我公司建设的成品油调和项目，主要生产调和汽油，原材料是混合芳烃、石脑油、汽油、C5等。汽油调和采用在线调和工艺。汽油调和组分原料管道上分别设置质量流量计和调节阀组，汽油调和前，首先对原料罐内原料进行手动化",
+   "cited_hits": [],
+   "cited_missing": [
+    "固定污染源排污许可分类管理名录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "468130",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=468130&sysid=143",
+   "question": "关于名录中涉及敏感区的定义\n领导您好，我单位拟实施高速公路连接线工程，全长约2.2km，宽40m，建设标准为一级公路标准，该连接线两侧为永久基本农田，对照《建设项目环境影响评价分类管理名录（ 2021年版）》中“五十二、交通运输业、管道运输",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于项目是否涉及环境敏感区咨询的回复",
+    "建设项目环境影响评价分类管理名录（ 2021 年版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "467982",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=467982&sysid=143",
+   "question": "关于ldar检测\n目前监测规范和技术指南有《工业企业挥发性有机物泄漏检测与修复技术指南（HJ 1230—2021）》、《泄漏和敞开液面排放的挥发性有机物检测技术导则(HJ 733-2014)》和江苏省泄漏检测与修复（LDAR）实施技术指南，",
+   "cited_hits": [],
+   "cited_missing": [
+    " 泄漏和敞开液面排放的挥发性有机物检测技术导则",
+    "工业企业挥发性有机物泄漏检测与修复技术指南（HJ 1230—2021）",
+    "江苏省泄漏检测与修复（LDAR）实施技术指南",
+    "工业企业挥发性有机物泄漏检测与修复技术指南（HJ 1230—2021）",
+    "江苏省泄漏检测与修复（LDAR）实施技术指南"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "467816",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=467816&sysid=143",
+   "question": "关于排污许可管理类别的咨询\n企业为MC尼龙滑轮（电梯滑轮）生产企业，主要用于电梯、自动扶梯及升降机的传动轮，环评审批时对照《国民经济行业分类》行业类别按C3435电梯、自动扶梯及升降机制造归类审批。主要工艺流程如下为：①投料②熔融：将原料己",
+   "cited_hits": [],
+   "cited_missing": [
+    "固定污染源排污许可分类管理名录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "467721",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=467721&sysid=143",
+   "question": "特征污染物数据引用\n报告表环评项目，根据编制指南，排放国家、地方环境空气质量标准中有标准限值要求的特征污染物时，引用建设项目周边5千米范围内近3年的现有监测数据，项目涉及非甲烷总烃，但是《环境空气质量标准》（GB3095-2026）中无非甲",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设项目环境影响报告表编制技术指南（污染影响类）（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "467676",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=467676&sysid=143",
+   "question": "咨询车用尿素溶液制造项目环评\n项目外购尿素颗粒，自建纯水制备系统生产超纯水或外购超纯水，将超纯水与尿素颗粒按比例混合，混合后溶液经多道过滤后制成车用尿素溶液，用于车用尾气净化。想咨询下这个项目是不是需要编制环评。",
+   "cited_hits": [],
+   "cited_missing": [
+    "国民经济行业分类",
+    "建设项目环境影响评价分类管理名录（ 2021 年版）",
+    "GB/T 4754-2017"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "467586",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=467586&sysid=143",
+   "question": "关于排污许可证的管理等级问题\n我公司从事水稳拌合料的生产，主要是将水泥、石子、石粉、石料及少量水混合搅拌制成，产品类别属于3029其他水泥类似制品制造，因为我公司回收建筑垃圾，经分拣、破碎、筛分等工序生产出再生骨料（根据粒径分为石子、石粉、",
+   "cited_hits": [],
+   "cited_missing": [
+    "固定污染源排污许可分类管理名录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "467575",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=467575&sysid=143",
+   "question": "生物质燃料是否属于清洁低碳能源\n本项目位于常州市金坛区，项目涉及使用工业炉窑，企业使用生物质燃料，请问是否有政策限制要求，禁止使用生物质燃料；如企业使用生物质燃料，其是否属于清洁低碳能源，其焚烧尾气是否必须配套脱硫脱硝等治理措施，还是同天然",
+   "cited_hits": [],
+   "cited_missing": [
+    "高污染燃料目录",
+    "工业炉窑大气污染物排放标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "467303",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=467303&sysid=143",
+   "question": "从事一般工业固废收集、加工处理的企业排污许可管理类别咨询\n您好，一企业从事一般工业固废收集、加工（分拣、破碎、切割、液压等），主要涉及的一般工业固废是废弃电器电子产品、废塑料、废电线电缆等，不涉及废电池、废油、废轮胎加工处理。对照《固定污染",
+   "cited_hits": [],
+   "cited_missing": [
+    "固定污染源排污许可分类管理名录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "467157",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=467157&sysid=143",
+   "question": "工地内建筑垃圾直接破碎要不要办理环评手续\n在江苏省苏州市拆迁工地或新建工地内，利用拆除建筑垃圾，用移动式破碎机（无封闭防噪措施）破碎成再生骨料对外销售，整个过程会持续一个月至几年的时间。这个生产过程需要不需要办理环评手续和排污许可？如果不需",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设项目环境影响评价分类管理名录 （2021 年版 ） "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "467044",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=467044&sysid=143",
+   "question": "环评类别咨询\n本单位主要对建筑施工废弃物进行收集、分拣，分拣后委托下游单位进行处置和综合利用，请问是否要办理环评手续。",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设项目环境影响评价分类管理名录 (2021 年版 ) "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "466776",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=466776&sysid=143",
+   "question": "环评类型及专题判定\n你好：我单位建设自来水厂，配套新建取水泵站及原水输水管。对照国民经济行业代码属于D4610自来水生产和供应。根据《建设项目环境影响评价分类管理名录》（（2021年版  部令第16号），“自来水生产和供应461（不含供应工",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设项目环境影响报告表编制技术指南（污染影响类）",
+    "建设项目环境影响评价分类管理名录",
+    "建设项目环境影响报告表编制技术指南（生态影响类）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "466602",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=466602&sysid=143",
+   "question": "关于建设项目行业类别及环评分类判别的问题\n您好，我们建设项目产品为负性光刻胶、六甲基二硅烷胺、丙烯酸树脂类光刻胶、KrF光刻胶、稀释剂（JA），按照立项情况行业类别为C266化工类，请问环评类别是按照C266化工类还是C3985电子专用材料",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设项目环境影响评价分类管理名录"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-sthjt",
+   "id": "466466",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=466466&sysid=143",
+   "question": "咨询排污许可管理名录中冷轧工艺\n您好，我想咨询一下在《固定污染源排污许可分类管理名录（2019年版）》中第二十六、黑色金属冶炼和压延加工业31，73钢压延加工313中的冷轧工艺，我公司的生产工艺是冷拉工艺，它是否属于这个排污许可分类管理名录",
+   "cited_hits": [],
+   "cited_missing": [
+    "固定污染源排污许可分类管理名录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "466357",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=466357&sysid=143",
+   "question": "咨询环评和排污\n一个塑料加工厂收购废旧塑料袋作为原料，经过清洗一加热溶化一破碎后生成塑料颗粒作为产品出售，请问环评和排污应当是简化管理还是登记管理，希望书面回复",
+   "cited_hits": [],
+   "cited_missing": [
+    "固定污染源排污许可分类管理名录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "466271",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=466271&sysid=143",
+   "question": "关于建设项目环境影响报告表编制技术指南（污染影响类）专项问题\n建设项目环境影响报告表编制技术指南（污染影响类）（试行）中写到“有毒有害和易燃易爆危险物质存储量超过临界量的建设项目“需要设置专项，那么当各项有毒有害和易燃易爆危险物质存储量均不",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设项目环境影响报告表编制技术指南 （污染影响类）",
+    "建设项目环境风险评价技术导则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "466008",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=466008&sysid=143",
+   "question": "关于综合废水执行标准的请教\n尊敬的领导您好：我单位主要生产橡胶管，涉及硫化工艺，橡胶管水直接冲洗，水直接试压，硫化工序使用蒸汽直接加热，上述工序产生少量废水，厂区污水以生活污水为主，生产废水较为洁净，上述废水混合排放，是否可以执行城镇污水处",
+   "cited_hits": [],
+   "cited_missing": [
+    "橡胶制品工业污染物排放标准",
+    "污水综合排放标准",
+    "GB27632-2011",
+    "GB8978-1996",
+    "GB 27632-2011"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "465508",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=465508&sysid=143",
+   "question": "后评价相关咨询\n某个企业先编制了环评报告书在设区市级生态环境部门审批，后又编写了自查评估报告在县级生态环境部门备案，现企业想要编制后评价，应当报哪一级生态环境部门备案。",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设项目环境影响后评价管理办法（试行）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-sthjt",
+   "id": "465457",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=465457&sysid=143",
+   "question": "关于生物质锅炉咨询\n本企业产品为汽车内饰及家具软体面料，位于乡镇工业园区，因园区目前暂未铺设燃气管网，短期内无法满足的投产进度需求。电锅炉则受限于工业用电负荷及峰谷电价成本，经济性不足，因此准备拟采用8蒸吨/小时生物质锅炉进行供热，配套高效",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于开展秸秆等生物质供热超低排放试点工作的指导意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "465260",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=465260&sysid=143",
+   "question": "环评咨询\n您好，本企业行业类别为C276 生物药品制品制造，产品为植物源产品，生产工艺为植物源原料物理研磨、物料调配复配，生产膏剂、乳剂、悬浮剂。生产过程无化学反应、无生物合成反应，仅为纯物理加工工序；清洗废水内部循环套用不外排，废气仅产生",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设项目环境影响评价分类管理名录（ 2021 年版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "465081",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=465081&sysid=143",
+   "question": "关于在线仪器重金属总镍量程设定和环保验收问题咨询\n1目前关于重金属总镍的量程设定是否一定是按照排放限值的2-3倍，因排放限值较低，这量程能都比2-3倍大是否可行吗举例如排放限值0.1可都设置0-1量程2 关于重金属环保验收问题，目前是否有新",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省污染源自动监测监控管理办法（ 2022 年修订）",
+    "水污染源在线监测系统（ CODCr 、 NH3-N 等）验收技术规范",
+    "水质镍自动监测仪技术要求及检测方法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-sthjt",
+   "id": "464983",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=464983&sysid=143",
+   "question": "关于HJ1405—2024监测断面咨询\n您好，我想咨询以下事项：HJ1405—2024中“4.2.4 对无法满足 4.2.3 要求的，应尽可能选择流场均匀稳定的监测断面，避开涡流区，并采取相应措施保证监测断面废气分布相对均匀，断面无紊流，流",
+   "cited_hits": [],
+   "cited_missing": [
+    "排污单位污染物排放口监测点位设置技术规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "464963",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=464963&sysid=143",
+   "question": "环评相关手续咨询\n为降低VOCs排放，选用水性清洗剂替代有机溶剂清洗剂，相应的清洗设备需要替换，该替换的清洗设备是否需要办理环评等相关手续。",
+   "cited_hits": [],
+   "cited_missing": [
+    "污染影响类建设项目重大变动清单 （试行） ",
+    "建设项目环境影响评价分类管理名录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "464959",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=464959&sysid=143",
+   "question": "环评相关手续咨询\n为降低VOCs排放，选用水性清洗剂替代目前使用的有机溶剂清洗剂，相应的清洗设备需要替换，该替换的清洗设备是否需要进行环评等相关手续。",
+   "cited_hits": [],
+   "cited_missing": [
+    "污染影响类建设项目重大变动清单 （试行） ",
+    "建设项目环境影响评价分类管理名录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "464955",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=464955&sysid=143",
+   "question": "水污染源在线监测COD比对咨询\n《水污染源在线监测系统（CODCr、NH3-N 等）运行技术规范》（HJ 355-2019）中规定当实际水样COD浓度＜30mg/L时，用浓度为 20～25 mg/L 的标准样品替代实际水样进行测试，那后续间",
+   "cited_hits": [],
+   "cited_missing": [
+    " 水污染源在线监测系统（ COD Cr 、 NH 3 -N 等）运行技术规范 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "464935",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=464935&sysid=143",
+   "question": "建设项目土壤环境影响评价项目类别判定\n建设项目行业类别为C1495食品及饲料添加剂制造，为有发酵工艺的饲料添加剂制造项目。对照《环境影响评价技术导则 土壤环境》附录A中无此类项目类别，附录表A.1中制造业-石油、化工--生物、生化制品制造，",
+   "cited_hits": [],
+   "cited_missing": [
+    "环境影响评价技术导则 土壤环境"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "464591",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=464591&sysid=143",
+   "question": "关于《建设项目环境影响评价分类管理名录》 最新版实施时间\n你好，我想咨询一下最新的《建设项目环境影响评价分类管理名录》的实施时间",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设项目环境影响评价分类管理名录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "464528",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=464528&sysid=143",
+   "question": "环评影响评价等级咨询\n某项目主要生产汽车零部件，行业类别属于C3670汽车零部件制造，主要生产3个产品，分别为汽车电机爪极、钢丝棉以及汽车盘式制动衬片。1、汽车电机爪极‌是汽车电机中的一个关键部件，主要用于产生电流。 主要 生产工艺为：钢材",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设项目环境影响评价分类管理名录（ 2021 年版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "464290",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=464290&sysid=143",
+   "question": "塑料制品业，注塑产生的边角料及次品经破碎后回用于生产\n注塑产品在生产过程中会产生边角料及次品，原环评和验收按照一般固废外售，现拟采用破碎机自行破碎后直接回用于生产（仅针对厂内自产的边角料及次品），请问是否定义为再生塑料为原料进行生产，如果可",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设项目环境影响评价分类管理名录（ 2021 年版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "464269",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=464269&sysid=143",
+   "question": "关于《规模化畜禽养殖场氨气排放量核算技术指南（试行）》\n本项目养殖场建设规模为年存栏能繁母猪24540头，年出栏商品仔猪588960头，目前环境影响报告编制中。依据《规模化畜禽养殖场氨气排放量核算技术指南（试行）》（HJ 1434—2025",
+   "cited_hits": [],
+   "cited_missing": [
+    "规模化畜禽养殖场氨气排放量核算技术指南（试行）",
+    "环境影响评价技术导则大气环境"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "463498",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=463498&sysid=143",
+   "question": "印刷电路板行业文字印刷、阻焊印刷的挥发性有机废气执行标准\n印刷电路板行业的文字印刷、阻焊印刷工段产生的非甲烷总烃执行江苏省地方标准《大气污染物综合排放标准》（DB32/4041-2021）还是《印刷工业大气污染物排放标准》（DB32/443",
+   "cited_hits": [],
+   "cited_missing": [
+    "印刷工业大气污染物排放标准",
+    "印刷工业大气污染物排放标准",
+    "半导体行业污染物排放标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "459226",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=459226&sysid=143",
+   "question": "定电位电解法传感器的更换问题\nHJ 57-2017规定定电位电解传感器的使用寿命一般为 1~2 年，因我们便携式设备使用频率较低，若两年后仪器未出现传感器失效的表现，且送省级计量单位校准合格，请问还需要到期就更换传感器吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "固定污染源废气 二氧化硫的测定 定电位电解法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "458077",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=458077&sysid=143",
+   "question": "请问我们环境空气评价标准 和评价技术规范是用旧标准还是新标准\n新的环境空气质量标准（GB3095-2026）和环境空气质量评价技术规范（HJ663-2026)已于3月1日施行。我站正在编定十四五环境质量报告书，预计5月份才能定稿，请问我们环",
+   "cited_hits": [],
+   "cited_missing": [
+    "环境空气质量标准",
+    "环境空气质量指数（AQI）技术规定（试行）",
+    "环境空气质量评价技术规范（试行）",
+    "GB3095-2012"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "456697",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=456697&sysid=143",
+   "question": "明渠流量计比对答疑\n我司为污水处理厂，出水口安装有超声波明渠流量计，参照《江苏省污染源 自动监测监控管理办法》和HJ355中的相关规定。每季度至少一次对超声波明渠流量计进行比对试验。如委托有资质的第三方计量机构进行季度校准，是否能替代标准中",
+   "cited_hits": [],
+   "cited_missing": [
+    " 水污染源在线监测系统（COD Cr 、NH 3 -N 等）运行技术规范 ",
+    "江苏省污染源自动监测监控管理办法（2022年修订）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-sthjt",
+   "id": "456605",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=456605&sysid=143",
+   "question": "氮氧化物量程设置\n根据江苏省规定新建cems在线设备量程设置值为排放标准的2到3倍，氮氧化物是由NO和NO2组成，那么NO和NO2的量程该怎么设置?",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省污染源自动监测监控管理办法（2022年修订）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "454056",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=454056&sysid=143",
+   "question": "抗碱封闭底漆原料替代相关问题\n我公司汽车模具制造铸造工序中环评设计PEC模具表面采用人工刷抗碱封闭底漆；现为改善工作环境、减少无组织有机废气排放，采用石英砂、天然无毒粘合覆膜植物粉、水代替抗碱封闭底漆人工刷在PEC模具表面，变动后减少有机废",
+   "cited_hits": [],
+   "cited_missing": [
+    "省生态环境厅印发关于进一步优化环评与排污许可管理支撑经济高质量发展的若干措施的通知",
+    "省生态环境厅关于加强涉变动项目环评与排污许可管理衔接的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "453994",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=453994&sysid=143",
+   "question": "环保在线设备验收问题的咨询\n按照现行的水质在线的验收要求，在线设备要联网后试运行一个月，我想请教2个问题.1.试运行期间，在线设备经常出现超标数据，是不是可以视为设备正常运行 不影响进行比对验收。2.试运行一个月后 第三方进行水样比对，水样",
+   "cited_hits": [],
+   "cited_missing": [
+    " 水污染源在线监测系统（COD Cr 、NH 3 -N等）验收技术规范 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "452810",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=452810&sysid=143",
+   "question": "锅炉大气监测数据报告中排放浓度、排放速率、折算浓度的问题\n依据《锅炉大气污染物排放标准》DB32/4385-2022中6.1“实测的大气污染物排放浓度，应按照公式（1）换算为表 5 规定的基准氧含量条件下的排放浓度，并以此作为达标判定的依据",
+   "cited_hits": [],
+   "cited_missing": [
+    "检验检测机构资质认定管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "451640",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=451640&sysid=143",
+   "question": "关于水污染源在线监控安装调试疑问\n根据HJ 353-2019规范中8.3及8.3要求，30天试运行期间，在线监测设备（如COD）是否出现故障报警就必须重新开始30天试运行？",
+   "cited_hits": [],
+   "cited_missing": [
+    "水污染源在线监测系统（CODCr、NH3-N 等）安装技术规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "450383",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=450383&sysid=143",
+   "question": "TOC转换系数的确定是否必须由具有CMA资质的监测机构出具报\n运维公司有自建实验室，负责的排污单位采用TOC监测仪按照HJ353要求通过转换系数测量CODCr监测值，请问TOC-COD转换系数确定中的COD水样分析是否能够在公司实验室自行手",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省污染源自动监测监控管理办法",
+    " 水污染源在线监测系统（COD Cr 、NH 3 -N等）验收技术规范 "
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-sthjt",
+   "id": "449048",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=449048&sysid=143",
+   "question": "环境空气是否可以增加采样时长达到增大采样体积降低检出限\n老师：    您好！我们在使用GB/T 15502-1995检测环境空气苯胺类过程中，发现依据标准采样体积检出限为0.5毫克/立方米，远大于HJ 2.2附录D标准值0.1毫克/立方米要",
+   "cited_hits": [],
+   "cited_missing": [
+    "GB/T 15502-1995"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "448359",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=448359&sysid=143",
+   "question": "在线监控设备备用机使用时限\n水污染源在线监测仪器故障期间临时使用备机，一次可以用多久?",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省污染源自动监测监控管理办法（2022年修订）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-sthjt",
+   "id": "448089",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=448089&sysid=143",
+   "question": "关于平台自动监控数据为负值的咨询\n企业有组织排口安装有非甲烷总烃在线监测设备，参照手工监测数据，排放浓度较低，在线监控设备易显示负值，运维单位检查校准结果设备零点、量程漂移与示值误差皆在技术性能指标允许误差范围内，请问，这种负值数据需要在平",
+   "cited_hits": [],
+   "cited_missing": [
+    "固定污染源废气非甲烷总烃连续监测技术规范",
+    "污染物排放自动监测设备标记规则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "448064",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=448064&sysid=143",
+   "question": "关于环境空气氮氧化物采样时长的问题\nHJ479-2009 环境空气氮氧化物(一氧化氮和二氧化氮)的测定盐酸萘乙二胺分光光度法中长时间采样备注为24小时，GB 3095-2012 环境空气质量标准要求日均值至少20小时，请问能否使用HJ479",
+   "cited_hits": [],
+   "cited_missing": [
+    "环境空气 氮氧化物（一氧化氮和二氧化氮）的测定 盐酸萘乙二胺分光光度法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "447385",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=447385&sysid=143",
+   "question": "地下水色度的检测\n老师：   您好！企业地下水的自行检测，当水的颜色为浅灰色，还可以用《 水质 色度的测定》GB/T 11903-1989中铂钴比色法检测吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "水质 色度的测定",
+    "GB 11903-89"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "444720",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=444720&sysid=143",
+   "question": "关于低流速颗粒物采样采样嘴的设置选择问题\n根据《固定污染源废气  低浓度颗粒物的测定 重量法 HJ836-2017》的6.3.4规定采样嘴“入口直径应至少包括4.0mm、5.0mm、6.0mm、8.0mm、10.0mm、12.0mm几种”在",
+   "cited_hits": [],
+   "cited_missing": [
+    "固定污染源废气 低浓度颗粒物的测定 重量法 HJ 836-2017"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "444272",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=444272&sysid=143",
+   "question": "污染物自动监测监控系统数据传输技术要求HJ 212-2025\n废水应按以下规则判定数据有效性：a） 废水污染物（化学需氧量、总有机碳、氨氮、总磷、总氮等）数据有效性按照小时数据组进行认定，数据组中存在数据缺失则该数据组无效；请问该项是否视为",
+   "cited_hits": [],
+   "cited_missing": [
+    "水污染源在线监测系统（ CODCr 、 NH 3 -N 等 ）数据有效性判别技术规范",
+    "水污染源在线监测系统（ CODCr 、 NH 3 -N 等 ）运行技术规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "443518",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=443518&sysid=143",
+   "question": "关于在线设备验收的问题\nHJ 353安装规范中要求设备初步调试结束，需要进行水样比对，我的问题是1.需要按照验收的水样比对进行，进行现场取样比对，出具 比对报告和检测报告？2.还是可以进行送样出具检测报告。现场设备由企业或是生产商进行设备的",
+   "cited_hits": [],
+   "cited_missing": [
+    "水污染源在线监测系统（CODCr、NH -N 等）验收技术规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "442288",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=442288&sysid=143",
+   "question": "HJ905-2017中，生产周期的定义问题\nHJ905-2017中规定连续有组织排放源按生产周期确定采样频次，生产周期在8小时以内的，采样间隔不小于2h，生产周期大于8h的，采样间隔不小于4h。这个里面的生产周期定义是什么？是排气筒连续排放",
+   "cited_hits": [],
+   "cited_missing": [
+    " 恶臭污染环境监测技术规范 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "441903",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=441903&sysid=143",
+   "question": "关于在线表湿度仪验收相关问题咨询\n我司一在线表湿度仪需要更换，请问在安装、初调后，稳定运行不少于168h后，是否仅需对湿度参数进行调试检测？调试检测合格稳定运行168h后，是否仅对湿度参数进行比对验收？",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省污染源自动监测监控管理办法（2022年修订）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-sthjt",
+   "id": "441335",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=441335&sysid=143",
+   "question": "安装调试时烟气在线监测流速仪速度场系数精密度计算问题？\n企业生产排放期间，烟气流速普遍低于5m/s。并且现场治理设施的变压吸附单元（PSA)是两组罐组交替工作，一组活性炭罐在吸附工作状态，另一组罐需要经过泄压，真空解析，反吹再生几个阶段，再",
+   "cited_hits": [],
+   "cited_missing": [
+    "固定污染源排气中颗粒物测定与气态污染物采样方法",
+    "GB/T 16157—1996"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "440228",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=440228&sysid=143",
+   "question": "一氧化碳和氯化氢自动监测\n领导您好，《固定污染源废气一氧化碳和氯化氢 自动监测技术规范》（HJ1403—2024）表2中正确度核查，一氧化碳和氯化氢的手动技术指标为“满足HJ75”，是不是就是相对准确度≤15%？这样的话，针对低浓度样品非常",
+   "cited_hits": [],
+   "cited_missing": [
+    " 固定污染源废气一氧化碳和氯化氢自动监测技术规范 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "439910",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=439910&sysid=143",
+   "question": "排污许可证填报内容\n我公司属于钢铁短流程企业，经电炉炼钢（高速工具钢）热轧（无生产废水）后进行冷轧酸洗，使用盐酸和硫酸，根据《排污许可证申请与核发技术规范 钢铁工业（HJ 846—2017）》表3中相关冷轧酸洗废水产物信息填报排污许可证， ",
+   "cited_hits": [],
+   "cited_missing": [
+    "排污许可证申请与核发技术规范 钢铁工业"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "439451",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=439451&sysid=143",
+   "question": "1h内以等时间间隔采集3~4个瞬时样品的时间间隔要求\n《制药工业大气污染物排放标准》DB32/4042-2021中7.2.2除臭气浓度和二噁英类外，排气筒中大气污染物浓度可以任何连续1 h采样获得平均值，或者在任何1 h内以等时间间隔采集3",
+   "cited_hits": [],
+   "cited_missing": [
+    " 固定源废气监测技术规范 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "438757",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=438757&sysid=143",
+   "question": "排污许可证申请相关问题\n申请排污许可证时，排污单位基本情况信息表需要选择是否属于大气重点控制区、所在地是否属于总磷控制区、所在地是否属于总氮控制区，以下为具体问题：1.所在地是否属于大气重点控制区，是或否后面有一个重点控制区域，可以点击查询",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于执行大气污染物特别排放限值的通告",
+    "江苏省“十三五”生态环境保护规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "437699",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=437699&sysid=143",
+   "question": "烟气在线系统量程设置问题\n领导，您好！企业安装烟气排放连续监测系统，其中CO排放限是100mg/m3，设备量程设定为0-300mg/m3。若设备显示采样数据为2000mg/m3，该2000mg/m3数据上传监管平台导致CO数据小时超标，请问",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于发布<污染物排放自动监测设备标记规则>的公告",
+    "江苏省污染源自动监测监控管理办法（2022年修订）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "435606",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=435606&sysid=143",
+   "question": "废水流量计比对问题咨询\n省厅领导：我司为非重点排污单位，仅安装有超声波明渠流量计，根据《江苏省污染源 自动监测监控 管理办法》第二十四条 排污企业应委托有资质的环境检测机构定期开展污染源自动监测设施人工比对监测和校验。每季度至少一次对超声波",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省污染源自动监测监控管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-sthjt",
+   "id": "434726",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=434726&sysid=143",
+   "question": "DB32T 5089-2025 钢铁行业清洁生产评价指标体系\n企业是不锈钢生产企业，请问DB32T 5089-2025 钢铁行业清洁生产评价指标体系中，个别指标不涉及或不适用，分值和等级那应该取何值？",
+   "cited_hits": [],
+   "cited_missing": [
+    "钢铁行业清洁生产评价指标体系（ DB32/T 5089—2025）",
+    "清洁生产审核评估与验收指南",
+    "清洁生产评价指标体系编制通则（ GB/T 43329-2023）",
+    "清洁生产评价指标体系编制通则（GB/T 43329-2023）",
+    "GB/T 43329-2023",
+    "GB/T 43329-2023"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "433359",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=433359&sysid=143",
+   "question": "关于固定污染源有组织排放烟温高于100℃时湿度测量方法的选用\n尊敬的省厅同志您好，我们近期在采样时遇到了这样的问题：通常情况下，我们使用GB/T 16157-1996及修改单中5.2.3干湿球法测定固定污染源中烟气湿度，但干湿球法的烟温要求",
+   "cited_hits": [],
+   "cited_missing": [
+    "GB/T 16157-1996"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "433237",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=433237&sysid=143",
+   "question": "关于非甲烷总烃示值误差方面问题咨询\n《固定污染源废气 非甲烷总烃连续监测技术规范》（HJ 1286-2023）表B.2示值误差内容有四个位置进行填写。请问这四种标准气体和HJ75一样，分别采用零点气、高（80-100%）、中（50-60%）",
+   "cited_hits": [],
+   "cited_missing": [
+    "固定污染源废气 非甲烷总烃连续监测技术规范",
+    "固定污染源烟气（SO 2 、NO X 、颗粒物）排放连续监测技术规范",
+    "固定污染源废气 非甲烷总烃连续监测技术规范"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-sthjt",
+   "id": "431076",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=431076&sysid=143",
+   "question": "关于COD消解时间有无具体时间要求？\n在相关环保规范中，在线COD分析仪加热时间有无具体规范要求，具体加热时间如何参照，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "化学需氧量（CODCr）水质在线自动监测仪技术要求及检测方法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "430699",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=430699&sysid=143",
+   "question": "环保在线设备的HJ354验收中替代样使用的咨询\n我们再在线设备的验收中经常碰到现场实际数据很低需要使用替代样的情况。请详细讲解下替代样的使用规则。可以举例  比如验收COD设备 ，在什么情况下使用替代样，是不是可以参考设备的历史数据，还是需",
+   "cited_hits": [],
+   "cited_missing": [
+    "水污染源在线监测系统（COD Cr 、NH 3 -N等）验收技术规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "428937",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=428937&sysid=143",
+   "question": "环保在线设备中重金属分析设备的验收问题\n在相关的环保规范中，在线重金属分析仪的验收并未有涉及，我们再重金属验收过程中该如果操作，是参考在线设备的相关 HJ354中 常规参数的验收以及要求进行相关的验收还是可以参考别的文件进行验收。还有在线设",
+   "cited_hits": [],
+   "cited_missing": [
+    "水污染源在线监测系统（COD Cr 、NH 3 -N等）验收技术规范",
+    "总铬水质自动在线监测仪技术要求及检测方法",
+    "六价铬水质自动在线监测仪技术要求及检测方法",
+    " 铅水质自动在线监测仪技术要求及检测方法 ",
+    " 水质铜自动监测仪 技术要求及检测方法 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "428675",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=428675&sysid=143",
+   "question": "水污染源在线监测系统做样频次问题\n尊敬的省厅领导您好，请问关于水污染源在线监测系统做样频次有明确规定多久一次嘛？以下为困惑点：1、已作废的HJ355/T-2007中8.4明确规定：在连续排放情况下，至少每小时获得一个监测值，每天保证有 24",
+   "cited_hits": [],
+   "cited_missing": [
+    "水污染源在线监测系统（CODcr、NH3-N 等）运行技术规范",
+    "水污染源在线监测系统（CODcr、NH3-N 等）运行技术规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "428549",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=428549&sysid=143",
+   "question": "省级环评审批事项咨询\n有一个危废处置利用项目，处置利用废线路板及边角料、废含铜树脂粉，建成后新增年处置废线路板及边角料、废含铜树脂粉的处置能力，产品为铜粉及脂塑板，请问是否属于《省政府办公厅关于印发江苏省省级生态环境行政主管部门审批环境影响",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省级生态环境行政主管部门审批环境影响评价文件的建设项目目录（ 2025 年版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "428343",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=428343&sysid=143",
+   "question": "水质在线仪器比对流程咨询\n如果企业的COD平时在线监测数据都是低于30mg/L，那是不是可以不做实际水样比对，直接用20-25mg/L的标准样品替代实际水样进行测试？",
+   "cited_hits": [],
+   "cited_missing": [
+    "水污染源在线监测系统（CODCr、NH3-N 等）运行技术规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "427151",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=427151&sysid=143",
+   "question": "清洁生产资质的问题\n按照要求开展强制性清洁生产工作，委托第三方编制清洁生产报告，请问第三方编制单位需要有什么资质，是否必须是省厅公布名单内的？具体编制人员有什么要求，是否必须持有通过能力培训的证书？",
+   "cited_hits": [],
+   "cited_missing": [
+    "清洁生产审核办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-sthjt",
+   "id": "426203",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=426203&sysid=143",
+   "question": "无组织排放现场监测人员数量\n进行大气污染物无组织排放监测时，采一个参照点，3个监控点，需要4名环境监测持证人员同时进行吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省大气污染物无组织排放监测规范化操作指南(试行)"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "425824",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=425824&sysid=143",
+   "question": "氧含量不参与折算需不需要监测\n您好，我想请问，企业工况中氧含量不参与折算，也不耗氧，需要监测通标气吗？烟尘是氧化锆的，也不折算需要通标气吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省污染源自动监测监控管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-sthjt",
+   "id": "424884",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=424884&sysid=143",
+   "question": "不同温度下缓冲溶液如何取值\n依据HJ 1147-2020 水质 pH值的测定 电极法 , 测试水质中ph需要进行校准，但是标准中“表A.2不同温度下各标准缓冲溶液对应的pH值 ”，只有0℃, 5℃, 10 ℃等不同水温对应的ph缓冲溶液值，",
+   "cited_hits": [],
+   "cited_missing": [
+    "水质 pH值的测定电极法"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "js-sthjt",
+   "id": "482020",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=482020&sysid=143",
+   "question": "关于稀土尾渣、含锡污泥危废治理项目是否触发园区负面清单的咨询\n省厅领导见信好。咨询项目核心业务为危险废物无害化处理，主要消纳周边区域工业重金属危险废物和稀土伴生放射性选矿尾渣，年处理危废及选矿尾渣约20万吨，采用玻璃化熔融固化工艺。熔融处置",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "481030",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=481030&sysid=143",
+   "question": "对于长江经济带发展负面清单指南江苏省实施细则中有色的疑问\n关于印发《〈长江经济带发展负面清单指南（试行2022版）〉江苏省实施细则》的通知（苏长江办发【2022】55号）附件实施细则条款中提出“第二、区域活动12. 禁止在合规园区外新建、扩",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "480707",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=480707&sysid=143",
+   "question": "实际水样比对试验\n领导：您好！根据规范1：HJ 355-2019 水污染源在线监测系统（CODCr、NH3- N 等）运行技术规范中8.2.2.1 针对CODcr、TOC、NH3-N、TP、TN水质自动分析仪应每月至少进行一次实际水样比对试",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "480623",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=480623&sysid=143",
+   "question": "环评中污泥待鉴别问题\n企业产品为刷用单丝，环评描述用的原料是pp、pe、色母料、片碱（0.4t/a）、乙酸（0.4t/a）、表面活性剂（洗洁精0.02t/a）等进行生产。针对生产废水的描述是：刷用单丝经碱洗槽浸泡后再用清水清洗，经离心甩干工",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "480554",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=480554&sysid=143",
+   "question": "关于“未保证自动监测监控设备正常运行”的问题\n根据《江苏省污染源自动监测监控管理办法（2022 年修订）》第二十七条“有下列情形之一的，视为排污单位未保证自动监测监控设备正常运行：（二）未按技术规范进行维护，生态环境主管部门抽检时比对监测或",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "475080",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=475080&sysid=143",
+   "question": "空气自动检测运维与质控证书\n请问一下，江苏省内关于空气自动检测运维与质控证书的要求是什么？是所有机构颁发都认可吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "474939",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=474939&sysid=143",
+   "question": "在线监测运维证书\n在线监测运维颁证机构：中国环境保护产业协会、中华环保联合会、中国环境科学学会、中国生态文明研究与促进会，这些机构颁发的证书在江苏省内是不是都有效？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "473607",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=473607&sysid=143",
+   "question": "关于表面无电路的废电路板边角料废物属性问题\n某企业生产产品为单面印制电路板，主要生产工艺为原料基板（覆铜板）开料→磨边→前处理→线路印刷→烘烤→曝光→显影→蚀刻去膜→钻定位孔→中处理→防焊和字符印刷→UV固化→冲压→V割→水洗→烘干→电测→",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "473602",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=473602&sysid=143",
+   "question": "关于噪声类别问题\n某公司为热电联产公司，建设蒸汽管道，向园区内企业输送蒸汽，出于实际运行需要，在沿线蒸汽管道设置了多个疏水阀，在运行过程中，疏水阀会产生噪声。请问此类噪声属于什么噪声，由哪个部门负责处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "473545",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=473545&sysid=143",
+   "question": "废粉体涂料属于危险废物还是一般固废？\n我想咨询一下，我公司静电喷涂加工过程中会因掉落及清理产线而产生废粉体涂料及过期的粉体涂料，该粉体涂料主要成分为聚酯树脂/环氧树脂、硅灰石（13983-17-0）及硫酸钡（13462-86-7）等，请问这",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "471646",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=471646&sysid=143",
+   "question": "环保脸谱自动监控模块，在线监测因子添加有误可以删除吗\n我公司一个排放口在线监测的污染因子为非甲烷总烃（环评和排污许可的要求），但实际多添加了烟尘、二氧化硫、氮氧化物三个因子，目前这个三个因子没有在线监测，环保脸谱首页每天都推送数据缺失待办，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "471188",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=471188&sysid=143",
+   "question": "关于采样前洗井测量数据稳定的咨询\n领导你好：HJ164-2020和HJ1019-2019关于采样前洗井的规定至少3项检测指标连续三次测定的变化数据符合要求即代表完成洗井可以采样，请问满足三次数据比较需要测量3组数据还是4组数据，数据变化符合",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "470395",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=470395&sysid=143",
+   "question": "316L不锈钢粉末3D打印融化废气是否考虑镍、铬及其化合物\n3D打印宠物骨科植入物，原料为316L不锈钢粉末、氩气等，用量65吨，成分：Cr 16-18%、Ni 10-14%、Mo 2-3%、铁余量。3D打印熔化工序对金属粉进行激光熔化（温",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "470312",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=470312&sysid=143",
+   "question": "建设项目环评适用情况咨询\n某企业从事餐厨废弃物油脂回收加工，项目生产工艺如下：对收集的餐厨废弃粗油脂原料通过除杂过滤、搅拌蒸煮（温度80-90度）、三相离心机完成固液分离，分离后的合格油脂产物输送至储罐内暂存，项目工艺简单，为物理加工，最终",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "468286",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=468286&sysid=143",
+   "question": "应急废气排放口是否纳入许可证管理？\n化工企业生产装置于2017年建成，根据安全要求，在装置高处设置有应急废气排放口，排放前设置有旋风除尘器，根据反应容器内压力自动开启泄压。企业生产使用挥发性有机溶剂，环评排放污染因子也主要为非甲烷总烃。同时",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "456851",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=456851&sysid=143",
+   "question": "环保脸谱问题咨询\n环保脸谱显示弱密码或者三个月未修改密码，让强制修改密码？是必须要改吗？以前没这种情况",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "453307",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=453307&sysid=143",
+   "question": "注册环保工程师是否对应生态环境工程专业技术系列的工程师职称？\n根据《省人力资源社会保障厅关于调整<江苏省专业技术类职业资格和职称对应目录>的通知》（苏人社发〔2019〕183 号），“注册环保工程师”职业资格对应职称为“工程师”。根据《省专",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "452967",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=452967&sysid=143",
+   "question": "三类射线装置加装CT模块属于几类射线装置？\n你好，三类射线装置加装了CT机构、CT模块、CT软件以后属于几类射线装置？是三类射线装置还是二类射线装置？需要做环评还是备案就可以？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "452907",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=452907&sysid=143",
+   "question": "在线检测仪量程变化是否需要重新验收\n您好！非甲烷总烃在线检测仪按原先标准已验收，因排放标准发生变化，导致量程设置发生变化（原量程设置200mg/Nm3，新量程设置为150mg/Nm3），未更换检测仪，是否需要按新标准重新验收，盼复",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "449817",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=449817&sysid=143",
+   "question": "关于CEMS气态污染物分析仪双量程的设置及设备要求事宜\n尊敬的老师，来信咨询关于CEMS气态污染物分析仪双量程的设置及设备要求事宜。生态环境部484号文对双量程的要求是“颗粒物或气态污染物执行超低排放限值或特别排放限值的，测试量程应设置双量",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "448627",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=448627&sysid=143",
+   "question": "HJ 734-2014中穿透试验，后管低于检出限，还计算吗？\n固定污染源废气 挥发性有机物的测定 固相吸附-热脱附 气相色谱-质谱法HJ 734-2014，标准的11.6条吸附采样管的穿透试验，串连二支吸附采样管采样，如果在后一支吸附采样管",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "445745",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=445745&sysid=143",
+   "question": "放射性同位素与射线装置豁免备案\n请问，符合特定安全条件的含放射源设备，可以办理豁免备案手续吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "437885",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=437885&sysid=143",
+   "question": "采颗粒物流速低于5m/s，使用等速还是恒流采样？\n在颗粒物在线设备运行中，有出现流速小于5m/s的情况，现在要对颗粒物CEMS调试做9组数据以辅助计算K系数。HJ75-2017 A.3.8（a、b）提到使用恒流采样，HJ836-2017 7",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "431766",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=431766&sysid=143",
+   "question": "HJ 354 验收规范中水样比对时间的问题\n更具HJ 354-2019验收规范中水样比对要求，以1小时为周期，测实际样品3个每个样品测2次，就是现场分析仪要测6个水样数据，如果水样数据低则还要测6个（3组）替代样数据，总共需要测12组数据，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-sthjt",
+   "id": "429309",
+   "url": "https://sthjt.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=429309&sysid=143",
+   "question": "二次燃烧处理后烟气温度太高，无法检测，如何处理？\n领导您好，现有一工业炉窑尾气含有机废气（间歇生产），经二次燃烧（温度800-1000℃）后直接排放，现验收监测发现，烟气温度太高，监测仪器无法检测，且企业无生产用水，不提供食宿，工业炉窑尾气",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

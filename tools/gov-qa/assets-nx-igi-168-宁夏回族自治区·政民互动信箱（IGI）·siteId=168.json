@@ -1,0 +1,54 @@
+{
+ "A_考卷": [],
+ "B_补料": [
+  {
+   "source": "nx-igi-168",
+   "id": "10143408",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10143408",
+   "question": "%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E5%92%A8%E8%AF%A2%E4%B8%80%E4%B8%8B%E5%85%B3%E4%BA%8E%E2%80%9C%E5%85%BB%E8",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于贯彻落实自治区人民政府关于推进完善全区企业职工基本养老保险省级统筹制度的实施意见"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "nx-igi-168",
+   "id": "10154830",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10154830",
+   "question": "您好领导，我之前在新疆参加工作缴纳的社保，现回来到宁夏了，请问如何申请领取失业保险金",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-168",
+   "id": "10153782",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10153782",
+   "question": "你好，我于2012年在新疆生产建设兵团第十三师一家事业单位参加工作，2018年辞职，同年考到宁夏中宁县的一家事业单位（期间社保停交6个月），问下领导在原单位交的社保怎么才能转移至宁夏？事业单位之间的社保能经网上“跨省通办”办理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-168",
+   "id": "10153033",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10153033",
+   "question": "你好，我在南京缴纳的社保（9月已停止缴费），现在9月开始宁夏缴纳社保，请问原南京社保需要怎么转移至宁夏省内？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-168",
+   "id": "10152157",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10152157",
+   "question": "不好意思，再此繁忙时期打扰。本人母亲今年失业，一直在领取失业金。前几天被要求去更换过期的领取失业金的社保卡，因此卡号变更。需要向领取部门申报新的卡号。但是联系几天，各方电话都打不通。需要寻求帮助。请问是否可以提供一个明确的电话，申报一下",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

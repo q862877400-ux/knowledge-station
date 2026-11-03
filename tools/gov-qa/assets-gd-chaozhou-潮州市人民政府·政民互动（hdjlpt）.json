@@ -1,0 +1,1990 @@
+{
+ "A_考卷": [
+  {
+   "source": "gd-chaozhou",
+   "id": "3256179",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3256179",
+   "question": "个人饲养非洲灰鹦鹉\n潮州市可以购买饲养带有标识卡的非洲灰鹦鹉吗",
+   "cited_hits": [
+    {
+     "name": "野生动物保护法",
+     "lib_no": "野生动物保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "国家林业和草原局关于妥善解决人工繁育鹦鹉有关问题的函"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3032924",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3032924",
+   "question": "关于契税缴纳后优惠新政的问题。\n本人在饶平县黄冈镇购置首套商品房，面积106平方米，并于2024年2月按首套房1.5%缴纳契税，现国家发布优惠新政（个人购房面积不超过140平方米按1%缴纳契税）后，请问我们刚缴好且多缴纳部分的契税能退还吗？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国契税法",
+     "lib_no": "契税法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "财政部 税务总局关于贯彻实施契税法若干事项执行口径的公告",
+     "lib_no": "契税法(OCR采集)",
+     "weak": true
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2997902",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2997902",
+   "question": "潮州市内医疗垃圾收运及处理相关规定\n请问目前潮州市内医疗垃圾收运及处理是否由社会企业承接处理，该企业是否为特许经营，潮州市医疗垃圾是否允许市场经营，民营企业若进场参与需要办理什么证件。具体流程办理请告知。",
+   "cited_hits": [
+    {
+     "name": "医疗废物管理条例",
+     "lib_no": "医疗废物管理条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "广东省医疗废物管理条例",
+     "lib_no": "医疗废物管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "广东省生态环境厅危险废物经营许可证办理程序"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2991221",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2991221",
+   "question": "关于退休年龄已到补缴社保的问题\n您好，我想咨询的是我妈妈在退休前买过社保，大约两年，今年已经57岁了，我想问问看有没有什么政策可以一次性补缴完年限然后领取社保的政策",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国社会保险法",
+     "lib_no": "保险法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于完善企业职工基本养老保险继续缴费有关规定的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2822202",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2822202",
+   "question": "关于建房问题\n是不是只要是耕地农田就不能建房",
+   "cited_hits": [
+    {
+     "name": "土地管理法",
+     "lib_no": "土地管理法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "土地管理法",
+     "lib_no": "土地管理法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "土地管理法",
+     "lib_no": "土地管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2795696",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2795696",
+   "question": "房屋归属\n本人有一套房产位于湘桥区潮枫路潮兴园，因20年前与朋友达成协议购买此处，后没有签署合同或其他购房资料，已知此房是无房产证，只有合同书。但由于年代久远，原合同书找不到，考虑到今后可以买卖，现在想补办此房手续，需要找哪个部门办理。",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国民法典",
+     "lib_no": "中华人民共和国民法典",
+     "weak": false
+    },
+    {
+     "name": "不动产登记暂行条例实施细则",
+     "lib_no": "不动产登记暂行条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于在潮州市市城区实施不动产统一登记的公告"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2692784",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2692784",
+   "question": "农用地和宅基地相关\n有没有相关政策可以农用地与宅基地互换性质，同面积宅基地变更为农用地，农用地变更为宅基地",
+   "cited_hits": [
+    {
+     "name": "土地管理法",
+     "lib_no": "土地管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "农用地和宅基地相关"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2593101",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2593101",
+   "question": "关于宅基地重建问题\n领导你好，宅基地重建听说可以需要重新申请一块宅基地，新申请宅基地收费不。",
+   "cited_hits": [
+    {
+     "name": "土地管理法",
+     "lib_no": "土地管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "gd-chaozhou",
+   "id": "3489640",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3489640",
+   "question": "是否享受政府住房福利证明及货币补贴情况证明\n是否享受政府住房福利证明及货币补贴情况证明",
+   "cited_hits": [],
+   "cited_missing": [
+    "住房产权登记信息查询结果"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3477668",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3477668",
+   "question": "神经阻滞麻醉项目收费咨询\n可收费的一次性使用医用耗材清单中的神经阻滞麻醉项目，可收费医用耗材清单有神经阻滞穿刺套件，而神经阻滞刺激针&神经阻滞穿刺针实际用途与神经阻滞套件一致。 省医保目录下来之后,各地市根据省目录定市目录。相关科室专家根据",
+   "cited_hits": [],
+   "cited_missing": [
+    "可收费的一次性使用医用耗材清单",
+    "医疗器械分类目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3352741",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3352741",
+   "question": "水费为何有每月最低消费15元？\n在潮州市饶平县海山镇，每家每户就算没有使用水，也需要支付每月15元的费用，这是为什么？如此收费合理吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省农村供水条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3317504",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3317504",
+   "question": "阶段性购房补贴\n您好！据潮州公积金微信公众号2025年4月3日消息《关注|潮州市进一步优化房地产市场高质量发展政策措施》（https://mp.weixin.qq.com/s/fS7HQs32FvVeHX_URlWNzw）：潮州市住房和城乡",
+   "cited_hits": [],
+   "cited_missing": [
+    "潮州市进一步优化房地产市场高质量发展政策措施"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3253594",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3253594",
+   "question": "潮州顺风车咨询\n您好，领导。我想咨询一下潮州顺风车 上下班为浮洋——官塘想用私家车跑滴滴顺风车。 1.私家车在潮州一天最多可以跑几单不被认定为营运车辆？ 2.在正规平台上接的单多少公里算绕路？ 跑滴滴顺风车的想法主要是补贴一下油费仅此而已。",
+   "cited_hits": [],
+   "cited_missing": [
+    "私人小客车合乘的若干规定",
+    "潮州市私人小客车合乘的若干规定",
+    "私人小客车合乘的若干规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3092451",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3092451",
+   "question": "新调整市属高中招生政策\n刚刚发布的招生政策，明确自2025年起，饶平县初中毕业生不再纳入金山中学和高级中学的招生范围。对于该政策，有几点疑问：一是这份属地政策为何仅仅局限在饶平县，这两所高校的地理位置均位于市区，又为何又面向潮安区的学子，这",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省“十四五”县域普通高中发展提升行动计划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3082212",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3082212",
+   "question": "光伏并网难\n尊敬的领导，国家正在推广绿色能原分布式光伏建设，我在自家屋顶上建设了100多平的分布式光伏，潮安区发改局也已经备案，房屋性质是1992年与村集体承租的用于生产经营性土地，同年建设，土地也不属于农田保护区，如今彩塘镇政府以房屋没有",
+   "cited_hits": [],
+   "cited_missing": [
+    "潮安区屋顶分布式光伏项目建设管理办法(试行)",
+    "潮安区屋顶分布式光伏发电项目建设报备表"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3062279",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3062279",
+   "question": "光伏并网\n尊敬的领导，在自家屋顶安装了一百多平的光伏，已经在发改局备案完成，土地性质是1992年建成，跟村集体承租作为生产经营的土地，彩塘农办部门说土地必须有国土证才能审批并网，请问是否有这个政策，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "分布式光伏发电项目管理暂行办法",
+    "广东省推进分布式光伏高质量发展行动方案"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3013368",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3013368",
+   "question": "关于退休年龄已到补缴社保的问题\n您好，我想咨询的是我爸爸在退休前买过社保，已经缴了2年，今年已经53岁了，我想问问他到61岁后未能缴到15年申请延缴到65岁，到65岁还未能缴满15年的，可以申请一次性补缴吗（他在51岁的时候有去办理交社保的",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于完善企业职工基本养老保险继续缴费有关规定的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2995887",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2995887",
+   "question": "潮州市博物馆\n尊敬的领导，您好！关于潮州市博物馆馆内展示的壹·潮州民系简介“潮州人，福建祖”的来源中写道:中原移民南迁至潮汕示意的潮汕一词，据了解，潮汕一词最早来源于1883年，在潮海关(即是征收条约赔款机构)呈总税务司文及附件第24号的档",
+   "cited_hits": [],
+   "cited_missing": [
+    "潮州侨史展"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2974539",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2974539",
+   "question": "建议开发多元旅游\n您好!潮州文化底蕴深厚，集汉畲文化于一体，交汇融合潮州文化、客家文化、畲族文化、红色文化、海防文化。现今潮州文化被人熟知，而潮州其他类型的文化如客家文化、畲族文化等旅游资源的开发还不够，很多市民都未能充分了解潮州其他类型的",
+   "cited_hits": [],
+   "cited_missing": [
+    "天天好生活",
+    "潮州市畲族文化保护条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2947108",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2947108",
+   "question": "建议潮州市建设广东省畲族文化生态保护实验区\n你好，畲族文化生态保护区是以非物质文化遗产保护为核心，对历史文化积淀深厚、存续状态良好、具有重要价值和鲜明特色的畲族文化形态进行整体性保护设立的特定区域。潮州市是全国70多万畲族同胞公认的祖根地和",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省文化和旅游厅关于广东省省级文化生态保护区的管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2946229",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2946229",
+   "question": "装修押金项目是否合规\n本人系滨江华府业主，物业要求业主需缴纳装修押金3000元，施工队装修押金2000元，装修期间电梯使用费3000元。 据了解，其他小区未收取施工队装修押金以及电梯使用费。本小区装修收费项目是否合规？装修押金以及施工队装修",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省发展改革委广东省住房城乡建设厅关于进一步规范物业收费通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2937337",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2937337",
+   "question": "关于商务部汽车以旧换新业务\n想了解如果本人先购买了新车，在规定的时间内把家人的符合补贴的汽车过户到本人名下，再进行报废处理，是否符合补贴的领取条件？以及是否有其他要求？是只要旧车符合要求即可吗？麻烦解答，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "汽车以旧换新补贴实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2857214",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2857214",
+   "question": "加强潮州古城及周边酒店民宿的审核和管理\n近两年潮州的旅游蓬勃发展，许多酒店和民宿都开了好多，在增加住房的同时，许多小型的，质量差的，服务差，证照不齐的小民宿小酒店也开了很多，他们的唯利是图虚高房价和服务质量无法保证大大降低了我们的城市形象，",
+   "cited_hits": [],
+   "cited_missing": [
+    "潮州市民宿管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2806930",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2806930",
+   "question": "新生儿上户口\n我今天去户籍所在地上户口，全部资料准备好，但是民警帮我查了说卫健局还没好，希望政府部门帮我解决，因为孩子在新生儿科，医生让我们赶紧买新生儿医保。",
+   "cited_hits": [],
+   "cited_missing": [
+    "出生医学证明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2806496",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2806496",
+   "question": "在医院上班，执业药师资格可以视为中级职称，评定为中级吗\n在医院上班，执业药师资格可以视为中级职称，评定为中级吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好2023年度我市职称评审工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2757554",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2757554",
+   "question": "建议举办潮汕畲族文化节\n您好!习近平总书记指出，“一个城市的历史遗迹、文化古迹、人文底蕴，是城市生命的一部分。文化底蕴毁掉了，城市建得再新再好，也是缺乏生命力的”。畲族作为我们潮汕地区的原住居民，其优秀的传统文化应当得到大力弘扬，而且潮州凤",
+   "cited_hits": [],
+   "cited_missing": [
+    "潮州市畲族文化保护条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2670449",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2670449",
+   "question": "咨询顺风车\n请问顺风车是否属于营运车辆",
+   "cited_hits": [],
+   "cited_missing": [
+    "潮州市网络预约出租汽车经营服务管理实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2624020",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2624020",
+   "question": "网约车营运证咨询\n2022年在河南买的新能源电车，牌照也是河南信阳的，型号几何e320续航的，能改潮州本地号牌，能在潮州办理网约车运输证吗？车辆各项指标是否达标？想咨询一下",
+   "cited_hits": [],
+   "cited_missing": [
+    "潮州市网络预约出租汽车经营服务管理实施细则",
+    "道路运输车辆技术管理规定",
+    "网络预约出租汽车驾驶员证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2588028",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2588028",
+   "question": "建议引进大型旅游业企业开发运营大型旅游度假区\n目前我市旅游市场持续火爆，游客数量日益增多，但是游客大部分集中在古城区域，容易造成短时间内古城区域承载力超负荷，游客旅游目的地单一，无法为游客提供更好地游玩体验，并且本地市民平时缺少大型游乐设施",
+   "cited_hits": [],
+   "cited_missing": [
+    "潮州市文化广电旅游体育局2023年招商引资工作方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2543726",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2543726",
+   "question": "禁养区\n您好，我想咨询一下枫江疏水通道1000米内是禁养区，这是单指枫江还是包含汇入枫江的支流，",
+   "cited_hits": [],
+   "cited_missing": [
+    "潮州市畜禽养殖禁养区划分调整方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2507024",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2507024",
+   "question": "教资面试核酸检测\n潮州教资面试需要核酸阴性证明，在如今开放情况下。国家允许轻症和无症状感染，阳康人员上班复工，这种情况下要求核酸阴性不合理，潮州一向跟不上其他城市节奏，研究了广东省内其他城市公告，并未要求核酸，他们的面试区域也是学校，为何对",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步优化落实新冠肺炎疫情防控措施的通知"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "gd-chaozhou",
+   "id": "3506176",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3506176",
+   "question": "结婚登记\n2026年9月25号中秋节可以登记结婚吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3496719",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3496719",
+   "question": "韩江大桥 桥东往牌坊街方向人行道路面砖破损\n韩江大桥 桥东往牌坊街方向人行道路面砖破损，望速修复",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3485334",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3485334",
+   "question": "潮安区全民健身场一篮球架支架脱落问题\n潮安区潮安大道区人民政府对面全民健身场中间一侧篮球架篮筐支架脱落，存在安全隐患，望贵单位派遣相关施工单位前往处理该篮筐问题，同时防范其他篮筐支架于未然，对全民健身场其他全部篮筐予以加固，定期巡视，专人定",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3480771",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3480771",
+   "question": "X086铁汫线径新村路段有很多坑，盼修补！！\n县道X086铁汫线（钱东往铁铺方向）径新村路段，由于近期降雨平繁，出现很多大大小小的坑，严重影响车辆正常通行，希望相关部门能尽快修补，消除安全隐患，让通行更安全安心！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3483133",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3483133",
+   "question": "公司不缴纳社保和公积金\n入职一月后仍不缴纳社保和公积金，经过了解，全公司新入职员工头三个月全部没有交社保",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3482509",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3482509",
+   "question": "统计月报数据完善\n为什么这两年统计月报取消了区县的地区生产总值(GDP)，能不能恢复，方便查阅各地区经济发展状况",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3454012",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3454012",
+   "question": "车辆检测\n侧三轮摩托在潮州市无检测设备吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3467073",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3467073",
+   "question": "潮州市职称的2015批复文件的批复文件号查询\n因为要把2015年在潮州认定的助理工程师认定转到江西，申请需要当年的批复文件号，怎么查询？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3458942",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3458942",
+   "question": "行人通道堵塞\n汫洲镇汫前路水利南汫东桥与汫南关水闸之间人行横道不通堵塞，行人过往不便。只能走上马路，对生命财产安全造成困扰，希望尽早处理，还人民群众一个安全出行",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3446904",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3446904",
+   "question": "结婚证照片\n您好 我想请问一下 结婚证的照片拍摄的时候对服饰发型有什么限制和要求么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3445056",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3445056",
+   "question": "占道经营\n饶平县黄冈镇中山路小公园县文旅局楼下饶小枞奶茶店每天下午，晚上占道经营，占用消防通道，影响行人通行",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3438952",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3438952",
+   "question": "供水缴费建议\n建议龙湖镇鹳巢供水能完善系统，比如网上缴费，比较方便，还使用手抄缴费对于现在已经非常落后。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3435787",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3435787",
+   "question": "招聘\n想咨询在潮州市事业单位，招聘信息是在哪里呢，在哪里可以报名",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3421947",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3421947",
+   "question": "想要办理灵活公积金缴纳\n在外地，不在潮州，但是想办理灵活公积金缴纳，无法到前台人工办理，请问公众号或者小程序什么时候可以办理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3418534",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3418534",
+   "question": "晚上扰民\n潮州市湘桥区城西街道新桥路加油站旁新奋巷中段小卖部斜对面卷闸门旁居民楼五楼（靠近停车场）经常半夜一两点大喊大叫扰民严重影响休息，希望有关部门严肃处理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3410999",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3410999",
+   "question": "枫春路金丰路口斑马线油刷后变滑\n枫春路金丰路口斑马线及摩托车等待区，近期刷上蓝色红色油漆美化，但是刷漆后，下雨天非常滑，失去摩擦力，4月23日下雨期间以至多人骑车滑倒。请及时处理，避免发生更多交通事故。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3409361",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3409361",
+   "question": "公积金提取\n刚刚购买二手商品房使用了商业贷款，请问可以提取公积金余额吗？如果可以，怎么提取？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3396631",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3396631",
+   "question": "车辆乱停\n潮州市潮安区腾凌街一带。每天有车子乱停乱放。希望。增设抓拍系统",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3396445",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3396445",
+   "question": "排水系统堵塞不处理\n潮州市饶平县新丰镇洞泉大道，排水系统堵塞不处理，每次下雨天雨水溢出马路严重影晌行车安全，和周边住户，麻烦重视，得到处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3395429",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3395429",
+   "question": "统计年鉴缺失页\n您好，我正在收集2011-2022年广东各市“信息传输、软件和信息技术服务业固定资产投资额”用于毕业论文研究，然后发现潮州市2019年统计年鉴中266-277页中间页面缺失，2020年统计年鉴中260-271页中间页面缺失，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3378908",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3378908",
+   "question": "2026专升本考场\n尊敬的市教育局:您好!由于即将临近2026年广东普通专升本考试时间，在此向教育局咨询一下今年考场的情况，请问主次设置考杨是否和去午相同?如若不同分别是哪几个学校?期待得到教育局的回复!非常感谢!",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3373034",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3373034",
+   "question": "电工证信息更改\n本人近期刚更改了名字，过去在潮州市应急管理局考了高压电工操作证，现在身份证的名字与电工证上的名字不一致，请问要怎么修改？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3367678",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3367678",
+   "question": "清扫卫生人员噪音扰民问题\n我家在庵埠镇安南路，搞卫生人员使用大功率鼓风机吹地，一来噪音非常大，家有婴儿受不了，二来灰尘飞的到处都是，希望取消使用此工具，或者加装密封罩，降低噪音",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3367433",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3367433",
+   "question": "市区各大路口交通文明宣传语音中“佩”字的潮语读音读错了\n本人在等红灯时，听到路口播放的交通文明宣传语音中，把“佩戴头盔”中“佩”字的潮语读音读错了。“佩”字正确的潮语读音应该是读“倍”，而不是读“配”。如果重新录制宣传语音不会太麻烦，就建议",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3361994",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3361994",
+   "question": "关于人体损伤赔偿标准相关法律问题的资讯\n同志你好，本条信息是对于人体损伤赔偿标准的资讯。我想了解在刑事附民事案件中，原告轻伤二级主张医疗费、住院费、护理费（护理人员伙食费）、住院期间伙食费、营养费、误工费、精神损害赔偿时需要分别提供哪些证据",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3340614",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3340614",
+   "question": "严格交通管理\n我们从山东来潮汕地区旅游，风景很美，气温适宜。就是交通让人纳闷。非机动车可以随意进入机动车道，骑电动车可以随意在车流中穿梭，太危险了。晚上从广济桥回酒店，租了电动三轮车，师傅也跟机动车抢道，在机动车道行驶，让人心慌慌。晚上也没",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3335019",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3335019",
+   "question": "古城照壁被拆\n太平街道下东平路高华里11号是国有财产，对面照壁被拆，要求恢复。 原因是古城现存照壁不多，应该是保护。 被拆或是攻建，是不是国有财产消失",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3335858",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3335858",
+   "question": "电摩新车上牌不给申请临牌\n新车上牌不给临牌，打076812123，咨询临牌申请，15103号客服代表，告知摩托车新车上牌，没有临牌，也不告知电摩新车上牌没有临牌的原因。问客服，客服就回答说摩托车没有临牌。现在要求车管所说明，潮州对电摩不让申",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3337878",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3337878",
+   "question": "公积金未及时扣款\n你好，以往都是每月5号扣款。但26年1月5日没有及时扣款。是系统维护的原因吗？还是因为我12月办理了公积金提前部分还款有影响？不会影响征信吧？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3324558",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3324558",
+   "question": "公积金租房提取问题\n2025年12月申请公积金租房提取9600元后，2026年1月能否申请公积金租房提取？还是必须间隔12个月",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3317230",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3317230",
+   "question": "粤焕新购车活动\n粤焕新购车新车补贴审核需要多久，11月9号提交至今一直待初审",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3309973",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3309973",
+   "question": "港澳通行证加急审批\n本人于2025年11月28日在湘桥区公安办理了【港澳通行证（逗留签）】业务，工作人员告知业务预计7个工作日办理完成。 但由于行程已定，港澳通行证意外丢失。车票及酒店无法退款。本人仍需要于12月4日前往香港，故申请业务加急",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3304333",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3304333",
+   "question": "购车省补\n省补抢劵抢到，但就是一直提交不了，等到可以提交，又显示库存异常，这样是什么原因呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3298457",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3298457",
+   "question": "购车省补\n我在6月份买了比亚迪新能源汽车，当时说有省补，但到现在11月份了还没有拿到，请问我有什么办法拿到省补吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3293312",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3293312",
+   "question": "交通堵塞、噪音扰民\n安北路修路修了好久，严重影响交通，而且在早上天还没亮就开始作业，严重扰民，能不能沟通一下周末不作业或者晚点作业！？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3298727",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3298727",
+   "question": "商贷提取公积金偿还首付后是否还可以转公积金贷\n本人想先商贷购买一套二手房，如果提取了公积金付了首付款之后，是否还可以一年后转成公积金贷款？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3277477",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3277477",
+   "question": "潮安御景物业公司乱收费问题\n1、潮安御景物业公司与购房合同的物业公司不一致； 2、小区在未竣工交付情况下向业主收取物业费； 3、购房合同有写明建筑垃圾按房屋建筑面积10/平方米计算，这个却收15/平方米。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3289057",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3289057",
+   "question": "2025年汽车置换补贴时效期问题\n您好，潮州市商务局，本人于2025年11月1日申请到汽车置换补贴，汽油车第三档的卷，并于当天在潮州市当地4S店核销完，目前显示是上传资料阶段。我的疑问是：在订购新车期间（4S点说新车订购大概一个月周期），这",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3276955",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3276955",
+   "question": "关于东大道的近期修路\n东大道修路好久了，可以加快进度吗？看见好多车因为道路变窄发生剐蹭，希望有关部门可以加快进度，感谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3272696",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3272696",
+   "question": "汽车置换补贴\n在云闪付根本抢不到置换资格卷，本人新能源汽车7月份买的，到现在都还抢不到卷，怎么办？这个有没有时间限制，如果还是抢不到，会不会这个补贴就这样没了。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3266302",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3266302",
+   "question": "饶平县新圩镇镇中心自来水供水浑浊\n广东省饶平县新圩镇,以新圩镇卫生院为中心的周边地区自来水供水浑浊,呈现黄色浑浊状且携带大量黄泥。该现象持续数年，请解决为盼，化解群众“急难愁盼”。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3260660",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3260660",
+   "question": "红绿灯设置问题\n我作为一名经常在外环北路出行的市民，对这一段红绿灯设置的思考和建议： 最近这一路段，新设置了几个红灯，导致交通堵塞，并且，经常停在长长车队后面，前面根本没有车同行，而是在等红灯。请问这样的红灯设置，是否算已经造成了交通堵塞，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3257915",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3257915",
+   "question": "关于厂房工地扰民的建议\n潮州市潮安区凤塘镇湖美村泥岗大道-步月公寓附近有两个厂房工地，自开工建设以来，时常为了规避白天高温天气，夜间施工扰民，之前多次向公安部门、环保部门进行反馈，但是在短暂得到解决后，后续又恢复扰民。经区人民政府回复，工地",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3260750",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3260750",
+   "question": "关于2024年中级职称什么时候可以审核完毕\n咨询建筑工程管理中级职称预计什么时间可以审核完毕出证？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3241883",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3241883",
+   "question": "潮安区东凤镇频繁突然停水，且公告内容与实际停水时间不符\n东凤镇水厂近一个月来频繁停水，严重影响居民正常生活，甚至最近不按公告公示时间乱停水：昨晚（8月29号）临时突然通知30号晚上10点至31号早上6点要停水，结果今天早上10点便突然停水了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3245206",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3245206",
+   "question": "关于“商转公”业务办理时效及进度咨询\n领导，您好。 我想咨询一下，商转公的办理时效，平均多久可以办理下来，是否能在哪个平台进行查询进度？ 我于今年7月18日开始办理该业务，22日应要求补充材料，最后办理意见为“等待银行通知”，目前已9月初，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3231957",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3231957",
+   "question": "潮州台电视播出的预警图标尺寸需要重新调大\n潮州广播电视台现有两个电视频道（综合、民生），当潮州有气象灾害预警信号生效时，两频道会在标识挂角下方显示预警信号图标。然而有网友发现，4月24日至今，电视播出显示的预警图标，尺寸缩小了很多，这种尺寸",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3228072",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3228072",
+   "question": "路面破损严重。影响行车安全\n潮州市意溪镇坝街中段，老三饼食店铺前面的路面，破损严重，坑坑洼洼，影响路过车辆及行人安全，希望有关部门能够修补路面，方便附近居民出行。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3233508",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3233508",
+   "question": "公积金贷款\n你好，本人已婚，夫妻双方户籍均为深圳，公积金缴存地为深圳市，2010年开始缴存至今，期间无间断；现在深圳唯一一套住房已用公积金贷款。本年计划在潮州市购买一套二手商品房，异地公积金贷款需要什么条件，贷款最高额度是多少，5年以上贷款",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3229777",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3229777",
+   "question": "美团青桔共享电动车乱停乱放\n有反馈过同个地点此类问题，未得到妥善结局。之前美团青桔没有在居民楼下设停车区域，只是有些外来务工人员人乱停乱放。现如今美团青桔在居民楼下设了电动车停放区，半夜三更一直滴滴作响严重干扰周边居民休息。问题是在相距4/",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3201497",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3201497",
+   "question": "安北路今日突增有一处道路凸起，建议关注\n您好，安北路在消防大队这一段最近有一处道路明显凸起来，大概在和华埠路交界处。这条路本来非常美观平坦，可能因为大车经常行驶所以变形了，但是因为道路颜色统一很难注意到，路过车辆如果加速通过会造成明显颠簸，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3208328",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3208328",
+   "question": "购买二手房提取公积金流程\n想问一下购买二手房如何将公积金账户余额全额提取，具体需要什么流程？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3203391",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3203391",
+   "question": "关于饶平县高堂镇频繁停电问题的投诉\n停电地点：饶平县高堂卫生院和高堂镇高三村之间区域（金光寺入口附近） 停电记录：6月24日晚上10点、7月4日晚上9点、7月4日晚上10点、7月9日中午12点（每次都是半小时内恢复） 一个月内停电4次，已经",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3193756",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3193756",
+   "question": "公积金年度基数调整问题\n全年一次性奖金是在每年年底12月发放，请问是否可以将其计入全年工资总额，如不能，是否将此笔全年一次性奖金计入下一年调整基数的工资总额？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3162422",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3162422",
+   "question": "关于“潮州体育馆篮球场”相关问题的反馈信\n潮州市文化广电旅游体育局： 您好！作为热爱运动的市民，现就潮州体育馆篮球场问题向贵局反馈。 近期发现，该篮球场篮球框长期无网，严重影响运动体验与乐趣，也降低了市民锻炼积极性。更令人不解的是，保安竟拆",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3189174",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3189174",
+   "question": "关于饶平县大货车违规绕行严重扰民问题的紧急投诉\n我是饶平县高堂镇居民，现就大货车违规绕行严重扰民问题向贵部门紧急投诉，恳请予以重视并尽快解决。 问题概述： 自2025年5月21日饶平县发布货运车辆禁行通告至今已一个多月，大量重中型货车未按通",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3180628",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3180628",
+   "question": "国资国企在线监管系统\n尊敬的国资委工作人员您好，请问贵市国资国企在线监管系统是否上线，如已上线的话，请问系统首次上线的具体时间、开始建设的具体时间，以及建设了哪些模块，非常感谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3174594",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3174594",
+   "question": "商转公业务\n满足商转公的政策，房子只写了我一个人的名字，我没有公积金，但是配偶有，已婚，能办理商转公吗。如果不能，房子加多配偶的名字可以办吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3165509",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3165509",
+   "question": "离职未一次性结清工资\n离职未一次性结清工资 上周五离职的 说好办好流程就结算工资 到现在说要看财务走流程",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3165499",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3165499",
+   "question": "新房装修公积金提取\n新购买的商品房，装修提取公积金需要什么资料，流程是如何走的？是否能够在公众号每进行提取？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3162260",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3162260",
+   "question": "关于本市统计年鉴、统计公报等数据公开中不包含“全年供水总量”数据，故问访\n您好！我是着手研究广东省各市绿色发展研究的学生。在查找数据资料时，发现本市的统计年鉴、统计公报和全网都没有本市“全年供水总量”的数据，只有城市供水量的数据。在此，提一",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3153809",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3153809",
+   "question": "关于公积金提取咨询\n想咨询下，房产证为父母名字，纯公积金贷父母目前正还款中，请问儿子儿媳是否可以提取公积金缓解还贷压力？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3149534",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3149534",
+   "question": "关于提取公积金租房的问题\n本人与妻子均为外地人员，在潮州工作，目前因考虑到小孩子需要在潮州上学，购买了面积比较小的二手房，由于生了二胎，该面积实在不够用，需重新租一套面积较大的房子，又由于收入有限，需要提取公积金支付房租，根据贵单位出台的相",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3147347",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3147347",
+   "question": "请问为什么我查询不到自己的公积金账户\n请问为何我已经有公积金贷款，并且已经还贷一段时间，这个月忘记在还款日前将金额存入还贷账户，短信通知请于当日进行还款，但我登陆公积金账号的时候提示没有账户信息，谁问这是怎么回事呢。还有怎么尽快将本月的贷款",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3143805",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3143805",
+   "question": "关于枫春南路兄弟牛肉火锅店经营生产噪音扰民的投诉\n潮州市生态环境局： 潮州枫春南路兄弟牛肉火锅店在生产经营中位于大门车辆出入口上方的排风管在开机工作中产生的噪音日夜扰民，尖锐的噪音上升并扩大严重影响对面沿路君悦名庭的住户工作生活休息。敬请贵",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3138833",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3138833",
+   "question": "异地公积金\n目前组合贷资料已送审，收到银行通知贷款签约，是不是说明公积金贷款通过审批，为何在粤省事查不到贷款进度？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3136651",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3136651",
+   "question": "商品房墙体认证\n商品房需要装修，去住建局认证墙体非承重墙可拆除需要走什么流程",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3115844",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3115844",
+   "question": "广电有线电视无法播放至今半年\n1. 时间 服务中断时间：2024年10月至今（已近半年） 2. 地点： 具体地址：广东省潮州市潮安区龙湖镇下阁洲村北路七巷及周边邻居 3. 事情经过 2024年10月，因村内“三线整改工程”，广电有线电视线路",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3120233",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3120233",
+   "question": "公积金询问\n请问异地公积金提取项目中，有一项需要提供购房合同。现是异地方面，想提取潮州公积金，而且是要提取父母的公积金，购房合同是否需要有父母的名字才能提取?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3109921",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3109921",
+   "question": "公积金提取\n3月10号潮州公积金公众号的文章，公积金提取有新政策。请问在17年广州买的房，商业贷款，是不是可以提取公积金？如果可以要怎么办理？可以提取多少？还有文章说父母住院个人自付超过一万可以提取公积金，请问要怎么办理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3107203",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3107203",
+   "question": "公积金贷款额度\n请问单位公积金账户1.8万+灵活就业账户0.2万，总额度2万，加起来可以贷总额度的20倍是40万吗？ 贷款额度只看账户内存储总额吗？ 还是需要看缴存基数或者其他的东西？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3105778",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3105778",
+   "question": "提取公积金\n房产为配偶婚前购买，纯商业贷款。房产证无本人姓名。已在前台提取过本人公积金，再次办理提取公积金业务是否可以线上提取。如果不能，需要前往柜台提供什么资料",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3097491",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3097491",
+   "question": "电动自行车车牌丢失\n你好，请问电动自行车车牌丢失需要怎么补办？需要带齐什么证件和材料？需要办理什么手续？预计需要多久能拿到新牌？车牌与原先的车牌是否一致？麻烦告知一下，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3083245",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3083245",
+   "question": "西车站路口（西荣路与潮枫路交界处）信号灯不合理\n尊敬的交警领导您好：市区西荣路与潮枫路交界处信号灯不合理，永护路往西荣路方向、潮枫路与西河路往返方向的绿灯都有40秒以上，唯独西荣路往永护路方向的绿灯只有16秒，造成该方向在高峰期经常大排长龙",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3086473",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3086473",
+   "question": "商品房交易网上公示\n请问，潮州市有无通过网上公示商品房交易情况（网签、备案、抵押、查封等情况），若有查询渠道和入口在哪？（类似佛山市住建局官网商品房交易系统入口）。另，潮州住建局有无微信小程序对此进行公示（类似东莞住建“莞E通”小程序），若",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3083313",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3083313",
+   "question": "潮安区龙湖镇下阁洲村广电有线电视无法播放至今三个月\n潮安区龙湖镇下阁洲村有线电视无法播放至今三个月，已致电到潮州广电，告知线路修理，没法提供具体恢复时间，请立即恢复相关服务！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3074895",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3074895",
+   "question": "生育津贴\n潮州医保不是发布生育津贴申请后10天内可以到账吗？为什么我的生育津贴治疗提交至今已有20来天还查询不到进度呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3081308",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3081308",
+   "question": "太阳能路灯过暗或摇晃存在安全隐患暗\n潮州市潮安区安北路东凤镇下园村、洋东村段路新安装的太阳能灯光过暗，虽然装的太阳能路灯有利于能源的环保使用，但装了跟没装一样，导致车辆行驶过程中无法看清路况，存在安全隐患，路灯底座虽然固定着，但风大或手搭在",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3077463",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3077463",
+   "question": "关于潮安区安北路与站前路交汇处路口改造的建议\n潮州市潮安区安北路与站前路都为潮安区城区主干道，两路虽然紧挨着，但周边市民群众从安北路到站前路，或从站前路到安北路都得通过潮安大道、华埠路和东凤镇仙桥村内转一大圈，这建设规划不利于市民群众的交通",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3061652",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3061652",
+   "question": "公积金提取\n请问潮州公积金以租房名义提取，一年只能提取一次吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3054615",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3054615",
+   "question": "如何和潮汕非遗文化联名做产品？\n我们是在广州的潮汕人，自己的食品工厂，想和非遗的老师傅联名做一系列产品，或者是包装做联名。我需要去那里咨询这些业务，弘扬我们潮的文化？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3049634",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3049634",
+   "question": "村道路进出安全隐患\n饶平浮滨镇大新溪管区进出村道下面存在交通安全隐患，大概在30多年前村民私自在自建房门口（即村主要道路）挖空道路下面建设沼气池，现己年久失修，近年农村快速发展建设，日常车辆进出频繁，存在道路坍塌，漏气发生火灾的严重安全隐患",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3042601",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3042601",
+   "question": "建议举办闽南—潮州木偶戏大赛\n位于粤东一隅的潮州古属七闽，境内土著与闽越人无异；自秦始皇之后虽隶属广东，移民却多数来自福建。所以宋代的《舆地纪胜》说潮州：“虽境土有闽广之异，而风俗无漳潮之分。”潮州铁枝木偶戏来自福建漳州漳浦县，有着几百年的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3036680",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3036680",
+   "question": "结婚后，户口迁移\n请问老婆户口在磷溪镇仙田，我户口在枫溪镇长美二村，想把我老婆户口迁入长美二村，去枫溪哪里办理业务，需要提供什么资料",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3032068",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3032068",
+   "question": "关于粤东粤西粤北就业补贴\n您好！我是潮安区东山湖园区的一家企业行政管理人员。2024年5月我们招聘了一名大专生并签订了劳动合同。2022年7月1日毕业（毕业证时间），2024年7月缴了社保。当时我们查粤东粤西粤北就业补贴相关条件是：1.劳动",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3028037",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3028037",
+   "question": "小区环境问题\n最近凤园路花园住宅区3幢一梯储藏室下面的化粪池破漏，导致储藏室内都是粪水，还一直外溢，严重影响居民生活。连着一星期打电话给宜园居委会都无人接听。烦请相关部门能派人来协商处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3013571",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3013571",
+   "question": "报废无牌摩托长期占用汽车车位，导致汽车车位严重不足\n报废无牌摩托长期占用汽车车位，导致汽车车位严重不足，别的车主晚上挪开报废摩托车停放轿车，隔天轿车就会被恶意划伤，已经有多辆车被恶意划伤。因为道路没有监控，所以无法确定是否是摩托车主恶意损坏",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3015868",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3015868",
+   "question": "提取公积金和办理对冲\n你好，刚办理了纯公积金贷款，想问下，如果现在想要将公积金的一部分钱提取出来，是否需要等第一次扣款后才能提取，还是现在就可以到公积金中心办理提取业务。还有，我们贷款想在公积金账户直接扣款，想办理对冲业务，是否也是需要等第",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "3002445",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=3002445",
+   "question": "潮州博物馆馆内管理问题有待提高\n国庆回潮，参观后收获颇多，但有些建议：1.相关设施有待维修，负一层石刻展馆没开空调，第一体验感一般，第二温度湿度是否利于藏品保存有待研究，展台也存在较大范围的面漆掉落，影响美观；2.一层入门的铜钟，直接暴露于",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2990177",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2990177",
+   "question": "教师编报考条件是否放宽\n尊敬的领导，您好！ 请问潮州市的教师编报考是否能向汕头，对理科类，管理类毕业生放宽报考条件",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2986253",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2986253",
+   "question": "2021年统计年鉴固定资产投资、 房地产与建筑业部分内容缺失，不完整，缺少了固定资产投资部\n2021年统计年鉴固定资产投资、 房地产与建筑业部分内容缺失，不完整，缺少了固定资产投资部分",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2981176",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2981176",
+   "question": "希望对环城北路实施临时交通管制\n尊敬的公安局交警大队领导您好：市区环城北路是我市古城区的交通主干道路，近期，由于该路段的一侧车道正在进行枫江工程整治施工（即环城北路天水路口往北园路方向），仅剩对向车道（北园路口往天水路方向）可以通行。但由于",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2985192",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2985192",
+   "question": "重启公积金““商转公””业务\n近期有对存量房贷利率的调整，请问公积金中心重启公积金““商转公””业务计划吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2972051",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2972051",
+   "question": "公积金提取\n根据潮州市公积金规定，提前还贷的，在实际偿清住房贷款本息后，提取时间延长至贷款结清次年年底。 请问，1.2023年结清，该规定当前是否仍适用？是否可以到（2024年年底前申请提取），2.另若适用，需要准备什么材料？3.如果夫妇双",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2964498",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2964498",
+   "question": "新区大路（原枫溪区口园路）单行道问题\n已经设置了单行道，监控也有，但是好像没有抓拍，每天逆行的车辆特别多，晚高峰还会有堵车现象",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2956674",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2956674",
+   "question": "银行账户有足够金额，但仍收到公积金贷款逾期短信\n本人银行账户有足够金额扣减当月公积金贷款，但却收到内容为“【潮州公积金】尊敬的xx，您的公积金贷款已产生逾期，逾期本息xx元。为避免影响您的个人信用，请您于当日进行偿还。”的短信，经自查，本人",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2953951",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2953951",
+   "question": "公积金补缴\n你好，灵活就业人员，自己缴纳公积金，因扣款公积金银行卡没有及时存入资金，错过了扣款日，怎么补缴？有没有影响？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2948658",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2948658",
+   "question": "关于往届生参加高考的问题\n你好，我是今年的高考生，但考试成绩不理想，打算自学再考一年，请问高中学籍档案可以自我管理保存，等到报名时携带档案和毕业证到市教育局申请参加高考可以吗？请优先使用平台回复，如需电话，请在14.00-16.30分联系我",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2937278",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2937278",
+   "question": "公积金提取\n公积金提取业务中关于租房提取，里面已婚状态的配偶姓名无法输入，导致业务无法办理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2920402",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2920402",
+   "question": "公积金贷款\n请问，商品房的装修贷能用公积金贷款吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2907751",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2907751",
+   "question": "夫妻一方名下有房产，用另一方名字第一次用公积金贷款买房算第一套还是第二套？\n夫妻一方婚前有潮州商贷房产，婚后共同还贷，结清后，用另一方名字第一次用公积金贷款购买房产，夫妻双方均有公积金账户，这样公积金利率算第一套房还是第二套房？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2906263",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2906263",
+   "question": "商业贷转公积金贷款\n2023年公积金年报已经出了，总体已经下降了，请问贵中心是否已经在走流程和省中心那边申请恢复住房商贷转公积金贷款的业务了吗？如果没有，请问什么时候申请，目前还有什么其他阻力？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2899673",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2899673",
+   "question": "潮州东一城摆摊乱象卷土重来\n尊敬的潮州市湘桥区城市管理和综合执法局领导您好：去年七月本人反映了宝塔路与滨江路交界处（滨江路东一城路段）夜间摊贩占路经营的情况，后镇政府有派城管人员到现场整治，情况有所好转。然而随着夏天的临近，消失了一年的摊贩",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2902158",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2902158",
+   "question": "关于潮州图书馆24小时自助图书馆个人物品放置意见\n本人近期在潮州市图书馆24小时自助图书馆进行自习，5.16号下午管理人员在馆内清查个人物品，并限期清理，本人现提出以下建议： 1.是否可设置个人物品放置区，定期维护，如超市有个人物品智能放置",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2881498",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2881498",
+   "question": "公积金贷款\n你好，我是在潮州购买首套房，提交办理了公积金贷款，已经到银行签了合同，请问银行审核大概要多久才可以放款，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2868928",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2868928",
+   "question": "最新就业劳动者最低工资标准\n2024年最新就业劳动者最低工资标准",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2856431",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2856431",
+   "question": "关于在图书馆言行举止的建议\n市图书馆作为公益性质的文化教育事业单位，本该是作为市民借阅图书、学习思考的地方，不管是在这里阅读还是学习的大多数市民都有安静不喧哗的文明言行举止行为，但近期有出现个别市民，在图书馆里的公共阅读区和自习室，不顾场地",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2848662",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2848662",
+   "question": "X075县道存在失效里程碑\n2024年2月时本人在潮州市湘桥区银槐北路凤凰大桥底以南约200m处发现X075县道K64号里程碑（铁制路牌），以北约50m处发现K8号里程碑（石制碑），按K8号里程碑往北1㎞发现K9号里程碑。经过查询，X075",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2842809",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2842809",
+   "question": "促进潮州市本土英歌队恢复组织，包括恢复仙都乡英歌队的组建。\n现在正值英歌舞热，潮州市本土原本也有很多英歌队，但几乎断代殆尽，再不传承，恐将彻底流失。 潮安区金石镇仙都乡英歌队，曾参加1989年春节金石镇全镇游神赛会、潮州韩江大桥剪彩仪式，之",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2838711",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2838711",
+   "question": "住宿问题\n饶平县第四中学要搞全体住宿，行，没问题，我理解，但你得特殊情况特殊对待吧，玩呢，搞一刀切，特殊情况都不过问吗？我有双相情感障碍和焦虑症，还有失眠问题，你觉得我适合住宿吗？适合吗？这是严重的心理疾病，不清楚可以查一查严重性，那个什么",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2841940",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2841940",
+   "question": "社保电脑号\n请问我们潮州市的社保卡有社保电脑号吗？如果有，要怎么查询？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2835954",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2835954",
+   "question": "城乡居民养老保险是否能够按最高档次补缴\n我爸妈之前的城乡居民养老保险是按最低当场缴纳，缴纳年限也满15年了，他们即将满60岁，是否可以按最高档次补差额补缴(我看到网上说黑龙江有相关政策，潮州没查到有这方面的说明)，如果可以，需要到哪里去申请",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2833781",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2833781",
+   "question": "潮州市磷溪中学将在校上课改为上网课\n学校本来让高三在考完期末考后继续在校上课，后来因为某些原因停课，却又在背地里开展网课，要求和学校作息时间相同，甚至将寒假时间缩短。2月7号才网课结束，希望教育局帮忙解决这件事。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2835139",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2835139",
+   "question": "潮州体育中心项目\n我市有规划建设潮州市体育中心，目前我市缺乏大型体育场馆，将在韩江新城建设体育中心，体育中心规模有没有具体规划。建议建成后携手汕潮揭都市圈潮汕三市共同承办，举办国家级或更高规格的体育赛事，推动汕潮揭一体化。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2834312",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2834312",
+   "question": "饶平县浮山镇五联前田村经常性停水\n饶平县浮山镇五联前田村，近一年经常性停水，一停就是一周，政府部门一直没有合理的解决么，如果本地相关职能部门管不了，我们百姓是不是要继续往上级投诉才处理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2818079",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2818079",
+   "question": "生活垃圾处理问题\n潮州市饶平县钱东镇李厝村下乡路段将生活垃圾倾倒点设在村民窗户下，导致该处长期污水横流、垃圾遍地、臭不可闻，卫生问题需要处理。（如需凭证可上传相关照片）",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2821244",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2821244",
+   "question": "关于旅游业\n您好，我正在做一个关于‘云游潮汕’的项目。我想找潮汕近年来旅游人员年龄比例的数据，可是我找了好久都没有找到这个数据，所以才到官网进行提问。如果有这个数据，麻烦您发我一下，或者告诉我来源，我自己去找。如果没有，那能麻烦您给我指明一",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2813411",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2813411",
+   "question": "如意路红绿灯交通问题大\n如意路与潮汕路交汇处路口红绿灯时间过短 车流量大 加上很多车辆违停逆行 天天都会堵车 警力也不安排",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2810948",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2810948",
+   "question": "摩托车远光灯\n晚上在市区道路上，有一些摩托车的驾驶员在光线较好的情况下仍开着远光灯，影响对向车道驾驶员视线，无法看清路面。希望有关部门能够加大宣传，对相关驾驶员进行教育，现场说法，让他们意识到问题所在，正确使用车灯。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2799807",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2799807",
+   "question": "交通违章申诉进展缓慢，电话投诉无结果\n本人于11月4日12点左右在潮安大道与新安大道交界处因紧急情况闯红灯。当时是孩子生病，处于晕厥状态，情况紧急，在确认不影响他人安全出行的情况下闯了红灯。得知违法通知后，本人第一时间提交了申诉资料（包含医",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2795898",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2795898",
+   "question": "推广潮汕旅游资源\n尊敬的领导，您好，美璟世界是国内最大的空间服务平台，全球已经有40%的高价值空间入驻，国内城市：44 国外城市：73 在我们平台发布的这就是成都，这就是长沙，这就是北京，伦敦之行，巴黎之行以及国内外知名城市及景点的VR游览",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2797328",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2797328",
+   "question": "新洋路与春荣路交界处红绿灯设计不合理\n新洋路与春荣路交界处，从新洋路交警大队门口到新洋路与春荣路转角处之间的人行道的红绿灯，之前就设计不太合理，人行道绿灯时，新洋路直行的机动车道也是绿灯。从2023年12月11日晚上开始，就更不合理了，此处",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2797392",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2797392",
+   "question": "潮安区古巷镇顶洋工业区顶洋路没有及时修补\n由于古巷镇自来水工程于9月在顶洋路挖路安装新的自来水管，在10月初铺设混凝土后，离路面还有几厘米准备铺设回沥青路面，但是2个月过去还没动工影响道路通行，请问何时才来铺设沥青",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2778610",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2778610",
+   "question": "修路频繁破坏水管，接连3天多次停水\n1、潮州市潮安区“四好农村路”第三批先行路和示范路工程(金石大道~晋君路沥青罩面工程)，施工方：广东玮基建设工程有限公司，业主方：潮州市潮安区地方公路站 2、前天14号，大早无通知停水，电话给金石水厂反映",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2785376",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2785376",
+   "question": "关于房贷已办理商贷是否可以转公积金的问题\n你好，目前房贷已经办理商贷，是否能够转公积金贷款，需要什么手续资料，目前公积金贷款额度以及额度计算问题，准带条件。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2780019",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2780019",
+   "question": "关于潮州是否举办马拉松\n饶平已经官宣举办2023年饶平半程马拉松赛，而潮州市级仍未有意举办马拉松赛事的消息。请问我市市区是否有意举办马拉松赛事？2024年是否会计划举办？请勿电话回访谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2763746",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2763746",
+   "question": "噪音扰民\n潮安区归湖镇金丰山仔村机耕路尾堤边有一家人，把高音喇叭放在外面，白天夜晚都在高功率飙歌。严重扰民。已经持续至少一个月时间。请相关部门走访处理一下。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2762052",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2762052",
+   "question": "如何职工医保参保\n之前缴的是城镇居民医保的可以修改成灵活就业人员交职工医保吗？如果可以怎么办理？有哪些要求",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2749836",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2749836",
+   "question": "交通意外家庭补助\n家人交通意外身亡救助基金申请流程",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2744571",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2744571",
+   "question": "国庆期间免费停车位问题并无落实监督\n潮州城南中学未按照政府要求，国庆期间原本因对外免费开放车位，但门口保安却已校内仅有12个车位为由，需要将车位留给本校教师停，拒绝为市民提供。市民无奈将车开走，因在校门口进行倒车离开，校门口的栏杆停放靠外，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2739103",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2739103",
+   "question": "什么时候电动车才能上牌\n买了电动车，邮政告知已经很久没办法上牌了，没有牌子。但是现在没牌不能上路，对日常生活影响特别大",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2740837",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2740837",
+   "question": "本省外市，小孩随迁办理户口迁入咨询电话？\n广东饶平钱东镇小孩随迁入户的资询电话？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2737703",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2737703",
+   "question": "第七次人口普查分县数据答疑\n你好，我查到国家统计局印发的《2020年中国人口普查分县资料》，在潮州市下的统计内容中， 人口婚姻状况和妇女生育状况：15岁及以上人口仅192924人，人数由未婚，有配偶，离婚，丧偶组成。而潮州市人口总计250万",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2738271",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2738271",
+   "question": "户口迁移咨询\n您好，我这边是选择咨询业务，现单位一直催我们办理户口业务，无奈只能问一下 。 【广州市公安局】您的入户核准工单（编号：WHD23091900057）已获批准，原户籍公安机关正在网上办理迁出登记中（不需本人回原籍办理），请耐心等",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2728503",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2728503",
+   "question": "人口统计数据\n您好，想了解枫溪区2021年度、2022年度人口总数、性别比例、年龄结构、学历结构，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2726156",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2726156",
+   "question": "希望公办幼儿园能够继续开设拖管班\n目前公办幼儿园基本上都是下午4点30放学，孩子放学时间早于家长下班时间，之前有托管孩子可以到五点半下班再去接，现在没有托管，很多家长没有办法去接送小孩。请政府予以重视。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2707656",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2707656",
+   "question": "经常不间断时间断电\n地址 潮州市凤塘镇浮岗村路口街道 隔三差五的断电 有时候是下午有时候晚上 每次断电基本上都在一个小时 浮岗村路口的红绿灯也经常因为断电停止工作 多次向市长热线拨打电话诉求电力局对经常断电的情况进行检验勘查是否因为线路老化",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2705488",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2705488",
+   "question": "潮州市人民医院住院部，陪护家属走廊通道，病房内抽烟\n潮州市人民医院住院部，陪护家属走廊通道，病房内抽烟",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2705562",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2705562",
+   "question": "关于非物质文化遗产\n您好，我是一名旅游管理专业的学生，因毕业论文写作，需要潮州市全部非物质文化遗产名录，内容包括潮州市的国家级、省级、市级、县级非物质文化遗产名录及信息，如能提供请发至邮箱sama126@163.com，万分感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2705216",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2705216",
+   "question": "房产信息查询\n尊敬的领导:你好，本人最近有买房的计划，想咨询一下住建局官网要如何查询到某个楼盘的房产信息，包括可售/不可售状态，抵押信息等。因为最近房地产行业动荡，特别是听说某大楼盘业主交房交税许久都未能领取到不动产权证，加之房地产行业知识",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2690472",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2690472",
+   "question": "潮州市家电消费节发放的消费券疑似有被套现的情况\n之前加的一个专业撸政府消费券的微信群下午说去抢潮州家电10000-2000，给200。晚上在群里回收有电池的旧家电，电池有带IMEI码的就行，和他认识的人发了朋友圈到了潮汕站了，群主也打算待几",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2690059",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2690059",
+   "question": "公积金贷款\n购买二手房公积金贷款，按揭款的收款账户信息一定得对应买卖合同上面的出售方的银行账户吗。可否是他人或者是买方自己的银行账户。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2683795",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2683795",
+   "question": "潮州市图书馆霸位严重\n潮州市图书馆（潮州大道）24小时图书馆霸座严重，未有员工志愿者定时清霸，严重影响学习，7点到达24小时图书馆桌子上全是书而所有人却等到十点甚至一个下午都不在，让想要读书学习的人只能蹲地下学习，可悲！希望领导多走走，体恤",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2669036",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2669036",
+   "question": "公积金贷款\n今年二月份以及六月份因为公司系统问题导致公积金未能连续上缴 而是后面进行补交 导致我不能使用公积金进行贷款 请问有什么方法可以补救吗？如让公司出示证明",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2661024",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2661024",
+   "question": "关于车辆乱停乱放现象\n每逢周末、节假日，太平路庵巷、七丛松巷总有车辆停在巷口、巷里，造成附近居民出入严重不方便，更甚至有的没素质的朋友利用这个机会赚钱，举着纸板写有停车位几个字，在路边拦外地车辆，引导游客车辆停在巷内，欺骗游客这个地方可以停",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2651513",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2651513",
+   "question": "车管所成绩误判\n6.12在饶平新青考场考科目三，补考的时候正常操作，机器判断不按指令行驶，成绩不合格",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2648027",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2648027",
+   "question": "职工医保异地生育\n请问一下:本人是在潮州市的职工医保，生育打算在汕头生育。已经办理了异地就医备案，孕前检查的门诊费用可以在汕头检查时使用医保基金支付吗？我们公司这边产检说只能报销500元，这个跟用医保基金直接支付冲突吗？如果不能，这个到底怎",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2651322",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2651322",
+   "question": "办理身份证\n请问现在小孩办理身份证还需要到派出所办理吗？还是网上就可以办理，什么流程！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2636162",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2636162",
+   "question": "东山路公交车亭设置不合理\n东山路金山中学及潮州技师学院紧挨在一起，却在两所学校各设置1个公交车亭，而阳光华府及四季园这些住宅区人口众多，门口却没有公交车亭，离周边的公交车亭又路途遥远，建议在金山中学及潮州技师学院中间设置1个公交车亭即可，另",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2647311",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2647311",
+   "question": "关于外地户籍小朋友无法报读绵德小学的问题反馈\n我家小朋友的妈妈是湘桥区本地居民，并在湘桥区绿榕路有购置房产，十几年的打工也为湘桥区的发展作出自己的贡献，希望绵德小学跟区实验小学一样也放开以上情况的小朋友参加摇号。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2623737",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2623737",
+   "question": "工行借记卡被降为二类\n工行十几年老用户去年莫名其妙被冻结，到金石镇工行柜台解冻告知是账号钱进出太快，因为我每个一笔1500元进账，当天就拿出来，所以系统被冻结，要我降级二类账号，说3个月可以去试试升一类卡，三个月后又到金石镇工行，不给我升一",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2626606",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2626606",
+   "question": "公积金贷款可以中途更换主贷人吗\n公积金贷款可以中途更换主贷人，银行卡信息吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2612961",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2612961",
+   "question": "关于图书馆24小时馆厕所开放问题\n潮州市图书馆二十四小时馆供应24小时自习 但是潮州市图书馆厕所不予以开放。据说是馆上级领导要求不提供厕所，明明保安在其中，并且也乐意提供厕所，但领导不允许。这极其不人性化，9点后自习名存实亡，周一所谓的24",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2601960",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2601960",
+   "question": "关于城基中学旁边的太平路庵巷车辆乱停乱放的问题\n多次反映城基中学旁边的太平路庵巷内长期有汽车乱停乱放的问题仍不能得到改善，巷内本就不宽，汽车仍放在巷道口及两侧，造成节假日外地车辆塞在巷口进退不得及学生放学时间严重堵塞，甚至附近居民车辆无法正",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2607849",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2607849",
+   "question": "潮州旅游规划\n您好，我5月份要去潮州旅游不知道可以推荐一下景点美食和酒店吗（美食的话可以推一下店名吗）",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2608763",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2608763",
+   "question": "公积金贷款\n请问公积金贷款审批进度怎么查询？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2607905",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2607905",
+   "question": "公积金领取\n公积金线上已经提交多次，资料已经上传、老是驳回，打电话咨询，提交资料没错，反复驳回，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2591961",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2591961",
+   "question": "公积金贷款\n请问灵活就业缴存的住房公积金需要满足什么条件才能申请公积金贷款用于自建房，或者需要什么相关资质，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2586832",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2586832",
+   "question": "生育津贴\n生育津贴报销超过时长很久，2月6日报销到现在未拿到生育津贴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2567885",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2567885",
+   "question": "关于绿榕西路中段路灯损坏无人修理的问题\n你好，潮州市湘桥区绿榕西路中段（田中村公车站）附近的红绿灯，晚上经常经常不亮，不知道是损坏无人修理，还是什么问题，导致该段道路漆黑一片。该路段夜晚视野较差，经常发生车祸，望相关部门落实一下，减少安全隐",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2568432",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2568432",
+   "question": "关于2023广东普通专升本考试的问题\n您好！2023年度广东专升本考试将于3.25——3.26举行，想请问何时可以开始打印准考证？同时想咨询今年的考试考点的布置情况，依旧是在韩山师范学院进行统一考试吗？希望能够得到回复，感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2564599",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2564599",
+   "question": "关于恢复潮州火车站客运服务的建议\n我是一名大学生，关于恢复潮州火车站客运服务的需求一直比较多。我是在湛江读书，湛江和潮州往返一直是比较困难的，动车有且只有两班且人数众多一直买不到票；而且湛江西站和潮汕站都是离市区比较远的，每次去高铁站都要花",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2561487",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2561487",
+   "question": "关于银行下乡办理社保卡业务的建议\n当前我市于2023年1月开始，根据参保人社会保障卡激活情况，分批推进将城乡居民养老待遇直接发放到社保卡金融账户的工作。 之前已发放激活的城乡居民社保卡大部分已过期，虽部分金融功能可用，但大部分城乡居民持有的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2556958",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2556958",
+   "question": "熙泰实验学校建设进度缓慢，严重影响附近居民教育需求。\n熙泰实验学校建设进度缓慢，严重影响附近居民教育需求。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2544974",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2544974",
+   "question": "个人公积金贷款购房事宜\n本人现公积金缴存地在深圳，从2020年9月开始缴存，目前已缴存28个月；本人户籍于2022年10月移至深圳；本人计划年底回家（潮州饶平）购买个人名下第一套商品房，目前未婚，请问异地公积金贷款怎么办理？有何要求？最高贷",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2536482",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2536482",
+   "question": "关于潮安区彩塘镇新安大道绿化树修剪的建议\n彩塘镇新安大道往潮州方向一旁的绿化树似乎许久未修剪，参差不齐，不美观。有的已经非常茂盛，足有3，4层楼高，影响采光。且茂密的树经常分泌树胶，会腐蚀路旁停放的车辆，对附近居民造成困扰。望相关部门可以对",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2524194",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2524194",
+   "question": "商业贷款提取公积金\n第一、目前潮州这边对于有商业贷款的人提取公积金的额度是怎么计算的？ 第二、若提前部分还款是否影响提取的公积金额度？ 第三、其他地级市同一户口本的亲属能够用本人按揭的贷款合同提取公积金，请问潮州这边时候也有这样的政策？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2518703",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2518703",
+   "question": "公共交通工具擅改行车路线\n公交车K4（车牌粤U05201）今日下午2点半～3点期间，在非交通管制路段擅自修改行车路线，且擅改路线后在未到站（乘客目的地为中心医院）情况下非要让乘客于永护路下车。 一路上本人看到多辆公交车在非原定路线上行驶，而",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2521318",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2521318",
+   "question": "何时可领取2022初级会计职称证书\n你好，请问2022年的初级会计证书什么时候可以领取呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2521424",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2521424",
+   "question": "关于异地住房公积金购房问题\n夫妻双方都在惠州工作，在惠州有住房公积金，想要回潮州发展买房，需要怎么申请 才能在潮州使用住房公积金贷款买房？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2514714",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2514714",
+   "question": "关于无偿献血证的有关建议\n潮州地区献血后无偿献血证全部都是手写的，写字的人字又很丑，能不能引进打印机，实现无偿献血证机打，像广州、汕头等地区都是机打无偿献血证，潮州这边还是用手写的未免过于落后，对于想要长期进行献血活动，把献血证拿来收藏的人",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2516080",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2516080",
+   "question": "以前的农村房屋登记\n我想问一下2023年，第三方什么时候下乡确权， 到时候怎么找到第三方来登记 我2018年建的房屋，没登记到，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2508277",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2508277",
+   "question": "工行APP提前还款入口被关闭，令人费解！\n广东潮州工行。疫情时常发生，经济形式不好，以前的房贷利息相当高，本人取消了相关的投资业务，准备将闲钱提前还贷节省一点利息，发现工行的线上提前还款入口竟然被关闭了，致电95588客服回复说在升级，不知",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-chaozhou",
+   "id": "2508601",
+   "url": "https://www.chaozhou.gov.cn/hdjlpt/detail?pid=2508601",
+   "question": "公积金提取\n你好，现在公积金贷款的公积金余额已经可以直接在手机或者电脑上提取，但是商业贷款提取公积金需要去营业厅打印近一个月流水再去现场柜台申请提取，很多地方商业贷款提取公积金也可以手机或电脑操作即可，我想问问潮州什么时候可以实现商业贷款提",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

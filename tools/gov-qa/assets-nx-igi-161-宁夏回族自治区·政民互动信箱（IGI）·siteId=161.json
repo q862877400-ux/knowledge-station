@@ -1,0 +1,1543 @@
+{
+ "A_考卷": [
+  {
+   "source": "nx-igi-161",
+   "id": "10111371",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10111371",
+   "question": "你好！目前本人是在同心打工，但结婚证丢失，现办事需要，请问可以在同心本地申请补办吗？",
+   "cited_hits": [
+    {
+     "name": "婚姻登记条例",
+     "lib_no": "婚姻登记条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10109637",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10109637",
+   "question": "为什么不能提取，自己支配？",
+   "cited_hits": [
+    {
+     "name": "住房公积金管理条例",
+     "lib_no": "住房公积金管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "nx-igi-161",
+   "id": "10152211",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10152211",
+   "question": "您好！尊敬的各位干部，领导。我是一位在同心县初中休学的一名学生。当初因为个人原因，导致休学。今年也刚刚从同心县第四中学毕业。我想咨询一下。咱们现在对于中途休学后 是否可以重回校园，继续学习。技校职高我个人呢还是不想去的。目前只想知道，我是否",
+   "cited_hits": [],
+   "cited_missing": [
+    "宁夏中小学生学籍管理办法实施细则(试行)",
+    "宁夏中小学生休学、复学申请表",
+    "休学、复学申请表",
+    "休学、复学申请表",
+    "休学、复学申请表"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10151461",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10151461",
+   "question": "您好，作为一名普普通通的老百姓想在全民健身体育馆打打羽毛球运动运动，却被告知只能入场观看，不能上场打球，原因是所穿的鞋子不符合场地规定，必须是羽毛球鞋，而我们穿的就是运动鞋，一个普通老百姓只是想偶尔运动运动打打羽毛球，一个县城几个体育馆却只",
+   "cited_hits": [],
+   "cited_missing": [
+    "进入体育馆健身运动要求条件太高"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10148580",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10148580",
+   "question": "尊敬的各位领导，你们好：个人意见觉得在整个县区内啊体育活动场所灯光不足。目前整个县区内只有冰河广场篮球场、同心县体育馆馆外篮球场、体委室外篮球场有灯光（这个球场灯光很微弱）。还有一部分体育活动场所没灯光。例如：工业园区体育活动场所，这个场地",
+   "cited_hits": [],
+   "cited_missing": [
+    "体育场地安装路灯"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10147609",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10147609",
+   "question": "今年母牛生育多个牛犊，请问是不是有什么补贴。",
+   "cited_hits": [],
+   "cited_missing": [
+    "同心县2022年肉牛繁育犊牛补贴项目实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10145139",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10145139",
+   "question": "同志： 您好! 我是郑州大学一名研究生，我的论文需要收集同心县2020年的旅游收入数据与国内游客接待量数据。在政府官网以及网站都无法查询到此信息，为此特意申请。 感谢您在百忙之中阅读我的留言，期望得到您的回复！祝您工作顺利,生活愉快!",
+   "cited_hits": [],
+   "cited_missing": [
+    "旅游数据获取咨询"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10143178",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10143178",
+   "question": "领导，您好！我是同心县2019年政府招聘的幼儿园老师，当初公告说是年薪42480元，其中包含单位和个人缴纳社保部分，但是上岗后又说社保基数下调了，我们的工资减少了几百，我们想国家政策支持，但是降低的部分没有以工资的形式发放给我们。我们拿到手",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于 2021年度社会保险缴费基数及福利待遇计发有关问题的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10111949",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10111949",
+   "question": "您好，请问我现在只有初中毕业证，以社会考生身份报名参加普通高考需要什么流程，是不是需要参加学业水平测试？都考哪几科啊？还有同等学力认证是初中毕业满两年就可以吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "宁夏回族自治区2021年普通高等学校招生考生报名办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10111909",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10111909",
+   "question": "我是同心县下马关镇郑儿庄村三社村民。本村村民五月份已交付小杂粮（荞麦）保险费给保险公司，由于气候干旱，荞麦已死，村民向保险公司索要赔偿。保险公司不赔偿，答复为只退保险费。请问缴纳保险费的意义何在？小杂粮有收成，保险公司收保险；小杂粮没有收成",
+   "cited_hits": [],
+   "cited_missing": [
+    "中国人民财产保险股份有限公司宁夏地方财政补贴性小杂粮综合产量保险条款（扶贫专用）",
+    "中国人民财产保险股份有限公司宁夏地方财政补贴型小杂粮种植保险条款"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10111466",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10111466",
+   "question": "尊敬的领导您好！ 有关今年好多村里玉米疯狂长虫怎么看？有关部门为什么打电话不接？为什么村里面的驻村第一书记不去调查为什么长虫？往年怎么没长？望解决",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于切实做好玉米粘虫防治工作的紧急通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10111418",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10111418",
+   "question": "尊敬的各位领导： 你们好！本人家在农村，父母在杨塘这里有10田，今天早上他们从地里回来，发现玉米上有大量的虫子，正在蚕食玉米。之前在河西就听说过玉米上有虫，他们也打农药了，我们这里还没有，现在我们这里也有了，说明应该是具有害虫范围还在扩散。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于切实做好玉米粘虫防治工作的紧急通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10111129",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10111129",
+   "question": "您好，马书记。我是一名同心县第二幼儿园附近的住户，我们家周边没有广场，没有运动场，去年第二中学新建的操场，希望第二中学将操场对外，方便周边群众锻炼身体。",
+   "cited_hits": [],
+   "cited_missing": [
+    "全区中小型体育场馆和学校体育设施向社会开放的指导意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10111044",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10111044",
+   "question": "你好！可以详细介绍一下创业担保贷款的办理流程及担保方式吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "就业失业登记证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10110854",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10110854",
+   "question": "领导您好： 政府购买与社区工作者以同样的方式招聘，但待遇却天壤之别。政府购买工资拿到手2100，社区工作者拿到手工资2900。这样的工资差异导致很多政府购买工作人员在心态上的不平衡，也影响对工作的态度，并且众馨人力资源公司也不允许我们辞职政",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于建立“五联五化”机制加强新时代城市基层党建工作的实施方案",
+    "招聘方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10110767",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10110767",
+   "question": "今年婚宴餐厅是否会关闭？如果关闭具体时间是什么时候？农村可以在家举办婚宴吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好2021年元旦和春节期间新冠肺炎疫情防控工作的通知",
+    "关于印发全区农村地区新冠肺炎疫情防控工作方案的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10110750",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10110750",
+   "question": "领导您好： 政府购买与社区工作者以同样的方式招聘，但待遇却天壤之别。政府购买工资拿到手2100，社区工作者拿到手工资2900。这样的工资差异导致很多政府购买工作人员在心态上的不平衡，也影响对工作的态度，并且众馨人力资源公司也不允许我们辞职政",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于建立“五联五化”机制加强新时代城市基层党建工作的实施方案",
+    "招聘方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10110214",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10110214",
+   "question": "各位领导，针对2019年退役军人就业金40000元，说是第二年的8月份发放，目前为止，事务局各位领导说是还不能发放，，原因是从上之下，然后就没有后信，吴忠市其他地方都发了，为什么同心县不能发，希望能够具体说明。而不是从上到下的各种原因",
+   "cited_hits": [],
+   "cited_missing": [
+    "互动信箱"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10110003",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10110003",
+   "question": "疫情期间政府购买服务人员养老保险由单位缴纳费用免除，但是签订合同的时候我们每个人保障的经费都包含在一起 给单位免除的这一部分钱去哪了？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于新冠肺炎疫情防控期间缓缴社会保险费有关事项的通告",
+    "关于阶段性减免企业社会保险费的通知",
+    "关于延长阶段性减免企业社会保险费政策实施期限等问题的通知",
+    "关于阶段性减免企业社会保险费的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10108840",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10108840",
+   "question": "我们是通过层层筛选，笔试、面试，一环扣一环的才到现在的工作单位。可这工资是太低，我们不敢结婚、不敢生病。 虽说我们不是公务员、事业编，可我们跟他们一样工作量很大，认真为民服务，没有一丝懈怠。我们更没有相应的待遇，只有五险没有一金，并且保险全",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于降低社会保险费率的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10108514",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10108514",
+   "question": "尊敬的领导您好 我是豫海万家6号楼一单元102室的业主，2018年购房，2019年6月拿到钥匙开始装修。在10月24日试暖，暖气管道漏水房子被水淹了，找来物业维修人员维修，结果发现是暖气主管道与分水器阀门连接处无密封橡胶垫，是工程质量不合格",
+   "cited_hits": [],
+   "cited_missing": [
+    "宁夏回族自治区房屋建筑工程质量投诉管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10108366",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10108366",
+   "question": "同心县新区体育馆 已经建成好几年，迟迟不能开放使用，新区的群众只能到老城体育中心打羽毛球，室内篮球等，不方便也不安全。而且长旧不使用，体育馆周围的地灯已被破坏，酒瓶渣到处都是，不安全也不美观，同时也极大的浪费、闲置政府和公共资源。请问新区体",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于新区体育馆开放的信件"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10107953",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107953",
+   "question": "身份证快过期了，县政务大厅不给办理新身份要求去户口所在派出所办理，很多地方都是异地办理，我们现在很多人要去户籍所在地派出所真的很不方便，县政务大厅虽然有办理身份证的地方，但是只受理县城的，对其他地方本县居民很不方便。",
+   "cited_hits": [],
+   "cited_missing": [
+    "居民身份证申领登记表",
+    "关于建立居民身份证异地受理挂失申报和丢失招领制度的意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10107377",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107377",
+   "question": "各位领导，我们予旺镇2017年我父亲申请的危房改造，于2017年4月份完成改造，不幸的是我父亲于17年5月去世，后期村上申请房补时写的我母亲的名字，因我母亲没有低保，导致房改款由3万多降至1万多，而且就1万多至今没有补下来，是怎么回事？？恳",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发全区脱贫攻坚中农村危窑危房改造有关问题专项排查整治方案的通知"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "nx-igi-161",
+   "id": "10152623",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10152623",
+   "question": "领导好，请问餐厅什么时候可以堂食",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10152421",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10152421",
+   "question": "我是宁夏民族职业技术学院的学生，家在同心县，我特别想要和西吉县一样的爱心直通车，自从我们九月十三开学到现在，我们没有厚衣服，本来是准备十一放假回去拿衣服及生活用品，因为疫情一直封校到现在，天渐渐变冷，我们没有东西御寒，利通区本地的可以送衣物",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10151389",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10151389",
+   "question": "我是一名丁塘中学初一学生的家长，周末孩子说起，同宿舍一位女生，孩子内急，因女生宿舍楼内没有卫生间，需要出去上厕所，孩子给楼管报告后，不知什么原因不让出去，无奈之下孩子拉在了裤裆里！也许是孩子的自尊心没有给老师报告，只有同宿舍的人员知道，作为",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10151204",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10151204",
+   "question": "本人近期想在家庭宅基地院落中兴建规模为50只左右的养殖羊棚，请问政府对在宅基地院落上建造羊棚有什么限制性规定吗？政府对家庭养殖有什么指导性文件吗？政府对家庭养殖有什么扶持政策吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10151061",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10151061",
+   "question": "2021届高考毕业生，落榜，想再次参加高考（社会生身份），望告知报名时间，报名方式，以及需要准备的资料",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10150644",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10150644",
+   "question": "杨家河湾村路口由南向北的这条路，北边红绿灯有好几次都是没电，不亮的状态，这条路又是省道，大车很多，今天我就看到有大车闯红灯差点撞到行人，希望交管部门可以处理一下。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10150412",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10150412",
+   "question": "在社区开办贫困证明时，社区人员要求要有社区、民政局等三项盖章有效，在本人进行其他两张盖章时，相关人员表示坚决不能盖，原因不明，如果有什么政策，为什么上下政策信息不流通，导致人民百姓进行没有用的奔波。而且在民政局盖章时，因为不明原因所以问了工",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10150377",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10150377",
+   "question": "尊敬的领导的， 您好，感谢您白忙之中阅读我的邮件，我是同心县团结北街荣锦苑3-5-501住户，我向您反应的问题是关于5单元一楼住户私自改建住宅楼为营业房，营业房烟囱搭建在住宅楼上，二楼以上住户都整天烟熊火燎，味道冲天，普遍大家都反应安全隐患",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10150349",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10150349",
+   "question": "尊敬的领导： 您好，我是2022届本科毕业生，我想咨询一下同心县的基层服务专项计划具体在什么时候发布呢？三支一扶成绩已发布有几日。所以想咨询一下，着实是有点焦虑了。还麻烦您帮忙解答一下，万分感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10150332",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10150332",
+   "question": "同心县农业银行家属院小区隔壁道路由于需要扩建，拆除了与马路间隔的库房及围墙。目前马路扩建工作已完成了很久，但是小区的围墙至今没有修缮，并且由于之前的拆除，小区出去的唯一道路已经裂开了巨大的缝隙，随时存在塌陷的风险，但是相关部门一直无视该情况",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10150270",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10150270",
+   "question": "同心县新宝隆矿业有限责任公司不符合国家矿产资源管理相关规定，在被同心县自然资源管理部门和同心县环保部门查封停业期间，半夜12点以后开启设备私自开采石膏，造成尘土污染和噪音污染，且造成国家自然资源流失，影响附近村民正常生活和休息，请核查。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10150160",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10150160",
+   "question": "2022年基层招募人员公告还没有发，其他县区已经发布，且区厅文件要求各县区在7月31日前发布公告。同心县什么时候发布公告？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10149915",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10149915",
+   "question": "县长你好，很抱歉打扰到你，我是一名今年的高考毕业生，本来可以去银川科技学院上本科，但是我放弃了上本科的机会，因为我的家庭原因，我决定去读专科，毕竟一年将近三万的学费实在是没有办法承担，我是个单亲家庭，靠父亲打工供我上学，而且爸爸右胳膊做过手",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10149546",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10149546",
+   "question": "2022年同心县自主招聘岗位音乐专业限制太多，专科可以报考，本科音乐专业的报不了，本人作曲与作曲技术理论专业，艺术学学位，报不了改岗位！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10149313",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10149313",
+   "question": "尊敬的领导，你好，我是一名宝妈，我要投诉的是教育局，不知道教育局是怎么想的，有楼房的才能上一年级，没有楼房的却上不了一年级，我们为了孩子能上一个在城里的小学，咋就这么难，在新区租的房，给新区别人打工，就是为了能在南安小学上学，拿的租房子的合",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10148906",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10148906",
+   "question": "尊敬的领导您好： 2022年7月3日（星期日），我按照县政府安排去县医院体检，最后一项为B超检测，当时人很多，有一位护士（具体名字不知道，只知道她一直在TCD门口，所有体检项目做完会将体检单交给她保管）说话特别温柔，耐心解释着我们所有人的问",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10148544",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10148544",
+   "question": "您好，我是同心县同盛颐和园的住户，当入住后发现一到下雨的时候发现小区的排水系统有很大的隐患，排水口特别少，有些单元门口不设一个排水口，特别是从西门到北门这条路上就一两个排水口，根本满足不了排水要求。如果遇到大雨有内涝的灾害，造成路面塌陷，出",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10148492",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10148492",
+   "question": "尊敬的县领导：我县长年干旱少雨，前几天我县上空云层较好，就是不下雨，希望县里能够常态化人工降雨，形成人工降雨机制，有了雨水，我县的农作物及生态环境将有大的帮助。此致 敬礼",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10148420",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10148420",
+   "question": "同心县新区家园B区小区改造，每天早晨四五点就开始施工，严重打扰我们的休息时间，已经持续一个月了，请有关部门能解决一下。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10148385",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10148385",
+   "question": "事件地点：同心县政务大厅二楼服务窗口 事件时间：2022年6月14日9︰00-9︰20之间 16、17号窗口服务人员性别：女，16号短发、17号头戴黑帽 时间起因：本人办理社保卡事宜，当天是6月14日星期二，我特地挑了一个日子，因为星期一较",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10148305",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10148305",
+   "question": "2022年自主招聘事业编教师于3月份正式上岗，三个月实习期已满，已超时一个月时间工资还未见音信，其他地区都全部已发放，同心为啥还不发，让我们该如何生存、如何生活？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10147951",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10147951",
+   "question": "本月端午节星期5，高一高二高三学生不放假，高三学生因为高考可以理解，高一高二是为什么呢?我们也要休息，好好过个端午节呀",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10146795",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10146795",
+   "question": "近期同心三中的上学时间放学时间一个越来越早一个越来越迟早上的时间提前到6点50到校，晚上三个晚自习上到10点半，并且学校在上面领导下来检查的时候将时间变为八点，领导走后时间照旧",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10146688",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10146688",
+   "question": "距离2021年同心县教师招聘面试已结束两个多月之久，为何还不出拟录用人员名单",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10146256",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10146256",
+   "question": "疫情特殊时期，我配合相关规定。但对于我现在所住的同心县人民医院，我有很多的问题要反应。 第一，我们现在暂时隔离的妇产科病房没有热水。我们陪护人员可以三五天不洗澡，每天不用热水洗脸刷牙。但是刚生产完的孕妇和刚出生的小孩呢？每天护士要给每个病房",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10145811",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10145811",
+   "question": "亲爱的春燕县长及相关工作人员：你们好。我是一名同心县普通的干部职工，来同工作半年有余。今天向您写信的主要目的是咨询我本人工资发放明细一问题：在“我的宁夏”查询不到本人工资的明细，（注：本人于2021年10月开始工作）显示“没有更多”，操作流",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10145807",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10145807",
+   "question": "您好，县长，我是一名普通的工作人员，来同心工作一年多了，我发现一个问题，就是我们每次发工资都没有明细，让人不明白扣除款项具体是什么，发的钱又包括什么，享受到了什么样的福利也不清楚，想去问知道工资明细的人，但是总是得不到明确的回复，要么就是满",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10145222",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10145222",
+   "question": "领导您好，我们同心县的车租车是我们同心人民生活中不可缺少的一部分，但是现在慢慢变成让我们憎恶的一部分了，现在我们同心80%的车租车在路上行驶过程中随意变换车道，随意掉头，已然成为了一种社会风气，给我们普通司机造成了很大的困扰，现在一到晚上，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10144804",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10144804",
+   "question": "学生免费午餐吃不饱就打一点点饭，让食堂阿姨多打一点，还是一点点，剩下的饭菜阿姨和老师全部带走，国家给学生的免费午餐是给食堂阿姨和老师准备的吗？给老师说老师不管，校长找不到人，希望同心县教育局严肃查处此事，免费午餐的问题一直持续很长时间，希望",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10143798",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10143798",
+   "question": "%E9%A2%86%E5%AF%BC%E5%A5%BD%EF%BC%8C%E6%88%91%E6%98%AF%E7%8E%8B%E5%8F%A4%E7%AA%91%E6%9D%91%E6%B0%91%E7%99%BD%E4%BA%91%EF",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10143176",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10143176",
+   "question": "%E5%B0%8A%E6%95%AC%E7%9A%84%E5%8E%BF%E5%A7%94%E9%A2%86%E5%AF%BC%E4%BB%AC%EF%BC%8C%E6%82%A8%E4%BB%AC%E5%A5%BD%EF%BC%9A%E6",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10112242",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10112242",
+   "question": "从银川无风险地区回同心需要核算证明或者需要居家隔离吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10125830",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10125830",
+   "question": "我是同心县人民医院儿科医生马晓丽的丈夫，我妻子因产假后正常上班，现育一儿8月大，儿科就让上夜班，我去找副院长马新贵给的答复是经和正院长金自才及儿科主任马生清商议后继续让我妻子上夜班。按照劳动合同法规定：哺乳期妇女幼儿未满一周岁是不允许上夜班",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10111998",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10111998",
+   "question": "您好 请问以社会考生身份参加普通高考 报名学考 有具体时间吗 可以补考吗 今年还可以考吗 如果不行的话 是不是就不能参加明年高考了？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10111935",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10111935",
+   "question": "今年新招的乡村幼儿园教师什么时候体检，什么时候上班?谢谢❤️",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10111696",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10111696",
+   "question": "您好，领导，咨询一下，建档立卡户，驾驶证补贴一般什么时间下来",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10111652",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10111652",
+   "question": "今年由于持续高温，往年水田的玉米淌第三次水，今年不知道什么原因第二次水都没淌，导致大面积的水田玉米旱死，恳请上级领导协调解决一下，十分感谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10111638",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10111638",
+   "question": "村口大喇叭本来是发布紧急通知和消息所用，但是王团镇联合村二社马守海家的大喇叭天天不定时的播放广播，并且播放时声音特别大，滋滋滋的电流声严重扰民，有时候马守海家的大喇叭还被用来喊其儿子回家吃饭的工具，公共资源私用，现在网络这么发达，居民接收信",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10111607",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10111607",
+   "question": "三支一扶工资补贴不及时发放，到第二月初还不发！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10111590",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10111590",
+   "question": "政府对企业招聘的相关政策，不管对企业和个人帮助都非常大，因为在同心的招聘渠道本来就非常有限，本公司响应政府号召，在人力资源社会保障局登记公司信息，发布招聘广告，即可以为公司吸收人才，也可以解决社会就业问题，可是登记完信息，工作人员说周三可以",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10111563",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10111563",
+   "question": "沙嘴城村的下水问题，为什么？请领导调查一下好么？给老百姓解决一下。我亲爱的党，我热爱的党，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10111547",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10111547",
+   "question": "尊敬的领导你们好，近期我们村子的玉米放水后大面积，甚至整个农田玉米全部倒地的情况特别严重，农民不容易啊，看着一片一片倒地的情况，心里面在滴血，实在太不容易了，也没有任何办法，求各位领导和专家给指导一个方法或者给予一定的技术支持，减少和降低农",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10111531",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10111531",
+   "question": "你好，我想咨询一下，我家就在老市场后面，政府于2017年9月开始的北沟北岸棚户区改造，到目前为止已经五年了，这五年来附近自愿拆迁的已经拆迁结束了，留下了大量的建筑垃圾和生活垃圾，这几天风也比较大，风一吹，满屋子的黄土和一股动物内脏的味道，看",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10111386",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10111386",
+   "question": "河西镇快手主播：罗萍（快手号hei888888）和河西老黑（快手号heizhifu）长期制造家庭矛盾卖货，带来社会不良风气，建议约束为大美同心做榜样！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10111322",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10111322",
+   "question": "尊敬的县领导： 您好！李沿子村的太阳能板路灯及垃圾桶配置非常不合理：有的地方路灯太密集，有的地方（如离村部不远的北一区，50多户，三条路）路灯一盏也没有！垃圾桶也是如此，30多户就一个垃圾桶，距离远，倒垃圾太不方便！这与习近平主席强调建设‘",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10111264",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10111264",
+   "question": "本人应肢体四级肢残疾，不能够干体力活，不能够有稳定的收入来源，父母都有疾病，只能在家里务农，我在此希望县领导能够给我申请一个低保，基本上每个月都要吃药，实在没有办法",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10111247",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10111247",
+   "question": "你好！近期要到同心那边出差办事，请问那边有没有什么特产比较好？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10125751",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10125751",
+   "question": "住房公积金管理单位作为行政窗口，打电话没人接，接上电话不愿意回复咨询，电话还未说完就挂了，再打过去就一直不接，用座机打才接，作为窗口就是这样服务群众的吗？让群众无辜等待，上班时间不在岗，群众没有其他事情了吗，就等你工作人员上岗。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10111221",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10111221",
+   "question": "尊敬的领导： 您好！我来自宁夏回族自治区中卫市中宁县的刘文迪，女，23岁，现在就读于上海大学社会学院民俗学专业，是一名在读硕士研究生。我在外求学期间，一直关注着家乡的发展。对国家级非遗项目“同心莲花山青苗水会”有极大地兴趣，想将它作为我的硕",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10111191",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10111191",
+   "question": "亲爱的党，尊敬的老领导，修路是好事，政府机关把路承包给路桥公司，路桥公司犹如穿了黄马褂，狐假虎威，反应了几次，都不了了之，该公司给老百姓修的那个便道，把日本的秋名山说了个稀罕，我感觉就是咱们中国的蜀道难，难于上青天，要不就是自古华山一条路，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10111162",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10111162",
+   "question": "你好！请问办理个体户营业执照要带哪些材料到哪里去办理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10111146",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10111146",
+   "question": "我是同心县居民，每天都会走好几趟344国道同心段，但是从去年夏秋开始就开挖局面，但是时至今日依然没有动工迹象，尤其是新区到洞子沟路段路上的坑有三十公分深，每逢下雪，下雨车辆刮擦，交通事故不断，行人，自行车，摩托车更是无法通行，请相关部门重视",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10111112",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10111112",
+   "question": "请问房产过户需要带什么资料？需要具备什么条件？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10125730",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10125730",
+   "question": "贷款还完几年了，房产证迟迟办不了，多次去宁夏奇诚房地产公司售楼部咨询，各种推脱，各种谎言，请求政府部门！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10125742",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10125742",
+   "question": "2017年在宁夏奇诚房地产买的房子，至今房产证办不了，开发商不作为，房屋消防验收不通过，是谁同意开发商进行销售，而且人都住满了，开发商是否存在欺诈行为，政府部门该不该监督？哪个部门负责这类问题？房产证办不了给我们造成的损失怎么办？恳请政府有",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10111095",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10111095",
+   "question": "自治区政府公布征收农用地区片综合地价《通知》要求，要切实做好新旧征地补偿标准的衔接。本通知确定的标准自2020年1月1日起执行。2019年12月31日前（含12月31日），已获得有批准权限的人民政府批准的土地征收，其征地补偿及征地程序按照已",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10111010",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10111010",
+   "question": "办理小饭桌需要什么资质、准备什么材料、到哪里办理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10110992",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10110992",
+   "question": "请问人民政府地址在哪里？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10110939",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10110939",
+   "question": "尊敬的县领导，您好： 2013年，在下马关镇郑儿庄村村委会带领下，XX公司对石崾沟进行平田整地（至今荒废，水土流失严重），未做防汛措施，致使2016年十余户村民遭受水灾，下马关政府现场勘察后，决定对受灾村民进行补助。现五年时间已过，村委会当",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10125721",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10125721",
+   "question": "本人在今天早上十点二十分左右，骑电动车在永安东路124号（阿印科寺）十字路口直行通过，绿灯时间有二十几秒，一市容监察车辆极速从我车前右拐通过，目测距撞到本人仅有三十公分。在我紧急刹车后，该车向火车站方向扬长而去。现将拍摄车辆附上，望相关部门",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10110922",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10110922",
+   "question": "老百姓近两年很多在进行畜牧业，主要进行羊养殖，每户少到50左右，多到200左右，但是养殖业本身就有较大风险，尤其在冬天，羊容易生病，非传染病老百姓悉心照料还有救，但是传染病类似口蹄疫，只要有一只，便迅速传播，并且还没有很好的治疗方法，羊可能",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10110905",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10110905",
+   "question": "尊敬的领导，您好！ 我是天津大学的一名研究人员，请问“2016年居民总用电量、2016年规模以上工业企业能源消费情况统计（分能源种类）、2016年R&D经费（研究与试验发展经费）、2016年集中供热面积”相应的数据或数据表可否公开？应如何获",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10125716",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10125716",
+   "question": "领导好，韦州有外地返乡大学生给中小学生补课，有疫情传播风险，希望能制止。另外，也有培训机构偷偷继续补课，每天早上都能看见学生背着书包去补课，有些学生都不戴口罩。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10110837",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10110837",
+   "question": "领导好，韦州有外地返回的大学生招生开班给中小学生补课，我认为有疫情传播风险，希望能制止。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10110820",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10110820",
+   "question": "我是十二五移民户，现户籍地是“河西镇菊花台村”。2012年因搬迁由宁夏同心县王团镇白土崾岘村迁到本址。请允许我简要概述一下求助信息：12年在村部采用抓阄方式分配房屋后、我们一家很高兴地去看新家。当我们走到菊花台村413号房屋时、眼前的房屋状",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10125713",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10125713",
+   "question": "同心新老城之间本就距离不远不近，有私家车的人当然没什么，但是考虑到没有车的老人或者学生，每次两地往返，只能打出租，但是出租收费完全不打卡，直接十块，打卡下来不会到十块。所以，能否开通同心新老城之间的公交，有一路就行，会方便很多，出租太贵了！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10110595",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10110595",
+   "question": "现在在同心县职业技术学校工作，户籍在固原，因为是公费师范生，想在同心落户定居，但没有买房，可以落户吗？该怎么做？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10110578",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10110578",
+   "question": "您好 书记，人家固原市最近调整居民用水和非居民用水在降价，我们同心确涨价，价格居然高的离谱，我县在调整居民用水可以搞个民主调研或者参考其他市县，以下是最近固原市调整居民用水政策。二、居民生活用水实行阶梯水价居民生活用水继续实行阶梯水价。分为",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10110544",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10110544",
+   "question": "近年来，我们县城的发展我们是有目共睹的，这离不开县政府的努力与勤奋，在此感谢县政府为同心人民做出的贡献，谢谢。我想说，这几年我们国家开始注重体育教育了，我们同心在体育方便做的也是十分的不错，但是在部分篮球场还是没有路灯，为什么说这个路灯，我",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10110493",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10110493",
+   "question": "请问同心县的特岗教师面试通知什么时候下发呀？而且进入面试的人数是最终招录人数的几倍呀？会是2比1或者像事业编一样3比1吗？特岗的分数考的要比事业编还高呢。而且特岗也有高手…并且复习和没复习也是两码事，所以我建议重要从面试进行考量对于教师素质",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10110144",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10110144",
+   "question": "同心县兴隆乡新生村，村里的主干道不能通行，原因是福银高速G70高速路路桥下变成了一片沼泽，2019年，不知道是哪个部门，对路桥下路面整体下挖1.5米深坑，使路面变成了坡地，本来平坦路面变成陡坡下陡坡上，非常难走。一个月前下了一场暴雨，积水变",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10110109",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10110109",
+   "question": "在哪里可以查询到：“同心县人民政府《关于印发同心县棚户区改造房屋征收补偿安置方案的通知》（同政发〔2017〕62号）”和“《关于印发同心县棚户区改造房屋征收补偿安置方案补充意见的通知》（同政发〔2017〕21号）”这两份文件。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10125667",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10125667",
+   "question": "2019 年5月5日，中共同心县委组织部与同心县扶贫开发办公室联合发文以“同组通[2019]36号”“关于做好非贫困村驻村帮扶有关工作的通知”。文件中明确规定：“派出单位要为驻村工作队落实工作经费、体检、人身意外伤害保险、伙食和交通补助费、",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10109985",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10109985",
+   "question": "亲爱的图书馆工作人员： 你们好！首先，十分感谢图书馆工作人员迅速，热情，耐心的解决了之前反应的图书馆方便难问题。虽然反应的主要问题不在图书馆，但还是真挚的感谢你们解决了相关问题。 其次，对之前反应中存在错误向你们表示歉意。1.图书馆是北门，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10109968",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10109968",
+   "question": "各位领导好！ 近期由于图书馆卫生间维修原因，导致图书馆内无卫生间可用。但是新区图书馆为一座综合性建筑。建筑南面为图书馆，北面为博物馆，东西面为未知建筑。北面博物馆内设有卫生间，但是不允许借用；西面建筑内部人员直接以“无卫生间”为由拒绝使用，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10109815",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10109815",
+   "question": "自来水停水一个月，一直联系自来水公司，自来水公司人都没来，电话里给我说我这里的自来水被上游的人用光了，让我自己拉水自己解决，，自来水管装到家里，一滴水没有，搞得形式主义？饮水都没发解决，一直很干旱没下雨，我自己怎么解决？十几户人没水，自来水",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10109780",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10109780",
+   "question": "教育部通知2020年扩招中小学幼儿园招聘， 我想咨询一下这一次事业单位同心县没有幼儿园教师岗位的原因，今年不招聘明年还招吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10109741",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10109741",
+   "question": "我是新区家园B区住户，最近小区不管是白天还是晚上无故停水，已严重影响我们的正常生活！！！我们住的是公租楼，一年缴费高达8000+，水这种最基本的生活需求都无法满足我们！难道就是我们租的房子，你们就要带着有色眼镜看待吗？求助了很多部门，都是对",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10109723",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10109723",
+   "question": "投诉，为何长征东街北东二巷这一带将近一个多月，供水严重不足，白天几乎全天无水，严重影响生活，希望能管一管，尽快解决问题。没水这日子咋过？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10109652",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10109652",
+   "question": "我家住林秀苑小区，离自来水公司距离也不远，但是家中自来水时有时无，尤其是早晨，一滴水都没有，连最起码的洗漱用水都没有，更别说做饭什么的了，严重影响着我们的工作和生活…曾经也向自来水公司反应过这个问题，但都没有解决，请政府相关部门帮忙解决一下",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10109550",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10109550",
+   "question": "领导您好，我来自韦州镇，之前由于疫情原因我们这里所有的篮球场的篮球框全部被卸掉，现在疫情好转，像吴忠和同心这样的大地方篮球场都已经开放，我们这里到现在都还没有开放，篮球框还是没有安装上，我想知道一下原因，或者知道下大概的开放时间也可以。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10109497",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10109497",
+   "question": "您好。自习近平总书记提出农村的”厕所革命”以来，同心县政府积极响应落实。我查找县文件看到农村卫生厕所改造以补贴形式来鼓励老百姓自建厕所。室内建的补贴3000元，室外4000元。多出来的由本人自行垫付。但我们这儿是每户另收1000元，没有补贴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10109461",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10109461",
+   "question": "我县环城路新城至沙嘴城路段路上由于来往重型卡车多，路面经常布满1-4公分直径的小石子，加之过往卡车速度快，轮胎弹射起来的石子多次砸中到我身上，可想而知，给其他车辆和行人也带来了不少的安全隐患。希望相关部门能够对路面积石定期清除。谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10109443",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10109443",
+   "question": "尊敬的县领导您好！ 我叫马小平，是一名退伍老兵，回家后务农，由于家庭经济困难，没有住的房子，一只靠打工首付了一套楼房，现如今由于疫情房款无法偿还，请求县领导协调推迟一到二个月来还款，特此向您保证推迟一段时间，保证如期偿还，实在没有办法了，逼",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10109355",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10109355",
+   "question": "首先祝贺本区、本县在新型肺炎疫情中取得的阶段性胜利，及感谢全民上下为此作出的巨大付出。 1、目前全国新型肺炎疫情趋势向好，我区在抗击新型肺炎疫情上已取得阶段性的胜利，在2020年3月16日实现了0确诊，0疑似。 2、我区已实现连续15天无新",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10109337",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10109337",
+   "question": "你好： 我为同心县城个体经营者，目前在重庆市梁平区，有健康证明。因春节回老家及疫情原因所经营商铺已关门近两月，想咨询返同隔离政策，是否集中隔离及隔离费用等问题。谢谢!",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10109192",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10109192",
+   "question": "您好，麻烦问下，集体户口人员领取结婚证时，提供户口本本人页和派出所出具的集体户籍证明，可不可以领取结婚证？期待收到您回复，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10109122",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10109122",
+   "question": "劳动局最近出台就业贷款！看了条件确实达不到！我是大车司机！心酸了！建档立卡也好低保也罢！跟我们十万八千里！领导说我们有大车条件好着呢！试问：借牛贷款可以，蒙混过关可以！冠状病毒让我们快要崩溃！就业局的款项是扶持！不是腐败！难道说创业贷款非要",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10109105",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10109105",
+   "question": "就标题-<村支书刁难不让回家>这一投诉，后续了解到杨海书记当天确有会议召开，也由于当时疫情需要，被隔离一天一夜没睡好觉，确实愤慨，了解清楚情况后也随即写了这份稿子，也给村委上带来了工作上的不便，本人深表歉意，望各位领导理解。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10108999",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10108999",
+   "question": "尊敬的县委领导： 疫情严重，我们能理解政府部门领导的工作繁忙，责任任务重。我们也乖乖地呆在家，不给政府添乱。但是买菜时发现，物价还是上涨，同心县新百超市，还有指定的卖菜点的物价都有上涨，希望政府部门严加管控，积极响应党中央及自治区严厉打击哄",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10108965",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10108965",
+   "question": "你好县领导，近日有新生婴儿采血化验及办理医学出生证明需进城办理，但大寺路卡口人员对我们说想要进去就要县上的证明村部的证明都进不了，没有证明不管什么事情都不让进，望县领导能够给我们一个办理的方法。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10108858",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10108858",
+   "question": "王团镇农贸市场出入口及市场内、市场外道路两侧乱摆乱放乱停，个别商贩将货物摆放在通道上销售，不仅占用消防通道，还有碍通行，商贩将垃圾随意扔、造成乡镇环境差，给清洁工带来极大的麻烦，影响到镇容镇貌扰乱了市场秩序。尤其到集市，农贸市场两侧乱摆摊，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10108805",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10108805",
+   "question": "2019年11月19日中午一点左右，同心县宁夏生海房地产有限公司清水湾南区B区5号楼和6号楼之间，一施工的挖掘机误操作把现场施工的另一个生海公司的员工周生洪左腿膝盖及小腿压成粉碎性骨折。 事发至今，受害人拜访的地方政府相关部门总计有：同心县",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10108767",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10108767",
+   "question": "王团镇工商所工作人员服务态度差，上班时间随意，宗旨意识淡薄、作风不扎实、精神状态不佳，业务能力不足，工作期间不穿工作服，群众办理业务推脱，服务态度极差，有时使用不文明言语。希望相关部门能够抓下基层相关部门的职业素养和工作作风，选出德才兼备的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10108750",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10108750",
+   "question": "本人于2019年12月23日在在同心县人民医院带领80岁老母亲看病，老人病情严重，疼痛难忍，在心血管内科大夫办公室座椅上休息，期间一名叫黑娟的医生态度蛮狠，语言粗鲁，不分青红皂白将老人及其他病人轰出病房，并称“去别处拍片子去，你的病不归我们",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10125589",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10125589",
+   "question": "我是宁夏吴忠市同心县下马关镇刘家滩村114号村民，现在由于自来水（宁夏水投中源水务有限公司）主管破裂，导致了房房屋地基下沉，使得房屋墙面开裂严重，墙体倾斜严重，无法居住，而我们在十月份左右就已经发现问题及时给这边片区负责人反馈了，他们却迟迟",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10125585",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10125585",
+   "question": "各位领导 您们好！这个平台我写过几次信，没有一次给我这个老百姓满意的答复。几年前我的低保被取消，我名下有辆车（二手比亚迪)，因为那辆车为了看病被我很早就卖掉了，也到当地车管所开了无车辆信息证明，当时我写了申请说是一定给我解决，到现在也没个准",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10108696",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10108696",
+   "question": "尊敬的领导，我想咨询一下，建档立卡户在12月13号还能申请驾照补助吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10108678",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10108678",
+   "question": "尊敬的县领导您好 我叫张军，我在2018购买了豫海万家6号楼一单元102室，2019年6月拿到钥匙开始装修。在10月24试暖过程中，暖气管道漏水房子被淹。我找来物业维修人员维修，结果发现暖气主管道与分水器阀门连接处无密封橡胶垫，属于工程质量",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10108623",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10108623",
+   "question": "新区目前已经建成小区三个，政府单位若干个，但公共交通只有老城到医院的公交车和固定时间到政府的公交车。什么时候通公交（固定周期，频次），否则上班办事，特别是学生上学特别不方便。孩子们只能骑自行车或电动车，不安全，或者坐出租，花费大。希望政府可",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10108549",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10108549",
+   "question": "尊敬的领导您好！供暖已经20天，荣华园小区暖气不热，给热力公司打电话说耐心等待，问题20天了还没有解决，还在拖延！我们该怎么办，暖气费我们从来按时交，问题你得让暖气热是吧！希望相关领导，解决我们百姓的“小”事！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10108532",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10108532",
+   "question": "尊敬的主管领导你们好！我家位于豫海南街劳动市场院内，请问此处的棚户区改造何时进行？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10125581",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10125581",
+   "question": "各位领导你们好，我是城一村村民，我就想咨询我们村上的低保户，困难户，还有边缘户都给了谁家了，我今年申请了低保说是民政局没有批，我不符合条件，我就想问问民政局的各位领导你们坐在办公室里就说我不符合条件，你到我家里落实了，还是调查我家的现实情况",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10108473",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10108473",
+   "question": "尊敬的领导你们好！ 今天去政务服务大厅看到关于建档立卡驾照补贴申领在10月8日停止办理了，是有名额限制吗？还是怎么回事？我们部分人错过了时间。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10108437",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10108437",
+   "question": "同心县农牧局在职员工伊飞虎，在各大银行、网贷、私人进行贷款且不按照规定归还欠款，现请求贵政府核实调查要求伊飞虎还清欠款，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10108420",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10108420",
+   "question": "十一来临之际，各地红旗招展，庆华诞，爱国家。宣传口号喊的再响，不如满街红旗飘扬！作为老百姓的我建议官方可否挂些小国旗在主街道两旁的灯柱上！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10108401",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10108401",
+   "question": "尊敬的领导: 你好！我是宁夏伊品同心桃山粮库的一名职工，孩子入学学前教育受到了不公正待遇。县教育局在所属县城小学招收学前教育儿童的政策中没有完全照顾到县政府招商引资的企业职工的子女受教育问题，持有营业执照的小微企业（商户）在子女入学上能按片",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10108347",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10108347",
+   "question": "尊敬的县长您好！我是2014年特岗教师，服从组织安排，被派往下马关镇新缘小学从事教育教学工作，于2017年转正。由于特殊原因（父母都已年迈，又因2017年父亲摔伤，脑内出现血肿块，在附属医院手术，术后在家休养恢复；同年母亲突发急性脑梗，偏瘫",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10108311",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10108311",
+   "question": "各位领导您们好，我是普普通通的一个农民，因身体原因这两年干不了重活，申请了低保也没有批下来，问村里想要个危房改造也没有的土房还是四十年前爷爷手里盖的房，遇到下雨天漏雨，房子不敢住人了，去年实在没办法，东拼西凑的盖了一间彩钢房，因为实在是经济",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10108277",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10108277",
+   "question": "尊敬的县长，您好！ 冒昧我对您的再次打扰，想必上次的信件，您是太忙无暇去看了！我是同心县新城新区家园B区的一名公租住户，这里白天停水已经一个多月了，给相关部门都反映了。可都是再三推脱不管。想在同心县信息网上建议下。可是系统也被设置了，说是先",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10125577",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10125577",
+   "question": "我是同心县新城新区家园B区(廉租楼B区)的一名住户，小区的供水到了夏季白天几乎没有水，严重影响了我们的正常生活！虽然住的是租楼，可是一年的各种费用都是按时缴纳！我老公是公职人员，一年的租房各种缴费达到10000，比租私人楼房还要高。所以我觉",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10108025",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10108025",
+   "question": "新区的住户缴纳电费都需要到老城区去缴纳电费，建议供电公司在新区设立缴费网点，方便新区居民缴费。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10107971",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107971",
+   "question": "尊敬的领导你好， 我想了解关于精准扶贫项目，我们接到的通知是凡是外出务工者，没有居住者不享受此待遇 ，但是我们也是此村庄的村民，为什么外出务工者没有享受此项目的福利？是否有公开的文件通知？如果有请公示，如果没有，那是否意味这里面有不可告之的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10107935",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107935",
+   "question": "本人在2018年7到8月间，在豫海万家定购一套房子，交完首付款后，按揭贷款于2018年12月18日通过中国农业银行的审批，因此我到豫海万家售楼部去办理交房手续，然后售楼部告知我物业费从2018年8月份开始算起，取暖费从2018年11月份开始",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10107919",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107919",
+   "question": "你好，我是打工的孩子是视力残疾，想请各位领导给我们同心特殊学校分配盲人老师谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10107902",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107902",
+   "question": "我是同心县民生南街6号楼的一位住户，我们小区2015年以前暖气都很热，从2016年开始暖气就不热了，今年最冷，年年冻的去找热力公司反应，每次都是一月推一月一直推到天气热了就不了了之了，今天是最冷的一天，屋里直接冻得待不住，像这样下去我们还怎",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10107883",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107883",
+   "question": "恒通商场到现在没给通暖气！难道不准备给通吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10107751",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107751",
+   "question": "领导你们好我是预旺的，今年34岁，我想问问领导们，你们口中的脱贫是什么意思，我在2016年要的危房，盖与2017年7月份，在盖房子期间，没有见到预旺的那一个领导，也没有说盖多大我盖完房子，就在今年的8月份，在打危房款的时候，我们大队说我盖的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10107733",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107733",
+   "question": "随着气温下降，全县其他各小区均已供暖，但同心县新区供热公司居然在10月29日下发了“停暖通知”，严重违反了《宁夏回族自治区供热条例》，请领导尽快解决。值此开展扫黑除恶之际，供热公司竟然在通知中提出诸多霸王条款，严重损害了广大居民的权益，请予",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10107640",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107640",
+   "question": "尊敬的马洪海书记、丁炜县长： 您好！图书馆问题没有得到整改，我是一名复习公务员考试的同学，每天早上来图书馆11：30就要被对面少儿阅览室的几个老阿姨用呵斥声音让我们回家，已经下班了，下午2：30开门后，5：30又要下班，图书馆每天开放8个小",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10107600",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107600",
+   "question": "尊敬的政府领导： 您好！ 深圳市工务园网络科技有限公司是以人力资源共享服务为主的互联网科技型企业。通过劳务派遣或推荐与4千多家企业合作，为30多万人次安排了工作；业务遍及珠三角长三角，正逐步向全国辐射，已在全国设立17家分公司，参股各地68",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10107582",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107582",
+   "question": "在这里想要咨询下，下马关红城水下垣村供应的自来水质量由哪个单位负责？联系方式如何？ 近一年来水质明显下降，应该无法达到设计质量标准吧？ 希望能够准确咨询负责单位详情，不要让安全供水成为病毒供水。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10107563",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107563",
+   "question": "想问一下最近发布的公告中同心县教育扶贫基金和兴俊扶贫基金是一回事吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10125553",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10125553",
+   "question": "本人住锦成家园60号楼1单一102，夏天这么热，不敢开窗户，因为窗户外面就是一家正在经营的餐厅的排烟口，就算是管了窗户，也会闻到浓浓的烟味，严重影响我们一家的正常生活，多次向物业反映，均未得到解决，与餐厅老板交涉，也未起实质性作用，请政府为",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10107504",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107504",
+   "question": "我得病已经七八年了，这些年的吃药住院也花了不少钱，是希望能得到政府的补助，恳切的希望能得到回复。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10107432",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107432",
+   "question": "7月11日，上午，我到豫海万家询问购房贷款事宜，遭该公司工作人员言语攻击，气焰十分嚣张，行为十分恶劣，严重损坏消费者权益。事后，我向该公司有关管理人员反映，要求给我道歉，但该公司至今未联系该员工与我道歉，请政府为民做主，对这些欺行霸市、肆意",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10107413",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107413",
+   "question": "我想问一下这个路修还是不修要给老白姓一个说法吧，我的房子都漏雨了都不让翻建，要我们等到什么时候啊同心县羊绒园区中央大道西延伸段（园区大道—S101线）工程项目环境影响评价公众参与信息公告 2017-01-06 16:47:45 作者：adm",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10107399",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107399",
+   "question": "亲爱的市长大人，县长同志，我也是迫不得已才给你写信反应一下。我是同心县预旺镇陈石塘村的一名残疾人，我叫罗龙，我家里有6口人，13岁那年不知什么原因，从此失聪，没有就业方向，工地上进去，老板都闲我听不到，害怕出事，都不用我，我根本就没有经济来",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10107323",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107323",
+   "question": "尊敬的县领导，截至2018年7月，其他事业单位绩效工资均按照季度发放，但同心县教育系统1-2季度绩效工资仍未发放，是什么原因？请予以答复",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10107288",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107288",
+   "question": "尊敬的县领导你好！我叫高登华，是下马关镇五里墩村的村民。本人耕地因2012年土地流转两年后，被人强占，造成了不必要的权属纠纷。在下马关镇政府一年多的调查取证下，证实耕地确属本人，并出具相关函件请求县农牧局相关部门依照调查事实确权，但半年来杳",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10107140",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107140",
+   "question": "新区人社局大门口与皓月新都商业街边，有很多垃圾，建议及时清理，影响市容。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10106951",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106951",
+   "question": "随着天气变暖，群众户外活动的增加，我县目前老城和新区各有一个体育馆，但不知道对群众是否开放，如开放请问开放时间。以及是否收费，以及收费标准。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10106932",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106932",
+   "question": "县城一小门口，空地两边被焊接许多铁质障碍物，阻碍机动车停放。因为道路本身就窄，马路上又有90秒违停抓拍，造成给很多接送孩子上下学的家长和附近办事群众停车难的问题。从提高利用城市公共空间、化解停车难、缓解交通堵塞角度出发，也为了方便群众出行角",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10106913",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106913",
+   "question": "白沟桥每天中午、下午交通都特别拥堵，同时有摊贩在桥的两端乱摆摊，造成本来就不宽的路更显得拥挤，很多人都是当路停车就下车买东西，城管和市场监管都没有长效机制管一下的。给我们在桥头生活、居住的群众带来了很大的不方便。望县政府处理为盼，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10106894",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106894",
+   "question": "希望我县县城至羊路路段开通公交。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10125525",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10125525",
+   "question": "我家在河西镇，想在民政那办点事，已跑了5次，每次都让我找 贺学钊，每次都找不到，办点事太空难了，每次都让我空跑，难道就不能给老百姓给一点实惠 ，何学钊没在就不找个人代替一下吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10106840",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106840",
+   "question": "尊敬的县领导： 你们好！教育是一个民族发展的基石，教育兴，则民族兴；教育亡，则民族危矣！我是02年从县城二小毕业的学生，近年听闻家乡亲戚朋友说起如今义务教育，都坦言教学质量已大不如以前，抱怨重重。每当我想到一个不称职的老师毁坏的就是50多个",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10106820",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106820",
+   "question": "同心县人力资源与社会保障局，工作人员办事推诿扯皮，不安秋冬季作息时间表上班，业务素质低，严重影响政府形象！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-161",
+   "id": "10106768",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106768",
+   "question": "同心县图书馆建议周末能开馆，可以让我们看书",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

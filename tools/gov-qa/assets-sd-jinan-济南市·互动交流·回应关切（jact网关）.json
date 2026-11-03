@@ -1,0 +1,404 @@
+{
+ "A_考卷": [
+  {
+   "source": "sd-jinan",
+   "id": "3f7dfce087f843f78f8526455c1891f0",
+   "url": "http://www.jinan.gov.cn/api-gateway/jpaas-jact-web-server/front/mail-pub-detail?iid=3f7dfce087f843f78f8526455c1891f0",
+   "question": "请公开济南市人民政府授权济南市静态交通收费文件\n请公开济南市人民政府授权济南市静态交通收费文件济政字〔2016〕5号,可发送至本人邮箱",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-jinan",
+   "id": "1e77e1b391fa4c769c897a54a94ce7b1",
+   "url": "http://www.jinan.gov.cn/api-gateway/jpaas-jact-web-server/front/mail-pub-detail?iid=1e77e1b391fa4c769c897a54a94ce7b1",
+   "question": "母公司参与全资子公司招标\n国有企业能否作为投标人公平参与该国有企业下属控股子公司组织的招标工作",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国招标投标法实施条例",
+     "lib_no": "招标投标法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国招标投标法实施条例释义",
+     "lib_no": "招标投标法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sd-jinan",
+   "id": "50914bd970674559a254528971f3d334",
+   "url": "http://www.jinan.gov.cn/api-gateway/jpaas-jact-web-server/front/mail-pub-detail?iid=50914bd970674559a254528971f3d334",
+   "question": "移动问题\n本人使用老年手机多年，近期移动信号不好，7月底联系移动公司可能是手机卡时间长了，也可能附近基站逐渐关闭导致，因为需要本人去营业厅太麻烦没再管。后来没有信号了，再次联系移动开始表示营业厅有以旧换新，充话费赠手机的活动，具体咨询详情时",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国电信条例",
+     "lib_no": "电信条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sd-jinan",
+   "id": "15cf1ac74d0641d2abf2b4adfdbf27f1",
+   "url": "http://www.jinan.gov.cn/api-gateway/jpaas-jact-web-server/front/mail-pub-detail?iid=15cf1ac74d0641d2abf2b4adfdbf27f1",
+   "question": "关于入职以来企业从未缴纳住房公积金的问题，要求企业补缴的申请流程及材料\n入职以来企业从未依法缴纳住房公积金，现要求企业补缴，具体的申请流程及材料都有什么？希望得到文字回复以便记录（另：公司与劳动者签订的劳动合同，劳动者手里没有，两份原件都在",
+   "cited_hits": [
+    {
+     "name": "住房公积金管理条例",
+     "lib_no": "住房公积金管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-jinan",
+   "id": "b8f7aa55a58b4182bd24c63b63ed93a5",
+   "url": "http://www.jinan.gov.cn/api-gateway/jpaas-jact-web-server/front/mail-pub-detail?iid=b8f7aa55a58b4182bd24c63b63ed93a5",
+   "question": "《关于信访复查申请办理进度及程序问题的咨询函》\n济南市国资委： 本人孙亮，就以下事项请求贵委书面答复： 1. 本人7月1日提交的复查申请（EMS单号1372840827528），贵委7月2日签收，目前办理状态如何？ 2. 贵委7月7日市长信",
+   "cited_hits": [
+    {
+     "name": "信访工作条例",
+     "lib_no": "信访工作条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "信访工作条例",
+     "lib_no": "信访工作条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-jinan",
+   "id": "2a60593d1f634e0cb40203f80f1ffc4d",
+   "url": "http://www.jinan.gov.cn/api-gateway/jpaas-jact-web-server/front/mail-pub-detail?iid=2a60593d1f634e0cb40203f80f1ffc4d",
+   "question": "咨询地方政府规章规定如何界定的问题\n根据《山东省行政程序规定》第八十四条 行政执法决定由行政机关主要负责人或者分管负责人作出。 情节复杂或者重大的行政执法决定应当经行政机关法制机构审查后，由行政机关负责人集体讨论决定。其中，对涉及经济社会发",
+   "cited_hits": [
+    {
+     "name": "治安管理处罚法",
+     "lib_no": "治安管理处罚法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "山东省行政程序规定",
+    "公安机关办案行政案件程序规定"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "sd-jinan",
+   "id": "ddb067f52c874dcc80d4d34374bc7e53",
+   "url": "http://www.jinan.gov.cn/api-gateway/jpaas-jact-web-server/front/mail-pub-detail?iid=ddb067f52c874dcc80d4d34374bc7e53",
+   "question": "关于2026年无线电能力验证举办\n您好，今年的无线电能力验证还有举办吗，没有看见最近济南有此类消息，谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于开展2026年业余无线电操作技术能力验证考试的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-jinan",
+   "id": "2cc959c99cf5405a8caa8dc731bf6a0c",
+   "url": "http://www.jinan.gov.cn/api-gateway/jpaas-jact-web-server/front/mail-pub-detail?iid=2cc959c99cf5405a8caa8dc731bf6a0c",
+   "question": "大学生租房补贴咨询\n听说租房补贴政策变了，有没有最新的政策文件呀",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于推进新市民、青年人租赁住房补贴 有关工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-jinan",
+   "id": "a4a177e17fa640d4b36c99ecd243f9ac",
+   "url": "http://www.jinan.gov.cn/api-gateway/jpaas-jact-web-server/front/mail-pub-detail?iid=a4a177e17fa640d4b36c99ecd243f9ac",
+   "question": "关于济南莱芜高速免费政策的问题\n其中有一条是车辆必须安装etc，请问一下外省发行的可以吗？例如鲁A牌照，安装的etc为北京发行的速通卡，点对点走etc车道上下高速，享受免费政策的优惠吗？麻烦解答一下，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于济莱间高速公路济南籍小客车点对点免费通行的通告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-jinan",
+   "id": "b6e16f7462d4418e97a631080660e66e",
+   "url": "http://www.jinan.gov.cn/api-gateway/jpaas-jact-web-server/front/mail-pub-detail?iid=b6e16f7462d4418e97a631080660e66e",
+   "question": "济南市住宅物业服务收费管理实施办法\n您好，请帮忙提供2025年最新的济南市住宅物业服务收费管理实施办法。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于继续执行〈关于修改济发改价格〔2019〕260号文件的通知〉的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-jinan",
+   "id": "fdf03d65a3f449e0bcddb4d37c0d0252",
+   "url": "http://www.jinan.gov.cn/api-gateway/jpaas-jact-web-server/front/mail-pub-detail?iid=fdf03d65a3f449e0bcddb4d37c0d0252",
+   "question": "初会\n初会纸质证书什么时候申请邮寄",
+   "cited_hits": [],
+   "cited_missing": [
+    "山东省2026年度会计专业技术初级资格考试报名纸"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-jinan",
+   "id": "82e8320602f044488afb7e0e824feb18",
+   "url": "http://www.jinan.gov.cn/api-gateway/jpaas-jact-web-server/front/mail-pub-detail?iid=82e8320602f044488afb7e0e824feb18",
+   "question": "咨询中药饮片红参相关问题\n咨询中药饮片红参相关问题，产品外包装标注品 名：红参片 【产品属性】中药饮片 规 格：片 【装 量】90g 【性味与归经】甘、微苦，温。归脾、肺、心、肾经。 【功能与主治】大补元气，复脉固脱，益气摄血。用于体虚欲脱",
+   "cited_hits": [],
+   "cited_missing": [
+    "山东省药品零售企业分级分类管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-jinan",
+   "id": "cbf379f709194413a2889282fb4092be",
+   "url": "http://www.jinan.gov.cn/api-gateway/jpaas-jact-web-server/front/mail-pub-detail?iid=cbf379f709194413a2889282fb4092be",
+   "question": "帮帮忙！\n我是山东省济南市历下区山大路170号居民，我们的院子里的树已经长到六楼高了，今年风多风大雨大，一刮风就碰阳台，之前找过社区，工作人员说这个院内的树属于我们粮食局所有园林没法处理，问了我们单位，单位拿不出钱来处理让我们想办法，实在是",
+   "cited_hits": [],
+   "cited_missing": [
+    "济南市绿化条例"
+   ],
+   "has_clause_no": true
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "sd-jinan",
+   "id": "b2841c614bac4dadb002346e8d5c7cc4",
+   "url": "http://www.jinan.gov.cn/api-gateway/jpaas-jact-web-server/front/mail-pub-detail?iid=b2841c614bac4dadb002346e8d5c7cc4",
+   "question": "配电箱（配电板）强制性产品认证自我声明覆盖范围问题咨询\n您好济南市市场监督管理局领导，根据国家《强制性产品认证管理规定》、《强制性产品认证实施规则》及《强制性产品认证自我声明实施规则》，以及国家市场监管总局原低压成套开关设备类产品的强制性3",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-jinan",
+   "id": "c329c6d6dd7a4c87b9da745311f5cc3c",
+   "url": "http://www.jinan.gov.cn/api-gateway/jpaas-jact-web-server/front/mail-pub-detail?iid=c329c6d6dd7a4c87b9da745311f5cc3c",
+   "question": "特种作业证\n你好，低压电工证怎么报名",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-jinan",
+   "id": "2b35fcb17dae4fb3be32d1e57622cd2f",
+   "url": "http://www.jinan.gov.cn/api-gateway/jpaas-jact-web-server/front/mail-pub-detail?iid=2b35fcb17dae4fb3be32d1e57622cd2f",
+   "question": "省外大学生档案\n您好，我是2026届省外高校应届毕业生，户籍地济南市钢城区，档案选择转回生源地。 想咨询两点： 1、全国高校毕业生去向登记系统里，档案转递单位名称填写济南市人力资源和社会保障局即可，还是需要在名称后面加上槐荫区/历下区字样；",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-jinan",
+   "id": "bb8a089d767b49a9a0e4956b286e9f57",
+   "url": "http://www.jinan.gov.cn/api-gateway/jpaas-jact-web-server/front/mail-pub-detail?iid=bb8a089d767b49a9a0e4956b286e9f57",
+   "question": "咨询弹性延迟退休\n我单位为济南高新区企业，现就弹性延迟退休相关政策咨询如下两项事宜： 1. 职工达到法定退休年龄，经双方协商一致办理弹性延迟退休，是否需要事前向社保经办机构办理书面备案？还是直接由企业留存延退协议，待职工办理退休申报时一并上",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-jinan",
+   "id": "a745197587ec41a084d5f8d04f635231",
+   "url": "http://www.jinan.gov.cn/api-gateway/jpaas-jact-web-server/front/mail-pub-detail?iid=a745197587ec41a084d5f8d04f635231",
+   "question": "“清钉护路”有什么进展\n我是一名交通运输专业的大学生，目前正在研究城市道路精细化管理课题研究，想了解一下贵局清钉护路行动目前进展情况，以及是否还在持续开展，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-jinan",
+   "id": "d7fa1b38d496488182d255e4535e595d",
+   "url": "http://www.jinan.gov.cn/api-gateway/jpaas-jact-web-server/front/mail-pub-detail?iid=d7fa1b38d496488182d255e4535e595d",
+   "question": "济南市卫生健康委2026年招聘时间\n济南市卫生健康委2026年度招聘什么时候发布及笔试面试时间是什么时候？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-jinan",
+   "id": "7dea7a0a192c4b1d82a6e77c767bb62c",
+   "url": "http://www.jinan.gov.cn/api-gateway/jpaas-jact-web-server/front/mail-pub-detail?iid=7dea7a0a192c4b1d82a6e77c767bb62c",
+   "question": "求职面试补贴无法修改单位在济地址\n求职面试补贴，系统自动给我保存的是之前试填的某家公司，正式申请时，修改面试单位名称后，单位在济地址为必填项，但为空白，且处于灰色状态无法修改，进入个人信息维护处，未找到可修改之处，所以认为系统存在bug,请",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-jinan",
+   "id": "61dab9867d2d4740838fe672664bded5",
+   "url": "http://www.jinan.gov.cn/api-gateway/jpaas-jact-web-server/front/mail-pub-detail?iid=61dab9867d2d4740838fe672664bded5",
+   "question": "关于社保卡异地启用的咨询\n您好，我现在在日照一家公司工作，社保均在日照缴费，我此前在济南办理的社保卡无法使用医保功能，请问是否需要注销济南的社保卡，在日照重新办理，或是是否有异地启用的相关程序？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-jinan",
+   "id": "310ac566b5884797b0abf9063bd9a21a",
+   "url": "http://www.jinan.gov.cn/api-gateway/jpaas-jact-web-server/front/mail-pub-detail?iid=310ac566b5884797b0abf9063bd9a21a",
+   "question": "关于《济南工程造价信息》下载问题\n《济南工程造价信息》从哪里可以免费下载，按照以前的路径找不到了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-jinan",
+   "id": "2f57941b9ea3485a820e2f992b47961d",
+   "url": "http://www.jinan.gov.cn/api-gateway/jpaas-jact-web-server/front/mail-pub-detail?iid=2f57941b9ea3485a820e2f992b47961d",
+   "question": "关于济南市业余无线电操作技术考试相关问题\n您好，请问2025年济南市业余无线电操作技术考试何时报名？何时考试？是否采用CRAC发布的新版题库内容？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-jinan",
+   "id": "0e769756c90d417798f1a3befb6cac20",
+   "url": "http://www.jinan.gov.cn/api-gateway/jpaas-jact-web-server/front/mail-pub-detail?iid=0e769756c90d417798f1a3befb6cac20",
+   "question": "关于卫生资格考试\n卫生资格考试问题 我是25届全日制应届毕业本科生专业医学影像技术，是否可以报名今年的卫生资格考试 放射技士 职称的考试 如果已有就业单位有工资流水 无社保流水是否可以报名，如果需要社保则需几个月",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-jinan",
+   "id": "9700acbf1e774cd18e1d5e51385d3a9d",
+   "url": "http://www.jinan.gov.cn/api-gateway/jpaas-jact-web-server/front/mail-pub-detail?iid=9700acbf1e774cd18e1d5e51385d3a9d",
+   "question": "2024年DCMM贯标奖励申报事宜\n您好，根据济工信字2023 7号文，通过DCMM4级认证的企业科申请最高50万元的政策性奖励，我司于2024年9月通过了DCMM4级认证，但截止目前，济南市工业和信息化局仍未发布2024年DCMM申报通知",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-jinan",
+   "id": "88c6cbd03b92469aac6141fe05d4aabb",
+   "url": "http://www.jinan.gov.cn/api-gateway/jpaas-jact-web-server/front/mail-pub-detail?iid=88c6cbd03b92469aac6141fe05d4aabb",
+   "question": "法考证现场提交材料\n当前司法部官方网站显示济南市应届生法律职业资格考试预约线下现场提交材料的日期仅开放11日下午以及15日下午，且均预约满，请问是否会按司法部规定开放14日上午及16日全天？是否能保证想要申请在济南提交材料的同学均可以预约时",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-jinan",
+   "id": "3b4c92ec8d754fb5859fee818f330eb3",
+   "url": "http://www.jinan.gov.cn/api-gateway/jpaas-jact-web-server/front/mail-pub-detail?iid=3b4c92ec8d754fb5859fee818f330eb3",
+   "question": "国补打款问题\n4月30日审核通过，现在6.19日了，还没有打款信息",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-jinan",
+   "id": "207e6f4c5d754e179697d431d7be82b0",
+   "url": "http://www.jinan.gov.cn/api-gateway/jpaas-jact-web-server/front/mail-pub-detail?iid=207e6f4c5d754e179697d431d7be82b0",
+   "question": "济南6月份第2批教资认定\n你好，我是今年的应届毕业生，想要参加济南6月份的第2批教资认定。我想问一下整个流程是：网上报名，体检，然后线下确认这样子。我主要想问的就是最后一步线下确认，6月份这一批能不能线上呢？可不可以线上提交材料啊",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-jinan",
+   "id": "09cc290aa07c41deb0fc4af6f7b9ee7a",
+   "url": "http://www.jinan.gov.cn/api-gateway/jpaas-jact-web-server/front/mail-pub-detail?iid=09cc290aa07c41deb0fc4af6f7b9ee7a",
+   "question": "法考报名资格\n您好，关于法律职业资格考试资格问题，本人2016年全日制专科毕业，2022年取得函授本科学历，无学位，均为非法学专业，学信网均可查询，是否符合“老人老办法”，可以报名法考吗？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-jinan",
+   "id": "d8808dade2f44377828c093c932dedd1",
+   "url": "http://www.jinan.gov.cn/api-gateway/jpaas-jact-web-server/front/mail-pub-detail?iid=d8808dade2f44377828c093c932dedd1",
+   "question": "问题咨询\n请问你们联系电话多少，咨询些问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-jinan",
+   "id": "9ca3e051c93748b4a09841ce47246e7b",
+   "url": "http://www.jinan.gov.cn/api-gateway/jpaas-jact-web-server/front/mail-pub-detail?iid=9ca3e051c93748b4a09841ce47246e7b",
+   "question": "垃圾车扰民\n济南市莱芜区花园学校初中部机务段宿舍4号楼南有两个垃圾桶，就放在居民楼下。每天早上四点左右收垃圾，是每天4点多就来,哄哄的响,垃圾车声音太大，孩子和老人被噪音吵醒后直接无法入睡，严重影响上课学习质量。我们为了让孩子多睡一会在学校",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-jinan",
+   "id": "50179b3877a0445ead48e94456831303",
+   "url": "http://www.jinan.gov.cn/api-gateway/jpaas-jact-web-server/front/mail-pub-detail?iid=50179b3877a0445ead48e94456831303",
+   "question": "个人消费贷购车，银行告知不能享受财政贴息\n本人在招商银行办理个人消费贷款，用于购车，银行告知不能享受财政贴息，请问是什么原因？请问根据哪条规定不能享受贴息，银行政策凌驾国家政策之上？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-jinan",
+   "id": "5a8bb2c032204843af1ee2c67f30bf58",
+   "url": "http://www.jinan.gov.cn/api-gateway/jpaas-jact-web-server/front/mail-pub-detail?iid=5a8bb2c032204843af1ee2c67f30bf58",
+   "question": "投诉济莱地产国企履职不到位，拒不落实购房补偿\n本人系莱芜济莱地产（国企）金融中心项目以旧换新业主。因该国企下属开发单位履职不到位，未按以旧换新约定完成旧房过户手续，直接造成我公积金贷款办理受阻。在我现已缴清全部房款的前提下，该国企仍拿付款时",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-jinan",
+   "id": "d7d68c20158847feadf27c672c3a4b42",
+   "url": "http://www.jinan.gov.cn/api-gateway/jpaas-jact-web-server/front/mail-pub-detail?iid=d7d68c20158847feadf27c672c3a4b42",
+   "question": "婚姻登记数据\n您好，我是山东师范大学的一名学生，出于写论文需要，我现在需要15年至26年上半年的婚姻登记情况中的结婚登记与离婚登记情况，目前还未找到25年一年及26年上半年的结婚登记与离婚登记情况，请求一下数据，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-jinan",
+   "id": "642efc1bf5cb4adab266b713f6526999",
+   "url": "http://www.jinan.gov.cn/api-gateway/jpaas-jact-web-server/front/mail-pub-detail?iid=642efc1bf5cb4adab266b713f6526999",
+   "question": "公积金贷款事项\n夫妻二人公积金贷款，一人为外省公积金，二人均未使用过公积金贷款， 1. 共同在济南市买房，能否共用公积金贷款？ 2. 一人认定E类人才（全日制博士学位），一人未认定，能否享受高层次人才贷款额度上浮？ 3. 若还没领证登记，上",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-jinan",
+   "id": "8feac10b5eee4df4a728490d8a552884",
+   "url": "http://www.jinan.gov.cn/api-gateway/jpaas-jact-web-server/front/mail-pub-detail?iid=8feac10b5eee4df4a728490d8a552884",
+   "question": "企业接收档案问题咨询\n请问企业能否接收并保管与本单位没有劳动关系人员的人事档案",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-jinan",
+   "id": "38bb903693f843c69329dbfa7a59f157",
+   "url": "http://www.jinan.gov.cn/api-gateway/jpaas-jact-web-server/front/mail-pub-detail?iid=38bb903693f843c69329dbfa7a59f157",
+   "question": "咨询：关于公积金缴存地发生改变后是否影响贷款利率的问题\n1、本人已经在济南市有公积金贷款，并一直按时还款。 2、6月份，本人工作地点发生改变，公积金缴存地调整到了哈尔滨市。 3、此种情况是否会导致我在济南的公积金贷款利率恢复到商贷利率？如有",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

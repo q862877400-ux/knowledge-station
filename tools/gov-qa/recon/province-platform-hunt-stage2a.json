@@ -1,0 +1,563 @@
+[
+ {
+  "name": "宁夏",
+  "url": "https://www.nx.gov.cn/hdjl/",
+  "depth": 1,
+  "status": 200,
+  "len": 97297,
+  "fp": {
+   "igi": true
+  },
+  "api_hints": [
+   "/IGI/nbhd/openGovmsgbox.do?method=listGovmsgboxs",
+   "/IGI/nbhd/openGovmsgbox.do?method=countGovmsgboxs"
+  ],
+  "script_blocks": [
+   "\n      var totalarray = [];\n      var finisharray = [];\n      var replayarray = [];\n\n      jQuery(document).ready(function() {\n\n        jQuery(\".tabnav li\").mouseenter(function() {\n\n          console.log(\"0\");\n          var index = jQuery(this).parent(\".tabnav\").find(\"li\").index(this);\n          console.log(index);\n          jQuery(this).parent(\".tabnav\").find(\"li.cur\").removeClass(\"cur\");\n          jQuery(this).addClass(\"cur\");\n          jQuery(this).parents(\".pagetab\").find(\".tabcon .cur\").removeClass(\"cur\");\n          jQuery(this).parents(\".pagetab\").find(\".tabcon .tabitem\").eq(index).addClass(\"cur\");\n        })\n\n\n        GetMailList();\n        GetNewsnum(\"\", \"\", \"totalmail\");\n\n        var year_date = new Date().getFullYear();\n        var month_date = new Date().getMonth() + 1;\n        var day_date = new Date().getDate();\n        GetNewsnum(year_date + '-' + month_date + '-' + day_date + ' 00:00:00', getMyDate(new Date(), 1),\n          \"todaymail\");\n\n        jQuery(\"#tongjititle\").html(year_date + \"年“主席信箱”来信办理情况\");\n        SetPiemap(); //饼状图\n        SetZhumap(); //柱状图\n      })\n\n      function GetMailList() {\n        var status = [{\n          id: 0,\n          name: \"草稿信件\"\n       "
+  ],
+  "hd_links": [
+   {
+    "url": "https://www.nx.gov.cn/hdjl/",
+    "text": "互动交流"
+   },
+   {
+    "url": "https://www.nx.gov.cn/hdjl/zxft/",
+    "text": "在线访谈"
+   },
+   {
+    "url": "https://www.nx.gov.cn/hdjl/zxxx/",
+    "text": "主席信箱"
+   }
+  ],
+  "js_files": [
+   "https://www.nx.gov.cn/images/RedirectToTheMobilePage.js",
+   "https://www.nx.gov.cn/images/jquery.min.js",
+   "https://www.nx.gov.cn/images/common.js",
+   "https://www.nx.gov.cn/images/jquery.SuperSlide.2.1.1.js",
+   "https://www.nx.gov.cn/images/common-2022.js",
+   "https://www.nx.gov.cn/images/nx2022_com.js"
+  ],
+  "js_mined": [
+   {
+    "url": "https://www.nx.gov.cn/images/RedirectToTheMobilePage.js",
+    "fp": {},
+    "api_hints": []
+   },
+   {
+    "url": "https://www.nx.gov.cn/images/jquery.min.js",
+    "fp": {},
+    "api_hints": [
+     ")[0]||d.documentElement;return{send:function(e,f){b=d.createElement(",
+     "===b.dataTypes[0]?(e=b.jsonpCallback=n.isFunction(b.jsonpCallback)?b.jsonpCallback():b.jsonpCallback,h?b[h]=b[h].replace(kc,",
+     "+e):b.jsonp!==!1&&(b.url+=(Fb.test(b.url)?",
+     ",data:b}).done(function(a){f=arguments,g.html(d?n(",
+     "+a]:9===b.nodeType?(e=b.documentElement,Math.max(b.body["
+    ]
+   },
+   {
+    "url": "https://www.nx.gov.cn/images/common.js",
+    "fp": {},
+    "api_hints": []
+   }
+  ]
+ },
+ {
+  "name": "宁夏",
+  "url": "https://www.nx.gov.cn/hdjl/zxxx/",
+  "depth": 1,
+  "status": 200,
+  "len": 62638,
+  "fp": {
+   "igi": true
+  },
+  "api_hints": [
+   "/IGI/nbhd/openGovmsgbox.do?method=queryResult",
+   "/IGI/nbhd/openGovmsgbox.do?method=listGovmsgboxs",
+   "/IGI/nbhd/openGovmsgbox.do?method=countGovmsgboxs"
+  ],
+  "script_blocks": [
+   "\n  \n$(document).ready(function(){\nvar year_date= new Date().getFullYear() ;\nvar month_date= new Date().getMonth()+1;\nvar day_date= new Date().getDate() ;\nvar day_week= new Date().getDay()-1 ;\nvar weekmonth=new Date()-1000*60*60*24*day_week;\nvar weekdate=new Date(weekmonth);\n//GetNewsnum(year_date+'-01-01 00:00:00',getMyDate(new Date(),1),\"year\");\n//GetNewsnum(year_date+'-'+month_date+'-01 00:00:00',getMyDate(new Date(),1),\"month\");\n//GetNewsnum(getMyDate(weekdate,0)+\" 00:00:00\",getMyDate(new Date(),1),\"week\");\njQuery(\"#tongjdate\").text(year_date+'年');\n GetData(1,10); \n\n})\n//信件查询\n        function mailSearch(){\n\n            var status=[{id:0,name:\"草稿信件\"},{id:1,name:\"提交信件\"},{id:3,name:\"待分配\"},{id:4,name:\"待回复\"},{id:5,name:\"待审核\"},{id:7,name:\"已办结\"},{id:9,name:\"废件\"},{id:10,name:\"申办\"},{id:11,name:\"申请联办中\"},{id:12,name:\"联办处理中\"}];\nvar userName=jQuery(\"#userName\").val();\nvar queryPwd=jQuery(\"#queryPwd\").val();\nif(userName==\"\"){\nalert(\"用户名不能为空\");\n}else if(queryPwd==\"\"){\nalert(\"查询码不能为空\");\n}else{\n $.ajax({\n    url: \"/IGI/nbhd/openGovmsgbox.do?method=queryResult\",\n    data: { siteId: 115,appID:\"4\",userName:userName,queryPwd:queryPwd},\n    dataType: \"json\",\n    success: function (data) {\n        con"
+  ],
+  "hd_links": [
+   {
+    "url": "https://www.nx.gov.cn/hdjl/",
+    "text": "互动交流"
+   },
+   {
+    "url": "https://www.nx.gov.cn/hdjl/zxft/",
+    "text": "在线访谈"
+   },
+   {
+    "url": "https://www.nx.gov.cn/hdjl/zxxx/",
+    "text": "主席信箱"
+   }
+  ],
+  "js_files": [
+   "https://www.nx.gov.cn/images/jquery.min-2022.js",
+   "https://www.nx.gov.cn/images/common.js",
+   "https://www.nx.gov.cn/images/jquery.SuperSlide.2.1.1.js",
+   "https://www.nx.gov.cn/images/common-2022.js",
+   "https://www.nx.gov.cn/images/nx2022_com.js",
+   "https://www.nx.gov.cn/images/swiper.min.js"
+  ],
+  "js_mined": [
+   {
+    "url": "https://www.nx.gov.cn/images/jquery.min-2022.js",
+    "fp": {},
+    "api_hints": [
+     ")[0]||y.documentElement;return{send:function(d,e){b=y.createElement(",
+     "===b.dataTypes[0]?(e=b.jsonpCallback=m.isFunction(b.jsonpCallback)?b.jsonpCallback():b.jsonpCallback,h?b[h]=b[h].replace(ad,",
+     "+e):b.jsonp!==!1&&(b.url+=(wc.test(b.url)?",
+     ",data:b}).done(function(a){e=arguments,g.html(d?m(",
+     "+a]:9===b.nodeType?(e=b.documentElement,Math.max(b.body["
+    ]
+   },
+   {
+    "url": "https://www.nx.gov.cn/images/common.js",
+    "fp": {},
+    "api_hints": []
+   },
+   {
+    "url": "https://www.nx.gov.cn/images/jquery.SuperSlide.2.1.1.js",
+    "fp": {},
+    "api_hints": []
+   }
+  ]
+ },
+ {
+  "name": "山西",
+  "url": "http://www.shanxi.gov.cn/zmhd/",
+  "depth": 1,
+  "status": 200,
+  "len": 131892,
+  "fp": {
+   "igi": true
+  },
+  "api_hints": [
+   "/IGI/nbhd/openGovmsgbox.do"
+  ],
+  "script_blocks": [
+   "\n$('.search-btn-mendbox>.search-btn-mend').click(function () {\n    $(this).siblings(\".fixed-search-box\").addClass('search-cur');\n});\n$(document).mouseup(function (e) {\n    var container = $(\".search-btn-mendbox>.search-btn-mend\");\n    var inputer = $(\".search-btn-mendbox .search-input-inner\");\n    if (!container.is(e.target) && container.has(e.target).length === 0 && !inputer.is(e.target) && inputer.has(e.target).length === 0) {\n        container.siblings(\".fixed-search-box\").removeClass('search-cur');\n    }\n});\n//检索\nvar siteid = 110;\nvar url='####';\nvar doctitle='';\nvar docid='';\nvar channelid='';\nvar channelname='';\n//顶部用户中心\n$.ajax({\n    type: \"POST\",\n    url: \"/sso/GetUserName\",\n\n    dataType: \"json\",\n    \n    success: function (result_one) {\n        //console.log(result_one);\n        if (result_one.code == \"200\"){\n            //alert(result_one.username);\n            $('.loginbar a').append(\"<span>\"+ result_one.username +\"</span>\");\n            $('.login a').html(result_one.username);\n        }\n\n    },\n    error: function (e) {\n        console.log(111);\n    }\n});\n\n//顶部用户中心结束\n",
+   "\n\nvar siteid = 110;\nvar url='####';\nvar doctitle='';\nvar docid='';\nvar channelid='';\nvar channelname='';\n\n",
+   "\n    //点击外链询问离开\n    var cklink = 1;\n    function extLink(act){\n        if( act == false ){\n            cklink = 0;\n        }else{\n            cklink = 1;\n        }\n    }\n    jQuery(document).on('click','a',function(){\n        if( cklink == 0 ) return;\n        if ( jQuery(this).hasClass('ncolink') ) return;\n        var o = jQuery(this);\n        var href = o.attr('href');\n        var jx = true;\n        var w = '480px';\n        var h = '170px';\n        var host = getHost(href);\n        var ckhost = host.indexOf('www.shanxi.gov.cn');\n        var ckhost1 = host.indexOf('szxx.shanxi.gov.cn');\n    var ckhost2 = host.indexOf('www.shanxi.gov.cn');\n        if( ckhost >= 0 || ckhost1 >= 0 || ckhost2 >= 0 ) ckhost = 1;\n\n        if( host != 'null' && ckhost <= 0 && typeof(href)!='undefined' && o.data('ask')!='1'){\n            o.removeAttr('href');\n            var cf = layer.confirm('<div style=\"margin-top:30px; font-size:16px;\">您访问的链接即将离开“山西省人民政府门户网站”，是否继续？</div>', {\n                btn:[ '继续访问', '放弃' ],\n                title: false,\n                shade: 0.7,\n                area: [w, h],\n                cancel: function(index){ o.attr('href',href); }\n            }, function() {\n             ",
+   "\n\t      //信件信息获取\n   var appId=1742326;\n\tvar siteId = 110;\n      var pageSize = 10;\n      Date.prototype.format = function(format) {\n        var date = {\n          \"Y+\": this.getFullYear(),\n          \"M+\": this.getMonth() + 1,\n          \"d+\": this.getDate(),\n          \"h+\": this.getHours(),\n          \"m+\": this.getMinutes(),\n          \"s+\": this.getSeconds(),\n          \"q+\": Math.floor((this.getMonth() + 3) / 3),\n          \"S+\": this.getMilliseconds()\n        };\n        if (/(y+)/i.test(format)) {\n          format = format.replace(RegExp.$1, (this.getFullYear() + '').substr(4 - RegExp.$1.length));\n        }\n        for (var k in date) {\n          if (new RegExp(\"(\" + k + \")\").test(format)) {\n            format = format.replace(RegExp.$1, RegExp.$1.length == 1 ?\n              date[k] : (\"00\" + date[k]).substr((\"\" + date[k]).length));\n          }\n        }\n        return format;\n      };\n\n      /*获取信件******************************************************************/\n      var INFO;\n      var LIST;\n      var TIME;\n      function go(page) {\n        $.ajax({\n          async: false,\n          type: \"GET\",\n          url: \"/IGI/nbhd/openGovmsgbox.do\",\n          dataType: \"json\",\n          "
+  ],
+  "hd_links": [
+   {
+    "url": "http://www.shanxi.gov.cn/zmhd/",
+    "text": "政民互动"
+   },
+   {
+    "url": "http://www.shanxi.gov.cn/zmhd/szxx/",
+    "text": "省长信箱"
+   },
+   {
+    "url": "http://www.shanxi.gov.cn/zmhd/hygq/",
+    "text": "回应关切"
+   },
+   {
+    "url": "http://www.shanxi.gov.cn/zmhd/zxft/",
+    "text": "在线访谈"
+   },
+   {
+    "url": "http://www.shanxi.gov.cn/ghwd/znwd/index.html",
+    "text": "智能问答"
+   },
+   {
+    "url": "http://www.shanxi.gov.cn/zmhd/szxx/lxxd/",
+    "text": "省长信箱"
+   },
+   {
+    "url": "http://www.sxzwfw.gov.cn/icity/icity/center/consultion",
+    "text": "我要咨询"
+   }
+  ],
+  "js_files": [
+   "http://www.shanxi.gov.cn/images/respond.min.js",
+   "http://www.shanxi.gov.cn/images/jquery.min.js",
+   "http://www.shanxi.gov.cn/images/h5.js",
+   "http://www.shanxi.gov.cn/images/resize.js",
+   "http://www.shanxi.gov.cn/images/accessibility.js",
+   "http://www.shanxi.gov.cn/images/esdToolsInit.js"
+  ],
+  "js_mined": [
+   {
+    "url": "http://www.shanxi.gov.cn/images/respond.min.js",
+    "fp": {},
+    "api_hints": [
+     ",c.insertBefore(e,d),b=42===f.offsetWidth,c.removeChild(e),{matches:b,media:a}}}(a.document)}(this),function(a){"
+    ]
+   },
+   {
+    "url": "http://www.shanxi.gov.cn/images/jquery.min.js",
+    "fp": {},
+    "api_hints": [
+     ")[0]||d.documentElement;return{send:function(e,f){b=d.createElement(",
+     "===b.dataTypes[0]?(e=b.jsonpCallback=n.isFunction(b.jsonpCallback)?b.jsonpCallback():b.jsonpCallback,h?b[h]=b[h].replace(kc,",
+     "+e):b.jsonp!==!1&&(b.url+=(Fb.test(b.url)?",
+     ",data:b}).done(function(a){f=arguments,g.html(d?n(",
+     "+a]:9===b.nodeType?(e=b.documentElement,Math.max(b.body["
+    ]
+   },
+   {
+    "url": "http://www.shanxi.gov.cn/images/h5.js",
+    "fp": {},
+    "api_hints": []
+   }
+  ]
+ },
+ {
+  "name": "山西",
+  "url": "http://www.shanxi.gov.cn/zmhd/szxx/lxxd/",
+  "depth": 1,
+  "status": 200,
+  "len": 106004,
+  "fp": {
+   "igi": true
+  },
+  "api_hints": [
+   "/IGI/nbhd/openGovmsgbox.do"
+  ],
+  "script_blocks": [
+   "\n$('.search-btn-mendbox>.search-btn-mend').click(function () {\n    $(this).siblings(\".fixed-search-box\").addClass('search-cur');\n});\n$(document).mouseup(function (e) {\n    var container = $(\".search-btn-mendbox>.search-btn-mend\");\n    var inputer = $(\".search-btn-mendbox .search-input-inner\");\n    if (!container.is(e.target) && container.has(e.target).length === 0 && !inputer.is(e.target) && inputer.has(e.target).length === 0) {\n        container.siblings(\".fixed-search-box\").removeClass('search-cur');\n    }\n});\n//检索\nvar siteid = 110;\nvar url='####';\nvar doctitle='';\nvar docid='';\nvar channelid='';\nvar channelname='';\n//顶部用户中心\n$.ajax({\n    type: \"POST\",\n    url: \"/sso/GetUserName\",\n\n    dataType: \"json\",\n    \n    success: function (result_one) {\n        //console.log(result_one);\n        if (result_one.code == \"200\"){\n            //alert(result_one.username);\n            $('.loginbar a').append(\"<span>\"+ result_one.username +\"</span>\");\n            $('.login a').html(result_one.username);\n        }\n\n    },\n    error: function (e) {\n        console.log(111);\n    }\n});\n\n//顶部用户中心结束\n",
+   "\n\nvar siteid = 110;\nvar url='####';\nvar doctitle='';\nvar docid='';\nvar channelid='';\nvar channelname='';\n\n",
+   "\n    //点击外链询问离开\n    var cklink = 1;\n    function extLink(act){\n        if( act == false ){\n            cklink = 0;\n        }else{\n            cklink = 1;\n        }\n    }\n    jQuery(document).on('click','a',function(){\n        if( cklink == 0 ) return;\n        if ( jQuery(this).hasClass('ncolink') ) return;\n        var o = jQuery(this);\n        var href = o.attr('href');\n        var jx = true;\n        var w = '480px';\n        var h = '170px';\n        var host = getHost(href);\n        var ckhost = host.indexOf('www.shanxi.gov.cn');\n        var ckhost1 = host.indexOf('szxx.shanxi.gov.cn');\n    var ckhost2 = host.indexOf('www.shanxi.gov.cn');\n        if( ckhost >= 0 || ckhost1 >= 0 || ckhost2 >= 0 ) ckhost = 1;\n\n        if( host != 'null' && ckhost <= 0 && typeof(href)!='undefined' && o.data('ask')!='1'){\n            o.removeAttr('href');\n            var cf = layer.confirm('<div style=\"margin-top:30px; font-size:16px;\">您访问的链接即将离开“山西省人民政府门户网站”，是否继续？</div>', {\n                btn:[ '继续访问', '放弃' ],\n                title: false,\n                shade: 0.7,\n                area: [w, h],\n                cancel: function(index){ o.attr('href',href); }\n            }, function() {\n             ",
+   "\n\t      //信件信息获取\n      var appId = 1742326;\n      var siteId = 110;\n      var pageSize = 20;\n      Date.prototype.format = function(format) {\n        var date = {\n          \"Y+\": this.getFullYear(),\n          \"M+\": this.getMonth() + 1,\n          \"d+\": this.getDate(),\n          \"h+\": this.getHours(),\n          \"m+\": this.getMinutes(),\n          \"s+\": this.getSeconds(),\n          \"q+\": Math.floor((this.getMonth() + 3) / 3),\n          \"S+\": this.getMilliseconds()\n        };\n        if (/(y+)/i.test(format)) {\n          format = format.replace(RegExp.$1, (this.getFullYear() + '').substr(4 - RegExp.$1.length));\n        }\n        for (var k in date) {\n          if (new RegExp(\"(\" + k + \")\").test(format)) {\n            format = format.replace(RegExp.$1, RegExp.$1.length == 1 ?\n              date[k] : (\"00\" + date[k]).substr((\"\" + date[k]).length));\n          }\n        }\n        return format;\n      };\n\n      /*获取信件******************************************************************/\n      var INFO;\n      var LIST;\n      var TIME;\n\n      function go(page) {\n        $.ajax({\n          async: false,\n          type: \"GET\",\n          url: \"/IGI/nbhd/openGovmsgbox.do\",\n          dataType: \"json\","
+  ],
+  "hd_links": [
+   {
+    "url": "http://www.shanxi.gov.cn/zmhd/",
+    "text": "政民互动"
+   },
+   {
+    "url": "http://www.shanxi.gov.cn/zmhd/szxx/",
+    "text": "省长信箱"
+   },
+   {
+    "url": "http://www.shanxi.gov.cn/zmhd/hygq/",
+    "text": "回应关切"
+   },
+   {
+    "url": "http://www.shanxi.gov.cn/zmhd/zxft/",
+    "text": "在线访谈"
+   },
+   {
+    "url": "http://www.shanxi.gov.cn/ghwd/znwd/index.html",
+    "text": "智能问答"
+   },
+   {
+    "url": "http://www.shanxi.gov.cn/zmhd/szxx/lxxd/",
+    "text": "来信选登"
+   }
+  ],
+  "js_files": [
+   "http://www.shanxi.gov.cn/images/respond.min.js",
+   "http://www.shanxi.gov.cn/images/jquery.min.js",
+   "http://www.shanxi.gov.cn/images/h5.js",
+   "http://www.shanxi.gov.cn/images/resize.js",
+   "http://www.shanxi.gov.cn/images/esdToolsInit.js",
+   "https://auth.mangren.com/boots/shanxi.gov.cn/esdToolsInit.js"
+  ],
+  "js_mined": [
+   {
+    "url": "http://www.shanxi.gov.cn/images/respond.min.js",
+    "fp": {},
+    "api_hints": [
+     ",c.insertBefore(e,d),b=42===f.offsetWidth,c.removeChild(e),{matches:b,media:a}}}(a.document)}(this),function(a){"
+    ]
+   },
+   {
+    "url": "http://www.shanxi.gov.cn/images/jquery.min.js",
+    "fp": {},
+    "api_hints": [
+     ")[0]||d.documentElement;return{send:function(e,f){b=d.createElement(",
+     "===b.dataTypes[0]?(e=b.jsonpCallback=n.isFunction(b.jsonpCallback)?b.jsonpCallback():b.jsonpCallback,h?b[h]=b[h].replace(kc,",
+     "+e):b.jsonp!==!1&&(b.url+=(Fb.test(b.url)?",
+     ",data:b}).done(function(a){f=arguments,g.html(d?n(",
+     "+a]:9===b.nodeType?(e=b.documentElement,Math.max(b.body["
+    ]
+   },
+   {
+    "url": "http://www.shanxi.gov.cn/images/h5.js",
+    "fp": {},
+    "api_hints": []
+   }
+  ]
+ },
+ {
+  "name": "云南",
+  "url": "https://www.yn.gov.cn/hdjl/",
+  "depth": 1,
+  "status": 200,
+  "len": 100394,
+  "fp": {
+   "channelid": [
+    "639"
+   ]
+  },
+  "api_hints": [
+   "https://www.yn.gov.cn/zcwjk/html/2023/statistics.json",
+   "https://www.yn.gov.cn/zcwjk/html/case/index.json"
+  ],
+  "script_blocks": [
+   "\nparams.docId='';\nparams.doctitle='';\nparams.siteId='5';\nparams.channelId='639';\n<!-- 默认文档点击量设置依据系统来设置（无元数据可以设置扩展字段BaseCount来设置默认值，有元数据可用元数据设置字段BaseCount来设置） -->\nparams.BaseCount='';\n",
+   "\n//中心登录\nfunction grLog(){\n   var callbackUrl = 'https://www.yn.gov.cn/userhome/';\n\n  $.ajax({\n      url: \"/personalCenter/user/getLoginInfo\",\n      type: 'get',\n      success: function (res) {            \n         if(res.code == 401){//未登录\n               window.location.href = 'https://www.yn.gov.cn/personalCenter/user/login?callbackUrl='+callbackUrl ;\n           }else if(res.code == 200){\n                window.location.href = callbackUrl;\n             }\n      },\n      error: function () {\n\n      }\n    })\n};\n",
+   "\n          //问政\n          var dom = document.getElementById('e-wz');\n          var myChart = echarts.init(dom, null, {\n            renderer: 'canvas',\n            useDirtyRect: false\n          });\n          var app = {};\n\n          var option;\n\noption = {\n            title: {\n              text: '2026年网络问政留言情况', left: 'center', top: '15', textStyle: {\n                fontSize: '18',\n              },\n            },\n            tooltip: {\n              trigger: 'axis',\n              textStyle:{\n                 align:'left'\n               }\n            },\n            legend: {\n              data: ['咨询', '建议', '投诉'],\n              bottom: '10'\n            },\n            color: ['#d8671e', '#f2c77e', '#c9c9c9'],\n            grid: {\n              left: '3%',\n              right: '4%',\n              bottom: '17%',\n              containLabel: true\n            },\n            // toolbox: {\n            //   feature: {\n            //     saveAsImage: {}\n            //   }\n            // },\n            yAxis: {\n              type: 'value'\n            },        \nxAxis: {\n  type: 'category',\n  boundaryGap: false,\n  data: ['一月','二月','三月','四月','五月','六月','七月','八月']\n},\nseries: [\n  {\n    name: '咨询',\n",
+   "\n\n$.ajax({ //留言公开生成\n      url: \"https://www.yn.gov.cn/zcwjk/html/case/index.json\",\n      type: 'get',\n      dataType: 'json',\n      contentType: 'application/json',\n      data: JSON.stringify({}),\n      success: function (res) {\n         console.log(res.length) ;\n         for(let i = 0; i < res.length; i++){\n             if(!res[i].pub_date){res[i].pub_date = ''};\n             $('.gk .ls1').append('<li><a title=\"'+res[i].title+'\" href=\"'+res[i].url+'\">'+res[i].title+'</a><span>'+res[i].pub_date+'</span></li>');\n      }\n}\n\n\n})\n\n"
+  ],
+  "hd_links": [
+   {
+    "url": "https://znwd.ynurl.cn/ghwd/znwdyn/index.html",
+    "text": "智能问答(试运行)"
+   },
+   {
+    "url": "https://www.yn.gov.cn/hdjl/",
+    "text": "互动交流"
+   },
+   {
+    "url": "https://xfservice.yn.gov.cn/wsxf/mailbox?type=02",
+    "text": "省长信箱"
+   },
+   {
+    "url": "https://www.yn.gov.cn/hdjl/zxft1/fthz/",
+    "text": "在线访谈"
+   },
+   {
+    "url": "https://www.yn.gov.cn/hdjl/wlwz/wlwzwyzx/",
+    "text": "我要咨询"
+   },
+   {
+    "url": "https://www.yn.gov.cn/hdjl/wlwz/wlwzwyts/",
+    "text": "我要投诉"
+   }
+  ],
+  "js_files": [
+   "https://www.yn.gov.cn/material/jquery.js",
+   "https://www.yn.gov.cn/images/tw_cn.js",
+   "https://www.yn.gov.cn/wap/material/esdToolsInit.js",
+   "https://www.yn.gov.cn/hdjl/material/hdjl23/images/echarts.min.js",
+   "https://www.yn.gov.cn/hdjl/material/hdjl23/images/tagcloud.js",
+   "https://www.yn.gov.cn/hdjl/material/hdjl23/images/echarts-wordcloud.min.js"
+  ],
+  "js_mined": [
+   {
+    "url": "https://www.yn.gov.cn/material/jquery.js",
+    "fp": {},
+    "api_hints": [
+     ")[0]||y.documentElement;return{send:function(d,e){b=y.createElement(",
+     "===b.dataTypes[0]?(e=b.jsonpCallback=m.isFunction(b.jsonpCallback)?b.jsonpCallback():b.jsonpCallback,h?b[h]=b[h].replace(ad,",
+     "+e):b.jsonp!==!1&&(b.url+=(wc.test(b.url)?",
+     ",data:b}).done(function(a){e=arguments,g.html(d?m(",
+     "+a]:9===b.nodeType?(e=b.documentElement,Math.max(b.body["
+    ]
+   },
+   {
+    "url": "https://www.yn.gov.cn/images/tw_cn.js",
+    "fp": {},
+    "api_hints": []
+   },
+   {
+    "url": "https://www.yn.gov.cn/wap/material/esdToolsInit.js",
+    "fp": {},
+    "api_hints": []
+   }
+  ]
+ },
+ {
+  "name": "江西",
+  "url": "https://www.jiangxi.gov.cn/jxsrmzf/hdjl/pc/list.html",
+  "depth": 1,
+  "status": 200,
+  "len": 118583,
+  "fp": {
+   "channelid": [
+    "17507383"
+   ]
+  },
+  "api_hints": [
+   "/jxsrmzf/wxszj/relation/2098341898428690432-RelationArticle.json",
+   "/jxsrmzf/wxszj/relation/2098338001358237696-RelationArticle.json",
+   "/jxsrmzf/wxszj/relation/2077596001131732992-RelationArticle.json",
+   "/jxsrmzf/wxszj/relation/2077593536667754496-RelationArticle.json",
+   "/jxsrmzf/wxszj/relation/2064884748536045568-RelationArticle.json",
+   "/jxsrmzf/wxszj/relation/2064882235204231168-RelationArticle.json",
+   "/jxsrmzf/wxszj/relation/2053758010477559808-RelationArticle.json",
+   "/jxsrmzf/wxszj/relation/2053754960237084672-RelationArticle.json",
+   "/jxsrmzf/wxszj/relation/2046137871830675456-RelationArticle.json",
+   "/jxsrmzf/wxszj/relation/2046135285085958144-RelationArticle.json",
+   "/jxsrmzf/wxszj/relation/2046123852046594048-RelationArticle.json",
+   "/jxsrmzf/wxszj/relation/2046130974738149376-RelationArticle.json"
+  ],
+  "script_blocks": [
+   "\r\n    var websiteId = \"1750350048251023360\",\r\n      websiteCode = \"jxsrmzf\",\r\n      codeName = \"hdjl\",\r\n      channelId = \"1750738349669408768\";\r\n  "
+  ],
+  "hd_links": [
+   {
+    "url": "https://www.jiangxi.gov.cn/jxsrmzf/hdjl/pc/list.html",
+    "text": "互动"
+   },
+   {
+    "url": "https://www.jiangxi.gov.cn/jxsrmzf/zxzx/pc/list.html",
+    "text": "我要建言"
+   },
+   {
+    "url": "https://www.jiangxi.gov.cn/jxsrmzf/jycx/pc/list.html",
+    "text": "建言查询"
+   },
+   {
+    "url": "https://www.jiangxi.gov.cn/jxsrmzf/zxft/pc/list.html",
+    "text": "在线访谈"
+   },
+   {
+    "url": "https://www.jiangxi.gov.cn/jxsrmzf/hygz/pc/list.html",
+    "text": "互动回应知识库"
+   }
+  ],
+  "js_files": [
+   "https://www.jiangxi.gov.cn/default/common/libs/jquery.min.js",
+   "https://www.jiangxi.gov.cn/jxsrmzf/pc2024/js/config.js",
+   "https://www.jiangxi.gov.cn/jxsrmzf/pc2024/js/commonApi.js",
+   "https://www.jiangxi.gov.cn/default/common/libs/jquery.SuperSlide.js",
+   "https://www.jiangxi.gov.cn/default/common/libs/transform.js",
+   "https://www.jiangxi.gov.cn/jxsrmzf/pc2024/js/login.js"
+  ],
+  "js_mined": [
+   {
+    "url": "https://www.jiangxi.gov.cn/default/common/libs/jquery.min.js",
+    "fp": {},
+    "api_hints": [
+     "!==E.readyState&&!E.documentElement.doScroll?C.setTimeout(S.ready):(E.addEventListener(",
+     ")&&(u||(p.done(function(){h.display=l}),null==l&&(c=h.display,l=",
+     "+r):!1!==e.jsonp&&(e.url+=(Tt.test(e.url)?",
+     ",data:t}).done(function(e){o=arguments,a.html(r?S(",
+     "))t=r.getBoundingClientRect();else{t=this.offset(),n=r.ownerDocument,e=r.offsetParent||n.documentElement;while(e&&(e===n.body||e===n.documentElement)&&",
+     "+a]:e.document.documentElement[",
+     "+a]:9===e.nodeType?(r=e.documentElement,Math.max(e.body["
+    ]
+   },
+   {
+    "url": "https://www.jiangxi.gov.cn/jxsrmzf/pc2024/js/config.js",
+    "fp": {},
+    "api_hints": []
+   },
+   {
+    "url": "https://www.jiangxi.gov.cn/jxsrmzf/pc2024/js/commonApi.js",
+    "fp": {},
+    "api_hints": []
+   }
+  ]
+ },
+ {
+  "name": "内蒙古",
+  "url": "https://www.nmg.gov.cn/zmhd/",
+  "depth": 1,
+  "status": 200,
+  "len": 81500,
+  "fp": {
+   "channelid": [
+    "3445"
+   ]
+  },
+  "api_hints": [
+   "https://www.nmg.gov.cn/xinxiang/api/getCaseInfoList"
+  ],
+  "script_blocks": [
+   "\n    var ovUserInfo\n\n    function getUserInfo() {\n        $.ajax({\n            url: '/personal/validate/getUserInfo',\n            type: 'get',\n            async: false,\n            dataType: 'json',\n            success: function(data) {\n                console.log(data)\n                if (!data.data.isLogin) {\n                    var str_url = 'https://zwfw.nmg.gov.cn/sso/sso/login?utype=0&redirect=istrue&client_id=LFWKGMPAY&goto='\n                    var str_href = window.location.href\n                    str_url += str_href\n                    $('.login').attr('href', str_url)\n                    return\n                } else {\n                    var fullName = data.data.userInfo.USER_NAME\n                    var lastName = fullName.slice(-1);\n                    var star = '*'.repeat(fullName.length - 1)\n                    $('.login').attr('href', 'https://zwfw.nmg.gov.cn/personal_center_profile').text(star + lastName + \"，欢迎您\")\n                    $('.register').attr('href', 'https://zwfw.nmg.gov.cn/personal_center_profile').html('用户中心')\n                }\n                ovUserInfo = data\n            },\n            error: function(err) {\n                console.log('不好意思，您请求的",
+   "\n                    //反馈回应接口请求\n                    function feedbackResponseFun() {\n                        $.ajax({\n                            url: 'https://www.nmg.gov.cn/xinxiang/api/getCaseInfoList',\n                            contentType: \"application/json\",\n                            type: 'post',\n                            dataType: 'json',\n                            data: JSON.stringify({\n                                \"title\": \"\",\n                                \"first\": 1,\n                                \"pageSize\": 5\n                            }),\n                            success: function(res) {\n                                //console.log(res);\n                                var href = window.location.href;\n                                var JumpAddress = './fkhy_1/index_13317.html?id='\n                                $(\"#feedbackResponse\").empty();\n                                //$(\"#statistics\").empty();\n                                console.log(res)\n                                if (res.data.list.length > 0) {\n                                    var feedbackResponseList = '';\n                                    var feedbackResponseListMob = '';\n ",
+   "\n    var cklink = 1;\n\n    function extLink(act) {\n        if (act == false) {\n            cklink = 0;\n        } else {\n            cklink = 1;\n        }\n    }\n    $(document).on('click', 'a', function() {\n        if (cklink == 0) return;\n        if ($(this).hasClass('ncolink')) return;\n        var o = $(this);\n        var href = o.attr('href');\n        var jx = true;\n        var w = '480px';\n        var h = '170px';\n        var host = getHost(href);\n       var ckhost = host.indexOf('.gov.cn');\n    if (ckhost >= 0) ckhost = 1;\n\n        if (host != 'null' && ckhost <= 0 && typeof(href) != 'undefined' && o.data('ask') != '1') {\n            o.removeAttr('href');\n            var cf = layer.confirm('<div style=\"margin-top:30px; font-size:16px;\">您访问的链接即将离开内蒙古自治区人民政府门户网站。</div>', {\n                btn: ['继续访问', '放弃'],\n                title: false,\n                shade: 0.7,\n                area: [w, h],\n                cancel: function(index) {\n                    o.attr('href', href);\n                }\n            }, function() {\n                o.attr('href', href);\n                o.attr('target', '_blank');\n                o.data('ask', '1');\n                layer.close(cf);\n         ",
+   "\n    //统计信息\n    function pageAccessStatistics(currUrl, parentUrl, currChannelid, currChannelname, docid, doctitle) {\n\n        var data = {\n            \"url\": currUrl,\n            \"parentUrl\": parentUrl,\n            \"channelId\": currChannelid,\n            \"channelName\": currChannelname,\n            \"docId\": docid,\n            \"docName\": doctitle,\n            \"ip\": \"\"\n        };\n        $.ajax({\n            url: \"/nmg-statistics-docchnl/statistics/collect\",\n            async: true,\n            type: \"POST\",\n            dataType: \"json\",\n            contentType: 'application/json',\n            data: JSON.stringify(data),\n            success: function(res) {\n                console.log(data);\n            },\n            error: function(jqXHR) {\n                console.log(jqXHR)\n            }\n        })\n    }\n    var currUrl = window.location.href; //当前页地址\n    var sourceUrl = document.referrer; //父级栏目地址\n    sourceUrl = sourceUrl != '' ? sourceUrl : \"https://www.nmg.gov.cn/\"\n    var docId = \"\";\n    var docTiele = \"\";\n    var currChannelId = \"3445\";\n    var currSiteId = \"32\"\n    if (currChannelId == '') {\n        currChannelId = currSiteId;\n    }\n    var currChannelName = \"政民互动\";\n    var "
+  ],
+  "hd_links": [
+   {
+    "url": "https://www.nmg.gov.cn/zmhd/zcwdk/",
+    "text": "政策问答库"
+   },
+   {
+    "url": "https://zwfw.nmg.gov.cn/wsbsdt/website/pages/default/index",
+    "text": "12345热线留言"
+   }
+  ],
+  "js_files": [
+   "https://www.nmg.gov.cn/material/2025/js/jquery.min.js",
+   "https://www.nmg.gov.cn/material/2025/js/jquery-migrate.min.js",
+   "https://www.nmg.gov.cn/material/2025/js/jquery.SuperSlid.js",
+   "https://www.nmg.gov.cn/material/2025/js/common.js",
+   "https://www.nmg.gov.cn/material/js/time.js",
+   "https://www.nmg.gov.cn/material/js/layer.js"
+  ],
+  "js_mined": [
+   {
+    "url": "https://www.nmg.gov.cn/material/2025/js/jquery.min.js",
+    "fp": {},
+    "api_hints": [
+     "!==C.readyState&&!C.documentElement.doScroll?ie.setTimeout(ce.ready):(C.addEventListener(",
+     ")&&(u||(p.done(function(){h.display=l}),null==l&&(c=h.display,l=",
+     "+r):!1!==e.jsonp&&(e.url+=(At.test(e.url)?",
+     ",data:t}).done(function(e){o=arguments,a.html(r?ce(",
+     "))t=r.getBoundingClientRect();else{t=this.offset(),n=r.ownerDocument,e=r.offsetParent||n.documentElement;while(e&&(e===n.body||e===n.documentElement)&&",
+     "+a]:e.document.documentElement[",
+     "+a]:9===e.nodeType?(r=e.documentElement,Math.max(e.body["
+    ]
+   },
+   {
+    "url": "https://www.nmg.gov.cn/material/2025/js/jquery-migrate.min.js",
+    "fp": {},
+    "api_hints": [
+     "===n.document.compatMode&&u(",
+     "});try{n.document.querySelector(t),u(",
+     ",function(e){!1!==e.jsonp&&(p.test(e.url)||",
+     "===n.document.readyState&&u(",
+     ")}),s(function(){s(n.document).triggerHandler(",
+     ")}),s.event.special.ready={setup:function(){this===n.document&&u("
+    ]
+   },
+   {
+    "url": "https://www.nmg.gov.cn/material/2025/js/jquery.SuperSlid.js",
+    "fp": {},
+    "api_hints": []
+   }
+  ]
+ },
+ {
+  "name": "河南",
+  "url": "https://www.henan.gov.cn/hdjl/wszx/",
+  "depth": 1,
+  "status": 200,
+  "len": 6744,
+  "fp": {},
+  "api_hints": [],
+  "script_blocks": [],
+  "hd_links": [],
+  "js_files": [
+   "https://file.henan.gov.cn/4500000001/js/jquery.min.js",
+   "https://file.henan.gov.cn/4500000001/js/head.js",
+   "https://file.henan.gov.cn/4500000001/js/nav.js",
+   "https://file.henan.gov.cn/4500000001/js/link.js",
+   "https://file.henan.gov.cn/4500000001/js/footer.js",
+   "https://file.henan.gov.cn/4500000001/js/paging.js"
+  ],
+  "js_mined": [
+   {
+    "url": "https://file.henan.gov.cn/4500000001/js/jquery.min.js",
+    "fp": {},
+    "api_hints": [
+     "!==d.readyState&&!d.documentElement.doScroll?a.setTimeout(n.ready):(d.addEventListener(",
+     "===b.dataTypes[0]?(e=b.jsonpCallback=n.isFunction(b.jsonpCallback)?b.jsonpCallback():b.jsonpCallback,h?b[h]=b[h].replace(Kb,",
+     "+e):b.jsonp!==!1&&(b.url+=(lb.test(b.url)?",
+     ",data:b}).done(function(a){f=arguments,g.html(d?n(",
+     "+a]:9===b.nodeType?(e=b.documentElement,Math.max(b.body["
+    ]
+   },
+   {
+    "url": "https://file.henan.gov.cn/4500000001/js/head.js",
+    "fp": {},
+    "api_hints": []
+   },
+   {
+    "url": "https://file.henan.gov.cn/4500000001/js/nav.js",
+    "fp": {},
+    "api_hints": []
+   }
+  ]
+ }
+]

@@ -1,0 +1,134 @@
+{
+ "A_考卷": [
+  {
+   "source": "gx-igi-42",
+   "id": "157814361454",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814361454",
+   "question": "&nbsp; &nbsp; &nbsp; &nbsp;贵港市港北区中山北路的百汇邻里商业中心的303跳舞俱乐部（酒吧）隔音效果差，以至于其营业期间，产生的低音炮声音，严重的影响我们附近居民的正常作息，影响第二天的工作与生活，群众报警后，经派",
+   "cited_hits": [
+    {
+     "name": "娱乐场所管理条例",
+     "lib_no": "娱乐场所管理条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国未成年人保护法",
+     "lib_no": "未成年人保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "gx-igi-42",
+   "id": "157830265190",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157830265190",
+   "question": "我市是否举办了“奔跑吧少年”活动，相关文件在哪查看、或依申请公开?",
+   "cited_hits": [],
+   "cited_missing": [
+    "自治区体育局 自治区教育厅 共青团广西区委关于印发2025年广西“奔跑吧·少年”儿童青少年主题健身活动实施方案的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-42",
+   "id": "157814212008",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814212008",
+   "question": "您好，我是一名大四学生，因毕业论文需要，特向贵局申请2019-2021年贵港市和港北区公共文化服务现状数据（建设现状或供给情况）。因实在找不到相关的数据，希望得到贵局的帮助，期待您的恢复，同时也祝您工作顺利，生活愉快，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    " 贵港市文化广电体育和旅游局关于 2020年基本公共文化服务投入情况说明报告 ",
+    " 贵港市文化广电体育和旅游局关于 2021年基本公共文化服务投入情况说明报告 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-42",
+   "id": "91150",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=91150",
+   "question": "请问今年贵港的景区门票有什么优惠政策吗？我想带家人暑假期间去各景区转一圈，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "政府工作报告"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "gx-igi-42",
+   "id": "157830378983",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157830378983",
+   "question": "元宵节有什么活动可让游客游玩？直接线上回复即可",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-42",
+   "id": "157830065468",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157830065468",
+   "question": "尊敬的领导：您好！冒昧致信，现就港南区福民寺的文物保护工作提出建议，恳请垂阅。福民寺，古称复文寺（“复文”为“福民”的方言谐音），位于港南区木格镇平悦乡的平悦小学内。经初步考察并结合史料判断，该建筑极有可能是贵港境内现存唯一的明代木构建筑。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-42",
+   "id": "157814445988",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814445988",
+   "question": "现在港北区大南门晚上没有开灯，开灯能够吸引群众去欣赏游玩，也能保证群众的人行安全，希望文广体旅局能够开设大南门的夜景灯光。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-42",
+   "id": "157814414309",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814414309",
+   "question": "您好，我是广西师范大学经济管理学院经济学专业的大四生，需要一些相关数据作为毕业论文的依据，现需要贵港市旅游星级厕所名单，希望予以答复！谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-42",
+   "id": "157814385177",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814385177",
+   "question": "您好，我是北部湾大学的一名学生，目前在做对桂平西山景区的相关调研，希望您可以给我提供相关的数据。本人承诺仅将数据用于学术研究。烦请您尽快答复，本人邮箱493017985@qq.com 桂平西山景区1、2018年—2022年客流量及收入。2、",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-42",
+   "id": "157814201838",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814201838",
+   "question": "您好！很久之前，我在网络上了解到桂平西山泉房车露营基地，基于个人对其的兴趣，先去实地进行了体验，但体验感不强，对该地发展状况等内容知之甚少。后来进入桂平市旅游协会官网进行了解，奈何发现其工作止步于2018年，几经周转拔通电话咨询才知晓该网站",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-42",
+   "id": "157814198297",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814198297",
+   "question": "我是一名普通市民，也经常看团课，前段时间我看到我区广西共青团b站账号发了一个团课视频，访八桂建筑，传红色基因 | 第十集 雷经天故居（视频：http://https--www--bilibili--com-b5b77e6aea.zipv6.",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-42",
+   "id": "1578119978",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=1578119978",
+   "question": "我想知道今年1-4月广西全区旅游入境市场指标数据",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

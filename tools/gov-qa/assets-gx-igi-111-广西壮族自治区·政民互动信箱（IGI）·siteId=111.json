@@ -1,0 +1,24 @@
+{
+ "A_考卷": [],
+ "B_补料": [],
+ "C_无依据": [
+  {
+   "source": "gx-igi-111",
+   "id": "92369",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=92369",
+   "question": "请问下，崇左市双十项目具体值哪些项目，联系电话号是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-111",
+   "id": "92368",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=92368",
+   "question": "在参公事业单位中未得参公考试的事业编制人员，工作与参公人员一致，为什么不得跟参公人员一样享受车补?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

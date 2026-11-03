@@ -1,0 +1,1538 @@
+{
+ "A_考卷": [
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "ecce2544-b44e-488e-b8cc-2a65fa3ca954",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=ecce2544-b44e-488e-b8cc-2a65fa3ca954",
+   "question": "办理营业执照\n请问，在天府通办上办理营业执照，与该公司无关系的人可以办理吗？因为听人说要企业联络员才能办理",
+   "cited_hits": [
+    {
+     "name": "市场主体登记管理条例",
+     "lib_no": "市场主体登记管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "6456c501-e24e-4726-b1bd-e9bc03981bee",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=6456c501-e24e-4726-b1bd-e9bc03981bee",
+   "question": "电动四轮车上户问题\n严市长，你好！我生于1963年（身份证上64年，达川区档案馆档案记录63年），快满60岁了，为了解决出行方便和环保大气污染防治，于今年4月在网上购买了一台电动四轮车（半封闭，出厂自带棚的），是山东省德州市生产的，有出厂合",
+   "cited_hits": [
+    {
+     "name": "机动车登记规定",
+     "lib_no": "机动车登记规定(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "8466ac77-4991-42e7-b252-48b207f20917",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=8466ac77-4991-42e7-b252-48b207f20917",
+   "question": "车位转让缴税咨询\n您好！\n   我想咨询一下我位于四川省达州市大竹县竹阳镇东方家园1、2期内的车位，如果要出售转让给别人买卖双方要交哪些税种以及税率情况，谢谢。",
+   "cited_hits": [
+    {
+     "name": "增值税暂行条例",
+     "lib_no": "增值税暂行条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "个人所得税法",
+     "lib_no": "个人所得税法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国土地增值税暂行条例",
+     "lib_no": "土地增值税暂行条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "契税暂行条例",
+     "lib_no": "契税暂行条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于全面推开营业税改征增值税试点的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "693e59be-6cf9-41f7-af52-f0db84659f79",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=693e59be-6cf9-41f7-af52-f0db84659f79",
+   "question": "大竹县机关事业单位工作人员产假陪护假相关规定\n大竹县机关事业单位工作人员产假陪护假是多少天？",
+   "cited_hits": [
+    {
+     "name": "女职工劳动保护特别规定",
+     "lib_no": "女职工劳动保护特别规定(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "835453bc-8dba-42b5-8bd4-edb93c236204",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=835453bc-8dba-42b5-8bd4-edb93c236204",
+   "question": "特种作业人员何时报名\n需要哪些程序",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国安全生产法",
+     "lib_no": "安全生产法(2021修正)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "bceeb431-a2e0-48bc-be3b-47aad94fea6c",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantproposaldetail.html?cguid=bceeb431-a2e0-48bc-be3b-47aad94fea6c",
+   "question": "食品安全问题\n群众反映渠县xx学校食堂的一半冬瓜是坏的，食堂承包给私人，私人是以营利为目的，承包后没有人来管理食堂秩序了，希望相关部门核实调查食堂承包给私人送的菜质量不好的问题。",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国食品安全法",
+     "lib_no": "食品安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "国务院办公厅关于实施农村义务教育学生营养改善计划的意见",
+    "学校食品安全与营养健康管理规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "d620d677-7cd7-4e02-9098-758d66d6ae51",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=d620d677-7cd7-4e02-9098-758d66d6ae51",
+   "question": "房产证何时能办？\n达州市通川区江湾城六期项目接房五六年年了至今未拿到房产证，一问号就能拿，就回答大概下个月大证能下来。等了好多个下个月还是没人通知我们能办理房产证。",
+   "cited_hits": [
+    {
+     "name": "不动产登记暂行条例实施细则",
+     "lib_no": "不动产登记暂行条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "96611fb9-6f08-483f-be50-9622ab4ae59d",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=96611fb9-6f08-483f-be50-9622ab4ae59d",
+   "question": "达州中梁首府开发盗卖业主公摊绿化面积\n达州市通川区中梁首府开发商盗卖业主绿化公摊面积给一楼业主，一楼业主占用绿化公摊面积私自搭建小院！忘城建给业主讨回公道。",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国城乡规划法",
+     "lib_no": "城乡规划法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国行政强制法",
+     "lib_no": "行政强制法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "责令限期整改通知书",
+    "行政调查询问通知书"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "95867d9f-10d5-441c-836b-1f14a59e000f",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=95867d9f-10d5-441c-836b-1f14a59e000f",
+   "question": "农村自建房不动产权证登记\n房屋新建，办理宅基地使用权及房屋所有权，需要户主本人到现场办理吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "乡村建设规划许可证",
+    "农村宅基地和建房（规划许可及竣工）验收意见表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "07c09c60-ad7b-4424-bc5e-dc2df27d14ac",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=07c09c60-ad7b-4424-bc5e-dc2df27d14ac",
+   "question": "省内跨区县医保是否合并缴纳年限\n本人户籍目前在成都，2010年在成都武侯区参保职工医保截止到2021年缴费127个月，因工作需要前往达州工作，与此同时把成都的医保关系全部转到达州并参加了达州职工医保至今连续从未间断过，今年年底我已达到法定退",
+   "cited_hits": [],
+   "cited_missing": [
+    "达州市职工基本医疗保险管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "3218f3e7-64d5-40ae-96ff-07bfc66c46d9",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=3218f3e7-64d5-40ae-96ff-07bfc66c46d9",
+   "question": "返乡创业\n返乡创业有什么优惠政策？",
+   "cited_hits": [],
+   "cited_missing": [
+    "四川省人力资源和社会保障厅关于进一步规范创业补贴政策经办流程的通知",
+    "大竹县人力资源和社会保障局大竹县财政局关于进一步做好创业担保贷款工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "b4c7eda0-df7c-464b-9619-b84eb2a9c728",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=b4c7eda0-df7c-464b-9619-b84eb2a9c728",
+   "question": "外省务工补贴\n请问下外省务工补贴属实吗？如果是真的如何申请呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步加大脱贫人口跨区域务工交通补助力度促进脱贫群众就业增收的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "869db348-44b7-4064-8a9f-82020843e140",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=869db348-44b7-4064-8a9f-82020843e140",
+   "question": "新增国际道路货物运输证\n本公司车辆有俄罗斯跨境业务，需要办理国际货物运输证。不知道如何申请？谢谢解答",
+   "cited_hits": [],
+   "cited_missing": [
+    "道路运输从业人员管理规定",
+    "道路运输车辆技术管理规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "a088675c-e8c1-4184-b963-d55909aabd35",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=a088675c-e8c1-4184-b963-d55909aabd35",
+   "question": "独生子女费领取原则\n四川省达州市大竹县柏林镇，农村户口领取独生子女费的具体规则，如何办理，如何发放？",
+   "cited_hits": [],
+   "cited_missing": [
+    "四川省卫生健康委员会关于农村部分计划生育家庭奖励扶助政策的实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "5ce1493a-e1d3-42c4-8a9d-e3edbe830697",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=5ce1493a-e1d3-42c4-8a9d-e3edbe830697",
+   "question": "达州市幼升小政策\n教育局的老师，您好！鄙人家中有两个小孩出生于2021年2月份，根据达州市的教育政策，2026年9月能否就读小学（届时5岁7月龄），读哪个小学？谢谢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "通川区2025年小学一年级入学登记公告",
+    "通川区2025年小学招生工作实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "2ba713ae-9aff-4426-9cb7-aad7288ea429",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=2ba713ae-9aff-4426-9cb7-aad7288ea429",
+   "question": "咨询\n你好！我想咨询一下，四川省教育电子音像出版社出版的论文能评职称吗？（副高和正高）谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "达州市人力资源社会保障局关于做好职称申报评审中涉及论文专著等核查工作的通知",
+    "达州市教育局关于进一步规范中小学教师撰写教育科研论文的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "437e8884-00f0-4c4d-8159-bdde1aa99ada",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=437e8884-00f0-4c4d-8159-bdde1aa99ada",
+   "question": "四川万源办理营业执照\n为什么四川万源这边办理营业执照需要房屋安全鉴定",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发全国自建房安全专项整治工作方案的通知",
+    "关于印发全省自建房安全专项整治实施方案的通知",
+    "关于印发全市自建房安全专项整治实施方案的通知",
+    "万源市自建房及重点区域房屋排查鉴定实施方案的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "394b1789-b50e-4afb-ba87-8ecb17ca7137",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=394b1789-b50e-4afb-ba87-8ecb17ca7137",
+   "question": "农村部分计划生育奖励扶助申报\n这个可以线上申请吗？申请需要哪些条件？",
+   "cited_hits": [],
+   "cited_missing": [
+    "四川省卫生健康委员会关于农村部分计划生育家庭奖励扶助政策的实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "b633bf35-ca80-4b29-9ef7-6a90954d5bfd",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=b633bf35-ca80-4b29-9ef7-6a90954d5bfd",
+   "question": "生育津贴\n您好：我想咨询达州市通川区缴纳灵活就业社保工作人员，是否享受生育津贴。且享受生育津贴需要什么申请条件。",
+   "cited_hits": [],
+   "cited_missing": [
+    "达州市人民政府关于印发达州市职工基本医疗保险管理办法的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "370dd004-fa75-4ea9-8593-cd97ef2c4582",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=370dd004-fa75-4ea9-8593-cd97ef2c4582",
+   "question": "执业药师技能补助\n你好，请问四川达州2025年考过的执业药师，怎么申请技能补贴？",
+   "cited_hits": [],
+   "cited_missing": [
+    "四川省人力资源和社会保障厅四川省财政厅国家税务总局四川省税务局关于认真做好延续实施失业保险稳岗惠民政策措施有关工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "fd4c8a84-6819-48fc-8fb0-75723f581f2c",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=fd4c8a84-6819-48fc-8fb0-75723f581f2c",
+   "question": "关于九年义务教育初中招生政策\n我想咨询一下宣汉县东乡镇龙岗社区根据宣汉县九年义务教育招生政策，子女是就读于哪一所中学。",
+   "cited_hits": [],
+   "cited_missing": [
+    "宣汉县人民政府办公室批转县教育局关于宣汉县2023年中小学招生工作意见的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "add74a83-728a-4783-b44a-05e52f0c123a",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=add74a83-728a-4783-b44a-05e52f0c123a",
+   "question": "教师资格证认证\n教师资格证认定的网报确认需要在线下确认吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "达州市教育局2024年春季第二批次教师资格认定公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "69f2c79a-ab54-4fee-880d-425a022e5551",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=69f2c79a-ab54-4fee-880d-425a022e5551",
+   "question": "达州市高铁计划\n达州市在除西渝高铁与成达万高铁外，是否还有其他高铁计划？让更多的县镇享受到高铁的便捷？",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家中长期铁路网规划",
+    "国家中长期铁路网规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "d641ec09-25b2-4b0e-aa66-4a5367945f3e",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=d641ec09-25b2-4b0e-aa66-4a5367945f3e",
+   "question": "教师资格\n请问小学教师资格证书升级到初中教师资格证书，需要的条件和流程？",
+   "cited_hits": [],
+   "cited_missing": [
+    "中小学教师资格考试合格证明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "2fb6b976-d574-47a0-8678-ed9d461d9c61",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=2fb6b976-d574-47a0-8678-ed9d461d9c61",
+   "question": "59岁一次性补缴养老保险\n万源市竹峪镇农村户口，一次补缴养老保险费用及文件规定",
+   "cited_hits": [],
+   "cited_missing": [
+    "四川省人力资源和社会保障厅关于印发〈四川省城乡居民基本养老保险经办规程〉的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "72ae73b9-d8cd-481b-99ec-290402d76021",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=72ae73b9-d8cd-481b-99ec-290402d76021",
+   "question": "住房是否可以申请个体工商户\n住宅性质是否可以申请个体工商户？个体工商户申请条件",
+   "cited_hits": [],
+   "cited_missing": [
+    "民法典"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "f9e101a1-de46-41a5-83fe-849098fbfb8b",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=f9e101a1-de46-41a5-83fe-849098fbfb8b",
+   "question": "教师资格认定表遗失补办\n在编教师教师资格注册时，档案中教师资格认定申请表遗失，能否异地补办或网上补办？需要哪些材料？",
+   "cited_hits": [],
+   "cited_missing": [
+    "身份证",
+    "教师资格证书",
+    "教师资格申请表遗失情况登记表",
+    "教师资格认定申请表（补）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "cb260b07-fc00-4bad-a134-6a5c716c5756",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=cb260b07-fc00-4bad-a134-6a5c716c5756",
+   "question": "子女入学\n咨询关于子女入学通川一小相关问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "通川区2024年小学一年级入学登记公告",
+    "通川区2024年小学招生工作实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "6041e756-f3a1-4e77-9311-e51129e214bc",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=6041e756-f3a1-4e77-9311-e51129e214bc",
+   "question": "商转公\n婚前男方单独商贷买房，婚后能否转为夫妻双方公积金贷款如果可以需要准备哪些材料？",
+   "cited_hits": [],
+   "cited_missing": [
+    "达州市住房公积金贷款管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "437c17f1-19b5-4173-9f00-c433d915b29f",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=437c17f1-19b5-4173-9f00-c433d915b29f",
+   "question": "《四川省消防条例》第十八条消防有关人员培训咨询\n领导： \n      您好，感谢您百忙之中阅读来信。 \n      《四川省消防条例》的第十八条： \n      “第十八条 下列人员应当接受专业消防安全培训： 　　\n      （一）公众聚",
+   "cited_hits": [],
+   "cited_missing": [
+    "四川省消防条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "f15d4f90-1773-4646-bc9d-f9c5646752c2",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=f15d4f90-1773-4646-bc9d-f9c5646752c2",
+   "question": "高龄津贴\n80岁以上老人高龄津贴发放标准",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发达州市惠民惠农财政补贴资金社会保障卡“一卡通”实施方案的通知",
+    "达州市通川区人民政府办公室关于制定和实施老年人照顾服务项目的实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "eaddf8dc-027f-47f1-be73-9656402c6dde",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=eaddf8dc-027f-47f1-be73-9656402c6dde",
+   "question": "农村义务教育阶段学生早晚自习应如何上？\n农村义务教育阶段学生早晚自习是否上？",
+   "cited_hits": [],
+   "cited_missing": [
+    "中共中央办公厅 国务院办公厅印发关于进一步减轻义务教育阶段学生作业负担和校外培训负担的意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "279c3a9f-fe34-451f-ba3c-165b2c30908f",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=279c3a9f-fe34-451f-ba3c-165b2c30908f",
+   "question": "请问目前情况下，在达州的企业可以正常召开股东大会吗？\n市人民政府及市卫健委：        \n        我企业位于达州市，现在已到企业章程规定的三年一度企业管理层及董事改选时间、以及股东大会召开的日子，由于我企业目前面临非常特殊的情况",
+   "cited_hits": [],
+   "cited_missing": [
+    "四川省2021年新冠肺炎疫情防控工作指南第四版的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "c82d16e3-450f-463c-b2fb-52b1f171cfff",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=c82d16e3-450f-463c-b2fb-52b1f171cfff",
+   "question": "2021建筑工程高级专业申报开始没有\n2021建筑工程高级级专业申报开始美有",
+   "cited_hits": [],
+   "cited_missing": [
+    "四川省住房和城乡建设厅关于开展2021年度建设工程高级工程师申报评审工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "d93f2121-a302-4a10-9545-417b83e12810",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=d93f2121-a302-4a10-9545-417b83e12810",
+   "question": "社会保障卡使用\n我参加了农村居民养老保险和新农合医疗保险，前几年村上发了新版的社会保障卡。因为长期在成都上班，一直没有用过，最近想用却被社区医院告知使用不了，需要到社区去办理激活，但到了社区社区却说办不了，需要我会达州去办。女儿替我网上查询",
+   "cited_hits": [],
+   "cited_missing": [
+    "达州市人民政府办公室关于印发达州市城乡居民基本医疗保险管理办法的通知",
+    "达州市人力资源和社会保障局关于印发达州市基本医疗保险异地就医管理办法的通知",
+    "四川省医疗保障局关于切实做好2021年异地就医医疗费用结算工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "b052b007-1fe8-4e69-811c-4caa9ab9ec4e",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=b052b007-1fe8-4e69-811c-4caa9ab9ec4e",
+   "question": "农村80岁高龄老人津贴是多少？农村残疾人补贴标准？\n现在大竹县农村80岁高龄老人津贴是多少？农村残疾人补贴标准？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "电话交办单",
+    "大竹县人民政府办公室关于制定和实施老年人照顾服务项目的实施意见",
+    "大竹县人民政府关于加快推进残疾人小康进程的实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "98b4ea55-c8a2-4880-a65e-f97a3f7850ae",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=98b4ea55-c8a2-4880-a65e-f97a3f7850ae",
+   "question": "麻醉印鉴卡事项\n乡镇卫生院申请办理麻醉印鉴卡需要提供哪里资料？和流程怎么走",
+   "cited_hits": [],
+   "cited_missing": [
+    "麻醉药品、第一类精神药品购用印鉴卡申请表",
+    "医疗机构执业许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "1300c7ea-2473-4340-9fee-950f9215de6c",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=1300c7ea-2473-4340-9fee-950f9215de6c",
+   "question": "广东中考学生是否可以回户籍地达州市渠县上高中\n该学生户籍地为达州市渠县，一直在广东河源市上学，直至2021年6月在广东河源市参加中考，请问，该学生是否可以回户籍地达州市渠县上高中？如果可以，有什么要求？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东中考学生是否可以回户籍地达州市渠县上高中",
+    "达州市2021年高中阶段教育学校统一招生录取新生细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "e4882e4e-03dc-45d2-949f-c45490715be1",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=e4882e4e-03dc-45d2-949f-c45490715be1",
+   "question": "家庭分布式太阳能光伏发电并网申请流程\n现在国家支持清洁能源的开发与利用，特别是太阳能光伏发电，经与国家电网了解，国家支持家庭利用自已家的屋顶安装太阳能分布式光伏发电站，并支持所发电除自己使用外多余电电可与国家电网并网。我要了解的事情是在达州",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步规范全省光伏发电项目建设管理有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "b61f9152-350c-43e6-84a5-821b3b5f8c01",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=b61f9152-350c-43e6-84a5-821b3b5f8c01",
+   "question": "征用土地一次性缴纳养老保险\n因土地占用家里老人有缴纳一次性保险名额，说是缴纳6万到时老人去世可以一次性领取12万，因本人在外地工作，不太了解。想咨询一下一次性缴纳了养老保险之后并达到领取资金的条件，可以每月领取多少工资 ，生病 了可以报销多",
+   "cited_hits": [],
+   "cited_missing": [
+    "四川省被征地农民养老保障实施办法",
+    "达州市城乡居民基本医疗保险管理办法",
+    "四川省基本医疗保险、工伤保险和生育保险药品目录",
+    "四川省基本医疗保险诊疗项目目录",
+    "四川省基本医疗保险医疗服务设施项目范围"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "10acd326-764d-4b3a-a40b-4965ccf1b632",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=10acd326-764d-4b3a-a40b-4965ccf1b632",
+   "question": "新生儿上户\n您好，因为我们在外务工而非婚生子怎么上户？没有结婚证，女方又跑了。有正规医院的出生证明。",
+   "cited_hits": [],
+   "cited_missing": [
+    "出生医学证明",
+    "出生医学证明",
+    "居民户口簿、居民身份证",
+    "结婚证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "627531ae-b515-4afb-9517-7beb0bc6e284",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=627531ae-b515-4afb-9517-7beb0bc6e284",
+   "question": "人社局关于人员编制身份的问题\n您好，我是一名达州万源市籍转业士官，想咨询转业士官身份认定的事情。我们是2019年4月份从部队转业到地方，退役军人事务局根据我们的服役年限和在部队立功授奖情况进行了评分和公示，按照分数的高低进行了排名，2019",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于事业单位接收安置军队转业干部和退役士兵岗位聘用有关问题的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "1a0446b6-d815-4dd4-9005-3723dce68efe",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=1a0446b6-d815-4dd4-9005-3723dce68efe",
+   "question": "户口所在地在陕西，但常住地在达州已有一年以上，请问开具无犯罪证明需不需要回户籍地\n您好，我是陕西人，因热爱达州，2006年就读于达州文理学院，09年毕业就在达州参工。在达州已经连续居住十年以上。如今因考调需要再次审核有无犯罪记录。当我拿到考",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于改进和规范派出所出具证明工作的意见",
+    "公安机关服务经济社会发展、服务群众、服务企业60项措施"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "87d5f354-9b0b-42ce-a2ba-0200badf8d39",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=87d5f354-9b0b-42ce-a2ba-0200badf8d39",
+   "question": "公司法人变更\n操作流程",
+   "cited_hits": [],
+   "cited_missing": [
+    "公司登记（备案）申请书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "c41f3f43-0c50-4c14-a842-06d0ddf7fdf4",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantproposaldetail.html?cguid=c41f3f43-0c50-4c14-a842-06d0ddf7fdf4",
+   "question": "关于更换市体育馆室外篮球场的建议\n关于更换市体育馆室外篮球场地板的建议\n        我是一名篮球爱好者，平时经常在市体育馆室外篮球场打篮球。目前，我市体育馆室外篮球场采用悬浮式拼装塑胶地板，该地板的优点是铺装简便、更换简单、价格低，但缺",
+   "cited_hits": [],
+   "cited_missing": [
+    "达州市体育中心室外健身场地维修改造工程"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "f3944540-95af-4c88-9842-102bd1a36447",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantproposaldetail.html?cguid=f3944540-95af-4c88-9842-102bd1a36447",
+   "question": "降低各区县机关事业单位同职级人员公积金缴存基数差距，保障待遇\n我是一名万源市乡镇基层干部，公积金缴存基数只有4500元，与养老保险等缴存基数基本相同，按理说公积金缴存基数应该为年度月平均工资总额，而年度月平均工资总额应该包含津贴、补贴和绩效",
+   "cited_hits": [],
+   "cited_missing": [
+    "达州市住房公积金归集管理实施细则"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "f09b023c-c08c-4c86-a48f-ac42155538c7",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantproposaldetail.html?cguid=f09b023c-c08c-4c86-a48f-ac42155538c7",
+   "question": "对魏兴镇凤尾村4-5组滑坡村道维修的建议\n各位领导：\n      通川区魏兴镇凤尾4-5组有一村道由于上半年下雨，导致有一段路严重滑坡。该村道是凤尾村4-5组赶集、进城的必经之道，该两个村有两百来户村民，均以种粮食、蔬菜水果卫生，每天晚上都",
+   "cited_hits": [],
+   "cited_missing": [
+    "请求解决凤尾村四、五组道路路基滑坡维修整治资金的报告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "e4df2ea8-f021-42cc-bbb5-ce8fc898d318",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantproposaldetail.html?cguid=e4df2ea8-f021-42cc-bbb5-ce8fc898d318",
+   "question": "非机动车管理\n市民留言反映：城区电动车、摩托车等非机动车占道现象突出，既造成拥堵，又存在安全隐患。建议相关部门加强监管，规范此类交通不文明行为。",
+   "cited_hits": [],
+   "cited_missing": [
+    "达州市非机动车管理条例（代拟稿）",
+    "达州市非机动车管理条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "e55f4f34-4b0e-47d9-9d74-e4f424d62cf4",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=e55f4f34-4b0e-47d9-9d74-e4f424d62cf4",
+   "question": "达州市通川区残联私设门槛，前后说法不一，歪曲0-6岁应救尽救\n家里学龄前残疾儿童申请0-6岁康复救助，通川区残联前后说法不一，原先同意办理，换届换负责人后，就以无政策为由拒办，仅限低保困难户申报。达川区、高新区同等项目普惠放开，普通残疾儿童",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于建立残疾儿童康复救助制度的实施意见",
+    "关于建立残疾儿童康复救助制度的实施意见",
+    "关于建立残疾儿童康复救助制度的实施意见",
+    "关于进一步加强刚性支出困难家庭认定的通知",
+    "2025年度通川区人民政府与区级群团组织联席会议纪要"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "2f91b734-53e5-42a1-85d9-c6a580a24040",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=2f91b734-53e5-42a1-85d9-c6a580a24040",
+   "question": "小区经常停水\n领导，你好。本人居住于达州市通川区文家梁电苑小区，小区内晚上九点十点经常停水，而且没有任何通知。用水很不方便，希望能有效解决！",
+   "cited_hits": [],
+   "cited_missing": [
+    "小区经常停水"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "2c65fe3e-f7d8-49aa-a2e5-a6ad4ecc8ed2",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=2c65fe3e-f7d8-49aa-a2e5-a6ad4ecc8ed2",
+   "question": "大竹电力公司东柳供电所违规操作\n大竹电力公司东柳供电所在本人不知晓的情况下，在本人宅基地右侧一处，小产权地上架设电线杆。电线线路经宅基地墙上穿插而过,并用泥土掩埋小产权地上的水井，破坏水井周围的水泥结构。在我知晓事情经过后向当地供电所，社区",
+   "cited_hits": [],
+   "cited_missing": [
+    "中华人民共和国电力行业标准农村低压电力技术规程"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "84bc1760-8d8c-4498-96de-85bb16cbb993",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=84bc1760-8d8c-4498-96de-85bb16cbb993",
+   "question": "针对达州职业技术学院（公办）元旦国家法定节假日补课事件\n达州职业技术学院，元旦节国家法定节假日2号 3号被迫学生留校补课。",
+   "cited_hits": [],
+   "cited_missing": [
+    "四川省教育厅关于统筹做好今冬明春高校疫情防控、安全稳定和教育教学工作的紧急通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "ef4f0fc8-6ba3-4454-be29-2a073d94b1004",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=ef4f0fc8-6ba3-4454-be29-2a073d94b1004",
+   "question": "疫情住宿退费\n这个退费是疫情影响的住宿退费，学校承诺在九月底全部退费，但是在九月底依然没有退，在10月21日退了一次住宿费，但是依然有部分同学退费不成功，说是有些同学的交通卡是信用卡不能退住宿费，交通卡是学校统一办理的为的就是以后方便支付和",
+   "cited_hits": [],
+   "cited_missing": [
+    "2020年春季学期住宿费结算方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "32866b43-ac17-42d1-a27c-81fcab7e1117",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=32866b43-ac17-42d1-a27c-81fcab7e1117",
+   "question": "春节期间街道上到处乱燃放烟花爆竹\n尊敬的领导，四川大部分地方春节期间都禁止燃放烟花爆竹，但是达州市通川区蒲家镇街道，不仅没有禁止，而且一到春节，到处都是燃放烟花爆竹，不仅让人睡不着，噪音污染，而且制造垃圾，环境污染，半夜还在放鞭炮，政府也没",
+   "cited_hits": [],
+   "cited_missing": [
+    "达州市城区禁止燃放烟花爆竹管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "6a18e271-0fe5-4ea5-b0ac-5c7d38a949a6",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=6a18e271-0fe5-4ea5-b0ac-5c7d38a949a6",
+   "question": "关于商品房欺骗及欺诈销售\n1.关于达州市西商农博园农产品物流园有限公司于2019年6月16日未取得相关房屋销售资质提前售出房屋，并收取相关房屋首付款。\n2.2020年9月10日买房人发现实际修建房屋户型及面积与当时达州市西商农博园农产品物流",
+   "cited_hits": [],
+   "cited_missing": [
+    "商品房预售许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "516f66d5-d32b-46b9-9bec-b88dd23dfe44",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=516f66d5-d32b-46b9-9bec-b88dd23dfe44",
+   "question": "学校早晚自习收取补课费，老师周末家里补课收取补课费\n宣汉县第二中学初中部，初一学生早晚自习有人专门收取补课费（微信家长群通知的），并说明是教育局要求的，同时老师周末在家也会给学生补课，每周六一上午一学期一个人就一千二，有些老师会打着学生自愿",
+   "cited_hits": [],
+   "cited_missing": [
+    "教育部办公厅关于做好中小学生课后服务工作的指导意见",
+    "四川省教育厅关于做好中小学课后服务工作的实施意见",
+    "宣汉县教育和科学技术局关于做好中小学课后服务工作的实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "4dc4561a-b76e-409f-98e3-3e3d998cea14a",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=4dc4561a-b76e-409f-98e3-3e3d998cea14a",
+   "question": "社保局误收个人支付的企业应缴保险费\n申请诉求：\n1.退还我个人误代企业缴纳的企业应缴部份的社保相关费用?:39392.57元（含企业应缴本金、利息、滞纳金）。--作为国家机构难道不管资金来源？\n2.按2001年社会平均工资标准。支付违法解除",
+   "cited_hits": [],
+   "cited_missing": [
+    "四川省人力资源和社会保障厅关于企业职工基本养老保险费缴纳有关问题的处理意见",
+    "人力资源社会保障部关于城镇企业职工基本养老保险关系转移接续若干问题的通知",
+    "职工补中断缴费通知单",
+    "职工补中断缴费通知单"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "41995cac-4b85-4e83-abde-67ca94c39479",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=41995cac-4b85-4e83-abde-67ca94c39479",
+   "question": "小学就读\n群众来电反映因自己是拆迁户，按揭买了通川区七小的学区房，但通川教育局未就近安排孩子就学，现自己孩子在离家很远的地方就读，而其他一些户口未在通川区的孩子，却可以就读七小，群众不理解，现希望能安排自己孩子就读第七小学。",
+   "cited_hits": [],
+   "cited_missing": [
+    "通川区2019年小学招生工作实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "eae48c1c-793e-47ff-8a9b-4f4cca9ff2ea",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=eae48c1c-793e-47ff-8a9b-4f4cca9ff2ea",
+   "question": "工资拖欠问题\n群众来电反映从2019年3月至今嘉阳天宇公司（地址：开江县宝石大道149号）一直拖欠群众工资未发放，涉及金额4万余元，希望相关部门监督该公司，尽快发放工资。",
+   "cited_hits": [],
+   "cited_missing": [
+    "四川省人民政府办公厅关于建立建设施工领域欠薪处理责任制的通知"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "9fc6ff03-24a9-4a69-8cdf-ee93e72a6d94",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=9fc6ff03-24a9-4a69-8cdf-ee93e72a6d94",
+   "question": "营业执照注销\n我的营业执照注销情况",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "4e8c5f09-2a6f-42bc-9b60-92a46d5c0ce5",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=4e8c5f09-2a6f-42bc-9b60-92a46d5c0ce5",
+   "question": "注册个体户被退回要求修改但并无此选项\n申报工商个体户被退回要求修改成塔坨市监管所，但选项并无此选项，到底应该怎么修改",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "e2e68398-5767-40df-afba-992485c7219d",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=e2e68398-5767-40df-afba-992485c7219d",
+   "question": "孩子随母换姓氏\n孩子户口在南坝镇，重庆上学，想随母姓，请问需要哪些手续",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "32ec2812-de7c-41b4-88d5-e9304210778c",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=32ec2812-de7c-41b4-88d5-e9304210778c",
+   "question": "档案接收\n目前我是广东省的高三毕业生，打算自费留学，想要把档案转到户籍地也就是四川省达州市开江县的人才中心存放，该如何处理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "c91889ab-986e-42b1-9719-9ba746a800a9",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=c91889ab-986e-42b1-9719-9ba746a800a9",
+   "question": "危房改造\n我家因为连续下雨导致房屋周边垮塌现在房子也成危房了因为在外务工导致上一批次危房改造没有赶上现在房子成危房了一家几口都住在里面我就想问问现在还有什么危房改造的相关补贴吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "78e58788-1406-4236-ac7a-7f2d4830500f",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=78e58788-1406-4236-ac7a-7f2d4830500f",
+   "question": "申请的营业执照一直未审核\n本人在拼多多开了一家个人店，因为平台要求要办营业执照，申请了一直未审核，不知道是什么原因，已经快半个月了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "95147fad-8ea8-44a7-87f2-6ca4b2f10d6d",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=95147fad-8ea8-44a7-87f2-6ca4b2f10d6d",
+   "question": "特种设备使用登记证书和使用合格标志遗失这么补办？\n我公司2025年10月份办理的特种设备使用登记证书和使用合格标志遗失了，现在需要补办，请问怎么补办？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "dde445f8-ceec-46ea-8685-904e0685c26c",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=dde445f8-ceec-46ea-8685-904e0685c26c",
+   "question": "川教通如何注销账号？\n川教通小程序以前手机注册了幼升小的账号，现在想取消？在哪里注销",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "e0762600-8757-42f8-ac8b-bcc248be1a87",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=e0762600-8757-42f8-ac8b-bcc248be1a87",
+   "question": "特种设备使用登记证如何注销\n特种设备使用登记证如何注销",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "a81d874b-2152-4de9-84a4-7bac46c5b46a",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=a81d874b-2152-4de9-84a4-7bac46c5b46a",
+   "question": "药店营业证照地址变更\n办理营业执照变更提交支付宝投资人和代理人身份证注册认证通过后、再回四川政务网登录查询网页无效显示。在支付宝登记注册身份验证已经通过还需要在四川政务服务里进行操作吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "3349590e-9f21-4f83-a6e9-192c7878281b",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=3349590e-9f21-4f83-a6e9-192c7878281b",
+   "question": "个人住房情况证明\n怎样查询个人住房情况证明",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "e0b00e8e-4f27-4906-b0a3-277d084efe59",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=e0b00e8e-4f27-4906-b0a3-277d084efe59",
+   "question": "三轮汽车年审\n请问一下达州哪个机动车检测站可以审三轮汽车",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "396d3742-9267-444e-963a-0b94f1622d0f",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=396d3742-9267-444e-963a-0b94f1622d0f",
+   "question": "应届生就业\n想本地就业，大多数岗位和工厂都投递了简历一直是等回复",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "3604c80f-f7d4-45d6-b290-5fdc8542a64b",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=3604c80f-f7d4-45d6-b290-5fdc8542a64b",
+   "question": "购房补贴\n请问一下25年5月提交的购房补贴资料，购房补贴好久才到？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "3467f118-32f3-4b31-ad7f-70279cf5c271",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=3467f118-32f3-4b31-ad7f-70279cf5c271",
+   "question": "耕地地力保护补贴信息查询\n耕地地力保护补贴信息查询失败，提示解析账号身份信息失败，请联系技术人员。请问，我要去哪里重置身份信息？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "2f55cc05-dbc4-4f2c-848a-7b78e74d3b6b",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=2f55cc05-dbc4-4f2c-848a-7b78e74d3b6b",
+   "question": "购房补贴发放\n房都买了快一年了，为什么还没发放购房补贴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "9b9f9c90-6de4-4e59-8129-20360ddb2b53",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=9b9f9c90-6de4-4e59-8129-20360ddb2b53",
+   "question": "变更姓名\n我想要在APP上面提交变更姓名，需要的材料，进行审核，审核成功以后，我再从重庆到户籍的派出所进行办理，因为回去一趟比较麻烦，所以想要更高效的在APP上面进行操作",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "226cd8ba-7070-4778-a924-abb87d86b643",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=226cd8ba-7070-4778-a924-abb87d86b643",
+   "question": "毕业生回原籍\n咨询一下22年户口迁往学校集体户，打算26年迁回达州渠县，需要哪些材料。当时迁出时户口本上只有我一个人，迁回来提供不了要迁入的户口本，只有盖了迁出的那个户口本。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "d8640161-5bc7-438b-804f-08edf6db61a7",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=d8640161-5bc7-438b-804f-08edf6db61a7",
+   "question": "购车国补\n在达州买的机动车申请的国补，现在已申请通过了，现在还没有发放，请问什么时候可以发放",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "558da504-e276-4e08-b440-00599e88fea0",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=558da504-e276-4e08-b440-00599e88fea0",
+   "question": "学历更改咨询\n我在浙江省宁波市学习了成人高考，现在已经拿到了毕业证，原本户口在达州宣汉，户籍学习是初中，我想问一下，能线上更改吗，怎么操作。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "807a76b5-c6e2-469d-bf43-1a6c88d370c4",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=807a76b5-c6e2-469d-bf43-1a6c88d370c4",
+   "question": "育儿补贴\n2026的育儿补贴为什么材料被退回",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "ca5f4ec8-e805-47d0-a9fe-7a26c762a335",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=ca5f4ec8-e805-47d0-a9fe-7a26c762a335",
+   "question": "安管人员c有哪些要求\n报安全员C证有哪些条件",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "fef2ccda-2303-4345-b5df-e574e642eea5",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=fef2ccda-2303-4345-b5df-e574e642eea5",
+   "question": "档案接收\n因离职需将省外的（人事+党员）档案转回户籍地（四川渠县涌兴）的具体流程是怎么样呀？\n线上、线下转接分别需要的哪些材料，转入的单位名称和电话是什么呢？\n纸质档案通过什么方式转到接收单位？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "81615b83-f114-4fd7-94ae-73462fcdcbe1",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=81615b83-f114-4fd7-94ae-73462fcdcbe1",
+   "question": "以旧换新补贴\n我于2024.5.20申请国家以旧换新补贴，于2024.5.24通过申请，打电话询问商务局，商务局说资料已经提交财政部门拨款，但是一直没用任何动静，我想问这个补贴到底要等多久才能发放到位？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "f8e84c76-ef86-4d85-992c-e1487f3c581f",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=f8e84c76-ef86-4d85-992c-e1487f3c581f",
+   "question": "新生儿医保缴\n新生儿申请了“新生儿出生一件事”后，在哪里缴纳医保费用",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "e693fa20-c566-4695-b523-0378edd0e18c",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=e693fa20-c566-4695-b523-0378edd0e18c",
+   "question": "失业保险技能提升补贴申领\n麻烦问下这个补贴审核通过后多久才能到账",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "1c608258-1155-4107-8a03-7d65223e2e39",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=1c608258-1155-4107-8a03-7d65223e2e39",
+   "question": "渠县高龄补贴问题\n渠县地区高龄补贴，在到达年龄后，过来一段时间才申请，会补发这段时间的津贴吗？按照规定80周岁可申请补贴，那82岁才去相关部门申请，会补发80-82岁这两年的补贴吗？如果不能补发，请提供制度依据，如果可以补发请告知补发办理流",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "cffd3c56-36f6-4e27-803d-3d67b50335a1",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=cffd3c56-36f6-4e27-803d-3d67b50335a1",
+   "question": "询问达川区全域（包括经济功能区）2024年GDP\n请问一下达川区全域（包括经济功能区）2024年GDP是多少，不是实际增速和本级数据，如果收到请尽快短信回复一下，电话不方便接听，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "c6c8e92d-b9fd-42eb-8388-800eccee0346",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=c6c8e92d-b9fd-42eb-8388-800eccee0346",
+   "question": "养老保险\n咨询下关于城乡居民养老保险可一次性补缴政策及办理方式和地点",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "1e6e33b0-63d8-4a10-97a1-c4b83dac7628",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=1e6e33b0-63d8-4a10-97a1-c4b83dac7628",
+   "question": "残疾人两项补贴\n第一次发放护理补贴会通知残疾人监护人吗？以什么形式通知？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "97b08c8e-716f-45c5-a04f-66ed9c54c663",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=97b08c8e-716f-45c5-a04f-66ed9c54c663",
+   "question": "关于农保\n农保怎么升档？升档需要补交以前每年的费用吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "4ce75918-6876-4f89-87fd-8541656768bd",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=4ce75918-6876-4f89-87fd-8541656768bd",
+   "question": "灵活就业如何购买社保\n我想咨询一下;年龄满40岁了，自由职业，可不可以够买社保。要缴纳多少年，每一年要缴纳多少钱",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "34d70dc0-98f1-4067-be21-16f0a92e73f3",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=34d70dc0-98f1-4067-be21-16f0a92e73f3",
+   "question": "新生儿上户\n我在成都生的宝宝想回渠县办理上户需要什么材料",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "406260f1-787e-40f9-af06-7ac413239897",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=406260f1-787e-40f9-af06-7ac413239897",
+   "question": "关于城乡居民养老保险的补缴政策\n父母是1968和1970出生的，马上面临60岁退休，城乡居民养老保险缴费年限不满15年且缴费档次较低，想咨询一下提升档次和补缴的政策。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "8738d638-4c58-4bf5-9d60-65fb47e4e57e",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=8738d638-4c58-4bf5-9d60-65fb47e4e57e",
+   "question": "线上办理户籍证明\n户籍所在地在达州，目前人在武汉，能否线上办理户籍证明，怀孕了不能跑长途，需要户籍证明办结婚证，准生证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "4e55c906-8793-4c37-aee3-0ed51bd2e67e",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=4e55c906-8793-4c37-aee3-0ed51bd2e67e",
+   "question": "房子装修可以申请公积金\n我买的首套房子，是二手房，但是没有房产证，可以申请用公积金装修房子。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "76fb4752-b352-4b9e-b0fd-e5ce80878e49",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=76fb4752-b352-4b9e-b0fd-e5ce80878e49",
+   "question": "育儿补贴\n2023.2024年出生的小孩有没有育儿补贴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "7d2b3162-7310-4f27-8642-af5d4572dc13",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=7d2b3162-7310-4f27-8642-af5d4572dc13",
+   "question": "仅销售预包装食品备案\n您好，我人在外地，想办一张预包装食品销售备案，线上怎么办理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "18883921-0eb9-4287-9b80-cdbe1afa9e7a",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=18883921-0eb9-4287-9b80-cdbe1afa9e7a",
+   "question": "公证处可以上门服务吗\n公证处可以上门公证服务吗？因为服务对象是身体不便的老年人。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "bfeaa543-a2db-4598-bcb3-7f6373c0ba7f",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=bfeaa543-a2db-4598-bcb3-7f6373c0ba7f",
+   "question": "四川资助\n您好，我是19年入学专科，2022年9月专升本到了本科。请问我到本科之后还能申请建档立卡资助吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "d7a4a894-825b-48eb-84f5-42cb50aad29b",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=d7a4a894-825b-48eb-84f5-42cb50aad29b",
+   "question": "医保转移后医疗报销\n本人因患有原发性血小板减少症，需要长期服用海曲泊帕，这个药品今年初才纳入医保报销范围，并且一盒药1750+，只能吃一周，很是昂贵，不报销吃不起这个药，因得病前在成都工作，医保在成都，现在因生病回到老家达州修养发展，因为异",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "5bfd8d59-b877-43f6-b542-b016eb7e6756",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=5bfd8d59-b877-43f6-b542-b016eb7e6756",
+   "question": "临时身份证\n您好：我在成都市办理过期身份证换证期间急需身份证，但是他们这边说不能异地办理临时身份证，我想问一下可以家属代办临时身份证吗？不行的话只有回大竹一趟。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "2dca0a91-378f-4df2-bfa5-4e7f0f9d993b",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=2dca0a91-378f-4df2-bfa5-4e7f0f9d993b",
+   "question": "2021年城镇职工社会缴费\n你好，请问2021年城镇职工社会保险费现在可以缴纳了吗？如按60%缴纳，全年一共需缴纳多少？可以通过网上缴纳吗？我下载了一个天府手机银行，可以通过天府手机银行缴纳社保吗？（另外说明一下：个人缴纳城镇职工养老保险一",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "e0be9e89-2201-4eed-b1ce-07874e120581",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=e0be9e89-2201-4eed-b1ce-07874e120581",
+   "question": "异地毕业生报到\n本人本科学校位于广东省，于2021年6月份毕业，需要在2021年7月31日前到达州市人力资源局报到，现想咨询如何在异地解决毕业生到达州市人力资源局报到的问题，望尽快回复谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "64991b4f-96b8-4c53-8e9a-6dc8b7642521",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=64991b4f-96b8-4c53-8e9a-6dc8b7642521",
+   "question": "生育保险\n宫外孕生育保险报销一般多长时间到账",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "34e46613-3b15-4e93-b3f7-3bd7480f78f2",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=34e46613-3b15-4e93-b3f7-3bd7480f78f2",
+   "question": "户口本更新申领\n家庭户口本更新申领可以网上办理吗？\n如果网上办理哪里办？\n线下办理需要什么资料，需要户主本人领取吗，可不可以代领？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "52f8877c-5059-4544-9ad7-b9ee28be8c73",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=52f8877c-5059-4544-9ad7-b9ee28be8c73",
+   "question": "职高单招报考所需要的资料\n我想咨询一下，我报考单招考试，需要准备什么资料？需要我本人回去弄吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "6ff3d1c6-ef73-4100-a321-60d2b2007a93",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=6ff3d1c6-ef73-4100-a321-60d2b2007a93",
+   "question": "社会保障卡遗失\n在成都市郫都区遗失了社会保障卡，但我是达州市万源人，在郫都区打暑假工，没办法及时回去，大概还有一个月才能回去，请问怎样处理才能保障我的信息安全呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "feda8a31-6507-45e4-9cdb-64b0fd133861",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=feda8a31-6507-45e4-9cdb-64b0fd133861",
+   "question": "如何查询个人养老、医疗缴费\n在达州人社局官网，如何查询个人医疗、养老保险缴费情况，可否提供一下链接。整个网站查询不到",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "63793f03-83d3-40da-962c-8d4f86d9a20c",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=63793f03-83d3-40da-962c-8d4f86d9a20c",
+   "question": "社保医保查询\n去年手机上交的医保和养老保险，返的门诊费用是去年年底返还是今年返呢？今年没有返是不是？今天查社保卡余额是0",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "5aea1953-9213-412d-9873-7f08c3442e10",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=5aea1953-9213-412d-9873-7f08c3442e10",
+   "question": "灵活就业养老保险缴费时间\n我妈妈个人买的养老保险，今年她满50岁，要交最后一年，想问今年是什么时候缴费，去社保中心问一直未得到准确的答复，7月份去问说8月份交，8月份问说8月中旬，现在去问又没有准确的时间，因这两天就要外出，所以特别着急",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "9afe1206-e5b9-4e2d-8bf3-676929d5add8",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=9afe1206-e5b9-4e2d-8bf3-676929d5add8",
+   "question": "孙子需要转到爷爷户口下，需要什么材料，分别去什么地方获取材料\n孙子需要转到爷爷户口下，需要什么材料，分别去什么地方获取材料",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "eccb1574-cbef-4c89-9b3e-681789607aad",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=eccb1574-cbef-4c89-9b3e-681789607aad",
+   "question": "电子营业执行如何申请和办理\n请问一下电子营业执照在什么地方办理！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "28205278-8a7f-4364-b039-659e9721d5a1",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=28205278-8a7f-4364-b039-659e9721d5a1",
+   "question": "高中转学\n想询问一下，外省考生参加四川高考需要什么条件？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "3261f806-7d54-4ad4-a769-a9f829ff9ab7",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=3261f806-7d54-4ad4-a769-a9f829ff9ab7",
+   "question": "工业烟粉尘排放量\n您好！我是湖南大学的一名在读研究生，由于论文写作需要，已查询贵单位公布的统计公报，缺少2016年达州市工业烟粉尘排放量的数据，如贵单位有相关统计数据能否辛苦您分享一份，仅用于学术，万分感谢，多有打扰！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "12491b53-ef41-41ab-b380-5ec3c2a178fe",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=12491b53-ef41-41ab-b380-5ec3c2a178fe",
+   "question": "省内返乡\n您好，请问春节省内返乡且非重点人员需要做核酸监测吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "28bee078-a55a-498f-9319-ca137db3ff50",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=28bee078-a55a-498f-9319-ca137db3ff50",
+   "question": "身份证过期\n我是湖南籍，可以办身份证吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "1308a872-0c0d-4dea-a219-89a0fd8db3b5",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=1308a872-0c0d-4dea-a219-89a0fd8db3b5",
+   "question": "查询食品经营许可证信息\n查询食品经营许可证详细信息",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "741d5f52-be01-46be-b0f0-7b7976e58812",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=741d5f52-be01-46be-b0f0-7b7976e58812",
+   "question": "营达高速开通时间\n尊敬的领导您好：\n    我想咨询一下营达高速具体什么时间开通呀？因为近期会回达州老家，所以想咨询一下，提前做好路线规划哈，烦请回复，非常感谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "a05a146b-7c89-472c-89da-ce0e12b252b8",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=a05a146b-7c89-472c-89da-ce0e12b252b8",
+   "question": "个人账户手机号码停用\n个人账户手机停用了，如何更换号码",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "e34e6ab9-34be-45a3-a980-fb6aa4c8a559",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=e34e6ab9-34be-45a3-a980-fb6aa4c8a559",
+   "question": "流程\n修建爆炸物品库房的申报流程以及申报需要那些资料",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "2f7df86d-ac3a-48ca-8074-be930acdda33",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=2f7df86d-ac3a-48ca-8074-be930acdda33",
+   "question": "毕业生报到\n我是直接带上资料去人社局报到就行，还是要先在网上申请，我在网上申请不了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "a7feaaaf-882a-4fee-aa6b-ec4e21bd55bf",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=a7feaaaf-882a-4fee-aa6b-ec4e21bd55bf",
+   "question": "身份证改名字\n你好  我想更改名字  但是公安局那边一直给我的回复是不能改  我查看了法律 每个公民都有改名字的权利所以我想问下 为什么公安局不能给我改  还是说觉得麻烦不想给我改 我想问问我如果现在改名字需要提交什么资料呢  因为我人在深",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "8e80dad6-e834-4f72-a363-722f11bccfcab",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantconsultdetail.html?cguid=8e80dad6-e834-4f72-a363-722f11bccfcab",
+   "question": "个体营业执照如何办理\n我要办理理疗养生的艾疗馆营业执照，在网上如何申请，我目前在深圳",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "5b1cbed3-93ea-4f56-868b-abc750e13c99",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantproposaldetail.html?cguid=5b1cbed3-93ea-4f56-868b-abc750e13c99",
+   "question": "建议达竹快速路通车后开通响应式定制班车，推动大竹达州出行同城\n达竹快速路即将建成通车，硬件基础条件已经具备，希望可以借此契机推动大竹与达州主城区生活同城化，开通响应式定制客运班车。建议优先把这套公共出行服务先跑起来落地，后续再根据实际客流情",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "35e45430-dc7e-48b9-b556-d040e21bda48",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantproposaldetail.html?cguid=35e45430-dc7e-48b9-b556-d040e21bda48",
+   "question": "建议达竹快速路通车后开通大竹往返达州的定制预约客运\n建议达竹快速路通车以后，开通大竹往返达州高铁南站、老达州火车站的定制预约客运。采用19座与9座新能源营运客车搭配调度；支持微信小程序预约，同时保留电话预约，方便不会使用智能手机老年人；提前",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "608a3476-87f7-4b50-b13f-6c42860c6406",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantproposaldetail.html?cguid=608a3476-87f7-4b50-b13f-6c42860c6406",
+   "question": "人行道大坑，望修复\n塔石路机关幼儿园人行道大坑，希望有关部门修复",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "9737a95d-2a43-4f44-8ca5-7406968c1c44",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantproposaldetail.html?cguid=9737a95d-2a43-4f44-8ca5-7406968c1c44",
+   "question": "育儿补贴\n为什么其他地区育儿补贴都发放完毕，达川区一直没有一个消息？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "8823c6f3-3125-40fc-998d-35d7382bd94b",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantproposaldetail.html?cguid=8823c6f3-3125-40fc-998d-35d7382bd94b",
+   "question": "开通学校沿线公交车\n恳请政府部门开通学校沿线公交车。莲花湖方向通川区二小巴山小学、通川区二小巴山附属学校、通川区七小龙山小学。下雨天方便市民接送小孩。更加方便接送学生上下学！老年人接送上学、放学、小孩不方便！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "766340c6-d942-4945-a289-0887ad075318",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantproposaldetail.html?cguid=766340c6-d942-4945-a289-0887ad075318",
+   "question": "村民出行安全隐患\n在我们村有这样一处隐患，村民出行存在巨大安全隐患石头已明显倾斜，烦请领导们合理安排处理，位置在原来枫木村6组下行到大拐的路上，一河坝下有一座桥的旁边",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "eb816af6-43fc-4eda-93cc-2b3d43f82e6d",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantproposaldetail.html?cguid=eb816af6-43fc-4eda-93cc-2b3d43f82e6d",
+   "question": "增设交通红绿灯\n此路段棠悦小区去年5月份已交房，住的人越来越多。今天10月15号，新妇幼保健院也搬院了，以后过往的人会更多，并且此路口是城里的务工人员去工业园区的重要的交通枢纽。早上的时候人流量很大。此路段也发生过几起交通事故。希望政府有关",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "42088990-a541-47d3-86af-841f4126c410",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantproposaldetail.html?cguid=42088990-a541-47d3-86af-841f4126c410",
+   "question": "违建顶篷，年久失修，安全隐患\n该处房屋上面的违建顶棚。年久失修，风一吹就发出巨大的哐当哐当的声音，影响附近居民的居住环境，制造噪音污染，并且风大一点的话，害怕会把顶棚整个吹下来，下面是街面，容易造成人员伤亡和财产损失，希望相关部门引起重视，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "a48fdf17-09b7-4a89-8466-cc1e49c8d204",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantproposaldetail.html?cguid=a48fdf17-09b7-4a89-8466-cc1e49c8d204",
+   "question": "安装液压升降柱防止汽车乱停放\n随着汽车数量的不断增加，乱停乱放的现象日益严重，人行道和消防通道被占用的情况普遍存在。在人民广场位置，从科技馆到老刘家的小龙虾大排档至到出头，沿途的人行道都被车辆占据。为了防止其他车辆随意进入并乱停乱放，默认设",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "350e970f-acc6-448c-9b65-edebcd834003",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantproposaldetail.html?cguid=350e970f-acc6-448c-9b65-edebcd834003",
+   "question": "达州绿地城质量问题\n为保障人民的生命安全，强烈建议上级政府监管部门选择省级专业检测机构对达州绿地城房屋进行全面检查，并公开检查结果。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "ecd7e5c2-c897-4c3f-4bdf-433a3819792b",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantproposaldetail.html?cguid=ecd7e5c2-c897-4c3f-4bdf-433a3819792b",
+   "question": "万源市秦河至庙垭县道、大沙镇宋家坪道路损坏，客运安全事故隐患\n1、万源市秦河至庙垭县道重度烂，凹坑，车辆通行困难，存在重大安全隐患，车辆通行时容易发生安全事故，建议省政府指示万源市政府，先对道路平整，才进行硬化处理。\n2、万源市大沙镇宋家坪",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "a169baa6-2166-4129-94e6-7bbb4e007c96",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantproposaldetail.html?cguid=a169baa6-2166-4129-94e6-7bbb4e007c96",
+   "question": "公共区域私搭乱建\n无法上传水印相机照片。公共区域私搭乱建，占为己用严重影响市容市貌。极度不容恰。望有关领导重视实地调查",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "00cb3bc7-77a0-4635-bb0a-b72e3dcbaf9b",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantproposaldetail.html?cguid=00cb3bc7-77a0-4635-bb0a-b72e3dcbaf9b",
+   "question": "药品价格不合理\n群众来电反映自己在达州市渠县土溪镇xxxx大药房购买“金蓓贝赖氨酸维B12颗粒”的药品，售价为398元一盒，而网上售价只需几十元一盒，群众表示价格非常不合理，希望相关部门核实调查规范价格。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "d5b2ff64-a002-474f-8635-c9629a3e2e84",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=d5b2ff64-a002-474f-8635-c9629a3e2e84",
+   "question": "关于蓝润置地B区房产证问题\n我多次反应我们小区房产证问题，我在物业处了解到七月份办理不了房产证问题，还请政府部门帮忙解决一下此事，我们买房6年了，还拿不到房产证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "ee81e673-eb08-4082-928c-01980f739dc9",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=ee81e673-eb08-4082-928c-01980f739dc9",
+   "question": "育儿补贴\n本人2025年审领育儿补贴资金至今未到帐，一直待发放，现在申请加速审核，麻烦尽快处理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "ed59e7b1-5897-4b19-b09c-4b4f8b7b6c58",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=ed59e7b1-5897-4b19-b09c-4b4f8b7b6c58",
+   "question": "残疾证换证效率太慢\n2月份过年前提交的残疾证换证申请，通过支付宝APP查询到4月中旬通过审核，截止目前还没有换证成功，并且没有任何电话或信息通知，现在7月份，整整5个月时间，请领导换位思考办理换件的效率。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "abedf6ad-0c95-4265-80f5-c07c983440b8",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=abedf6ad-0c95-4265-80f5-c07c983440b8",
+   "question": "涉及疫情防控工作人员工作态度和工作方法的投诉\n本人在十月十七号收到0818-8525228来电问询关于个人事务涉及疫情的电话，通话过程如下：“问、是邓鸣吗？你是否到过万源？现在在哪里？”“答、是本人，我在成都，你是从那里得到的信息？”“问、",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "66a3c733-6d22-489e-82cb-08170302a6ff",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=66a3c733-6d22-489e-82cb-08170302a6ff",
+   "question": "道路危险\n金石镇高兴村小学前的50米道路宽3米，但有约1米宽已经悬空，很危险，请予整治。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "c532008e-5f22-4bb1-9c29-e5b841e52de3",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=c532008e-5f22-4bb1-9c29-e5b841e52de3",
+   "question": "达州市达川区市场监督管理局违规对某个体户核准名称\n达川区市场监督管理局于2020年6月15日，对辖区个体工商户赵亮核准了“达州市达川区龙会乡自来水厂”名称，该个体户社会信用代码为92511703MA6B7AP88Q，经营范围为集中式供生活用",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "d47f5b84-5a45-49dc-97a1-f2db332b3dd5",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=d47f5b84-5a45-49dc-97a1-f2db332b3dd5",
+   "question": "反映达州市政务热线工作人员推诿\n群众于2019年9月4日11点30分左右，拨打达州市政务热线081812345咨询公积金缴存的问题，但工作人员告知让群众拨打其他电话，群众认为该工作人员有推脱责任的问题，现希望相关工作人员告知公积金缴存问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "807d18bc-4b01-4ebf-88b9-5d7e2704d0b5",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=807d18bc-4b01-4ebf-88b9-5d7e2704d0b5",
+   "question": "违规扣押工程建设资格证书\n本人杨xx在2018年7月份到2019年7月份在该公司上班，现在已经从该单位辞职，社保已经在新单位购买，根据国家（建办市〔2018〕57号）要求证书社保不同一家单位，就认定为证书挂靠，离职后该单位违规把我九大员（安",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "971da296-cb45-4b9e-abc0-29a8d100637a",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=971da296-cb45-4b9e-abc0-29a8d100637a",
+   "question": "环境保护问题\n市民反映：达州市大竹县石子镇有一水泥袋回收加工厂，生产时散发出的味道刺鼻，影响附近村民的正常生活，希望加工厂注重环保，还村民一个健康的居住环境。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-dazhou-zwfw",
+   "id": "62424df4-0855-4084-85cf-43dddc1827e1",
+   "url": "https://www.sczwfw.gov.cn/cns-bmfw-websdt/pages/website/scwebsit/pages/peogovinteract/wantcomplaintdetail.html?cguid=62424df4-0855-4084-85cf-43dddc1827e1",
+   "question": "消费维权\n市民反映：2019年6月25日，来电人在达州市通川区通川中路14号世纪广场5层四川店xxxxx咨询有限公司\n购买了淘宝运营学习产品，金额是1980元。购买该产品时，公司告知所有运营问题皆可教授，购买后发现该公司的运营问题有咨询限制",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

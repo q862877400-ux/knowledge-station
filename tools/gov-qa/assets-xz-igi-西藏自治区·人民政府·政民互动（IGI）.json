@@ -1,0 +1,3342 @@
+{
+ "A_考卷": [
+  {
+   "source": "xz-igi-30",
+   "id": "607",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=607",
+   "question": "领导、你好！ 我本人在内地从事多年报废汽车回收拆解业务、了解报废汽车回收拆解业务相关政策及操作流程、目前、国家对报废汽车回收拆解公司新建和审批政策已放开、符合条件允许新建报废汽车公司。在此，我想请问目前西藏拉萨或其他某一地区是否有该项目审批",
+   "cited_hits": [
+    {
+     "name": "报废机动车回收管理办法",
+     "lib_no": "报废机动车回收管理办法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "报废机动车回收拆解企业技术规范",
+    "报废机动车回收拆解企业资格认证书",
+    "报废机动车回收拆解企业技术规范",
+    "GB22128-2019",
+    "GB22128-2019"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-32",
+   "id": "4135",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=4135",
+   "question": "请问2023年度通过法律职业资格考试的人员什么时候领证啊，怎么还没接到通知呢，也看不到地方官网的公告",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国行政许可法",
+     "lib_no": "行政许可法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-37",
+   "id": "7895",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7895",
+   "question": "信访申请书（再次上访民政厅·推诿拖延、文书欺诈、乙肝就业歧视、违规解约、胁迫签字） 信访人：共4人（阿里地区民政局福利院常年在岗劳务老员工） 工龄明细：1人工龄2年、1人工龄11年、2人工龄10年。全体人员在岗期间无任何违纪、失职、事故、投",
+   "cited_hits": [
+    {
+     "name": "信访工作条例",
+     "lib_no": "信访工作条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国劳动争议调节仲裁法",
+     "lib_no": "仲裁法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "xz-igi-37",
+   "id": "7343",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7343",
+   "question": "你好，我是浙江省杭州市桐庐县人，已婚11年没有孩子，诚心想在西藏福利院收养一名婴儿 《孤儿也行》，一我会当亲生孩子一样对待，",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国民法典",
+     "lib_no": "中华人民共和国民法典",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "中国公民收养登记办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-37",
+   "id": "7273",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7273",
+   "question": "你好，我是在西藏工作的外来人员，已婚，想在西藏福利院收养一名孤儿，一定当亲生孩子一样对待，好好培养，家里有自建房两层，市里商品房一套，",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国民法典",
+     "lib_no": "中华人民共和国民法典",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "中国公民收养登记办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-37",
+   "id": "7119",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7119",
+   "question": "尊敬的领导： 本人的表哥因身体原因要不了孩子，夫妻俩特别喜欢孩子，目前三十多岁，夫妻俩到现在没有一个子女，想收养一个健康孩子，把孩子当作自己亲生的对待。夫妻均有正式工作，在地级市区定居，自建多层的楼房，经济和家庭情况良好，希望有机会收养到健",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国民法典",
+     "lib_no": "中华人民共和国民法典",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "中国公民收养登记办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-37",
+   "id": "6903",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=6903",
+   "question": "贵单位好！ 本人和家属希望收养一名男性婴儿(年龄7周岁以下为佳)，有相关信息可否联系我们？ 不甚感激！ 此致 敬礼！",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国民法典",
+     "lib_no": "中华人民共和国民法典",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "中国公民收养登记办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-37",
+   "id": "4528",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=4528",
+   "question": "各位领导，你们好： 本人于2019年9月入职西藏儿童福利院，后因个人原因于2020年1月离职。现单位对前期工龄认定时，需要出具当时工作入职合同。20年9月入职时，人事部门并未要求签订入职合同（协议）。请问能否补签合同？同时，08916834",
+   "cited_hits": [
+    {
+     "name": "事业单位人事管理条例",
+     "lib_no": "事业单位人事管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-37",
+   "id": "4270",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=4270",
+   "question": "尊敬的领导： &nbsp; &nbsp; &nbsp;本人想在拉萨地区开一个居家养老服务中心，让老人可以在家享受到便捷的上门服务，老人不必住在养老院中被动接受服务，在家就可以挑选、享受专业化的养老服务。养老服务机 构提供日常生活照料服务为主",
+   "cited_hits": [
+    {
+     "name": "民办非企业单位登记管理暂行条例",
+     "lib_no": "民办非企业单位登记管理暂行条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于做好养老机构登记备案管理工作的通知",
+    "西藏自治区民政厅&nbsp;财政厅关于建立养老服务补贴制度的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-37",
+   "id": "655",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=655",
+   "question": "因毕业论文研究我国殡葬管理改革，需要收集全国各省殡葬管理条例。查遍西藏自治区人民政府和民政厅公开的政策法规均为找到，刚才打电话给政策法规办公室，告知该条例由于民族原因，在西藏属于依申请公开，故到网站来申请公开。",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国殡葬管理条例",
+     "lib_no": "殡葬管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "天葬管理暂行规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-39",
+   "id": "620",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=620",
+   "question": "尊敬的领导，您好，我是一名中医类执业医师。在现实生活中，中医类执业医师的执业范围老是遭到别人质疑。很多人以为中医类执业医师只能开中药，不能在综合医院非中医科科室执业上班。我查询到河南省、甘肃及湖南省都出台了关于中医类别执业范围的文件，请问领",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国中医药法·释义",
+     "lib_no": "中医药法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "xz-igi-56",
+   "id": "7600",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7600",
+   "question": "致：西藏自治区人民政府主席嘎玛泽登尊敬的主席先生：您好！我是一名在昌都市务工的普通劳动者，现以实名方式，向您举报西藏龙胜工贸有限公司及其昌都分公司、日喀则分公司（以下简称“龙胜公司”）长期、系统性地严重违反《中华人民共和国劳动法》、《中华人",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国劳动合同法",
+     "lib_no": "劳动合同法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "劳动保障监察条例",
+     "lib_no": "劳动保障监察条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "xz-igi-24",
+   "id": "7776",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7776",
+   "question": "领导您好，冒昧打扰。我于2022年6月毕业，2022年11月与区外企业签订三年期劳动合同并正式入职，工资由该区外企业直接发放。但我的社保是由第三方代缴单位在西藏拉萨缴纳的。想向您请教：像我这种情况，是否符合区外就业补贴的申领条件？因政策细节",
+   "cited_hits": [],
+   "cited_missing": [
+    "西藏自治区就业资金实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "7597",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7597",
+   "question": "您好 领导 我想咨询一下区外就业补贴。 我是2021年7月1号与内地企业签订合同。请问我可以享受藏人社【2025】9号文 中的区外就业满三年、五年的补贴奖励吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "西藏自治区高校毕业生市场就业创业补贴实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "7582",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7582",
+   "question": "工作人员您好，我想咨询下就业补贴政策，我是湖北人，2025年6月毕业于西藏大学，同年7月入职华能西藏雅江公司并签订三年劳动合同，请问我符合西藏就业补贴政策吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "西藏自治区高校毕业生市场就业创业补贴实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "7555",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7555",
+   "question": "尊敬的领导： 您好！ 我是西藏生源全日制本科毕业生，2022年6月完成本科学业，2023年3月入职区外事业单位工作，至今已在岗3年1个月，严格遵守单位规章制度，正常缴纳社会保险，始终踏实履职、认真工作。 首先，衷心感谢自治区党委、政府长期以",
+   "cited_hits": [],
+   "cited_missing": [
+    "西藏自治区高校毕业生市场就业创业补贴实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "7554",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7554",
+   "question": "尊敬的领导： 您好！我是2018届西部计划志愿者，2021年服务期满考核合格，目前在企业稳定就业。现就高校毕业生就业补贴政策申报问题，诚恳提出咨询与请求： 1. 政策认定标准不够明确：就业补贴起算时间，以首次签订劳动合同时间为准，还是以首次",
+   "cited_hits": [],
+   "cited_missing": [
+    "西藏自治区高校毕业生市场就业创业补贴实施细则",
+    "西藏自治区高校毕业生市场就业创业补贴实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "7453",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7453",
+   "question": "本人为西藏籍高校毕业生，信息填写无误，但系统提示“不在基础数据库”，无法注册申请补贴。多次拨打 0891-6300350、0891-6300314 无人接听。请求尽快补录信息并解决。 姓名：白玛玉珍 电话：18689102931 身份证号：",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发&lt;西藏自治区高校毕业生市场就业补贴实施细则&gt;的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "7160",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7160",
+   "question": "尊敬的领导 您好 我是2020年毕业同年应征入伍，2024年9月退役，2025年7月入职区内一家企业，能否符合区内企业就业补贴政策，如果符合；能申请几年？",
+   "cited_hits": [],
+   "cited_missing": [
+    "西藏自治区高校毕业生市场就业创业补贴实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "7060",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7060",
+   "question": "尊敬的领导你好： 我于23年7月份毕业，至今工作已有两年多时间，目前想咨询下关于区外就业满三年会有3w块钱补助，但是因为我中途换了一家公司，请问这个会影响后续申请吗？后面如果又换了公司但是中途都没有断交过社保等持续工作中会有影响吗？如果不影",
+   "cited_hits": [],
+   "cited_missing": [
+    "西藏自治区高校毕业生市场就业创业补贴实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "6247",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=6247",
+   "question": "您好，职业资格证书的补贴对象只是西藏生源的毕业生吗，是指高考时是西藏户籍的毕业生吗？ 我在西藏就业创业公众号看到的政策解读补贴对象是：1.2019年1月1日后毕业的，5年内取得国家人社部承认的职业资格证书或职业技能等级证书的我区生源全日制普",
+   "cited_hits": [],
+   "cited_missing": [
+    "西藏自治区高校毕业生市场就业创业补贴实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "5856",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=5856",
+   "question": "以下是为您润色后的内容，使表述更加清晰、有条理，语气也更合适： 西藏自治区就业服务中心的领导，您好！ 我是一名2020年7月毕业的西藏籍高校毕业生。根据相关政策，满足区外就业条件的高校毕业生，在毕业5年内可申请区外就业补贴。按我的毕业时间推",
+   "cited_hits": [],
+   "cited_missing": [
+    "西藏自治区就业资金实施细则",
+    "西藏自治区高校毕业生市场就业创业补贴实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "5850",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=5850",
+   "question": "问题1 ：本人于2021年毕业，于2022年10月区外入职，是否可以申请补贴至2027年10月，为5年期限？ 问题2 ：本人于2024年5月提交申请2022.10-2023.10的补贴，至今未通过初审。并且无法提起2023.10-2024,",
+   "cited_hits": [],
+   "cited_missing": [
+    "西藏自治区高校毕业生市场就业创业补贴实施细则"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "5764",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=5764",
+   "question": "西藏自治区就业服务中心领导你好！ 我是2019年6月毕业的西藏籍高校毕业生，按政策满足相关区外就业条件后毕业5年内可申请区外就业补贴，本人2021年在四川省就职，2021年7月-2024年7月区外就业满三年 ，2025年1月申请一次性稳定就",
+   "cited_hits": [],
+   "cited_missing": [
+    "拉萨市高校毕业生就业创业补贴资金申领管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "5491",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=5491",
+   "question": "尊敬的领导 您们好 本人于23年毕业，于24年七月申报区外就业补贴，所申请资料全部提交完成，并且审核通过，公示于本年九月底通过，但一直没有发放，希望领导回复一下什么时候能发放。西藏区外就业补贴，万分感谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "西藏自治区就业资金实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "5446",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=5446",
+   "question": "大学生就业补贴是从2017年开始，本人是2017年在区内就业，但单位以2019年才收到就业补贴文件为由，从2020年才第一次给单位职工申请就业补贴，目前单位告知2017年毕业的员工已经无法按照“5年期”来申请补贴，之前没有拿满5年补贴的情况",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发西藏自治区就业资金实施细则的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "5445",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=5445",
+   "question": "本人高考户籍为拉萨市，高考后在内地上学，本科毕业后回拉萨就业，就业3年后考取西藏大学全日制研究生，研究生毕业后继续在藏工作，请问可以申请区内就业补贴吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发西藏自治区就业资金实施细则的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "4565",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=4565",
+   "question": "您好，我是一名非西藏户籍但为西藏学籍的高校毕业生，23年7月与区内企业签订了5年劳动合同。每月工资扣税并缴纳五险一金前总额为九千出头；自己租房（非政府公租房廉租房），公司发放定额租房补贴，想咨询一下我可以申请区内就业补贴吗，如果可以的话，在",
+   "cited_hits": [],
+   "cited_missing": [
+    "西藏自治区就业资金实施细则"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "4533",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=4533",
+   "question": "您好，我是疫情第二年（2021年初）来区外就业，先前工作繁忙加上信息闭塞，今年才知道有这类补助，但被告知去年已经是最后一年申请时间。不知道是否有任何补救窗口或者能否因为疫情特殊原因酌情处理，适当延缓申请时间（仅针对从未申请过补贴的情况），非",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发 〈西藏自治区高校毕业生市场就业补贴政策实施细则（试行）的通知〉 ",
+    "关于印发 〈拉萨市高校毕业生就业创业补贴资金申领管理办法〉的通知 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-30",
+   "id": "1286",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=1286",
+   "question": "领导： 您好！ 我是西藏职业技术学院电子商务专业的老师，请问现在西藏区内有多少个示范县项目，前期调研发现部分示范县建设周期结束就没有提供服务了，想问问对于这种情况后续还会不会追加资金进行升级版项目的建设？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "电子商务进农村综合示范县建设情况"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-30",
+   "id": "574",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=574",
+   "question": "西藏政府购买岗位具体管理办法什么时候出来呢",
+   "cited_hits": [],
+   "cited_missing": [
+    "西藏自治区政府购买服务管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-37",
+   "id": "7752",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7752",
+   "question": "尊敬的自治区民政厅领导： 经查询相关政策，西藏在执行国家机关工作人员和离退休人员病故后一次性抚恤金发放政策方面存在滞后性，相比国家政策，西藏国家机关工作人员和离退休人员病故后一次性抚恤金少发放了“上一年度全国城镇居民人均可支配收入的2倍加本",
+   "cited_hits": [],
+   "cited_missing": [
+    "退役军人事务部办公厅、人力资源社会保障部办公厅、财政部办公厅关于进一步明确公务员伤残保障相关事宜的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-37",
+   "id": "7351",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7351",
+   "question": "请问最低生活保障文件中的“单人户”，无其他家庭成员是否就是“单人户”吗？还是有其他条件需要满足吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "最低生活保障审核确认办法",
+    "西藏自治区最低生活保障实施办法",
+    "最低生活保障审核确认办法",
+    "西藏自治区最低生活保障实施办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-37",
+   "id": "7268",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7268",
+   "question": "根据西藏自治区民政厅 西藏自治区财政厅发布的《关于 提高城乡最低生活保障、特困人员救助 供养补助标准的通知》内提到“一、城镇最低生活保障标准由每人每月947元提高到1027元；补差标准由每人每月755元提高到818元。” 请问通知中所标的补",
+   "cited_hits": [],
+   "cited_missing": [
+    "西藏自治区最低生活保障实施办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-37",
+   "id": "7149",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7149",
+   "question": "请问西藏自治区民政厅门户网站是否开设了财政预决算类栏目？如果有，如何进入财政预决算类栏目？",
+   "cited_hits": [],
+   "cited_missing": [
+    "西藏自治区民政厅门户网站是否开设了财政预决算类栏目？如果有，如何进入 财政预决 类栏目？"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-37",
+   "id": "7142",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7142",
+   "question": "请问西藏自治区民政厅人民政府门户网站是否开设了政策解读类栏目？如果有，如何进入政策解读类栏目？",
+   "cited_hits": [],
+   "cited_missing": [
+    "西藏自治区民政厅人民政府门户网站是否开设了政策解读类栏目？如果有，如何进入 政策解读类栏目？"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-37",
+   "id": "7103",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7103",
+   "question": "尊敬的自治区民政厅领导你好 我是一名大学生毕业后在索县特困人员集中供养服务中心就业的一名护理员 我刚入职不久 但是听旁边的各县的养老护理员说他们有护理补贴 有什么什么很多费用 我想咨询养老护理员只有工资待遇还是有补贴的 还是有文件说没有任何",
+   "cited_hits": [],
+   "cited_missing": [
+    "西藏自治区特困人员救助供养办法（试行）",
+    "西藏自治区特困人员救助供养办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-37",
+   "id": "5865",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=5865",
+   "question": "请问藏政发【2023】3号《西藏自治区最低生活保障实施办法》规定的“共同生活的家庭成员有区外户籍的,可以由具有西藏自治区户籍的家庭成员在户籍所在地乡镇人民政府(街道办事处)提出申请”中所指的户籍所在地是指省内还是市内？ 感谢解答，盼复！",
+   "cited_hits": [],
+   "cited_missing": [
+    "西藏自治区最低生活保障实施办法",
+    "西藏自治区最低生活保障实施办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-37",
+   "id": "5049",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=5049",
+   "question": "自治区印发《西藏自治区最低生活保障实施办法》（藏政发〔2023〕 3号）第九条第一款，明确持区内智力残疾、精神残疾以及一级二级重残证，可以单独提出申请，列入低保单人户。 但自2023年1月颁布以来，山南市只列入了低保对象家庭中的相关人员，请",
+   "cited_hits": [],
+   "cited_missing": [
+    "西藏自治区最低生活保障实施办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-37",
+   "id": "4480",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=4480",
+   "question": "您好，我是西藏民族大学社会工作专业的研究生，正在撰写《西藏社会工作者职业能力提升的实务研究》毕业论文，在网络上搜集不到较新的社会工作者相关数据，希望得到您的帮助，我的需求具体如下：西藏全区社会工作者数量、西藏持证社工数量。希望早日得到您的回",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于毕业论文写作需要的社工数据"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-37",
+   "id": "4210",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=4210",
+   "question": "我想问一下，两个人户口都在山东，因男方长期在西藏，请问能不能在西藏登记结婚，如果可以的话，需要什么手续？",
+   "cited_hits": [],
+   "cited_missing": [
+    " 民政部办公厅关于扩大内地居民婚姻登记“跨省通办”试点的通知 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-39",
+   "id": "746",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=746",
+   "question": "贵单位的领导您好 我司现有国家十三五研发项目医疗设备有援藏意向 但之前未在西藏开展过业务 对贵地政策不熟悉 想咨询有关政策 望回电 谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发卫生计生单位接受公益事业捐赠管理办法（试行）的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-39",
+   "id": "596",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=596",
+   "question": "请问哪里可以查到现行的《西藏自治区医疗服务项目价格》文件，感谢了",
+   "cited_hits": [],
+   "cited_missing": [
+    "西藏自治区发展和改革委员会 西藏自治区财政厅 关于印发&lt;西藏自治区医疗服务项目价格&gt;的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-39",
+   "id": "565",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=565",
+   "question": "请问在哪里可以查看或者下载西藏自治区医疗服务价格项目规范",
+   "cited_hits": [],
+   "cited_missing": [
+    "西藏自治区发展和改革委员会 西藏自治区财政厅 关于印发&lt;西藏自治区医疗服务项目价格&gt;的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-56",
+   "id": "7498",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7498",
+   "question": "尊敬的领导：您好！&nbsp; &nbsp; &nbsp; &nbsp;本人吴光荣（身份证号码510321197101314878&nbsp; &nbsp;电话18784956410），1990年12月至2006年12月在西藏堆龙德庆775",
+   "cited_hits": [],
+   "cited_missing": [
+    "国务院办公厅关于转发人力资源社会保障部 &nbsp; 财政部城镇企业职工基本养老保险关系转移接续暂行办法的通知",
+    "关于印发 &nbsp; &lt; 西藏自治区城镇企业职工基本养老保险关系转移接续暂行办法 &gt; 的通知",
+    "关于印发 &lt; 西藏自治区完善企业职工基本养老保险制度实施细则 &gt; 的通知",
+    "关于企业职工基本养老保险有关问题的补充通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-56",
+   "id": "6799",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=6799",
+   "question": "西藏自治区人力资源和社会保障厅尊敬的负责同志：您好！我是华南理工大学的博士生吴瑞，目前正在开展中国博士后政策体系的梳理与研究。在整理全国31个省、自治区、直辖市的博士后相关政策过程中，我们发现西藏自治区的公开信息较为有限，未能查询到专门的博",
+   "cited_hits": [],
+   "cited_missing": [
+    "博士后管理工作规定",
+    "国务院办公厅关于改革完善博士后制度的意见",
+    "中共中央组织部 人力资源社会保障部等7部门关于加强和改进新时代博士后工作的意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-56",
+   "id": "5638",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=5638",
+   "question": "本人在2024年10月份已按相关的创业补贴政策规定，在定日县人社局走完了相关的程序，并在2024年10月24日拿到了县人社局颁发就业创业证，在创业之前2024年8月、9月跟日喀则市人社局咨询过相关创业补贴问题，被告知我本人符合政策规定可以领",
+   "cited_hits": [],
+   "cited_missing": [
+    "财政部 人力资源和社会保障部关于印发〈 就业补助资金管理办法 〉的通知"
+   ],
+   "has_clause_no": true
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "xz-igi-22",
+   "id": "156",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=156",
+   "question": "请问2020年疫情过好，会不会有公安队伍的人才引进，大概在几月份",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "7806",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7806",
+   "question": "您好，领导，我想咨询一下今年的就业补贴，西藏机场集团在去年11月份就给我们申请了补贴，现在流程到哪一步了，大概多久可以发放呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "7758",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7758",
+   "question": "尊敬的领导： 您好！本人为西藏山南市生源高校毕业生，毕业年限符合我区区外就业补贴申领条件，目前长期在安徽省稳定就业。现郑重向领导反映本人申领西藏高校毕业生区外就业补贴被山南市人社局高校办多次驳回的相关问题，恳请领导予以核实并督促整改。 本人",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "7757",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7757",
+   "question": "尊敬的领导： 您好！本人为西藏山南市生源高校毕业生，毕业年限符合我区区外就业补贴申领条件，目前长期在安徽省稳定就业。现郑重向领导反映本人申领西藏高校毕业生区外就业补贴被山南市人社局高校办多次驳回的相关问题，恳请领导予以核实并督促整改。 本人",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "7756",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7756",
+   "question": "尊敬的领导： 您好！本人为西藏山南市生源高校毕业生，毕业年限符合我区区外就业补贴申领条件，目前长期在安徽省稳定就业。现郑重向领导反映本人申领西藏高校毕业生区外就业补贴被山南市人社局高校办多次驳回的相关问题，恳请领导予以核实并督促整改。 本人",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "7753",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7753",
+   "question": "本人已经毕业两年，申请第一年的补贴迟迟未下发，电话询问是本级资金未拨付，我的身份证地址是拉萨市城关区察古大道，之前我是属于拉萨市城关区人社局，但是后面告知我属于拉萨市柳梧新区人社局，之后资料申请又重新做了一遍，耗费了大量时间和精力，拉萨市城",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "7718",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7718",
+   "question": "在小程序上申请证书补贴时不能同时申请多个。本人去年 10 月份申请一个证书补贴，2026 年 6 月 15 日才收到审核通过通知。经与桑珠孜人社局了解，发现等已通过审核的补贴拨款之后才可以申请第二个，按照这样办事效率，等我拿到第三个补贴时可",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "7703",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7703",
+   "question": "尊敬的领导： 我于3月提交了山南区外就业补贴，于2026年5月1日初审通过，通过后没有复审没有公示。多次咨询山南人社局相关工作人员，电话无人接听，后来接通的告知在5月底公示，5月底未公示，后面说6月初进行公示，至今未公示。请问相关工作人员都",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "7677",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7677",
+   "question": "尊敬的领导你好，我于2026年3月19日申请补贴，在当天同工作人员沟通修改后已通过初审，但复审结果一直尚未出结果，想咨询一下结果多久能出来，以便看是否过审，如未过审也好及时准备相关材料重新提交",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "7576",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7576",
+   "question": "尊敬的领导： 您好，我是区内毕业生源，按照制度文件申领了西藏自治区高校毕业生就业补贴，请问此类补贴需不需要缴纳个税，如需缴纳，以何种类型进行缴纳呢？ 望回复为盼！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "7543",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7543",
+   "question": "您好，我想咨询一下，西藏机场集团申请的就业补贴预计多久能发放！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "7487",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7487",
+   "question": "老师您好，去年11月提交的24年的就业补贴申请，想问一下什时候会发放？给老师添麻烦了。谢谢您。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "7478",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7478",
+   "question": "尊敬的领导，本人是户籍日喀则的毕业生，于2026年1月10日提交补贴申请至今未审核，想咨询一下什么时候可以审核，感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "7468",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7468",
+   "question": "致西藏自治区人社厅领导的留言信 尊敬的自治区人社厅领导： 您好！我是西藏一名普通就业补贴申领人，现就就业补贴长期拖延发放、审核流程严重违规问题向您如实反映，恳请领导重视并督办解决。 自2024年至今，我区就业补贴发放始终存在明显延迟，并非偶",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "7461",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7461",
+   "question": "领导您好： 我于2026年2月12日提交的市级区外就业补贴2023 2024年的，目前一直处于未审核状态。星期一我咨询县人社局审核进度时，对方答复称那曲市尚未兑现资金 星期二再次联系县人社局，按照那曲人社局告知的流程进行沟通，县人社局表示并",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "7423",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7423",
+   "question": "尊敬的领导您好 我于在2025年10月底提交的2024年就业补贴材料 前期咨询时说是2月中旬补贴金额会到账，但现在都3月底了 还没公示请问多久对公示 资金会到账 麻烦了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "7402",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7402",
+   "question": "本人于2019年11月担任乡村专干，并参保。于2021年5月在企业参保。现申领西藏自治区高校毕业生区内市场就业补贴，本人咨询当地人社局，回复说需要从2019年参加乡村专干的参保时间即2019年11月开始计算申领期限，但本人申领的是企业就业补",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "7392",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7392",
+   "question": "尊敬的相关负责部门： 本人系拉萨曲水籍，2023年通过自治区统招到区外就业，符合区外就业补贴申领条件。 现就2024年度区外就业住房补贴（地市）发放事宜反馈如下：该年度补贴迟迟未到账，期间本人多次与就业办相关工作人员沟通咨询，对方明确给出该",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "7381",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7381",
+   "question": "本人与2025年9月11日申请并在10月16日通过审核，目前看三月份已接近四月份款项还未分发下来，想问问多久能发下来，因为家里情况较差所以急需这边资金",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "7349",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7349",
+   "question": "尊敬的领导，我们统一于2025年10月底提交了24年就业补贴申请，目前已经26年了，补贴资金是否已下达，何时能兑付我们申请的24年的就业补贴资金。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "7329",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7329",
+   "question": "领导您好！ 我了解到，为贯彻落实中央第七次西藏工作座谈会和第四次对口支援西藏工作会议精神，促进各民族交往交流，推动拉萨高校毕业生到内地工作，江苏省人力资源和社会保障局曾开展江苏省2024年事业单位和国有企业面向拉萨高校毕业生专项招聘工作。 ",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "7284",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7284",
+   "question": "西藏自治区就业服务中心： 领导您好，我是高考时生源地为山南市的少数民族考生，现就区外就业补贴一事向您咨询以下问题： 1.我是2023年6月毕业。2023年7月于四川参加工作，在同一家国企公司工作至今（中途在该国企公司中子公司有工作变动，工作",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "7230",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7230",
+   "question": "尊敬的自治区就业服务中心领导： 您好！ 我于 2025 年 12 月 5 日提交了西藏自治区区外就业满三年奖励补贴的申请，后于12月29日收到 “申请时间段有误” 的反馈结果。 核对就业时长后，我重新提交了2022 年 7 月至 2025 ",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "7163",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7163",
+   "question": "西藏自治区就业服务中心领导： 您好！ 首先非常感谢自治区党委政府出台的各项好政策。本人于2026年1月份在 辽宁就业已满三年（是事业编），现准备线上申请地市级就业补贴，但是在系统里填完月平均工资后\"点击计算\"时，提示”未满五年“但本人需要申",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "7145",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7145",
+   "question": "领导您好 我于2025年10月30日提交的2024年就业补贴材料，现在审核是到哪个阶段了，具体什么时候能够资金到账兑现呢 麻烦查询告知 感谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "7082",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7082",
+   "question": "尊敬的领导： 您好！ 首先非常感谢自治区党委政府出台的各项好政策。得益于好政策本人于2023年6月份本科毕业后7月份开始到目前（2年）在区外企业就业。根据原政策“【藏人社发〔2021〕63号文】《关于进一步做好减负稳岗就业工作的意见》第七条",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "7077",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7077",
+   "question": "尊敬的领导： 您好！我是西藏自治区户籍的高校毕业生，自2022年起在区外就业并申请就业补贴。目前，我的补贴发放情况如下： 2022年补贴已正常发放； 2023年、2024年补贴已通过微信公众号公示审核，但至今未收到拨款。 因补贴涉及个人生活",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "7059",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7059",
+   "question": "您好！我了解到，2023年(辽宁)曾开展面向西藏籍高校毕业生的专项招聘，2024年也组织过就业援藏事业单位空余岗位第二次招聘，这些政策为众多西藏籍学子提供了宝贵的就业机会，让我倍感振奋与期待。 我留意到，2025年就业援藏的吉林、黑龙江、辽",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "7030",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7030",
+   "question": "尊敬的领导：您好首先非常感谢自治区当政府出台的各项好政策。得益于好政策本人于2022年7月份开始到目前（3年4个月）在区外就业 。目前已享受到三年的区外就业补贴。根据西藏就业补贴申领宣传手册（2025年版）提到高校毕业生区外就业奖励，本人已",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "6990",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=6990",
+   "question": "尊敬的领导： 您好！我是2025年的应届毕业生，目前就业尚未落实，一直格外关注就业援藏事业单位的招聘相关事宜，我了解到往年曾有就业援藏事业单位的补录招聘安排，此前也一直密切留意今年的招聘动态。就在11月25日，自治区人社厅发布了2025年就",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "6984",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=6984",
+   "question": "进入补贴系统后出现一连串英文字母，提交不了补贴相关资料，已打电话给自治区就业相关单位以及堆龙人社相关单位，给了系统电话，已打多日的电话，一直不接，只能留信，请相关部门进行解决，感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "6966",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=6966",
+   "question": "领导，您好！我是2017年毕业的，2018年至今一直在西藏天路股份有限公司工作，现目前共申领了4年的就业补贴（分别为2019年、2020年、2021年、2022年），还差一年的，我可以接着申领吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "6885",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=6885",
+   "question": "系统内 社保正常缴纳 但是显示接口超时未查询到社保数据 请到相关部门进行核实",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "6842",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=6842",
+   "question": "尊敬的领导您好： 本人于6月28日申请了拉萨地市级区外就业补贴，现在还没有审核，请问一下补贴什么时候能够审核及发放呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "6820",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=6820",
+   "question": "尊敬的领导： 您好！ 首先非常感谢自治区党委政府出台的各项好政策。得益于好政策本人于2021年6月份本科毕业后7月份开始到目前（4年3个月）在区外企业就业。根据原政策“【藏人社发〔2021〕63号文】《关于进一步做好减负稳岗就业工作的意见》",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "6804",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=6804",
+   "question": "你好 领导 我想咨询一下西藏就业补贴。 我是2021年6月毕业，2021年10月参加了三支一扶 2024年10月期满 。于2025年10月和企业签订了合同 ，然后2026年10月我能享受西藏就业补贴吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "6754",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=6754",
+   "question": "尊敬的领导： 您好！ 首先非常感谢自治区党委政府出台的各项好政策。得益于好政策本人于2021年6月毕业7月开始到目前（4年2个月）在区外企业就业，根据原政策其【藏人社发〔2021〕63号文】《关于进一步做好减负稳岗就业工作的意见》第七条进一",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "6682",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=6682",
+   "question": "本人系2022届西藏籍高校毕业生，现已满足区外就业三年补贴的政策，在进行申请时显示“该补贴为2022年前毕业仅可享受”，想咨询一下不通过的具体原因，以及目前能享受到的补贴政策有哪些，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "6655",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=6655",
+   "question": "工作人员您好： 我于今年5.9日在“西藏就业创业”微信小程序申请了计算机一级的证书补贴，但是最近查询进度时发现还在初审阶段，同时于昨天申请了初级会计证书的补贴，在拨打相关电话后发现无人接听，现向您询问该补贴如何兑现？ 另，按照大学生补贴相关",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "6603",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=6603",
+   "question": "领导冒昧打扰，本人于2025.2.18申请24年区外就业补贴，于2025年3月25日显示复核通过，25年6月左右通过电话咨询了补贴发放事项，未果。想咨询一下补贴具体发放时间。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "6602",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=6602",
+   "question": "您好，领导，我在2025年8月15号提交了一次性求职补贴申请，因其他原因我向学院诉求撤回申请，取消申请一次性求职补贴申请，但是初审通过了，所以现在我要取消我的一次性求职补贴申请。望批准。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "6595",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=6595",
+   "question": "市级区外就业补贴一直未审核，咨询工作人员是缺少资金，询问什么时候能下发补贴，发放道银行卡。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "6558",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=6558",
+   "question": "我6月份在西藏高校毕业生就业微信公众号中申请了证书补贴，但至今审核进度仍然为未审核，望请解决。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "6495",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=6495",
+   "question": "领导 你好 我是西藏机场集团的员工，我们的就业补贴名单上个月就公示了 已经一个月了 我想咨询一下就业补贴还要多久发放",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "6391",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=6391",
+   "question": "领导们好，我是在昌都就业的一名毕业生，我们单位的毕业生们已经申请过区内就业补贴了，审核也已经过了有几个月，昌都就业局这边一直说资金没下来，区就业服务中心的电话也一直都是通话中，所以我想问问这件事情该怎么解决，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "6317",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=6317",
+   "question": "西藏自治区就业服务中心领导： 您好！我是2020年6月毕业的西藏籍高校毕业生。户籍所在地：西藏日喀则市定日县。本人初次申请补贴时间于2023年5月至2024年4月，现已准备24年5月至25年4月就业补贴申请材料。但由于提交材料过程中探亲路费",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "6122",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=6122",
+   "question": "你好领导 我想问一下我们西藏机场集团去年年底就申报了就业补贴，现在到哪一步了，多久可以兑现！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "6073",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=6073",
+   "question": "尊敬的领导您好 我是第七批区内就业名单里面的，贵单位已经将补助资金发放到我们公司账户，但是公司一直拖拖拉拉不能第一时间转给我，多次催公司要补助资金，公司以走流程等各种理由拖着，联系了对应人社这边，人社让我转告公司将回执单两天内给他们，不然对",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "6015",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=6015",
+   "question": "尊敬的领导您好，我与2024年11份提交的就业补贴申请材料，二月份我问的时候说是初审已通过，在复审将在三月份公示兑现，请问现在复审结果如何了大概什么时候能兑现呢？感谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "5985",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=5985",
+   "question": "我的区内就业补贴相关申请材料去年6月份向单位提交，说是通过预审，请问什么时候兑现相应就业补贴？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "5980",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=5980",
+   "question": "领导您好，我是西藏民族大学的一名大四学生，于24年10.15申请了一次性就业补贴，在12.05完成了审核通过且进行了公示，但到现在为止还没完成终审，我想问问具体大概多久可以完成终审和到账，谢谢领导",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "5953",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=5953",
+   "question": "您好，我是一名昌都籍区外公务员，现在工作满一年了，看到了藏东人社发布于2024年3月6日发布的文章，第十二章区外企业就业安家补贴中提到自2021年1月1日起，对在区外机关企事业单位、社会组织等实现就业并签订了年以上劳动合同或聘用协议，且承诺",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "5890",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=5890",
+   "question": "尊敬的领导您好 我想咨询一下，我们单位7月提交的区内就业补贴申请材料，第5批里面没有我们，是否有第6批公示，或是审核未过之类。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "5884",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=5884",
+   "question": "尊敬的领导您好 我在24年11月提交了区内就业补贴申请，显示已经初审，目前我想了解一下具体这个业务多久可以办完？目前我的申请还需要多久才能公示兑现？麻烦领导告知一个具体时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "5878",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=5878",
+   "question": "领导您好，我是区外就业的毕业生，我于24年年中在微信公众号平台上申请了就业补助，想问一下大概什么时候审核呢，另外我看到其他信件中回复财政资金尚未下达，我搜索到中央就业补助资金提前下达批次已经下达了，想问一下是否可以走审批流程了呢，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "5843",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=5843",
+   "question": "尊敬的领导您好！ 我是一名2021年毕业的高校毕业生，我与2024年11月份在我们三方公司提交的就业补贴材料，可否问一下申请进度以及审核进度大概到哪个程度了，麻烦了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "5818",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=5818",
+   "question": "尊敬的领导，您好！本人于21年毕业，自23年6月后未正式在单位入职就业，处灵活就业状态，无社保工资证明，想请问： 1、关于“区外就业补贴”是否只能是在单位就业的状态下才能申请，空窗期只能放弃补贴呢 2、五年的补贴时间：是按照毕业后的5年内可",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "5748",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=5748",
+   "question": "尊敬的领导您好 我24年11月初提交了区内补贴申请，前段时间咨询过后业务才进行了初审，目前我想了解初审结束有没有复审，一般这个业务具体规定多久办完？目前我的申请什么时候审核完成并公示？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "5746",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=5746",
+   "question": "我公司于24年9月提交的区内就业补贴材料在预审核完成后，截止今天初审还未审核。烦请领导咨询一下什么原因，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "5718",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=5718",
+   "question": "尊敬的领导您好！ 抱歉打扰您，我是一名来自西藏大学的研究生，即将在2025年6月份毕业。本次来信目的是咨询大学生求职就业补贴发放进展情况。在24年10月进行了申请，目前已完成审批，24年12月学校统计了银行卡号等信息，目前仍没有进展。请问大",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "5595",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=5595",
+   "question": "尊敬的领导 您们好 我是西藏拉萨市曲水县的西藏生源高校毕业生，本人于2023年10月区外就业满一年，于24年5月申报区外就业补贴，所申请资料全部提交完成，但一直迟迟没有消息。但是到今日12.17日仍未开始初审 ，也没人通知。主动咨询也联系不",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "5594",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=5594",
+   "question": "您好，我是一名2023届毕业生，现就职于西藏中咨智达工程咨询有限公司西藏分公司，因我就职单位先前未申请过就业补贴，现准备注册“公共就业服务平台”，一直显示系统忙，无法注册，您们留的电话不是未注册就是无法接通，麻烦留一个能打通的电话号码，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "5593",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=5593",
+   "question": "区外就业补贴申请已于24年5月提交。至今一直没有初审。也无人联系。拨打拉萨市人社局电话（0891-06364490）24小时提示通话中，无法联系到。故在此提问该找那个负责单位，才能了解进度。想咨询的人目前处于无法咨询的。电话无法打通。实在咨",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "5568",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=5568",
+   "question": "尊敬的领导您好 我想咨询一下，我十一月初提交的区内就业补贴申请材料，但是迟迟没有审核，这个材料提交后是因为系统上看不到还是什么原因没有审核？审核申请材料具体几天就能审核完？没有规定具体的办理业务的时效吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "5539",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=5539",
+   "question": "我是在今年6月份向单位递交了相关材料，但没有后续，隔壁单位的都拿到了补助，请问我们单位的审核流程到了哪里？感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "5538",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=5538",
+   "question": "本人于2024年11月29日留言，你部门12月6日答复内容“是否可以申请相关补贴，需进一步提供个人毕业时间、企业社保缴纳情况等信息，具体可咨询区就业服务中心交流服务处0891-6876169、0891-6339878”。 但是，本人在11月",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "5516",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=5516",
+   "question": "领导你好，我在重庆工作时间已到一年以上，一是根据相关消息在“西藏就业创业”微信公众号上提交了区外就业补贴的申请并提交了相关资料，想请问下这个申请渠道是否正确。二是想问下如果正确，在2024年11月19日提交的申请何时审核。三是整个事件的办理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "5493",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=5493",
+   "question": "您好，我是一名西藏籍高校毕业生，在申请区外就业补贴时看到有单独的一栏：区外地市补贴，在了解栏目后进行申请，填写完材料提交后，系统弹出提示： 写入WXQW_DS失败ORA-01427: single-row subquery returns ",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "5467",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=5467",
+   "question": "尊敬的领导 您们好 本人在西藏山南市扎囊县江雅生物科技有限公司就业的一名大学生。23年的高校区内就业补贴已经申请了，所申请资料全部提交完成。但一直没有发放。问公司时，一直说在走流程，也不知道什么时候发放，公司也给我们拖欠我工资7，8个月实在",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "5442",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=5442",
+   "question": "您好，领导！ 我是一名民航西藏机场集团一名员工，我想咨询一下23年就业补贴在就业服务中心这边已在24年10月19号公示了，公示期为5日但迟迟未落实到位请问是贵单位的原因还是本单位的原因？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "5417",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=5417",
+   "question": "您好！我在河北工作已满一年且社保缴满一年的情况下，于2024年9月1号申请了区外机关就业补贴，从申请到现在将近三个月，相关补贴还未到账！我想问一下，补贴大概什么时候到账？需要急需周转资金，望回复！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "5366",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=5366",
+   "question": "你好领导 ，我是2022西藏拉萨曲水县高校毕业生，今年五月区外工作满一年申请区外就业补贴，但是到今日11.16日仍未审核，也没人通知，不知道这个区外就业补贴如果发放，按什么时间点发放，一年审核几次呢？是否公开透明？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "5343",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=5343",
+   "question": "尊敬的领导您好 本人于2024年11月12日线上线下都提交了区内就业补贴申请资料，我想咨询一下我们这个业务的审核流程以及审核期限，从提交完资料需要多长时间审核完和公示？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "5330",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=5330",
+   "question": "您好，我司于10.23日公示，但现如今还是未收到就业补贴 请问公示是要公示多久呢？就业补贴何时发放？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "5295",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=5295",
+   "question": "您好，我是2023年毕业的西藏籍高校毕业生，2023年7月9日与区内的某国企签订了5年的劳动合同，之前有电话咨询过就业服务中心，回答是交满社保满一年，今年7月开始就可以申请区内就业补贴。但是公司这边给的回答是，需要等公司将前面几批次的补贴（",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "5294",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=5294",
+   "question": "申请就业补贴时，需要上传高考户籍地具体到区的证明材料，请问这个证明如何开具。因电话无人接听，故在此打扰。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "5286",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=5286",
+   "question": "西藏自治区就业服务中心领导你好!我是2019年6月毕业的西藏籍高校毕业生，按政策满足相关区外就业条件后毕业5年内可申请区外就业补贴，按毕业时间段推算2023年7月至2024年6月为第五年，我于2024年3月提交第五年时间段申请，2024年8",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "5250",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=5250",
+   "question": "尊敬的领导您好，我9月份申请的西藏毕业生区外就业补贴已于10-11通过初审，请问后续审核流程大概是怎么样的？大概还要多长时间呀？望回复，祝您工作顺利，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "5191",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=5191",
+   "question": "您好，领导！ 我是西藏机场集团的一名员工，我想咨询一下我们的就业补贴多久发放，之前咨询的时候说是10月初，但是现在已经快10月中旬了，还没有一点消息，目前因为自身原因需要资金周转，望领导看到后尽快答复具体的发放时间是多久，别的很多企业都已经",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "5179",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=5179",
+   "question": "本人于2023年10月08号入职于拉萨康恒环保能源有限公司，现已交满社保一年，跟公司反馈申请区内就业补贴，公司说不是不申请只是补贴政策解说和系统规则不一致，系统只认一个年度的申请也就是1月到12月才算一年申请，还说不是一个年度线上材料上传不",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "5178",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=5178",
+   "question": "毕业时提交去向登记，现教育厅就业指标信息里出现离校前落实就业的状态，如果学校作废此项工作，那么教育厅指标信息里会清除信息吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "5138",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=5138",
+   "question": "领导您好： 本人高考时户籍为西藏自治区拉萨市，高考后留济南工作，现工作时间已满三年，因工作单位变更两次，现任职单位刚满一年，故今年申请了区外就业补贴。 此次申请已提交，但一直没有审核，请问审核及放款周期是多久呢？感谢您的回复，祝您工作顺利。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "5129",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=5129",
+   "question": "领导您好！ 我的户口在堆龙德庆区，我是2023年在拉萨高考的，现在在徐州读大学，我想跟领导请教下，如果我把户口转回内地了，会不会无法享受咱们自治区区外就业补贴的相关优惠政策。 恳求领导回复我，因为我打6364490的电话永远打不通。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "5128",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=5128",
+   "question": "领导您好，本人于2020年7月毕业，当月即完成就业，后于2022年9月与原就业单位解除劳动关系，并在次月入职现就业单位，距今连续工作满4年，且社保未发生断缴。现有以下问题咨询： 一、本人于2023年通过原微信小程序申领拉萨市就业补贴，提交申",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "5125",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=5125",
+   "question": "本人配偶为就业困难人员，想申请灵活就业社会保险补贴，请问申请流程？具体相关材料。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "5059",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=5059",
+   "question": "您好，本人于2024年9月1日申请区外就业补贴和证书补贴，请问大概多久能审核完成且拨付补贴资金。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "5032",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=5032",
+   "question": "您好，我来自西藏昌都现在区外工商银行工作，2022年毕业，想咨询一下区外就业补贴的审核时间和发放时间，因为交资料有些完，想咨询今年能否到账",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "4994",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=4994",
+   "question": "领导您好，我是一名西藏拉萨市高校毕业生，现在有两个问题想咨询一下。 1、我在2024年5月20日在小程序上提交区外就业补贴申请，已经通过初审，想咨询一下关于生活补贴和住房补贴是否已近落实？ 2、关于公众号所提供的咨询电话是否存在人员不足？因",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "4955",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=4955",
+   "question": "领导您好： 本人高考时户籍为西藏自治区拉萨市，高考后留北京工作，现工作时间已满一年，故申请了区外就业补贴。 此次申请已提交，但一直没有申请，请问审核及放款周期是多久呢？感谢您的回复，祝您工作顺利。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "4945",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=4945",
+   "question": "领导好，我于2020年9月29日申请了2018-2019的住房补贴、生活补贴、路费补贴，同时在2020年10月14日申请了2019-2020的住房补贴、生活补贴，均已初审、复核通过，共计39680元，目前已经4年了，但一直未到账，现在生活压",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "4943",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=4943",
+   "question": "您好，领导。我是西藏民航区局的一名员工，关于就业补贴方面有几个问题想要咨询。一是，关于2024年的就业补贴迟迟未发，咨询过后得到的答复是资金不足，请问一下资金不足的情况下，我们2024年的就业补贴还能下发吗？会不会因为资金不足从而导致补贴不",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "4939",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=4939",
+   "question": "您好，我是一位19年毕业的区外就业高校毕业生，根据《西藏自治区区外就业补贴政策》规定“2017年1月1日起，我区生源对签订3年以上的劳动合同或聘用协议的高校毕业生，分别按当年当地最低标准的50%，给予每人每月生活补贴和住房补贴”目前申请20",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "4934",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=4934",
+   "question": "您好，我是西藏大学2024级毕业生，部队定向生源。现有两个关于证书补贴的事情需要咨询，关于我申请的初级会计证书补贴审核不通过，西藏就业创业公众号上给我的答复是，要求高校毕业证书原件照片以及专业证书原件照片。 1.高校毕业证书原件我没办法提供",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "4933",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=4933",
+   "question": "我处于2024年1月9日提交申请2023年时段区外就业相关补贴，已在本年度5月反馈过申请提交后一直未办理审核的问题，并于2024年5月7日收到相关反馈为：“目前重点办理创业以及失业人员相关补贴审核以及发放，去年的部分就业补贴都还未审核发放；",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "4930",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=4930",
+   "question": "您好，拉萨民航区局的就业补贴何时能下发？听我们的工作人员说，已经审核了许久。其他单位的都开始统计申请明年的了，我们的何时能够公示并下发呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "4905",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=4905",
+   "question": "您好！我是西藏机场集团员工，我们单位在年初就已经统一申请了区内就业补贴，但是现在已经大半年时间了，自治区很多其他企业的都已经发完并准备申请下一年的了，我这边想问一下我们机场集团的就业补贴还需要多久可以发下来！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "4847",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=4847",
+   "question": "尊敬的领导，您好 在下在三月的时候申请了西藏自治区高校区外就业补贴，目前已审核通过近5月份了，目前查询进度依旧是初审通过，听闻部分同学已经兑现完成，所以想问一下目前进度如何，不知多久才能兑现(因为需要用于学费缴纳)。另外关于城关区办事处电话",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "4844",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=4844",
+   "question": "您好！ 我是一名拉萨区直央企员工，从去年10月份左右开始单位统一申报就业补贴事项，但到目前为止只有一部分单位已经公示了，本人所在单位仍然未公布补贴名单，根据人力资源社会保障部办公厅、财政部办公厅2023年8月28日发布的《关于进一步加强就业",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "4840",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=4840",
+   "question": "领导您好！ 我是日喀则籍区外就业生，由于本人之前注册过该公众号，现已无法注册新帐号，网上申请补贴登录页面的短信验证码一直收不到。本人多次通过电话咨询，电话一直无法接通。特此咨询能否修改注册时的手机号码，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "4831",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=4831",
+   "question": "您好，我是单位（拉萨市粮油经销有限责任公司）经办人员，我单位于2024年3月份在网厅完成了相关申请工作，拟申请兑现2023年1至12月份的区内就业补贴，2024年6月份完成了初审，现请问何时能完成相关资金兑现，或需要等待多久时间？ 盼复！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "4742",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=4742",
+   "question": "领导，您好，我是一名户籍在林芝市巴宜区，在林芝市第一中学就读并在2018年参加林芝市巴宜区高考的学生，在2022年的时候毕业于西南民族大学，毕业后留在四川省成都市工作，现已工作两年。今年4月9日我在西藏就业创业网按流程提交区外就业补贴申请，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "4739",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=4739",
+   "question": "本人申请区内就业补贴时，因上传的劳动合同签订日期错误，经多次修改均提示修改的劳动合同时间不能和录入的其他劳动合同时间有重叠!后跟自治区就业服务热线电话08916320775核实后，给本人反馈由我属地的人社局向自治区申请从后台删除我录入的信息",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "4666",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=4666",
+   "question": "领导，您好，我是一名在西藏名族大学附属中学就读并在2017年参加高考的学生，在2021年毕业于某全日制本科大学，于2023年通过江苏援藏项目考至江苏省盱眙县某事业单位就业，前段时间了解到政府对我们西藏高考生有特殊照顾，且目前工作已满一年。 ",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "4646",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=4646",
+   "question": "经开区至今未兑现2021年的就业补贴，前面说是劳动派遣到政府单位的不能享受就业补贴，但是，与2024年5月15日，西藏自治区人力资源保障厅已明确外聘人员可享受此政策，并经开区就业办的工作人员，对符合人人员进行了公示，公示期一过二十几天，还没",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "4640",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=4640",
+   "question": "您好！我公司于2023年12月份统一申报了区内就业补贴，距今已有6个月，想咨询下目前的进度及资金发放时间，感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "4538",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=4538",
+   "question": "您好！领导，本人于去年10月申请区外就业补贴，初审早已通过，但是申请的资金一直没有拿到，给城关区人社局打过电话，说是没有资金（已经三个月了），说是要等领导批，而我周围的同学也是拉萨其他区县的，上个月申请这个月就已经兑现，希望能够提高兑现效率",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "4496",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=4496",
+   "question": "麻烦咨询贵单位，本人在日喀则市人社局申请就业补贴时，告知属于政府购买劳动力，本人的工作性质是跟人力资源公司签订合同，然后着手委托的业务，严格意义来说是企业的员工。现在申请不了就业补贴，说是这一类无法享受补贴，那请问就业的范围是什么？何为就业",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "4494",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=4494",
+   "question": "请问贵单位，我是属于政府和我们公司签订服务协议，我又和劳务派遣公司签订合同，等同于是直接和劳务公司签订合同，现在想申请从2022年开始的就业补贴，但是日喀则市人社局告知属于是政府购买劳动力，不能申请为由，不予受理。 请问是否有相关文件依据，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "4470",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=4470",
+   "question": "你好 我们民航西藏自治区管理局在年初已经统一申报了区内就业补贴 现在已经这么久了 想问一下到哪一步了 多久可以兑现资金",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "4455",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=4455",
+   "question": "领导，您好，我是一名在拉萨市拉萨中学就读并在2014年参加高考的拉萨市城关区的学生，在2018年毕业于某全日制本科大学，并在同年前往西班牙留学，于2020年10月（因为疫情原因）延期毕业回国，期间学业没有间断。前段时间了解到政府对我们西藏高",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "4398",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=4398",
+   "question": "我公司（拉萨志容物业管理服务有限公司）在2024年2月份向贵单位提交了区内企业就业补贴材料，在贵单位官网上查询后发现，至今都没有进行初审，想对贵单位提问何时能完成审核，区内企业就业补贴申请的资金何时能到账。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "4381",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=4381",
+   "question": "我公司在2024年2月份向贵单位提交了区内企业就业补贴材料，在贵单位官网上查询后发现，至今都没有进行初审，想对贵单位提问，区内企业就业补贴申请的资金何时能到账。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "4375",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=4375",
+   "question": "你好！我想咨询一下区内就业补贴，我们民航西藏机场集团在二月份就进行了统一申报，已经快3个月了想咨询一下还需要多久才可以兑现",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "4370",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=4370",
+   "question": "领导，您好，我是一名从小学就在林芝市就读的高考生，对西藏有浓厚的感情，并一直受西藏政府照顾，于去年六月毕业，目前在中国安能武汉分公司就业，前段时间了解到政府对我们有西藏高考生有特殊照顾，申请了区外就业补贴，于今年三月提交申请，目前过了一个月",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "4360",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=4360",
+   "question": "尊敬的领导和工作人员： 您好！ 感谢您百忙之中阅览我的来信。关于区外补贴，在下有若干个问题想要咨询，还望能够得到解答。 1.我已知晓目前资金流出现紧张导致区外补贴兑现还需要一段时间，但在下已于三月中旬提交了所有申报材料，工作人员也与我联系过",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "4355",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=4355",
+   "question": "区内高校就业补贴是从工作缴纳社保开始连续5年，每年需要申请审核通过才能领，这5年中有一年未申请，请问未申请领的这一年的补贴费用就到期作废不能再领了吗？还是往后推一年还能继续领未申请的这一年的补贴？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "4323",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=4323",
+   "question": "我处于2024年1月9日提交2023年度区外就业补贴申请，但截止今日：2024.04.11任然显示审核中，并且连初审都没有进行，还请贵处核查并予以办理回复，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "4320",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=4320",
+   "question": "领导您好！ 目前公众号等官方渠道电话均打不通，希望能得到您的尽快回复。问题如下： 1、本人于2013年-2017年本科就读，2018年-2019年去英国连读硕士（中间并无就业），因此根据毕业证书，本人于2019年11月才毕业，但是系统显示本",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "4317",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=4317",
+   "question": "领导你好，我是西藏机场集团的员工，我想咨询一下我们的就业补贴进行到哪一步了，多久兑现。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "4309",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=4309",
+   "question": "请问我单位天海集团有限责任公司于2023年12月提交资料审核，目前原网站地址登录不进去无法查询该业务进展情况如何，请问该业务进行到哪一步了。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "4308",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=4308",
+   "question": "您好，想问一下这一批次的区外就业补贴时间大概是什么时候，目前初审已经通过良久，进度迟未更新，特此询问",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "4291",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=4291",
+   "question": "你好，我是西藏机场集团的职工，这边想问一下我们的就业补贴到哪一步了，之前二月份问的时候说是已经预审了，但是这么久过去了，为什么还没有消息。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "4151",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=4151",
+   "question": "你好 我们公司补贴材料2023年09月就交上去了 上个月查的时候还没复审。登录网站http://218.206.180.132/indexAction.do?flag=1也打不开，查不到信息 请问什么时候能批完？单位：中交第三公路工程局（西",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "4131",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=4131",
+   "question": "工作人员和领导您们好，我于去年10月31日提交了区外就业补贴申请，初审已通过，但复审一直没有通过，也没有任何消息，西藏就业创业小程序提供的电话也打不通。想请问是否材料存在问题？或何时复审通过补贴能发放？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "4096",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=4096",
+   "question": "你好，我是2021年毕业的大学生，我想问一下我们的就业补贴审核名单还没出来吗？单位是民航西藏自治区机场集团。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-24",
+   "id": "4016",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=4016",
+   "question": "领导您好！本人是2015年西藏籍高考考生，目前公众号等官方渠道电话均打不通，有四个问题如下： 1、本人申请的区外就业补贴（包括路费补贴，住房补贴，生活补贴）处于未审核阶段，请问审核时间需要多久？大概什么时间补贴可以发放？ 2、本人2015年",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-30",
+   "id": "3888",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=3888",
+   "question": "您好，因毕业论文需要，我希望获得2015年西藏电子商务进农村综合示范县的推荐名单/上报名单（注：不是由中央财政部、商务部和国家乡村振兴局审核通过的最终示范县名单，而是省级申报的推荐示范县名单）。之前在贵省商务厅网站等平台查询到了2016-2",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-30",
+   "id": "2303",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=2303",
+   "question": "尊敬的领导您好，我是海南师范大学一名即将毕业的硕士研究生，因为论文写作需要用到西藏自治区的2016-2020年的外商直接投资（FDI）数据 ，因网络上查找不到相关数据，特来贵厅咨询。希望您能提供帮助，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-30",
+   "id": "1330",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=1330",
+   "question": "尊敬的领导，您好，我是一名在读博士生，同时也是广西贺州学院的一名大学老师，由于论文写作，需要用到西藏1985-1990年的居民消费价格指数，但是在各个渠道均查询不到，希望在这里能得到您的帮助。如能提供以上数据，十分感激！谢谢您",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-30",
+   "id": "1288",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=1288",
+   "question": "您好！我是南京航空航天大学的一名研究生，因学术研究需要，能否提供2001-2019年西藏自治区的实际利用外资金额和外商直接投资数据，本人保证数据只用于学术研究，万分感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-30",
+   "id": "1264",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=1264",
+   "question": "尊敬的商务厅领导，本人公司在自治区工地施工，因柴油用量较大，我公司与油品贸易商签订直供合同，需要自建临时油库储油，想了解自治区对于临时储油库在商务主管部门办理什么手续，需要提交哪些资料，还望领导予以解答支持，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-30",
+   "id": "1250",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=1250",
+   "question": "尊敬的领导您好： 我是中国传媒大学的一名应届研究生，因毕业论文需要用到西藏自治区的2010-2020年的外商直接投资数据 ，网络的公开资源查找不到相关内容，特来贵厅咨询。希望您能提供帮助，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-30",
+   "id": "827",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=827",
+   "question": "尊敬的领导您好： 我是华南理工大学的一名应届研究生，现毕业论文需要用到西藏自治区的2011-2019年的外商直接投资数据 ，网络上查找不到相关数据，特来贵厅咨询。希望您能提供帮助，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-30",
+   "id": "821",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=821",
+   "question": "尊敬的领导您好，我是山东财经大学一名研究生，因为论文写作需要用到西藏自治区2006-2018年的外商直接投资数据，网络上查找不到相关数据，特来贵厅咨询。希望您能提供帮助，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-30",
+   "id": "816",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=816",
+   "question": "我是2020年 12月份退伍的 ，在基层干了八年 ，我有成人自考大专 ，请问我符不符合招聘要求 。 敬礼",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-30",
+   "id": "795",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=795",
+   "question": "西藏藏肽生物科技有限公司目前与法国一企业正在商谈合资事宜，目前处于谈判尾声阶段，计划出让40%的股权给该法国企业，请问一但达成协议，是否需要到贵厅备案？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-30",
+   "id": "722",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=722",
+   "question": "尊敬的领导您好，我是西北师范大学的应届硕士研究生，因为论文写作需要用到西藏自治区的2004-2020年的“外商直接投资和对外直接投资数据 “，统计年鉴上查找不到相关数据，特来贵厅咨询，希望贵厅能给予帮助，万分感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-30",
+   "id": "686",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=686",
+   "question": "您好领导，我想咨询下如果想在乡镇上（没有物流点）办理一个三通一达的物流点应该向哪个部门是申请，需要些什么条件",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-30",
+   "id": "673",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=673",
+   "question": "尊敬的领导您好，我是重庆理工大学的硕士研究生，因为论文写作需要用到西藏自治区的2017-2019年的 外商直接投资数据 ，网络上查找不到相关数据，特来贵厅咨询。希望您能提供帮助，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-30",
+   "id": "662",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=662",
+   "question": "尊敬的领导您好，我是南京农业大学一名即将毕业的硕士研究生，因为论文写作需要用到西藏自治区的2017-2019年的 外商直接投资数据 ，网络上查找不到相关数据，特来贵厅咨询。希望您能提供帮助，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-30",
+   "id": "630",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=630",
+   "question": "我司是西藏企业，现在需要进口机电产品，货物预计26号到港（天津港），现在我司已经在商务部的网上填好了申请信息，现在好几天过去了还没有审批完成，请问一下，如何办理自动进口许可证的审批！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-30",
+   "id": "517",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=517",
+   "question": "领导，您好。 我们公司在尼泊尔承包工程，会有一些设备和货物要向尼泊尔运输。公司现正在考虑通过陆路口岸向尼泊尔运输这些设备和货物。 请问通往尼泊尔的陆路口岸恢复开放了吗？除樟木口岸以外，是否也可以通过吉隆口岸向尼泊尔运输货物或设备？在程序上有",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-32",
+   "id": "7150",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7150",
+   "question": "请西藏自治区司法局网站中是否开设了“行政许可”栏目，若开设，在哪进入？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-32",
+   "id": "3087",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=3087",
+   "question": "请问今年法考主观考场会设置在昌都吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-32",
+   "id": "3015",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=3015",
+   "question": "您好，我想了解拉萨市19年至22年之间的刑事法律援助的案件数量以及相关奖惩机制和经费来源，本人经过多方搜寻都未能找到相关详细的公开资料，烦请告知。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-32",
+   "id": "2765",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=2765",
+   "question": "您好，我本月申请将律师证转入西藏某律所执业，材料已于上周邮寄至司法厅，我想问一下啥时候能下证呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-32",
+   "id": "2516",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=2516",
+   "question": "请问西藏今年法考会延期吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-32",
+   "id": "2424",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=2424",
+   "question": "还有30多天考试，目前西藏疫情严峻，今年会延迟考试吗？目前本人在内地，但是是在拉萨报的名，如果不推迟考试，考试有什么别的要求比如疫情防控方面，会在考试前多久公布？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-32",
+   "id": "2418",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=2418",
+   "question": "由于近期西藏疫情持续性有增无减，致使在内地读书而暑假返乡的应届法考生不能按原定计划回到内地参加法律职业资格考试，目前滞留在西藏的一大批应届法考生不能回内地的大学所在地参加法考。因此希望能够将西藏籍的考生的考区改至西藏并适当延期考试。否则23",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-32",
+   "id": "2223",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=2223",
+   "question": "6337825 作为群众要投诉律师不作为，但是司法局电话一直无人接听状态，不知上班时间请问上班人员都在干嘛",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-32",
+   "id": "2082",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=2082",
+   "question": "尊敬的领导，2021年的我区法律职业资格证书什么时候可以拿到呢？好不容易考上，就差拿证书了，证书拿到了就可以解决我的晋升问题。不只是我还有很多学生都在等证书，有些拿到证书就等着去律所就业，因此希望领导尽快下发证书，感谢您，您们也辛苦了！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-32",
+   "id": "1651",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=1651",
+   "question": "克扣工资",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-32",
+   "id": "1649",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=1649",
+   "question": "领导，您好！，本人现为西藏大学民族法学硕士研究生。户籍地为四川省凉山彝族自治州，为法律职业资格考试放宽地区，于2020年获得C证，请问可以在拉萨律所挂职实习、领取律师资格证书吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-32",
+   "id": "1632",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=1632",
+   "question": "本人于2020年7月由包工头带到河北光太路桥工程有限公司日喀则分公司（以下称：河北光太）在昂仁县日吾其乡至布热村公路工程工地安装沥青搅拌站，由于干活5个月一直未拿到工资，所以在2020年11月离开工地。2021年1月22日，包工头向本人要身",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-32",
+   "id": "1628",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=1628",
+   "question": "我想咨询一下，我的银行卡被西藏林芝县刑侦大队冻结了，说是有咋骗的钱流入我的账号，但是我这个都是正常的钱，，冻结了我其他资金，和信用卡，有半个月了，希望能帮忙查询一下原因，什么时候能解冻",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-32",
+   "id": "1483",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=1483",
+   "question": "因学术论文数据需要，烦请提供2009-2019各年西藏全区律师事务所数量，非常感谢！！！！！！！！！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-32",
+   "id": "1482",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=1482",
+   "question": "因学术论文数据需要，烦请提供2009-2019各年西藏全区律师事务所数量，非常感谢！！！！！！！！！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-32",
+   "id": "1477",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=1477",
+   "question": "尊敬的领导！您好！本人于四月份通过学校途径了解到西藏司法厅人才引进的计划，因为对西藏有着一种热情的向往，特想去西藏工作，虽然我不才，但是我能吃苦，通过自己的努力，提升自己的能力；希望领导能给我一个机会，万分感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-32",
+   "id": "1476",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=1476",
+   "question": "尊敬的领导！您好！本人于五月份通过学校途径了解到西藏司法厅人才引进的计划，因为对西藏有着一种热情的向往，更想去西藏工作，随即就报名参与，但至今没有任何通知，请问一下这个计划是否已经取消了?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-32",
+   "id": "1412",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=1412",
+   "question": "别的地区都已经发证了，司法部通知也是40个工作日，早都过了，效率为什么这么低下？为什么还不发？？？？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-32",
+   "id": "1402",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=1402",
+   "question": "请问这周五“40个工作日”就届满了，目前还没有看到公告",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-32",
+   "id": "1387",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=1387",
+   "question": "请问应届生的法律职业资格证什么时候发放啊",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-32",
+   "id": "1292",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=1292",
+   "question": "本人于五月份通过学校途径了解到西藏司法厅人才引进的计划，因为对西藏有着一种热情的向往，随即就报名参与，但至今没有任何通知，请问一下这个计划是否已经取消了?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-32",
+   "id": "1103",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=1103",
+   "question": "本人于4月8号通过学校渠道向贵单位提交了人才引进的申请，现在一个多月过去了，贵单位没有发布与才引进相关的任何通知，我想咨询一下，这个人才引进计划现在是否还在推进之中，最迟什么时候有通知?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-32",
+   "id": "1074",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=1074",
+   "question": "尊敬的领导，你好！此前我通过学校渠道报名参加了西藏司法厅系统专业人才引进，我对该机会非常重视和关心，也非常向往去西藏工作，可迟迟未收到任何消息和其他通知，所以我想请问一下，如未收到任何消息是否说明我已被淘汰，无缘来西藏工作？望回复，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-32",
+   "id": "1043",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=1043",
+   "question": "尊敬的领导，您好！ 我是即将毕业的一名应届毕业生，通过学校了解了西藏司法厅人才引进计划，本身对于西藏非常热爱，和父母交谈之后也非常支持，随即填了报名表，可迟迟没有回应，因为临近毕业，需早做打算确定方向，所以是否能够通过初审有幸来贵地工作，望",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-32",
+   "id": "1000",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=1000",
+   "question": "您好，我是2018年9月份入学的全日制非法本学生，属于新人新办法，如果我再考取非全日制法律硕士可以法考吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-32",
+   "id": "996",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=996",
+   "question": "下周可以领到证吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-32",
+   "id": "984",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=984",
+   "question": "如题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-32",
+   "id": "935",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=935",
+   "question": "2021年的法律执业资格证书何时能领取",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-32",
+   "id": "884",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=884",
+   "question": "你好，我现在户籍在湖北十堰，属于法律职业资格的放宽区域，有c律师执业证书，请问如果户籍迁到西藏，在没有考到A之前可在西藏全区执业吗。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-32",
+   "id": "871",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=871",
+   "question": "&nbsp; &nbsp;领导您好！我现有情况：1、西藏户籍；2、2011年师范专科毕业，2020年9月报考的法本网络教育，在各科都合格的情况下在2023年3月领取毕业证。想咨询问题如下：1、我是否有资格参加法律资格考试，依据学历情况，什么",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-32",
+   "id": "870",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=870",
+   "question": "请问2021年法考，西藏日喀则市设置考点吗？届时是在司法部官网直接报名吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-32",
+   "id": "844",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=844",
+   "question": "尊敬的领导： 你好。我2015年在拉萨报名参加司法考试，考试合格后，审查相关材料也是在拉萨贵厅审查的，但因为当时我还在部队，领取法律职业资格证书是在部队领的。现因在其它城市准备律师执行，需要调取我的法律职业资格档案到我目前所在城市，烦请领导",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-32",
+   "id": "843",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=843",
+   "question": "领导，您好，请问在西藏服役的现役军人参加法律资格考试在什么地方报名呢？现役军人能否享受放宽政策呢？如果可以，那么在什么地方填报资料呢？ 感谢您的回答",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-32",
+   "id": "759",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=759",
+   "question": "领导您好，目前那曲市没有设置法考考点，下一步会不会考虑一下这个问题呢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-32",
+   "id": "735",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=735",
+   "question": "我于2021年1月9日给司法部行政复议与应诉局，用邮政快递（单号：1139806255238）寄来了我的《行政复议申请书》及相关证据。一直没有收到贵局的联系，想问询事件的进展情况。我在快递申请书上留的联系方式是手机15281070229，现",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-32",
+   "id": "727",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=727",
+   "question": "领导您好，我是参加2020年法律职业资格考试的考生，我是西藏户口，今年考取了西藏地区c证，现在我已经回黑龙江老家休假，司法厅公告要求本人在1月25日至2月3日期间回到户籍所在地(西藏那曲市)当面提交申请材料，因黑龙江齐齐哈尔市目前已发现多名",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-32",
+   "id": "613",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=613",
+   "question": "2020年本人因为休假，法律职业资格考试客观题考试考点填报四川成都，本人通过2019年和2020年的法考客观题考试，因为休假期将结束，需要返藏，目前2020年主观题考试默认考点在成都且不能修改，所以今年主观题考试考点在缴费前能否修改为在山南",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-32",
+   "id": "599",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=599",
+   "question": "我来西藏那曲已有十年时间，看着那曲地区，升级为那曲市。其中那曲市的电力改造也是有目共睹。可是电费一直没降过。2010年我刚到那曲的时候。我商铺的电费是1.2元一度电。到现在还有加收到1.5元一度电。我也问过电力公司，电力公司对商业用电的收费",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-32",
+   "id": "585",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=585",
+   "question": "按照法考改革要求，我明年将拿到成人高考专升本学历，因为我户口还在西藏，拿到毕业证后我是否可以参加2021年的法考？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-32",
+   "id": "561",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=561",
+   "question": "你好领导，我们一行30几号工人，在日土县中铁十局二公司新疆区域三分部干活，四月中旬进场，5.28离开工地，期间我们老板一直不来工地，多次和项目部沟通，让签一下劳务合同，项目部也一直说让老板来签，直到我们没有干了，老板都没来，我们叫结工资，老",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-32",
+   "id": "292",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=292",
+   "question": "尊敬的西藏自治区司法厅领导： 您好！我是暨南大学教师黄镇，想咨询一下西藏自治区男性陪产假是如何规定的？有无相关依据？ 祝好！盼复！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-32",
+   "id": "274",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=274",
+   "question": "我自愿撤回对王兴华律师的投诉",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-32",
+   "id": "263",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=263",
+   "question": "领导您好！ &nbsp;原定于2020年2月3日正式复工，由于受疫情影响，单位计划于2月17日进藏，期间隔离14天，期间经历藏历新年7天，原则上2020年3月3日正式上班，回到单位，人力消假要求扣除当年年假，超出年假并予于扣除工资，请问这样",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-37",
+   "id": "8068",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=8068",
+   "question": "领导您好！ 我是一名孤儿，社工专业毕业，拥有五年基层社工工作经验，长期在基层从事社会救助相关服务工作，打算一直扎根西藏，把社会救助这项工作长久做下去，一心想把业务做扎实、做到最好。 我特别希望，后续全区社会救助、民政民生相关的行业交流会、业",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-37",
+   "id": "8037",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=8037",
+   "question": "我在8月31日通过手机银行转账给西藏自治区慈善总会捐款1000元。这笔钱备注了吉隆救灾。我捐款的目的是捐给口岸牺牲警察的遗属。所以我希望民政厅能帮助我将这笔钱转给自治区公安厅，由他们转交警察遗属。钱虽不多，也是个人的一点心意。望尽快办理并回",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-37",
+   "id": "7665",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7665",
+   "question": "您好，我是湖南省长沙市开福区人，已婚多年没有孩子，试管多次未能成功，诚心想在西藏福利院收养一名婴儿，我会当亲生孩子一样对待。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-37",
+   "id": "7562",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7562",
+   "question": "你好，新修订的《殡葬管理条例》已于3月30日实施，出于学术研究需要了解全国各省级行政区火葬实施情况，想咨询一下现在西藏火葬区域的划定情况，是否已全域火葬？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-37",
+   "id": "7475",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7475",
+   "question": "2025年初公司组织向西藏日喀则地震灾区捐款，通过日喀则慈善总会捐赠的，也取得了捐赠收据，那这部分捐款，可以在个人所得税及企业所得税前扣除吗？日喀则慈善总会不在税务局25年底公布的公益性捐赠税前扣除资格的公益性社会组织名单中。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-37",
+   "id": "7456",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7456",
+   "question": "家庭经济情况承诺书 尊敬的领导： 本人次旺巴久，作为家庭户主，现就本人家庭经济收入及生活情况，郑重作出如下承诺，所陈述内容全部真实有效，无任何隐瞒、虚报、伪造，愿承担一切相关责任。 本人家庭除国家发放的各类补贴收入外，无任何其他固定经济来源",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-37",
+   "id": "7446",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7446",
+   "question": "我在2025年1月8日向西藏日喀则市慈善总会捐款1200元（地震救灾捐款），但是一直没有收到邮件回复。现在因需要填报2025年个人所得税信息，麻烦请告知捐赠凭证号，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-37",
+   "id": "7378",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7378",
+   "question": "在习近平总书记和党中央的关怀下，西藏干部职工享受的很多福利，今年又多发了包干路费和探亲假路费等补助，由于文件不明确，我单位以今年发了探亲假路费等为由，拒绝给婚假，请问是这样吗？西藏民政厅各位领导充分考虑实际情况，给予准确的答案，从2026年",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-37",
+   "id": "7212",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7212",
+   "question": "根据《中共西藏自治区委员会西藏自治区人民政府关于印发(西藏自治区贯彻落实(中共中央国务院关于优化生育政策促进人口长期均衡发展的决定》的实施方案)的通知》(藏党发[2023]1号)要求干部职工是独生子女的，其父母只要有一方年满60周岁以上，每",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-37",
+   "id": "7117",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7117",
+   "question": "书记，您好！！ 在元旦来临之际，祝您工作顺利，生活愉快！！ 我是2025届部队生源家属，感谢党和政府对他的培养，让他能为建设西藏贡献一份力量。自2025年6月离开学校后一直在等待政府的派遣通知，相关部门一直没有明确的时间节点。在等待派遣的过",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-37",
+   "id": "6992",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=6992",
+   "question": "敬爱的各位领导，本人是一名2026应届少干计划硕士研究生。基于对西藏定向选调考试公告中将定向培养排除的情况，对此，本人想咨询，该定向培养包含了所有在职与非在职的少干计划考生吗？目前有甘肃、湖北、云南、贵州等多个省份对少干计划进行了细化分类，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-37",
+   "id": "6904",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=6904",
+   "question": "尊敬的领导：本人因身体血小板减少医生建议不能要孩子有生命危险，我现在已经39岁了，我们夫妻俩到现在没有一个子女，夫妻俩想收养福利院的孩子，我们夫妻都很喜欢孩子，会给孩子一个温暖的家，把孩子当作自己亲生对待，经济状况良好，老家有两套自建楼房，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-37",
+   "id": "6882",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=6882",
+   "question": "领导您好，我想询问一下外地游客到拉萨游玩，是否可以在拉萨市领取结婚证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-37",
+   "id": "6834",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=6834",
+   "question": "控告信 控告人：青海省囊谦县白扎乡卡那村全体村民(约390户、3000多人) 被控告人1:西藏昌都市卡若区芒达乡乡长次旺多吉 被控告人2:西藏昌都市卡若区芒达乡派出所所长向巴次成 被控告人3:西藏昌都市卡若区芒达乡派出所副所长昂旺巴登控告内",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-37",
+   "id": "6703",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=6703",
+   "question": "2025年8月6日，我公司西藏佳协建筑有限公司委托西藏建名圣世建筑工程有限公司法人高学文（身份证号410526199001017831）办理延期资质，高学文收本单位26.5万元，后期一直不管本单位事情，电话不接，微信拉黑，现举报西藏建名圣世",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-37",
+   "id": "6695",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=6695",
+   "question": "贵单位好！ 本人和家属希望收养一名婴儿（女婴和男婴都可以），有相关信息可否联系我们？ 不甚感激！ 此致 敬礼！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-37",
+   "id": "6683",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=6683",
+   "question": "尊敬的西藏民政： 你们好 我是一名来自红色故土江西人，现定居在美丽杭州，也想领养一名婴幼儿，或者孤儿。 我非常喜欢孩子，也奢望能够领养一名健康婴幼儿，望百忙之中看到信息速与我联系。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-37",
+   "id": "6569",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=6569",
+   "question": "你好,我们是一个民间组织,想申请关于扶持西藏地区非遗艺术发展及传播、商业化的公益基金,请问相关手续、流程、及相关经办人的联系方式.",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-37",
+   "id": "6540",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=6540",
+   "question": "0892-8822643 日喀则住建局建管科 烦请各部门领导督促成都建工园丁苑二标拖欠的农民工工资能够发放，一直拖延我们农民工工资情况予以重视，工人们干了活拿不到钱，一直拖到不给，我们不远几千里来到这片高原土地挣点血汗钱不容易，我们要养家糊",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-37",
+   "id": "6539",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=6539",
+   "question": "0892-8822643 日喀则住建局建管科 请各部门领导督促成都建工园丁苑二标工资能够发放，一直拖延农民工工资情况予以重视，工人们干了活拿不到钱，一直拖到不给，请领导们予以重视和杜绝拖欠农民工工资，万分感谢，扎西德勒。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-37",
+   "id": "6538",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=6538",
+   "question": "0892-8822643 日喀则住建局建管科 请各部门领导督促成都建工园丁苑二标工资能够发放，一直拖延农民工工资情况予以重视，工人们干了活拿不到钱，一直拖到不给，请领导们予以重视和杜绝拖欠农民工工资，万分感谢，扎西德勒。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-37",
+   "id": "6532",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=6532",
+   "question": "贵单位好，我想通过贵单位收养女婴，希望有相关信息能否联系我！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-37",
+   "id": "6522",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=6522",
+   "question": "西藏自治区民政厅各位领导及工作人员： 您好！我是中国疾病预防控制中心的一名研究生，由于论文发表需要，想请问你们以下地名中英文名称是否准确？波密县——Bomê County；工布江达县——Gongbujiangda County；林芝市——N",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-37",
+   "id": "6492",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=6492",
+   "question": "您好，我是陕西省西安市未央区人，我想领养一名婴幼儿，我自己不能生育，我很喜欢孩子，为了孩子走了好多年的弯路，在网上看上看着那些已经领养成功的人士，我很奢望自己也能够领养一名婴幼儿，望看到我的信息速与我联系",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-37",
+   "id": "6456",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=6456",
+   "question": "西藏土壤肥料与植物营养学会法人等级证书有效期限为2021年1月6日-2026年1月5日，一方面优先期限快到了，另一方面，今年5月份科协统计的时候发现证书上业务主管单位为：区农科院，值此登记证即将更换，我们也希望把业务主管单位更换为西藏自治区",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-37",
+   "id": "6349",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=6349",
+   "question": "尊敬的有关部门负责人： 您好！我在此以一名普通公民的身份，向您提交举报信，希望引起有关部门的关注，并对此事进行深入调查。 举报事件：现举报车牌号川J9358P车主严重违反民政纪律，私自利用私人改装并且在无殡葬转运资格证的情况下私自出车转运遗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-37",
+   "id": "6312",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=6312",
+   "question": "2008年西藏自治区人民政府办公厅转发自治区民政厅等部门关于调整国家机关工作人员牺牲病故后遗属生活困难补助费标准意见的通知，现今是否还在执行或者有没有新的政策或通知？认定的标准是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-37",
+   "id": "6289",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=6289",
+   "question": "尊敬的领导： 您好！ 我是西藏大学的一名研究生，目前正在进行关于西藏高校毕业生政策变迁的研究，由于毕业相关要求，急需全面梳理西藏高校毕业生就业政策。恳请您协助帮忙收集所有年限的西藏高校毕业生就业政策资料 ，包括但不限于不同时期政策文件原文、",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-37",
+   "id": "6237",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=6237",
+   "question": "您好，领导，5月9日我给拉萨市民政局打电话咨询外地户籍可以在拉萨办理婚姻登记吗，他们回复现在文件没下，不要相信抖音里的宣传，因为我来一趟拉萨得2个小时，怕周一去了不能办理，之前您们回复可以，但是市民政局给我回复他们不清楚，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-37",
+   "id": "6232",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=6232",
+   "question": "您好，我是一名外地进藏工作人员，想咨询两个问题： 1.婚姻新规在5月10日实行以后，外地人员是否可以在西藏县城进行结婚登记。 2.如果外地人员可以在西藏进行结婚登记，是否需要户口本或者其它材料。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-37",
+   "id": "6201",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=6201",
+   "question": "你好，我想通过西藏儿童福利院或福利机构收养一个婴幼儿，通过电脑无法看到贵单位网站的相关信息和联系方式，希望可以得到回电并介绍相关情况。谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-37",
+   "id": "6196",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=6196",
+   "question": "西藏定日县地震 公司向西藏慈善总会捐赠一批车辆，无法开具发票，拜托协调解决。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-37",
+   "id": "6156",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=6156",
+   "question": "您好，我想咨询一下，婚姻登记全国通办包括西藏吗，因为我在拉萨上班，要领结婚证还得回自己户籍所在地领吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-37",
+   "id": "5995",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=5995",
+   "question": "您好，我这边是上海的家庭，想领养一个两岁以内的女童，夫妻两人无法生育，上海人，在上海有房子，有工作，希望联系到贵单位问一下西藏的儿童福利院是否有孩子以及西藏的领养政策",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-37",
+   "id": "5893",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=5893",
+   "question": "您好！感谢您在百忙之中查阅我的邮件，祝您一切顺利安康! 我夫妇二人结合10载有余，因为多方原因尚不能有自己的孩子，但是我们俩人都非常喜欢孩子，期盼生活中有一个疼爱的小生命出现。现恳请帮助指导我们夫妻俩人完成心愿，完成夫妻从小陪伴孩子的夙愿。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-37",
+   "id": "5866",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=5866",
+   "question": "想领养西藏女孤儿",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-37",
+   "id": "5833",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=5833",
+   "question": "您好，我和我的爱人结婚已4年，一直没有要上小宝宝，想通过贵渠道收养一名孩子，给孩子一个温暖的家。本人和爱人年薪在30万左右，母亲已有退休金，父亲还有一年半时间也会退休，我们全家都想有一个孩子，让家庭更完整。希望您能给我们一个机会，感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-37",
+   "id": "5820",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=5820",
+   "question": "想领养西藏或者拉萨孤儿",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-37",
+   "id": "5819",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=5819",
+   "question": "想领养西藏或者拉萨孤儿孩子",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-37",
+   "id": "5771",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=5771",
+   "question": "你好！我想收养一名西藏自治区福利院的小朋友。有尝试联系过自治区福利院，电话无人接听。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-37",
+   "id": "5672",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=5672",
+   "question": "请问西藏自治区民政厅网站是否开设了规划计划栏目？如果有，如何进入规划计划栏目？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-37",
+   "id": "5444",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=5444",
+   "question": "您好！我是一名大三学生，因学习作业需要，需要西藏自治区2020年各地区人口增长率的数据，但数据尚未公开。如若方便，烦请发送至我的邮箱，不慎感激！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-37",
+   "id": "5394",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=5394",
+   "question": "您好！我是一名西北大学博士生，我目前研究民族地区的社会保障，因此需要2012年至2023年，机关事业单位工作人员养老保险基金支出数据，希望贵单位给我提供一下，这会对我研究的进行带来很大的催动作用，非常感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-37",
+   "id": "5126",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=5126",
+   "question": "你好，我想通过西藏儿童福利院或拉萨市儿童福利院收养一个藏族小孩，通过电脑无法看到贵单位网站的相关信息和联系方式，及孤儿情况等，还想了解收养相关条件与政策。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-37",
+   "id": "5107",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=5107",
+   "question": "您好，我是西藏民族大学社会工作专业的一名在读研究生，目前正在拉萨市实习撰写毕业论文K《西藏全科社工专业能力提升的实务研究》，希望得到您的帮助，主要是关于西藏全科社工政策初衷、发展规划，全科社工的人数，全科社工里持证社工的人数或者比例，全科社",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-37",
+   "id": "5002",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=5002",
+   "question": "尊敬的领导：我是一名企业职工妻子现已退休，我俩有一儿一女，女儿在2018年一场医疗事故中造成作小腿截肢的严重后果，2019年被认定为肢体三级残疾，因医疗事故造成右腿肌力丧失严重，事发前无业。事情虽已过去纪年，但女儿现在仍不能独立行走，更谈不",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-37",
+   "id": "4762",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=4762",
+   "question": "尊敬的领导 您好！我是西藏民族大学的研究生马喜广，因课题研究需要，现需自治区自2020年以后关于养老服务的政策文件，因自治区政府官网查找不到相关文件，所以向领导求助，本人保证相关文件仅用于课题研究，请领导在百忙之中能够回复我，感谢领导的支持",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-37",
+   "id": "4731",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=4731",
+   "question": "您好，我想咨询一下贵省自2000年以来与城市居民最低生活保障相关的政策文件。现已查询到的文件包括 1. 西藏自治区人民政府令第46号 《城市居民最低生活保障条例》 2. 藏政办发〔2004〕38 《西藏自治区城市居民最低生活保障制度操作规范",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-37",
+   "id": "4665",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=4665",
+   "question": "尊敬的西藏自治区民政厅领导： 您好！我是复旦大学的研究生，目前正在进行关于老年健康服务体系的研究。在我的研究中，我特别关注于地区老年健康服务体系或养老服务体系的建设与政策实施，并希望能深入了解《西藏自治区关于推进基本养老服务体系建设的实施方",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-37",
+   "id": "4507",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=4507",
+   "question": "龙哥自称周文龙，江西人，他3月7日度微信号A17873932548。在3月开始带1000人左右炒股票，先后利用微信群、说盒、TZP聊天软件带领炒股，后周日至周四晚上9：30-11：00“讲课”，交易日14：50在腾讯会议（腾讯会议号：555",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-37",
+   "id": "4484",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=4484",
+   "question": "贵自治区民政厅您好！本人是一名在校学生，目前正在对各省养老服务政策文件原文进行收集，以便对现有养老政策进行分析评价。在收集过程中，本厅发布的较多文件未见原文或者原文链接，希望贵单位能够帮忙提供政策原文。谢谢！ 本人未找到的政策原文名称列表具",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-37",
+   "id": "4396",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=4396",
+   "question": "尊敬的有关部门领导，你们好！我是西藏大学行政管理的一名研究生，当前和导师沟通后拟针对我区养老服务政策进行相关研究，但是由于我区养老服务相关政策文本资料搜集存在很大困难，很难在网上搜集到完整的、全面的养老服务相关政策，所以我想咨询一下能否获取",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-37",
+   "id": "1611",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=1611",
+   "question": "您好，我是杨仁家，我的儿子是杨铭，曾经就职于西藏日喀则市残疾人联合会，2019年9月4日，杨铭在工作中死亡，经日喀则市民政局认定为因公牺牲（日民函202035号），后日喀则市民政部门和财政部门下发决定发放一次性抚恤金和丧葬费，发放标准是西藏",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-37",
+   "id": "310",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=310",
+   "question": "贵网五保供养办理指南中，居然出现郑州市，广大网友表示十分不解和遗憾。望端正工作态度，立戒形式主义，真正服务人民，及时更正错误。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-37",
+   "id": "289",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=289",
+   "question": "本人单身一人来拉萨务工两年多，在西藏建行任司机一职，今年2月份春节开始因为受疫情影响再加上自身突然发病被诊断为肛周脓肿，坐卧不安，急需做肛门切口治疗手术，因病失业后无法正常再就业，无钱医病，无钱缴纳房租等，就在这生活最无助，最困难已经绝望的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-39",
+   "id": "750",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=750",
+   "question": "本人是一名基层医务人员，于2020年5月参加全区卫生系列职称业务考试并顺利通过。2020年 8月14日下收到《关于印发2020年度全区卫生系列职称业务考试成绩合格标准和合格人员明单的通知》（藏卫政人发{2020}106号）文件，之后多次跑到",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-39",
+   "id": "734",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=734",
+   "question": "卫健委领导好： 我们是解放军总医院第四医学中心高原项目课题组的，想请卫健委领导帮我们推荐一家海拔4000米以上的医院，要求能提供我们志愿者住宿的床位8张，有验血条件的，有-20℃的冰箱，有急救服务的医生护士，我们可以出具公函，合作形式可以课",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-39",
+   "id": "726",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=726",
+   "question": "领导您好！ 向您咨询林周县人民医院是否为二级乙等医院，盼回复，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-39",
+   "id": "709",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=709",
+   "question": "国家实行药品零差价几年来，国家卫健委自治区拉萨市都一贯执行药品零差价补贴专款专用，然而拉萨市人民医院在这个款项上面没有做到公开透明，药剂科工作人员也分不到这个国家的补贴。医院领导层面的援藏院领导说这个钱用来采购药品，不发到药剂科工作人员头上",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-39",
+   "id": "707",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=707",
+   "question": "卫健委的领导，您好，我是2016年人才引进入西藏来上班的，2017年取得医师资格证，但是2019年聘书才下来。目前正要报名医师中级考试，但是听本地卫健委的老师说报名只能按聘书的时间开始算，这样的话我报中级的时间就要后推2年。麻烦领导予以解决",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-39",
+   "id": "693",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=693",
+   "question": "领导好： 我是阿里地区人民医院医生，在阿里卫健委变更注册后，缺少以前的变更信息，导致中级考试报名异常。怎么样才能补全医师电子化注册平台里以前的首次执业医师注册信息。请领导指点，万分感谢！！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-39",
+   "id": "692",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=692",
+   "question": "西藏的执业医师分数线啥时候才能出",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-39",
+   "id": "685",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=685",
+   "question": "本人分别于9月、10月、12月初和今日（29日）前往自治区藏医院挂专家门诊看病，由于单位工作忙，请假时间有限，本人每次是早上8点半左右就到医院，由于专家（央金卓嘎）上班较早，收费室的工作人员也提前上班，每次基本上都是在九点十分左右就完成了看",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-39",
+   "id": "678",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=678",
+   "question": "尊敬的西藏自治区卫生健康委领导 您好！本人共产党员，硕士，全国中药特色技术传承人才，副主任药师，执业药师，中华中医药学会中药调剂与合理用药分会委员。请问申请援藏怎么联系？谢谢！ 祝您身体健康，扎西德勒！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-39",
+   "id": "672",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=672",
+   "question": "尊敬的领导您好！ 我是三院的患者，为什么我在西藏健康官微上查不到自己的医疗信息呢？也不能预约拄号及自助缴费？之前是说三院网络断网，可一年多时间过去了仍然是无法操作，无法查找自己的个人信息呢？但自治区人民医院却能查找我的信息，包括就诊信息及检",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-39",
+   "id": "666",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=666",
+   "question": "领导你好！想咨询一下关于女职工休产假的相关问题。藏卫发[2017]237号文件第三条规定：凡西藏自治区户籍，各社会组织、企事业单位、行政机关在职干部职工，凡符合法律法规生育子女的，女方每胎享受一年产假……。请问，我是在西藏某事业单位的在职干",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-39",
+   "id": "651",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=651",
+   "question": "您好，肺结核痰培养结果多久出来呢 我以前是排查发现的胸片病灶，其他两次痰检、ppd都没问题，后面两个月后做了三次痰检也阴性，痰培养结果还没出来，请问一下，痰培养结果大概多久会出来呢，由于现在不在拉萨，所以只能这种方式询问，希望得到领导的回复",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-39",
+   "id": "636",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=636",
+   "question": "领导你好，我是在四川省读的中专（中医学专业），2016年毕业，2017年考取助理医师资格证书，请问我可以在西藏报名考执业医师吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-39",
+   "id": "631",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=631",
+   "question": "您好！尊敬的领导 首先，感谢领导在百忙之中阅读我的信件，感谢！ 本人名叫鲁生，我想反应的是我爸爸的工龄计算问题，我爸爸叫土登，是昌都市芒康县纳西乡上盐井村村民，我爸爸在1977年3月还是1978年3月被录用为赤脚医生，现在持有1983年12",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-39",
+   "id": "616",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=616",
+   "question": "尊敬的卫健委的各位领导，本人跟本人的同学是今年刚刚毕业的学生，也是今年在内地考的护士资格证，前两天刚查看护考成绩，本人跟不信差11分没有考到国家分数线！这次打听了一下，听说在内地考的学生不能享受西藏的分数线！可是本人从人力资源社会保障办公厅",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-39",
+   "id": "609",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=609",
+   "question": "请问《西藏自治区计划生育暂暂行管理办法》是否有效？独生子女医疗费用，我所在的拉萨市某中学只给报销40%，我该怎么办？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-39",
+   "id": "608",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=608",
+   "question": "尊敬的领导您好！我想请问我们西藏自治区的2020年执业医师资格证考试分数线多久出来，这个还是关系到个人绩效问题……",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-39",
+   "id": "580",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=580",
+   "question": "尊敬的委领导：您好，感谢您在百忙中审阅我企业信件，谢谢委领导对于我企业【西藏甘露医疗器械股份有限公司】的关心与帮助。自区委8月下发藏卫办应急函【2020】97号文件，通知全区各级卫健委做好疫情防控物资储备，同等条件下优先采购我企业疫情防控物",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-39",
+   "id": "555",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=555",
+   "question": "领导，293口腔执业能领证不？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-39",
+   "id": "554",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=554",
+   "question": "尊敬的卫健委领导： 您好！ 我是一名普通的藏族公民，因父亲生病，往返于上海和成都的大医院就医。在成都休养的近段时间，父亲状态不好，光靠吃药很难降低血液中的有些指标，因此在西藏自治区政府驻成都办事处医院门诊输液。医院方面说的是门珍输液都在急诊",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-39",
+   "id": "540",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=540",
+   "question": "由中国民族医药协会主办、杭州市卫健委协办的第四届中医药、民族医药健康科普大会暨健康产业博览会于11月19-21日在杭州白马湖国际会展中心隆重召开，院士、国医大师、专家学者、企业负责人等欢聚一堂，邀请区卫健委组织代表团参加。联系人：樊树军 1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-39",
+   "id": "532",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=532",
+   "question": "本人眼部发炎近一个月，眼内有异物感，于9.22日，通过百度搜索到拉萨恒大医院并与之取得联系，于上午9.22上午11.40左右到达拉萨恒大医院，医院前台接待了我，我交了五元挂号费，填写了病例本，前台讲我带到一楼一个玻璃房间，医生的办公室，医生",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-39",
+   "id": "530",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=530",
+   "question": "咨询一下卫健委的同仁，如果在居民区内被人私设垃圾收购中转点的话合适吗？是否会违反近期疫情防控的相关规定呢？ 如果有条框可以约束的话，希望贵单位予以治理一下！ 具体地址：德吉北路兰贵人停车场（各导航软件均可搜索到），左侧红色三层楼与110便民",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-39",
+   "id": "522",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=522",
+   "question": "请问2020级西藏大学、西藏民族大学、西藏藏医大学的免费医学专业的毕业生什么时候进行考试和分配工作？急急急急急急！！！！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-39",
+   "id": "473",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=473",
+   "question": "都9月中旬了 ， 别个省都规培工作完了，可自治区还没音讯，希望有关工作人员抓紧时间，别明日复明日。也希望有关督导，能够名副其实，各自所职。再蜗牛办事，我们也会借助媒体，公开蜗牛办公。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-39",
+   "id": "456",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=456",
+   "question": "您好，请问一下西藏自治区妇产儿童医院开业时间确定了吗？新闻上面说去年就要开业的，今年到现在都9月份了，还没有看到说要开业的信息。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-39",
+   "id": "451",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=451",
+   "question": "2020年西藏自治区规培怎么了，都不让规培了吗？ 我同学都规培上班了。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-39",
+   "id": "449",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=449",
+   "question": "我区2020年住院医师规范化培训了无音讯，今日都已9月7日了，其他省份的规培都已经上岗学习了。望贵单位总部要蜗牛办事。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-39",
+   "id": "437",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=437",
+   "question": "尊敬的卫健委领导您好！很冒昧的联系您，我是2016级西藏大学医学院外科学专业硕士，2019年已通过规培考试，但至今未收到规培合格证书，对比内地各省，规培证早已经于今年4月发放到手，因规培证关乎找工作，恳请领导能够帮忙解决这个难题，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-39",
+   "id": "436",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=436",
+   "question": "请回复：藏卫食准字（2009）第20号 食品的相关注册批准信息",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-39",
+   "id": "433",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=433",
+   "question": "尊敬的自治区卫健委领导，本人汪梦洁，女，护士，身份证号：513425199103221520，于2014年7月至2019年12月在山南市中国人民解放军第41医院（现陆军第954医院）从事护理工作，因个人原因离职，现需要变更护士职业证书到地方",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-39",
+   "id": "431",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=431",
+   "question": "自治区卫生健康委关于对2019-2020年西藏自治区自然科学基金组团式援藏医学项目的评审为什么西藏民族大学附属医院没有得到申报的通知呢？大家都不知道有这样的一个项目，民大科研处也不知道有这样一个项目。可以不可以补报2020年的项目",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-39",
+   "id": "387",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=387",
+   "question": "请问领导，技能考试过，理论笔试考试在什么时间？那什么报名？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-39",
+   "id": "381",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=381",
+   "question": "青岛政德教育文化传播有限公司拖欠我工资，本人于2020年6月15日-6月30日在其公司上班，由于对方的原因辞退我，而且还栽赃污蔑我。本来说好按一月3000标准发放工工资，后来把我辞退了又说按2600，到了7.15日发工资日，又找各种理由要压",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-39",
+   "id": "367",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=367",
+   "question": "西藏政务服务的健康码登不上了，手机号换了，绑定了错误的手机号码，我可以用国家政务服务的健康码进入拉萨吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-39",
+   "id": "364",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=364",
+   "question": "尊敬的领导您好，我是来自四川的一名医学生，想在西藏定居，想询问您口腔执业及助理医师资格考试是否对外地考生有什么限制，考试制度及机制是否有不同于其他省份之处，考试通过后的行医资格证书及医师资格证书是否全国范围内生效，能否在国家医师资格考试网进",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-45",
+   "id": "7591",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7591",
+   "question": "请问2026年度全区自然科学研究系列高中初级专业技术职称业务考试报名是什么时候？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-45",
+   "id": "5311",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=5311",
+   "question": "请问西藏科技创新服务平台的地址是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-45",
+   "id": "2519",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=2519",
+   "question": "西藏自治区发改委、科技厅、工信厅 领导们好！ 人类清洁低碳发展机制推行也起起落落、一波三折...联合国气候大会格拉斯哥会议又一次达成低碳清洁发展共识，全球主要国家都在2030/2060年前实现碳达峰/碳中和并积极行动，习总书记代表中华民族也",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-45",
+   "id": "2206",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=2206",
+   "question": "致西藏自治区科学技术厅： 你好，王平书记、赤列旺杰厅长，见信佳。本信件拟在解决高原缺氧问题，望能在百忙之中抽空阅之。 高原地区的空气成分与平原近似，导致人体产生缺氧的主要原因还是氧分压不足；最简单的方式并不是制氧，而是高原地区空气直接加压成",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-45",
+   "id": "2187",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=2187",
+   "question": "尊敬的科技厅相关领导及同行们好 我是一名信息工程技术人员，我关注到国家及地方政府对于一些拿到相关资质认证的企业会有一些补贴，在此想咨询一下西藏是否也有这些政策？ 如：CMMI认证、ITSS认证等 如有怎么申请 向哪个单位申请？ 谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-45",
+   "id": "2128",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=2128",
+   "question": "请问科技报告填写网址及操作流程？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-45",
+   "id": "2006",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=2006",
+   "question": "您好，我们正在进行对西藏企业创新要素集聚的相关研究，查找了很多资料，还是没有找到以下两个问题： 1.西藏自治区内科技服务业机构处有多少个？ 2.西藏自治区研究与开发机构 R&amp;D 经费内部支出中企业资金是多少？ 十分感谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-45",
+   "id": "1862",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=1862",
+   "question": "尊敬的领导，您好！我是中南民族大学一名硕士研究生，因毕业论文需要西藏自治区各地区2005-2019年工商企业注册数量以及R&amp;D经费支出数据、R&amp;D人员数量、R&amp;D人员当量数据、专利申请数量四个指标数据，数据仅做科学研",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-45",
+   "id": "1265",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=1265",
+   "question": "尊敬的科技厅领导， 我是一名科技人员。刚从厅网站上看到今年区自然科学基金拟立项项目的通知。我翻了网站今年发布的通知公告，并没有看到组织自然科学基金申报的通知。我想咨询下：如果以后申请自然科学基金，获得消息的渠道是网站通知，还是依托单位的转发",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-45",
+   "id": "242",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=242",
+   "question": "请问一下科技计划项目平台的网址是多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-56",
+   "id": "7626",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7626",
+   "question": "中铁六局集团分包老板何进恶意拖欠工资，工人下山只结算2000元工资，把工人哄骗下山后就不管，也没和工人签订劳动合同或劳务合同，每个月也未出示工资表格，我于2025年11月6日上山工作到2025年12月22日下山，截至2026年5月19日只收",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-56",
+   "id": "7605",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7605",
+   "question": "我去年2025年11月25号被四川联中蜀兴建设有限公司法人代表舒小霞（18200593414）下面的包工头马强（13540065995）安排到西藏察隅干活，涉及的是察隅县疾控中心改造的外墙干挂铝扣 板的 装饰工作，涉及的时间是2025年11",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-56",
+   "id": "7604",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7604",
+   "question": "我去年2025年11月25号被四川联中蜀兴建设有限公司法人代表舒小霞（18200593414）下面的包工头马强（13540065995）安排到西藏察隅干活，涉及的是察隅县疾控中心改造的外墙干挂铝扣 板的 装饰工作，涉及的时间是2025年11",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-56",
+   "id": "7590",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7590",
+   "question": "你好！&nbsp;&nbsp;&nbsp;我是一名普通的劳动者，为了维护自身合法权益，特向贵大队提出投诉，具体情况如下：一、投诉人的基本情况：&nbsp;&nbsp;&nbsp;投诉人：罗小华 &nbsp;&nbsp;&nbsp;&nbsp",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-56",
+   "id": "7572",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7572",
+   "question": "尊敬的领导您们好，我是我是青海的务工人员，2025年四月至六月份我们一行七人到那曲市尼玛县教育局的幼儿园务工，到现在工资没着落，给老板电话老板说教育局拨款，说是我们投诉不拨款，现在实在没办法才出其下策，希望能尽快解决",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-56",
+   "id": "7570",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7570",
+   "question": "标题：【撤回投诉申请】内容：本人（网名：网民8844，联系电话：18309738844），于2026年5月3日19:54提交了关于【兰花弄奶茶店（昌都市嘟嘟卡商业广场店）】的劳动投诉，当前状态为“待回复”。现因个人原因，自愿申请撤回该投诉，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-56",
+   "id": "7533",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7533",
+   "question": "&nbsp; &nbsp; &nbsp;举报西藏雄筑电力安装工程有限公司 统一信用代码：91540200MAK82MW646 。该公司是诈骗不诚信的公司，骗我注册证书后，不予我签劳动合同，也不予我注销证书，我已经向住建厅举报并申请强制注销。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-56",
+   "id": "7504",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7504",
+   "question": "尊敬的领导、各工作人员：本人实名举报西藏九恒工程服务有限公司（统一社会信用代码：91540195MAE9HLD70L，注册地址：西藏自治区拉萨市柳梧新区格桑路顿珠8号地金粹苑2号楼9层20-21号，实际经营地址：西藏山南雅隆幸福家园23栋2",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-56",
+   "id": "7501",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7501",
+   "question": "&nbsp; &nbsp;本人拉萨七中教师5年服务期已满，身体和家庭原因无法去高原工作。去年12月已申请辞职。学校2026.1.5日同意并报教育局，3月档案已转接新单位。&nbsp; 如今已近5个月拉萨城关区组织部辞职批复一拖再拖，打电话说",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-56",
+   "id": "7444",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7444",
+   "question": "西藏满踩山建筑有限公司（公司曾用名：西藏宫炅建筑有限责任公司），统一社会信用代码：91540224MAB0436F8Y，该公司骗人入职，前提是注册证书到其公司，注册后无法入职、也不配合注销证书，其结果已构成违规挂靠证书",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-56",
+   "id": "7427",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=7427",
+   "question": "&nbsp; &nbsp; &nbsp; 本人于2025年11月入职“西藏珠穆朗玛峰矿泉水有效公司”，入职签订绩效劳动合同工作至今（公司声称要盖章但至今未返给员工）；期间约定试用期2个月，但试用结束公司仍在安排布置工作，我也并未收到公司相关",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-56",
+   "id": "6529",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=6529",
+   "question": "西藏林芝市名人商务有限责任公司拒绝支付员工工资，已提交投诉，但该公司仍然不当回事，也明确不予支工资。自认为人社局有关系不怕，随便找人理由就是不付。不知道为什么我们打工人讨要工资这么难",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-56",
+   "id": "5845",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=5845",
+   "question": "本人从2024年2月入职西藏吉祥狼营养食品有限公司，截止到2024年8月15日离职，期间公司一直拖欠工资，截止目前还拖欠工资两万三千余元。结并且在入职期间六个月从未缴纳社保。希望能够拿到工资及社保补缴。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-56",
+   "id": "5631",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=5631",
+   "question": "山南市贡嘎县岗堆镇冷链项目拖欠本人工资21900已经2个多月，期间多次联系都是一直敷衍过几天",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-56",
+   "id": "5601",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=5601",
+   "question": "&nbsp; &nbsp; &nbsp; &nbsp;本人在2022年1.1号至2022年12月31号在西藏高原之宝牦牛乳业股份有限公司做销售工作，公司一直拖欠每月工资提成按时发放，并于12月30号强行解除劳动合同，本人申请仲裁判定公司赔付",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-56",
+   "id": "5525",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=5525",
+   "question": "菲丽游泳健身老板何建军拖欠工资我是9月到日喀则上的班然后现在已经离职到现在工资9月份还有1056 10月份工资还剩1881找老板老板就是一句没钱",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xz-igi-56",
+   "id": "5401",
+   "url": "http://www.xizang.gov.cn/IGI/nbhd/openGovmsgbox.do?id=5401",
+   "question": "本人于2024年8月至2024年7月在帝国时代担任厨师职务，于2024年5月至2024年7月帝锅时代拖欠工资11000元，一直拖欠至今，电话不接微信不回，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

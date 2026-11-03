@@ -1,0 +1,45 @@
+{
+ "A_考卷": [],
+ "B_补料": [
+  {
+   "source": "hb-wuhan-15",
+   "id": "6491",
+   "url": "https://www.wuhan.gov.cn/?id=6491",
+   "question": "有人自称保利华都物业聘请的律师打电话发短信不停骚扰业主，自称此行为是调教，业主已经告之走法律程序提交法院，依然我行我素骚扰业主。而且没有告诉业主所属律师事务所，自己的姓名已经从业资格证号码，电话号码为1*********9",
+   "cited_hits": [],
+   "cited_missing": [
+    "司法部关于加强律师违法违规行为投诉处理工作的通知"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "hb-wuhan-15",
+   "id": "55687",
+   "url": "https://www.wuhan.gov.cn/?id=55687",
+   "question": "4.27号我通过抖音平台的直播间找到该律所名为重友律师事务所其业务员祝小雨跟我取得联系并称他们律所的律师可以帮我解开银行卡的事情通并让我交委托费用4800元并打电话告诉我说他们解卡也办过很多案例也给我分享了他们解卡办过的案例打微信视频给我看",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-15",
+   "id": "55678",
+   "url": "https://www.wuhan.gov.cn/?id=55678",
+   "question": "已和解，撤销投诉",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-15",
+   "id": "432",
+   "url": "https://www.wuhan.gov.cn/?id=432",
+   "question": "我是预约的4月27号领取证书，但是由于疫情和工作原因不能到司法局领取，26号 27号多次电话联系武汉市司法局均无人接听！我该怎么办？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

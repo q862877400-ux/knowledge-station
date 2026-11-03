@@ -1,0 +1,996 @@
+{
+ "A_考卷": [
+  {
+   "source": "zk-zxsq",
+   "id": "9d6e089a949b463394d6a2b692fba9bc",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=9d6e089a949b463394d6a2b692fba9bc&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "本市养老金政策",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国社会保险法",
+     "lib_no": "保险法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国社会保险法",
+     "lib_no": "保险法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "e29ee620edd046c9a9a747c0e50c1c1d",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=e29ee620edd046c9a9a747c0e50c1c1d&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "请问农村宅基地申请的标准及流程是什么，在哪里办理申请业务。",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国土地管理法",
+     "lib_no": "土地管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "河南省农村宅基地和村民自建住房管理办法（试行）",
+    "农村宅基地和村民自建住房申请表",
+    "农村宅基地使用承诺书",
+    "农村宅基地批准书",
+    "乡村建设规划许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "056e76063f7348418f9a5d895f93b3fa",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=056e76063f7348418f9a5d895f93b3fa&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "自主择业退役军人社保补缴",
+   "cited_hits": [
+    {
+     "name": "劳动法",
+     "lib_no": "劳动法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "河南省人力资源和社会保障厅关于规范企业职工基本养老保险费缴纳有关问题的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "2698767ece434b588c810d4d5dda8e99",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=2698767ece434b588c810d4d5dda8e99&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "农村宅基地",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国宪法",
+     "lib_no": "宪法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国民法典",
+     "lib_no": "中华人民共和国民法典",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国土地管理法",
+     "lib_no": "土地管理法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国土地管理法",
+     "lib_no": "土地管理法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国土地管理法",
+     "lib_no": "土地管理法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "河南省实施〈中华人民共和国土地管理法〉办法",
+     "lib_no": "土地管理法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国民法典",
+     "lib_no": "中华人民共和国民法典",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "中央农村工作领导小组办公室 农业农村部关于进一步加强农村宅基地管理的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "51348baccaa24c519957448e2c409e6b",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=51348baccaa24c519957448e2c409e6b&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "领养",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国民法典",
+     "lib_no": "中华人民共和国民法典",
+     "weak": false
+    },
+    {
+     "name": "中国公民收养子女登记办法",
+     "lib_no": "中国公民收养子女登记办法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "zk-zxsq",
+   "id": "70dd0ec2ab2c4942ab2498ca2d216664",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=70dd0ec2ab2c4942ab2498ca2d216664&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "专升本考试",
+   "cited_hits": [],
+   "cited_missing": [
+    "本、专科专业对照及考试课程一览表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "3a01ab4a4b4343879c4194cb4c4f85c3",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=3a01ab4a4b4343879c4194cb4c4f85c3&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "居民养老子女资助缴费",
+   "cited_hits": [],
+   "cited_missing": [
+    "河南省人力资源和社会保障厅 河南省财政厅 国家税务总局河南省税务局 关于规范城乡居民基本养老保险社会资助工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "476f439ba8b846f5b32a6a58895e15e4",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=476f439ba8b846f5b32a6a58895e15e4&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "咨询职工医保基金先行支付办理政策（县城参保职工可否在周口市申请办理）",
+   "cited_hits": [],
+   "cited_missing": [
+    "社会保险基金先行支付暂行办法",
+    "社会保险基金先行支付暂行办法",
+    "人力资源社会保障部关于修改部分规章的决定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "0d460000715c46d2bea549f0cc28d608",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=0d460000715c46d2bea549f0cc28d608&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "个人缴纳养老金退费咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "河南省参保人员终止社会保险关系申报表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "f0fc293b6c6f4ffaa26ac6e12d7d80fa",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=f0fc293b6c6f4ffaa26ac6e12d7d80fa&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "请问周口办理个体工商户营业执照需要哪些材料",
+   "cited_hits": [],
+   "cited_missing": [
+    "个体工商户登记（备案）申请书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "a9647b59bc4242bba0ee7320b93dd532",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=a9647b59bc4242bba0ee7320b93dd532&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "今年在促进高校毕业生、农民工等群体就业方面，是否有专场招聘、技能培训等具体安排？",
+   "cited_hits": [],
+   "cited_missing": [
+    "2025年技能提升行动工作方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "0a8527e217c64b7e9b8bb05ff0443bc5",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=0a8527e217c64b7e9b8bb05ff0443bc5&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "周口市租房落户政策咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "河南省公安机关户口居民身份证管理工作规范（试行）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "42aa4f6f0e3f4bba9b0fdfb84cc4d889",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=42aa4f6f0e3f4bba9b0fdfb84cc4d889&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "新生儿上户口需要准备哪些证件",
+   "cited_hits": [],
+   "cited_missing": [
+    "出生医学证明",
+    "结婚证",
+    "出生医学证明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "82368c07f4bc45b0ad01a0a5f5f96145",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=82368c07f4bc45b0ad01a0a5f5f96145&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "出生证明补办",
+   "cited_hits": [],
+   "cited_missing": [
+    "河南省出生医学证明管理办法（试行）",
+    "出生医学证明",
+    "出生医学证明",
+    "出生医学证明",
+    "出生医学证明"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "50a223cc66ab4750b832b42331935212",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=50a223cc66ab4750b832b42331935212&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "咨询周口市职工基本医疗保障政策",
+   "cited_hits": [],
+   "cited_missing": [
+    "周口市人民政府关于印发周口市城镇基本医疗保险和生育保险市级统筹暂行办法的通知 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "f374bebf83894f7db628dcda1046ce6a",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=f374bebf83894f7db628dcda1046ce6a&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "有关人才公寓与公租房相关问题咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "周口市人才公寓申请表",
+    "周口市公共租赁住房管理办法",
+    "婚姻情况申明具结书",
+    "婚姻情况申明具结书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "a2722422fac64d968e3871a57a04ae13",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=a2722422fac64d968e3871a57a04ae13&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "职工医保退休缴费",
+   "cited_hits": [],
+   "cited_missing": [
+    "周口市人民政府关于印发周口市城镇基本医疗保险和生育保险市级统筹暂行办法的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "19a8dc2dc2714dd8b6b68fea4739ae79",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=19a8dc2dc2714dd8b6b68fea4739ae79&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "商业贷专公积金贷",
+   "cited_hits": [],
+   "cited_missing": [
+    "不动产权证书",
+    "房屋所有权证书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "b3e7a514052d43adbe91d53a8e190098",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=b3e7a514052d43adbe91d53a8e190098&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "人才引进购房补贴",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发周口市持续扩大消费若干政策措施的通知",
+    "新建商品房合同"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "b36529505b7e4f59beb1eac8cb0b350b",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=b36529505b7e4f59beb1eac8cb0b350b&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "周口鹿邑县生育报销政策",
+   "cited_hits": [],
+   "cited_missing": [
+    "周口市医疗保障局 周口市财政局 周口市人力资源和社会保障局 周口市卫生健康委员会 国家税务总局周口市税务局关于印发的通知",
+    "周口市医疗保障局 周口市财政局 国家税务总局周口市税务局关于进一步做好基本医疗保障工作的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "ecb12a27fa3f409c971191271e19b641",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=ecb12a27fa3f409c971191271e19b641&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "公租房咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "周口市公共租赁住房管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "1f5ff43fe1c744a8871adc856a35b29f",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=1f5ff43fe1c744a8871adc856a35b29f&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "咨询城乡居民医保退费问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "周口市医疗保障局 周口市财政局国家税务总局周口市税务局关于进一步做好基本医疗保障工作的通知",
+    "鹿邑县2023年城乡居民基本医疗保险费集中参保缴费的通告",
+    "国家医保局办公室 财政部办公厅国家税务总局办公厅关于印发的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "2763b99830f247429b3acd5170cc6c27",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=2763b99830f247429b3acd5170cc6c27&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "农村建房如何办理不动产权证",
+   "cited_hits": [],
+   "cited_missing": [
+    "集体土地使用证",
+    "集体土地使用证",
+    "不动产权证",
+    "集体土地使用证",
+    "不动产权证",
+    "关于加快宅基地和集体建设用地使用权确权登记工作的通知",
+    "实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "d4631f2be4e147a3b7d606b13afbdd08",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=d4631f2be4e147a3b7d606b13afbdd08&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "硕士研究生为何不能享受周口市政府关于购房补贴政策？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发周口市持续扩大消费若干政策措施",
+    "关于印发周口市持续扩大消费若干政策措施的通知",
+    "周口市购房补贴实施细则"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "6a4308cde1354ae5af9c34ef24a9a9d3",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=6a4308cde1354ae5af9c34ef24a9a9d3&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "自主创业扶持政策",
+   "cited_hits": [],
+   "cited_missing": [
+    "就业创业证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "774d1d1aa77b48a68e5d958a68fad015",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=774d1d1aa77b48a68e5d958a68fad015&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "60岁老人领取补贴",
+   "cited_hits": [],
+   "cited_missing": [
+    "河南省人民政府关于建立城乡居民基本养老保险制度的实施意见"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "15034de5cebe472eb089e8ae141d85e4",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=15034de5cebe472eb089e8ae141d85e4&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "是否有建筑企业扶持政策",
+   "cited_hits": [],
+   "cited_missing": [
+    "周口市人民政府办公室关于进一步支持建筑业高质量发展的若干意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "23e5dac1e4ae4bb1a73d85c9e9e22228",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=23e5dac1e4ae4bb1a73d85c9e9e22228&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "异地住房公积金",
+   "cited_hits": [],
+   "cited_missing": [
+    "周口市住房公积金个人住房贷款管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "678f712811204ccba31613bac99842c0",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=678f712811204ccba31613bac99842c0&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "关于生育津贴 产假工资",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发<周口市生育保险和职工基本医疗保险合并实施方案>的通知",
+    "关于印发<周口市生育保险和职工基本医疗保险合并实施方案>的通知",
+    "河南省人口与计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "51ed164b9a164c459bb2477d5d12bbc3",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=51ed164b9a164c459bb2477d5d12bbc3&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "师范类毕业生档案邮寄",
+   "cited_hits": [],
+   "cited_missing": [
+    "河南省大中专毕业生档案管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "88cf1083927f42068401fb511bc8e798",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=88cf1083927f42068401fb511bc8e798&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "农村建房手续及宅基地收费标准",
+   "cited_hits": [],
+   "cited_missing": [
+    "农村宅基地批准书",
+    "乡村建设规划许可证",
+    "农村宅基地和村民自建住房验收意见表",
+    "农村宅基地批准书",
+    "乡村建设规划许可证",
+    "农村宅基地和村民自建住房验收意见表",
+    "国务院办公厅关于进一步做好减轻农民负担工作的意见",
+    "河南省农村宅基地和村民自建住房管理办法（试行）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "832b945f08404ca3a1d3ac907161378d",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=832b945f08404ca3a1d3ac907161378d&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "购车补贴",
+   "cited_hits": [],
+   "cited_missing": [
+    "周口市2023年新能源汽车促消费活动公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "84d08e2a063e46b69e2f8b17d3fbb7d3",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=84d08e2a063e46b69e2f8b17d3fbb7d3&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "农村独生子女父母新农合报销比例",
+   "cited_hits": [],
+   "cited_missing": [
+    "郸城县城乡居民基本医疗保险参保缴费工作实施方案"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "zk-zxsq",
+   "id": "1e704c8706af481594b5f5ce806d100c",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=1e704c8706af481594b5f5ce806d100c&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "关于购房补贴以及手续问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "73b1c15bd1334faf82c48b88c674a399",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=73b1c15bd1334faf82c48b88c674a399&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "办理医保跨省转移手续",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "5f4ce4b315be4c1d96ce9da1afff0c53",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=5f4ce4b315be4c1d96ce9da1afff0c53&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "咨询医保使用相关问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "40eabfc044244243b5c092409f97ef2f",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=40eabfc044244243b5c092409f97ef2f&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "咨询营业执照注销",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "56afe129a0f24746b64609f38bdf4e29",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=56afe129a0f24746b64609f38bdf4e29&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "关于2026年装修补贴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "6b4e73b3c05e4753ba3e55a3e27b900e",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=6b4e73b3c05e4753ba3e55a3e27b900e&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "失业保险金领取咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "b215684c79774ff0b6c66c5306f80c34",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=b215684c79774ff0b6c66c5306f80c34&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "周口医保申请门诊慢性病线上审核时限是多少个工作日？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "23c664d7251440968bbafe0a66a6189f",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=23c664d7251440968bbafe0a66a6189f&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "灵活就业养老保险怎么补缴？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "a2056b0c15934e5a9a1cae227f80b106",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=a2056b0c15934e5a9a1cae227f80b106&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "扶贫对象查询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "6cc8dcb0bba64dcdaaf5dc37971464c2",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=6cc8dcb0bba64dcdaaf5dc37971464c2&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "咨询临时救助政策",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "49ab9b75b0994b87babd3c3ec73acadf",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=49ab9b75b0994b87babd3c3ec73acadf&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "教师编",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "b8d5e6d219c8483ebba12015fdb00929",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=b8d5e6d219c8483ebba12015fdb00929&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "关于高校毕业生人才档案转出的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "73711e7ca80748eca981088aa19f7a77",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=73711e7ca80748eca981088aa19f7a77&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "省外异地就医重症治疗相关问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "1325109a029d4c128fa9bfc433a106dd",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=1325109a029d4c128fa9bfc433a106dd&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "办理慢性病、重大疾病可以在网上办理吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "cc1fa09428fa4449a7f7c3ecb88a8f56",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=cc1fa09428fa4449a7f7c3ecb88a8f56&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "咨询：2025年周口市招教",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "059ede4eb63344a1a9ba08a4dbcd3003",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=059ede4eb63344a1a9ba08a4dbcd3003&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "咨询农村儿童医保退保事宜",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "c13baf829819400aab9b04d893ba2d9d",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=c13baf829819400aab9b04d893ba2d9d&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "省内医保关系转移资金并账",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "b694f70ddd9c4bd2bcff0307ed2b781f",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=b694f70ddd9c4bd2bcff0307ed2b781f&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "子女资助养老保险",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "5a39c12f45d54233aec35769562a4eb6",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=5a39c12f45d54233aec35769562a4eb6&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "农村合作医疗缴费",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "86e87b2a09c8431c9fbb142886af9e4d",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=86e87b2a09c8431c9fbb142886af9e4d&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "周口市县及乡镇辅警今年招聘计划及时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "8a98eb84b8f64398aef2ec1a76371c1d",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=8a98eb84b8f64398aef2ec1a76371c1d&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "军转干部安置到周口的条件",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "961f414232f74a119270a8ce9755c069",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=961f414232f74a119270a8ce9755c069&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "新农合免交政策",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "b98675e151a742b5b98530770f3bba22",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=b98675e151a742b5b98530770f3bba22&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "慢性病卡如何办理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "6eb15c57d2c442b9b312d22411164222",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=6eb15c57d2c442b9b312d22411164222&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "周口市城乡一体化示范区的房产是否可以商转公以贷冲贷？农业银行是否可以办理以贷冲贷？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "3dccd4c6424443178056a9206e69e644",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=3dccd4c6424443178056a9206e69e644&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "淮阳区的公积金贷款以贷冲贷预计什么时间推行，能否加快进度？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "43fa3add510c46df844d61e7ae2737db",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=43fa3add510c46df844d61e7ae2737db&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "2024年招教",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "adabfc1066264dd88dba35800e4ed86f",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=adabfc1066264dd88dba35800e4ed86f&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "人在海外留学但身份证过期是否可以委托亲属代为办理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "7ec3dc06e4a3496ca1ad276867272d5f",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=7ec3dc06e4a3496ca1ad276867272d5f&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "商业贷款转公积金贷款",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "332733a4145a4d49845d4e4843ecd99e",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=332733a4145a4d49845d4e4843ecd99e&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "开具无犯罪记录证明",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "079f10414e4b4b99bf5b8319d88c8827",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=079f10414e4b4b99bf5b8319d88c8827&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "关于新农合异地报销",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "57c8a94d1c974e94ba0b1ec63870ee43",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=57c8a94d1c974e94ba0b1ec63870ee43&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "周口事业单位联考",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "4df207f62bd349e188a75541fe51fb58",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=4df207f62bd349e188a75541fe51fb58&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "手指指纹常年浅，原籍派出所告知指纹录入不达标不能办身份证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "26ba9617e69c4f2abd289462cef63c69",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=26ba9617e69c4f2abd289462cef63c69&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "特岗教师招聘计划询问",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "10582f86ecc04168b25fb6b67bd01ab9",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=10582f86ecc04168b25fb6b67bd01ab9&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "请问大病报销流程",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "01bc42d0db51478ea7a90a930d0abde8",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=01bc42d0db51478ea7a90a930d0abde8&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "是否有养殖个体户的扶持政策",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "8cad81ed1bb54088b94484d2049f6fc1",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=8cad81ed1bb54088b94484d2049f6fc1&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "周口市城乡居民医保怎么使用",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "e6c649d233384fb5a702b802d742133f",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=e6c649d233384fb5a702b802d742133f&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "关于异地公积金贷款委托事宜",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "bb63d895470040868b4f9a1aadcd53e0",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=bb63d895470040868b4f9a1aadcd53e0&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "退伍证丢了怎么补办",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "925290b700af45dca4dd19c5385b528d",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=925290b700af45dca4dd19c5385b528d&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "老人户口迁到外省 个人养老保险怎么弄",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "a116c89e595c4391b804a14c4234ed9d",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=a116c89e595c4391b804a14c4234ed9d&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "一岁宝宝如何办理身份证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "a130f69a7d35477c95d3caa463b5d1c8",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=a130f69a7d35477c95d3caa463b5d1c8&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "一岁宝宝办理身份证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "6fe416fb80344fd49a05450cf294ea97",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=6fe416fb80344fd49a05450cf294ea97&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "新农合 报销",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "4e3de31cd35e43dc8b6c961fd2d1d795",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=4e3de31cd35e43dc8b6c961fd2d1d795&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "关于职工医保缴费年限问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "e53d03d407c64352bb5c1c91d7577c4d",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=e53d03d407c64352bb5c1c91d7577c4d&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "高考报名",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "1f52662b666445c6857d0e24a62535f6",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=1f52662b666445c6857d0e24a62535f6&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "于异地转入周口驾校政策咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "88ee792fa08c4d9c864e1347af365840",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=88ee792fa08c4d9c864e1347af365840&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "门诊特病办理及异地报销问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "237833e72bd1414184082bdf402a0e3b",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=237833e72bd1414184082bdf402a0e3b&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "异地就医直接结算问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "47a09b3a79dc4928b80c01d7c2485001",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=47a09b3a79dc4928b80c01d7c2485001&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "全款期房不能在网上查询备案",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "f7c8fff6a4614827999f76e691466d1a",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=f7c8fff6a4614827999f76e691466d1a&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "行政复议",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "e1b727d1e5664c75a1ba1587d7b87024",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=e1b727d1e5664c75a1ba1587d7b87024&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "就业见习",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "8840231a15424533bb43da921ab97d34",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=8840231a15424533bb43da921ab97d34&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "在周口市人民政府官网申请的行政复议在哪里查询受理情况？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "346e4c2802f345298074b78b983f1ff5",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=346e4c2802f345298074b78b983f1ff5&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "周口市区2023年落户政策",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "98c44bfb8649455aa77800e57d39fd1e",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=98c44bfb8649455aa77800e57d39fd1e&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "想咨询一下惠企政策",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "5314d5f228fd4b80bef18acd568570bc",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=5314d5f228fd4b80bef18acd568570bc&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "申请行政复议可以邮寄或者网络申请吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "db5183a9a25b4121a4344b77a835dd15",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=db5183a9a25b4121a4344b77a835dd15&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "房改证明",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "cf122c04b66c4e61ac9914023def7e3f",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=cf122c04b66c4e61ac9914023def7e3f&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "最新政策的新能源购车补贴怎么领取？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "3c6a0e38ce3245b394352cd12d74d2ce",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=3c6a0e38ce3245b394352cd12d74d2ce&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "如何开具未享受保障性住房证明？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "zk-zxsq",
+   "id": "de90b7d5584847eba0d199e8eca4acfe",
+   "url": "https://www.zhoukou.gov.cn/front/mailbox/mailbox?id=de90b7d5584847eba0d199e8eca4acfe&siteId=9752499e88b94e1881e46bbeeef1376e",
+   "question": "2023年新农合缴费咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

@@ -1,0 +1,93 @@
+{
+ "A_考卷": [
+  {
+   "source": "gx-igi-259",
+   "id": "157814444483",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814444483",
+   "question": "领导您好，因为生二胎，产后抑郁症，导致我爱人在民政局有四次婚姻登记记录，谢谢我的爱人包容我，迁就我，让他承受了，我和我爱人是原配夫妻，现在向你反应，复婚三次，让民政局撤销复婚登记档案，发回原登记日期办结婚证，我深深迁忏到我的过错，愿我和我的",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国民法典",
+     "lib_no": "中华人民共和国民法典",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "婚姻登记工作规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-259",
+   "id": "1578112607",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=1578112607",
+   "question": "婚姻业务可以异地登记吗？",
+   "cited_hits": [
+    {
+     "name": "婚姻登记条例",
+     "lib_no": "婚姻登记条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [],
+ "C_无依据": [
+  {
+   "source": "gx-igi-259",
+   "id": "157814439999",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814439999",
+   "question": "尊敬的贵港市民政局局长：您好！我是石**，右*****院大四学生，目前正在撰写毕业论文，研究方向为“贵港市养老机构体育服务供给现状调查及对策研究”。为了更好地完成论文研究，我需要获取贵港市养老机构的相关信息，特此向贵局提出协助请求。具体而言",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-259",
+   "id": "157814436819",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814436819",
+   "question": "2025年元旦婚姻登记处能办理结婚登记吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-259",
+   "id": "157814422122",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814422122",
+   "question": "请问婚姻业务可以异地办理吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-259",
+   "id": "157814404017",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814404017",
+   "question": "请问网站是否开设了政策文件相关栏目？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-259",
+   "id": "157814195014",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814195014",
+   "question": "你好，2021年3月14日是农历中黄道吉日，且该日2021314寓意爱你爱你一生一世，是非常适合结婚的日子。由于这一天是周末，不能进行婚姻登记，期望民政局够协调当天为群众办理婚姻登记，既体现人民政府为群众灵活服务，亦是对新人的祝福。或者可以",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-259",
+   "id": "1578119960",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=1578119960",
+   "question": "办理婚姻登记一定要在本人户籍地吗?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

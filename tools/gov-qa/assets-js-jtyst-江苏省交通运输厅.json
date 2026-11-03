@@ -1,0 +1,2112 @@
+{
+ "A_考卷": [
+  {
+   "source": "js-jtyst",
+   "id": "449533",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=449533&sysid=105",
+   "question": "关于《江苏省公路水运工程安全生产费用管理办法》的运用问题\n我们在运用《江苏省公路水运工程安全生产费用管理办法》（苏交规[2012]9号文）时（以下简称”文件“），有以下不明白的地方：1.文件“第二、安全生产费用范围”中第（一）“设置、完善、",
+   "cited_hits": [
+    {
+     "name": "企业安全生产费用提取和使用管理办法",
+     "lib_no": "财政部 应急部关于印发《企业安全生产费用提取和使用管理办法》的通知",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "江苏省公路水运工程安全生产费用管理办法",
+    "使用指南",
+    "江苏省公路水运工程安全生产费用管理办法",
+    "表3 江苏省公路水运工程安全生产费用负面清单"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-jtyst",
+   "id": "420223",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=420223&sysid=105",
+   "question": "《机动车驾驶培训教练员技能和素质要求》\n交通运输部于2023年6月25日发布了《机动车驾驶培训教练员技能和素质要求》（JT/T1471-2023）行业标准，该标准于2023年9月25日实施。咨询一下我省是否执行这个推荐标准？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国标准化法",
+     "lib_no": "标准化法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "机动车驾驶培训教练员技能和素质要求"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "406041",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=406041&sysid=105",
+   "question": "咨询省道路侧环境发生重大变化的定义和情形\n尊敬的领导： 您好！ 请您解释一下：省道路侧环境发生重大变化的定义和情形。谢谢！ 赵金筛 2024.10.3",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国环境保护法",
+     "lib_no": "环境保护法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国公路法",
+     "lib_no": "公路法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "公路工程技术标准",
+    "公路环境保护设计规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "396918",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=396918&sysid=105",
+   "question": "关于三类人员考核管理过渡期证书有效性的咨询\n尊敬的领导：贵司于2024年4月8日出台了《关于施工企业主要负责人、项目负责人和专职安全生产管理人员考核管理过渡期相关工作的通告》，文件规定：原核发考核合格证书有效期于2024年6月29日前到期的",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国行政许可法",
+     "lib_no": "行政许可法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "江苏省交通运输厅关于施工企业主要负责人、项目负责人和专职安全生产管理人员考核管理过渡期相关工作的通告",
+    "考核管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "363372",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=363372&sysid=105",
+   "question": "公路水运工程中叉车的使用\n我想咨询下，公路水运工程施工现场是否能使用 叉车 这种特种设备？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国特种设备安全法",
+     "lib_no": "特种设备安全法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "特种设备安全监察条例",
+     "lib_no": "特种设备安全监察条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "特种设备目录"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "js-jtyst",
+   "id": "471064",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=471064&sysid=105",
+   "question": "公路水运项目持证\n请问目前江苏公路水运工程项目总工和项目安全总监需要持B证吗？谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "交通运输部办公厅关于做好《交通运输工程施工单位主要负责人、项目负责人和专职安全生产管理人员安全生产考核管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "469804",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=469804&sysid=105",
+   "question": "安全生产费计取问题?\n安全生产费施工过程中发生的采购收据，送货单，经监理公司确认，费用清单经监理、建设单位同意纳入结算。现审计单位针对采购收据、送货单等是否可以作为结算依据有争议。安全生产费发生的是否必须为发票？其他如采购收据、送货单等凭证",
+   "cited_hits": [],
+   "cited_missing": [
+    "公路工程建设项目安全生产费用清单及计量规范",
+    "江苏省公路水运工程安全生产费用管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-jtyst",
+   "id": "464985",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=464985&sysid=105",
+   "question": "EPC固定总价合同项目结算时安全生产费计取问题\nEPC固定总价合同项目，招标文件把《江苏省公路水运工程安全生产费用管理办法》、《江苏省公路水运工程安全生产费用使用指南》作为构成招标文件的其他材料，另外招标文件明确“（一）合同形式     固",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省公路水运工程安全生产费用管理办法",
+    "江苏省公路水运工程安全生产费用使用指南"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "456840",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=456840&sysid=105",
+   "question": "新的颁公路桥梁钢结构预算定额、部颁公路桥梁养护定额本省执行\n根据省交通运输厅关于执行交通运输部第86号公告有关补充规定的通知（苏交建〔2019〕22号），自2019年5月1日起，我省新建、改（扩）建公路工程建设项目的估算、概算、预算编制均应",
+   "cited_hits": [],
+   "cited_missing": [
+    "公路桥梁钢结构工程预算定额",
+    "公路工程建设项目概算预算编制办法",
+    "公路桥梁养护工程预算定额",
+    "江苏省公路养护工程预算编制办法及定额"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-jtyst",
+   "id": "455719",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=455719&sysid=105",
+   "question": "关于苏交规〔2025〕1号文解读，安全生产费用适用范围\n您好！我想咨询一下关于苏交规〔2025〕1号文件，《江苏省公路水运工程安全生产费用管理办法》中，第九条（三）开展施工现场重大风（危）险源检测、评估、监测监控支出，安全风险分级管控和事故",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省公路水运工程安全生产费用管理办法",
+    "江苏省公路水运工程安全生产费用负面清单"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "453937",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=453937&sysid=105",
+   "question": "省际班线和省际包车业务\n对经营省际班线和省际包车业务的企业，需要自有营运车辆数是怎么规定的",
+   "cited_hits": [],
+   "cited_missing": [
+    "道路旅客运输及客运站管理规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-jtyst",
+   "id": "446437",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=446437&sysid=105",
+   "question": "关于本站《交通建设工程主要地材指导价格》中块石的价格适用范围\n工程地点位于盐城市射阳县海边，工程内容中有抛石护底工作，抛石采用“30-150kg块石“作为护底材料。本工程计价模式采用中华人民共和国交通运输部于2019年发布的《沿海港口水工建",
+   "cited_hits": [],
+   "cited_missing": [
+    "省交通运输厅关于进一步规范公路水运工程材料价格信息管理工作的意见",
+    "江苏省各市交通建设工程主要地材指导价格"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "442325",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=442325&sysid=105",
+   "question": "关于预制箱梁承托位置的计量规则\n根据2018版交通计量规则说明中规定混凝土中0.15*0.15的倒角不扣除，同时0.15*0.15的填角也不增加，请问顶板与腹板接连位置的承托结构是否是说明中定义的填角？计量时是否应将该位置的倒角混凝土方量扣",
+   "cited_hits": [],
+   "cited_missing": [
+    "公路工程标准施工招标文件（2018年版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "438721",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=438721&sysid=105",
+   "question": "江苏省公路水运施工企业安全管理人员考试题库\n请问哪里有官方的2025江苏省公路水运施工企业安全管理人员考试题库？",
+   "cited_hits": [],
+   "cited_missing": [
+    "交通运输工程施工单位主要负责人、项目负责人和专职安全生产管理人员安全生产考试大纲"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "437394",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=437394&sysid=105",
+   "question": "关于监理招标文件中省履约信用分分值设定\n依据《江苏省公路水运建设市场信用信息管理办法》（苏交规【2024】6号）文件，勘察设计、监理服务类招标在评标阶段，从业单位信用分权重可以为3%-6%，；主要从业单位信用权重可以为2%-4%；但在公路工",
+   "cited_hits": [],
+   "cited_missing": [
+    "公路工程标准施工监理招标文件",
+    "江苏省公路水运建设市场信用信息管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "426831",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=426831&sysid=105",
+   "question": "江苏省对机动车驾驶员计时培训系统计时终端有何要求\n我市驾培机构拟选用机动车驾驶员计时培训系统计时终端，请问怎样才能认定机动车驾驶员计时培训系统计时终端是否符合国家或江苏省的标准？怎样评定机动车驾驶员计时培训系统计时终端的运营商提供的交通安全",
+   "cited_hits": [],
+   "cited_missing": [
+    "机动车驾驶员培训计时系统 第 1 部分：计时终端技术要求（ JT/T 1302.1-2019 ）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "424873",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=424873&sysid=105",
+   "question": "剥好的毛豆米和剥皮的大蒜米享不享受绿通政策\n剥好的毛豆米和剥皮的大蒜米享不享受绿通免高速费政策",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步提升鲜活农产品运输“绿色通道”政策服务水平的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "420336",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=420336&sysid=105",
+   "question": "江苏省公路水运工程施工企业安管人员安全生产考核合格证取证咨询\n要取得江苏省公路水运工程施工企业安全生产管理人员安全生产考核合格证书（安全B证），是否需要取证人员的所在单位必须有公路水运工程施工单位资质才可以？",
+   "cited_hits": [],
+   "cited_missing": [
+    "交通运输工程施工单位主要负责人、项目负责人和专职安全生产管理人员安全生产考核管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "419287",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=419287&sysid=105",
+   "question": "监理综合资质经营范围\n尊敬的领导，我单位具备住建部颁发的工程监理综合资质，咨询下，该资质能否承接交通运输部门实施的公路工程监理业务，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "公路水运工程监理企业资质管理规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "413009",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=413009&sysid=105",
+   "question": "交安B证有效期快到期了，怎么做继续教育，延续有效期\n我的苏交安B证在无锡市单位使用，2024年12月28号到有效期，怎么做延续呢",
+   "cited_hits": [],
+   "cited_missing": [
+    "交通运输工程施工单位主要负责人、项目负责人和专职安全生产管理人员安全生产考核管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-jtyst",
+   "id": "411941",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=411941&sysid=105",
+   "question": "公路养护作业单位（交通安全设施养护）\n公路养护作业单位（交通安全设施养护）资质中的交通安全设施包括哪些？公交站亭、沿路服务设施包不包含在里面？",
+   "cited_hits": [],
+   "cited_missing": [
+    "JTG/T 3671—2021 公路交通安全设施施工技术规范",
+    "JTG  5110-2023   公路养护技术标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "406732",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=406732&sysid=105",
+   "question": "交安c新考证人员\n你好，今年是不再组织三类安全人员考试了吗（新考证人员）。",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省交通运输工程施工单位主要负责人、项目负责人和专职安全生产管理人员考试年度计划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "405316",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=405316&sysid=105",
+   "question": "《江苏省公路水运建设市场信用信息管理办法》相关问题咨询\n江苏省交通厅印发《江苏省公路水运建设市场信用信息管理办法》，今年10月1日执行。第三章 履约考核部门有一段话“已交工但未竣工的公路水运建设项目，应当依据合同约定在合同有效期内对相关从业",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省公路水运建设市场信用信息管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "398623",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=398623&sysid=105",
+   "question": "宁宣铁路开工情况\n您好，宁宣铁路目前处于什么阶段，计划什么时间开工。",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省沿江城市群城际铁路建设规划（2019-2025年）",
+    "长江三角洲地区多层次轨道交通规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "396832",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=396832&sysid=105",
+   "question": "安全生产经费总额包干占比\n请问江苏省关于公路工程建设中，安全生产经费中的总额包干百分比是多少，依据是什么。经各施工单位反映，按一般规定15%计，不能满足公路工程建设的实际使用需求。曾经，省交通运输厅关于印发《江苏省公路工程安全生产工程量清单",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省公路工程安全生产工程量清单",
+    "江苏省公路水运工程安全生产费用管理办法",
+    "江苏省公路水运工程安全生产费用使用指南",
+    "江苏省公路工程安全生产工程量清单",
+    "江苏省公路水运工程安全生产费用管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "394085",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=394085&sysid=105",
+   "question": "盐宜铁路\n请问盐宜铁路目前的接轨意间复函情况，初步设计进展还有站房概念啥时候开始招标。就是盐宜铁路剩余的陆域可研是分段报批还是整体报批整体批复。另外过江隧道设计方案什么时候能出来。谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "中长期铁路网规划",
+    "长江三角洲地区多层次轨道交通规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "393953",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=393953&sysid=105",
+   "question": "关于淮新铁路进展的咨询\n厅长您好，我想咨询淮新铁路当下前期工作进展的进度，是否开始了项目可研报告的编制。感谢，祝好！",
+   "cited_hits": [],
+   "cited_missing": [
+    "长江三角洲地区多层次轨道交通规划",
+    "关于进一步做好铁路规划建设工作意见的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "391328",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=391328&sysid=105",
+   "question": "通知当前是否有效\n请问《关于进一步明确港口经营许可有关事项的通知》（交港务〔2012〕1号），该通知当前是否有效。",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省港口经营许可、备案工作指南（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "388936",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=388936&sysid=105",
+   "question": "盐泰锡常宜高铁何时开工\n请问领导，目前盐泰锡常宜铁路在何阶段，2024年已快过半，关于此前网传8月可开工建设是否可靠，2024年是否可进行正式开工，除过过江隧道工程外，规划线路盐城站至靖江站是否稳定",
+   "cited_hits": [],
+   "cited_missing": [
+    "中长期铁路网规划",
+    "长江三角洲地区多层次轨道交通规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "386537",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=386537&sysid=105",
+   "question": "江苏省公路水路建设市场信用信息服务系统备案等问题\n江苏省公路水路建设市场信用信息服务系统，如何申请及备案，需要哪些资料",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省公路水运建设市场信用信息管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-jtyst",
+   "id": "386187",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=386187&sysid=105",
+   "question": "盐宜铁路\n请问盐宜铁路和国铁接轨意见进展到什么样情况了，为啥这个接轨意见怎么这么难批复。这次接轨报告编制有没有把接轨无锡站考虑进去。谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "中长期铁路网规划",
+    "长江三角洲地区多层次轨道交通规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "385868",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=385868&sysid=105",
+   "question": "关于扬镇宁马铁路\n您好，请问扬镇宁马铁路还建吗？如建，已经进展到什么程度了？大概什么时候能开工？还是跟南沿江高铁在句容并站吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省沿江城市群城际铁路建设规划（2019-2025）",
+    "长江三角洲地区多层次轨道交通规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "385034",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=385034&sysid=105",
+   "question": "关于沭阳高铁站建设咨询\n尊敬的领导您好：在这里我想咨询一下关于沭阳高铁的建设规划，我最近在短视频上看到有人宣传，沭阳高铁规划在十五五期间开工，2030年后通车，建设在淮沭新河西侧，请问是真的吗？我是一名学生，在南京上学，每次上学，回家做大巴",
+   "cited_hits": [],
+   "cited_missing": [
+    "长江三角洲地区多层次轨道交通规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "384583",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=384583&sysid=105",
+   "question": "盐泰锡常宜铁路\n前不久国家相关部委取消重新用地预审，盐宜铁路目前进展到哪里了什么时候才能批复可研。作为省内的一条铁路，这个可研时间是不是有点太久了呢？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "中长期铁路网规划",
+    "长江三角洲地区多层次轨道交通规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "380763",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=380763&sysid=105",
+   "question": "加快苏锡常铁路太仓段建设项目的发展\n尊敬的江苏省交通厅同志： 在长三角一体化发展的国家战略背景下，江苏省太仓市作为沿江沿海的重要节点城市，承担着推动区域协同发展的关键角色。目前，太仓市正致力于通过苏锡常城际铁路先导段与上海嘉闵线及上海机场联",
+   "cited_hits": [],
+   "cited_missing": [
+    "长江三角洲地区多层次轨道交通规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "380709",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=380709&sysid=105",
+   "question": "顺风车业务咨询\n尊敬的江苏省交通厅，我们是一家总部在上海的初创公司，做顺风车网络平台业务，希望进驻咱们省南京等地市开展业务，我们理解根据目前国家层面的政策，私人小业务的具体监管是由各地市负责，我们需要对具体问题进行咨询的话找南京等地市交通部",
+   "cited_hits": [],
+   "cited_missing": [
+    "网络预约出租汽车经营服务管理暂行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "379221",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=379221&sysid=105",
+   "question": "连镇铁路南延\n您好 我想问下连镇铁路南延 现在进行到什么步骤了",
+   "cited_hits": [],
+   "cited_missing": [
+    "中长期铁路网规划（2016-2030年）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "377745",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=377745&sysid=105",
+   "question": "盐宜铁路\n请问盐宜铁路过江通道方案是否稳定，国网接轨意见是否已经上报。这个项目2024能否实质开工。谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "中长期铁路网规划",
+    "长江三角洲地区多层次轨道交通规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "375135",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=375135&sysid=105",
+   "question": "关于非营运性质的私家车在滴滴出行APP接取顺风车订单的问题\n您好，我近期在滴滴APP注册了顺风车车主身份，拟接取跨城同行订单，但在互联网上看到有车主被运管扣留车辆并处罚金的情况，想咨询贵厅，在江苏省内该行为是否合规，是否只要满足车主自身出行",
+   "cited_hits": [],
+   "cited_missing": [
+    "网络预约出租汽车经营服务管理暂行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "374729",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=374729&sysid=105",
+   "question": "有关公路工程施工所需安全生产考核合格证书等级的问题\n领导您好！咨询业务问题如下：       公路工程施工单位现场项目经理部，同时设有安全生产副经理和安全部长，请问安全部长需要安全生产考核合格证书B证还是C证？",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省公路水运工程施工企业主要负责人和安全生产管理人员考核管理细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "374031",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=374031&sysid=105",
+   "question": "高速管理部门向司机收取代清理费是否合理，有无依据\n货车司机在高速公路行驶时，存在抛洒滴漏现象。司机在交通执法大队接受行政处理处罚后，是否需要向高速管理部门支付道路抛洒代清理费用？是否合法？有无依据？请尽快回复，谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省高速公路条例",
+    "江苏省公路赔（补）偿收费标准"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-jtyst",
+   "id": "372250",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=372250&sysid=105",
+   "question": "盐宜铁路\n我想问下盐宜铁路其他段落什么时候能上报可研，可研批复等，下阶段的工作。谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省沿江城市群城际铁路网建设规划（2019-2025年）",
+    "长江三角洲地区多层次轨道交通规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "371064",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=371064&sysid=105",
+   "question": "各位领导您好，我想请问一下关于专职安全员配备比例的问题。应该\n各位领导您好，我想请问一下关于专职安全员配备比例的问题。应该依照江苏省文件的合同额配备还是应该按照交通运输部文件的年产值来配备？江苏省交通运输厅工程质量监督局16年印发的《关于印",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发<江苏省公路水运工程施工企业安全责任清单><江苏省公路水运工程监理单位安全责任清单>的通知",
+    "公路水运工程安全生产监督管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "370377",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=370377&sysid=105",
+   "question": "江苏省高速公路网规划修改\n江苏省高速公路网规划正常几次修改一次？下一次修改大概在什么时候？",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省高速公路网规划（2017-2035年）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "370355",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=370355&sysid=105",
+   "question": "盐宜铁路\n今天看到省铁路办公室盐宜隧道相关招标信息，是不是说明桥隧论证结束，放弃了公铁大桥的方案呢。盐宜隧道是高铁专用通道还是复合型的呢，后面新长铁路过江是打算怎么解决呢。谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "中长期铁路网规划",
+    "长江三角洲地区多层次轨道交通规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "369823",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=369823&sysid=105",
+   "question": "公路水运工程施工单位相关问题\n你好，首先祝你们双节快乐！现我向你们咨询下列问题：1、公路水运工程施工单位的归口单位，是归交通运输部门管理还是归住建部门管理。2、公路水运工程施工单位新进人员安全教育培训学时有什么要求，应保证不低于多少，省交通",
+   "cited_hits": [],
+   "cited_missing": [
+    "公路水运工程安全生产监督管理办法",
+    "江苏省交通建设工程质量和安全生产监督管理条例",
+    "江苏省公路水运工程平安工地建设管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-jtyst",
+   "id": "368642",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=368642&sysid=105",
+   "question": "建议淮新高铁沭阳站与已有沭阳火车站合并\n建议淮新高铁沭阳站与已有沭阳火车站合并，既节省国家资金，也方便群众乘车。沭阳火车站北侧东西方向的苏州路（双向8车道）连接东部和西部乡镇（街道），北侧南北方向的天津路连接北部乡镇（街道），东侧的北京路向",
+   "cited_hits": [],
+   "cited_missing": [
+    "长三角多层次轨道交通规划",
+    "2023-2025全省交通重点项目前期工作三年滚动计划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "368217",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=368217&sysid=105",
+   "question": "想咨询交通工程施工相关问题\n领导您好！咨询业务问题如下：1、交通工程施工单位现场安全负责人是否必须具备安全生产考核合格证书B类？2、具有省住建厅颁发的建筑施工企业项目负责人安全生产考核合格证书，能否担任施工单位在交通工程施工现场的安全负责人",
+   "cited_hits": [],
+   "cited_missing": [
+    "公路水运工程安全生产监督管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-jtyst",
+   "id": "368181",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=368181&sysid=105",
+   "question": "咨询沭阳高铁问题\n领导您好，请问淮新高铁最新进展到哪里了？什么时候能开工建设呀",
+   "cited_hits": [],
+   "cited_missing": [
+    "长三角多层次轨道交通规划",
+    "2023-2025全省交通重点项目前期工作三年滚动计划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "367332",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=367332&sysid=105",
+   "question": "请问《江苏省高速公路监理标准化指南》在哪里可以获取\n请问《江苏省高速公路监理标准化指南》在哪里可以获取",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省高速公路监理标准化指南"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "366047",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=366047&sysid=105",
+   "question": "盐宜铁路\n今年开工盐宜铁路已经不抱任何希望了，因为它根本就不在今年省重大开工项目清单里。我想问的是到目前为止这条铁路的前期工作已经做到哪里了，可研批复今年可不可以。大桥的前期工作如何。",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省沿江城市群城际铁路网建设规划（2019-2025年）",
+    "长江三角洲地区多层次轨道交通规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "365344",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=365344&sysid=105",
+   "question": "农村公路建设中的改建与农村公路养护中的改建有何不同\n交通部颁布的《农村公路建设管理办法》与《农村公路养护管理办法》中提到农村公路建设项目有新建、改建和扩建之分，农村公路养护工程分小修保养、中修、大修、改建，那么，农村公路建设项目中的改建与农",
+   "cited_hits": [],
+   "cited_missing": [
+    "农村公路建设管理办法",
+    "农村公路养护管理办法",
+    "农村公路养护技术规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "363818",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=363818&sysid=105",
+   "question": "跨省抢险救灾车辆通行江苏高速公路能否免费\n1.跨省抢险救灾车辆通行江苏高速公路能否免费？2.如能免费个人或社会组织执行抢险救灾任务能否在江苏省交通运输厅网站进行申报？3.如能申报，网上申报入口在哪里？",
+   "cited_hits": [],
+   "cited_missing": [
+    "交通运输部 应急管理部关于做好社会力量车辆跨省抢险救灾公路通行服务保障工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "361991",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=361991&sysid=105",
+   "question": "请问宁宣高铁今年能开工吗?\n尊敬的交通厅领导:宁宣高铁建设已经报道了很久,但迟迟未开工建设.请问我省今年能开工建设吗,南京市民坐宁宣高铁去黄山旅游还需要等待多久?谢谢!",
+   "cited_hits": [],
+   "cited_missing": [
+    "长江三角洲地区多层次轨道交通规划",
+    "2023-2025年全省交通重点项目前期工作滚动推进计划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "359072",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=359072&sysid=105",
+   "question": "江苏省一般农村公路立项审批和施工许可办理问题？\n落实国家发展改革委等三部门《关于村庄建设项目施行简易审批的指导意见》有关要求，对于符合按照固定资产投资管理的小型村庄建设项目中农村公路项目，优化审批程序、简化报批内容、改进审批方式，施行简易审",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省农村公路建设管理实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "358365",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=358365&sysid=105",
+   "question": "盐宜铁路公铁大桥\n作为盐宜铁路过江通道的设计方已经开始为相关工作招标，明确说的是公铁大桥还有就是悬索桥。我就想问问作为官方什么时候可以公布桥梁方案。谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省沿江城市群城际铁路网建设规划（2019-2025年）",
+    "长江三角洲地区多层次轨道交通规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "357911",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=357911&sysid=105",
+   "question": "盐泰锡常宜铁路\n尊敬的各位领导，请问盐泰锡常宜铁路已经规划六年有余，跨江大桥是值得深度研究的，但为何其他路线可研批复一直不能批复下来，比如江北盐城至泰州段不论以后走泰兴常州还是靖江江阴，那么盐城到泰州城区这一路段都是板上钉钉的事情，为何一直",
+   "cited_hits": [],
+   "cited_missing": [
+    "长江三角洲地区多层次轨道交通规划",
+    "地方审批铁路与国家铁路网接轨管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "357841",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=357841&sysid=105",
+   "question": "江苏省 重要农村公路建设项目和 一般农村公路建设项目划分标准\n江苏省 重要农村公路建设项目和 一般农村公路建设项目划分标准有没有最新的规范性文件规定，苏交公〔2003〕第104号  江苏省农村公路建设管理实施细则，已经废止，问最新的划分标准",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省农村公路条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "357602",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=357602&sysid=105",
+   "question": "关于内河V级航道上新建码头设计船型选择的咨询\n目前，设计船型选择的依据规范有：①《内河通航标准》（GB50139-2014），②《内河过闸运输船舶标准船型主尺度系列第2部分：京杭运河、淮河水系》（GB38030.2-2019）,③《平原水网",
+   "cited_hits": [],
+   "cited_missing": [
+    "平原水网地区闸控航道通航标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "357565",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=357565&sysid=105",
+   "question": "苏锡常城际铁路\n苏锡常城际铁路太仓先导段已经启动，然而江苏境内的常州-无锡-苏州主线，除了初期规划曝光时的消息，期间还经历了《苏锡常都市快线运营筹备五年行动方案》招标终止，至今已有一年以上无新的消息。请问目前这条线路是否还在推进过程中吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "长江三角洲地区多层次轨道交通规划",
+    "2023－2025年全省交通重点项目前期工作三年滚动推进计划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "355456",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=355456&sysid=105",
+   "question": "有无关于通靖铁路的消息（例如开工竣工日期，线路走向等）\n有无关于通靖铁路的消息（例如开工竣工日期，线路走向等）",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省“十四五”铁路发展暨中长期路网布局规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "355454",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=355454&sysid=105",
+   "question": "盐宜铁路什么时候开工，竣工\n盐宜铁路什么时候开工，竣工",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省沿江城市群城际铁路网建设规划（2019-2025年）",
+    "长江三角洲地区多层次轨道交通规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "354988",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=354988&sysid=105",
+   "question": "关于深化危险货物运输安全生产专项整治工作的意见\n你好，关于《省政府办公厅关于深化危险货物运输安全生产专项整治工作的意见》（苏政办发〔2021〕32号）,请问现在此文件是否有效？如果有效，此文件在哪里能查询到？",
+   "cited_hits": [],
+   "cited_missing": [
+    "省政府办公厅关于深化危险货物运输安全生产专项整治工作的意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "354847",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=354847&sysid=105",
+   "question": "常泰铁路、盐宜铁路\n在江阴第三通道尚未确定的情况下，为了加快盐宜铁路的进度，能否考虑先借助常泰铁路过江，并加快常泰铁路的批复？为了解决泰州高铁通行，盐宜铁路能否先批复盐城至靖江的江北陆地段？江阴第三通道是否考虑隧道方案？谢谢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "长江三角洲地区多层次轨道交通规划",
+    "地方审批铁路与国家铁路网接轨管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "353911",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=353911&sysid=105",
+   "question": "被同一单位持股的两家公司能否参加同一标段投标\n中华人民共和国招标投标法实施条例》第三十四条规定，单位负责人为同一人或者存在控股、管理关系的不同单位，不得参加同一标段投标或者未划分标段的同一招标项目投标。现我单位为A公司，（B公司参股49%，",
+   "cited_hits": [],
+   "cited_missing": [
+    "中华人民共和国招标投标实施条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-jtyst",
+   "id": "353171",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=353171&sysid=105",
+   "question": "盐宜铁路全线是否稳定、接轨意见最新进展、江阴站至惠山站段初设\n尊敬的领导，您好！来信咨询如下:盐宜铁路全线(含陆域段＋过江段)是否已经稳定? 盐宜铁路与国铁网接轨意见具体进展如何？江阴站至惠山站段能否提前组织初步设计评审?谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省沿江城市群城际铁路网建设规划（2019-2025年）",
+    "长江三角洲地区多层次轨道交通规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "352551",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=352551&sysid=105",
+   "question": "淮新高铁具体开工时间以及是否在沭阳设站\n领导，您好！苏北沭阳县是江苏省第一人口大县，全国第二大人口大县，也是全国经济发展百强县，户籍人口198万，拥有国家级经济技术开发区，外省客商、务工人员以及沭阳籍人员往来沭阳流动量大，迫切需要高铁。目前",
+   "cited_hits": [],
+   "cited_missing": [
+    "长江三角洲地区多层次轨道交通规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "349442",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=349442&sysid=105",
+   "question": "《淮安市公路工程试验检测仪器设备检定/校准确认工作服务手册》\n你好，想要一下贵网站2021年7月份发布的资讯里面关于《淮安市公路工程试验检测仪器设备检定/校准确认工作服务手册》这个电子版文件，谢谢了，在网上搜不到，就试试问问有没有。",
+   "cited_hits": [],
+   "cited_missing": [
+    "淮安市公路工程试验检测仪器设备检定/校准确认工作服务手册"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "348334",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=348334&sysid=105",
+   "question": "公路工程安全管理人员配备\n交通厅领导好！      我想咨询一个问题，《公路水运工程安全生产监督管理办法》（交通运输部令2017年第25号）第十四条规定：施工单位应当根据工程施工作业特点、安全风险以及施工组织难度，按照年度施工产值配备专职安",
+   "cited_hits": [],
+   "cited_missing": [
+    "公路水运工程施工单位主要负责人、项目负责人和专职安全生产管理人员安全生产考核管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-jtyst",
+   "id": "348088",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=348088&sysid=105",
+   "question": "分包安全管理\n领导好！      在《建筑施工企业安全生产管理机构设置及专职安全生产管理人员配备办法》（建质[2008]91号）对分包单位的安全生产专职管理人员的配备（数量）有明确的要求，我想咨询一下，在交通部或是我们江苏省交通厅对公路工程",
+   "cited_hits": [],
+   "cited_missing": [
+    "公路水运工程安全生产监督管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-jtyst",
+   "id": "347986",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=347986&sysid=105",
+   "question": "苏交质〔2016〕16号文件是否有效\n领导好！        我咨询一下问题，就是《交通运输部关于印发公路水运工程施工企业主要负责人和安全生产管理人员考核管理办法的通知》（交安监发〔2016〕65号），本办法自2016年4月8日起施行，有效",
+   "cited_hits": [],
+   "cited_missing": [
+    "省交通运输厅关于印发江苏省公路水运工程施工企业主要负责人和安全生产管理人员考核管理细则的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "346841",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=346841&sysid=105",
+   "question": "盐宜铁路\n盐宜铁路还有哪些地方线路没有稳定，接轨报告什么时候才能上报批复。最近有什么新进展关于这条铁路。关于过江通道的桥隧论证是否已经结束，过江通道方案是否已经稳定。希望官方能适时发布一些关于这条铁路的动态。谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省沿江城市群城际铁路网建设规划（2019-2025年）",
+    "长江三角洲地区多层次轨道交通规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "341832",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=341832&sysid=105",
+   "question": "常泰铁路、常泰两地城际公交\n常泰铁路进展如何？待常泰长江大桥建成后，常州与泰兴、泰州之间的跨城城际公交将如何规划并实施？谢谢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "长江三角洲地区多层次轨道交通规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "340897",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=340897&sysid=105",
+   "question": "办证\n我想问下，在苏州跑滴滴需要办什么证件，在什么地方办谢谢了",
+   "cited_hits": [],
+   "cited_missing": [
+    "网络预约出租汽车驾驶员从业资格证",
+    "网络预约出租汽车道路运输证",
+    "网络预约出租汽车驾驶员从业资格证",
+    "网络预约出租汽车运输证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "339939",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=339939&sysid=105",
+   "question": "淮新高铁\n淮新高铁什么时间进行预可研审查？",
+   "cited_hits": [],
+   "cited_missing": [
+    "长江三角洲地区多层次轨道交通规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "336936",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=336936&sysid=105",
+   "question": "淮新高铁\n请问淮新高铁目前进展到哪一步了？预可研审查大概什么时间进行？淮新高铁2023是否有具体工作计划安排？",
+   "cited_hits": [],
+   "cited_missing": [
+    "长江三角洲地区多层次轨道交通规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "336285",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=336285&sysid=105",
+   "question": "盐泰锡常宜铁路\n盐泰锡常宜铁路进展如何？何时批复？",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省沿江城市群城际铁路网建设规划（ 2019-2025 年）",
+    "长江三角洲地区多层次轨道交通规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "335677",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=335677&sysid=105",
+   "question": "苏畅杯的级别\n苏畅杯属于哪一级优质工程，有没有相关文件说明",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏交通优质工程评审办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "334166",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=334166&sysid=105",
+   "question": "盐宜\n领导您好:这条盐宜铁路为啥进展这么缓慢，六月份的可研批复到现在没动静，本应早前做好接轨国铁的报告，竟然是把可研批复的前置要件办理完成才来招标。我想问这是什么原因造成的，是某些部门的沟通跟进效率太低了吗？还有关于初步设计预审也是，一直都",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省沿江城市群城际铁路网建设规划（2019-2025年）",
+    "长江三角洲地区多层次轨道交通规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "333088",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=333088&sysid=105",
+   "question": "咨询目前江苏省认定的水路旅客运输企业安全生产标准化考评机构\n咨询目前江苏省认定的水路旅客运输企业安全生产标准化二级考评机构及其相关收费标准",
+   "cited_hits": [],
+   "cited_missing": [
+    "交通运输企业安全生产标准化建设评价管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "328968",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=328968&sysid=105",
+   "question": "铁路\n新时代中长期铁路网规划（2035）怎么还没有印发是停了还是怎么说？",
+   "cited_hits": [],
+   "cited_missing": [
+    "新时代中长期铁路网规划（ 2035 ）",
+    "中长期铁路网规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "328335",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=328335&sysid=105",
+   "question": "盐宜铁路\n领导您好：年初省制定的几条开工的项目，目前为止就只有盐宜铁路进展缓慢，也可以说是非常缓慢。这个到底是什么原因造成的呢，现在的线路有没有定下来呢，还会有变化吗。今年还有开工的机会吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省沿江城市群城际铁路网建设规划（ 2019-2025 年）",
+    "长江三角洲地区多层次轨道交通规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "327036",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=327036&sysid=105",
+   "question": "水运工程项目安全生产费的问题\n《江苏省公路水运工程安全生产费用管理办法》（以下简称《办法》）于2012年12月18日发布，并将于2013年2月1日起正式实施，其中约定安全生产费如下：“结合本省实际情况，我省公路水运安全生产费用比例确定原则如",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省公路水运工程安全生产费用管理办法",
+    "水运建设工程概算预算编制规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "326763",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=326763&sysid=105",
+   "question": "海泰城际的进展问题\n众所瞩目的北沿江高铁（正线）即将全线开工。海安市很遗憾的与北沿江高铁失之交臂。前年省里曾经规划一条定位为北沿江联络线性质的泰州至海安城际铁路，去年变更为泰州经海安至如东城际铁路。据悉目前海安市有意从盐宜高铁接入海泰城际。",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省“十四五”铁路发展暨中长期路网布局规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "326050",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=326050&sysid=105",
+   "question": "接轨报告\n领导您好:我记得上次咨询回复是盐泰锡常宜接轨报告去年已经上报到上海铁路局，但10.14号招标网关于这条铁路的接轨报告第三方咨询才开始招标。我想问下这个和以前上报到的报告有什么区别。还有就是江阴第三通道是什么进展。谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省沿江城市群城际铁路网建设规划（ 2019-2025 年）",
+    "长江三角洲地区多层次轨道交通规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "323933",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=323933&sysid=105",
+   "question": "您好，扬镇宁马高铁江苏段什么时间动工\n您好，扬镇宁马高铁江苏段什么时间动工",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省沿江城市群城际铁路建设规划（2019-2025）",
+    "长江三角洲地区多层次轨道交通规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "323209",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=323209&sysid=105",
+   "question": "盐泰锡常宜\n按照省时序本来6月份批复的盐泰锡常宜剩余陆域段，可这九月份马上结束了，省发改委还没有收到你们报送的可研报告。大家都能看出来很明显这条铁路的进度就天天停留在领导们大会小会上。请问这个可研报告批复前置要件到底卡在哪里了呢？谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省沿江城市群城际铁路网建设规划（ 2019-2025 年）",
+    "长江三角洲地区多层次轨道交通规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "319393",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=319393&sysid=105",
+   "question": "江阴第三通道\n请问，我在你们那个2022重点工程清单里没有看到关于江阴第三通道的任何东西。别的通道都有大概开工时间。还是说你们写的盐泰锡常宜铁路开工已经把第三通道包括在里面了呢？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省沿江城市群城际铁路网建设规划（ 2019-2025 年）",
+    "长江三角洲地区多层次轨道交通规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "318334",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=318334&sysid=105",
+   "question": "关于在全面推行农村公路“路长制”的实施意见\n您好：       我想咨询一下贵省《关于在全省全面推行农村公路“路长制”的通知》这个文件正式印发了吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "省农村公路“路长制“领导小组关于印发全面推行农村公路”路长制“的实施意见的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "316436",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=316436&sysid=105",
+   "question": "咨询204国道东台站收费事宜\n1.请问204国道东台收费站的收费期限到什么时候？2.目前纯电动汽车通行该收费站时有无优惠？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省交通运输厅省财政厅省物价局关于同意204国道东台收费站开征车辆通行费的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "313125",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=313125&sysid=105",
+   "question": "公路全挖出旧路面定额\n一、公路2018定额，2-3-1全部挖除旧路面中：1、机械清挖，2-3-1-4挖掘机挖除整体路面，是否含装车费用？是否综合考虑沥青混凝土、水泥混凝土路面？2、机械清挖，2-3-1-7破碎机挖清水混凝土，是否为破碎费用？",
+   "cited_hits": [],
+   "cited_missing": [
+    "公路工程建设项目概算预算编制办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "312357",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=312357&sysid=105",
+   "question": "港口靠泊\n港口经营许可证核准1万吨级泊位是否可以靠泊总载重吨位1.5万吨的空船或者总载重吨1.5万吨的船舶通过减载船货总吨位己不足1万吨是否可以靠泊核准的1万吨级码头泊位",
+   "cited_hits": [],
+   "cited_missing": [
+    "沿海码头靠泊能力管理规定",
+    "沿海码头靠泊能力管理规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "309256",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=309256&sysid=105",
+   "question": "常泰铁路、常泰大桥\n常泰铁路进展如何？常泰长江大桥公路过江收费标准是怎么规定的？何时出台？",
+   "cited_hits": [],
+   "cited_missing": [
+    "长江三角洲地区多层次轨道交通规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "307983",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=307983&sysid=105",
+   "question": "盐靖锡宜高铁实时近况\n世人对盐泰锡常宜高铁高度关注，江苏人民更甚，可谓亿众瞩目。近闻，该线路进行完善优化，北达青岛，南入杭州，中接无锡站，咨询是否真的如此？直与无锡站相接，此举符合绝大多数的乘客利益，利国利民！同时，希望加快该线路的建设，早",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省沿江城市群城际铁路网建设规划（ 2019-2025 年）",
+    "长江三角洲地区多层次轨道交通规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "307545",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=307545&sysid=105",
+   "question": "盐宜铁路及盐宜铁路过江通道\n尊敬的领导，您好！来信咨询盐宜铁路初步设计前置要件办理情况如何？计划于2022年几月份进行初步设计评审? 盐宜铁路过江通道进展如何？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省沿江城市群城际铁路网建设规划（ 2019-2025 年）",
+    "长江三角洲地区多层次轨道交通规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "306182",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=306182&sysid=105",
+   "question": "残疾人免费乘车\n我想问一下根据中华人民共和国残疾人保障法和江苏省残疾人保障 我有残疾证能不能免费乘坐公交车（泰州市）",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省残疾人保障条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-jtyst",
+   "id": "304941",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=304941&sysid=105",
+   "question": "道路运输经营许可证\n道路运输经营许可证2022年7月29日到期，换证需要哪些材料，去哪里办理？南京的",
+   "cited_hits": [],
+   "cited_missing": [
+    "道路运输经营许可证",
+    "营业执照"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "303620",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=303620&sysid=105",
+   "question": "盐泰锡常宜铁路咨询\n家在江苏泰州靖江，想咨询下盐泰锡常宜铁路最新进展情况。该铁路计划已久，去年还有人现场勘察，转眼半年多时间过去了，望穿秋水，没有半点进展和消息。想咨询下盐泰锡常宜铁路，尤其是靖江段的具体设计、拆迁范围和时间、以及动工时间等",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省沿江城市群城际铁路网建设规划（ 2019-2025 年）",
+    "长江三角洲地区多层次轨道交通规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "295741",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=295741&sysid=105",
+   "question": "《江苏省普通国省道管理办法》相关问题咨询\n《江苏省普通国省道管理办法》第十五条 是关于应当经省交通运输主管部门许可的事项规定，其中第一款内容为：因修建铁路、机场、供电、水利、通信等建设工程需要使国省道改线的。这里的改线是否指因修建铁路、机场",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省普通国省道管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-jtyst",
+   "id": "292155",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=292155&sysid=105",
+   "question": "江苏省高速公路监理标准化指南在哪里可以获取\n如题，江苏省高速公路监理标准化指南在哪里可以获取",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省高速公路监理标准化指南"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "291691",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=291691&sysid=105",
+   "question": "道路运输类注册安全工程师继续教育\n本人于2019年11月取得道路运输安全类中级注册安全工程师，按规定应接受继续教育。请问：1、此类证的继续教育由哪个部门或单位组织？2、在哪里可以获取教育培训信息？",
+   "cited_hits": [],
+   "cited_missing": [
+    "注册安全工程师职业资格制度规定"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "js-jtyst",
+   "id": "466464",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=466464&sysid=105",
+   "question": "关于明确项目安全负责人和技术负责人是否需要B证的问题\n根据2024年《交通运输部办公厅关于做好〈交通运输工程施工单位主要负责人、项目负责人和专职安全生产管理人员安全生产考核管理办法〉实施工作的通知》文件中安全生产考核工作有关要求，施工单位主",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "451856",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=451856&sysid=105",
+   "question": "安全措施费计提\n您好，我想咨询一下有关一线作业人员安全培训费用计提的问题，在苏交规【2025】1号文中，附表2安全生产费用计量清单，102-3-6-2安全生产教育培训子目中，一线工人安全教育培训费用是按（人.次）为单位的，问题1：这里的单价",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-jtyst",
+   "id": "451298",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=451298&sysid=105",
+   "question": "交安B证查询\n个人哪里查询交安B证考试是否通过。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "449307",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=449307&sysid=105",
+   "question": "请问现在江苏省交安B证在哪个网址可以查询?\n请问现在江苏省交安B证在哪个网址可以查询?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "439772",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=439772&sysid=105",
+   "question": "岸线批复的咨询\n尊敬的省领导好，关于《江苏省水路交通运输条例》第十七条中在港口总体规划区内建设港口设施需要使用港口岸线的，应当在项目立项前按照项目管理权限向有关交通运输主管部门提升书面申请，说明港口岸线的使用期限、范围、功能等事项，并按照下",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "437568",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=437568&sysid=105",
+   "question": "货车报废补贴咨询\n你好，本人名下有一辆国四轻型普通货车，现想申请报废，请问有报废补贴或者以旧换新补贴么",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "433073",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=433073&sysid=105",
+   "question": "关于机动车驾驶员培训经营备案\n咨询机动车驾驶员培训管理规定第二章第十条第七款中“租用教练场地应持出租方土地使用证明“，其中土地使用证明具体是指哪些内容？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "js-jtyst",
+   "id": "431893",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=431893&sysid=105",
+   "question": "公共资源交易评标专家入库申请与注册建造师注册单位有何关系\n本人刚申请公共资源交易评标专家，上传文件审核时说建造师注册单位与原工作单位不一致。本人是退休后才转注册单位的，退休前几年一直未注册，因为担心社保问题。退休了，没有社保问题才在另外单位",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "430523",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=430523&sysid=105",
+   "question": "江苏省公路水运施工企业安全生产管理人员证书如何查询？\n如题，江苏省公路水运施工企业安全生产管理人员证书如何查询？网址是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "430348",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=430348&sysid=105",
+   "question": "江苏省交通运输安全员B证在哪里查询？\n江苏省交通运输安全员B证在哪里查询？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "428505",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=428505&sysid=105",
+   "question": "钢材指导价中钢板包含哪些类型钢板？\n钢材指导价中钢板是否含桥梁用钢板？桥梁用q235B、Q345qD桥梁用钢板2023-2025年每月含税价格是多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "424910",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=424910&sysid=105",
+   "question": "怎么查询货车高速过路费\n怎么才能查到货车高速过路费的详细收费标准，每条路是怎么收费的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "423941",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=423941&sysid=105",
+   "question": "公路项目路基工程中的土资源是否属于主要材料？\n我方为总承包单位，按照《公路工程施工分包管理办法》以及《江苏省公路水运施工分包管理实施细则（修订草案）》，可以将公路工程路基施工以劳务合作形式给队伍，为了控制质量，路基施工中石灰由我方提供，但请",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "422468",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=422468&sysid=105",
+   "question": "交安证书跨省转移原考核单位盖章便捷方式咨询\n想向贵厅咨询下，本人离职后需要把江苏交安C及交安B证转移到浙江的单位，浙江交管中心让填写一份交通运输工程施工单位安管人员考核合格证书受聘单位变更申请表，其中有一项需原考核部门意见（公章)，需要原考",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "417761",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=417761&sysid=105",
+   "question": "三类人员考核证书\n三类人员考核证书在“从业人员”一栏为什么不能显示？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "416945",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=416945&sysid=105",
+   "question": "咨询公路养护作业单位资质申报问题\n请问申请隧道养护资质的条件中企业业绩中：公路隧道土建结构养护工程≥6，这个6是指养护的隧道个数，还是同一个隧道签订多次合同的个数？比如：同一个隧道近五年签订6次合同，这个养护工程是算1座还是6座。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "415801",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=415801&sysid=105",
+   "question": "江苏省二级造价师（交通运输专业-水运工程类别）如何申请注册\n2024年新考取的江苏省二级造价师（交通运输专业-水运工程类别）如何申请注册",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "415622",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=415622&sysid=105",
+   "question": "外省交安B证转省内企业\n请问外省交安B证转入到江苏需要什么材料，在哪里提交呢，需要线下提交材料吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "415072",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=415072&sysid=105",
+   "question": "江苏省公路水运施工企业安全管理人员查询\n领导，你好！现在交通运输部公路水运施工企业安全管理人员系统怎么一直进不去啊1现在我交安b证需要调转到外省怎么操作啊？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "414771",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=414771&sysid=105",
+   "question": "河南交安B转往江苏省内\n现在河南原企业已经调出省，然后江苏省内需要个人或者企业需要在哪一个网址或者线下窗口办理转入江苏省内",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "414424",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=414424&sysid=105",
+   "question": "公路水运工程施工企业主要负责人和安全生产管理人员证书下载\n去年参加并通过了交通运输部公路水运工程施工企业主要负责人和安全生产管理人员考试，但是之后http://219.143.235.78:8080/网页就无法打开    证书也没地方下载",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "408060",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=408060&sysid=105",
+   "question": "交安B证转往外省\n交通运输厅公路水运工程施工企业主要负责人和安全生产管理人员信息管理系统不能进行操作，请问交安B证转出到江苏到浙江需要什么材料，去哪里办理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "407991",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=407991&sysid=105",
+   "question": "工程材料信息价在哪看\n工程材料信息价在哪个入口",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "399662",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=399662&sysid=105",
+   "question": "公路水运三类人员变更\n请问公路水运三类人员现在变更工作单位怎么申请操作？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "396243",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=396243&sysid=105",
+   "question": "交安b变更查询\n因更换工作单位，先需将在江苏的交安b证书转入到浙江，以由原单位提请了变更申请，请问提交申请后几个工作日内可以进行审核公示，公示结果如何查询？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "393410",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=393410&sysid=105",
+   "question": "南京市提供私人小客车合乘（顺风车拼车）信息分享平台需要备案吗\n您好，我公司做了一个私人小客车顺风车拼车信息分享的平台，请问提供这种服务的平台需要到本市交通委备案吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "393125",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=393125&sysid=105",
+   "question": "你好，请问江苏省交安B线下调转外省，原审核部门盖章应当联系谁\n交安B 从江苏线下调转到 内蒙，内蒙要求原审核部门盖章，这个盖章应该联系谁",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "389579",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=389579&sysid=105",
+   "question": "关于内河危险品船舶过闸的问题\n请问对于内河航道，危险品船舶通过船闸时是单独过闸还是可以跟其他船舶一起过闸？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "386343",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=386343&sysid=105",
+   "question": "舾装码头竣工验收后是否可以申请港口经营许可证\n我公司有一舾装码头，舾装码头竣工验收后是否可以申请港口经营许可证或者其他港口运行的证明材料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "386064",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=386064&sysid=105",
+   "question": "江苏省交通工程材料运杂费计算问题\n1、江苏省交通信息指导价中的南京市地材和主材到岸价是否指的是南京地区范围内的包含溧水、高淳等的价格？2、因发布的江苏省各市交通建设工程指导价备注说明不含“卸载费、运杂费等一切费用”。现在项目在溧水，（1）请",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "382712",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=382712&sysid=105",
+   "question": "苏畅杯属于省部级奖项么？\n请问苏畅杯属于省部级奖项么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "378148",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=378148&sysid=105",
+   "question": "合新高铁泗县-宿迁段何时开工？\n吴厅长：你好！合新高铁安徽段2024年底基本建成，2025年即可运营。但合新高铁泗县-宿迁段50多公里至今没有开工？请问何时开工？谢谢！2024.1.11",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "377979",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=377979&sysid=105",
+   "question": "用地预审\n今天看到省铁路办公室的一个关于盐泰锡常宜铁路盐城到靖江段的重新预审招标文件。我想咨询一下本来已经批复了的文件是什么原因到现在才开始招标重新预审呢。去年一年咨询都说的是可研前置要件已基本完成，怎么突然用出来个重新预审呢？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "373325",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=373325&sysid=105",
+   "question": "季市高速出口什么时候通车？\n季市高速出口什么时候通车？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "373115",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=373115&sysid=105",
+   "question": "住建发的工程监理资质证书，工程监理综合资质是否可以承水运工程\n住建发的工程监理资质证书，资质等级“工程监理综合资质”是否可以承接港口码头建设项目监理工作。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "370568",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=370568&sysid=105",
+   "question": "铁路如皋南站能否开通 如皋南站（如皋站）--南京南站班次\n交通厅领导下午好！       随着南沿江高铁9月28日的开通给苏南的交通出行带来了极大的方便，为苏南的腾飞又插上一对翅膀，给苏南带来了极大的红利。南沿江高铁的开通能否给南通及南通以",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "369915",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=369915&sysid=105",
+   "question": "在内河驾驶冲锋舟是否需要驾驶证\n在太湖水域驾驶5米以下的冲锋舟（燃油船舶，驾驶员1人，乘做1人），是否需要驾驶证，如需要，请明确法律依据及所需考取何种类型的适任证书并在何地报名？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "367455",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=367455&sysid=105",
+   "question": "江苏省交通工程建设局文件 苏交建质（2022）29号文件\n您好，我在省厅网站上 找不到此文件，我想下载",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "366947",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=366947&sysid=105",
+   "question": "江苏省交通专业的二级造价师什么时候能注册呢\n江苏省交通专业的二级造价师什么时候能注册呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "361790",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=361790&sysid=105",
+   "question": "交通评标咨询\n请问交通厅系统招投标文件，出7位专家，建设单位出两位不是专家库的相关工程作人员去打分。可以不可以，有没有文件依据",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "360365",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=360365&sysid=105",
+   "question": "交安B证变更\n你好，我的交安B证注册在上一家单位，我现在在新的单位工作，我如何将那个交安B证注册到新的单位，该如何操作？流程是怎么样的？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "360165",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=360165&sysid=105",
+   "question": "江苏省公路水路建设市场信用信息服务系统无法访问\n江苏省公路水路建设市场信用信息服务系统无法访问，不知道是怎么回事？是网址更新了吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "359940",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=359940&sysid=105",
+   "question": "规范标准是否仍然使用\n领导您好，我想咨询一下《江苏省交通船闸水工建筑物、助航及附属设施维护工作标准》（试行）江苏省交通运输厅航道局2016年11月，这个工作标准现在还在使用吗？还是废止了？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "356369",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=356369&sysid=105",
+   "question": "材料价差调整-（造价咨询）\n我单位承接一公路工程，根据招标文件和合同的条款约定材料价差调整按照“苏交质[2008]38号”文件执行，我单位按照“苏交质[2008]38号”文件对材料价进行了调整。  经审计部分审核回复的意见为：我单位的混凝土",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "352749",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=352749&sysid=105",
+   "question": "宁盐高速和阜溧高速互通问题\n宁盐高速和建设中的阜溧高速（建兴段）是否有设互通？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "352462",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=352462&sysid=105",
+   "question": "交通工程安全管理人员三类人员（交安B、交安C）资格证考试报名\n交通工程安全管理人员三类人员（交安B、交安C）资格证考试报名多久可以审核通过",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "351317",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=351317&sysid=105",
+   "question": "退伍军人直接参加内河三副培训以及考试拿证的政策咨询\n中华人民共和国海事局在2021年11月10日发布了《中华人民共和国海事局关于退役军人参加船员适任培训和考试的通知》，想咨询一下这个通知的详细政策，是不是退役军人不用2年水上工作资历就可以直",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "349934",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=349934&sysid=105",
+   "question": "二级造价注册证书\n您好，我公司员工在交通职业资格网注册好了交通运输工程的二级造价师，能查到注册信息，请问纸质证书在哪里领取，或者电子证书在哪里下载？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "347479",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=347479&sysid=105",
+   "question": "整体挖除旧路面\n“整体挖除旧路面定额适用于自上而下整体挖除沥青混合料路面面层、稳定土（粒料类）基层、垫层或挖除沥青混合料路面面层、稳定土（粒料类）基层。挖除水泥混凝土路面的基层和垫层或仅挖除基层时按本定额乘以0.85的系数进行计算；挖除砂石",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "342833",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=342833&sysid=105",
+   "question": "南沿江城际铁路开通时间\n想咨询一下最新的南沿江城际铁路开通时间。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "340928",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=340928&sysid=105",
+   "question": "高速\n请问贵厅，徐州东绕城高速什么时候可以通车。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "337125",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=337125&sysid=105",
+   "question": "咨询江苏省公路水运工程施工企业信用评价事宜\n根据《江苏省公路水运工程施工企业信用评价实施细则》中关于信用评价等级为AA级的条件，包含基础条件和选择条件，其中选择条件中的1条为“考核年度有1个以上公路水运建设项目获 “扬子杯”或者国家优质工程",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "335713",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=335713&sysid=105",
+   "question": "滨淮高速淮安段（涟水境内）目前相关工作进展咨询\n滨淮高速盐城段已于2021年下半年开工建设，但一直没有看到淮安段项目推进情况，能否介绍一下淮安段项目进展。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "333644",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=333644&sysid=105",
+   "question": "无锡市官林镇革新路的道路等级\n请明确无锡市官林镇革新路（临近兴杨公路）的道路等级，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "332937",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=332937&sysid=105",
+   "question": "注册监理工程师注册\n注册监理工程师2022年10月19日申请初始出册，咨询下大概需要多长时间能通过初始注册完成？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "332065",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=332065&sysid=105",
+   "question": "请确认S204省道是否为二级公路，若不是，请明确属于那种等级\n请确认位于南京市溧水区和风镇沙塘庵村境内的S204省道是否为二级公路，若不是，请明确属于那种等级",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "332057",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=332057&sysid=105",
+   "question": "请确认无锡锡山区团结路是否为二级公路\n请确认位于无锡市锡山区锡北镇劲丰村境内的团结路是否为二级公路，若不是，请明确属于何种等级",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "332055",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=332055&sysid=105",
+   "question": "请确认常州武进G312国道是否为二级公路\n请确认位于常州市武进区横林镇北阳湖村境内的G312国道是否为二级公路，若不是，请明确属于何种等级",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "332053",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=332053&sysid=105",
+   "question": "请确认无锡市宜兴S263省道是否为二级公路\n请确认位于无锡市宜兴市官林镇钮家村境内的S263省道是否为二级公路，若不是，请明确属于何种等级",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "332051",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=332051&sysid=105",
+   "question": "请确认无锡市宜兴X208县道是否为二级公路\n请确认位于无锡市宜兴市官林镇钮家村境内的X208县道（官徐老线）是否为二级公路，若不是，请明确属于何种等级",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "332046",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=332046&sysid=105",
+   "question": "请确认无锡市宜兴临津荡公路是否为二级公路\n请确认位于无锡市宜兴市官林镇前城村境内的临津荡公路（四车道）是否为二级公路，若不是，请明确属于何种等级",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "332043",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=332043&sysid=105",
+   "question": "请确认无锡市宜兴兴杨公路是否为二级公路\n请确认位于无锡市宜兴市杨巷镇田左村境内的兴杨公路（大团河大桥段）是否为二级公路，若不是，请明确属于何种等级",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "332035",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=332035&sysid=105",
+   "question": "请确认无锡市宜兴X209县道是否为二级公路\n请确认位于无锡市宜兴市杨巷镇芳东村境内的X209县道是否为二级公路，若不是，请明确属于何种等级",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "331012",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=331012&sysid=105",
+   "question": "请确认S246省道是否为二级公路，若不是，请明确属于哪种等级\n请确认位于南京市溧水区晶桥街道孔家社区境内的S246省道是否为二级公路，若不是，请明确属于哪种等级",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "331010",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=331010&sysid=105",
+   "question": "请确认S204省道是否为二级公路，若不是，请明确属于哪种等级\n请确认位于南京市溧水区和风镇沙塘庵村境内的S204省道是否为二级公路，若不是，请明确属于哪种等级",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "330340",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=330340&sysid=105",
+   "question": "请确认S341省道是否为二级公路，若不是，请明确属于哪种等级\n请确认位于南京市溧水区洪蓝街道塘西社区境内的S341省道是否为二级公路，若不是，请明确属于那种等级",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "330321",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=330321&sysid=105",
+   "question": "请确认S239道是否为二级公路，若不是，请明确属于那种等级\n请确认位于常州市溧阳市上黄镇浒西村委境内的S239省道是否为二级公路，若不是，请明确属于那种等级",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "330320",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=330320&sysid=105",
+   "question": "请确认S241道是否为二级公路，若不是，请明确属于那种等级\n请确认位于常州市溧阳市别桥镇湖边村委境内的S241省道是否为二级公路，若不是，请明确属于那种等级",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "330319",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=330319&sysid=105",
+   "question": "请确认X001道是否为二级公路，若不是，请明确属于那种等级\n请确认位于常州市溧阳市竹箦镇前马村委境内的X001县道是否为二级公路，若不是，请明确属于那种等级",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "330318",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=330318&sysid=105",
+   "question": "请确认G104道是否为二级公路，若不是，请明确属于那种等级\n请确认位于常州市溧阳市南渡镇旧县村委境内的G104国道是否为二级公路，若不是，请明确属于那种等级",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "330317",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=330317&sysid=105",
+   "question": "请确认X002道是否为二级公路，若不是，请明确属于那种等级\n请确认位于常州市溧阳市上兴镇建新村委境内的X002县道是否为二级公路，若不是，请明确属于那种等级",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "330316",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=330316&sysid=105",
+   "question": "请确认S246省道是否为二级公路，若不是，请明确属于那种等级\n请确认位于南京市溧水区晶桥街道孔家社区境内的S246省道是否为二级公路，若不是，请明确属于那种等级",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "330314",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=330314&sysid=105",
+   "question": "请确认S204省道是否为二级公路，若不是，请明确属于那种等级\n位于南京市溧水区和风镇沙塘庵村境内的S204省道",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "330310",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=330310&sysid=105",
+   "question": "请确认以下2处公路是否为二级公路，若不是，请明确属于那种等级\n1.位于南京市溧水区石湫街道明觉社区境内的S341省道2.位于南京市溧水区洪蓝街道塘西社区境内的S341省道",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "321049",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=321049&sysid=105",
+   "question": "咨询：镇江铁路分布\n您好！我想咨询一下镇江现存在哪些已建、在建、规划建设的铁路。以及这些铁路中哪些可以用于货物运输，期待您的尽快回复，十分感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "318137",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=318137&sysid=105",
+   "question": "北沿江高铁过六合西是否停站进客\n看到新闻说北沿江已经批复，设置站点16座，其中没有六合西站，想咨询下之前有消息称北沿江和宁淮铁路并线六合西，那么北沿江六合西站是否会停站进客，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "316576",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=316576&sysid=105",
+   "question": "关于公路桥梁造价工程量计算规则\n目前钢箱梁在公路桥梁中应用广泛，但2018年公路标准招标文件中及公路预算定额中均为对钢箱梁计算规则规定，目前有个问题请教：图纸设计中的钢箱梁焊缝工程量（单位吨）是否计入钢箱梁中  谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "315709",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=315709&sysid=105",
+   "question": "新定额取费，借用老定额\n1、比如护栏钢管油漆破损需清洗刷漆，老路改造拆除平侧石，采用18招标文件、18编办及预算定额招标，18定额无上述施工内容，借用（2016营改增）江苏养护普通公路定额库时，人工费按老的文件（苏交质〔2008〕29号）还",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "315707",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=315707&sysid=105",
+   "question": "公路工程施工招标及定额问题咨询\n1、根据苏交（2019）年122号，“...扬尘污染防治措施费用可以在环境保护费中计列。”，我省有没有扬尘污染防治措施费参考费率？若扬尘污染防治费单独计列，施工环保费该如何列项以避免与扬尘污染防治措施费重复？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "313533",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=313533&sysid=105",
+   "question": "孩子在江苏省汽车技师学院上学3年后，征兵，学信网查不到\n孩子在扬州上的江苏省汽车技师学院客车驾驶和维修3＋3，上完三年，2002年7.26，征兵，人武部要学信网学籍证明，扬州学校开的文字证明，人武部不认可，又找学校开，学校回答没有学信网，请",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "308994",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=308994&sysid=105",
+   "question": "关于省级单位初级职称评定问题\n您好，我是河海大学设计研究院有限公司水运所的一名员工，今年应评定初级职称，根据以往前辈经验，我们专业职称评定应该是从交通厅这边来评定，但是没有找到相关的网址和通知。请问如果从水利口子评定的初级职称，后续职称的评",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "307480",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=307480&sysid=105",
+   "question": "关于江苏省高速公路招投标法规或管理办法或范文\n网站内查询搜索无江苏省高速公路管理办法或法规或范文，只有经营性公路建设项目投资人招标投标管理办法，但在中华人民共和国交通运输部网站内，是有公路工程建设项目招标投标管理办法（中华人民共和国交通运输",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "306975",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=306975&sysid=105",
+   "question": "驾校场地面积问题\n1.一类驾校的面积为7万平方，这7万平方是否可以用多块土地面积组成？2.三类驾校的面积为1万平方，这1万平方是否可以用2块土地组成？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "306521",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=306521&sysid=105",
+   "question": "收费站通行数据（宽、高）\n你好！我司是一家大件运输企业，现需要一份江苏省各个收费站车辆通行宽度和高度的数据。谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "304818",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=304818&sysid=105",
+   "question": "2022年度高级工程师资格条件\n2022年省专业技术人员职称（职业资格）工作领导小组印发《江苏省交通运输工程专业技术资格条件（试行）》第五章《高级工程师资格条件》中第十五条“学历、资历要求”中第4条“符合贯通条件的技能人才，获得高级技师（一",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "302943",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=302943&sysid=105",
+   "question": "关于江苏交通厅发布船证不符整改措施咨询\n江苏省交通厅通告上要求船舶船证相符，船证不符的船舶配合相关部门实施整改，请问要到哪个部门去申报整改呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "302801",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=302801&sysid=105",
+   "question": "文件\n请给我发一下这两个文件     《江苏省交通工程建设局高速公路工程设计 变更管理办法（2020 年修订版）》及《滨淮高速盐城段工程设计变更 管理实施细则》。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "302188",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=302188&sysid=105",
+   "question": "职称同级转评\n职称同级转评原职称还有用么？转评还需要答辩么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "301312",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=301312&sysid=105",
+   "question": "安全生产标准化年度审验审核情况无法查询\n交通部交通运输企业安全生产标准化建设信用信息管理系统平台已于2021年底关闭，什么时候启用，平台上报送的安全生产标准化年度审验审核情况无法查询，我公司道路经营许可证即将到期年审需要提供安全标准化证书年",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "301009",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=301009&sysid=105",
+   "question": "施工现场用表\n请问各位领导，公路工程施工，监理现场用表是否有统一格式标准？本网站搜索我只搜到了水运工程用表，是否兼用公路工程现场用表。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "300805",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=300805&sysid=105",
+   "question": "交通云APP注册问题\n你好，我单位法人是外国人，只有护照，没有中国身份证，现在在交通云APP上注册单位账号，注册不了，请问有什么办法可以解决吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "299172",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=299172&sysid=105",
+   "question": "2021年网站工作年度报表\n您好，请问贵单位网站的2021年网站工作年度报表发布了吗？能否提供网址链接给我？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "298556",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=298556&sysid=105",
+   "question": "关于大件运输车问题\n您好！请问大件运输车在手续齐全且合法的情况下，在节假日期间及节假日前一日是否可以上高速，有无相关文件规定，怎么查询。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "295779",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=295779&sysid=105",
+   "question": "宁盐高速扬州段开工时间何时确定？\n近日咨询扬州市交通运输厅，宁盐高速扬州段开工时间，工作人员回答，此项目为省管项目，开工时间未明确！这条高速自提出以来已有10年，光开工就喊了4年，全线被分成三段，东兴高速，宁盐高速，仪禄高速，且每段开工时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "293700",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=293700&sysid=105",
+   "question": "关于危大工程相关事宜咨询\n请问附表中需要专家论证的是危大工程吗？还是危险性较大分部分项工程中所涉及都是危大工程",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "291926",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=291926&sysid=105",
+   "question": "台儿庄到邳州(南线)客运线路应标注具体站点、车次、发车时间\n今天下午，江苏省运输厅部门打电话回复了有关邳州到台儿庄客运线路的问题。对此，本人深表感谢。       为了进一步方便出行，还请客运部门标注具体站点、车次、发车时间，最好能在百度地",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "291760",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=291760&sysid=105",
+   "question": "建议开通从邳州市到台儿庄古城的公交，促进苏鲁两地融合发展\n江苏省邳州市车夫山镇到台儿庄古城的公交至今没有开通，人员往来多有不便，也不利于两省交界区域协调发展文化旅游交流。建议开通此段公交线路，建立从邳州火车站到台儿庄古城BRT车站的公交路线",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "291581",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=291581&sysid=105",
+   "question": "徐荷客专建设进度\n徐荷客专线路及站点已在交通十四五规划中详细描述，目前进度如何？什么时候开工？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "js-jtyst",
+   "id": "286739",
+   "url": "https://jtyst.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=286739&sysid=105",
+   "question": "无船承运人备案\n我们总部有无船承运人资质，想咨询下如果办理分公司的无船承运人（NVOCC）的资质备案。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

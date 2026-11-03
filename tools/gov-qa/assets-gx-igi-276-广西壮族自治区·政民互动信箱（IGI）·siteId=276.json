@@ -1,0 +1,225 @@
+{
+ "A_考卷": [
+  {
+   "source": "gx-igi-276",
+   "id": "157814383639",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814383639",
+   "question": "咨询一下对于超速未达20%的情况，交通部门会进行怎么样的处罚呢？超速20%以内是否施行分段处罚呢？（如：0~10%为一段，10~20%为一段）",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国道路交通安全法",
+     "lib_no": "道路交通安全法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "道路交通安全违法行为记分管理办法",
+     "lib_no": "道路交通安全违法行为记分管理办法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "广西壮族自治区道路交通安全条例",
+    "广西道路交通安全违法行为代码一览表(2022年版)"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-276",
+   "id": "157814201501",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814201501",
+   "question": "您好，我听说以后可以在外地处理违章了，是只能在违章的地方处理吗?还是哪里都可以处理？",
+   "cited_hits": [
+    {
+     "name": "道路交通安全违法行为处理程序规定",
+     "lib_no": "道路交通安全违法行为处理程序规定(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-276",
+   "id": "157814194399",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814194399",
+   "question": "您好，请问家用小轿车可以在车后贴反光条吗?",
+   "cited_hits": [
+    {
+     "name": "道路交通安全法实施条例",
+     "lib_no": "道路交通安全法实施条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gx-igi-276",
+   "id": "157814190841",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814190841",
+   "question": "您好，我马上驾驶证就到期了，目前是6年有效期，想问换完新证之后有效期是几年，怎么能变成长期有效的那种驾驶证？",
+   "cited_hits": [
+    {
+     "name": "机动车驾驶证申领和使用规定",
+     "lib_no": "机动车驾驶证申领和使用规定(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gx-igi-276",
+   "id": "157814187070",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814187070",
+   "question": "想咨询一下驾驶证丢失补办新证后，旧证又找到了，请问旧证还能使用吗？&nbsp;",
+   "cited_hits": [
+    {
+     "name": "驾驶证申领和使用规定",
+     "lib_no": "机动车驾驶证申领和使用规定(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "gx-igi-276",
+   "id": "157814437825",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814437825",
+   "question": "您好！公安部《死亡人员户口注销工作规范》（公治明发【2017】393号）指出居民亲属等死亡的应主动进行户籍注销，在一些基层派出所的户籍科办理该业务时，以“无医疗机构出示的死亡医学证明”为由，在亲属已出示村委会开具的死亡证明的前提下，要求另外",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于传发死亡人员户口注销工作规范的通知",
+    "关于印发户口居民身份证管理工作规范（试行）的通知",
+    "死亡医学证明（推断）书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-276",
+   "id": "157814208063",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814208063",
+   "question": "我的护照不小心弄丢了！想要补办，我需要提交哪些材料呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "出入境证件相片照相指引"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-276",
+   "id": "157814187005",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814187005",
+   "question": "您好，我是一名外省到百色右江区工作的大学生，现已在百色结婚，我们夫妻户口都在单位集体户口。在右江区城市花园按揭购买了商品房并入住,夫妻二人都在右江区工作。现有两名孩子，大的3岁，小的1岁。由于小孩即将读书，需要给小孩办理户口事宜，为了能就近",
+   "cited_hits": [],
+   "cited_missing": [
+    "出生医学证明"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "gx-igi-276",
+   "id": "157830064482",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157830064482",
+   "question": "局领导您好：我是四川省遂宁市一普通市民，我分别于2025年6月23日19时35分、8月7日4时1分、8月7日5时8分，收到来至121234545的手机短信，均提示我的车辆【川J·DC778】在西林县芙蓉巷第二苗苗幼儿园路口出现违停情况。第一",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-276",
+   "id": "157814439361",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814439361",
+   "question": "尊敬的领导：您好！&nbsp; &nbsp; &nbsp;我是四川绵阳的一名女性驾驶人员，1月30日上午11时左右驾驶车辆从贵州往百色方行驶，在距浩坤湖服务区5、6百米时，与水泥护栏发生擦挂发生单车事故，当时车辆被紧急制动停在快速车道无法行",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-276",
+   "id": "157814422741",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814422741",
+   "question": "人在外地工作，驾驶证到期了，需要回户籍地才能办理吗？准备什么材料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-276",
+   "id": "157814408128",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814408128",
+   "question": "我想咨询一下，关于今年百色市警务辅助人员是否还会招聘，大概的时间是什么呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-276",
+   "id": "157814401091",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814401091",
+   "question": "从7月20日开始，儿童需要携带有效身份证件才能进站乘坐火车，购买儿童票必须使用儿童本人的有效身份证件，不能再使用大人的身份信息附加，请问2岁的孩子是否可以办理身份证，以方便群众出行。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-276",
+   "id": "157814376882",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814376882",
+   "question": "您好，我孩子的身份证丢失了，正在补办中，补办期间如果被其他人捡到，会不会被盗用?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-276",
+   "id": "157814203216",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814203216",
+   "question": "您好，我家孩子4岁了，请问可以办理身份证了吗？需要什么资料？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-276",
+   "id": "157814196133",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814196133",
+   "question": "您好，我是湖南人，在百色出差身份证丢了，出行就业都困难，请问身份证能否实现异地补办？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-276",
+   "id": "157814188588",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814188588",
+   "question": "借款1800元&nbsp; 5天利息1200元&nbsp; &nbsp;我需要网警帮忙",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-276",
+   "id": "157814187565",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814187565",
+   "question": "尊敬的检察机关相关部门领导您们好:广州香港太极集团太极古芳公司网络诈骗普通群众，以非法占有为目的骗取公众钱财，损害公共利益！我作为太极古芳案件的受害者，恳请相关部门对此案件公平公正合理的审查，谢谢！！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-276",
+   "id": "157814186998",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814186998",
+   "question": "遇到网络诈骗怎么报案？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

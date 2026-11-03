@@ -1,0 +1,455 @@
+{
+ "A_考卷": [
+  {
+   "source": "nx-igi-262",
+   "id": "10153612",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10153612",
+   "question": "1.请问宁夏省对于疫苗委托配送有指定的配送商吗？还是说可以企业自选？ 2.对于备案 是生产企业办理还是配送商办理 支持线上办理吗？ 3.最多可接受一家企业在宁夏省备案几家干线+支线配送商？ 4.需要在我省（江苏省）药监局网站公示委托配送信息",
+   "cited_hits": [
+    {
+     "name": "疫苗管理法",
+     "lib_no": "疫苗管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "疫苗生产流通管理规定",
+    "食品药品监管总局国家卫生计生委关于进一步加强疫苗流通监管促进疫苗供应工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-262",
+   "id": "10149887",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10149887",
+   "question": "尊敬的领导您好： 我是一名创业者，近几个月考察了一个一类医疗器械的产品，在甘肃陕西新疆西藏等地方市场影响还可以，药店经营还可以，想着在宁夏操作一下，在此询问一下宁夏这边对于一类器械药店销售管理要求。产品主要是一些皮肤保护剂、液体敷料等。厂家",
+   "cited_hits": [
+    {
+     "name": "医疗器械监督管理条例",
+     "lib_no": "医疗器械监督管理条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "药品管理法",
+     "lib_no": "药品管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "药品经营质量管理规范"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nx-igi-262",
+   "id": "10147534",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10147534",
+   "question": "尊敬的药监局老师，您好！ 1、兰州零售连锁总部在银川开办该公司的连锁门店，可否由兰州零售连锁总部的配送中心直接配送至银川？ 2、兰州零售连锁总部的配送中心可否给我公司在银川开办的子（分）公司进行配送？ 3、银川所开办的零售连锁总部（不带仓库",
+   "cited_hits": [
+    {
+     "name": " 药品管理法 ",
+     "lib_no": "药品管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    " 药品经营许可证 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-262",
+   "id": "10135873",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10135873",
+   "question": "%E8%8D%AF%E7%9B%91%E5%B1%80%E8%80%81%E5%B8%88%EF%BC%8C%E6%82%A8%E5%A5%BD%EF%BC%81%0A%E6%88%91%E6%98%AF%E5%A4%96%E7%9C%81",
+   "cited_hits": [
+    {
+     "name": "药品管理法",
+     "lib_no": "药品管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "宁夏中药饮片炮制规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-262",
+   "id": "10072781",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072781",
+   "question": "你好请问，浙江的中药饮片企业，按《浙江省中药炮制规范》制作的中药饮片，能否在宁夏地区内销售？",
+   "cited_hits": [
+    {
+     "name": "药品管理法",
+     "lib_no": "药品管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "nx-igi-262",
+   "id": "10073209",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10073209",
+   "question": "领导好！强脉冲光治疗仪在注册证中的适用范围如下：用于治疗痤疮和治疗面部毛细血管扩张。国外有将此类设备用于眼科治疗睑板腺功能障碍的文献，那么可否在我国医疗机构眼科中使用？或是需要生产厂家变更注册证，明确用于眼科适用范围后，医疗机构才能采购用于",
+   "cited_hits": [
+    {
+     "name": "医疗器械监督管理条例",
+     "lib_no": "医疗器械监督管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "医疗器械注册管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nx-igi-262",
+   "id": "10072750",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072750",
+   "question": "我是经营药店的，想卖吗咪爱和整肠生两个生物制品，吗咪爱的存储条件是密闭，25度以下避光干燥处保存，整肠生的存储条件是避光，在干燥处保存，这两个产品都不需要冷柜，但咨询了药监部门，必须要在经营范围里增加生物制品，而且还有其它条件的限制 ，我觉",
+   "cited_hits": [
+    {
+     "name": "药品管理法",
+     "lib_no": "药品管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-262",
+   "id": "10072742",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072742",
+   "question": "1、我公司是中药饮片批发公司，采购的饮片有多个省份的，执行标准也有各个省份的炮制规范，请问，执行外省炮制规范标准的饮片可以在贵省销售吗？？ 2、甘肃药监局发布的趁鲜加工的党参、黄芪等片，请问贵省饮片厂可以购买趁鲜加工过的党参、黄芪等片作为中",
+   "cited_hits": [
+    {
+     "name": "药品管理法",
+     "lib_no": "药品管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "宁夏中药饮片炮制规范",
+    "中国药典"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "nx-igi-262",
+   "id": "10156025",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10156025",
+   "question": "尊敬的领带您好，我是甘肃兰州上药科园经营企业，现想咨询我公司要跨省在贵地设立分公司需要 那些条件，不设库房是否可以，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "药品经营许可证管理办法",
+    "药品经营许可证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nx-igi-262",
+   "id": "10153189",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10153189",
+   "question": "收到宁夏一药品批发企业提供的《药品经营许可证》，其于2022年1月25日发生仓库地址变更，但之后所提供《药品经营许可证》正本仍是2019年12月31日由贵局核发《药品经营许可证》正本，另提供其副本变更页，显示于2022年1月25日进行了仓库",
+   "cited_hits": [],
+   "cited_missing": [
+    "药品经营许可证管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-262",
+   "id": "10152834",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10152834",
+   "question": "我公司有一个待注册的II类体外诊断类软件，分类编码为：21-05。国家局《关于发布子目录01、04、07、08、09、10、19、21相关产品临床评价推荐路径的通告（2022年第30号）》中，对于21-05产品的临床评价推荐路径为临床试验，",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于发布子目录01、04、07、08、09、10、19、21相关产品临床评价推荐路径通告（2022年第30号）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-262",
+   "id": "10150922",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10150922",
+   "question": "咨询下宁夏对于零售连锁企业的资质证照管理规范。 某机构所取得的许可证为A照且许可证经营范围为批发，其下属分支药店许可证经营范围为“零售（连锁）”。是符合贵省药监的管理规范的是吗？即连锁总部是不需要取得经营范围是“零售（连锁）”的B照才能开展",
+   "cited_hits": [],
+   "cited_missing": [
+    "药品经营许可证管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-262",
+   "id": "10148361",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10148361",
+   "question": "您好！以互联网医院线上药房延申全国各省线下各地在公共场所设置24小时自助药柜，主要功能患者或跑腿到自助机上配送、取药。流程：患者在平台上先诊疗、平台医生出具处方，患者或跑腿就近安排线下互联网医院24小时自助机取货，方便群众，利国利民。请求政",
+   "cited_hits": [],
+   "cited_missing": [
+    "药品流通监督管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nx-igi-262",
+   "id": "10146094",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10146094",
+   "question": "尊敬的监管部门领导您好，想咨询一下问题在门店的具体落实工作。 1.企业ERP系统可以对含麻黄碱复方制剂、拆零药品实现实时、完善的登记，并且可以随时查询、打印，还需不需要再做纸质登记。 2.复方福尔可定口服溶液10ml/袋装的，每次是按照处方",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于加强含麻黄碱类复方制剂管理有关事宜的通知",
+    "药品经营质量管理规范",
+    "药品记录与数据管理要求 ( 试行 ) "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-262",
+   "id": "10143477",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10143477",
+   "question": "%E5%B0%8A%E6%95%AC%E7%9A%84%E5%B1%80%E9%95%BF%EF%BC%9A%0A%20%20%20%20%20%E6%82%A8%E5%A5%BD%EF%BC%81%20%E4%B8%AD%E5%AE%81",
+   "cited_hits": [],
+   "cited_missing": [
+    "假药认定意见书",
+    "不予刑事立案理由审查意见通知书",
+    "假药认定意见书",
+    "不予刑事立案理由审查意见通知书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-262",
+   "id": "10143465",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10143465",
+   "question": "%E8%87%B4%E5%AE%81%E5%A4%8F%E8%8D%AF%E5%93%81%E7%9B%91%E7%9D%A3%E7%AE%A1%E7%90%86%E5%B1%80%E5%B1%80%E9%95%BF%E7%9A%84%E4",
+   "cited_hits": [],
+   "cited_missing": [
+    "假药认定意见书",
+    "不予刑事立案理由审查意见通知书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-262",
+   "id": "10125997",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10125997",
+   "question": "尊敬的监管部门领导您好！ &nbsp; &nbsp; &nbsp;关于药品经营企业采购首营品种，《药品管理法》《GSP》中规定索取加盖供货单位公章原印章的药品生产或者进口批准证明文件复印件予以审核，审核无误方可采购。请问下这个批准证明文件都",
+   "cited_hits": [],
+   "cited_missing": [
+    "药品经营质量管理规范"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nx-igi-262",
+   "id": "10073237",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10073237",
+   "question": "尊敬的宁夏药监局老师，您好，根据2020年发布的国家市场监督管理总局令第27号《药品注册管理办法》，自2020年7月1日起生效。根据新版《药品注册管理办法》第三十三条：申办者应当在开展药物临床试验前在药物临床试验登记与信息公示平台登记药物临",
+   "cited_hits": [],
+   "cited_missing": [
+    "药品注册管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-262",
+   "id": "10072800",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072800",
+   "question": "老师您好，根据2020年发布的国家市场监督管理总局令第27号《药品注册管理办法》，自2020年7月1日起生效。 根据新版《药品注册管理办法》第三十三条：申办者应当在开展药物临床试验前在药物临床试验登记与信息公示平台登记药物临床试验方案等信息",
+   "cited_hits": [],
+   "cited_missing": [
+    "药品注册管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-262",
+   "id": "10072787",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072787",
+   "question": "尊敬的宁夏药监局老师您好，根据2020年发布的国家市场监督管理总局令第27号《药品注册管理办法》，自2020年7月1日起生效。根据新版《药品注册管理办法》第三十三条：申办者应当在开展药物临床试验前在药物临床试验登记与信息公示平台登记药物临床",
+   "cited_hits": [],
+   "cited_missing": [
+    "药品注册管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-262",
+   "id": "10073200",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10073200",
+   "question": "我是学生物化工工艺专业的，从业7年，不知道明年可不可以报考职业药师",
+   "cited_hits": [],
+   "cited_missing": [
+    " 执业药师资格制度暂行规定 &nbsp; ",
+    "执业药师资格证书"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nx-igi-262",
+   "id": "10073197",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10073197",
+   "question": "在哪里可以下载到 《宁夏回族自治区核发&lt;药品生产许可证&gt;验收细则（中药饮片）》法规？",
+   "cited_hits": [],
+   "cited_missing": [
+    "宁夏回族自治区核发&lt;药品生产许可证&gt;验收细则（中药饮片）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-262",
+   "id": "10073196",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10073196",
+   "question": "请问如果是企业性质的民营医院，内部开设的药房，在取得了医疗机构执业许可证以后，是否还需要申请办理药品经营许可证？",
+   "cited_hits": [],
+   "cited_missing": [
+    "药品经营许可证"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "nx-igi-262",
+   "id": "10154355",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10154355",
+   "question": "药品存储的相关规定：阴凉处：温度不超过20℃；冷处：温度需保持在2℃~10℃之间；常温：温度需保持在10℃~30℃之间；储存药品相对湿度为35%~75%。 一：药店能否做到24小时对温湿度进行监测。并能达到规定的要求。 二：药店如何保证数据",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-262",
+   "id": "10152061",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10152061",
+   "question": "老师，您好，请问一下执行外省省标生产的中药饮片，可以在宁夏省内销售吗？如果可以销售，需要办理什么手续？还是只需要有药品经营许可证中药饮片经营范围即可销售？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-262",
+   "id": "10151401",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10151401",
+   "question": "药店的经营地址从大武口区搬迁到了惠农区，按照《药品经营许可证管理办法》企业分立、合并、改变经营方式、跨原管辖地迁移，按照本办法的规定重新办理《药品经营许可证》，但我这是石嘴山市范围内进行搬迁，是否可以按照变更程序办理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-262",
+   "id": "10148619",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10148619",
+   "question": "请问老师，品经营许可证编号为宁AA的批发性质的企业，可以在无连锁牌照，即无为宁BA药品经营许可证的情况下，形成零售连锁企业吗？比如：宁夏德立信医药有限责任公司（宁AA9540051），旗下有一百多个证号为“宁CB9541273”的，性质为“",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-262",
+   "id": "10143647",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10143647",
+   "question": "%E5%B0%8A%E6%95%AC%E7%9A%84%E5%B1%80%E9%95%BF%EF%BC%9A%0A%20%20%20%20%20%20%E6%82%A8%E5%A5%BD%EF%BC%81%E4%B8%8A%E5%91%A8",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-262",
+   "id": "10072888",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072888",
+   "question": "贵局主办的2021年全国“医疗器械安全宣传周”宁夏区知识竞赛早已结束，公告显示活动结束后奖品统一邮寄，但是过去半个月了还没动静，想问问奖品什么时候发？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-262",
+   "id": "10072883",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072883",
+   "question": "领导您好！写这封信得时候您也许觉得很冒昧，但是我觉得我应该反映出来，不管你们管不管这件事，在你们眼里也许觉得是不值一提的事，但是许多大事发展都是从一件不起眼的小事引起，演变成大问题。我想反映的事是关于宁夏银川古方大药房胜利街店在处理消费者购",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-262",
+   "id": "10072877",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072877",
+   "question": "领导你好！ 我是一名癌症患者的家属，在治理过程中有一种靶向药叫“奥希替尼”，据我了解此药品已列入国家医保，但在治疗过程中被医生告知“奥希替尼”缺药。我想咨询一下奥希替尼药品缺药的具体情况。目前是什么原因导致奥希替尼缺药？预计在什么时候我们自",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-262",
+   "id": "10072871",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072871",
+   "question": "你好自治区药监局具体在哪个路段",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-262",
+   "id": "10073235",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10073235",
+   "question": "宁夏医药采购平台，电话为什么永远都是无人接听呢？ 连续打了好多天的电话，咨询点事情，都是没人接听？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-262",
+   "id": "10072793",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072793",
+   "question": "局长您好西夏区兴泾镇市场东门对面大唔牛肉店，牛肉里面使用防腐剂。十天前我在那个店里买了七百多块钱的牛肉，回家煮了以后肉汤都是酸的，就跟放了很多的醋一样，我也不知道怎么回事。后来问了明白人，说是牛肉里面用的防腐剂放太多了。恳请局长重视这个问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-262",
+   "id": "10073210",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10073210",
+   "question": "领导你好; 我们是药店连锁公司，今年三家门店药品经营许可证到期，都是2016年以前的门店，要更药品换经营许可证，是不是每个门店都要配备执业药师呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-262",
+   "id": "10072775",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10072775",
+   "question": "想问下咱们网站里有药物价格的页面吗，想看下保健类产品价格",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-262",
+   "id": "10073205",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10073205",
+   "question": "互联网医院形式的公司已取得医疗机构执业许可证，如果想经营药品批发零售，是否还需要申请办理药品经营许可证？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-262",
+   "id": "10073201",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10073201",
+   "question": "在2018年7月17日公布的《互联网医院管理办法（试行）》第二十条规定，可委托符合条件的第三方机构进行配送。想咨询下符合条件的第三方机构是指符合什么条件？在咱们宁夏获得药品配送资质的第三方物流公司有公式文件吗？在哪里能够查询到。谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

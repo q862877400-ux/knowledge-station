@@ -1,0 +1,1303 @@
+{
+ "A_考卷": [
+  {
+   "source": "nanjing-igi-48",
+   "id": "420321",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=420321",
+   "question": "施工劳务作业资质的企业，承包劳务作业，需要取得安全生产许可证吗？有什么法律依据吗？如果没有资质而承包的，是否构成违法发包？",
+   "cited_hits": [
+    {
+     "name": "建筑法",
+     "lib_no": "建筑法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "415757",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=415757",
+   "question": "1、装饰装修施工企业的资质有几种？2、南京市装饰装修施工企业承接装饰装修项目并进行施工作业是否需要装饰装修的资质？3、需要资质的，是依据什么标准和要求需要何种装饰装修的资质？4、南京市不需要装饰装修施工许可的项目是否需要装饰装修施工资质？",
+   "cited_hits": [
+    {
+     "name": "建设工程质量管理条例",
+     "lib_no": "建设工程质量管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "住房城乡建设部关于印发〈建筑业企业资质标准〉的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "413595",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=413595",
+   "question": "尊敬的南京市城乡建设委员会： 经查询多家政府网站，比如金昌市、黟县、灵璧县、长沙市等公共资源网站，均发现曾引用“国家发改委关于招标投标16个疑难问题的集中答复”中提及: “四、关于与建筑物和构筑物新建改建扩建无关的1000万装修工程是否必须",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国招标投标法实施条例",
+     "lib_no": "招标投标法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "402673",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=402673",
+   "question": "贵司在2024-09-04发布的关于延长《南京市深化建设工程消防设计审查验收改革工作实施意见（2.0版）》有效期等有关事项的通知中显示，对《南京市深化建设工程消防设计审查验收改革工作实施意见（2.0版）》（宁建改办〔2022】14号）进行局",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国消防法",
+     "lib_no": "消防法(2021修正全本)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "南京市城市更新中既有建筑改造利用消防设计审查验收管理规定"
+   ],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "nanjing-igi-48",
+   "id": "427875",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=427875",
+   "question": "本人实名举报南京市江宁区金陵天成小区一号楼二单元1805室，该房屋产权房东私自改造房屋，违规搭建隔断，将客厅、过道分割成多间独立小卧室对外出租，属于违法群租，具体违法事实如下：房屋原始户型仅2间卧室，房东私自加装轻质隔断，把客厅、过道隔出5",
+   "cited_hits": [],
+   "cited_missing": [
+    "房屋租赁条例",
+    "商品房屋租赁管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "426729",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=426729",
+   "question": "本人系南京市江宁区台创都市农业小镇项目的被拆迁安置户。安置房位于江宁区横溪街道陶吴集镇陶吴东塘家园，2025年底横溪街道通知交房，但是在交房现场未见任何验收文件一级相关告示。本人向南京市江宁区住房和城乡建设局申请公开案涉安置房（陶吴东塘家园",
+   "cited_hits": [],
+   "cited_missing": [
+    "江宁区横溪街道安置房无验收手续交房，涉嫌违法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "426414",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=426414",
+   "question": "南京市城乡建设委员会：我是南京市江北新区江苏保利江汇项目的业主，现就小区外墙存在的严重质量缺陷问题正式投诉，恳请贵局依法督办。一、问题描述与成因分析我家房屋外墙灰色面砖上出现大面积不规则深色斑块，分布于外墙多处位置，且长期存在、无法自行消退",
+   "cited_hits": [],
+   "cited_missing": [
+    "南京市江北新区江苏保利江汇项目小区存在的严重质量缺陷问题，恳请贵局依法督办"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "422774",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=422774",
+   "question": "南京市建委1月30日发布了《2026年城市更新实施计划项目表》，根据发稿内容，计划围绕既有建筑改造利用、城镇老旧居住区域改造、完整社区建设、老旧街区（厂区）更新改造、城市功能品质提升、城市基础设施建设改造、城市生态空间提质、历史文化保护传承",
+   "cited_hits": [],
+   "cited_missing": [
+    "2026年南京市城市更新实施计划项目表",
+    "2026年南京市城市更新实施计划项目表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "418093",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=418093",
+   "question": "您好，根据《建筑业企业资质标准》（建市【2014】159号）及住房城乡建设部关于印发《建筑业企业资质管理规定和资质标准实施意见》的通知建市【2015】20号，相关规定，门窗专业分包资质已经取消，请问现在如参与市场投标施工，或承接新建工程专业",
+   "cited_hits": [],
+   "cited_missing": [
+    "建筑业企业资质标准",
+    "建筑业企业资质管理规定和资质标准实施意见",
+    "住房城乡建设部办公厅关于土石方、混凝土预制构件等8类专业承包企业申领安全生产许可证事宜的意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "412153",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=412153",
+   "question": "建筑施工现场用电设备超过5台或超过50KW，应编制《临时用电施工组织设计》，并履行审核程序。若施工现场《临时用电施工组织设计》出现未编制、未审核，或未经验收合格投入使用，请问是否应按照《重大事故隐患判定标准》（2024版）第四条施工安全管理",
+   "cited_hits": [],
+   "cited_missing": [
+    "房屋市政工程生产安全重大事故隐患判定标准（2024版）",
+    "关于印发<江苏省房屋建筑和市政基础设施工程危险性较大的分部分项工程安全管理实施细则(2019版)>的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "409127",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=409127",
+   "question": "对于已经竣工验收备案完成的科研办公楼项目进行公用区域（电梯厅、走道、卫生间）装修，因涉及到装修区域的消防改造（喷淋头方位调整、烟感位置调整等非主要线路改造），为了能够通过装修后的二次消防验收，则需要消防改造单位需具备消防资质。消防设施工程专",
+   "cited_hits": [],
+   "cited_missing": [
+    "建筑业企业资质标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "398948",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=398948",
+   "question": "根据住建部《危险性较大的分部分项工程安全管理规定》有关问题的通知，以及江苏省危大工程管理细则。1、起重机械安装和拆卸工程，属于危险性较大的分部分项工程范围。2、起重量300kN及以上，或搭设总高度200m及以上，或搭设基础标高在200m及以",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省房屋建筑和市政基础设施工程危险性较大的分部分项工程安全管理实施细则（2019版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "396422",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=396422",
+   "question": "我想申领工程设计出图章想了解申领出图章的江苏省住建厅以及南京市住建局出具的相关政策文件",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于更换我省工程勘察设计出图专用章有关问题的通知",
+    "关于加强南京市建设工程勘察设计资质管理工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "394371",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=394371",
+   "question": "想找一下宁建征字（2017）74号文。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发南京市国有土地上房屋征收评估技术导则的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "392027",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=392027",
+   "question": "江苏于2019年不再开展“八大员”考试，但是企业工作，尤其是开展招投标工作时，平台系统必须提供“八大员”信息。对于人员流动的企业来说，这样是否不合理？需要提供证书，但是不提供合理的取证渠道。如果说省内统一不再考试，不关注这个证，那请协调相关",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于停止住房城乡建设领域现场专业人员统一考核发证工作的通知",
+    "住房和城乡建设部关于改进住房和城乡建设领域施工现场专业人员职业培训工作的指导意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "391017",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=391017",
+   "question": "住房和城乡建设行业从业人员培训管理信息系统中，不包含江苏的现场专业人员培训机构查询，请问中建协的八大员证书可以用于投标使用吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "住房和城乡建设部关于改进住房和城乡建设领域施工现场专业人员职业培训工作的指导意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "388986",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=388986",
+   "question": "您好，想咨询一下二级注册建造师的具体注册流程是？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于江苏省建筑业监管信息平台系统升级的有关通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "384608",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=384608",
+   "question": "请问在校研究生报考勘查注册工程师的注册电气工程师的基础部分，应该如何填写工作单位，单位性质，工作年限和专业年限？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于2023年度全国勘察设计注册工程师执业资格考试考务工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "381675",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=381675",
+   "question": "安全员考试通过后怎么查询证书",
+   "cited_hits": [],
+   "cited_missing": [
+    "省住房和城乡建设厅关于部分调整我省建筑施工企业安管人员、建筑施工特种作业人员考核、延期复核及证书管理有关事项的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "380754",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=380754",
+   "question": "你好，请问2022年勘察设计工程师注册设备工程师动力专业的纸质证书和章在哪里领取，领取时间有吗。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于2022年度注册建筑师、勘察设计注册工程师基础考试合格证、职业资格证书领取的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "376389",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=376389",
+   "question": "建筑资料员什么时候报名，报名入口在哪里？",
+   "cited_hits": [],
+   "cited_missing": [
+    "省住房和城乡建设厅关于部分调整我省建筑施工企业安管人员、建筑施工特种作业人员考核、延期复核及证书管理有关事项的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "374950",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=374950",
+   "question": "请问二级造价师考试通过后，证件去哪里办领？",
+   "cited_hits": [],
+   "cited_missing": [
+    "二级造价工程师注册证书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "372579",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=372579",
+   "question": "请问一下，2022年二造考试可以申请复查成绩吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "成绩核查申请表（考生用）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "371506",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=371506",
+   "question": "领导你好，请问现在8大员如何办理，有没有网站可以发一下？投标的时候还需要用来打分，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于停止住房城乡建设领域现场专业人员统一考核发证工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "368885",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=368885",
+   "question": "参与工程项目招标，招标方提出需要提供资料员证书，请问在哪里办、怎么办资料员证书呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于停止住房城乡建设领域现场专业人员统一考核发证工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "368291",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=368291",
+   "question": "关于江苏人事考试安排的3.18的二造补考信息是否正常进行？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于南京、苏州、南通、泰州考区2022年度二级造价工程师职业资格考试补考的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "356385",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=356385",
+   "question": "我公司安管人员在证书到期前参加继续教育培训，提前一个月申请延期，系统状态是已申报，因工作人员忽视未得知新的流程未发资料到邮箱，致使证书到期后再发送资料无法审批！发送的资料都是系统里面有的，系统状态也未提示或退回！贵委工作人员无视我方提前一个",
+   "cited_hits": [],
+   "cited_missing": [
+    "建筑施工企业主要负责人、项目负责人和专职安全生产管理人员安全生产管理规定",
+    "关于临时调整我市安管证书延续工作流程的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "351918",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=351918",
+   "question": "请问“企业统计培训报名”在哪里报名，怎么操作啊？报名的步骤是什么？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于南京市建筑业统计相关事项的办理指南"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "346118",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=346118",
+   "question": "2021年度勘察设计职业资格证书什么时候发？",
+   "cited_hits": [],
+   "cited_missing": [
+    "人力资源社会保障部办公厅关于推行专业技术人员职业资格电子证书的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "342144",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=342144",
+   "question": "2021年10月考过的一级造价师职业资格纸质证书，什么时候发？如果发的话会发短信通知吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "人力资源社会保障部人事考试中心关于2021年度一级造价工程师职业资格考试考务工作的通知",
+    "省人力资源社会保障厅关于进一步加强我省专业技术资格考试资格审查工作的通知",
+    "关于2021年度一级造价工程师职业资格考试工作有关事项的通知",
+    "成绩合格证明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "323981",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=323981",
+   "question": "本公司（南京企业）获得《建筑业企业三级资质》已有数月时间了，目前本企业《安全生产许可证》和南京市《信用管理手册》都已办妥，可就是《江苏省建筑业统计信息系统》的企业账户尚未开通，原因就是建筑业企业统计培训班报名十分十分困难，我们每次看到报名通",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于建筑业统计相关事项的办理指南"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "313210",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=313210",
+   "question": "您好： 请问建筑施工特种作业人员证书，比如建筑电工证书考取成功的话，能否申请技能补贴？如何申请？谢谢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于落实宁人社规〔2020〕2号文件 相关工种培训补贴的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "307457",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=307457",
+   "question": "八大员考试什么时间恢复",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于停止住房城乡建设领域现场专业人员统一考核发证工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "303433",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=303433",
+   "question": "你好，我公司为南京江宁区企业，现想备案劳务资质，请问需要提供哪些材料？在哪个平台办理？",
+   "cited_hits": [],
+   "cited_missing": [
+    "住房和城乡建设部办公厅关于做好建筑业 “证照分离”改革衔接有关工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "301735",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=301735",
+   "question": "请问施工员、质量员在哪个官网上报名考试",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于停止住房城乡建设领域现场专业人员统一考核发证工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "287587",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=287587",
+   "question": "1.本人是职业教育专科，电气自动化技术专业（专业代码560302）毕业，是否符合注册电气工程师本专业的要求。 2.南京报名注册电气工程师考试，对报名单位有什么要求，营业许可包含工程设计就行了，还是要求单位有相应单位的资质。例如南京地铁运营有",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省关于2020年度全国勘察设计注册工程师执业资格考试考务工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "286912",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=286912",
+   "question": "问一下2020 年度二级造价工程师职业资格考试成绩和合格标准的发布时间。谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏省二级造价工程师职业资格考试实施办法（试行）",
+    "江苏省关于2020年度二级造价工程师职业资格考试报名工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "229460",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=229460",
+   "question": "施工现场管理人员施工员、质量员现已经暂停考试，但项目现场必须有这几种人员持证上岗，企业又没有新的人员替补，现想咨询五大员考试什么时间能恢复考试。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于停止住房城乡建设领域现场专业人员统一考核发证工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "222686",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=222686",
+   "question": "11月份统计培训班什么时候出通知呀，等的好着急哟",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于举办建筑业企业统计培训班的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "220718",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=220718",
+   "question": "11月统计培训什么时候开始",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏建筑业统计数据管理办法",
+    "关于进一步做好建筑业统计统计工作的通知",
+    "关于建筑业统计相关事项的办理指南",
+    "关于举办企业统计培训的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "215827",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=215827",
+   "question": "请问八月份的统计培训班什么时候开始报名，七月份没有报上名对企业有什么影响吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于建筑业统计相关事项的办理指南"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "212185",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=212185",
+   "question": "请问七月份的统计培训班什么时候开始报名，六月份没有报上名对企业有什么影响吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于建筑业统计相关事项的办理指南"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "208262",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=208262",
+   "question": "想了解一下建筑业统计培训5月份什么时候举办？",
+   "cited_hits": [],
+   "cited_missing": [
+    "江苏建筑业统计数据管理办法",
+    "关于进一步做好建筑业统计统计工作的通知",
+    "关于举办企业统计培训的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "196920",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=196920",
+   "question": "请问南京八大员考试什么时候截止啊？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于停止住房城乡建设领域现场专业人员统一考核发证工作的通知"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "nanjing-igi-48",
+   "id": "424873",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=424873",
+   "question": "本人为通宇尊悦府1-102业主，自去年8月1日入住以来，客卫的漏水问题跟物业联系维修多次一直得不到解决，且近期发现主卧的墙角有大量霉斑，物业总是推脱不跟进解决。另入住以来小区的地下停车场进出系统频繁出错，导致业主重复缴费，同物业反映多次不解",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "423396",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=423396",
+   "question": "本人24年取得建筑工程专业中级建筑师职称，去年（2025年）取得国家一级注册建筑师并已在本单位注册，依据江苏省专业技术类职业资格和职称对应目录，国家一级注册建筑师对应为高级工程师，请问领导，本人中级建筑师职称未满5年，今年能否申报高级工程师",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "421834",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=421834",
+   "question": "你好，之前向贵单位咨询现有写字楼内消防控制室迁址事宜，贵单位回复：依据《中华人民共和国消防法》第十条“对按照国家工程建设消防技术标准需要进行消防设计的建设工程，实行建设工程消防设计审查验收制度”，若改造工程按照国家工程建设消防技术标准需要进",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "419458",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=419458",
+   "question": "项目经理在其他单位担任财务负责人，公司内部有解聘书说解除了财务负责人职务，但是市场监督管理局未办理变更登记备案，国家企业信用信息公示网也未变更。可以认定项目经理在两个单位任职吗，以公司内部解聘书为准还是以国家企业信息信息公示网为准",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "417260",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=417260",
+   "question": "湖滨世纪花园的消防验收备案材料到哪里能够查到？我是湖滨世纪花园的门面房业主。目前在办理门面装修事宜。需要湖滨世纪花园的消防验收备案材料，哪里可以查询到？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "414730",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=414730",
+   "question": "根据《民法典》第六章 业主的建筑物区分所有权 第二百七十四条 建筑区划内的道路，属于业主共有但是属于城镇公共道路的除外。建筑区划内的绿地属于业主共有，但是属于城镇公共绿地或者明示属于个人的除外。建筑区划内的其他公共场所、公用设施和物业服务用",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "409972",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=409972",
+   "question": "在招投标过程中碰到招标文件范本中要求的是“南京市建筑业企业信用管理档案”，而投标人提供的是“南京市园林工程施工企业信用管理档案”，此种情况不知道如何处理，南京市园林工程施工企业信用管理档案是否属于南京市建筑业企业信用管理档案。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "409740",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=409740",
+   "question": "本人所在小区2007年左右建成交付，近期发现现场、竣工图均反应出未按图施工的情况，较大范围的防火分区被破坏、更改，造成消防安全隐患，请问1、小区验收资料、特别是验收通过的图纸是否有留档？是否在城乡建设委员会？可否申请公开？如果不在，是在哪个",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "408051",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=408051",
+   "question": "请问下江苏南京的安全员证书怎么转入到北京的公司，具体流程是怎么操作？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "405845",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=405845",
+   "question": "如何领取2023年南京市建设工程高级职称评审表原件？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "404587",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=404587",
+   "question": "请问24年建设系列职称评审已过，电子证书已生成，单位要求提交申报表原件等入档，请问去哪里什么时间可以领取？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "401522",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=401522",
+   "question": "南京市城乡建设委员会： 办理建设工程项目信息编码管理登记的主体是否必须是建设单位，办理建设工程项目信息编码管理登记需要哪些材料，到什么位置进行建设工程项目信息编码管理登记，办理流程是怎样的，办理时需要的材料是否需要提供原件、如果是复印件是否",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "400403",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=400403",
+   "question": "我单位为国资委管理的国有企业，现有一个自筹资金建设工程项目，已通过公开招标方式招出一家设计单位，设计资质要求为建筑行业甲级，设计范围不含变电站内变电设备。现需要再委托一家有变电设计资质的设计单位进行变电站专项设计，设计合同额预计约15万，该",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "397575",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=397575",
+   "question": "2023年度建设工程专业高级职称评审公示通过后，何时能领取职称评审证书，怎样领取？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "393275",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=393275",
+   "question": "2023年度勘察设计注册工程师执业资格考试资格审查已经于2月结束，请问纸质证书何时发放？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "389501",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=389501",
+   "question": "您好，想咨询一下市城乡建设委员会申请政府信息公开的渠道有哪些？信息！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "388121",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=388121",
+   "question": "2023年城乡建委的中级职称通过名单已于11.24公示结束，证书大概什么时候可以下载？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "387768",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=387768",
+   "question": "安管人员培训学习完成 后，去南京智慧城建综合服务平台上传学时证明，进入该平台 找不到相关人员信息 上传资料。具体该怎么操作",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "386584",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=386584",
+   "question": "在相关机构培训，培训机构说培训完后在南京建委网站等通知到“南京智慧城建综合服务平台”报名，但是我并没有找到相关报名口，请问在原来的“江苏省建设行业执业人员服务平台”办理考试申请预约是否可以？请帮忙说明下",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "383725",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=383725",
+   "question": "安全员B证在审核环节，确认中需要多长时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "382964",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=382964",
+   "question": "安全员考试考完后如何操作生成证书",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "381137",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=381137",
+   "question": "住建部已发布公告，注册通过，请问注册证书在哪里领取（不是考试通过后的资格证书，是已经初始注册证书）",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "380228",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=380228",
+   "question": "请帮忙查询具体日期，昨天给的网站没有安全员的考试信息，这个考试全省各地市是不一样的，市建委应该知道具体安排的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "380218",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=380218",
+   "question": "请问南京市安全员B证7月份的考试安排是在几号啊？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "375040",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=375040",
+   "question": "2023.5.10日住建部已经通过了2023年第八批勘察设计注册工程师初始注册人员名单的公告，但是具体的注册证书领取时间和领取地点，南京市一直没有公布，想问下目前的进度以及预期的证书领取时间和领取地点是否可以告知？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "373010",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=373010",
+   "question": "本人2023年3月份报名的二级建造师项目负责人B证考试未通过，现在4月份想再重新报名考试，网上一直报不是显示不能操作，请问什么原因，是不是时间未到，还是只能在固定时间报考，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "372776",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=372776",
+   "question": "4.17号公布二造成绩的，大概啥时候在哪里可以下载成绩表然后进行注册，麻烦告知一下二造注册的详细流程",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "372729",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=372729",
+   "question": "请问去年10月的二造考试延期到今天3月18日考试的成绩有效期会相应延长到明年吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "372521",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=372521",
+   "question": "补考已于2023年3月18号已经结束，官网说在一个月内公布成绩，到现在已经一个月了。怎么还没公布？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "370334",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=370334",
+   "question": "请问一下2023年3月13号南京补考的二级造价师成绩大概什么时候公布？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "369010",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=369010",
+   "question": "没有单位，个人是否可以报考安全员证。怎么报名，报名入口在哪。百度搜索都是广告。请告知，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "368905",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=368905",
+   "question": "2022年度二级造价工程师职业资格考试补考准考证打印何时打印",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "368799",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=368799",
+   "question": "南京市三类人员 C证考试，哪里报名，怎么考试，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "366198",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=366198",
+   "question": "请问由市建委主办的遇见梧桐语，极美随手拍摄影比赛结果什么时候出来？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "366080",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=366080",
+   "question": "请问一下，目前22年的二级造价师南京一直没有考试，平台也没有说后续的安排，想问一下二级造价师是否还进行补考，如补考将安排在哪个时间段？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "363584",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=363584",
+   "question": "现疫情严重，二造考试是否延期",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "362037",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=362037",
+   "question": "通告上说11.30可以重新打印准考证，但是登录后没有显示，请问现在考试延期，准考证打印是否也延期了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "361401",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=361401",
+   "question": "南京考区之前二造延期了，没有打印准考证，现在通知12月3日考试，准考证打印平台还会开放吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "360207",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=360207",
+   "question": "现在栖霞区已经逐渐恢复正常生活秩序，工地也建议放开管理，不再执行封闭",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "358954",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=358954",
+   "question": "我目前在中风险区域进行隔离，无法参加二造考试，南京考区是否延期",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "358736",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=358736",
+   "question": "请问江苏二级造价师还会正常考试吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "354632",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=354632",
+   "question": "南京市城乡建设委员会 于 2022-08-19 17:34:49 回复 您好！来信收悉。根据省住建厅相关规定，江苏省建筑施工企业主要负责人、项目负责人和专职安全生产管理人员均采用网上报名的方式。报考人员所在企业通过 “江苏建设人才”网（网址",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "353357",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=353357",
+   "question": "电话咨询需要在《江苏省建筑业监管信息平台2.0》网上报名，可是《江苏省建筑业监管信息平台2.0》W10和W7系统均不能打开，怎么报名呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "349096",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=349096",
+   "question": "您好，2022年安管人员考试计划在哪查询。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "344228",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=344228",
+   "question": "请问？南京市城乡建设委员会宣传教育处 办理 安全员考试 是否停止办理了。 2.0网站三类人员考试网上、提供的（南京市城乡建设委员会宣传教育处 ）考点，联系负责人方式请告知一下。谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "343344",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=343344",
+   "question": "领导们好！我是一名混凝土泵车学徒。如何考取泵车操作证？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "339006",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=339006",
+   "question": "咨询2022年江苏省二级造价师考试时间。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "338191",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=338191",
+   "question": "特种工登高、技术员、资料员、电工、质量管理员如何报名考试",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "331916",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=331916",
+   "question": "2.0系统现在又没有了，和南京市政务网合并了，找不到安全员考试，恳求政府帮助",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "330063",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=330063",
+   "question": "我是栖霞区迈皋桥街道金浦御龙湾G区业主，G区去年12月交付后很多业主开始装修准备入住。现在港华燃气以开发商金浦地产未结清工程款为由不给我们开通天然气，倒逼业主催促开发商付款。开发商方面丝毫不关心此事，只说在走付款流程，给不了付款时间。试问港",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "326405",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=326405",
+   "question": "原定于2021年11月6日的二级造价工程师成绩原定于11月底发布，因常州疫情影响导致全省成绩发布及合格线划定待常州考区考试结束。常州考试到现在位置已经过去二十几天。请问一个市阅卷的时间需要超过了13个市改卷的时间吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "325615",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=325615",
+   "question": "请问2021年度二级造价工程师职业资格考试成绩发布时间；能否先将成绩公布出来，再划分分数线。常州考区作为第二批考试，是否和第一批的分数线划分不一致，毕竟考卷不一样",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "323020",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=323020",
+   "question": "本人考试前1一周去大连出差，去时大连并未发生疫情。回南京一周后大连报出有新冠病例。二级造价师考试前一天突然收到通知我有大连旅行史不能参加考试。考试报名费怎么退款",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "321961",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=321961",
+   "question": "2021年江苏省二级造价师成绩及合格线公布大概什么时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "306623",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=306623",
+   "question": "你好！我是南京一单位二建人员，我想问的是我们南京市安全员B证无纸化考核未通过的话，下次如再报名考试的话是不是非要再去城建培训？请告知，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "305024",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=305024",
+   "question": "本人符合二级造价师考试（报考级别为“免一科”）条件，但报考时选的（报考级别为“考全科”），考试成绩除免试科目其他通过。当出成绩以后通过电话（025）83753556咨询老师，老师说现在改不了报名信息，成绩保留两年，可以等明年报考条件不变的话",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "304426",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=304426",
+   "question": "请问改革后的劳务资质备案的具体步骤和详细材料有哪些？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "301993",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=301993",
+   "question": "南京市安全生产许可B证今年什么时候会 考",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "300777",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=300777",
+   "question": "南京工程建设领域是否取消监理单位的见证员资格证书？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "295209",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=295209",
+   "question": "请问安全员在2.0报名后，缴费在哪里呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "295028",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=295028",
+   "question": "请问安全员C证能否个人报名考试",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "293009",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=293009",
+   "question": "请问建设工地扬尘管控红黑榜现在是在哪个平台或者网站公示？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "289451",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=289451",
+   "question": "请问建筑工地开人货梯（施工电梯）需要的操作证是不是在贵部门办理，需要什么条件",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "287614",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=287614",
+   "question": "你好，请问安全员在网上继续教育好了后，安全员的延期时间在监管2.0怎样操作？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "283627",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=283627",
+   "question": "你好，想咨询一下2.0系统报名安全员现在显示确定中但是不能选考场，是一定要花钱报培训班以后才能选择考场吗？不是说每年可以免费考试一次的吗？所以想咨询一下不报培训班可以选择考场考试吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "283173",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=283173",
+   "question": "市住建委单位组织人事处同志，你好！ 2020年建设工程中级职称通过人员11月9日已经公示，请问职称证书什么时间才能打印？ 单位急等聘任，盼尽快回复为感！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "282725",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=282725",
+   "question": "我单位有装修和幕墙工程设计专项乙级资质，公司注册地址由盐城市变更成南京市，江苏省勘察设计行业管理信息系统中企业信息变更一直未审核通过，审核意见是承诺书模板不对，让去南京勘察设计群内下载，但我公司未在该群内，请问该联系谁解决？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "280268",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=280268",
+   "question": "新租赁办公场所，建筑面积348平米，实际使用面积251平米，新装修后，需要进行消防备案吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "279809",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=279809",
+   "question": "凤凰花园城小区作为本次雨污分流的实施小区，自九月中旬开始积极配合南京市政府的雨污分流项目实施，业主们克服了小区自身车位不足、小区道路狭窄、个别时间段外牌车辆不能进出、学区房小学生睡眠不能保证的问题，积极保证了施工车辆的停放、通行和进出、以及",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "279799",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=279799",
+   "question": "近期南京市大片区域实施雨污分流工程，本是好事，可是随之而来的各种负面影响铺面而来，尤其是老旧小区，本次反馈的是鼓楼区凤凰花园城街道静幽园的情况，施工带来的路面破损、小区绿化破坏问题严重，并且见不到改善，咨询施工队长（来自于二道排），大致意思",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "279768",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=279768",
+   "question": "凤凰花园城小区作为本次雨污分流的实施小区，自九月中旬开始积极配合南京市政府的雨污分流项目实施，业主们克服了小区自身车位不足、小区道路狭窄、个别时间段外牌车辆不能进出、学区房小学生睡眠不能保证的问题，积极保证了施工车辆的停放、通行和进出、以及",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "279263",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=279263",
+   "question": "想问下江北新区金茂地标，A1-A5是商住，我想问下。，A5南边一块地政府规划的是什么。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "278059",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=278059",
+   "question": "你好，我是一家新注册的公司，营业执照上许可项目是建筑劳务分包，各类工程建设活动。现在我想劳务备案，请问怎么操作都有什么流程？是否要买什么锁？谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "278015",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=278015",
+   "question": "您好，我今年2020年5月在南京考的一级建造师的B证，8月份换工作了，目前在北京工作，这个B证怎么转过来？有个流程什么的吗？网上可以操作吗？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "277835",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=277835",
+   "question": "南京市江宁区的企业，施工总承包三级，专业承包三级企业。如何办理《江苏省建筑业企业信用管理手册》？ 办理地点？需要提交的材料及要求？ 请解答，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "277687",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=277687",
+   "question": "尊敬的领导：看进去新闻报道，新庄立交桥为配合红山路-和燕路快速通道将来使用后交通压力，拟新建九华山隧道往玄武大道方向、九华山隧道往红山路方向两条匝道（在新建两条匝道的同时，拟拆除与新建匝道标高冲突的红山路、龙蟠路一对匝道）。对于新建扩建，老",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "276948",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=276948",
+   "question": "南京城乡建设委员会单位、领导好： 我是长江路90号中盈福邸小区业主，小区通往长江路通道是小区2004年建成以来唯一的出入口和消防应急通道。今年8月底，麦哲理房地产开发有限公司不顾小区居民反对，强行封路开挖施工，只在小区东面留有一条不到两米宽",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "275542",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=275542",
+   "question": "有没有明确一点的安全员报名网站，现在百度搜索出来都是广告。给出 一个相关的指导以及步骤，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "239674",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=239674",
+   "question": "安管人员即将到期，需继续教育培训，现在不知怎样报培，这几年安管人员继续教育报名；培训变了N次了。盼有个稳定的安管人员继续教育报名培训部门和流程。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "238939",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=238939",
+   "question": "安全员考场太少，根本无法选考场参加考试，建议增加到4场。满足南京考试人员需求",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "235637",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=235637",
+   "question": "二级建造师继续教育培训什么时候可以开始啊，可以改为线上视频培训吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "232844",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=232844",
+   "question": "一级建造师安全B证延期继续教育在哪里可以办",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "231706",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=231706",
+   "question": "想请问下安全员报名考试的网站是哪里？另外什么时候会恢复报考呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "228420",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=228420",
+   "question": "南京三年未注册二级建造师资格证，到期了怎么参加继续教育，在哪里报名？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "227711",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=227711",
+   "question": "建筑施工企业安全三类人员培训及考试事宜，现在已经停止审核及报名培训考试，请问何时恢复。企业安全生产许可证一直无法办理。谢谢！！！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-48",
+   "id": "224078",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=224078",
+   "question": "请问差别化管理工地如何查看，貌似在网上看不到。最好每月有一个汇总表公示在网站上。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

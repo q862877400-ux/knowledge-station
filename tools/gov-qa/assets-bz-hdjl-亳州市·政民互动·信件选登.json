@@ -1,0 +1,1647 @@
+{
+ "A_考卷": [
+  {
+   "source": "bz-hdjl",
+   "id": "260404037005058",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/260404037005058.html",
+   "question": "我市科技类校外培训机构审批条件有哪些？",
+   "cited_hits": [
+    {
+     "name": "企业名称登记管理规定",
+     "lib_no": "企业名称登记管理规定(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "250820037003036",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/250820037003036.html",
+   "question": "国有土地使用权出让最高年限分别是多少？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国城镇国有土地使用权出让和转让暂行条例",
+     "lib_no": "城镇国有土地使用权出让和转让暂行条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "250520037005022",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/250520037005022.html",
+   "question": "什么是土地使用权出让？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国城镇国有土地使用权出让和转让暂行条例",
+     "lib_no": "城镇国有土地使用权出让和转让暂行条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "250217037005015",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/250217037005015.html",
+   "question": "特种作业操作证可以异地办理、复审、换证吗？",
+   "cited_hits": [
+    {
+     "name": "特种作业人员安全技术培训考核管理规定",
+     "lib_no": "中华人民共和国应急管理部令（第19号）特种作业人员安全技术培训考核管理规定",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "240603037003024",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/240603037003024.html",
+   "question": "您好，请问异地办理机动车驾驶证遗失补发需要准备哪些材料？",
+   "cited_hits": [
+    {
+     "name": "机动车驾驶证申领和使用规定",
+     "lib_no": "机动车驾驶证申领和使用规定(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "230525037003006",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/230525037003006.html",
+   "question": "户口在安庆市，在亳州买的房子，小孩能在亳州上学吗？（小孩上的安庆户口）小学，初中，高中可不可以在亳州上？",
+   "cited_hits": [
+    {
+     "name": "义务教育法",
+     "lib_no": "义务教育法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "居住证暂行条例",
+     "lib_no": "居住证暂行条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "安徽省教育厅关于做好2023年普通中小学招生入学工作的通知",
+    "2023年义务教育阶段招生入学实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "230421037005028",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/230421037005028.html",
+   "question": "申请法律援助的具体条件是什么？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国法律援助法",
+     "lib_no": "法律援助法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "230327037003019",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/230327037003019.html",
+   "question": "请问，排污许可证的有效期限是多长时间？",
+   "cited_hits": [
+    {
+     "name": "排污许可管理条例",
+     "lib_no": "排污许可管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "230127037006002",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/230127037006002.html",
+   "question": "亳州市目前我市柴油车进入城区有哪些通行管理政策？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国道路交通安全法",
+     "lib_no": "道路交通安全法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国大气污染防治法",
+     "lib_no": "大气污染防治法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "柴油货车污染治理攻坚行动计划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "230117037006005",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/230117037006005.html",
+   "question": "安徽省实施土地管理法办法施行了吗，具体施行时间是什么时候",
+   "cited_hits": [
+    {
+     "name": "安徽省实施<中华人民共和国土地管理法>办法",
+     "lib_no": "土地管理法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "安徽省实施<中华人民共和国土地管理法>办法",
+     "lib_no": "土地管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "bz-hdjl",
+   "id": "260825037006001",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/260825037006001.html",
+   "question": "亳州市职工医保在合肥就医出院后需要哪些材料带回当地报销？",
+   "cited_hits": [],
+   "cited_missing": [
+    "安徽省医疗保障局办公室关于印发安徽省医疗保障经办政务服务事项清单（2023年版）的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "260614037007027",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/260614037007027.html",
+   "question": "科技金融支持科创企业方面有哪些措施？",
+   "cited_hits": [],
+   "cited_missing": [
+    "亳州市推动科技融资担保业务实施办法",
+    "关于印发进一步推进科技保险工作若干措施的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "260521037001030",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/260521037001030.html",
+   "question": "2026年亳州市教育局跳绳比赛时间",
+   "cited_hits": [],
+   "cited_missing": [
+    "亳州市教育局关于印发2026年度亳州市市级学生活动清单的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "260507037001025",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/260507037001025.html",
+   "question": "买二手房，想按揭贷款，如果二手房从建成到现在有19年了，请问现在能不能公积金贷款和商业贷款？\n如果可以，请问贷款的额度和年限是怎样规定的？谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "亳州市个人住房公积金贷款管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "260327037003007",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/260327037003007.html",
+   "question": "2026年购车补贴的申请条件是什么？如何申请？往年是补贴5万的。",
+   "cited_hits": [],
+   "cited_missing": [
+    "减免车辆购置税的新能源汽车车型目录",
+    "报废机动车回收证明",
+    "机动车注销证明",
+    "机动车销售统一发票",
+    "机动车登记证书",
+    "报废机动车回收证明",
+    "机动车销售统一发票",
+    "机动车登记证书",
+    "减免车辆购置税的新能源汽车车型目录",
+    "二手车销售统一发票",
+    "机动车销售统一发票",
+    "机动车登记证书",
+    "机动车登记证书",
+    "机动车销售统一发票",
+    "机动车登记证书",
+    "机动车登记证书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "260302037007015",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/260302037007015.html",
+   "question": "你好，我想问下因为在本市无自有房且租赁房屋提取公积金的间隔时间，是必须满12个月吗？还是每个自然年都可以提取。上次提取时间是2025年9月份，今年2026年必须要等到9月吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "亳州市住房公积金提取管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "260201037007054",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/260201037007054.html",
+   "question": "关于印发就业技能培训职业(工种)目录及补贴标准(2025年版)的通知（https://hrss.ah.gov.cn/zxzx/gsgg/80765799.html?lsRedirectHit=1112622769）里面提到网络与信息安全管理",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家职业标准编制技术规程（2023年版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "251126037005020",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/251126037005020.html",
+   "question": "11月21日下发的安徽省汽车新购补贴，请问咱们市到什么时候下发通知公告？是以什么方式来发放补贴呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "机动车统一销售发票"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "251120037005021",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/251120037005021.html",
+   "question": "依据《安徽省人口与计划条例》规定，领取独生子女父母光荣证的，享受以下政策或奖励：(二)国家机关和事业单位职工退休时，提高百分之五的退休金;企业职工退休时，给予一次性补助，具体标准由所在地设区的市、县级人民政府确定。亳州地区的独生子女企业职工",
+   "cited_hits": [],
+   "cited_missing": [
+    "亳州市人民政府办公室关于进一步健全完善人口和计划生育利益导向政策体系的实施意见",
+    "独生子女父母光荣证",
+    "光荣证",
+    "光荣证",
+    "光荣证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "251029037005039",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/251029037005039.html",
+   "question": "亳州市高新区商场地下停车场收费问题，是否通过物价部门核定。望部门给予答复。",
+   "cited_hits": [],
+   "cited_missing": [
+    "安徽省定价目录",
+    "亳州市机动车停放服务收费管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "250828037003045",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/250828037003045.html",
+   "question": "请问市水利局，水土保持审批可以通过网上办理么？",
+   "cited_hits": [],
+   "cited_missing": [
+    "生产建设项目水土保持方案管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "250818037005022",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/250818037005022.html",
+   "question": "我想了解一下我市社会资本开办养老机构补贴政策？",
+   "cited_hits": [],
+   "cited_missing": [
+    "亳州市社会办养老机构建设补贴发放办法",
+    "亳州市社会办养老机构运营补贴发放办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "250313037006001",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/250313037006001.html",
+   "question": "本市婚假假期一共有多少天？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发安徽省人口与计划生育条例实施中有关问题具体应用指导意见的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "250224037006016",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/250224037006016.html",
+   "question": "亳州市目前退役军人优待证哪些景点有优惠？谢谢~",
+   "cited_hits": [],
+   "cited_missing": [
+    "中华人民共和国退役军人优待证",
+    "中华人民共和国烈士、因公牺牲军人、病故军人遗属优待证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "250225037005010",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/250225037005010.html",
+   "question": "近期家中天然气交费过高，请部门告知居民天然气价格是否调整，如调整最新价格是多少。",
+   "cited_hits": [],
+   "cited_missing": [
+    "亳州市关于调整城区居民天然气销售价格的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "250218037006016",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/250218037006016.html",
+   "question": "请问企业如何办理建设项目环评审批手续？",
+   "cited_hits": [],
+   "cited_missing": [
+    "环评法",
+    "建设项目环境影响评价分类管理目录（2021年版）",
+    "建设项目环境影响评价分类管理目录（2021年版）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "250103037005023",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/250103037005023.html",
+   "question": "申请的租赁补贴为什么只能领取两年？领取完租赁补贴可以申请公租房吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "亳州市公共租赁住房管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "241206037006009",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/241206037006009.html",
+   "question": "高校毕业生一次性就业补贴政策有哪些？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步明确有关稳就业政策措施的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "240828037005017",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/240828037005017.html",
+   "question": "亳州市高校毕业生一次性就业补贴政策有哪些？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步明确有关稳就业政策措施的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "240808037003007",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/240808037003007.html",
+   "question": "行政服务中心现在有哪些单位入驻？",
+   "cited_hits": [],
+   "cited_missing": [
+    "安徽省人民政府关于印发进一步优化政务服务提升行政效能推动“高效办成一件事”实施方案的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "240123037003013",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/240123037003013.html",
+   "question": "请问，冬季和夏季电费会比平时高吗？从哪里查询电费消费明细呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于居民生活用电试行阶梯电价的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "231107037003014",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/231107037003014.html",
+   "question": "在江苏省南京市工作，在亳州买房，能否使用南京的公积金商转公？",
+   "cited_hits": [],
+   "cited_missing": [
+    "安徽省住房公积金资金流动性风险预警机制实施办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "230406037003002",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/230406037003002.html",
+   "question": "市民咨询，父母的结婚证是老证，以前都是人工写的，结婚证一方的名字和户口本的名字不一致，现在如果换新证，怎样更换？",
+   "cited_hits": [],
+   "cited_missing": [
+    "安徽省婚姻登记工作规范",
+    "安徽省婚姻登记工作规范",
+    "申请补领婚姻登记证声明书"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "230403037005006",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/230403037005006.html",
+   "question": "您好，请问退伍军人带病回乡认定需要什么流程？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步规范带病回乡退伍军人认定有关问题的通知",
+    "民政部关于带病回乡退伍军人认定及待遇问题的通知",
+    "带病回乡常见慢性病范围"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "230301037006016",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/230301037006016.html",
+   "question": "请问一下，最近一次的教师资格证认定时间是什么时候？",
+   "cited_hits": [],
+   "cited_missing": [
+    "安徽省2022年上半年中小学教师资格认定公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "230217037005011",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/230217037005011.html",
+   "question": "外出务工返乡创业人员，有哪些实质性政策扶持，是否有相关创业培训和创业引导?",
+   "cited_hits": [],
+   "cited_missing": [
+    "亳州市人民政府关于印发亳州市推动全民创业打造创业型城市十条扶持政策的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "230208037003020",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/230208037003020.html",
+   "question": "亳州市2022年初级会计证书申领是否已经开始？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于领取2022年度会计专业技术初级资格证书的通知",
+    "关于领取2022年度会计专业技术初级资格证书的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "230206037003018",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/230206037003018.html",
+   "question": "你好，麻烦咨询下，新房装修可以用公积金申请贷款吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "亳州市个人住房公积金贷款管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "230201037003007",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/230201037003007.html",
+   "question": "请问亳州退役军人持退役军人优待证，在亳州市内乘坐公交车，可以刷卡免费乘车吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "安徽省公共汽车管理条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "230128037005014",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/230128037005014.html",
+   "question": "多年前办理的结婚证名字与户口本名字不一致，怎么更改？需要什么证明和手续？",
+   "cited_hits": [],
+   "cited_missing": [
+    "安徽省婚姻登记工作规范"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "230127037006001",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/230127037006001.html",
+   "question": "亳州市广大市民在日常生活中，会产生大量废弃电池，如随意丢弃或处置不当，可能会造成环境污染，请问我们在废电池的收集处理方面，应该注意哪些方面呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "废电池污染防治技术政策",
+    "安徽省生活垃圾分类管理条例",
+    "国家危险废物名录",
+    "国家危险废物名录（2021版）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "230116037005030",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/230116037005030.html",
+   "question": "请问安徽省院士工作站命名规则是什么？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发安徽省院士工作站管理办法（试行）的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "221227037003007",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/221227037003007.html",
+   "question": "医用口罩和n95口罩，有什么区别？平时出行佩戴普通医用口罩，有预防病毒传播的作用吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "GB 19083-2010"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "221222037006001",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/221222037006001.html",
+   "question": "亳州市生三胎一般都是年纪大的，身体恢复比较慢建议延长产假，提前放假，走出亳州特色",
+   "cited_hits": [],
+   "cited_missing": [
+    "安徽省人口与计划生育条例"
+   ],
+   "has_clause_no": true
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "bz-hdjl",
+   "id": "260830037006047",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/260830037006047.html",
+   "question": "咨询一下现在亳州市区购买新房优惠政策有哪些，近期会出一些购房优惠政策吗？例如购房消费卷、购房补贴，公积金和商业贷款政策等。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "260721037005014",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/260721037005014.html",
+   "question": "您好，想问一下今年安徽省青少年乒乓球锦标赛是不是8月中上旬在马鞍山举行？具体是8月几号？亳州市有没有像去年一样的奔跑吧少年乒乓球选拔赛？希望给予回复，谢谢了！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "260514037001023",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/260514037001023.html",
+   "question": "请问企业想入驻亳芜园区需要哪些手续流程？联系哪个部门？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "260501037001018",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/260501037001018.html",
+   "question": "想咨询一下亳州事业单位是否有针对博士研究生的引进渠道？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "260415037006007",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/260415037006007.html",
+   "question": "请问一下2026年还会发汽车消费券嘛，具体日期是什么时候呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "260319037005022",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/260319037005022.html",
+   "question": "想咨询一下本次春假放假 文件说明一到八年级放春秋三天 4月1号到4月3号，与清明连休 公办幼儿园呢？ 放不放假 本次是否参照义务教育阶段",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "260304037007042",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/260304037007042.html",
+   "question": "您好，请问亳州市今年上半年事业单位招聘什么时候开始，我关注到安徽省考试院关于2026年事业单位公开招聘没有亳州市的招聘信息，感谢您的答疑。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "260101037008023",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/260101037008023.html",
+   "question": "安徽省亳州市女性职工的退休年龄现在是多大",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "251210037007019",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/251210037007019.html",
+   "question": "我想问一下 有两个教师资格证 其中一个今年12月31日到期，另外一个去年到期 已经注册了 今年到期这一个去注册 说新规定五年内只能注册一个 这个到期没有重新注册 想问一下没有注册的会影响以后的使用吗？（这个已经注册过一次，这是第二次注册）",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "251121037007017",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/251121037007017.html",
+   "question": "咨询一下亳州市住房提租补贴发放范围和标准以及发放依据是什么",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "251024037007022",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/251024037007022.html",
+   "question": "1-城乡居民养老保险一次性补交，可以补交200元档的吗？\n2-请问2026年城乡居民养老保险是否还可以一次性补交？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "251026037005043",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/251026037005043.html",
+   "question": "我想咨询亳州市科技局，企业如何申请高新技术企业？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "250923037001061",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/250923037001061.html",
+   "question": "本人合同制员工想自己缴存公积金（打卡工资3845元），请问需要哪些手续，如何进行办理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "250805037005020",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/250805037005020.html",
+   "question": "排污单位领取排污许可证以后还需要做哪些工作？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "250728037003034",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/250728037003034.html",
+   "question": "咨询一下建投世纪城附近的幼儿园有哪些学校？报名电话多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "250730037005027",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/250730037005027.html",
+   "question": "您好，想问一下今年亳州市青少年乒乓球比赛什么时候举行？听说都开始报名了，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "250729037006007",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/250729037006007.html",
+   "question": "请问2025年亳州市统计职称考试什么时候考试？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "250721037007042",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/250721037007042.html",
+   "question": "想咨询下亳州市科技局，家长如何为孩子挑选科技类培训班？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "250710037005041",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/250710037005041.html",
+   "question": "你好，我想问下亳州保租房及公租房相关政策，申请条件以及到期续租需要符合哪些条件",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "250613037006006",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/250613037006006.html",
+   "question": "请问今年为什么一直没有公布亳州市2025年中小学考试时间和放假时间？具体哪一天放假？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "250520037006015",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/250520037006015.html",
+   "question": "婚姻登记“全国通办”之后，领结婚证不用户口簿了，确实方便很多，那当事人还需要提前准备哪些材料呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "250428037006007",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/250428037006007.html",
+   "question": "亳州机场什么时候能正式通航运营",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "250401037005020",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/250401037005020.html",
+   "question": "咨询市高新区教育局具体办公地点和上班时间从几点到几点？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "250225037005008",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/250225037005008.html",
+   "question": "我市秸秆都用在哪些方面",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "250208037005015",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/250208037005015.html",
+   "question": "企业加大研发投入有哪些好处？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "250121037003014",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/250121037003014.html",
+   "question": "请问一下商务局领导，年前还会发汽车消费券嘛，如果是年后发，具体日期是什么时候呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "241119037003023",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/241119037003023.html",
+   "question": "有独生子女证可以享受合作医疗免费吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "241111037005015",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/241111037005015.html",
+   "question": "身份证快到期了，市行政服务中心可以更换吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "241029037007012",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/241029037007012.html",
+   "question": "你好我想咨询下灵活就业医保需要买多久才能用，门诊报销比例多少？每个月返回个人账户多少钱，返个人账户的钱可以用来拿药还是做检查？异地门诊可以报销吗？住院报销比例多少？可以在网上交吗？\n城乡居民医保门诊和住院报销的比例是？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "241010037006008",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/241010037006008.html",
+   "question": "想咨询一下个人缴纳公积金需要什么办理什么手续、在哪办理、需要什么资料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "240926037003018",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/240926037003018.html",
+   "question": "我想咨询一下商务局，十月份还会发放汽车消费券吗？如果还发的话，有具体的日期吗？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "240910037003007",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/240910037003007.html",
+   "question": "亳州市近期出现大量白粉小飞虫，路面上飞的到处都是，行人出行很容易吸入鼻腔和吹入眼睛里，引起身体不适，请有关单位立即组织人员加强防治消杀，营造一个良好宜居的生活环境。望部门主要领导高度重视,加快制定解决方案。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "240813037003017",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/240813037003017.html",
+   "question": "自己刚申请下来的“糖尿病”慢性病，请问居民慢性病报销政策？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "240730037003018",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/240730037003018.html",
+   "question": "2024年7月3-4号，在亳州市谯城区青少年校外活动中心认定的小学教师资格证，什么时候可以领取？在哪里领取？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "240723037005018",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/240723037005018.html",
+   "question": "请问重度阿尔茨海默症能不能办理残疾证？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "240715037006021",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/240715037006021.html",
+   "question": "驾照即将到期，需要期满换证，因车管所地理位置较远，咨询下主城区哪里可以参加驾照体检以及更换驾照。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "240614037006025",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/240614037006025.html",
+   "question": "2024年上半年教师资格证第一批体检没参加，可以参加第二批吗？教师资格证认定时间是什么时候？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "240526037003049",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/240526037003049.html",
+   "question": "请问，学生公交卡办理地点在哪里？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "240523037006023",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/240523037006023.html",
+   "question": "尊敬的领导：\n 您好！请问我市2024年有事业单位招聘计划嘛？如果有大概什么时候发布公告？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "240522037003009",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/240522037003009.html",
+   "question": "请问一下，今年的城乡居民医疗保险补缴期是什么时候？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "240505037005028",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/240505037005028.html",
+   "question": "现在的职工医保生育政策是什么？去医院产检的费用能医保自付吗？最后又怎么报销的？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "240428037005034",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/240428037005034.html",
+   "question": "请问一下亳州教师考编在什么时候出来？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "240426037005006",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/240426037005006.html",
+   "question": "哪里有查询个人养老账户余额的地方？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "240418037003008",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/240418037003008.html",
+   "question": "亳州谯城区的港澳台通信证去哪里可以办理？办理时长多久？需要携带什么资料？收费吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "240408037003006",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/240408037003006.html",
+   "question": "本人想去亳州旅游，请问是否有景点推荐？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "240407037005042",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/240407037005042.html",
+   "question": "请问身份证遗失补办需要多久，需要哪些材料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "240402037003012",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/240402037003012.html",
+   "question": "想请问2024年亳州市直事业单位还有招聘吗?如果有，大概是几月份，考职测公基还是职测综应？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "240304037005011",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/240304037005011.html",
+   "question": "大专毕业药学专业，有执业药师证，可以在村卫生室上班吗，怎样办理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "240304037003006",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/240304037003006.html",
+   "question": "请问2024年亳州市的中小学教师公开招聘公告什么时候发布？三县一区都有公告吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "240229037005009",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/240229037005009.html",
+   "question": "2020年商业贷款在亳州市蒙城县购入了一套房，现在有淮南市的公积金，请问亳州市什么时候可以支持异地商转公积金贷款？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "240221037005012",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/240221037005012.html",
+   "question": "今年还有没有汽车消费券，大概什么时候开始发放？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "240218037005019",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/240218037005019.html",
+   "question": "如题，2024年亳州马拉松是否计划举办？很希望能参加家乡马拉松比赛。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "240216037005006",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/240216037005006.html",
+   "question": "咨询本地市民景区旅游年卡什么时候开始办理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "240207037006008",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/240207037006008.html",
+   "question": "咨询一下我市目前申请职业技能等级证书补贴的条件有哪些?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "231204037006008",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/231204037006008.html",
+   "question": "请问有关部门，事业单位人员提前退休条件有哪些？退休后待遇如何？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "231127037003020",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/231127037003020.html",
+   "question": "我的公积金缴至9月份，目前是封存状态，还能申请公积金提取吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "231121037005007",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/231121037005007.html",
+   "question": "您好，我想问一下关于新能源出租车的问题，哪些品牌的新能源车型可以用作出租车？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "231107037006005",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/231107037006005.html",
+   "question": "请问可以去哪查看本单位2022年政府信息公开年报？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "231010037005010",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/231010037005010.html",
+   "question": "请问可以在哪里查看亳州市最新的人口数据？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "230930037003025",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/230930037003025.html",
+   "question": "如何查询商品房买卖合同是否备案。当前想确认房屋买卖的合同是否已备案，请帮忙解答，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "230908037003019",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/230908037003019.html",
+   "question": "您好，请问落户亳州市需要准备什么资料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "230906037005009",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/230906037005009.html",
+   "question": "请问亳州有哪些特色美食？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "230814037006006",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/230814037006006.html",
+   "question": "如何在亳州市市场监督管理局官网上进行发布食品安全承诺书？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "230810037003021",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/230810037003021.html",
+   "question": "你好，我现在在自家的宅基地上翻建房屋，只有《亳州市谯城区农村宅基地批准书》及购买材料的发票，因为都好长时间了，没有当年的申请书了，我怎么样才能把我的住房公积金提取出来用于翻建房子，谢谢了！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "230809037006018",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/230809037006018.html",
+   "question": "亳芜园区的招商局在2.5大厦几楼？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "230726037003014",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/230726037003014.html",
+   "question": "2023.6教师资格认定的，几月份能拿到证书。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "230724037003001",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/230724037003001.html",
+   "question": "幼儿多大年龄，可以办理身份证？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "230716037005033",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/230716037005033.html",
+   "question": "询问近期亳州人民政府或事业单位是否还有就业见习招聘的相关岗位？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "230713037006009",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/230713037006009.html",
+   "question": "想咨询一下，市区周末能否办理身份证，可以的话，到哪里去办，因为平时上班没时间。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "230707037005014",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/230707037005014.html",
+   "question": "流动人员档案现有单位接收，申请调档需要提交什么材料？需要本人现场办理还是可以网上申请呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "230620037003011",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/230620037003011.html",
+   "question": "农村宅基地和农房能否继承？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "230608037006004",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/230608037006004.html",
+   "question": "在安徽省阜阳市正常缴纳的职工医保，在亳州市进行产检，可以使用职工医保并报销吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "230607037003006",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/230607037003006.html",
+   "question": "请问我市临时瓜果销售点有哪些？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "230606037006007",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/230606037006007.html",
+   "question": "您好，目前退役军人的转业安置工作，需要提供哪些具体的材料呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "230606037006006",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/230606037006006.html",
+   "question": "请问亳州市买房组合贷公积金部分可以办理对冲吗？如果可以，请问需要哪些材料，流程。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "230606037003005",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/230606037003005.html",
+   "question": "身份证可以在异地办理吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "230602037003029",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/230602037003029.html",
+   "question": "您好，因论文数据需要前来咨询，请问2022年的亳州市统计年鉴什么时候发布。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "230531037003018",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/230531037003018.html",
+   "question": "咨询一下，2023年事业单位招考计划什么时候开展？招录公告什么时候发布？另外能否多一些三不限的岗位。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "230516037005010",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/230516037005010.html",
+   "question": "本人于2019年获得社会工作师资格证书，并于同年办理了社会工作师登记，登记时间从2019年-2022年，现该证书首次登记时间已到期，请问如何办理续期登记？谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "230515037003005",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/230515037003005.html",
+   "question": "我想咨询审计中的政策跟踪审计的内容有哪些？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "230508037005017",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/230508037005017.html",
+   "question": "你好，请问工作单位和社保都在外省，户籍所在地是亳州的，可以在亳州报考二级建造师吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "230421037006003",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/230421037006003.html",
+   "question": "小额贷款公司增资需要哪些材料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "230414037005025",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/230414037005025.html",
+   "question": "什么是“房地一体”不动产权证？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "230331037003013",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/230331037003013.html",
+   "question": "农民转让宅基地后，是否可以再申请宅基地？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "230324037003008",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/230324037003008.html",
+   "question": "亳州市政务服务中心都能办理哪些业务，上班时间是几点到几点？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "230322037003005",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/230322037003005.html",
+   "question": "亳州市的增减挂钩政策具体指什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "230324037005015",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/230324037005015.html",
+   "question": "农民退出宅基地的程序是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "230323037005008",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/230323037005008.html",
+   "question": "咨询2023年亳州市社会工作者考试，什么时候开始报名？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "230322037005009",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/230322037005009.html",
+   "question": "请问原来的身份证到期办理新的身份证，需要携带哪些材料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "230316037005018",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/230316037005018.html",
+   "question": "想了解审计局的工作职责是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "230314037006004",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/230314037006004.html",
+   "question": "2023年亳州市和三县一区有计划招聘公告吗，别的地市已经发布教师招聘公告。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "230314037003016",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/230314037003016.html",
+   "question": "2023年，亳州市教师招聘有计划吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "230314037003013",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/230314037003013.html",
+   "question": "2023年亳州马拉松是否举办？有没有具体日期？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "230301037006002",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/230301037006002.html",
+   "question": "请问2022年下半年认证的教师资格证什么时候领取？怎么一直没有看到领取公告？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "230222037005007",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/230222037005007.html",
+   "question": "怎么知道毕业院校寄给当地的毕业生档案寄到哪了，从哪查询？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "230221037005012",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/230221037005012.html",
+   "question": "农村宅基地纠纷有哪些化解途径？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "230216037005019",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/230216037005019.html",
+   "question": "请问身份证办理必须到户口所在地派出所吗？能不能到就近的派出所办理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "230216037003019",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/230216037003019.html",
+   "question": "2020-2022年亳州市地区生产总值分别是多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "230214037006005",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/230214037006005.html",
+   "question": "我驾驶证到期了，去哪办理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "230215037005012",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/230215037005012.html",
+   "question": "光明路涡河大桥与药都路涡河大桥今年能否计划开工？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "230214037005013",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/230214037005013.html",
+   "question": "请问今年的亳州市政府工作报告在哪里可以查到？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "230213037005011",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/230213037005011.html",
+   "question": "初级注册安全工程师大概什么时候领证？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "230213037006007",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/230213037006007.html",
+   "question": "2023年法律职业资格考试的报名条件，请公布。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "230212037005002",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/230212037005002.html",
+   "question": "请问亳州市区灵活就业人员女性退休年龄是多少？需要符合哪些要求？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "230208037003017",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/230208037003017.html",
+   "question": "我市2023年教师编制考试报名时间是什么时候？在哪查询？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "230209037005013",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/230209037005013.html",
+   "question": "亳州市境内公路上的动态超限检测磅允许多大的误差？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "230129037005002",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/230129037005002.html",
+   "question": "亳州市寒假高中开学具体时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "230119037005010",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/230119037005010.html",
+   "question": "我想办理取水许可证，需要到哪里办理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "230119037003006",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/230119037003006.html",
+   "question": "我有退役军人优待证，请问，目前我市旅游景点有哪些优待政策，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "230119037005008",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/230119037005008.html",
+   "question": "请问目前亳州市文化旅游体育局办公地址换到哪里了？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "230117037005008",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/230117037005008.html",
+   "question": "农民非法占地建房应承担什么法律责任",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "230117037005015",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/230117037005015.html",
+   "question": "亳芜园区企业服务中心在2.5大楼几楼？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "230117037003009",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/230117037003009.html",
+   "question": "2022年的审计工作结束了吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "230112037006008",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/230112037006008.html",
+   "question": "亳州市我市2023年教师编制考试报名时间是什么时候？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "230105037005017",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/230105037005017.html",
+   "question": "涡阳县义门镇到亳州上班工作的很多，农乡专线有时不准确出发，给我们的上班带来很大麻烦，想问下2023年是否有计划开通亳州到义门镇的公交专线",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "221219037006009",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/221219037006009.html",
+   "question": "亳州市当前亳州市民的发烧咳嗽感冒阳性的特多，尤其医护人员几乎全军覆没，很多医护人员都是发着烧上班，阳的太多，恳求政府能否对空气启动全面消杀，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "221219037006001",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/221219037006001.html",
+   "question": "亳州市尊敬的领导，\n全面实施放开计划后，我市居民面临购药难，入院难。特别是家有老人孩子的，更是担心受怕。街道无人，商铺几近关门，比封控时期还要萧条。主要原因就是害怕疫情，无法救治。\n建议将便民检测亭改为退烧药平价销售点。这一做法已在几地实行",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bz-hdjl",
+   "id": "221219037006002",
+   "url": "https://www.bozhou.gov.cn/InFeedback/show/221219037006002.html",
+   "question": "亳州市你好，我买的期房在亳州市区。想看下房管局有没有备案，请问一下在哪里可以查询我的商品房。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

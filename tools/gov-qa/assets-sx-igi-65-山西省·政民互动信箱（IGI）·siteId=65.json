@@ -1,0 +1,33 @@
+{
+ "A_考卷": [],
+ "B_补料": [],
+ "C_无依据": [
+  {
+   "source": "sx-igi-65",
+   "id": "55684",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=55684",
+   "question": "突然u",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-65",
+   "id": "49746",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=49746",
+   "question": "记录的数据发链接",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sx-igi-65",
+   "id": "4347",
+   "url": "http://www.shanxi.gov.cn/zmhd/?id=4347",
+   "question": "建立了进口快件离开",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

@@ -1,0 +1,19 @@
+{
+  "tag": "tianjin",
+  "host": "www.tj.gov.cn",
+  "referer": "http://www.tj.gov.cn/hdjl/",
+  "scheme": "http",
+  "range": [1, 300],
+  "empty_status": 500,
+  "sites": {
+    "4": 1,
+    "42": 1,
+    "185": 3,
+    "186": 123516,
+    "212": 51,
+    "215": 16784,
+    "244": 800
+  },
+  "total": 141156,
+  "note": "siteId 1..300 全枚举。7 个 site 有数据；但实测 detail(viewGovmsgbox) 返回 500『未找到该信件』，故本平台只给问题、不给答复，不可作为问答源。site186=天津市公安局静海分局。"
+}

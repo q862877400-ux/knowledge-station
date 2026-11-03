@@ -1,0 +1,1072 @@
+{
+ "A_考卷": [
+  {
+   "source": "nat-mot",
+   "id": "3e351935-f893-4ea2-8696-a33e4f41fb6d84",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=3e351935-f893-4ea2-8696-a33e4f41fb6d84",
+   "question": "重型集装箱半挂车运输绿通减免具体规定 交公路发〔2019〕99号），整车合法装载运输全国统一的《鲜活农产品品种目录》内的产品的车辆，免收车辆通行费。车货总高度从地面算起超过4米 根据这个规定，我们重型集装箱冷藏半挂车，绿通查验时候查验高度到",
+   "cited_hits": [
+    {
+     "name": "汽车、挂车及汽车列车外廓尺寸、轴荷及质量限值",
+     "lib_no": "GB 1589-2016",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于进一步提升鲜活农产品运输“绿色通道”政策服务水平的通知",
+    "GB1589-2016"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-mot",
+   "id": "01ba39f2-3cbb-400d-a989-adc68f1b378a30",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=01ba39f2-3cbb-400d-a989-adc68f1b378a30",
+   "question": "关于《船舶安全监督规则》适用问题 请问《船舶安全监督规则》（部27号令）是不是不适用于无船藉港的船舶、三无船舶？如果不适用，岂不是只管合法、不管非法吗？如果不适用，请问三无船舶该依据哪一个法律规定进行管理？",
+   "cited_hits": [
+    {
+     "name": "海上交通安全法",
+     "lib_no": "海上交通安全法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "内河交通安全管理条例",
+     "lib_no": "内河交通安全管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "船舶安全监督规则",
+    "“三无”船舶联合认定办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-mot",
+   "id": "a3bfafaa-2a04-432f-ba5f-79ebb80c144415",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=a3bfafaa-2a04-432f-ba5f-79ebb80c144415",
+   "question": "定制客运互联网信息服务许可或备案 客规第六十一条，提供定制客运网络信息服务的电子商务平台（以下简称网络平台），应当依照国家有关法规办理市场主体登记、互联网信息服务许可或者备案等有关手续。 “互联网信息服务许可或者备案”，许可或者备案如何理解",
+   "cited_hits": [
+    {
+     "name": "互联网信息服务管理办法",
+     "lib_no": "互联网信息服务管理办法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "nat-mot",
+   "id": "d86c2c21-2e47-4162-924d-dd505c5bb30228",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=d86c2c21-2e47-4162-924d-dd505c5bb30228",
+   "question": "水运企业经营的PVC材质竹排筏归海事监管部门监管码 您好 我想咨询一下景区里引进了一批9m长2.2m宽的竹排筏，排筏带一个汽油动力挂机，该排筏仅有出厂检验合格证，没有其他有效证件，该景区办理了水路运输经营许可证，请问该类排筏归当地文旅部门监",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国内河交通安全管理条例",
+     "lib_no": "内河交通安全管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "nat-mot",
+   "id": "8647f6d8-deb5-4ee9-a736-66c38ca61a1c63",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=8647f6d8-deb5-4ee9-a736-66c38ca61a1c63",
+   "question": "分公司 在公司所在地以外的设区的市设立的分公司，是否可以在分公司所在地申请客运班线经营，可以的话班线的许可应当由总公司所在地还是分公司所在地的交通主管部门审批",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国行政许可法",
+     "lib_no": "行政许可法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "道路运输企业设立分公司备案登记表",
+    "道路运输经营许可证",
+    "道路运输经营许可证",
+    "道路运输经营许可证",
+    "道路运输企业分公司备案证明",
+    "道路运输企业设立分公司备案登记表",
+    "关于同意XXXX设立分公司的函",
+    "企业法人营业执照",
+    "道路运输经营许可证",
+    "道路运输经营许可证",
+    "关于同意XXXX设立分公司的复函",
+    "道路运输经营许可证",
+    "道路运输企业分公司备案证明",
+    "道路运输证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-mot",
+   "id": "fbbcc73a-ff00-4a82-a3d9-79987009f78098",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=fbbcc73a-ff00-4a82-a3d9-79987009f78098",
+   "question": "安全管理咨询 落实全员安全责任制。请问道路旅客运输的生产经营办安全责任到底是什么？",
+   "cited_hits": [
+    {
+     "name": "道路运输条例",
+     "lib_no": "道路运输条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "道路旅客运输及客运站管理规定",
+    "道路旅客运输企业安全管理规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-mot",
+   "id": "6f832407-d8d0-424a-a845-ccd3eb39a21121",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=6f832407-d8d0-424a-a845-ccd3eb39a21121",
+   "question": "《道路旅客运输及客运站管理规定》中“有关运价规定”具体指哪些规定？ 《道路旅客运输及客运站管理规定》（交通运输部令2020年第17号）第四十二条“客运经营者应当遵守有关运价规定，使用规定的票证，不得乱涨价、恶意压价、乱收费。”中“有关运价规",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国价格法",
+     "lib_no": "价格法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "交通运输部 发展改革委关于深化道路运输价格改革的意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-mot",
+   "id": "1b4a63b6-2e7c-4b78-8eb6-f0b195c20a4352",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=1b4a63b6-2e7c-4b78-8eb6-f0b195c20a4352",
+   "question": "道路运输证申请材料保存时间 请问道路运输证申请材料保存时间是多长时间？有没有文件依据。",
+   "cited_hits": [
+    {
+     "name": "道路运输条例",
+     "lib_no": "道路运输条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-mot",
+   "id": "129a1760-3562-4083-99b9-5f5139616fb822",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=129a1760-3562-4083-99b9-5f5139616fb822",
+   "question": "厂内煤炭转运承包商是否需要道路运输许可证？ 厂内煤炭转运项目招标，对投标人资质要求，是否需要投标具有道路运输许可证？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国招标投标法",
+     "lib_no": "招标投标法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-mot",
+   "id": "3f347f8c-6df3-45d4-82b1-d29d8e2921d798",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=3f347f8c-6df3-45d4-82b1-d29d8e2921d798",
+   "question": "关于降低列车行李架高度的建议 李部长好！今天，我从西安回宝鸡，坐Z41次火车，看到很多旅客艰难地把行李举放到高高的行李架上。其实，行李架没必要设计那么高，完全可以考虑下降400mm。既方便了旅客放拿行李，又扩大了行李存储空间，又不影响下方坐",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国公司法",
+     "lib_no": "公司法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-mot",
+   "id": "5dcdc0ea-64f0-44c1-af8d-710ee08610af20",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=5dcdc0ea-64f0-44c1-af8d-710ee08610af20",
+   "question": "高速路绿通收费标准是什么，为什么几个省的收费标准不一样 高速路的标准是什么，六米八高栏拉15吨多的绿通江苏收费，我让工作人员给我算拉多少不收费，给我算出最低拉16吨多最高能拉到18吨9，今天晚上我拉了18.48吨地瓜在安徽合肥肥东又收高速过",
+   "cited_hits": [
+    {
+     "name": "汽车、挂车及汽车列车外廓尺寸、轴荷及质量限值",
+     "lib_no": "GB 1589-2016",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国标准化法",
+     "lib_no": "标准化法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "鲜活农产品品种目录",
+    "关于进一步规范全国高速公路入口称重检测工作的通知",
+    "公路货运车辆超限超载认定标准",
+    "GB1589—2016"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-mot",
+   "id": "865af0bf-e688-4380-b1cd-d34df2fa3a8c27",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=865af0bf-e688-4380-b1cd-d34df2fa3a8c27",
+   "question": "关于私家车超载的规定 交规规定私家车不能超载20%，这个规定，认定只能最多坐5人，否则算超载，但是对于大多数二孩双亲家庭很不友好！强烈建议更改！",
+   "cited_hits": [
+    {
+     "name": "道路交通安全法",
+     "lib_no": "道路交通安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-mot",
+   "id": "57987282-1198-45d6-b28f-dd8ebb4b5f2766",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=57987282-1198-45d6-b28f-dd8ebb4b5f2766",
+   "question": "17.5米的平板车，可以拉绿通吗，对车辆的外廓和限值的要求是什么 17.5米的平板车，拉绿通对车辆的外廓和限值的要求是不是行驶证的尺寸",
+   "cited_hits": [
+    {
+     "name": "汽车、挂车及汽车列车外廓尺寸、轴荷及质量限值",
+     "lib_no": "GB 1589-2016",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "超限运输车辆行驶公路管理规定",
+    "鲜活农产品品种目录",
+    "超限运输车辆行驶公路管理规定",
+    "交通运输部 公安部关于治理车辆超限超载联合执法常态化制度化工作的实施意见",
+    "GB1589-2016"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-mot",
+   "id": "2e98d820-d4ce-457d-9ba8-73a015cb011f99",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=2e98d820-d4ce-457d-9ba8-73a015cb011f99",
+   "question": "高速公路与普通收费公路 怎么去判断我回家的几个道路是不是高速公路？我看免费通行是以高速公路驶离收费站为准，能介绍一下概念吗？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国公路法",
+     "lib_no": "公路法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-mot",
+   "id": "8f347270-9d0d-418d-be98-7a8553b27f6b15",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=8f347270-9d0d-418d-be98-7a8553b27f6b15",
+   "question": "第一次办理旅游客运道路经营许可证 尊敬的领导您好！ 我公司已经取得营业经营范围旅游客运省际包车，申请办理旅游客运省际包车道路经营可证，我公司注册地址是在县城，按照新客规第十三条规定提供材料，向所在地县级道路运输机构提出申请，还是要向市际道路",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国道路运输条例",
+     "lib_no": "道路运输条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "nat-mot",
+   "id": "b5ad6d6f-1c04-42a0-8e32-4c9296ccd41968",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=b5ad6d6f-1c04-42a0-8e32-4c9296ccd41968",
+   "question": "老年代步车违法上路为什么交警都不管 现在市内有好多老年代步车，四轮，超过40公斤，时速超过20km/小时。这种违法上路的车辆，遍地都是，占用机动车道，逆行，闯红灯，还有不少非法运营载客的，交警看了从来都无动于衷，好几年都不管，为什么？",
+   "cited_hits": [
+    {
+     "name": "道路交通安全法",
+     "lib_no": "道路交通安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "nat-mot",
+   "id": "618d6197-62d6-4209-9da7-a8e03b10dab398",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=618d6197-62d6-4209-9da7-a8e03b10dab398",
+   "question": "2015年取得公路造价工程师甲级从未注册，现申请注册需要满足继续教育学时吗 2015年取得公路造价工程师甲级，从未注册过，现根据新《办法》申请注册需要满足继续教育学时吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "交通运输工程造价工程师注册管理办法",
+    "交通运输部办公厅关于做好<交通运输工程造价工程师注册管理办法>实施工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-mot",
+   "id": "75e794e4-b7bc-4a43-bf61-3f454e3821d529",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=75e794e4-b7bc-4a43-bf61-3f454e3821d529",
+   "question": "限行时段接驳运输证通行高速公路 在限行时内（凌晨2点至5点），持有效接驳证件的营运客车，收费站是否可以允许车辆驶入或驶出高速公路？",
+   "cited_hits": [],
+   "cited_missing": [
+    "道路客运接驳运输管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-mot",
+   "id": "4799d9f0-5764-4127-9d4a-c494bee54c5315",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=4799d9f0-5764-4127-9d4a-c494bee54c5315",
+   "question": "定制客运是否可以增加运力 原来营运班线批许可1台49座客运班车，先开展定制客运，开展定制客运班车台数是在原来基础上化整为零49台变成7台7座位定制班车，还是根据市场需求上N台定制班车都可以呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "班车客运定制服务操作指南"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-mot",
+   "id": "413ca611-4df4-4f67-b1dc-517bde80afe756",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=413ca611-4df4-4f67-b1dc-517bde80afe756",
+   "question": "包车牌行程时间上限 公司准备接旅游团，行程可能在19日左右，需要备案申请包车牌。根据《道路及旅客运输及客运站管理规定》，包车牌单次行程上限为15日，但企业要申请超出十五日的包车牌。",
+   "cited_hits": [],
+   "cited_missing": [
+    "道路旅客运输及客运站管理规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nat-mot",
+   "id": "f4cd1ccb-75b6-4c30-b762-d06191aedee999",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=f4cd1ccb-75b6-4c30-b762-d06191aedee999",
+   "question": "增设中途停靠站点不在途经线路且超越讫点地的问题 ABC依次为同一条直线上的三个点，A为县、B为县，C为B县的乡镇（高铁站所在地，距离B县城区约十几公里）。班线起讫地为A至B，C不在该班线的途经线路内，A需经过B城区才能到达C，现班线经营者拟",
+   "cited_hits": [],
+   "cited_missing": [
+    "道路旅客运输及客运站管理规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-mot",
+   "id": "90366225-8c88-4971-a413-c4585aed02c013",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=90366225-8c88-4971-a413-c4585aed02c013",
+   "question": "关于长途包车15天无法返程问题咨询 您好，现有旅行社用车由烟台发往拉萨运输旅客，全程6000多公里，在确保安全前提下，因路况、限速、天气等因素，全程往返用时19天。 按照《道路旅客运输及客运站管理规定》57条，客运包车除执行道路运输管理机构",
+   "cited_hits": [],
+   "cited_missing": [
+    "道路旅客运输及客运站管理规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nat-mot",
+   "id": "55bdc7f0-9757-49fe-ac8a-5547e1d053293",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=55bdc7f0-9757-49fe-ac8a-5547e1d053293",
+   "question": "《农村道路旅客运输班线通行条件审核规则》交运发〔2014〕258号 《农村道路旅客运输班线通行条件审核规则》交运发〔2014〕258号文件是否对文件出台前已许可线路的重新许可时也同步有效？线路的到期重新许可是不是算新增线路？",
+   "cited_hits": [],
+   "cited_missing": [
+    "农村道路旅客运输班线通行条件审核规则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-mot",
+   "id": "6f2fa99c-e14e-46bd-be73-c32666e2a9a467",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=6f2fa99c-e14e-46bd-be73-c32666e2a9a467",
+   "question": "定制班车的线路备案问题 定制客运是否可以在原来许可经营的起点至讫点客运站以外备案其他的线路（起讫点以外的延伸线路、不是必经线路），这样备案是否合理合法？",
+   "cited_hits": [],
+   "cited_missing": [
+    "道路旅客运输及客运站管理规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-mot",
+   "id": "99c55c44-f0df-4ce9-811b-55897287e59d9",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=99c55c44-f0df-4ce9-811b-55897287e59d9",
+   "question": "交通运输部关于进一步加强道路包车客运管理的通知 交通运输部关于进一步加强道路包车客运管理的通知废止后有没有相关类似的法规代替？",
+   "cited_hits": [],
+   "cited_missing": [
+    "道路旅客运输及客运站管理规定",
+    "道路旅客运输企业安全管理规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-mot",
+   "id": "8eff4628-2d14-442c-a866-2dad96ed0ec57",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=8eff4628-2d14-442c-a866-2dad96ed0ec57",
+   "question": "旅游客运车辆例检规定 根据《道路旅客运输企业安全管理规范》（交运发〔2018〕55号）第三十二条的规定中，“客运企业应当建立客运车辆技术状况检查制度。 对未按规定进行安全例检或安全例检不合格的车辆不得安排运输任务。 对于不在客运站进行安全例",
+   "cited_hits": [],
+   "cited_missing": [
+    "道路旅客运输及客运站管理规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-mot",
+   "id": "21e78aa7-c5db-4e47-a816-e71397a40ddb13",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=21e78aa7-c5db-4e47-a816-e71397a40ddb13",
+   "question": "政策咨询 长途客运班车和旅游包车客运车辆安装安全告知电视视频播放装置的具体规定文件",
+   "cited_hits": [],
+   "cited_missing": [
+    "道路旅客运输企业安全管理规范"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nat-mot",
+   "id": "d3102ddc-670b-4790-9aa0-8962d5c48d1036",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=d3102ddc-670b-4790-9aa0-8962d5c48d1036",
+   "question": "道路旅客分公司 道路旅客运输企业分公司设立地与总公司设立地不在同一县市区的，1、分公司的经营许可证副本名称和地址是总公司还是分公司？2、分公司的客运车辆的行驶证和道路运输证上的业务名称和地址是总公司还是分公司？",
+   "cited_hits": [],
+   "cited_missing": [
+    "道路运输管理工作规范",
+    "道路运输经营许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-mot",
+   "id": "fbe2b7b3-f249-40cf-bc9a-259d061b037d18",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=fbe2b7b3-f249-40cf-bc9a-259d061b037d18",
+   "question": "包车客运 一，包车客运在运输过程中能否逐一向乘客收费？如由某个人牵头组织包车业务并统一支付包车费，而组织者再逐一向乘坐收费，因为有的是网上报名只有在运输过程中才能见面收取费用，这种做法是否和包车是团体乘客相矛盾？二，包车是不是可分为来回包车",
+   "cited_hits": [],
+   "cited_missing": [
+    "道路旅客运输及客运站管理规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-mot",
+   "id": "b8c30e23-22a6-40ce-bb13-d32bf6734c4891",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=b8c30e23-22a6-40ce-bb13-d32bf6734c4891",
+   "question": "客运包车线路两端均不在车籍地 道路旅客运输及客运站管理规定第99条第七项客运包车线路两端均不在车籍地当中的线路两端该怎么理解？是以实际接送团的线路为准还是包车客运标志牌上注明的线路两端为准？",
+   "cited_hits": [],
+   "cited_missing": [
+    "道路旅客运输及客运站管理规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nat-mot",
+   "id": "67b00d00-b9e1-4875-82d7-e29f59ab60f725",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=67b00d00-b9e1-4875-82d7-e29f59ab60f725",
+   "question": "道路旅客运输及客运站管理规定解读 在《包车客运管理办法》第二章中，对三）经营场所条件作出以下要求 1、包车客运企业应拥有或租用与其经营规模相适应的、坚实平整的停车场所，其面积不少于实有车辆或承诺投入车辆投影面积的1.5倍； 2、包车客运企业",
+   "cited_hits": [],
+   "cited_missing": [
+    "道路旅客运输及客运站管理规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nat-mot",
+   "id": "2d708721-c91d-4eb5-9946-3ad162162ab713",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=2d708721-c91d-4eb5-9946-3ad162162ab713",
+   "question": "定制客运和班线客运许可问题 1.《道路客运班线经营行政许可决定书》停靠站点：中途无停靠站点 2.《班车客运定制服务信息表》许可事项—中途停靠地客运站点：自定 问题1：同一条客运班线，在班线许可和定制客运许可事项对“中途停靠地和站点”表述中，",
+   "cited_hits": [],
+   "cited_missing": [
+    "道路旅客运输及客运站管理规定",
+    "班车客运定制服务信息表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-mot",
+   "id": "b7eddf98-a404-4fbe-8f96-88d1121dc5fc66",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=b7eddf98-a404-4fbe-8f96-88d1121dc5fc66",
+   "question": "需要建立安全管理体系的航运公司的范围 根据《中华人民共和国航运公司安全与防污染管理规定》（交通部令2007年第6号）第十五条第二款“需要建立安全管理体系的航运公司的范围，由交通部公布”。想请问部里是否已经发布上述需要建立安全管理体系的航运公",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于第一批国内航行船舶强制实施<中华人民共和国船舶安全营运和防止污染管理规则>的通告",
+    "关于<国内安全管理规则>对第二批船舶生效的通知",
+    "关于第三批国内航行船舶实施<中华人民共和国船舶安全营运和防止污染管理规则>的通告",
+    "关于<中华人民共和国船舶安全营运与防污染管理规则>对第四批船舶生效的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-mot",
+   "id": "96ca8e1e-9df7-4c3f-97c3-ed7d1b80ff6e80",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=96ca8e1e-9df7-4c3f-97c3-ed7d1b80ff6e80",
+   "question": "班线投入运营前，与起讫地客运站和中途停靠地客运站签订进站协议，起讫地客运站有权不签订进站协议么？不签订如何处理呢？ 班线投入运营前，与起讫地客运站和中途停靠地客运站签订进站协议，因客运市场香炉互相重合和历史原因的相互抵制以及竞争，起讫地客运",
+   "cited_hits": [],
+   "cited_missing": [
+    "道路旅客运输及客运站管理规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nat-mot",
+   "id": "b25f458e-f64d-4597-a5f0-19573481976b9",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=b25f458e-f64d-4597-a5f0-19573481976b9",
+   "question": "公路建设项目档案管理中，关于原始记录与清稿后的记录文件一并归档保存问题的咨询 交通运输部领导您好！《公路建设项目文件材料立卷归档管理办法》交办发〔2010〕382号文件中，关于原始记录与清稿后的记录文件一并归档保存问题的咨询。 《公路建设项",
+   "cited_hits": [],
+   "cited_missing": [
+    "公路建设项目文件材料立卷归档管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-mot",
+   "id": "0612670a-9ab3-4a26-b252-77a8f28d03df27",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=0612670a-9ab3-4a26-b252-77a8f28d03df27",
+   "question": "中华人民共和国海事局关于退役军人参加船员适任培训和考试的通知 中华人民共和国海事局2021年11月10日发布了《中华人民共和国海事局关于退役军人参加船员适任培训和考试的通知》中，初中毕业及以上文化程度的退役军人可参加海船沿海航区三副、三管轮",
+   "cited_hits": [],
+   "cited_missing": [
+    "中华人民共和国海事局关于退役军人参加船员适任培训和考试的通知",
+    "中华人民共和国内河船舶船员适任考试和发证规则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-mot",
+   "id": "c8a65593-a79d-4d68-b0f0-68e46888245879",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=c8a65593-a79d-4d68-b0f0-68e46888245879",
+   "question": "重新许可 《客规》中关于变更客运班线经营主体、起讫地、日发班次下限应当按照重新许可办理，经营期届满的，客运经营者应当重新提出申请，重新办理手续。这里的“重新许可”是经营者重新提出申请，如果有三人以上申请，履行招投标程序么，这样的话原经营者可",
+   "cited_hits": [],
+   "cited_missing": [
+    "道路旅客运输及客运站管理规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-mot",
+   "id": "fa96dd76-f00b-4078-ad81-521195233a8764",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=fa96dd76-f00b-4078-ad81-521195233a8764",
+   "question": "《道路运输管理工作规范》交运便字（2014）181号，是否有效咨询 现在已经2023年了，请问《道路运输管理工作规范》交运便字（2014）181号还适用吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "道路运输管理工作规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-mot",
+   "id": "2ccaf689-2039-4eb2-8ffd-1ee5d8843a9970",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=2ccaf689-2039-4eb2-8ffd-1ee5d8843a9970",
+   "question": "许可权限问题 原有的一条省际客运班线经营者是A市的一家一类班线客运企业，线路为B市至北京，许可权限下放后，因经营主体在A市，该班线许可权直接下放给A市，是否合理？",
+   "cited_hits": [],
+   "cited_missing": [
+    "道路旅客运输及客运站管理规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-mot",
+   "id": "b11dcc93-26d0-4892-b54c-bda97d484ff043",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=b11dcc93-26d0-4892-b54c-bda97d484ff043",
+   "question": "内河避碰规则限于吃水灯和掉头灯的咨询 内河避碰规则中有关于限于吃水灯和掉头灯的要求，如果一条限于吃水的船舶，按规则要求夜间要一直开启限于吃水灯，假如该船舶需要掉头时，则需要开启掉头灯，请问下，这个时候限于吃水灯是否需要同时开启，如同时开启，",
+   "cited_hits": [],
+   "cited_missing": [
+    "中华人民共和国内河避碰规则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-mot",
+   "id": "be90e203-57c1-4e5d-9244-520b80d2a4d775",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=be90e203-57c1-4e5d-9244-520b80d2a4d775",
+   "question": "客运业务咨询 咨询如下客运业务1、某客运线路因经营不善，连续180天以上停运，是否还需要进行公示？2、某线路原有5辆车，其中2辆车承包人主动退出，其余车辆按原有发车时间发车，是否还需要进行公示？3、在车型不变的情况下，同一总公司不同分公司车",
+   "cited_hits": [],
+   "cited_missing": [
+    "道路旅客运输及客运站管理规定",
+    "道路运输经营许可证",
+    "道路运输证",
+    "交通运输部办公厅关于做好<道路旅客运输及客运站管理规定>实施工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-mot",
+   "id": "2eaa4aee-8097-4309-a11c-bc392bfb758c70",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=2eaa4aee-8097-4309-a11c-bc392bfb758c70",
+   "question": "定制客运经营问题 交通运输部： 超过400公里的定制客运是否需要按照《道路旅客运输企业安全管理规范》第四十五条（84220规范），为长途客运配备2名驾驶员。请交通运输部给予解答。",
+   "cited_hits": [],
+   "cited_missing": [
+    "道路旅客运输企业安全管理规范"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nat-mot",
+   "id": "dea0a18b-d436-4c60-b0fc-49307492608414",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=dea0a18b-d436-4c60-b0fc-49307492608414",
+   "question": "行政执法问题 1、某危险货运公司，公司经营许可为2类、3类、4类、5类、8类。 该公司所有车辆A，道路运输证运输经营范围为危险货物8类，该车实际运输着5类货物，请问是按照超越许可事项从事道路危险货物处罚，还是以使用无道路运输证的车辆从事运输",
+   "cited_hits": [],
+   "cited_missing": [
+    "道路货物运输及站场管理规定",
+    "道路运输证",
+    "道路运输证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nat-mot",
+   "id": "8a17372f-bff6-4c38-8c42-a57832de318b56",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=8a17372f-bff6-4c38-8c42-a57832de318b56",
+   "question": "毗邻县起讫地变更问题 毗邻县审批是否可以由原来的县到县变更为县到镇（县城在该镇上，且客运站点不变），客运公司的线路就能由客运班线性质变更为农客？或者说起讫地在有县城的镇能不能算作乡镇，符不符合农客标准？",
+   "cited_hits": [],
+   "cited_missing": [
+    "道路旅客运输及客运站管理规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-mot",
+   "id": "49c47b7e-d953-44db-b35a-6337f67452ca69",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=49c47b7e-d953-44db-b35a-6337f67452ca69",
+   "question": "城市轨道交通重大隐患判定标准 城市轨道交通会有相应的重大隐患判定标准出台吗？未出台前是否处发布相应的重点检查事项",
+   "cited_hits": [],
+   "cited_missing": [
+    "城市轨道交通运营安全风险分级管控和隐患排查治理管理办法",
+    "办 法",
+    "城市轨道交通运营安全隐患排查 规范",
+    "城市轨道交通运营安全隐患排查规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-mot",
+   "id": "020d2b3d-80f6-4ccf-a7e7-4053e8b1e51117",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=020d2b3d-80f6-4ccf-a7e7-4053e8b1e51117",
+   "question": "道路运输许可公示问题 因客规重新修订，以下业务是否需要进行公示向领导请示 新增道路客运班线 新增道路运输企业 及道路运输企业新增经营范围； 客运班线增加中途停靠站点、变更经营主体、变更起讫地、变更日发班次下限、变更 车辆数量及要求。",
+   "cited_hits": [],
+   "cited_missing": [
+    "道路旅客运输及客运站管理规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-mot",
+   "id": "6f725384-a944-4145-ada6-46c16900354633",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=6f725384-a944-4145-ada6-46c16900354633",
+   "question": "道路运输管理规范 道路经营许可证丢失，需要登报后再补吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于修订印发《道路运输管理工作规范",
+    "道路运输经营许可证",
+    "道路运输经营许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-mot",
+   "id": "cf885877-a87f-4e35-9816-667aa03a403236",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=cf885877-a87f-4e35-9816-667aa03a403236",
+   "question": "关于已废止规章的疑问 您好！交通运输部2016年发布了《交通运输部关于废止20件交通运输规章的决定》。根据该决定，1999年发布的《汽车货物运输规则》，2000年发布的《国内水路集装箱港口收费办法》《国内水路货物运输规则》《港口货物作业规则",
+   "cited_hits": [],
+   "cited_missing": [
+    "国内水路货物运输规则",
+    "港口货物作业规则",
+    "民法典",
+    "国内水路集装箱港口收费办法",
+    "港口收费计费办法",
+    "汽车货物运输规则",
+    "交通运输部关于修改〈道路货物运输及站场管理规定〉的决定",
+    "合同法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-mot",
+   "id": "44413f66-8e4b-4cd0-9b8a-f62fdfb2900997",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=44413f66-8e4b-4cd0-9b8a-f62fdfb2900997",
+   "question": "榴莲属于绿通吗 按照最新的绿通目录，榴莲属于绿通吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步完善和落实鲜活农产品运输绿色通道政策的通知",
+    "鲜活农产品品种目录",
+    "鲜活农产品品种目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-mot",
+   "id": "01aacce2-f641-4690-9212-3e5b2a4982b834",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=01aacce2-f641-4690-9212-3e5b2a4982b834",
+   "question": "请问普通货运从业资格证年审继续教育什么时候取消 请问普货货运从业资格证什么时候取消两年的继续教育和年审，不是说马上就要印制新的规定条例，没有扣分的就取消继续教育和年审吗？这一年马上就要结束了怎么还没有印制新的文件取消呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步优化营商环境更好服务市场主体的实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-mot",
+   "id": "0530599e-2b71-4366-a513-83c4bb17491899",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=0530599e-2b71-4366-a513-83c4bb17491899",
+   "question": "关于南通新机场 各位领导好!南通新机场已经写入了顶层设计的《长江三角洲地区一体化发展规划纲要》和《长三角交通更高质量一体化发展规划》。在今年6月6日的湖州会议上，签署了南通新机场合作共建协议。南通新机场作为一项庞大的工程，自始至终吸引的大众",
+   "cited_hits": [],
+   "cited_missing": [
+    "长江三角洲区域一体化发展规划纲要",
+    "长江三角洲地区交通运输更高质量一体化发展规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-mot",
+   "id": "25e10f29-8259-434d-a1f8-30f807a6215696",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=25e10f29-8259-434d-a1f8-30f807a6215696",
+   "question": "包车客运车籍所在地与车辆备案所在地能否分离 你好，我们这分公司的营运车辆车籍要迁回总公司所在地，但是车辆备案信息依然在分公司所在地，想问下，这样是否可以，相关的法律依据有没有",
+   "cited_hits": [],
+   "cited_missing": [
+    "道路旅客运输及客运站管理规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nat-mot",
+   "id": "41763c5c-c004-450d-8681-924ba446619051",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=41763c5c-c004-450d-8681-924ba446619051",
+   "question": "藕带，凉暑是否属于鲜活农产品 领导你好，请问藕带，凉暑是否属于鲜活农产品范围之内？鲜活农产品是如何定义？",
+   "cited_hits": [],
+   "cited_missing": [
+    "鲜活农产品品种目录",
+    "关于进一步完善和落实鲜活农产品运输绿色通道政策的通知",
+    "关于进一步完善鲜活农产品运输绿色通道政策的紧急通知",
+    "交通运输部关于贯彻落实国务院部署进一步做好非洲猪瘟疫情联防联控工作的通知",
+    "交通运输部办公厅关于对转地放蜂车辆恢复执行鲜活农产品运输“绿色通道”政策的通知",
+    "交通运输部办公厅 农业农村部办公厅关于对仔猪及冷鲜猪肉恢复执行鲜活农产品运输“绿色通道”政策的通知",
+    "鲜活农产品品种目录",
+    "交通运输部 国家发展改革委关于进一步完善和落实鲜活农产品运输绿色通道政策的通知",
+    "鲜活农产品品种目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-mot",
+   "id": "e500c7fc-a1c9-4fea-a253-765515cb57b547",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=e500c7fc-a1c9-4fea-a253-765515cb57b547",
+   "question": "新能源车辆运营证办理 新能源4.2m电动冷藏车也需要办理车辆营运证吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "道路货物运输及站场管理规定",
+    "道路运输经营许可证",
+    "道路运输证",
+    "道路运输经营许可证",
+    "道路运输证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nat-mot",
+   "id": "f2cbbde8-0ccb-472c-869d-d31c008064ca78",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=f2cbbde8-0ccb-472c-869d-d31c008064ca78",
+   "question": "劳务分包资质及安全生产许可证查验 您好： 建设部门前几年取消建筑劳务资质和安全生产许可证，我是一个小微建筑劳务企业，这两年与央企有合作，但央企还要求我们的劳务资质和安全生产许可证，这样一来就加重了我们企业的负担，想咨询一下，咱们交通部门有取",
+   "cited_hits": [],
+   "cited_missing": [
+    "公路建设市场管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-mot",
+   "id": "726857df-bf74-40ed-8d6d-9f67f0a09eb166",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=726857df-bf74-40ed-8d6d-9f67f0a09eb166",
+   "question": "半挂车营运证办理 现阶段，半挂车办理营运证是否强制性要求在交通部进行营运达标公告，未取得达标公告的车型能否办理营运证?",
+   "cited_hits": [],
+   "cited_missing": [
+    "营运客车安全技术条件",
+    "营运货车安全技术条件 第1部分：载货汽车",
+    "营运货车安全技术条件 第2部分：牵引车辆与挂车"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-mot",
+   "id": "16b755f4-3262-41ad-bccb-daa4ff2e578295",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=16b755f4-3262-41ad-bccb-daa4ff2e578295",
+   "question": "关于危险货物运输车辆运输普通货物几个问题 1.危险货物运输牵引车能否牵引普通货物半挂车，是否需申请增加普运资质； 2.如可，驾驶员要求危驾资质还普驾资质，是否需押运员； 3.如可，危运牵引车警示牌等是否需拆除。",
+   "cited_hits": [],
+   "cited_missing": [
+    "交通运输部关于修改〈道路危险货物运输管理规定〉的决定",
+    "道路运输证",
+    "交通运输部关于修改〈道路货物运输及站场管理规定〉的决定",
+    "交通运输部关于修改〈道路货物运输及站场管理规定〉的决定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nat-mot",
+   "id": "6e498671-715d-46da-8906-698af9f6d5c967",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=6e498671-715d-46da-8906-698af9f6d5c967",
+   "question": "沿海港口水工建筑定额的人工费 沿海港口水工建筑定额的人工费及其相关文件",
+   "cited_hits": [],
+   "cited_missing": [
+    "交通运输部政府信息公开指南"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-mot",
+   "id": "cc29a48f-f503-493c-b697-3b7c3ae144ec48",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=cc29a48f-f503-493c-b697-3b7c3ae144ec48",
+   "question": "鲜活农产品品种目录 新版全国通用的完整版《鲜活农产品品种目录》在哪里下载？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步完善和落实鲜活农产品运输绿色通道政策的通知",
+    "关于进一步完善鲜活农产品运输绿色通道政策的紧急通知",
+    "交通运输部关于贯彻落实国务院部署进一步做好非洲猪瘟疫情联防联控工作的通知",
+    "交通运输部办公厅关于对转地放蜂车辆恢复执行鲜活农产品运输“绿色通道”政策的通知",
+    "交通运输部办公厅 农业农村部办公厅关于对仔猪及冷鲜猪肉恢复执行鲜活农产品运输“绿色通道”政策的通知",
+    " 关于进一步完善和落实鲜活农产品运输绿色通道政策的通知 ",
+    " 关于进一步完善鲜活农产品运输绿色通道政策的紧急通知 ",
+    "鲜活农产品品种目录",
+    "交通运输部 国家发展改革委关于进一步完善和落实鲜活农产品运输绿色通道政策的通知",
+    "鲜活农产品品种目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-mot",
+   "id": "4964b354-188a-45a3-87d9-8a54c8320fc184",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=4964b354-188a-45a3-87d9-8a54c8320fc184",
+   "question": "相关服务期和缺陷责任期的关系 《建设工程施工合同范本》1.1.4.4缺陷责任期：是指承包人按照合同约定承担缺陷修复义务，且发包人预留质量保证金的期限，自工程实际竣工日期起计算，《建设工程监理合同示范文本》里面没有缺陷责任期的提法。附录A相关",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设工程施工合同范本",
+    "建设工程监理合同示范文本"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-mot",
+   "id": "01724b9a-4fa5-4f07-b24c-bf291a99bab10",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=01724b9a-4fa5-4f07-b24c-bf291a99bab10",
+   "question": "货拉拉此类网络运输平台归属哪个部门监管 想了解诸如货拉拉、运满满此类网络运输平台归属哪个部门监管，国家目前有无对此类网络运输平台的监管办法。",
+   "cited_hits": [],
+   "cited_missing": [
+    "交通运输部 国家税务总局关于印发<网络平台道路货物运输经营管理暂行办法>的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-mot",
+   "id": "aa6b36a0-858e-4aac-bbe3-96540d48fe8c20",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=aa6b36a0-858e-4aac-bbe3-96540d48fe8c20",
+   "question": "关于 乙二醇 是否属于危险货物 你好，请问 乙二醇 是否是危险货物，承运乙二醇是否需危运资质。",
+   "cited_hits": [],
+   "cited_missing": [
+    "危险货物品名表",
+    "危险货物品名表",
+    "危险货物品名表",
+    "工业用乙二醇",
+    "GB/T 4649-2018"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-mot",
+   "id": "128364d4-6833-4f63-9348-869ecb9af93f46",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=128364d4-6833-4f63-9348-869ecb9af93f46",
+   "question": "从业资格证考试取消全国推行时间 从业资格证考试取消的时间 年审的收费标准",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步优化营商环境更好服务市场主体的实施意见",
+    "道路运输从业人员管理规定",
+    "关于印发道路运输驾驶员诚信考核办法（试行）的通知",
+    "关于印发<道路运输驾驶员继续教育办法>的通知"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "nat-mot",
+   "id": "66b66dc0-d3d9-4e0f-82fe-4700f929147855",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=66b66dc0-d3d9-4e0f-82fe-4700f929147855",
+   "question": "集装箱拉绿通 集装箱挂车拉绿通高度不超4.2米，现在又可以免通行费了，以后不会再改为4米了？请回复",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-mot",
+   "id": "df6f2d2b-a760-43f3-8dc0-88c65af6148b98",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=df6f2d2b-a760-43f3-8dc0-88c65af6148b98",
+   "question": "《道路旅客运输及客运站管理规定》第九十三条（四）超越许可事项，从事道路客运经营的这条法律的具体司法解释是什么？ 《道路旅客运输及客运站管理规定》第九十三条（四）超越许可事项，从事道路客运经营的这条法律的具体司法解释是什么？哪些情况属于超越许",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-mot",
+   "id": "a4dde59d-6939-49f9-8cf1-57396fded1707",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=a4dde59d-6939-49f9-8cf1-57396fded1707",
+   "question": "绿通车辆享受免费优惠政策的标准 一辆绿通车在广东省进入收费站后，中途在广东省高速上某个服务区转运鱼虾类货物，在外省出口免费通行了，这个是否符合绿通免费标准？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-mot",
+   "id": "89efa167-c077-4679-a9d6-0db481bac4a028",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=89efa167-c077-4679-a9d6-0db481bac4a028",
+   "question": "对开班线客运车辆，可以颠倒起汽地运输吗？ 济南至诸城班线客运，正班车应当在济南发车，班线经营许可明确许可事项为济南至诸城，但为了抢夺优质客源。济南至诸城班线经营者，使用定制客运，每天从诸城开往济南，使诸城至济南的班线经营者的班车，无客源。 ",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-mot",
+   "id": "3ae3c94f-f2fa-4183-8927-ff150542734e53",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=3ae3c94f-f2fa-4183-8927-ff150542734e53",
+   "question": "四轮老人电动代步车 请问符合电动轮椅标准的四轮老人电动代步车，目前是否有法规监管？ 如果没有的话，目前此类产品属于哪个部门监管，该如何注册生产销售？ 如果目前没有监管的话，产品该如何合法合规的开发？ 以上问题希望可以得到解答，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-mot",
+   "id": "493451e6-c65e-4519-ae23-e4b3c6c3d36249",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=493451e6-c65e-4519-ae23-e4b3c6c3d36249",
+   "question": "国庆高速免费相关问题 您好，我想请问一下，10月1日零点以后下高速，不管是否跨省，都免费吗？ 打个比方：9月30日上午10点太原出发，大约9月30日13点进入河南省，9月30日18点进入湖北省，9月30日23点进入江西省，10月1日0:30",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-mot",
+   "id": "8dafb4da-38a6-4ae8-b8f9-b4e1ee98a9f527",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=8dafb4da-38a6-4ae8-b8f9-b4e1ee98a9f527",
+   "question": "国庆高速免费 你好，我想咨询一下今年国庆高速免费通行期间是像以前那样直接通行还是改成进口领卡出口交卡的新模式？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-mot",
+   "id": "60944823-f93d-45c6-bc67-7e37af7b88c344",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=60944823-f93d-45c6-bc67-7e37af7b88c344",
+   "question": "事业单位法人能否办理普通货运道路运输经营许可证 事业单位法人能否办理普通货运道路运输经营许可证。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-mot",
+   "id": "aab2493c-55b1-4c83-9cf2-917f2a61528888",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=aab2493c-55b1-4c83-9cf2-917f2a61528888",
+   "question": "危险货物配装表咨询 请问目前国内道路运输，危险货物同车运输，应遵守的是JT617-2004内的配装表还是JT/T617-2018内的配装表？或者应遵守其他的配装表？谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-mot",
+   "id": "41265e6f-b08b-4deb-ba34-a32b1e5221f624",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=41265e6f-b08b-4deb-ba34-a32b1e5221f624",
+   "question": "高速通行免费问题 我想咨询一下，国庆高速免费，现在都提倡etc 了。如果30号 晚上进高速还不是免费时间，那么下高速的时候是1号免费时间，那么etc 是实行分段收费，还是以下高速时间为准，全免费。还有走人工通道是不是也有一个的。也分段收费。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-mot",
+   "id": "dfa7bb4f-2ce4-4259-97df-2bdee3ad991584",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=dfa7bb4f-2ce4-4259-97df-2bdee3ad991584",
+   "question": "ETC储值用户拔卡非免费时段提前上高速，下高速时是免费时间，请问收费吗？ 您好，我想咨询一下：ETC储值用户20年9月30日拔卡走人工通道上高速，下高速时是免费时间，请问收费吗？入口是发CPC卡还是纸条？拔卡通行后，在插上卡后ETC电子标签",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-mot",
+   "id": "719ce366-d0df-45be-838b-492ac5bbef8562",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=719ce366-d0df-45be-838b-492ac5bbef8562",
+   "question": "要求删除在原单位名录下公路信息网上我的名字 我在原单位已辞职，但原单位还在全国公路信息网上挂着我的名字，该怎么办 我多次要求删除，但原单位一直不删除",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-mot",
+   "id": "c4d978de-9a3b-4252-8932-114320bc62e417",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=c4d978de-9a3b-4252-8932-114320bc62e417",
+   "question": "高速公路过省界龙门架算不算下高速然后再上高速，还是属于一直在高速上？ 武深高速，经过湘粤省界ETC龙门架，算不算下高速然后再上高速，还是属于一直在高速上？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-mot",
+   "id": "9f3134e8-fb85-40b7-9954-8bd54b626e9a76",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=9f3134e8-fb85-40b7-9954-8bd54b626e9a76",
+   "question": "国庆节高速收费问题 提问：如果我在节假日高速免费前上了高速拿了通行卡，在下高速的时候高速免费了，还会收费吗？再一种情况，下高速免费的时候收费站并没有人，这张通行卡该怎么处置，可以直接扔进收费站岗亭吗，这样做会有什么影响吗？（只行驶在省内高速",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-mot",
+   "id": "cd7717aa-4be8-438a-b093-83adc178755115",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=cd7717aa-4be8-438a-b093-83adc178755115",
+   "question": "高速公路收费 您好。有两个问题需要咨询：1、高速公路改扩建期间，边修建边通车收费，是不是符合《收费公路管理条例》“第二十五条 收费公路建成后，应当按照国家有关规定进行验收；验收合格的，方可收取车辆通行费。收费公路不得边建设边收费。”相关要求",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-mot",
+   "id": "fad7184b-58e0-40a9-a51b-9de4abcb9d7718",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=fad7184b-58e0-40a9-a51b-9de4abcb9d7718",
+   "question": "达标核查整备质量与注册登记标准不一致 《机动车安全技术检验项目和方法》注册登记检验时,机动车的整备质量应与机动车产品公告、机动车出厂合格证相符,且误差满足:重中型货车、挂车、专项作业车不超过±3%或±500kg。《道路运输达标车辆核查工作规",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-mot",
+   "id": "6609a8f3-a944-4845-94e7-1e5a688c9c0b43",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=6609a8f3-a944-4845-94e7-1e5a688c9c0b43",
+   "question": "公路养护资质 现在可以申请公路养护技术资质吗？如果在贵州申请的养护资质，能跨省承接业务吗？，另外养护技术资质需要提供设备吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-mot",
+   "id": "a0aed3ab-2819-40b0-9639-88b7bb079fc92",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=a0aed3ab-2819-40b0-9639-88b7bb079fc92",
+   "question": "ETC节假日结束收费问题 安装ETC家用5座乘用车 【临近免费时段结束时，需要先就近下高速，再上高速吗？】 ETC会不会自动计算减免时间，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-mot",
+   "id": "7106b20a-0799-480e-af10-cac6c6de8f910",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=7106b20a-0799-480e-af10-cac6c6de8f910",
+   "question": "货车重新申请办理营运证问题 1.以前取得营运证的货运车辆，因故被注销营运证，现想重新申请营运证。这种情况是否必须按照新车入市进行达标核查合格后才能办理营运证？ 2.38900标准出台后，交通部门的有关标准大概何时能出台？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-mot",
+   "id": "ebc20819-c20f-4e6c-bae6-91072856ea8a6",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=ebc20819-c20f-4e6c-bae6-91072856ea8a6",
+   "question": "广东省救护车免费吗？ 救护车高速免费吗？ 是否有交通部文号说明救护车部不免费？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-mot",
+   "id": "78daa14f-2825-403c-ad6d-f55e5f64f1436",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=78daa14f-2825-403c-ad6d-f55e5f64f1436",
+   "question": "代办外籍船舶通过琼州海峡手续 1994年396号文里有关于代办船舶通过琼州海峡手续收费一项，但据悉该文件已经废止，请问是否有新的文件支持以上费收项目",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nat-mot",
+   "id": "36e94912-a3a2-4ed7-822f-b33ee5efa37748",
+   "url": "https://qa.mot.gov.cn/mapplys/pub/visitor/userIndex/questionDetail?id=36e94912-a3a2-4ed7-822f-b33ee5efa37748",
+   "question": "国庆节高速收费问题 您好，我想咨询一下：我准备2020年9月30日下午2点从贵州高速去四川达州市，如果我是在10月1日凌晨1点的免费的时间段下的高速公路收费站，从我上高速这期间没有在免费时间段内的通行费，要收取吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

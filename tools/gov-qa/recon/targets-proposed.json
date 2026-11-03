@@ -1,0 +1,2053 @@
+{
+ "_generated": "T301",
+ "_note": "候选登记，**未核实**；hint-unverified 的数字来自源码正则，需人工确认",
+ "targets": {
+  "ah-kb": {
+   "total": null,
+   "note": "该站未提供总量｜ 全省站群共享知识库（label 8888），跨厅局聚合 2282 条；pageIndex 翻页，明细为各厅 /dwzsk/<id>.html",
+   "_status": "no-total-available",
+   "_landed": 600
+  },
+  "ah-st": {
+   "total": null,
+   "note": "该站未提供总量｜ 列表按 pageIndex 翻页（约 145 条）+ 静态明细（问/答 单字标记）",
+   "_status": "no-total-available",
+   "_landed": 145
+  },
+  "baoji-igi": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 49 个 siteId（空 appId，枚举上界 12,561 条）；与 sn-igi 不同部署（记录 id 重叠 0/20）；上游地域字段为门户默认值",
+   "_status": "no-total-available",
+   "_landed": 797
+  },
+  "baotou-igi": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 42 站 / 约 7,243 条（空 appId 取全量）；须带 Referer；上游地域字段为门户默认值，已剥离",
+   "_status": "no-total-available",
+   "_landed": 5067
+  },
+  "bj-hdjl": {
+   "total": 215,
+   "note": "源码线索（**待核实**）｜ 首都之窗门户信件库；列表 POST .action（返回 JS 对象字面量、非 JSON），明细 GET .flow（HTML）；答复常点名条例条款；无三级归属",
+   "_status": "hint-unverified",
+   "_landed": 195
+  },
+  "changzhi-igi": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 15 个 siteId（空 appId，枚举上界 6,657 条）；与 sx-igi 不同部署（9 个 siteId 独有 / 记录 id 重叠 0/2",
+   "_status": "no-total-available",
+   "_landed": 400
+  },
+  "chifeng-igi": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 53 个 siteId（空 appId，枚举上界 11,485 条）；与 nmg-igi 不同部署（siteId 映射 44 独有 / 记录 id 重叠",
+   "_status": "no-total-available",
+   "_landed": 763
+  },
+  "cq-hdjl": {
+   "total": null,
+   "note": "该站未提供总量｜ 静态列表 30 条/页（createPage 28 页）+ 静态明细；明细为键值表（留言摘要/答复内容）",
+   "_status": "no-total-available",
+   "_landed": 500
+  },
+  "cq-igi": {
+   "total": 32580,
+   "cap": 32580,
+   "note": "重庆 IGI 75 site（无上限，应全采）",
+   "_status": "already-registered"
+  },
+  "danzhou-igi": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 20 个 siteId（空 appId，枚举上界 27,694 条）；海南首条 IGI 线；上游地域字段为门户默认值（海口市），已剥离；须带 Refer",
+   "_status": "no-total-available",
+   "_landed": 545
+  },
+  "fj-hdjl": {
+   "total": null,
+   "note": "该站未提供总量｜ 列表 sqDetailPublic(current 翻页, total≈143) + 明细 getSqDetail2(handledesc=答复)；头需 enc",
+   "_status": "no-total-available",
+   "_landed": 143
+  },
+  "gd-amr": {
+   "total": 773,
+   "note": "源码线索（**待核实**）｜ hdjlpt letter/pubList；探测年窗 total=773",
+   "_status": "hint-unverified",
+   "_landed": 6134
+  },
+  "gd-chaozhou": {
+   "total": null,
+   "note": "该站未提供总量｜ hdjlpt letter/pubList；实测年窗 total=46",
+   "_status": "no-total-available",
+   "_landed": 205
+  },
+  "gd-com": {
+   "total": null,
+   "note": "该站未提供总量｜ hdjlpt letter/pubList；探测年窗 total=33",
+   "_status": "no-total-available",
+   "_landed": 326
+  },
+  "gd-coop": {
+   "total": null,
+   "note": "该站未提供总量｜ hdjlpt letter/pubList；探测年窗 total=4",
+   "_status": "no-total-available",
+   "_landed": 133
+  },
+  "gd-czt": {
+   "total": null,
+   "note": "该站未提供总量｜ hdjlpt letter/pubList；探测年窗 total=18",
+   "_status": "no-total-available",
+   "_landed": 462
+  },
+  "gd-dara": {
+   "total": null,
+   "note": "该站未提供总量｜ hdjlpt letter/pubList；探测年窗 total=18",
+   "_status": "no-total-available",
+   "_landed": 155
+  },
+  "gd-dfz": {
+   "total": null,
+   "note": "该站未提供总量｜ hdjlpt letter/pubList；探测年窗 total=9",
+   "_status": "no-total-available",
+   "_landed": 78
+  },
+  "gd-dva": {
+   "total": null,
+   "note": "该站未提供总量｜ hdjlpt letter/pubList；探测年窗 total=14",
+   "_status": "no-total-available",
+   "_landed": 346
+  },
+  "gd-edu": {
+   "total": null,
+   "note": "该站未提供总量｜ hdjlpt letter/pubList；探测年窗 total=68",
+   "_status": "no-total-available",
+   "_landed": 1165
+  },
+  "gd-fg": {
+   "total": null,
+   "note": "该站未提供总量｜ hdjlpt letter/pubList；年窗 8 条",
+   "_status": "no-total-available",
+   "_landed": 330
+  },
+  "gd-gbdsj": {
+   "total": null,
+   "note": "该站未提供总量｜ hdjlpt letter/pubList；探测年窗 total=25",
+   "_status": "no-total-available",
+   "_landed": 274
+  },
+  "gd-gdaudit": {
+   "total": null,
+   "note": "该站未提供总量｜ hdjlpt letter/pubList；探测年窗 total=6",
+   "_status": "no-total-available",
+   "_landed": 36
+  },
+  "gd-gdcss": {
+   "total": null,
+   "note": "该站未提供总量｜ hdjlpt letter/pubList；探测年窗 total=8",
+   "_status": "no-total-available",
+   "_landed": 53
+  },
+  "gd-gdgrain": {
+   "total": null,
+   "note": "该站未提供总量｜ hdjlpt letter/pubList；探测年窗 total=12",
+   "_status": "no-total-available",
+   "_landed": 70
+  },
+  "gd-gdii": {
+   "total": null,
+   "note": "该站未提供总量｜ hdjlpt letter/pubList；探测年窗 total=10",
+   "_status": "no-total-available",
+   "_landed": 486
+  },
+  "gd-gdjyj": {
+   "total": null,
+   "note": "该站未提供总量｜ hdjlpt letter/pubList；探测年窗 total=14",
+   "_status": "no-total-available",
+   "_landed": 98
+  },
+  "gd-gdstc": {
+   "total": null,
+   "note": "该站未提供总量｜ hdjlpt letter/pubList；探测年窗 total=12",
+   "_status": "no-total-available",
+   "_landed": 74
+  },
+  "gd-gdwsxf": {
+   "total": null,
+   "note": "该站未提供总量｜ hdjlpt letter/pubList；探测年窗 total=11",
+   "_status": "no-total-available",
+   "_landed": 78
+  },
+  "gd-gdyjzx": {
+   "total": null,
+   "note": "该站未提供总量｜ hdjlpt letter/pubList；探测年窗 total=7",
+   "_status": "no-total-available",
+   "_landed": 42
+  },
+  "gd-gzw": {
+   "total": null,
+   "note": "该站未提供总量｜ hdjlpt letter/pubList；探测年窗 total=10",
+   "_status": "no-total-available",
+   "_landed": 68
+  },
+  "gd-hr": {
+   "total": 510,
+   "note": "源码线索（**待核实**）｜ hdjlpt letter/pubList；年窗 510 条（广东已验证厅局中量最大）",
+   "_status": "hint-unverified",
+   "_landed": 510
+  },
+  "gd-hsa": {
+   "total": null,
+   "note": "该站未提供总量｜ hdjlpt letter/pubList；探测年窗 total=11",
+   "_status": "no-total-available",
+   "_landed": 173
+  },
+  "gd-huizhou": {
+   "total": 4204,
+   "note": "源码线索（**待核实**）｜ hzhmsb.cn Spring Boot；queryList.do + getFormDetail.do 均须 POST JSON；callType 30=局",
+   "_status": "hint-unverified",
+   "_landed": 3900
+  },
+  "gd-jgsw": {
+   "total": null,
+   "note": "该站未提供总量｜ hdjlpt letter/pubList；探测年窗 total=9",
+   "_status": "no-total-available",
+   "_landed": 34
+  },
+  "gd-jiangmen": {
+   "total": null,
+   "note": "该站未提供总量｜ 静态 content/post 列表；明细为 th/td 表（主题/内容 + 答复单位/答复内容）",
+   "_status": "no-total-available",
+   "_landed": 21
+  },
+  "gd-jieyang": {
+   "total": null,
+   "note": "该站未提供总量｜ hdjlpt letter/pubList；实测年窗 total=53",
+   "_status": "no-total-available",
+   "_landed": 442
+  },
+  "gd-jt": {
+   "total": null,
+   "note": "该站未提供总量｜ hdjlpt letter/pubList；年窗 40 条",
+   "_status": "no-total-available",
+   "_landed": 381
+  },
+  "gd-jy": {
+   "total": null,
+   "note": "该站未提供总量｜ hdjlpt letter/pubList；年窗 14 条",
+   "_status": "no-total-available",
+   "_landed": 513
+  },
+  "gd-lyj": {
+   "total": null,
+   "note": "该站未提供总量｜ hdjlpt letter/pubList；探测年窗 total=21",
+   "_status": "no-total-available",
+   "_landed": 234
+  },
+  "gd-maoming": {
+   "total": null,
+   "note": "该站未提供总量｜ hdjlpt letter/pubList；实测年窗 total=68",
+   "_status": "no-total-available",
+   "_landed": 412
+  },
+  "gd-mpa": {
+   "total": null,
+   "note": "该站未提供总量｜ hdjlpt letter/pubList；探测年窗 total=32",
+   "_status": "no-total-available",
+   "_landed": 437
+  },
+  "gd-nr": {
+   "total": 106,
+   "note": "源码线索（**待核实**）｜ hdjlpt letter/pubList；探测年窗 total=106",
+   "_status": "hint-unverified",
+   "_landed": 1682
+  },
+  "gd-shanwei": {
+   "total": null,
+   "note": "该站未提供总量｜ hdjlpt letter/pubList；实测年窗 total=27",
+   "_status": "no-total-available",
+   "_landed": 1223
+  },
+  "gd-shenzhen": {
+   "total": 5493,
+   "note": "源码线索（**待核实**）｜ hdjlpt letter/pubList；实测年窗 total=5493",
+   "_status": "hint-unverified",
+   "_landed": 15000
+  },
+  "gd-smzt": {
+   "total": 107,
+   "note": "源码线索（**待核实**）｜ hdjlpt letter/pubList；探测年窗 total=107",
+   "_status": "hint-unverified",
+   "_landed": 976
+  },
+  "gd-st": {
+   "total": 211,
+   "note": "源码线索（**待核实**）｜ hdjlpt letter/pubList（Laravel CSRF 握手）；年窗 211 条（生态留言量大）",
+   "_status": "hint-unverified",
+   "_landed": 3329
+  },
+  "gd-stats": {
+   "total": 711,
+   "note": "源码线索（**待核实**）｜ hdjlpt letter/pubList；探测年窗 total=711",
+   "_status": "hint-unverified",
+   "_landed": 4275
+  },
+  "gd-szyyj": {
+   "total": null,
+   "note": "该站未提供总量｜ hdjlpt letter/pubList；探测年窗 total=23",
+   "_status": "no-total-available",
+   "_landed": 334
+  },
+  "gd-tyj": {
+   "total": null,
+   "note": "该站未提供总量｜ hdjlpt letter/pubList；探测年窗 total=8",
+   "_status": "no-total-available",
+   "_landed": 398
+  },
+  "gd-whly": {
+   "total": null,
+   "note": "该站未提供总量｜ hdjlpt letter/pubList；探测年窗 total=13",
+   "_status": "no-total-available",
+   "_landed": 202
+  },
+  "gd-ws": {
+   "total": null,
+   "note": "该站未提供总量｜ hdjlpt letter/pubList；年窗 89 条",
+   "_status": "no-total-available",
+   "_landed": 909
+  },
+  "gd-yangjiang": {
+   "total": null,
+   "note": "该站未提供总量｜ hdjlpt letter/pubList；实测年窗 total=35",
+   "_status": "no-total-available",
+   "_landed": 76
+  },
+  "gd-yj": {
+   "total": null,
+   "note": "该站未提供总量｜ hdjlpt letter/pubList（Laravel CSRF 握手）；全历史 179 条（2020-2026 五个非空年窗）",
+   "_status": "no-total-available",
+   "_landed": 179
+  },
+  "gd-yunfu": {
+   "total": null,
+   "note": "该站未提供总量｜ hdjlpt letter/pubList；实测年窗 total=16",
+   "_status": "no-total-available",
+   "_landed": 245
+  },
+  "gd-zfcxjst": {
+   "total": null,
+   "note": "该站未提供总量｜ hdjlpt letter/pubList；探测年窗 total=24",
+   "_status": "no-total-available",
+   "_landed": 177
+  },
+  "gd-zfsg": {
+   "total": null,
+   "note": "该站未提供总量｜ hdjlpt letter/pubList；探测年窗 total=31",
+   "_status": "no-total-available",
+   "_landed": 331
+  },
+  "gd-zhanjiang": {
+   "total": null,
+   "note": "该站未提供总量｜ hdjlpt letter/pubList；实测年窗 total=45",
+   "_status": "no-total-available",
+   "_landed": 2500
+  },
+  "gd-zhaoqing": {
+   "total": null,
+   "note": "该站未提供总量｜ hdjlpt letter/pubList；实测年窗 total=17",
+   "_status": "no-total-available",
+   "_landed": 71
+  },
+  "gs-baiyin": {
+   "total": 1889,
+   "note": "白银 jpaas-jact",
+   "_status": "already-registered"
+  },
+  "gs-dingxi": {
+   "total": 215,
+   "note": "源码线索（**待核实**）｜ 万户 jact 平台；host=www.dingxi.gov.cn（http）；标签在 th；两 sysid=91(215)/3(543)，合计 758",
+   "_status": "hint-unverified",
+   "_landed": 757
+  },
+  "gs-linxia": {
+   "total": null,
+   "note": "该站未提供总量｜ jpaas-jact 网关；两栏目 platformUid（书记 46 / 州长 39）；站点 JS 用 pageSize=1000 一次拉全",
+   "_status": "no-total-available",
+   "_landed": 85
+  },
+  "gs-longnan": {
+   "total": 415,
+   "note": "源码线索（**待核实**）｜ 龙讯 CMS label 8888；须先取 index 建会话；列表答复即答复原文（与详情页一致）；total=415",
+   "_status": "hint-unverified",
+   "_landed": 414
+  },
+  "gs-tianshui": {
+   "total": null,
+   "note": "该站未提供总量｜ 万户 leadermail；聚合列表 xj_list.jsp(wbtreeid=3861) 4 栏同页翻页；约 2444 条；须 http",
+   "_status": "no-total-available",
+   "_landed": 250
+  },
+  "gs-zhangye": {
+   "total": 7776,
+   "note": "张掖 IGI 8 site",
+   "_status": "already-registered"
+  },
+  "gx-igi": {
+   "total": 34938,
+   "cap": 20000,
+   "note": "广西 IGI 208 site（igi-siteid-guangxi.json）",
+   "_status": "already-registered"
+  },
+  "gx-mailbox": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（siteId=3, appId=133）；带省/市/区三级归属；须带 Referer；http 可达（https 证书不匹配）",
+   "_status": "no-total-available",
+   "_landed": 138
+  },
+  "gz-atcm": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（siteId=500440, appId=242）；带省/市/区三级归属",
+   "_status": "no-total-available",
+   "_landed": 55
+  },
+  "gz-czt": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（siteId=502606, appId=1299）；带省/市/区三级归属",
+   "_status": "no-total-available",
+   "_landed": 83
+  },
+  "gz-dsj": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（siteId=500670, appId=358）；带省/市/区三级归属",
+   "_status": "no-total-available",
+   "_landed": 58
+  },
+  "gz-fgw": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（siteId=502516, appId=1225）；带省/市/区三级归属",
+   "_status": "no-total-available",
+   "_landed": 460
+  },
+  "gz-gxt": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（siteId=500653, appId=307）；带省/市/区三级归属",
+   "_status": "no-total-available",
+   "_landed": 86
+  },
+  "gz-gzw": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（siteId=502072, appId=793）；带省/市/区三级归属",
+   "_status": "no-total-available",
+   "_landed": 24
+  },
+  "gz-igi": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 多 siteId（空 appId 取全量，33 站 / 约 3 万条）；须带 Referer；地域字段逐站判真伪（单值恒定即剥离）",
+   "_status": "no-total-available",
+   "_landed": 5333
+  },
+  "gz-invest": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（siteId=500470, appId=331）；带省/市/区三级归属",
+   "_status": "no-total-available",
+   "_landed": 30
+  },
+  "gz-jdglj": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（siteId=502602, appId=1282）；带省/市/区三级归属",
+   "_status": "no-total-available",
+   "_landed": 22
+  },
+  "gz-jkj": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（siteId=503467, appId=1636）；带省/市/区三级归属",
+   "_status": "no-total-available",
+   "_landed": 2
+  },
+  "gz-jyglj": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（siteId=502238, appId=674）；带省/市/区三级归属",
+   "_status": "no-total-available",
+   "_landed": 40
+  },
+  "gz-jyt": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（siteId=501486, appId=571）；带省/市/区三级归属",
+   "_status": "no-total-available",
+   "_landed": 30
+  },
+  "gz-kjt": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（siteId=501485, appId=542）；带省/市/区三级归属",
+   "_status": "no-total-available",
+   "_landed": 79
+  },
+  "gz-lshwzcb": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（siteId=503368, appId=1421）；带省/市/区三级归属",
+   "_status": "no-total-available",
+   "_landed": 32
+  },
+  "gz-lyj": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（siteId=500437, appId=237）；带省/市/区三级归属",
+   "_status": "no-total-available",
+   "_landed": 30
+  },
+  "gz-mwr": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（siteId=501659, appId=684）；带省/市/区三级归属",
+   "_status": "no-total-available",
+   "_landed": 74
+  },
+  "gz-mzt": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（siteId=501697, appId=699）；带省/市/区三级归属",
+   "_status": "no-total-available",
+   "_landed": 106
+  },
+  "gz-mzw": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（siteId=500471, appId=327）；带省/市/区三级归属",
+   "_status": "no-total-available",
+   "_landed": 28
+  },
+  "gz-nynct": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（siteId=502053, appId=731）；带省/市/区三级归属",
+   "_status": "no-total-available",
+   "_landed": 30
+  },
+  "gz-portal": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（www.guizhou.gov.cn/IGI），多 siteId；须带 Referer；带省/市/区三级归属",
+   "_status": "no-total-available",
+   "_landed": 601
+  },
+  "gz-rst": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（siteId=502566, appId=1233）；带省/市/区三级归属",
+   "_status": "no-total-available",
+   "_landed": 30
+  },
+  "gz-sft": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（siteId=97, appId=92）；带省/市/区三级归属",
+   "_status": "no-total-available",
+   "_landed": 292
+  },
+  "gz-sjt": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（siteId=503134, appId=1396）；带省/市/区三级归属",
+   "_status": "no-total-available",
+   "_landed": 23
+  },
+  "gz-st": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（siteId=501471, appId=590，无需 groupId）；带省/市/区三级归属；须带 Referer",
+   "_status": "no-total-available",
+   "_landed": 120
+  },
+  "gz-stjj": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（siteId=502060, appId=858）；带省/市/区三级归属",
+   "_status": "no-total-available",
+   "_landed": 200
+  },
+  "gz-stymj": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（siteId=500472, appId=618）；带省/市/区三级归属",
+   "_status": "no-total-available",
+   "_landed": 100
+  },
+  "gz-swt": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（siteId=502590, appId=1247）；带省/市/区三级归属",
+   "_status": "no-total-available",
+   "_landed": 107
+  },
+  "gz-tyj": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（siteId=68, appId=46）；带省/市/区三级归属",
+   "_status": "no-total-available",
+   "_landed": 161
+  },
+  "gz-tyjrswt": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（siteId=88, appId=77）；带省/市/区三级归属",
+   "_status": "no-total-available",
+   "_landed": 122
+  },
+  "gz-whhly": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（siteId=500430, appId=225）；带省/市/区三级归属",
+   "_status": "no-total-available",
+   "_landed": 305
+  },
+  "gz-wjw": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（本站 /IGI，siteId=500663, appId=321）；带省/市/区三级归属",
+   "_status": "no-total-available",
+   "_landed": 40
+  },
+  "gz-wsb": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（siteId=501794, appId=696）；带省/市/区三级归属",
+   "_status": "no-total-available",
+   "_landed": 12
+  },
+  "gz-wsg": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（siteId=501489, appId=577）；带省/市/区三级归属",
+   "_status": "no-total-available",
+   "_landed": 2
+  },
+  "gz-yjgl": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（siteId=500484, appId=1054）；带省/市/区三级归属",
+   "_status": "no-total-available",
+   "_landed": 126
+  },
+  "gz-ylbzj": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（siteId=101, appId=94）；带省/市/区三级归属",
+   "_status": "no-total-available",
+   "_landed": 200
+  },
+  "gz-zfcx": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（siteId=69, appId=50）；带省/市/区三级归属",
+   "_status": "no-total-available",
+   "_landed": 30
+  },
+  "gz-zrzy": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（siteId=502056, appId=797）；带省/市/区三级归属",
+   "_status": "no-total-available",
+   "_landed": 1118
+  },
+  "hb-hdjl": {
+   "total": 3535,
+   "note": "湖北省门户 IGI 15 site",
+   "_status": "already-registered"
+  },
+  "hb-rst": {
+   "total": null,
+   "note": "该站未提供总量｜ TRS 静态列，约 80 条；明细含答复原文；省直部门子域不受瑞象 412 影响",
+   "_status": "no-total-available",
+   "_landed": 533
+  },
+  "hb-rst-igi": {
+   "total": null,
+   "note": "该站未提供总量｜ ⚠ 与 hb-hdjl 同后端（www.hubei.gov.cn/IGI），数据重复，默认不采；湖北省问答以 hb-hdjl 为准",
+   "_status": "no-total-available",
+   "_landed": 454
+  },
+  "hb-wjw": {
+   "total": null,
+   "note": "该站未提供总量｜ ⚠ 与 hb-hdjl 同后端（www.hubei.gov.cn/IGI），数据重复，默认不采；湖北省问答以 hb-hdjl 为准",
+   "_status": "no-total-available",
+   "_landed": 454
+  },
+  "hb-wuhan": {
+   "total": 6541,
+   "note": "武汉 IGI 32 site",
+   "_status": "already-registered"
+  },
+  "heb-czt": {
+   "total": null,
+   "note": "该站未提供总量｜ 静态列表(4 页)+静态明细；实测 26 条；须按『留言回复列表』块取条目",
+   "_status": "no-total-available",
+   "_landed": 26
+  },
+  "heb-szj": {
+   "total": 1043,
+   "note": "河北政务 EWB",
+   "_status": "already-registered"
+  },
+  "hi-zcwd": {
+   "total": null,
+   "note": "该站未提供总量｜ 万户站群 ajaxlist（channel_id=政策问答，2243 条）；明细 UCAPCONTENT 答复全文",
+   "_status": "no-total-available",
+   "_landed": 2241
+  },
+  "hlj-hdjl": {
+   "total": 4082,
+   "note": "源码线索（**待核实**）｜ 列表 /common/search/<channelId> 接口(total≈4082, pageSize≤100) + 静态明细(留言内容/回复内容)",
+   "_status": "hint-unverified",
+   "_landed": 3952
+  },
+  "hn-hdjl": {
+   "total": null,
+   "note": "该站未提供总量｜ 静态列表 index_{N}.html 翻页(约629条) + 静态明细(内容/回复内容)；豫政问答是文章型不可采",
+   "_status": "no-total-available",
+   "_landed": 622
+  },
+  "hunan-agri": {
+   "total": 1618,
+   "note": "源码线索（**待核实**）｜ 湖南统一互动平台 mailList2ie；deptId=1fd8e425…；实测 total=1618",
+   "_status": "hint-unverified",
+   "_landed": 200
+  },
+  "hunan-amr": {
+   "total": 817,
+   "note": "源码线索（**待核实**）｜ 湖南统一互动平台 mailList2ie；deptId=638b30d7…；实测 total=817",
+   "_status": "hint-unverified",
+   "_landed": 200
+  },
+  "hunan-czt": {
+   "total": 307,
+   "note": "源码线索（**待核实**）｜ 湖南统一互动平台 mailList2ie；deptId=3552f373…；实测 total=307",
+   "_status": "hint-unverified",
+   "_landed": 200
+  },
+  "hunan-fgw": {
+   "total": 688,
+   "note": "源码线索（**待核实**）｜ 湖南统一互动平台 mailList2ie；deptId=33112d55…；实测 total=688",
+   "_status": "hint-unverified",
+   "_landed": 200
+  },
+  "hunan-gat": {
+   "total": 5721,
+   "note": "源码线索（**待核实**）｜ 湖南统一互动平台 mailList2ie；deptId=0b560b59…；实测 total=5721",
+   "_status": "hint-unverified",
+   "_landed": 200
+  },
+  "hunan-gxt": {
+   "total": 773,
+   "note": "源码线索（**待核实**）｜ 湖南统一互动平台 mailList2ie；deptId=6eabfe6f…；实测 total=773",
+   "_status": "hint-unverified",
+   "_landed": 200
+  },
+  "hunan-gzw": {
+   "total": null,
+   "note": "该站未提供总量｜ 湖南统一互动平台 mailList2ie；deptId=979714da…；实测 total=19",
+   "_status": "no-total-available",
+   "_landed": 19
+  },
+  "hunan-jgswj": {
+   "total": null,
+   "note": "该站未提供总量｜ 湖南统一互动平台 mailList2ie；deptId=dff6356e…；实测 total=47",
+   "_status": "no-total-available",
+   "_landed": 47
+  },
+  "hunan-jtt": {
+   "total": 5991,
+   "note": "源码线索（**待核实**）｜ 湖南统一互动平台 mailList2ie；deptId=f850d2ed…；实测 total=5991",
+   "_status": "hint-unverified",
+   "_landed": 200
+  },
+  "hunan-jyt": {
+   "total": 187,
+   "note": "源码线索（**待核实**）｜ 湖南统一互动平台 mailList2ie；deptId=bcfc26b5…；实测 total=187",
+   "_status": "hint-unverified",
+   "_landed": 187
+  },
+  "hunan-kjt": {
+   "total": 129,
+   "note": "源码线索（**待核实**）｜ 湖南统一互动平台 mailList2ie；deptId=ab0866f7…；实测 total=129",
+   "_status": "hint-unverified",
+   "_landed": 129
+  },
+  "hunan-lshwzcbj": {
+   "total": null,
+   "note": "该站未提供总量｜ 湖南统一互动平台 mailList2ie；deptId=a196114c…；实测 total=36",
+   "_status": "no-total-available",
+   "_landed": 36
+  },
+  "hunan-lyj": {
+   "total": 533,
+   "note": "源码线索（**待核实**）｜ 湖南统一互动平台 mailList2ie；deptId=32646cf0…；实测 total=533",
+   "_status": "hint-unverified",
+   "_landed": 200
+  },
+  "hunan-mpa": {
+   "total": null,
+   "note": "该站未提供总量｜ 湖南统一互动平台 mailList2ie；deptId=ae0dec86…；实测 total=83",
+   "_status": "no-total-available",
+   "_landed": 83
+  },
+  "hunan-mzt": {
+   "total": 121,
+   "note": "源码线索（**待核实**）｜ 湖南统一互动平台 mailList2ie；deptId=a1f0bc3b…；实测 total=121",
+   "_status": "hint-unverified",
+   "_landed": 120
+  },
+  "hunan-mzw": {
+   "total": 197,
+   "note": "源码线索（**待核实**）｜ 湖南统一互动平台 mailList2ie；deptId=78dad6ba…；实测 total=197",
+   "_status": "hint-unverified",
+   "_landed": 197
+  },
+  "hunan-rst": {
+   "total": 9231,
+   "note": "源码线索（**待核实**）｜ 湖南统一互动平台 mailList2ie；deptId=49b2d6a6…；实测 total=9231",
+   "_status": "hint-unverified",
+   "_landed": 200
+  },
+  "hunan-sft": {
+   "total": 712,
+   "note": "源码线索（**待核实**）｜ 湖南统一互动平台 mailList2ie；deptId=bbed3e95…；实测 total=712",
+   "_status": "hint-unverified",
+   "_landed": 200
+  },
+  "hunan-sjt": {
+   "total": null,
+   "note": "该站未提供总量｜ 湖南统一互动平台 mailList2ie；deptId=d571404e…；实测 total=23",
+   "_status": "no-total-available",
+   "_landed": 23
+  },
+  "hunan-slt": {
+   "total": 387,
+   "note": "源码线索（**待核实**）｜ 湖南统一互动平台 mailList2ie；deptId=b0b755d5…；实测 total=387",
+   "_status": "hint-unverified",
+   "_landed": 200
+  },
+  "hunan-st": {
+   "total": 3830,
+   "note": "源码线索（**待核实**）｜ 湖南统一互动平台 mailList2ie；deptId=c0fc18f4…；抽样答复覆盖率 100%",
+   "_status": "hint-unverified",
+   "_landed": 3813
+  },
+  "hunan-swt": {
+   "total": 1430,
+   "note": "源码线索（**待核实**）｜ 湖南统一互动平台 mailList2ie；deptId=0a48c555…；实测 total=1430",
+   "_status": "hint-unverified",
+   "_landed": 200
+  },
+  "hunan-tjj": {
+   "total": 6841,
+   "note": "源码线索（**待核实**）｜ 湖南统一互动平台 mailList2ie；deptId=b3bdb9c3…；实测 total=6841",
+   "_status": "hint-unverified",
+   "_landed": 200
+  },
+  "hunan-tyj": {
+   "total": 246,
+   "note": "源码线索（**待核实**）｜ 湖南统一互动平台 mailList2ie；deptId=378de0d3…；实测 total=246",
+   "_status": "hint-unverified",
+   "_landed": 200
+  },
+  "hunan-tyjrswt": {
+   "total": null,
+   "note": "该站未提供总量｜ 湖南统一互动平台 mailList2ie；deptId=c183f761…；实测 total=94",
+   "_status": "no-total-available",
+   "_landed": 94
+  },
+  "hunan-whhlyt": {
+   "total": 1189,
+   "note": "源码线索（**待核实**）｜ 湖南统一互动平台 mailList2ie；deptId=4584f87b…；实测 total=1189",
+   "_status": "hint-unverified",
+   "_landed": 200
+  },
+  "hunan-wjw": {
+   "total": 100,
+   "note": "源码线索（**待核实**）｜ 湖南统一互动平台 mailList2ie；deptId=b9cf0c9e…；实测 total=100",
+   "_status": "hint-unverified",
+   "_landed": 100
+  },
+  "hunan-xfj": {
+   "total": 1178,
+   "note": "源码线索（**待核实**）｜ 湖南统一互动平台 mailList2ie；deptId=9404b403…；实测 total=1178",
+   "_status": "hint-unverified",
+   "_landed": 200
+  },
+  "hunan-ybj": {
+   "total": 188,
+   "note": "源码线索（**待核实**）｜ 湖南统一互动平台 mailList2ie；deptId=5eeeef36…；实测 total=188",
+   "_status": "hint-unverified",
+   "_landed": 188
+  },
+  "hunan-yj": {
+   "total": null,
+   "note": "该站未提供总量｜ 湖南统一互动平台 mailList2ie；deptId=5c247692…；抽样答复覆盖率 100%",
+   "_status": "no-total-available",
+   "_landed": 538
+  },
+  "hunan-zjt": {
+   "total": 1101,
+   "note": "源码线索（**待核实**）｜ 湖南统一互动平台 mailList2ie；deptId=abe6b0b7…；实测 total=1101",
+   "_status": "hint-unverified",
+   "_landed": 200
+  },
+  "hunan-zrzyt": {
+   "total": 1753,
+   "note": "源码线索（**待核实**）｜ 湖南统一互动平台 mailList2ie；deptId=f5c9f8b3…；实测 total=1753",
+   "_status": "hint-unverified",
+   "_landed": 200
+  },
+  "jingzhou-igi": {
+   "total": 861,
+   "note": "源码线索（**待核实**）｜ IGI 29 个 siteId（空 appId，枚举上界 5,130 条）；与 hb-* 记录 id 重叠 1/20（跨源重复投递）；地域为门户默认值已剥离；须",
+   "_status": "hint-unverified",
+   "_landed": 400
+  },
+  "jiujiang-igi": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI siteId=72（空 appId，枚举 1,509 条）；**带真实省/市/区县三级归属**；须带 Referer；https 可达；江西首条 IGI",
+   "_status": "no-total-available",
+   "_landed": 799
+  },
+  "jl-czt": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（siteId=117, appId=96, groupId=169）；带省/市/区三级归属",
+   "_status": "no-total-available",
+   "_landed": 76
+  },
+  "jl-fgw": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（siteId=117, appId=96, groupId=161）；带省/市/区三级归属",
+   "_status": "no-total-available",
+   "_landed": 105
+  },
+  "jl-gat": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（siteId=117, appId=96, groupId=166）；带省/市/区三级归属",
+   "_status": "no-total-available",
+   "_landed": 20
+  },
+  "jl-gbdsj": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（siteId=117, appId=96, groupId=160）；带省/市/区三级归属",
+   "_status": "no-total-available",
+   "_landed": 21
+  },
+  "jl-gfdy": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（siteId=117, appId=96, groupId=190）；带省/市/区三级归属",
+   "_status": "no-total-available",
+   "_landed": 33
+  },
+  "jl-ggzy": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（siteId=117, appId=96, groupId=255）；带省/市/区三级归属",
+   "_status": "no-total-available",
+   "_landed": 29
+  },
+  "jl-gxj": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（siteId=117, appId=96, groupId=164）；带省/市/区三级归属",
+   "_status": "no-total-available",
+   "_landed": 79
+  },
+  "jl-gzw": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（siteId=117, appId=96, groupId=184）；带省/市/区三级归属",
+   "_status": "no-total-available",
+   "_landed": 36
+  },
+  "jl-hrss": {
+   "total": null,
+   "note": "该站未提供总量｜ 海云平台（siteId=117, appId=96, groupId=170）；带省/市/区三级归属；须带 Referer",
+   "_status": "no-total-available",
+   "_landed": 153
+  },
+  "jl-jgsw": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（siteId=117, appId=96, groupId=188）；带省/市/区三级归属",
+   "_status": "no-total-available",
+   "_landed": 25
+  },
+  "jl-jt": {
+   "total": null,
+   "note": "该站未提供总量｜ 海云平台（siteId=117, appId=96, groupId=159）；带省/市/区三级归属；须带 Referer",
+   "_status": "no-total-available",
+   "_landed": 71
+  },
+  "jl-jyj": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（siteId=117, appId=96, groupId=193）；带省/市/区三级归属",
+   "_status": "no-total-available",
+   "_landed": 29
+  },
+  "jl-kjt": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（siteId=117, appId=96, groupId=163）；带省/市/区三级归属",
+   "_status": "no-total-available",
+   "_landed": 39
+  },
+  "jl-lsj": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（siteId=117, appId=96, groupId=189）；带省/市/区三级归属",
+   "_status": "no-total-available",
+   "_landed": 24
+  },
+  "jl-lyj": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（siteId=117, appId=96, groupId=191）；带省/市/区三级归属",
+   "_status": "no-total-available",
+   "_landed": 41
+  },
+  "jl-mzt": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（siteId=117, appId=96, groupId=167）；带省/市/区三级归属",
+   "_status": "no-total-available",
+   "_landed": 55
+  },
+  "jl-mzw": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（siteId=117, appId=96, groupId=165）；带省/市/区三级归属",
+   "_status": "no-total-available",
+   "_landed": 25
+  },
+  "jl-nyj": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（siteId=117, appId=96, groupId=192）；带省/市/区三级归属",
+   "_status": "no-total-available",
+   "_landed": 26
+  },
+  "jl-nynct": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（siteId=117, appId=96, groupId=175）；带省/市/区三级归属",
+   "_status": "no-total-available",
+   "_landed": 179
+  },
+  "jl-scjd": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（siteId=117, appId=96, groupId=183）；带省/市/区三级归属",
+   "_status": "no-total-available",
+   "_landed": 137
+  },
+  "jl-sft": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（siteId=117, appId=96, groupId=168）；带省/市/区三级归属",
+   "_status": "no-total-available",
+   "_landed": 48
+  },
+  "jl-sjt": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（siteId=117, appId=96, groupId=181）；带省/市/区三级归属",
+   "_status": "no-total-available",
+   "_landed": 49
+  },
+  "jl-slt": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（siteId=117, appId=96, groupId=174）；带省/市/区三级归属",
+   "_status": "no-total-available",
+   "_landed": 47
+  },
+  "jl-st": {
+   "total": null,
+   "note": "该站未提供总量｜ 海云平台开放接口（listGovmsgboxs + viewGovmsgbox）；带省/市/区三级归属；须带 Referer",
+   "_status": "no-total-available",
+   "_landed": 94
+  },
+  "jl-swt": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（siteId=117, appId=96, groupId=176）；带省/市/区三级归属",
+   "_status": "no-total-available",
+   "_landed": 23
+  },
+  "jl-tjj": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（siteId=117, appId=96, groupId=186）；带省/市/区三级归属",
+   "_status": "no-total-available",
+   "_landed": 119
+  },
+  "jl-tyj": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（siteId=117, appId=96, groupId=185）；带省/市/区三级归属",
+   "_status": "no-total-available",
+   "_landed": 66
+  },
+  "jl-tyjr": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（siteId=117, appId=96, groupId=179）；带省/市/区三级归属",
+   "_status": "no-total-available",
+   "_landed": 62
+  },
+  "jl-wjw": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（海云主机 siteId=117, appId=96, groupId=178）；带省/市/区三级归属",
+   "_status": "no-total-available",
+   "_landed": 40
+  },
+  "jl-wlt": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（siteId=117, appId=96, groupId=177）；带省/市/区三级归属",
+   "_status": "no-total-available",
+   "_landed": 338
+  },
+  "jl-wsb": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（siteId=117, appId=96, groupId=182）；带省/市/区三级归属",
+   "_status": "no-total-available",
+   "_landed": 31
+  },
+  "jl-xmy": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（siteId=117, appId=96, groupId=158）；带省/市/区三级归属",
+   "_status": "no-total-available",
+   "_landed": 37
+  },
+  "jl-ybj": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（siteId=117, appId=96, groupId=187）；带省/市/区三级归属",
+   "_status": "no-total-available",
+   "_landed": 56
+  },
+  "jl-yjt": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（siteId=117, appId=96, groupId=180）；带省/市/区三级归属",
+   "_status": "no-total-available",
+   "_landed": 37
+  },
+  "jl-ypj": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（siteId=117, appId=96, groupId=195）；带省/市/区三级归属",
+   "_status": "no-total-available",
+   "_landed": 120
+  },
+  "jl-zfcx": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（siteId=117, appId=96, groupId=173）；带省/市/区三级归属",
+   "_status": "no-total-available",
+   "_landed": 60
+  },
+  "jl-zrzy": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（siteId=117, appId=96, groupId=171）；带省/市/区三级归属",
+   "_status": "no-total-available",
+   "_landed": 78
+  },
+  "jl-zyy": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（siteId=117, appId=96, groupId=194）；带省/市/区三级归属",
+   "_status": "no-total-available",
+   "_landed": 137
+  },
+  "js-credit": {
+   "total": null,
+   "note": "该站未提供总量｜ 江苏 jact 平台；host=credit.jiangsu.gov.cn sysid=241；实测 totalRecord=46",
+   "_status": "no-total-available",
+   "_landed": 20
+  },
+  "js-czt": {
+   "total": 452,
+   "note": "源码线索（**待核实**）｜ 江苏 jact 平台；host=czt.jiangsu.gov.cn sysid=134；实测 totalRecord=452",
+   "_status": "hint-unverified",
+   "_landed": 449
+  },
+  "js-czt2": {
+   "total": 262,
+   "note": "源码线索（**待核实**）｜ 江苏 jact 平台；host=czt.jiangsu.gov.cn sysid=65；实测 totalRecord=262",
+   "_status": "hint-unverified",
+   "_landed": 200
+  },
+  "js-da": {
+   "total": 710,
+   "note": "源码线索（**待核实**）｜ 江苏 jact 平台；host=da.jiangsu.gov.cn sysid=107；实测 totalRecord=710",
+   "_status": "hint-unverified",
+   "_landed": 587
+  },
+  "js-da2": {
+   "total": 165,
+   "note": "源码线索（**待核实**）｜ 江苏 jact 平台；host=da.jiangsu.gov.cn sysid=55；实测 totalRecord=165",
+   "_status": "hint-unverified",
+   "_landed": 156
+  },
+  "js-doc": {
+   "total": 390,
+   "note": "源码线索（**待核实**）｜ 江苏 jact 平台；host=doc.jiangsu.gov.cn sysid=120；实测 totalRecord=390",
+   "_status": "hint-unverified",
+   "_landed": 390
+  },
+  "js-fzggw": {
+   "total": 143,
+   "note": "源码线索（**待核实**）｜ 江苏 jact 平台；host=fzggw.jiangsu.gov.cn sysid=112；实测 totalRecord=143",
+   "_status": "hint-unverified",
+   "_landed": 143
+  },
+  "js-gxt": {
+   "total": 171,
+   "note": "源码线索（**待核实**）｜ 江苏 jact 平台；host=gxt.jiangsu.gov.cn sysid=117；实测 totalRecord=171",
+   "_status": "hint-unverified",
+   "_landed": 171
+  },
+  "js-gxt2": {
+   "total": 140,
+   "note": "源码线索（**待核实**）｜ 江苏 jact 平台；host=gxt.jiangsu.gov.cn sysid=50；实测 totalRecord=140",
+   "_status": "hint-unverified",
+   "_landed": 140
+  },
+  "js-jsdk": {
+   "total": null,
+   "note": "该站未提供总量｜ 江苏 jact 平台；host=jsdk.jiangsu.gov.cn sysid=24；实测 totalRecord=36",
+   "_status": "no-total-available",
+   "_landed": 36
+  },
+  "js-jsgd": {
+   "total": 289,
+   "note": "源码线索（**待核实**）｜ 江苏 jact 平台；host=jsgd.jiangsu.gov.cn sysid=185；实测 totalRecord=289",
+   "_status": "hint-unverified",
+   "_landed": 200
+  },
+  "js-jsip": {
+   "total": null,
+   "note": "该站未提供总量｜ 江苏 jact 平台；host=jsip.jiangsu.gov.cn sysid=30；实测 totalRecord=39",
+   "_status": "no-total-available",
+   "_landed": 39
+  },
+  "js-jsip2": {
+   "total": null,
+   "note": "该站未提供总量｜ 江苏 jact 平台；host=jsip.jiangsu.gov.cn sysid=85；实测 totalRecord=71",
+   "_status": "no-total-available",
+   "_landed": 69
+  },
+  "js-jsstyj": {
+   "total": null,
+   "note": "该站未提供总量｜ 江苏 jact 平台；host=jsstyj.jiangsu.gov.cn sysid=29；实测 totalRecord=25",
+   "_status": "no-total-available",
+   "_landed": 25
+  },
+  "js-jsstyj2": {
+   "total": null,
+   "note": "该站未提供总量｜ 江苏 jact 平台；host=jsstyj.jiangsu.gov.cn sysid=99；实测 totalRecord=24",
+   "_status": "no-total-available",
+   "_landed": 24
+  },
+  "js-jssxfj": {
+   "total": 107,
+   "note": "源码线索（**待核实**）｜ 江苏 jact 平台；host=jssxfj.jiangsu.gov.cn sysid=208；实测 totalRecord=107",
+   "_status": "hint-unverified",
+   "_landed": 107
+  },
+  "js-jswater": {
+   "total": 451,
+   "note": "源码线索（**待核实**）｜ 江苏 jact 平台；host=jswater.jiangsu.gov.cn sysid=77；实测 totalRecord=451",
+   "_status": "hint-unverified",
+   "_landed": 200
+  },
+  "js-jtyst": {
+   "total": 944,
+   "note": "源码线索（**待核实**）｜ 江苏 jact 平台；host=jtyst.jiangsu.gov.cn sysid=105；实测 totalRecord=944",
+   "_status": "hint-unverified",
+   "_landed": 200
+  },
+  "js-jtyst2": {
+   "total": null,
+   "note": "该站未提供总量｜ 江苏 jact 平台；host=jtyst.jiangsu.gov.cn sysid=43；实测 totalRecord=15",
+   "_status": "no-total-available",
+   "_landed": 15
+  },
+  "js-jyt": {
+   "total": 810,
+   "note": "源码线索（**待核实**）｜ 江苏 jact 平台；host=jyt.jiangsu.gov.cn sysid=126；实测 totalRecord=810",
+   "_status": "hint-unverified",
+   "_landed": 76
+  },
+  "js-jyt2": {
+   "total": 404,
+   "note": "源码线索（**待核实**）｜ 江苏 jact 平台；host=jyt.jiangsu.gov.cn sysid=34；实测 totalRecord=404",
+   "_status": "hint-unverified",
+   "_landed": 200
+  },
+  "js-mzt": {
+   "total": 230,
+   "note": "源码线索（**待核实**）｜ 江苏 jact 平台；host=mzt.jiangsu.gov.cn sysid=148；实测 totalRecord=230",
+   "_status": "hint-unverified",
+   "_landed": 200
+  },
+  "js-nanjing": {
+   "total": null,
+   "note": "该站未提供总量｜ GET /prod-api/wsxf/algk/listPage?orgid&type&pageNum&pageSize；**列表自带问题+答复全文**；tot",
+   "_status": "no-total-available",
+   "_landed": 48
+  },
+  "js-nantong": {
+   "total": 302,
+   "note": "源码线索（**待核实**）｜ POST /truecms/messageController/getMessageByCondition.do；**列表自带问题+答复全文**；totalCo",
+   "_status": "hint-unverified",
+   "_landed": 302
+  },
+  "js-nynct": {
+   "total": 245,
+   "note": "源码线索（**待核实**）｜ 江苏 jact 平台；host=nynct.jiangsu.gov.cn sysid=57；实测 totalRecord=245",
+   "_status": "hint-unverified",
+   "_landed": 200
+  },
+  "js-sthjt": {
+   "total": 431,
+   "note": "源码线索（**待核实**）｜ 江苏 jact 平台；host=sthjt.jiangsu.gov.cn sysid=143；实测 totalRecord=431",
+   "_status": "hint-unverified",
+   "_landed": 200
+  },
+  "js-suqian": {
+   "total": 1373,
+   "note": "宿迁 allRow",
+   "_status": "already-registered"
+  },
+  "js-suzhou": {
+   "total": 4153,
+   "note": "源码线索（**待核实**）｜ GET /consultfront/common/bmxxCommonlist?currpage&pagesize；**列表自带答复全文**；totalcoun",
+   "_status": "hint-unverified",
+   "_landed": 3000
+  },
+  "js-taizhou": {
+   "total": 3189,
+   "note": "源码线索（**待核实**）｜ jpaas-jact：列表 JSON（count≈3189）+ 明细 HTML（mail-pub-detail?iid=）；标签 答复内容/答复部门/答复日期",
+   "_status": "hint-unverified",
+   "_landed": 3000
+  },
+  "js-tj": {
+   "total": 111,
+   "note": "源码线索（**待核实**）｜ 江苏 jact 平台；host=tj.jiangsu.gov.cn sysid=39；实测 totalRecord=111",
+   "_status": "hint-unverified",
+   "_landed": 106
+  },
+  "js-tj2": {
+   "total": 453,
+   "note": "源码线索（**待核实**）｜ 江苏 jact 平台；host=tj.jiangsu.gov.cn sysid=95；实测 totalRecord=453",
+   "_status": "hint-unverified",
+   "_landed": 200
+  },
+  "js-wuxi": {
+   "total": null,
+   "note": "该站未提供总量｜ GET /mailbox/letter/search?page&size；**列表自带问题+答复全文**；totalElements≈8613",
+   "_status": "no-total-available",
+   "_landed": 3000
+  },
+  "js-xuzhou": {
+   "total": 1430,
+   "note": "徐州 EWB RowCount",
+   "_status": "already-registered"
+  },
+  "js-yancheng": {
+   "total": 5654,
+   "note": "盐城 jact 枚举合计（无上限）",
+   "_status": "already-registered"
+  },
+  "js-yangzhou": {
+   "total": 7837,
+   "note": "扬州 jpaas-jact count（无上限，应全采）",
+   "_status": "already-registered"
+  },
+  "js-ybj": {
+   "total": 457,
+   "note": "源码线索（**待核实**）｜ 江苏 jact 平台；host=ybj.jiangsu.gov.cn sysid=200；实测 totalRecord=457",
+   "_status": "hint-unverified",
+   "_landed": 200
+  },
+  "js-ybj2": {
+   "total": 295,
+   "note": "源码线索（**待核实**）｜ 江苏 jact 平台；host=ybj.jiangsu.gov.cn sysid=202；实测 totalRecord=295",
+   "_status": "hint-unverified",
+   "_landed": 200
+  },
+  "js-zhenjiang": {
+   "total": null,
+   "note": "该站未提供总量｜ POST ajaxlistForWeb12345（列表）+ POST /u/wlwzZhenjiang/show/<id>（明细）",
+   "_status": "no-total-available",
+   "_landed": 460
+  },
+  "jx-gzw-lyxd": {
+   "total": null,
+   "note": "该站未提供总量｜ 数融站群 queryList（webSiteCode=jxsgzw, channelCode=lyxd）；35 部门站中唯一真问答栏目",
+   "_status": "no-total-available",
+   "_landed": 15
+  },
+  "jx-zf": {
+   "total": null,
+   "note": "该站未提供总量｜ 数融站群：POST /queryList（channelCode+webSiteCode）；wxszj 259 + hygz 430（答复两种形态：问…答 与 ",
+   "_status": "no-total-available",
+   "_landed": 410
+  },
+  "ln-8890": {
+   "total": 21748,
+   "note": "辽宁 12345民心智慧听",
+   "_status": "already-registered"
+  },
+  "ln-st": {
+   "total": null,
+   "note": "该站未提供总量｜ 问答内联列表（无明细页）；翻页走 /eportal/ui?currentPage=N&moduleId=…&pageId=…",
+   "_status": "no-total-available",
+   "_landed": 24
+  },
+  "mee": {
+   "total": 158,
+   "note": "源码线索（**待核实**）｜ WAS5 检索接口 /was5/web/search；常见问题 channelid=232534（158 条）",
+   "_status": "hint-unverified",
+   "_landed": 145
+  },
+  "mem": {
+   "total": null,
+   "note": "该站未提供总量｜ 静态列表页 index_N.shtml；明细页 ../lyhf/YYMMDD/t*.shtml",
+   "_status": "no-total-available",
+   "_landed": 60
+  },
+  "nanjing-igi": {
+   "total": 868,
+   "note": "源码线索（**待核实**）｜ IGI 63 站 / 约 4,065 条（空 appId 取全量）；须带 Referer；https 可达；上游地域字段为空或门户默认值，已剥离",
+   "_status": "hint-unverified",
+   "_landed": 2979
+  },
+  "nanning-igi": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI siteId=8（空 appId 取全量，约 1.9 万条）；**带真实市/区县两级归属**；须带 Referer；https 可达",
+   "_status": "no-total-available",
+   "_landed": 2391
+  },
+  "nat-cma": {
+   "total": null,
+   "note": "该站未提供总量｜ 静态列表 cjwt/（createPageHTML 2 页）+ 明细 .view.TRS_UEDITOR 内「内容：/回复：」",
+   "_status": "no-total-available",
+   "_landed": 30
+  },
+  "nat-cnipa": {
+   "total": 6418,
+   "cap": 20000,
+   "note": "知识产权局 jact：仅 sysid 12(471)+16(5947) 有答复；**sysid 11(14369) 明细页是 JS 跳回 main.do、无答复 ⇒ 不可用**",
+   "_status": "already-registered"
+  },
+  "nat-forestry": {
+   "total": null,
+   "note": "该站未提供总量｜ JEECMS 站内接口 /letter/page（GET，答复内联 replyContent，totalElements=673）",
+   "_status": "no-total-available",
+   "_landed": 671
+  },
+  "nat-moa": {
+   "total": 824,
+   "note": "农业农村部 reply.json",
+   "_status": "already-registered"
+  },
+  "nat-mohurd": {
+   "total": 672,
+   "note": "住建部 count",
+   "_status": "already-registered"
+  },
+  "nat-most": {
+   "total": 4797,
+   "note": "源码线索（**待核实**）｜ RuoYi 后台接口 viewMessagelist(POST)；答复内联 answerinfoTotal；tid1-4 合计≈8811",
+   "_status": "hint-unverified",
+   "_landed": 8045
+  },
+  "nat-mot": {
+   "total": 7808,
+   "cap": 5000,
+   "note": "交通部（IP 反爬，产出率低）",
+   "_status": "already-registered"
+  },
+  "nat-nea": {
+   "total": null,
+   "note": "该站未提供总量｜ 新华 Xhwpage 伪数据源 ds_24f63667….json（145 条）+ 明细页 detailContent",
+   "_status": "no-total-available",
+   "_landed": 144
+  },
+  "nat-nhsa": {
+   "total": null,
+   "note": "该站未提供总量｜ cap.nhsa.gov.cn:7913 /open/netizen/openInfoList（POST，答复内联 replyContent，totalRows",
+   "_status": "no-total-available",
+   "_landed": 37
+  },
+  "nat-tax": {
+   "total": 38404,
+   "cap": 20000,
+   "note": "税务总局 12366 maxCount（单源上限 2 万）",
+   "_status": "already-registered"
+  },
+  "nmg-igi": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 多 siteId（空 appId 取全量，42 站 / 约 2.6 万条）；须带 Referer；上游地域字段为门户默认值，已剥离",
+   "_status": "no-total-available",
+   "_landed": 5650
+  },
+  "nmg-xinxiang": {
+   "total": null,
+   "note": "该站未提供总量｜ xinxiang 自建接口；列表 POST JSON getCaseInfoList，明细 GET getCaseInfo?rowguid=；答复含办理单位；无",
+   "_status": "no-total-available",
+   "_landed": 67
+  },
+  "nx-igi": {
+   "total": 13014,
+   "cap": 14000,
+   "note": "宁夏 IGI 64 site（igi-siteid-ningxia.json）",
+   "_status": "already-registered"
+  },
+  "nx-zxxx": {
+   "total": 667,
+   "note": "源码线索（**待核实**）｜ IGI 平台（siteId=115, appId=4）；带省/市/区三级归属；须带 Referer",
+   "_status": "hint-unverified",
+   "_landed": 664
+  },
+  "people-liuyan": {
+   "total": null,
+   "note": "该站未提供总量｜ 部委版块 threads/list/bw（showUnAnswer=0=已办理）+ threads/content（dataType=9=答复）；签名=md5(",
+   "_status": "no-total-available",
+   "_landed": 1529
+  },
+  "people-liuyan-df": {
+   "total": null,
+   "note": "该站未提供总量｜ 地方版块 threads/list/df（showUnAnswer=0=已办理）；省/市/县归属在 extra.pForumNames；游标续采 + 限流冷却后",
+   "_status": "no-total-available",
+   "_landed": 490
+  },
+  "people-liuyan-fid": {
+   "total": null,
+   "note": "该站未提供总量｜ 按 fid 定向深采（fid 从 extra.fid + pForumNames 累积）；广度走时间流、深度走定向",
+   "_status": "no-total-available",
+   "_landed": 245
+  },
+  "people-liuyan-prov": {
+   "total": null,
+   "note": "该站未提供总量｜ 按省级 fid 规律（书记=539+2i、省长=+1）逐省采；31 省映射见 recon/liuyan-province-fids.json",
+   "_status": "no-total-available",
+   "_landed": 757
+  },
+  "qh-wsxf": {
+   "total": null,
+   "note": "该站未提供总量｜ enorth CMS 静态列表（27 页）+ 静态明细；http 可达（https 超时）",
+   "_status": "no-total-available",
+   "_landed": 338
+  },
+  "rd-gd": {
+   "total": null,
+   "note": "该站未提供总量｜ 人大·法规草案征求意见（列表+详情，正文为草案全文）",
+   "_status": "no-total-available",
+   "_landed": 17
+  },
+  "rd-hb": {
+   "total": null,
+   "note": "该站未提供总量｜ 人大·法规草案征求意见（列表+详情，正文为草案全文）",
+   "_status": "no-total-available",
+   "_landed": 12
+  },
+  "rd-hn": {
+   "total": null,
+   "note": "该站未提供总量｜ 人大·法规草案征求意见（列表+详情，正文为草案全文）",
+   "_status": "no-total-available",
+   "_landed": 38
+  },
+  "rd-jl": {
+   "total": null,
+   "note": "该站未提供总量｜ 人大·法规草案征求意见（列表+详情，正文为草案全文）",
+   "_status": "no-total-available",
+   "_landed": 15
+  },
+  "rd-js": {
+   "total": null,
+   "note": "该站未提供总量｜ 人大·法规草案征求意见（列表+详情，正文为草案全文）",
+   "_status": "no-total-available",
+   "_landed": 3
+  },
+  "rd-ln": {
+   "total": null,
+   "note": "该站未提供总量｜ 人大·法规草案征求意见（列表+详情，正文为草案全文）",
+   "_status": "no-total-available",
+   "_landed": 2
+  },
+  "rd-npc": {
+   "total": null,
+   "note": "该站未提供总量｜ 全国人大·法律草案征求意见（列表+详情）",
+   "_status": "no-total-available",
+   "_landed": 5
+  },
+  "rd-sd": {
+   "total": null,
+   "note": "该站未提供总量｜ 人大·法规草案征求意见（列表+详情，正文为草案全文）",
+   "_status": "no-total-available",
+   "_landed": 18
+  },
+  "rd-tj": {
+   "total": null,
+   "note": "该站未提供总量｜ 人大·法规草案征求意见（列表+详情，正文为草案全文）",
+   "_status": "no-total-available",
+   "_landed": 14
+  },
+  "sc-aba": {
+   "total": 2719,
+   "note": "源码线索（**待核实**）｜ POST /communication/api-mailbox/frontMail/mailList（列表 total≈2719，无需签名）+ GET …/de",
+   "_status": "hint-unverified",
+   "_landed": 2570
+  },
+  "sc-aba-zwfw": {
+   "total": null,
+   "note": "该站未提供总量｜ 四川政务服务网政民互动 areaCode=513200000000，净增量约 119 条（咨询10/建议15/投诉20）",
+   "_status": "no-total-available",
+   "_landed": 119
+  },
+  "sc-bazhong": {
+   "total": null,
+   "note": "该站未提供总量｜ 服务端渲染 HTML：列表 /content/column/<col>?pageIndex=N（市长6788131/书记6788121，各≈20页）+ 详情 /",
+   "_status": "no-total-available",
+   "_landed": 620
+  },
+  "sc-bazhong-zwfw": {
+   "total": null,
+   "note": "该站未提供总量｜ 四川政务服务网政民互动 areaCode=511900000000，净增量约 72 条（咨询10/建议15/投诉20）",
+   "_status": "no-total-available",
+   "_landed": 72
+  },
+  "sc-chengdu": {
+   "total": 42905,
+   "cap": 3000,
+   "note": "四川省级平台 areaCode=510100000000（按每市 3000 截断）",
+   "_status": "already-registered"
+  },
+  "sc-dazhou": {
+   "total": 259,
+   "note": "源码线索（**待核实**）｜ ThinkPHP JSON API：列表 /xinxiang/api/Letter/publicityLetterList?page=N（total=259）；",
+   "_status": "hint-unverified",
+   "_landed": 404
+  },
+  "sc-dazhou-zwfw": {
+   "total": null,
+   "note": "该站未提供总量｜ 四川政务服务网政民互动 areaCode=511700000000，净增量约 148 条（咨询10/建议15/投诉20）",
+   "_status": "no-total-available",
+   "_landed": 146
+  },
+  "sc-deyang": {
+   "total": 1050,
+   "note": "德阳 appeal",
+   "_status": "already-registered"
+  },
+  "sc-deyang-zwfw": {
+   "total": null,
+   "note": "该站未提供总量｜ 四川政务服务网政民互动 areaCode=510600000000，净增量约 268 条（咨询10/建议15/投诉20）",
+   "_status": "no-total-available",
+   "_landed": 268
+  },
+  "sc-ganzi": {
+   "total": null,
+   "note": "该站未提供总量｜ POST /interact-service/c/is12345LetterOpen/findList（列表 total≈14）+ POST …/selectO",
+   "_status": "no-total-available",
+   "_landed": 192
+  },
+  "sc-ganzi-zwfw": {
+   "total": null,
+   "note": "该站未提供总量｜ 四川政务服务网政民互动 areaCode=513300000000，净增量约 179 条（咨询10/建议15/投诉20）",
+   "_status": "no-total-available",
+   "_landed": 178
+  },
+  "sc-guangan": {
+   "total": null,
+   "note": "该站未提供总量｜ GET /api/mail/list（列表）+ /api/mail/detail?id=（问题正文+答复）；total≈16",
+   "_status": "no-total-available",
+   "_landed": 551
+  },
+  "sc-guangan-zwfw": {
+   "total": null,
+   "note": "该站未提供总量｜ 四川政务服务网政民互动 areaCode=511600000000，净增量约 536 条（咨询10/建议15/投诉20）",
+   "_status": "no-total-available",
+   "_landed": 535
+  },
+  "sc-guangyuan": {
+   "total": 438,
+   "note": "源码线索（**待核实**）｜ ★ 主站 www.cngy.gov.cn 被瑞数拦；市长信箱在 qgj.cngy.gov.cn:9050。列表 POST /ldxx/szxx/publish/",
+   "_status": "hint-unverified",
+   "_landed": 1244
+  },
+  "sc-guangyuan-zwfw": {
+   "total": null,
+   "note": "该站未提供总量｜ 四川政务服务网政民互动 areaCode=510800000000，净增量约 821 条（咨询10/建议15/投诉20）",
+   "_status": "no-total-available",
+   "_landed": 806
+  },
+  "sc-leshan": {
+   "total": null,
+   "note": "该站未提供总量｜ 服务端渲染 HTML：列表 /lsswszf/xlxxx/index[_N].html（每页15，≈39页）+ 详情 /lsswszf/xlxxx/<id>.h",
+   "_status": "no-total-available",
+   "_landed": 518
+  },
+  "sc-leshan-zwfw": {
+   "total": null,
+   "note": "该站未提供总量｜ 四川政务服务网政民互动 areaCode=511100000000，净增量约 68 条（咨询10/建议15/投诉20）",
+   "_status": "no-total-available",
+   "_landed": 68
+  },
+  "sc-liangshan": {
+   "total": null,
+   "note": "该站未提供总量｜ 慧兰 eportal portlet：GET /eportal/ui?portal.url=/portlet/workOrder!queryWorkOrderL",
+   "_status": "no-total-available",
+   "_landed": 192
+  },
+  "sc-liangshan-zwfw": {
+   "total": null,
+   "note": "该站未提供总量｜ 四川政务服务网政民互动 areaCode=513400000000，净增量约 96 条（咨询10/建议15/投诉20）",
+   "_status": "no-total-available",
+   "_landed": 96
+  },
+  "sc-luzhou": {
+   "total": null,
+   "note": "该站未提供总量｜ 服务端渲染 HTML：列表 /LetterBox/sjszxx/List_N + 详情 /LetterBox/<id>；约 3 页 56 封",
+   "_status": "no-total-available",
+   "_landed": 506
+  },
+  "sc-luzhou-zwfw": {
+   "total": null,
+   "note": "该站未提供总量｜ 四川政务服务网政民互动 areaCode=510500000000，净增量约 454 条（咨询10/建议15/投诉20）",
+   "_status": "no-total-available",
+   "_landed": 454
+  },
+  "sc-meishan": {
+   "total": null,
+   "note": "该站未提供总量｜ 服务端渲染 HTML（WCM 站群）：列表 /old13/list_ldxx.jsp?wbtreeid=5761&pageNumber245916=N（共565",
+   "_status": "no-total-available",
+   "_landed": 427
+  },
+  "sc-meishan-zwfw": {
+   "total": null,
+   "note": "该站未提供总量｜ 四川政务服务网政民互动 areaCode=511400000000，净增量约 308 条（咨询10/建议15/投诉20）",
+   "_status": "no-total-available",
+   "_landed": 308
+  },
+  "sc-mianyang": {
+   "total": 5149,
+   "note": "绵阳 通信平台",
+   "_status": "already-registered"
+  },
+  "sc-mianyang-zwfw": {
+   "total": null,
+   "note": "该站未提供总量｜ 四川政务服务网政民互动 areaCode=510700000000，净增量约 708 条（咨询10/建议15/投诉20）",
+   "_status": "no-total-available",
+   "_landed": 694
+  },
+  "sc-nanchong": {
+   "total": 2324,
+   "note": "南充 IGI",
+   "_status": "already-registered"
+  },
+  "sc-nanchong-zwfw": {
+   "total": null,
+   "note": "该站未提供总量｜ 四川政务服务网政民互动 areaCode=511300000000，净增量约 633 条（咨询10/建议15/投诉20）",
+   "_status": "no-total-available",
+   "_landed": 631
+  },
+  "sc-neijiang": {
+   "total": 11010,
+   "note": "内江 通信平台",
+   "_status": "already-registered"
+  },
+  "sc-neijiang-zwfw": {
+   "total": null,
+   "note": "该站未提供总量｜ 四川政务服务网政民互动 areaCode=511000000000，净增量约 721 条（咨询10/建议15/投诉20）",
+   "_status": "no-total-available",
+   "_landed": 721
+  },
+  "sc-panzhihua": {
+   "total": null,
+   "note": "该站未提供总量｜ GET /webapp/api-letter/search-letter?pageNum&pageSize；**列表自带问题+答复全文**；total≈70",
+   "_status": "no-total-available",
+   "_landed": 1361
+  },
+  "sc-panzhihua-zwfw": {
+   "total": null,
+   "note": "该站未提供总量｜ 四川政务服务网政民互动 areaCode=510400000000，净增量约 1292 条（咨询10/建议15/投诉20）",
+   "_status": "no-total-available",
+   "_landed": 1291
+  },
+  "sc-st": {
+   "total": null,
+   "note": "该站未提供总量｜ 静态列表（单页，无翻页）+ 静态明细（解答内容：标记）；量小约 20 条",
+   "_status": "no-total-available",
+   "_landed": 15
+  },
+  "sc-suining": {
+   "total": null,
+   "note": "该站未提供总量｜ 服务端渲染 HTML：列表 /szxx.html?page=N + 详情 /mail/view.html?id=&bid=；答复在「答复内容」",
+   "_status": "no-total-available",
+   "_landed": 681
+  },
+  "sc-suining-zwfw": {
+   "total": null,
+   "note": "该站未提供总量｜ 四川政务服务网政民互动 areaCode=510900000000，净增量约 209 条（咨询10/建议15/投诉20）",
+   "_status": "no-total-available",
+   "_landed": 207
+  },
+  "sc-yaan": {
+   "total": 1572,
+   "note": "雅安（IP 限速，慢速累积）",
+   "_status": "already-registered"
+  },
+  "sc-yaan-zwfw": {
+   "total": null,
+   "note": "该站未提供总量｜ 四川政务服务网政民互动 areaCode=511800000000，净增量约 237 条（咨询10/建议15/投诉20）",
+   "_status": "no-total-available",
+   "_landed": 230
+  },
+  "sc-yibin": {
+   "total": 2330,
+   "note": "宜宾 12345",
+   "_status": "already-registered"
+  },
+  "sc-yibin-zwfw": {
+   "total": null,
+   "note": "该站未提供总量｜ 四川政务服务网政民互动 areaCode=511500000000，净增量约 203 条（咨询10/建议15/投诉20）",
+   "_status": "no-total-available",
+   "_landed": 203
+  },
+  "sc-zigong": {
+   "total": 213,
+   "note": "源码线索（**待核实**）｜ GET /api/mail/openMailList（列表）+ /api/mail/detail?id=（详情含答复）；total≈213",
+   "_status": "hint-unverified",
+   "_landed": 271
+  },
+  "sc-zigong-zwfw": {
+   "total": null,
+   "note": "该站未提供总量｜ 四川政务服务网政民互动 areaCode=510300000000，净增量约 58 条（咨询10/建议15/投诉20）",
+   "_status": "no-total-available",
+   "_landed": 58
+  },
+  "sc-ziyang": {
+   "total": null,
+   "note": "该站未提供总量｜ GET /api/mail/list（列表，自带答复）+ /api/mail/detail?id=（问题正文）；total≈87",
+   "_status": "no-total-available",
+   "_landed": 376
+  },
+  "sc-ziyang-zwfw": {
+   "total": null,
+   "note": "该站未提供总量｜ 四川政务服务网政民互动 areaCode=512000000000，净增量约 289 条（咨询10/建议15/投诉20）",
+   "_status": "no-total-available",
+   "_landed": 289
+  },
+  "sd-12345": {
+   "total": null,
+   "note": "该站未提供总量｜ 12345 ashx JSON（opreate=szf_wz_base_list/base_info），count=71；http 可达（https 握手失败）",
+   "_status": "no-total-available",
+   "_landed": 71
+  },
+  "sd-binzhou": {
+   "total": 179,
+   "note": "源码线索（**待核实**）｜ jact 平台（http，GET/POST 均可），sysid=1206，totalRecord=179",
+   "_status": "hint-unverified",
+   "_landed": 20
+  },
+  "sd-dezhou": {
+   "total": null,
+   "note": "该站未提供总量｜ 服务端渲染列表 17 页（index.html + index_71702096_1..16）；去重后 161 条",
+   "_status": "no-total-available",
+   "_landed": 161
+  },
+  "sd-dongying": {
+   "total": 20299,
+   "note": "东营 jact totalRecord",
+   "_status": "already-registered"
+  },
+  "sd-heze": {
+   "total": 613,
+   "note": "菏泽",
+   "_status": "already-registered"
+  },
+  "sd-jinan": {
+   "total": 6654,
+   "note": "源码线索（**待核实**）｜ jpaas-jact 网关（http），find-mail-pub-list，count=6654（勿传 govOpen=1）",
+   "_status": "hint-unverified",
+   "_landed": 37
+  },
+  "sd-jining": {
+   "total": 6909,
+   "note": "济宁 jact",
+   "_status": "already-registered"
+  },
+  "sd-liaocheng": {
+   "total": 1249,
+   "note": "源码线索（**待核实**）｜ POST /api/public/email/paginate（organization=lcsrmzf）；列表自带 reply.content；total≈1",
+   "_status": "hint-unverified",
+   "_landed": 1249
+  },
+  "sd-linyi": {
+   "total": 822,
+   "note": "临沂",
+   "_status": "already-registered"
+  },
+  "sd-rizhao": {
+   "total": 1662,
+   "note": "源码线索（**待核实**）｜ jact 平台（http，GET/POST 均可），sysid=383，totalRecord=1662",
+   "_status": "hint-unverified",
+   "_landed": 20
+  },
+  "sd-weihai": {
+   "total": 936,
+   "note": "源码线索（**待核实**）｜ jact 平台（http，GET 列表），sysid=61，totalRecord=936",
+   "_status": "hint-unverified",
+   "_landed": 20
+  },
+  "sd-yantai": {
+   "total": 101152,
+   "cap": 20000,
+   "note": "烟台 jpaas-jact（单源上限 2 万；勿传 govOpen）",
+   "_status": "already-registered"
+  },
+  "sd-zaozhuang": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（http），siteId=124 / appId=84；须带 Referer；三级归属为空",
+   "_status": "no-total-available",
+   "_landed": 20
+  },
+  "sd-zibo": {
+   "total": 376,
+   "note": "源码线索（**待核实**）｜ jact 平台（http，GET 列表），sysid=54，totalRecord=376；答复标签「答复内容」",
+   "_status": "hint-unverified",
+   "_landed": 20
+  },
+  "sh-12345": {
+   "total": 7248,
+   "note": "源码线索（**待核实**）｜ POST allAppealPublic?startPage=N（AES-ECB 密文，需解密）；实测 count=7248",
+   "_status": "hint-unverified",
+   "_landed": 7248
+  },
+  "shannan-igi": {
+   "total": 163,
+   "note": "源码线索（**待核实**）｜ IGI 7 个 siteId（空 appId，枚举合计 191 条）；**带真实省/市/区县三级归属**；须带 Referer；https 可达；西藏第二条 I",
+   "_status": "hint-unverified",
+   "_landed": 190
+  },
+  "shenyang-igi": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 53 站 / 约 17,369 条（空 appId 取全量）；须带 Referer；https 可达；上游地域字段为门户默认值（单值恒定），已剥离",
+   "_status": "no-total-available",
+   "_landed": 2400
+  },
+  "sn-igi": {
+   "total": 4097,
+   "note": "陕西 IGI siteId=15",
+   "_status": "already-registered"
+  },
+  "sn-lyxd": {
+   "total": null,
+   "note": "该站未提供总量｜ 静态列表 10 条/页（createPage 29 页）+ 静态明细；提问/回答两块结构",
+   "_status": "no-total-available",
+   "_landed": 184
+  },
+  "sx-igi": {
+   "total": 84381,
+   "cap": 20000,
+   "note": "山西 IGI 46 site（igi-siteid-shanxi.json）",
+   "_status": "already-registered"
+  },
+  "sx-szxx": {
+   "total": 1872,
+   "note": "源码线索（**待核实**）｜ IGI 平台（siteId=110, appId=1742326）；须带 Referer；归属字段为空靠来源前缀",
+   "_status": "hint-unverified",
+   "_landed": 400
+  },
+  "tj-enorth": {
+   "total": 630595,
+   "cap": 20000,
+   "note": "天津政民零距离 55 dept（单源上限 2 万）",
+   "_status": "already-registered"
+  },
+  "tj-hdjl": {
+   "total": null,
+   "note": "该站未提供总量｜ 静态列表（onclick jumpToDetail）+ 静态明细；分页 index_N.html（25 页）；问/答在正文两段",
+   "_status": "no-total-available",
+   "_landed": 497
+  },
+  "tongliao-igi": {
+   "total": 638,
+   "note": "源码线索（**待核实**）｜ IGI 39 个 siteId（空 appId，枚举上界 3,843 条）；与 nmg-igi 不同部署（36 个 siteId 独有 / 记录 id 重叠 0",
+   "_status": "hint-unverified",
+   "_landed": 639
+  },
+  "xianyang-igi": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 17 个 siteId（空 appId，枚举上界 52,859 条）；与 sn-igi 不同部署（记录 id 重叠 0/20）；须带 Referer；h",
+   "_status": "no-total-available",
+   "_landed": 384
+  },
+  "xining-igi": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI siteId=43/4（空 appId 取全量，约 5,826 条）；**带真实省/市/区县归属**；须带 Referer；https 可达；青海此前仅",
+   "_status": "no-total-available",
+   "_landed": 2400
+  },
+  "xj-dchs": {
+   "total": null,
+   "note": "该站未提供总量｜ 门户督查回声静态列表（23 页/227 条）+ 静态明细；信访线需登录未通",
+   "_status": "no-total-available",
+   "_landed": 227
+  },
+  "xz-igi": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 平台（www.xizang.gov.cn/IGI），多 siteId；带省/市/区三级归属；http 可达；★ 门户留言选登已改版为登录门户，但该 JS",
+   "_status": "no-total-available",
+   "_landed": 350
+  },
+  "xz-lasa": {
+   "total": null,
+   "note": "该站未提供总量｜ POST /communication/api-mailbox/frontMail/mailList（JSON，公开列表含 objectiveType 类型标签",
+   "_status": "no-total-available",
+   "_landed": 0
+  },
+  "yn-xf": {
+   "total": null,
+   "note": "该站未提供总量｜ 免鉴权白名单接口 newsRends/pageList?type=case_selection，total=66；正文含问+答全文",
+   "_status": "no-total-available",
+   "_landed": 66
+  },
+  "zhangye-igi": {
+   "total": null,
+   "note": "该站未提供总量｜ IGI 8 个 siteId（空 appId，枚举合计 7,777 条）；**带真实省/市/区县三级归属**；须带 Referer；https 可达；甘肃首条 ",
+   "_status": "no-total-available",
+   "_landed": 400
+  },
+  "zj-hangzhou": {
+   "total": 61768,
+   "cap": 3000,
+   "note": "杭州 民呼我为（按每市 3000 截断）",
+   "_status": "already-registered"
+  },
+  "zj-huzhou": {
+   "total": null,
+   "note": "该站未提供总量｜ 浙江民呼我为统一平台 code=330500；文字 woff 字体混淆按 glyph 名解码；可反复跑（limit=本轮新增）",
+   "_status": "no-total-available",
+   "_landed": 2080
+  },
+  "zj-jiaxing": {
+   "total": 5875,
+   "cap": 3000,
+   "note": "嘉兴（每市 3000）",
+   "_status": "already-registered"
+  },
+  "zj-jinhua": {
+   "total": null,
+   "note": "该站未提供总量｜ 浙江民呼我为统一平台 code=330700；文字 woff 字体混淆按 glyph 名解码；可反复跑（limit=本轮新增）",
+   "_status": "no-total-available",
+   "_landed": 3351
+  },
+  "zj-lishui": {
+   "total": null,
+   "note": "该站未提供总量｜ 浙江民呼我为统一平台 code=331100；文字 woff 字体混淆按 glyph 名解码；可反复跑（limit=本轮新增）",
+   "_status": "no-total-available",
+   "_landed": 2908
+  },
+  "zj-mhww": {
+   "total": null,
+   "note": "该站未提供总量｜ POST OTMrwgaxid?… 列表 + GET ?storeId= 明细；文字 woff 字体混淆，按 glyph 名解码；totalItem=49218",
+   "_status": "no-total-available",
+   "_landed": 1000
+  },
+  "zj-ningbo": {
+   "total": 13284,
+   "cap": 3000,
+   "note": "宁波（每市 3000）",
+   "_status": "already-registered"
+  },
+  "zj-quzhou": {
+   "total": null,
+   "note": "该站未提供总量｜ 浙江民呼我为统一平台 code=330800；文字 woff 字体混淆按 glyph 名解码；可反复跑（limit=本轮新增）",
+   "_status": "no-total-available",
+   "_landed": 3151
+  },
+  "zj-shaoxing": {
+   "total": null,
+   "note": "该站未提供总量｜ 浙江民呼我为统一平台 code=330600；文字 woff 字体混淆按 glyph 名解码；可反复跑（limit=本轮新增）",
+   "_status": "no-total-available",
+   "_landed": 3350
+  },
+  "zj-taizhou": {
+   "total": null,
+   "note": "该站未提供总量｜ 浙江民呼我为统一平台 code=331000；文字 woff 字体混淆按 glyph 名解码；可反复跑（limit=本轮新增）",
+   "_status": "no-total-available",
+   "_landed": 2689
+  },
+  "zj-wenzhou": {
+   "total": 8721,
+   "cap": 3000,
+   "note": "温州（每市 3000）",
+   "_status": "already-registered"
+  },
+  "zj-zhoushan": {
+   "total": null,
+   "note": "该站未提供总量｜ 浙江民呼我为统一平台 code=330900；文字 woff 字体混淆按 glyph 名解码；可反复跑（limit=本轮新增）",
+   "_status": "no-total-available",
+   "_landed": 1829
+  }
+ }
+}

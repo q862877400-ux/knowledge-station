@@ -1,0 +1,24 @@
+{
+ "A_考卷": [],
+ "B_补料": [],
+ "C_无依据": [
+  {
+   "source": "gx-igi-132",
+   "id": "157830296683",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157830296683",
+   "question": "文旅局你好！&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我是一名学生，请问个人想要获得河池市各市县的旅游方面官方发布的数据（如河池市旅游人数及消费、各市/县接待入境旅游者人数&nbsp; ",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-132",
+   "id": "157830190358",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157830190358",
+   "question": "尊敬的领导：您好！我是桂林理工大学研二学生，目前因课题研究需要，需获取河池市（全市） 2018-2023 年的四项指标年份数据，分别为星级宾馆酒店床位数 、旅游厕所数量、旅游咨询服务中心数量、旅游投诉发生事件数量。此前我已尝试通过年鉴检索，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

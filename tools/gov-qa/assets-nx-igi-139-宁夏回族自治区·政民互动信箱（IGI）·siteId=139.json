@@ -1,0 +1,1409 @@
+{
+ "A_考卷": [
+  {
+   "source": "nx-igi-139",
+   "id": "10143509",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10143509",
+   "question": "1%20%20%E5%88%9A%E4%BB%8E%E6%A9%B1%E6%9F%9C%E9%87%8C%E5%8F%96%E5%87%BA%E6%9D%A5%E7%9A%84%E8%8F%9C%E4%B8%8D%E8%83%BD%E6%9",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国食品安全法",
+     "lib_no": "食品安全法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国食品安全法",
+     "lib_no": "食品安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10125079",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10125079",
+   "question": "三里店坝周围应该防置安全护栏什么的，这样很不安全，有时小孩子什么都不知道，一不小心意外就发生了。",
+   "cited_hits": [
+    {
+     "name": "河道管理条例",
+     "lib_no": "河道管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "水库大坝管理条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10115601",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10115601",
+   "question": "我在西城小区的门店，用于老人居住十几年了，4月1日下水不畅往外泛，经打问左邻右舍，才知道都先后堵塞，找到了物业，是个女的，说她只是负责打扫卫生，这个问题她没有管。无奈之下电话咨询了县住房与城乡建设局，该局副局长解释，凡是门店的要自己联合收钱",
+   "cited_hits": [
+    {
+     "name": "宁夏回族自治区物业管理条例",
+     "lib_no": "物业管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10121667",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10121667",
+   "question": "城关镇星火社区肉兔基地项目规划在星火村一组杨家坪，2019年年底完成了项目所在地的坟墓迁移工作，城关镇星火社区以流转方式取得农村土地承包经营权，按照（农村土地承包经营权流转管理办法）第十条农村土地承包经营权流转方式、期限和具体条件，由流转双",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国土地管理法实施条例",
+     "lib_no": "土地管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "中华人民共和国土地管理办法",
+    "农村土地承包经营权流转管理办法",
+    "隆德县建设用地苗木移植补偿办法的通知"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "nx-igi-139",
+   "id": "10151724",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10151724",
+   "question": "各位领导你好！我反应南风廉租房物业在廉租房内强行收取停车费，过夜车辆每晚8-10元不等，出入车辆根据时间也强行收取停车费！问他们物业收费人员有无停车收费的有关文件或物价部门备案书或相关依据，说政府让他们收呢！据我所知县政府花费大量资金改造了",
+   "cited_hits": [],
+   "cited_missing": [
+    "宁夏回族自治区定价目录",
+    "固原市区车辆停放服务收费标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10151082",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10151082",
+   "question": "我是御景华府廉租房14号楼一单元602的住户： 1.我家房顶漏水两年，20年、21年我都上报过维修，期间一直在漏水，今年漏的特别严重，我给物业上报过，我就想咨询啥时候能维修，房顶漏水太严重，现在都住不了人，住建局只是说要上报，等拨款维修，给",
+   "cited_hits": [],
+   "cited_missing": [
+    "隆德县公共租赁住房管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10150685",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10150685",
+   "question": "领导，您好，我弟因为工作变动，现在辞职回家创业，之前户口在工作地兰州，现在想把户口迁入隆德父母名下，不知道成年人户口迁入允许投靠父母不？望回复，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "宁夏公安机关常住户口登记管理规范（试行）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10149159",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10149159",
+   "question": "县转移就业劳务补助可否新增城关镇红崖社区一、二、三组人员，请各级领导酌情考察，予以新增补助范围，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "隆德县人民政府办公室关于印发隆德县强化稳就业促增收若干措施的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10148268",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10148268",
+   "question": "温堡乡民生服务中心在工作日期间正常应该下午2：30分上班，然而工作人员懒散，态度松懈，下午三点却仍然大门紧闭，影响普通民众日常民生工作的办理，望及时处理。",
+   "cited_hits": [],
+   "cited_missing": [
+    "隆德县人民政府办公室关于印发<隆德县乡镇民生服务中心、村（社区）民生服务代办点窗口工作人员管理办法>的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10148097",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10148097",
+   "question": "教资认定报名成功后，什么时候开始现场审核和体检？",
+   "cited_hits": [],
+   "cited_missing": [
+    "隆德县2022年教师资格认定公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10144697",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10144697",
+   "question": "给女儿去杨河派出所不予受理姓名更改。去派出所已已满18岁为由拒绝 网上多次申请都被拒绝 说不符合 民法典不是已经规定可以更改吗 因为女儿名字不好听现在也没有结婚26",
+   "cited_hits": [],
+   "cited_missing": [
+    "宁夏公安机关常住户口登记管理规范"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10125249",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10125249",
+   "question": "建议三贤居小区北门安装人脸识别系统，有利于疫情防控，方便群众出行，县城其他小区已安装，使用特别方便，希望相关部门协调解决，感谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发隆德县推进智慧社区建设实施方案的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10125077",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10125077",
+   "question": "信件内容 隆元一号小区以各种理由拒绝业主车辆进入小区并在小区内停车，强迫业主使用地下停车场，并规定月停车费150元，年停车费则达到了1800元，在隆德这个国家级贫困县，如此高昂的停车费，全区都实属罕见，单位职工都不一定能承担起，老百姓更无法",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于收取小区车辆管理及停车费的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10125063",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10125063",
+   "question": "您好关于图书馆，银川作为人口众多的省会，图书馆已经开了一个多月了吧，5月18号初中生也开学了，那为什么隆德的图书馆就是不开呢？宁夏已经有79天左右无新增病例，那么图书馆究竟可以什么时候解封呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "公共图书馆、文化馆（站）恢复开放工作指南"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10125038",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10125038",
+   "question": "看到水务局就农村和城镇饮用水单价的问题2019.12.05回复给一投诉者的留言。我觉得答非所问没有实质性问题。人家投诉的是：农村饮用水3元每方，城镇1.6元每方。农村的单价高于城镇1.4元，基本是城镇的2倍。就国情来看，严重违反中国城乡发展",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于调整县城自来水价格的通知",
+    "宁夏城镇非居民用水超定额累进加价制度实施方案的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10115564",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10115564",
+   "question": "据我了解，固原市的室外篮球场已经开放了，我县的防疫情况也保持的很好，早已归入低风险地区。县里的青少年在家已逾两月之久，许久未运动的大有人在，希望政府可以尽早开放篮球场足球场等，进一步加强锻炼，预防疾病。望政府能尽快接受采纳实施，满足全县众多",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于开放露天体育场地的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10121628",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10121628",
+   "question": "隆德第一时间蛋糕店私自营业，不听从政府的安排。不把人民身体健康放在第一位。这种赚钱方式不可取。",
+   "cited_hits": [],
+   "cited_missing": [
+    "隆德县应对新型冠状病毒感染的肺炎疫情工作指挥部公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10121619",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10121619",
+   "question": "每次在沙塘镇农电站交了电费索要发票时，工作人员说：现在交了电费不能当场开发票，要等本次交纳费用全部用完了再开。我是个农民，索要发票就要在一周内报销，他们当场不开发票，我的报销手续有可能一拖就是一两个月甚至半年。我打问了咱们县上其他农电站都是",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于推行通过增值税电子发票系统开具的增值税电子普通发票有关问题的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10121537",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10121537",
+   "question": "南风家园二期到现在，各种设施换没有安装，单元门没门，问过几次说快了，手我们这么多物业费，服务这么烂，这么差，想想，到现在几年了，还说服务的好，再想想多收我们一年物业费，你心里好受吗？脸不烧吗？我们要的是服务，你们做不了就不要做，是不是城建局",
+   "cited_hits": [],
+   "cited_missing": [
+    "物业服务合同"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10121525",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10121525",
+   "question": "您好请问一下孩子是外地户口，可以再本地上小学吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "隆德县各级各类学校招生管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10121510",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10121510",
+   "question": "我不知道是哪个部门给我答复的，我实在不敢恭维。我对答复内容的理解是：目前的水费收取标准是经过政府批准的合理收费。与收费单位无关。以后固原市很有可能将城里的水费调高，以平均城乡水费差异。 自来水收费事关民生大计，城乡收入有差距是我国基本国情，",
+   "cited_hits": [],
+   "cited_missing": [
+    "宁夏回族自治区农村饮水安全工程管理办法",
+    "隆德县人民政府关于调整县城自来水价格的通知",
+    "隆德县人民政府关于调整水利工程供水价格的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10121471",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10121471",
+   "question": "县领导，您们好！作为龙城世家B区居民，关于自来水供水问题希望相关领导给予答复，本月1号、3号停水，也没有有关部门提前通知居民停水，而且就目前自来水给水水压过小，无法保障居民的正常用水，并没有相关通知告知居民是什么原因，愿有关领导能够为居民解",
+   "cited_hits": [],
+   "cited_missing": [
+    "隆德县城供水管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10121422",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10121422",
+   "question": "各位领导，我是一位打工仔，我们没有低保，没有什么优惠，贷款买房为了孩子读书，现在冷了，暖气费对于我是一大笔钱，申请停暖，可停暖费要交百分之三十，有些贵，天津停暖费才交百分之二十，有些西部偏远地方交百分之十五，隆德人真的都富了吗，供暖公司还属",
+   "cited_hits": [],
+   "cited_missing": [
+    "宁夏回族自治区供热条例",
+    "宁夏集中供热申请停暖和恢复用热实施细则"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10121179",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10121179",
+   "question": "在毕业阶段，档案需要寄回生源地，需要填写生源地的档案邮寄信息，有“邮寄单位名称”“邮寄地址”“收件人姓名”和“收件人电话”四项需要填写，通过网络查找，找到了单位的联系电话，但是所有电话都打不通，无法查询到相应信息，在此希望县相关单位能够公开",
+   "cited_hits": [],
+   "cited_missing": [
+    "应届高校毕业生寄存学籍档案的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10120807",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10120807",
+   "question": "新建的已购买一年了，装完都住里面了几个月了，还迟迟不供暖，问物业一天推迟一天，就是不解决",
+   "cited_hits": [],
+   "cited_missing": [
+    "宁夏回族自治区供热条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10114392",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10114392",
+   "question": "上次反应冯碑村茶具没发放回复是9月30日是近期发放，已到十一月份了难道要这么久吗，请问你们政府部是这样办理的吗？要结果而不是”已办理”三个字，看来村民都失望了，以小见大，大事何以办成，问题太多不得不向上级投诉。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于交由各乡镇人民政府负做好自治区成立60周年庆祝活动纪念品（慰问品）发放工作的紧急通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10114023",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10114023",
+   "question": "盘龙桥解放南路东面已停水4周,找水利局推卸责任到自来水公司,自来水公司派人前来查看后,每户需收700元的维修费,望政府派人督查,百姓相信政府的办事效率,望尽快解决.谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "隆德县供水管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10113864",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10113864",
+   "question": "本人身份证即将过期，于2018年2月补办。现本人在江苏，因无法回家亲自领取身份证。并且急需用身份证件。可否家人代领。或者由当地派出所邮寄。当地派出所一句上边有文件就直接回绝了。盼复",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于在县级公安机关设立居民身份证直接办理窗口的通知",
+    "临时身份证明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10120356",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10120356",
+   "question": "隆德县卫生系统初中级职称聘审为什么从2016年至今未开展，其他各县每年评审，相关领导无作为，请给于明确答复",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于加强和规范事业单位岗位设置及聘用管理工作的通知",
+    "关于加强和规范事业单位岗位设置及聘用管理工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10113309",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10113309",
+   "question": "隆德县2017年农村危房改造补助资金公示花名册， 乡（镇）：温堡乡，公示时间：2017年10月11日，序号1033温堡村三组，邹玉莲，至今未发放",
+   "cited_hits": [],
+   "cited_missing": [
+    "隆德县 2017 年危房改造实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10120177",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10120177",
+   "question": "尊敬的领导： 在此反映一个在日常生活中发现的问题，希望引起领导的重视。 蔬菜水果是大家每天都要吃的东西，这些东西也不容易存储，有些商贩为了延长蔬果的存放日期，减少损耗，不知给蔬果上喷洒什么药水，有的撒的是一种蓝绿色的颗粒物。我一根生菜买回来",
+   "cited_hits": [],
+   "cited_missing": [
+    "食用农产品市场销售质量安全监督管理办法"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "nx-igi-139",
+   "id": "10154797",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10154797",
+   "question": "竹林社区间接性停水三天了，今天从中午到现在一点水没有，打电话给工作人员，她们说水压上不去，我家在五楼，没水吃，家里还有娃娃，上厕所都冲不了，第二次打电话给她们，居然还说修不好了，就这样了!竹林社区前几天是暖气不热，现在又来了个水的问题，她们",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10152513",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10152513",
+   "question": "您好，我想了解一下2022年度隆德县事业编招聘工作人员均已到岗上班一个多月将近两个月了，尤其是医疗系统的新招聘事业人编制人员，采核酸加班亦是常态，我想咨询一下2022年度事业编制招聘人员聘用文件是否已出，如果未出的话大概什么时候能够出文，财",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10152246",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10152246",
+   "question": "各位领导好，孩子在银川六盘山高级中学上学，受疫情影响，被封控在学校已一月有余了，十一放假也未能回家。 现因为疫情原因，学校不接收外界快递等物品，孩子们又没有过冬的衣物，所以看咱们政府能否出面协调，统一 组织快递些衣物给在银川上学的孩子们，以",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10150983",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10150983",
+   "question": "我是宁夏隆德县城关镇三合村村民，今年7月份申请了就业补贴，刚发完，村里领导说补助要交到村部，说镇里要收回，交给就业局，由就业局再发放，也没有出具任何文件，个人存有疑惑。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10150783",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10150783",
+   "question": "最近廉租房在收费，收费部门的工作方式不符合便民原则，首先，廉租房收费只要求刷卡支付，不支持现金及其他方式支付，很多人不知道，只携带现金，白跑一趟。很多老年人只带了现金，但是工作人员不收现金。其次，要求缴费时间限制短，但是，设置的工作人员少，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10150651",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10150651",
+   "question": "领导们好： 想咨询一下，我们响应政府政策。于2022年3月份开始，修建蔬菜种植大棚！到现在为止，有农户的补贴已经发放一个多月两个月了！但还有好多到现在都毫无音讯！这是什么情况呢？是不是政策有偏向呢？求知晓！！！ 还有一个问题也想咨询下，就是",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10149899",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10149899",
+   "question": "中国工农红军第二十五军先遣团团部遗址的介绍中第五行“高举北上抗日第二先遣队旗帜”中“先遣队”写成了“先遗队”，我觉得这对隆德文化有负面影响。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10149458",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10149458",
+   "question": "您好！事业编警务人员体测好像结束了，大概什么时候会发布资格复审的结果呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10149240",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10149240",
+   "question": "领导您好，我想咨询一下隆德县2022年第一批“三类人员”转移就业劳务补助公示名单在哪儿能查到。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10149231",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10149231",
+   "question": "领导您好！ 我是隆德县中央明都原县医院住宅楼居民，我们住的这个楼屋面漏水，实在无法住，下雨就拿盆接水，现在废旧小区改造，能否把我们也纳入范围之内？请回复",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10149220",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10149220",
+   "question": "2022年事业编考试结束复审人员名单怎么没有发出来，彭阳，西吉，等都发了，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10149092",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10149092",
+   "question": "各位领导 ，大台北太扰民了，为何不管，尤其是周六周天还严重。吵得人都坐不住",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10147797",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10147797",
+   "question": "各位领导好，我是老车站家属楼住户，老车站家属楼由于年久失修，不但外部环境差、乱、老旧，小区内道路坑洼不平，楼台更是破烂不堪，小区进出口过窄，没有安全通道；而且排水管道老化堵塞，污水时不时外流。供电、供水管网错综杂乱，。不仅存在极大的安全隐患",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10147368",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10147368",
+   "question": "2020年6月因水厕改造开管道压水，后背人家压完水未把路面处理好有积水，导致多处处现裂缝，并且出现塌陷，最大裂缝长20公分，宽5公分左右，所有水流入我家后院，致使后背塌方，房屋受影响。已向社区，城关镇多次反应，至今未处理。现在下雨后水继续流",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10147102",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10147102",
+   "question": "2021年出生的新生儿是否有相关奖励政策。如果有，具体内容是什么？城镇普通居民是否可以申请？申请程序具体是什么？如果没有，请忽略本信件，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10146790",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10146790",
+   "question": "因为老小区改造问题，家里有一路停电一个月了，叫人修理没办法，给供电区打电话了说是家里的不管。家里电原来好好的，不知道那个住户叫了旧小区改造的又把楼道电修了，结果修完楼道有电了，我家没电。希望有关部门给尽快解决。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10146715",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10146715",
+   "question": "领导好！ 对于县公交公司每天接送园区员工上下班和附近群众的方便乘车办事，确实解决了很大问题，但是现在一直面临着一个问题，就是在人造花的门口门东边设置告示牌，标识出每个车次最终到点的位置，时间等，其次在此处油更换乘车的需要标出说明换乘车次以及",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10146013",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10146013",
+   "question": "各位领导：我反应两件事第一，中央名都小区某号楼某单元居民用户家里用水从3月30日出现异常情况，每天用水量高达11m3以上，水务公司大厅以及维修人员回复水表正常家里漏水原因，可家里并未有漏水现象。3月30日和31日两次分别预缴了50元水费，4",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10145744",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10145744",
+   "question": "阳光小区临街居民在窗外放置花盆，箱子，和杂物，没有任何牵引防护，只要有点外力随时都可能掉下来，下面都是餐馆和商铺，来来去去的行人特别多，尤其上学放学从这边经过的学生也特别多，存在安全隐患，希望领导重视！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10144931",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10144931",
+   "question": "大年初二(一月二号）晚上我在博物馆后面西环路上散步，发现博物馆旁边草地里水管可能破了，水量挺大的，当时我就给供水公司打电话了(6012123），接电话的人告诉我，可能不是供水的管子，有可能是市政上的，他第2天会告诉市政让过来修，一月25号晚",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10144635",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10144635",
+   "question": "尊敬的领导！您好，卫生局家属楼外墙突然出现三米长五厘米宽的裂口，墙面松动，有响动，部分瓷砖掉落，有随时倒塌的危险，下面是解放街，路上行人来来往往，给行人带来了严重的安全隐患。恳请领导消除安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10143510",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10143510",
+   "question": "%E6%88%91%E5%9C%A81%E6%9C%882%E6%97%A5%E6%99%9A%E5%9C%A8%E9%9A%86%E5%BE%B7%E5%8E%BF%E5%B7%9D%E6%8A%8A%E5%BC%8F%E9%81%87%",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10126571",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10126571",
+   "question": "%E9%A2%86%E5%AF%BC%E5%A5%BD%EF%BC%8C%E6%88%91%E6%98%AF%E5%8D%97%E5%87%A4%E5%98%89%E5%9B%AD%E4%B8%80%E6%9C%9F22%E5%8F%B7%",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10126482",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10126482",
+   "question": "%E4%BD%8F%E5%BB%BA%E5%B1%80%E7%9B%B8%E5%85%B3%E9%A2%86%E5%AF%BC%EF%BC%9A%0A%20%20%20%20%20%20%20%E9%98%B3%E5%85%89%E5%B0",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10126431",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10126431",
+   "question": "隆德县有关部门你好！我是书香世家住户，书香世家5号楼，一单元，整栋楼道灯不亮，存在一年之久，有安全隐患，给物业反映了好多好多遍，物业一直推拖，不理不管，于2021年12月6日，学生早上上学，因为没有楼道灯，学生从楼上滚下去，导致双膝盖破裂，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10116196",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10116196",
+   "question": "政府最近在广场举办了小吃街，这个项目很好，深爱老百姓喜爱，晚上的灯光灿烂，各种小吃都不错，人也越来越多，沉睡多年的房也热闹起来了，政府这次举动确实是好。好是好，但问题来了，小吃街两家烤鱿鱼的，每晚那个音响声音放得太大了，太刺耳了，自乐班唱戏",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10125234",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10125234",
+   "question": "我从事财政项目多年，每每转游古柳公园，古柳成荫，山水柳交相辉映，环境优美，使人心情舒畅，但美中不足的是，人工湖是一潭死水！靠自来水补水，即浪费了水资源，又使湖水不清澈，且水质不好。俗话说：无水不活，强烈建议将龙王池的24小时的长流泉水引入公",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10125208",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10125208",
+   "question": "感 谢 信尊敬的隆德县委、县政府、财政局、就业局、发改局、隆腾旅游公司各级领导:在这个阳光明媚的夏日里，我本人怀着无比感激之情，隆德县委、县政府、财政局、就业局、发改局、隆腾旅游公司各级领导表示我们的衷心祝福。 我叫赵好好，是隆德县城关镇红",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10116117",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10116117",
+   "question": "近年，随着人民收入增加，为追求更好的生活质量购买小汽车的越来越多，伴随而来的是停车难、交通乱象等问题，在一定程度上降低了人民群众的生活幸福感。而今年我县有很多老旧小区改造项目，使得这些小区的车辆只得停在就近的路两边，这让本就紧张的交通资源更",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10125199",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10125199",
+   "question": "本人是御景鸿府公租房9号住宅楼住户，屋顶漏水严重，顶面的抹面已经因为屋顶长期漏水剥落，能看到混凝土顶面，雨水长期腐蚀钢筋生锈了，顶面能看到锈迹，公租房的墙面离地两米的地方安装有开关，因为屋面漏水渗入开关还引起过漏电事故。19年年初至今向物业",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10125197",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10125197",
+   "question": "请问一下隆元小区和西花苑小区间的红绿灯啥时候能装，反应好多次咋就没有动静，都是一而再，再而三的推脱，难道这就是为民办事吗？各位领导",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10125194",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10125194",
+   "question": "希望隆德县教体局加强学生社会实践类活动，不要只是走形式，教体局在隆德县中等职业教育发展与质量年度报告（2020）中明确提出要加强学生的综合素质评，索引号 640423004/2021-00017，教体局：隆德县普通高中教育集团积极推进实施“",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10125190",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10125190",
+   "question": "隆德县312国道八里至十八里之间限速40公里，严重阻碍通行，存在很多安全隐患，尤其是经过高速公路的桥哪里，许多驾驶证为了躲避拍照，逆行绕开电子拍照，请问交警部门，设置限速40公里的依据在哪里？为什么要这样设置，是一种懒政不作为还是什么原因。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10125182",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10125182",
+   "question": "隆德县人民医院在住院办理手续时可以先给病人看病，然后再办理相关手续。做核酸检测可以指定专门医护人员来科室做，不要让排队等着做，这样错过了最佳治疗时间，太耽误病情了。儿科妇产科每年招录一些优秀医护人员，真正的起到会看病，能看病，看好病的作用。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10125180",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10125180",
+   "question": "领导，为了县城美好的环境和我们有一个干净整洁安全的小区，能否帮我我们让相关部门尽快清除拆迁的垃圾，恢复小区的大门，和东侧围墙修复！小区居民在翘首以盼，望领导给予解决！！！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10125173",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10125173",
+   "question": "商城院内乱摆乱放，补鞋的乱摆乱放，食品旁边摆的补鞋的，人想吃个烧烤都恶心的吃不成，商城不像商城，街道不像街道，乱七八糟的，文明城市一点也变得不文明了，没有统一的规划吗？应该把补鞋的统一规划在一个地方，食品放在一起，直接影响街道整齐",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10125171",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10125171",
+   "question": "领导你好上次反应的排水管没有接好导致我家墙面渗水的问题一直没有得到解决，昨晚一场雨，家里整个墙面湿透了，影响我正常生活了，希望领导看到这个消息，尽快安排人员维修，不能一次次的敷衍，真正能为老百姓做点实事，谢谢了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10125159",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10125159",
+   "question": "随着人们生活水平的不断提高，汽车已进入普通百姓家庭，随之而来的停车难、行车难问题凸显，目前我县在公共停车场实行的半小时内停车不收费受到老百姓的一致好评，值得点赞！但县城部分十字路口（隆元一号和西花园交叉处）无红绿灯和部分有红绿灯的路口右转车",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10115984",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10115984",
+   "question": "西环路静建楼（原农调队大门口南侧），有两家食品作坊，一个是饼子店，另一个是馒头店。这两家食品作坊每晚2点开始制作食品，由于和面机器落后，轰隆隆的噪音特别巨大，尤其是馒头店，噪音更大，加之两家食品店均没有安装降噪吸音材料，机器整夜哄鸣，楼上邻",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10125144",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10125144",
+   "question": "隆德县西花苑17号一单元电梯，从2021年1月11日开始至今，一直处于停运阶段，物业不处理，楼上住户大多是老人，行动不便，对生活造成巨大影响。物业电话无人接听，物业经理不予理睬。希望相关部门能予以处理，解决人民生活困难。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10115924",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10115924",
+   "question": "隆德县西花苑17号楼一单元电梯，从2021年1月11日停运，至今已经13天，期间物业电话不接，不闻不问，楼上所有住户行动均不便，甚至年龄大的住户，根本无法正常上下楼。希望相关部门尽快予以督促处理，早日恢复正常。谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10125136",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10125136",
+   "question": "前两天路过渝河神林段，发现河道中有不少人在割芦苇，还有大型机械在河道中！我就想知道，你让把芦苇割了，河道中一直生活着的野鸭子，黑鸭子，白鹤，灰鹤等野生小动物们该去哪里栖息？？原本芦苇丛就是这些野生动物们栖息的地方！你现在全部割了，一是毁掉了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10125127",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10125127",
+   "question": "隆德县的足球场本来就少，每次去哪踢球锻炼，门总是锁着的，希望能对外开放。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10125111",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10125111",
+   "question": "尊敬的领导你好，我是商城院内的摆摊人员，商城院内不管理，乱摆乱放，因为前面有空闲的摊位，其它摆针织的商贩拉到前面摆货，买货的都在前面卖了 后面人根本不进来，导致我们后面没有生意，大家都是做生意的，都要生活，这样下去我们后面的人就得喝西北风去",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10125108",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10125108",
+   "question": "我们家长在外打工，家里都是老人照顾孩子督促学生，学校，老师布置作业都是以手机微信进行传达，孩子一半时间在写作业，一半时间在玩手机，作业写到十一二点，学习成绩也下降了。而且现在的手机自动弹出来的广告等等涉及的图片，信息都对学生的身心健康都不好",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10115858",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10115858",
+   "question": "图书馆作为开放场所，为人能群众提供了文化阅读场所，但是场所管理人员素质太差，于文明县城格格不入",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10125073",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10125073",
+   "question": "尊敬的相关部门领导，2020年6月19日，县供水公司安排的施工企业在中央名都高层一单元更换水表时，没有关闭上水总阀门就随意施工，造成上水从12楼开始泄露，水漫整个楼道，包括步行梯、管道井、电梯井，更为严重的烧了电梯的电路板，直到今天已经6天",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10115728",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10115728",
+   "question": "请问一下交警部门啥时候能把隆元一号十字路口的红绿灯问题处理，时不时就发生交通事故。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10125067",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10125067",
+   "question": "您好，隆德县食苑小区水利局家属楼漏水严重，5楼住户无法居住，下水全部在地沟，天长日久，家属楼已经成危楼了。小区无物业，没有人管这个事情，希望给解决一下。现在其它旧小区正在改造，为什么没有食苑小区。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10125057",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10125057",
+   "question": "隆德县沙塘镇新民村自来水水质差，打出来水的颜色呈现黄色，望及时解决农民的安全用水问题。水务局每月都在检测水质，而且都是合格的，不知道数据有没有问题。农民经常吃这样的水能否保证安全。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10115664",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10115664",
+   "question": "西海子小区现在在进行小区改造，马上要昼夜施工。每天到晚噪声特别大，非常影响学生在家的网课学习还有晚上的正常休息。突然停水也没有一点提前的通知，给日常生活带来很大不便。现在连冲厕所都成了问题。距上次改造也时间不长，老是改造不是解决问题的根本办",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10125050",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10125050",
+   "question": "西门花园，金湖兰庭这条街成了市场了，卖啥的都有，喇叭噪音，安全隐患，交通堵塞。城管，交警，周一到周日对小贩管理不严，造成你来我跑，你走我就回来，到处打游击，。造成环境脏乱差，那还是文明卫生县城么？ 就不能规范，持之以恒管理，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10125037",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10125037",
+   "question": "张程乡桃园、桃联村土地平整项目进度总体太慢，尤其桃联村项目，一支施工队人都不见何谈进度，项目停着呢，在脱贫攻坚战的关键时刻，如果因为项目进度耽误农时农事，影响玉米种植从而殃及支柱产业养殖业，怎么脱贫，怎么保住已取得的脱贫成果。望重视一哈。 ",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10125035",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10125035",
+   "question": "请问西门隆元一号十字口到现在还不装红绿灯，每次路过太危险了，人多车多。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10121555",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10121555",
+   "question": "你好，我已经第二次投诉了，我也不是一个胡搅蛮缠的人，我真不知道谁能解决下我的问题。南凤嘉园二期二十一号楼，暖气怎么回事？给供暖公司打电话来查看，完好，人家用测温计测了15度，这么冷的天，家里面只有15度，再遇上无责任心的物业，来了五六次，你",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10121534",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10121534",
+   "question": "现进入冬季，南风家园二期，换在开工建设，每晚都干到九十点，不说工程质量如何保证，就没玩炒的我们不行，城建局的大老爷管不管，对你们的工作都无语了，物业你们管不住，也不管，建设工程大冬天施，噪音扰民！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10121531",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10121531",
+   "question": "尊敬的领导您好:关于无理由的停水，我如实的向您反应一下情况。我是中央名都高层的住户，平时早上（8点左右）水压小，想洗个澡都很困难。星期六星期天早上直接没水，影响我们的正常生活，多次找物业跟自来水公司，互相推责任，个说个有理。以前投诉自来水公",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10115401",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10115401",
+   "question": "渝河路隆中后面路灯每天早上仍然不亮，说是调整关灯时间，快一个月了，仍然不亮，难道只是网上说回复说是调整好了就行了吗？是不是不这个困难太大不能解决？！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10115392",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10115392",
+   "question": "这两天这么冷，供暖公司居然接二连三的不供暖，家里冷的人坐不住，这是怎么了，年年如此，最冷的时候供暖公司就会出这样那样的问题，间断性供暖",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10115356",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10115356",
+   "question": "尊敬的领导； 我县各单位供暖已经一个月了，隆德县星兴广场到现在还没有供暖，问管理人员说有部分商户欠供暖费。欠费毕竟是个别商户，商场三层一百多商户都每年交暖费，管理费。为什么个别人的行为要大家买单，这么多商户都把钱投这里是为养家糊口，好多商户",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10121474",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10121474",
+   "question": "尊敬的领导; 我是一位普普通通的健身爱好者，全民健身中心刚刚建成极大了方便了我们周边的健身爱好者的健身运动。中心开始运营时，好多人不知道这里可以打羽毛球、乒乓球运动。参与锻炼的人也不多，我们周边的锻炼爱好的人每天都能在里面得到锻炼。现在我想",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10115310",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10115310",
+   "question": "各位领导好，中央名都和三山府邸之间道路交通问题非常严重，本来就不宽的一条通道，通道两边时刻都停满了车辆，这样使得两个小区进出的车辆经常发生堵塞的现象，有时候一堵就是将近十分钟，出不来的进不去。记得在权限创卫验收时有人管，情况好转，我们还有了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10121440",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10121440",
+   "question": "隆德县一幼至今未供暖，问供热公司什么原因，说才在修供热站，问早干啥去了，说政府不给钱，问又要降温娃娃冷得很咋办，说学校会想其他办法，问还得多长时间，说快着呢还得十天！我想问一下有关部门、领导，为什么所有工作不在供暖前测试准备好，每年到供暖时",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10121425",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10121425",
+   "question": "尊敬的县委、政府、人大、政协领导： 我们有话说：你们为全县人民脱贫致富奔小康争资金、想办法，劳苦功高，全县人民有目共睹。可是，争取资金前后建成了隆德县体育馆、全县全民健身中心，为全县人民办了一个大好事，两个运动场所为爱好体育的人们提供了一个",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10115281",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10115281",
+   "question": "本学期，陈靳学区换了新的领导，从此，陈靳学区师生开始：1、天天打扫卫生，甚至牺牲正常的教学时间。我县正在创建卫生先进县城，人人有责。我理解，但是也不至于牺牲学生早读时间，午休时间来打扫卫生！！！2、强制取消教师午休，改为自习。教师每天要备课",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10121363",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10121363",
+   "question": "尊敬的领导您好：我是食苑小区7号楼住户，该楼于2017年至今楼顶漏水严重，尤其是2018年、2019年雨水多漏水更为严重，楼道积水，室内漏水，给生活带来了极大影响，找过物业多次未得到解决，食苑小区个别楼漏水已维修，但其他楼漏水未维修，麻烦领",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10121303",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10121303",
+   "question": "领导好，我是三山府邸的一名业主，小区门口有一家名叫鸭爪爪的烧烤店，厨房内的风机在小区院内，一到晚上声音太大，一直持续到很晚，家里有不足月的小孩，吵的没法睡觉，建议领导们能出面让更换风机，在这里先行谢过",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10121192",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10121192",
+   "question": "手机店给未成年人(家长不知情）销售千元以上的手机，反映到市场监管部门说是市场经济，无法监管不予立案，难道就由商家咎由自取，执法监管部门无法监管吗？ 国家大力提倡保护未成年人。给有些部门反应的问题，说是市场经济，很疑惑？？？？？？？ 强烈谴责",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10121168",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10121168",
+   "question": "由于最近隆德到杨河公路整修，我村村民进城严重不方便，需要从水磨村，后海村绕行，在加上村里没有专门拉人滴客车，每次进城只能打出租或者借助私家车，路费从原来的8块，增长至现在的三四十块钱，公交每周周五下午5点，周日下午3点一趟，严重不能满足日常",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10121165",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10121165",
+   "question": "我是隆德渝河商贸市场的一名摊贩，由于市场改造，决定对原摊位进行更换新的铁制摊位，旧的铁摊位应管理市场人要求，自行抬走处理，新摊位更换，我们停止了生意，挪走了物品，配合更换，由于事先没有测量，没有征求各摊主意见，尺寸不合适，每个人已经摆好菜品",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10114976",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10114976",
+   "question": "星兴广场二期德汇大酒店旁边的车辆出入口存在乱收费问题。 1.为什么设在隆德宾馆旁边的车辆出入口可以自动识别车牌号并显示和播报应缴停车费，而德汇大酒店旁边的却要人工遥控操作？请问收取业主和临时停车的费用去哪儿了？即便是坏了，那维修一个自动识别",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10121147",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10121147",
+   "question": "星兴广场二期德汇大酒店旁边的车辆出入口存在乱收费问题。 1.为什么设在隆德宾馆旁边的车辆出入口可以自动识别车牌号并显示和播报应缴停车费，而德汇大酒店旁边的却要人工遥控操作？请问收取业主和临时停车的费用去哪儿了？即便是坏了，那维修一个自动识别",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10121126",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10121126",
+   "question": "1.隆德县茏干城到高级中学那条路上有很多大坑，也有很多路面坑洼不平，很长时间了没人管，严重影响群众和车辆出行，也不安全，希望有关部门能及早修补好。2.隆德县红崖社区和学校之间的道路也有很多坑洼，望有关部门及早维修。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10114956",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10114956",
+   "question": "每到节假日星兴广场下面商铺，从早上九点一直到晚上七点，肆无忌惮将音箱声音放的很大，办活动，超大的噪音已经严重影响到楼上及附近居民正常生活，附近的居民忙碌一周是多么渴望能在安静的家中休息休息，却被下边商铺严重的噪音吵到，吵的让人烦躁。我们这些",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10121081",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10121081",
+   "question": "我在银川上班，家在南凤家园20楼。每次放假回家，车不让进。他们理由你要么买年费360元，要么进一次2元。停一晚上5元或10元。我就问一下我家在这里，他们这样收费合理吗？根据是什么",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10114832",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10114832",
+   "question": "本人系龙城世家小区住户，18年年初至今向物业反映过两次顶楼漏水墙体及管件维修问题，物业已报备登记个人反馈事项，但两次均以管件设备器材未到货为由推迟维修，近日第三次又咨询物业，物业表示此类维修未在物业维保范围内，需要找开发商解决，想问住建局及",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10114791",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10114791",
+   "question": "华天广场对面李宁专卖店噪音严重扰民，城管巡查车上下经过不管不问，唉！！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10120924",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10120924",
+   "question": "我想问一下，为什么卫计系统初级职称不评，高级为什么能评？说最近几年都不评，这些直接影响我们的积极性，请给我们一个合理的解释？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10114669",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10114669",
+   "question": "请问领导们，农村土地确权少了地块，少了亩数到底应该归谁管？？？从开始确权签字时地块亩数是正确的，等拿到《农村土地承包经营权证》时，上面少了地块亩数。问遍了县镇村三级竟然都说没有留存资料档案，无据可查！？？村上说是镇上和县农经站没有确上；镇农",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10114443",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10114443",
+   "question": "隆德县北门老生资公司大院小区，到今天暖气不热，晚上室内温度只有13度，打供暖公司电话要么不接，要么挂断。望相关部门尽快解决。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10114432",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10114432",
+   "question": "供暖公司服务态度差，不是停暖就是罚款，今年因为他们自身的原因，导致变天时不能按时供暖，严重影响居民正常生活，家里有老人跟小孩的更是煎熬！他们怎么没有出台相应的政策！是不是也得接受罚款。着次不是迟一两天的事情，也不要说天气不好！今年普遍雨多，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10120780",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10120780",
+   "question": "隆德县第二中学说是给贫困学生饭卡上每月打200元伙食补助，补助不公平现象。一个班里面由老师选择部分学生，口头点出部分学生姓名，这一部分学生才在饭卡上打补助，老师的选择充分发挥了人的主观性。不患寡而患不均，请公平对待全部贫困学生。或者采取正确",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10120771",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10120771",
+   "question": "隆德暖气要到什么时候才通？？为什么关系到民生的问题！就没人来解决了！希望官老爷们坐在太师椅上！多为老百姓想想！！！！！！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10120738",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10120738",
+   "question": "龙城世家物业公司私自铲除草坪，在小区建房，私自加装进出门，强迫小区住户购买进门卡，限制本小区住户车辆进出，请有关部门协调处理！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10120726",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10120726",
+   "question": "为什么隆德第一幼儿园非要在开学期间进行装修？ 2018年秋季学期开学以来，第一幼儿园楼道内的装修似乎没有间断过，接送孩子的时候，走廊中弥漫着刺鼻的气味！ 请问县教育局是否知情，又如何监管？ 老百姓家里装修完毕房子，还要空置通风一段时间才会住",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10114301",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10114301",
+   "question": "南凤嘉园一期侧面（原供电局院内）连夜施工，挖机轰隆隆的，影响居民休息，请相关单位协调处理一下",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10114290",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10114290",
+   "question": "尊敬的县领导，你们好！联财镇的自来水水质肮脏不堪。水龙头里放出的水飘荡着各种杂质，物肉眼清晰可见。小到颗粒物大到半透明的片状物，从未见过这样的自来水！这样的水质能保证居民的饮水安全吗？不知道自来水公司的人每天都在干嘛，这么肮脏的水质不经净化",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10114280",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10114280",
+   "question": "尊敬的领导，星兴广场和多元广场一楼的乔丹专卖店从早上到晚上9点播放大分贝音响，严重影响楼上居民的正常休息，尤其是午休。晚上到九点才停，还让人休息吗？ 恳请相关部门出面解决，还我们一个相对清静的生活环境！！！！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10120714",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10120714",
+   "question": "三中家园楼下，首家蒸汽洗车店将下水管道捅破，生活污水，洗车污水全部排进楼下地沟，整栋楼地沟和管道井聚集污水2米深，楼道臭味逼人，路面塌陷，自来水管道和暖气管道浸泡在污水中，居民无法正常生活，出行安全受到严重影响。希望政府前来调查，尽快解决。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10114218",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10114218",
+   "question": "近期，六盘山文化城东区二楼商服门面开设了一间秦腔自乐班，没有任何隔音效果，每晚8点左右一直唱到11点，严重影响周边居民和商户的正常夜间休息，希望相关部门管管吧！！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10120691",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10120691",
+   "question": "我家在顶楼，房子最近往下一直渗水，不知道谁家热水器坏了还是怎么回事，找不到小区物业，单元其他住户也敲不开门。墙损坏严重。 物业费一直在按时交，但是出现问题没人管。 希望能得到解决",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10120564",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10120564",
+   "question": "尊敬的各位领导，你们好！ 本人是一名在校大学生，所学专业为林学专业。于2018年8月17日前往老家隆德县奠安乡杨沟村探亲途中，发现山上杨树竟然已经开始叶片枯黄，甚至有些已经全部落叶，出于所学专业的敏感和好奇心，遂下车查看，竟然发现叶片上满是",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10120531",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10120531",
+   "question": "隆德到固原的车费原来为18元，现在26元。其原因为修建六盘山顶的隧道，班车要从高速隧道通过，于是提价8块，变为26元。 2018年六盘山顶隧道开通，国家政策取消了六盘山顶的隧道收费，让利于民。但是车票的价格依然是26元，并未下降。 因此产生",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10120477",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10120477",
+   "question": "一幼十字路口焊大门的，处在主干道，在幼儿园和小学附近，这几个月给到底乡上做了多少个大门，一天天喷的油漆味道那么重，把人行道占满了，看看那条人行道成什么颜色了，领导们没有谁看到吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10113894",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10113894",
+   "question": "不知是什么单位还是个人，在原陈靳乡何槐村七组与山河乡石碑村交界处，聚马岔梁到上梁公路石碑村处，路边山坡上采砂，植被破坏严重，不知有没有合法开采证件，县环保局是否知晓，请予以答复",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10113814",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10113814",
+   "question": "龙城世家A区龙城娱乐会所每天晚上营业期间噪音太大，影响居民休息，一到三楼的消防通道每天晚上打开，不关闭，噪音传出来，而且烧烤炉子还放到小区里面烧烤，造成小区环境污染，烧烤垃圾乱丢，请有关部门对该娱乐会所进行整改，还居民一个安静的休息时间！！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10120455",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10120455",
+   "question": "现在已是暑假，隆德县广场除了大人们在跳广场舞，就没有一个让孩子们玩耍的东西，以前还有个充气城堡和碰碰车，现在什么也没了，回头看看整个县城就没有孩子们娱乐的东西，除了健身器材，就是健身器材，问问我们的领导是不是这样的情况，听说是碰碰车把砖砸碎",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10113804",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10113804",
+   "question": "2018年7月10日下午降大暴雨，由于隆德县新建博物馆工地未修水路，建筑垃圾乱堆放，导致雨水沉积，渗满居民住房，导致房屋地基塌陷，墙体出现裂痕，严重影响居民人身财产安全！请有关部门尽快解决。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10120428",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10120428",
+   "question": "屋顶渗水快半个月了，质监局当初是怎么检测过去的？？？？？？？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10113763",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10113763",
+   "question": "我是东关小区的一名住户，自去年开春到现在，东关小区的自来水是经常性的浑浊,当然去年的情况特殊，但是后半年开始有时间水质清澈，大部分时间水质发黄，有杂质，不知道是啥原因。看自来水公司宣传的上马了先进的净水设备，但是我们小区还是吃着不干净的水，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10120419",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10120419",
+   "question": "最近看到试营运的新型电动公交车，其不仅外观有点丑，且空间狭小，显得拥挤，也不利于城市形象的展示。希望公交公司不要推广这种车型，使用之前的公交车就挺好。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10120404",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10120404",
+   "question": "本人于2018年6月21日对我父亲的社保卡进行了明细查询，发现3-6月份的养老保险没有到账，2018年6月25日打电话12333进行查询，回复是系统显示账号错误，让我咨询隆德县社保局，同天拨打了隆德县社保局电话进行咨询，说系统显示账号错误，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10120345",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10120345",
+   "question": "凤岭乡冯碑村临近乡政府，但是走进冯碑村道路太差了下雨没法走，修了两年了现在又停工了，挖的更不能走了，请问是什么原因迟迟不能修好进村道路?资金不到位吗?没干部管吗?请问政府能给老百姓答复吗?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10113570",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10113570",
+   "question": "沿西环路西花园、农调队一楼门店的烤饼店丶蒸模店每天晚上2点多一点和面机就开始响了，整幢楼好似在震动，晚上学生刚睡着了就被震醒，这事多次举报但仍没有效果，希望该管的部门切实管管的好。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10120338",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10120338",
+   "question": "尊敬的各位领导好： 隆德县文化城南步行街现在开始设置车位，本人觉得极不合理，原因如下：1；这条街道是各个学校学生上下学必经之路，空间狭小，如果让机动车穿行，停靠，有很大的安全隐患，前几日就有小孩差点被撞伤。2：步行街是以商业为主，由于其空间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10113520",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10113520",
+   "question": "红崖廉租房12号楼一单元403室隔三差五漏水到303室，说了很多次了，就是不管，谁管？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10113489",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10113489",
+   "question": "观庄乡石庙村，拉圾沟里，河道全是。山上地膜像风筝一样到处乱飘。村干步上级有什么扶贫政策，先给自己，农民什么不知，农民知能自己感恨不感怒。这是乡镇选的人才吗？这是为农民父母官吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10113458",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10113458",
+   "question": "我是一个怀孕8个月的孕妇，今天去就业局窗口办事，办事人员态度恶劣，语言强硬，骂骂咧咧的，我问个撒都是爱理不理的，并且其中一位人员在我办事期间同旁边人员用手机上网，探讨那个衣服好看。但是同时来了一位那个单位的工作人员，他们态度来了个180度的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10120284",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10120284",
+   "question": "春播在即，政府把农民耕地连片推了，至今不给农民划分，农民有田无权无法耕种，能否解释说明一下，别让农民们着急心荒了行不？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10120269",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10120269",
+   "question": "我是邓山村村民，自打年前就听说城关镇政府要规划我们邓山村修猪棚，不知道是不是真的，如果是真的，何时才能修，给我们这些么地方打工的人寻一个经济来源。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10120239",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10120239",
+   "question": "各位领导你们好。我是中央名都1号楼3单元1103住户，我们单元电梯存在严重质量安全问题，电梯在运行过程中突然下沉报停。从年前到现在，我已困在电梯两次。所有住户都被电梯困住过。尤其是小孩已经对乘电梯产生恐惧感。向物业反应多次，只是说换电梯，老",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10120215",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10120215",
+   "question": "住宅小区内的自行车棚，本来就是为住户存放自行车提供安全和方便的。可是，阳光小区的自行车棚在这几年几乎变成了废品堆放点，废纸箱废木板等成堆堆放，管理自行车棚的老头在屋里生炉子，烟筒就伸到废纸箱堆放处，楼下门店的排烟筒都朝自行车棚开着，不仅卫生",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10113269",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10113269",
+   "question": "中央名都物业管理差，物业费难收缴，近期对没有缴纳物业费的住户偷着关停自来水，询问自来水公司说物业有全力关停，请问自来水与物业有啥管理，这不是狼狈为奸吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-139",
+   "id": "10113250",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10113250",
+   "question": "小区入住多年，路灯晚上至今没有一盏亮的，下雪从来不清扫，近期的降雪还留在路面上，形成冰面，很滑，。由于小区南高北低。有好多陡坡，致使住户及车辆出行危险，就这样还天天催收物业费，住户能愿意缴吗？如果以后下雪不能够清扫道路积雪、晚上路灯不亮，我",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

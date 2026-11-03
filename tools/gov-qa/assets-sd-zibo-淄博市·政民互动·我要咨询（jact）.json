@@ -1,0 +1,207 @@
+{
+ "A_考卷": [],
+ "B_补料": [
+  {
+   "source": "sd-zibo",
+   "id": "199902",
+   "url": "http://www.zibo.gov.cn/jact/front/mailpubdetail.do?transactId=199902&sysid=54",
+   "question": "失业群体的职业技能培训\n想咨询一下淄博市内针对失业人群有没有政府提供的无偿职业技能培训项目？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发淄博市就业补助资金管理办法的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sd-zibo",
+   "id": "196807",
+   "url": "http://www.zibo.gov.cn/jact/front/mailpubdetail.do?transactId=196807&sysid=54",
+   "question": "青光眼慢性病认定\n你好，请问青光眼是否纳入门诊慢特病了？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于规范统一门诊慢特病基本病种有关问题的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-zibo",
+   "id": "195498",
+   "url": "http://www.zibo.gov.cn/jact/front/mailpubdetail.do?transactId=195498&sysid=54",
+   "question": "党费核算标准\n请问一下党费现在如何核算，假如我工资是6000，党费是和个人所得税似的，如下算：3000*0.5%＋（5000-3000）*1%＋（6000-5000）*1.5%＝50元，还是简单粗暴的6000*1.5%＝90元。正确的核算方",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于中国共产党党费收缴、使用和管理的规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-zibo",
+   "id": "195212",
+   "url": "http://www.zibo.gov.cn/jact/front/mailpubdetail.do?transactId=195212&sysid=54",
+   "question": "就市政工程相关问题进行咨询\n我想就《淄博市住房和城乡建设局关于公布2025年度淄博市房屋建筑和市政道路工程平方米造价估价表的通知》的相关问题进行一下咨询：1、2025年度淄博市市政道路工程平方米造价估价表中“中央分隔护栏”是否是指城市护栏/",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于公布2025年度淄博市房屋建筑和市政道路工程平方米造价估价表的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-zibo",
+   "id": "192932",
+   "url": "http://www.zibo.gov.cn/jact/front/mailpubdetail.do?transactId=192932&sysid=54",
+   "question": "个人医保账户共济\n医保局领导你好，又麻烦你们了，咨询个问题，个人医保账户共济可以支付家人的住院费用、门慢病、职工门诊统筹等结算时的自付部分吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发淄博市职工基本医疗保险门诊共济保障机制实施细则的通知 "
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sd-zibo",
+   "id": "191586",
+   "url": "http://www.zibo.gov.cn/jact/front/mailpubdetail.do?transactId=191586&sysid=54",
+   "question": "关于住房公积金\n你好，我想咨询一下，如果在9月单位补缴5-9月住房公积金，是否可以算作公积金贷款的要求月份，还是需要从九月开始连续交到要求月份才可以进行公积金贷款？",
+   "cited_hits": [],
+   "cited_missing": [
+    "住房公积金个人住房贷款业务规范",
+    "淄博市住房公积金个人住房贷款管理办法",
+    "GB/T 51267-2017"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sd-zibo",
+   "id": "191503",
+   "url": "http://www.zibo.gov.cn/jact/front/mailpubdetail.do?transactId=191503&sysid=54",
+   "question": "咨询5KG手提式干粉灭火器年检问题\nGB4351-2023《手提式灭火器》于2025年1月1日正式实施，想咨询下目前淄博对于5KG干粉灭火器的维保要求，是否还是出厂5年内不需维保，5年后每2年维保，灭火器10年报废",
+   "cited_hits": [],
+   "cited_missing": [
+    "建筑灭火器配置验收及检查规范",
+    "GB55036-2022"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-zibo",
+   "id": "189686",
+   "url": "http://www.zibo.gov.cn/jact/front/mailpubdetail.do?transactId=189686&sysid=54",
+   "question": "团费缴纳\n张家坡镇青年人才团支部的团员怎么缴纳团费",
+   "cited_hits": [],
+   "cited_missing": [
+    "中国共产主义青年团章程",
+    "关于中国共产主义青年团团费收缴、使用和管理的规定"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "sd-zibo",
+   "id": "200459",
+   "url": "http://www.zibo.gov.cn/jact/front/mailpubdetail.do?transactId=200459&sysid=54",
+   "question": "机动车限行咨询\n您好，我想国庆去淄博游玩，外地拍照的汽车假期可以正常驶入淄博市区吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-zibo",
+   "id": "199549",
+   "url": "http://www.zibo.gov.cn/jact/front/mailpubdetail.do?transactId=199549&sysid=54",
+   "question": "急需紧缺专业人才招聘\n什么是急需紧缺专业人才招聘？想参加急需紧缺专业人才招聘，从哪里查看招聘信息？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-zibo",
+   "id": "198759",
+   "url": "http://www.zibo.gov.cn/jact/front/mailpubdetail.do?transactId=198759&sysid=54",
+   "question": "咨询:如何申请病残津贴。\n基层市民请政府帮忙答疑：如何申请病残津贴。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-zibo",
+   "id": "198110",
+   "url": "http://www.zibo.gov.cn/jact/front/mailpubdetail.do?transactId=198110&sysid=54",
+   "question": "如何办理长期异地就医备案？\n如何办理长期异地就医备案，如因紧急情况已在外地入院，长期异地就医备案能否补办，有无时限要求。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-zibo",
+   "id": "197033",
+   "url": "http://www.zibo.gov.cn/jact/front/mailpubdetail.do?transactId=197033&sysid=54",
+   "question": "三支一扶\n我是淄博市的，请问2026年淄博市三支一扶什么时候报名，希望相关单位落实处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-zibo",
+   "id": "197011",
+   "url": "http://www.zibo.gov.cn/jact/front/mailpubdetail.do?transactId=197011&sysid=54",
+   "question": "淄博市能直接统筹报销的药店\n淄博市能直接统筹报销的药店有哪些，流程有哪些，报销条件有哪些",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-zibo",
+   "id": "196556",
+   "url": "http://www.zibo.gov.cn/jact/front/mailpubdetail.do?transactId=196556&sysid=54",
+   "question": "境外展会补贴政策咨询\n商务局领导你好，我想问一下本地企业今年参加境外展会的补贴政策",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-zibo",
+   "id": "194493",
+   "url": "http://www.zibo.gov.cn/jact/front/mailpubdetail.do?transactId=194493&sysid=54",
+   "question": "咨询:献血荣誉卡在淄博市可以享受哪些福利\n想咨询下政府工作老师，本市献血荣誉卡在淄博市可以享受哪些福利和待遇。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-zibo",
+   "id": "192765",
+   "url": "http://www.zibo.gov.cn/jact/front/mailpubdetail.do?transactId=192765&sysid=54",
+   "question": "淄博市居民医保费缴纳\n咨询:淄博市居民医保费缴纳可以通过医保个账共济缴费吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-zibo",
+   "id": "191575",
+   "url": "http://www.zibo.gov.cn/jact/front/mailpubdetail.do?transactId=191575&sysid=54",
+   "question": "齐盛湖公园电瓶车充电问题\n请问齐盛湖公园有无电动自行车充电的地方，方便充电。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-zibo",
+   "id": "191292",
+   "url": "http://www.zibo.gov.cn/jact/front/mailpubdetail.do?transactId=191292&sysid=54",
+   "question": "咨询:办理个体工商户营业执照增项\n咨询:办理个体工商户营业执照增项需要准备什么材料。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-zibo",
+   "id": "188582",
+   "url": "http://www.zibo.gov.cn/jact/front/mailpubdetail.do?transactId=188582&sysid=54",
+   "question": "慢性病申报\n尊敬的领导，你好，淄博怎么还不可以网络申请慢性病？生活当中也不知道怎么申请慢性病！望淄博市领导重视慢性病群体！谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

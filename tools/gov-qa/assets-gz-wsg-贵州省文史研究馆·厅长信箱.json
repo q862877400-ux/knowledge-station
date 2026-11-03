@@ -1,0 +1,29 @@
+{
+ "A_考卷": [],
+ "B_补料": [
+  {
+   "source": "gz-wsg",
+   "id": "27535273",
+   "url": "https://wsg.guizhou.gov.cn/hdjl/?id=27535273",
+   "question": "尊敬的老师您好！我是一名研究生，最近撰写论文时注意到贵单位今年出版发行的《民国贵州文献大系第六辑·乐嘉藻日记》，我看网上一些评论貌似是有第2-第4册的，但是目前只能看到第1册有售卖，想询问一些这一辑到底出版了几册啊，还有现在该如何购买，或者",
+   "cited_hits": [],
+   "cited_missing": [
+    "乐家藻日记"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-wsg",
+   "id": "27396806",
+   "url": "https://wsg.guizhou.gov.cn/hdjl/?id=27396806",
+   "question": "您好，请问贵馆位创办的有哪些刊物？怎样才可获得？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "贵州文史丛刊",
+    "黔风山骨"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": []
+}

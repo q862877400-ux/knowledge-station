@@ -405,7 +405,8 @@
   "status": 200,
   "url": "https://www.ts.gov.cn/",
   "via": "initials",
-  "url_wrong": "2026-11-02 核验：该地址实为泰顺县，数据已删"
+  "url_wrong": "2026-11-02 核验：该地址实为泰顺县，数据已删",
+  "exclude_crawl": "地址实为别处，待找到正确门户后再抓"
  },
  "商丘市": {
   "host": "shangqiu",
@@ -954,7 +955,8 @@
   "status": 200,
   "url": "https://www.mz.gov.cn/",
   "via": "initials",
-  "url_wrong": "2026-11-02 核验：该地址实为绵竹市，数据已删"
+  "url_wrong": "2026-11-02 核验：该地址实为绵竹市，数据已删",
+  "exclude_crawl": "地址实为别处，待找到正确门户后再抓"
  },
  "梧州市": {
   "host": "wuzhou",
@@ -1175,7 +1177,8 @@
   "status": 200,
   "url": "http://www.qingyuan.gov.cn/",
   "via": "pinyin",
-  "url_wrong": "2026-11-02 核验：该地址实为清原满族自治县，数据已删"
+  "url_wrong": "2026-11-02 核验：该地址实为清原满族自治县，数据已删",
+  "exclude_crawl": "地址实为别处，待找到正确门户后再抓"
  },
  "温州市": {
   "host": "wenzhou",
@@ -1616,7 +1619,8 @@
   "province": "江苏省",
   "status": 200,
   "url": "https://www.lyg.gov.cn/",
-  "via": "initials"
+  "via": "initials",
+  "exclude_crawl": "其栏目实为江苏省级文件栏目，市级自身栏目未找到"
  },
  "通化市": {
   "host": "tonghua",

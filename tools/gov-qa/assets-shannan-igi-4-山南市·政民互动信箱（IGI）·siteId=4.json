@@ -1,0 +1,1596 @@
+{
+ "A_考卷": [
+  {
+   "source": "shannan-igi-4",
+   "id": "10023991",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10023991",
+   "question": "汉庭拉萨贡嘎国际机场酒店虚假宣传欺诈消费者",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国消费者权益保护法",
+     "lib_no": "消费者权益保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "市场监督管理投诉举报处理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10021853",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10021853",
+   "question": "投诉",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国土地管理法",
+     "lib_no": "土地管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "中华人民共和国集体土地使用证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10020109",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10020109",
+   "question": "申请山南市统计年鉴",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10003229",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10003229",
+   "question": "洛扎县村级垃圾清运车、垃圾桶采购项目中存在串标、输送非法利益、破坏政府采购活动的行为",
+   "cited_hits": [
+    {
+     "name": " 中华人民共和国政府采购法",
+     "lib_no": "政府采购法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": " 中华人民共和国 政府采购法",
+     "lib_no": "政府采购法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "政府采购促进中小企业发展暂行办法",
+    " 政府采购货物和服务招标投标管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "729",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=729",
+   "question": "进一步规范社会面藏语文使用情况",
+   "cited_hits": [
+    {
+     "name": "国家通用语言文字法",
+     "lib_no": "国家通用语言文字法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "西藏自治区学习、使用和发展藏语文的规定",
+    "山南市社会用字管理办法",
+    "山南地区关于加强藏语言文字工作的意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "433",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=433",
+   "question": "尊敬的领导你好，我和朋友计划在山南市乃东区投资成立一家法务公司，想设立一个集体户头，不知道申请创立集体户头需要什么条件，望百忙之中给予指教、回复。 再次感谢！",
+   "cited_hits": [
+    {
+     "name": "公司法",
+     "lib_no": "公司法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "公司登记管理条例",
+     "lib_no": "公司登记管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "公司登记（备案）申请书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "329",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=329",
+   "question": "山南市政府领导你好！我是甘肃省庆阳市西峰区的一名公民，我叔父真实姓名叫张仲选，参军前是甘肃省庆阳市西峰区董志乡崔沟村庙前队的农民儿子，后来是7897部队的一名战士，1969年牺牲，墓碑现立于西藏山南烈士陵园，墓碑上姓名为张仲远。请求山南市人",
+   "cited_hits": [
+    {
+     "name": "烈士褒扬条例",
+     "lib_no": "烈士褒扬条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "西藏自治区革命烈士英名录册"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "89",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=89",
+   "question": "市长您好！朋友因今年换了新车，想把旧车上的车辆号牌转用到新车上。请问自己车辆之间能否转用号牌？若不能，有无相关文字性规定？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "西藏自治区边境管理区通行证管理实施办法",
+    "西藏自治区政府信息公开指南"
+   ],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "shannan-igi-4",
+   "id": "10024629",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10024629",
+   "question": "咨询小规模纳税人普惠性税收减免政策",
+   "cited_hits": [],
+   "cited_missing": [
+    "财政部税务总局关于增值税小规模纳税人减免政策的公告",
+    "财政部税务总局关于与进一步支持微小企业和个体工商户发展有关税费政策的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10024611",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10024611",
+   "question": "咨询 2026 年度城乡居民社保缴费基数相关标准",
+   "cited_hits": [],
+   "cited_missing": [
+    "琼结县关于2026年度城乡居民基本养老保险参保缴费的公告",
+    "琼结县2026年度城乡居民基本医疗保险开始缴费公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10024507",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10024507",
+   "question": "育儿假、护理假咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "山南市深入贯彻中央八项规定精神学习教育工作专班关于进一步规范干部职工外出报批的补充通知",
+    "中共山南市委员会关于进一步明确干部职工外出管理规定有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10011700",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10011700",
+   "question": "求助",
+   "cited_hits": [],
+   "cited_missing": [
+    "转移接续联系函"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10004425",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10004425",
+   "question": "您好，我于2022年6月向山南市纪委反映了该乡政府党员干部打麻将的照片，但该纪委回复桌上没有现金，不存在打麻将问题的认定，请问政府部门党员干部打麻将行为及该党员清晰的打麻将照片该行为是否没有任何不良影响，甚至多次反映该同志其他不良行为也没有",
+   "cited_hits": [],
+   "cited_missing": [
+    "纪检监察机关处理检举控告工作规则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10003320",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10003320",
+   "question": "对低风险区域长期频繁的进行核酸检测是否是对公共医疗资源和的极大浪费",
+   "cited_hits": [],
+   "cited_missing": [
+    "山南市应对新冠肺炎疫情工作领导小组办公室公告",
+    "新型冠状病毒肺炎防控方案（第九版）",
+    "新型冠状病毒肺炎防控方案（第九版）",
+    "山南市乃东区应对新冠肺炎疫情工作领导小组办公室通告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10003242",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10003242",
+   "question": "关于组织大学生志愿者为抗疫出分力",
+   "cited_hits": [],
+   "cited_missing": [
+    "共青团山南市委员会疫情防控青年志愿者预备队招募公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10003236",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10003236",
+   "question": "关于增加核酸监测点的建议",
+   "cited_hits": [],
+   "cited_missing": [
+    "山南市应对新冠肺炎疫情工作领导小组办公室公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10002301",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10002301",
+   "question": "经查阅，山南市的各县人口普查主要数据公报，乃东区、曲松县、洛扎县、加查县未公布该县的第七次人口普查主要数据公报，其余县均有公布，请求未公布的县公布一下该县的人口普查数据公报，依法也是理应公布的，谢谢了。",
+   "cited_hits": [],
+   "cited_missing": [
+    "乃东区第七次全国人口普查主要数据公报",
+    "加查县第七次全国人口普查主要数据公报",
+    "洛扎县第七次全国人口普查主要数据公报",
+    "曲松县第七次全国人口普查主要数据公报"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10001308",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10001308",
+   "question": "2022年乡村卫生",
+   "cited_hits": [],
+   "cited_missing": [
+    "农村人居环境整治提升五年行动方案（ 2021 — 2025 年）",
+    "贡嘎县城市管理和环境卫生综合整治行动方案",
+    "克西乡环境卫生综合整治考核评分表（月考核表）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10000855",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10000855",
+   "question": "开办公司流程的本市政策规定",
+   "cited_hits": [],
+   "cited_missing": [
+    "公司登记（备案）申请书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "531",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=531",
+   "question": "投诉",
+   "cited_hits": [],
+   "cited_missing": [
+    "山南市人民医院医用一次性耗材使用知情同意书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "484",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=484",
+   "question": "泽当城区公共车位停车是否收费?收费标准能否公示",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于泽当城区公共停车场机动车停放服务收费标准的批复",
+    "政府定价的机动车停放服务收费标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "321",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=321",
+   "question": "尊敬的领导：你好！本人易加湖，男，1984年5月出生，2009年6月毕业于青海大学医学院，所学专业为预防医学，2009年7月作为山南地区引进人才分配到错那县疾控中心工作。在错那县工作期间，一直负责鼠疫防控工作，参与了2009年和2010年错",
+   "cited_hits": [],
+   "cited_missing": [
+    "事业单位新聘人员顶级工资审批表",
+    "事业单位工作人员工资变动审批表",
+    "年度考核表",
+    "机关事业单位工作人员工资变动登记卡"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "313",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=313",
+   "question": "尊敬的领导，我是河南一考生家长，我想咨询一下，在山南市购房落户可以参加高考吗？西藏政策允许吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "西藏自治区人民政府办公厅转发自治区公安厅关于改革我区户籍管理制度放宽入户条件的规定的通知",
+    "西藏自治区普通高等院校招生考试报考条件规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "302",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=302",
+   "question": "我是一名长期住宿人员，在山南已经生活4-5年了。以前原本和谐平静的一个美好山南，但是就是因为对面商品房搬来一个叫新世界眼镜的店铺，天天拿个话筒，喇叭音响。类似于推销狗皮膏药的。一天到晚又喊又唱的。所以自从来了这个商铺原本好好的街道。导致一天",
+   "cited_hits": [],
+   "cited_missing": [
+    "山南市城市建设管理条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "267",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=267",
+   "question": "尊敬的市政府领导： 我的养老保险手续是2016年10月从山东省青岛市转到山南市社保局的，之前在青岛缴了8年。当时政务大厅社保窗口办理养老保险关系接续时，答复为在山南市在缴满10年，就可以在山南市领取养老金了。今天去政务大厅14楼社保局楼缴2",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于城镇企业职工基本养老保险关系转移接续有关问题的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "264",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=264",
+   "question": "【因无法选择市政府部门，只好选择乃东区了】我们都知道人口统计有常住人口和户籍人口之分，但是西藏似乎还有一个口径叫总人口。比如《山南统计年鉴2011》（网友提供的）记载，山南2011年末总人口349030人。而据《西藏统计年鉴》记载，山南20",
+   "cited_hits": [],
+   "cited_missing": [
+    "山南2011年统计年鉴",
+    "西藏统计年鉴",
+    "西藏2011年统计年鉴"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "shannan-igi-4",
+   "id": "10024891",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10024891",
+   "question": "投诉中铁十四局集团有限公司拖欠劳动报酬，请求人社劳动监察核查并令结算工资",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10024880",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10024880",
+   "question": "更换国旗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10024754",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10024754",
+   "question": "更换国旗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10024692",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10024692",
+   "question": "咨询政策类信息在网站哪个栏目查阅",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10024683",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10024683",
+   "question": "咨询 2026 年度城乡居民社保缴费基数相关标准",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10024656",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10024656",
+   "question": "咨询财政信息类内容在网站哪个栏目查阅",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10024647",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10024647",
+   "question": "咨询个体工商户办理营业执照线上办理渠道",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10024638",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10024638",
+   "question": "咨询人事招考类信息在网站哪个栏目查阅",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10024620",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10024620",
+   "question": "咨询政策类信息在网站哪个栏目查阅",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10024584",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10024584",
+   "question": "咨询政策类信息在网站哪个栏目查阅",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10024575",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10024575",
+   "question": "咨询 2026 年度城乡居民社保缴费基数相关标准",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10024556",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10024556",
+   "question": "咨询城市公园免费开放相关规定",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10024469",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10024469",
+   "question": "梁录目九举报中铁四局集团有限公司贡嘎项目经理部瞒报安全事故的违法行为",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10024364",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10024364",
+   "question": "市场监管局不给企业办理营业执照恢复正常",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10024317",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10024317",
+   "question": "错那市新城中转房EPC项目偷工减料，未按要求施工",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10024070",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10024070",
+   "question": "西藏雅家建设有限公司未依法缴纳社会保险",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10024031",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10024031",
+   "question": "咨询数据",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10023862",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10023862",
+   "question": "加急投诉：桑日佳佳乐生生活超市，桑日实惠超市，桑日街需超市，超市商铺无证售卖香烟、其中桑日佳佳乐生活超市烟草执法人员通风报信包庇违法商户",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10023841",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10023841",
+   "question": "关于举报加查县自然资源局迟迟不办理加查县拉绥乃朗拉花岗岩矿山延续采矿证导致矿山未开采，造成经济损失一千多万。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10022123",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10022123",
+   "question": "感谢信",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10021985",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10021985",
+   "question": "加查县政府网站无法提交信息",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10021602",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10021602",
+   "question": "咨询数据",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10021348",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10021348",
+   "question": "桑日县政策文件类栏目",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10021458",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10021458",
+   "question": "错那县规划计划类栏目",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10021448",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10021448",
+   "question": "错那县政策文件类栏目",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10021438",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10021438",
+   "question": "狼卡子县规划计划类栏目",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10021428",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10021428",
+   "question": "狼卡子县政策文件类栏目",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10021418",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10021418",
+   "question": "琼结县规划计划类栏目",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10021408",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10021408",
+   "question": "琼结县政策文件类栏目",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10021398",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10021398",
+   "question": "乃东区规划计划类栏目",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10021388",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10021388",
+   "question": "乃东区政策文件类栏目",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10021378",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10021378",
+   "question": "加查县规划计划类栏目",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10021368",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10021368",
+   "question": "加查县政策文件类栏目",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10021358",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10021358",
+   "question": "桑日县规划计划类栏目",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10021156",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10021156",
+   "question": "感谢桑日县增期乡派出所民警及卫生院医护人员",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10020983",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10020983",
+   "question": "致洛扎县人民政府及措玉村村民的感谢信——关于2月16日除夕救援",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10020610",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10020610",
+   "question": "感谢信",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10019866",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10019866",
+   "question": "数据发布类栏目",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10019628",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10019628",
+   "question": "关于业务办理过程中态度极差",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10018596",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10018596",
+   "question": "琼结县人民政府门户网站政策文件类栏目",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10018556",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10018556",
+   "question": "食品安全类",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10018303",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10018303",
+   "question": "感谢信",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10017618",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10017618",
+   "question": "大学生就业创业",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10017261",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10017261",
+   "question": "咨询关于一条“定居麻麻勾乡每年有6万补贴”的视频的真实性",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10015983",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10015983",
+   "question": "农民工资",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10015672",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10015672",
+   "question": "开放体育馆",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10015046",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10015046",
+   "question": "表扬信",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10014927",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10014927",
+   "question": "浪卡子县边防证问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10013153",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10013153",
+   "question": "停车划线占用盲道",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10013123",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10013123",
+   "question": "关于2025年普莫雍措赶羊节公布时间的请求",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10013097",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10013097",
+   "question": "欠薪",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10012675",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10012675",
+   "question": "感谢信",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10011945",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10011945",
+   "question": "感谢信",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10010999",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10010999",
+   "question": "求助",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10010522",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10010522",
+   "question": "户口问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10009693",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10009693",
+   "question": "山南市一高至和平路路段希望尽快打通。 此路段大概距离800米，多年来一直反映给上级有关单位，但是没有修通。每周末接送学生聚集大量车辆和人员，存在一定的安全危险。同时给周边群众带来很多生活上的不便。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10009622",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10009622",
+   "question": "乃东区柒分甜蛋糕店售卖变质食品",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10009258",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10009258",
+   "question": "对近年来卫生健康统计年鉴数据的申请",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10009076",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10009076",
+   "question": "询问隆子县有关黑青稞的相关数据",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10008562",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10008562",
+   "question": "联系方式求助",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10008330",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10008330",
+   "question": "拖欠运输费",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10006685",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10006685",
+   "question": "疫情防控第二批补助发放情况咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10005073",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10005073",
+   "question": "感谢政府",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10004475",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10004475",
+   "question": "投诉锦泽商砼混凝土有限公司",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10004208",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10004208",
+   "question": "公司老板恶意拖欠工资",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10004113",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10004113",
+   "question": "讨薪",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10004006",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10004006",
+   "question": "求助",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10003982",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10003982",
+   "question": "请问你们这里有人才引进吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10003811",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10003811",
+   "question": "感谢市政府，县委书记，一有问题马上亲力为我们农民工解决",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10003669",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10003669",
+   "question": "返乡",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10003627",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10003627",
+   "question": "求助",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10003625",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10003625",
+   "question": "返回山南",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10003592",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10003592",
+   "question": "送小孩回山南",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10003531",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10003531",
+   "question": "四川江州建筑劳务有限公司拖欠工资",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10003448",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10003448",
+   "question": "之前反映如下“山南市隆子县桑青寺管委会“达瓦桑珠”单位是否敷衍，本人猖狂至极",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10003439",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10003439",
+   "question": "滞留在区内游客转运返回山南事项",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10003426",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10003426",
+   "question": "投诉",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10003402",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10003402",
+   "question": "山南市隆子县桑青寺管委会“达瓦桑珠”身为公职人员故意借贷不还",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10003398",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10003398",
+   "question": "滞留日喀则四十多天的老人们希望能尽快返乡",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10003369",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10003369",
+   "question": "武警山南支队错那中队拖欠工程款项",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10003332",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10003332",
+   "question": "关于2022年上半年统计数据的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10003299",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10003299",
+   "question": "拖欠工资",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10003297",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10003297",
+   "question": "乃东县农业部全国农村固定观察点村名单，用途是学术研究",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10003216",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10003216",
+   "question": "拖欠农民工工资",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10003158",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10003158",
+   "question": "大学毕业后来藏工作相关问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10003139",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10003139",
+   "question": "山南市市区数条马路维修 建议应搭出非机动车行人的通过的简易通道",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10003093",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10003093",
+   "question": "拖欠工资",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10003074",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10003074",
+   "question": "体育与健康",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10003063",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10003063",
+   "question": "身份证快过期，异地办理办不了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10002861",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10002861",
+   "question": "space早晨倒酒瓶扰民",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10002708",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10002708",
+   "question": "解决江北开发区垃圾处理难问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10002284",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10002284",
+   "question": "区外就业大学生的假期问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10002004",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10002004",
+   "question": "文化广场公共厕所洗手池漏水严重，厕所水阀不停漏水",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10001980",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10001980",
+   "question": "雅砻人民公园运动场地未开的原因",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10001720",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10001720",
+   "question": "不签劳动合同，不够买社保，辞退员工没有任何补偿",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10001701",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10001701",
+   "question": "创业与土地使用咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10001306",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10001306",
+   "question": "咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10000876",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10000876",
+   "question": "山南市有多少个乡镇（村）",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10000716",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10000716",
+   "question": "建议",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10000694",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10000694",
+   "question": "拖欠工资",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10000675",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10000675",
+   "question": "海思科医药集团股份有限公司股东兼总经理范秀莲职务侵占洗钱逃往海外",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10000613",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10000613",
+   "question": "水电气价格",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "10000611",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=10000611",
+   "question": "新冠疫苗的加强针是必须打的吗？安全性、有效性如何？哪些人群应该接种？要选择那种疫苗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "858",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=858",
+   "question": "在山南发展文冠果产业的建议",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "787",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=787",
+   "question": "关于“园丁园和雅砻金盾苑”的房产证问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "776",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=776",
+   "question": "市长您好： 2010年在山南市贡嘎县昌果乡祁连山水泥厂务工，参与水泥厂机修车间建设，职工宿舍建设，水电外网建设！至今未拿到工资，求助贡嘎县劳动局，发改委！到现在还没有解决！现在家里遇到急事，急需用钱！打电话一直被该项目负责人推脱！只能求助市",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "767",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=767",
+   "question": "各位领导大家好: 我是一名东北石油大学汉语言文学专业的大三学生，因想锻炼一下自己的能力，想在本县里找一个暑期实习工作。想咨询一下今年会招实习生吗？招的话需要哪些资料以及实习岗位有哪些？人数有多少，实习期限是自己定还是有具体要求？ 这就是我想",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "744",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=744",
+   "question": "请问新冠疫苗的接种地点在哪里可以查询？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "732",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=732",
+   "question": "关于区外就业补贴政策",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "710",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=710",
+   "question": "关于“雅砻金盾苑和园丁园”产权证问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "682",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=682",
+   "question": "我4月5日给你们去信(编号618895)，希望帮助我找到50年前一起入伍的战友，经过退伍军人事务局的领导和同志们的努力帮助，找到了我战友的信息并今天告知我详细的情况，虽然战友已去世世，但你们不忘我们老兵，热心真情的帮助永远记在我们老兵心中十",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "646",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=646",
+   "question": "求助与建议",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "612",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=612",
+   "question": "尊敬的县长 您好，我是广州市市民， 本人广州的三张银行卡于上周被错那县公安局冻结， 银行帮忙找到局里电话，包括吴队长电话， 队长态度很好，但是没有解释是什么原因冻结，也无法告知什么时候能解冻， 我们一家老小还有整个公司的运营都指望着这3张卡",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "601",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=601",
+   "question": "尊敬的领导您好： 我叫周荣昌，河南伊川县人，身份证号：410329198110274515，联系电话：15838899096。我是一名大车司机。一直靠开大车养活一家五口人。现在驾驶证面临降级，无法继续开车，一家人生活面临困境，特向贵大队提起",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "568",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=568",
+   "question": "再次请求帮助要薪资",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "548",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=548",
+   "question": "关于化粪池的法律法规",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "546",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=546",
+   "question": "感谢贡嘎县劳动监察大队",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "449",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=449",
+   "question": "红景天资源交流",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "444",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=444",
+   "question": "尊敬的领导： 感谢您在百忙之中阅读本人的求助信息。本人龙杭，1981年7月出生。1999年9月至2003年6月就读于湖北民族学院文学院中文系，汉语言文学专业。2003年6月作为引进人才分配到西藏自治区山南地区错那县中学。2006年8月山南教",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "385",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=385",
+   "question": "我市网吧急于复业",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "333",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=333",
+   "question": "尊敬的市政府领导您好！ 最近由于离职需要办理住房公积金提取业务，本人不在山南本地，因此拨打了0893-7821560（此电话为西藏住房公积金公众号中存有的山南市住房资金管理中心的服务电话）试着询问线上办理流程，但是电话拨通后该工作人员说办理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "331",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=331",
+   "question": "市长你好，山南市萨热路改造项目已经于2019年8月底完工，且工程款已付到合同80%了，因项目拨款不及时，山南城投于2020年1月9日，代发了一次人工工资，无本人代发工资，联系山南代建业主给出的回复是要有相应的条子，如果没发就没有报。 我于2",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "327",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=327",
+   "question": "2020年，新的一年开始了！县城内各单位、商铺等悬挂的红旗出现褪色、损坏现象，严重影响了措美县容县貌，建议及时更换国旗。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "265",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=265",
+   "question": "您好，我想问一下今年山南市有没有人才引进的需求了？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "260",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=260",
+   "question": "尊敬的市政府领导： 2019年8月7日通过山南市人民政府市长信箱，写了2信箱，关于昌珠镇文成公主立像周边卫生环境问题；关于沿街商铺、部分政府单位更换新国旗事宜（值此雅砻文化节，建国70年之际）。市政府在7个工作日及时回复l了市民的关切，对反",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "227",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=227",
+   "question": "昌珠镇文成公主立像周边卫生环境差强人意，8月4日骑行自行车路过，看到污秽物、饮料瓶、塑料袋等垃圾等，水池水质不好，并漂浮垃圾物，看着心酸。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "226",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=226",
+   "question": "上个周日（8月4日）休息，沿街骑行，看到有的单位、商户等悬挂的红旗褪色、污损，有的看着像成布条了。值此建国70周年，建议更换新国旗。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "154",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=154",
+   "question": "我于2019/05/14在互联网+督查平台上投诉了关于贡嘎县甲竹林镇友谊路沿线停电问题，山南市供电公司对此高度重视，委派专人与我联系，经多方沟通确认此事是因设备故障和沟通不畅导致，其中并无工作人员失职的原因。并且贡嘎县供电公司同志竭尽所能排",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "131",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=131",
+   "question": "7月5日在我市长信箱投拆“交通违法异常不能缴款”的问题，信件编号：201*********4775。首先我说明一下，我这封信件是求助，因没有求助选项，我误选成了投诉。山南市和隆子县的交警部门收到我的信件后，马上就为了处理了这个问题，在这里我",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "121",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=121",
+   "question": "我于2018年5月24日在山南市隆子县因未随车携带驾驶证，驾驶证号：5****************0，被隆子县交警处罚了两次，一次已缴款，另一次怎么都无法缴款，处罚决定书编号为：5422311000004290。我当时在隆子县本地无法缴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "117",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=117",
+   "question": "领导，你好，我在错那县办理登记，登记日期为：2007年7月13日，2015年11月17日到错那县补办结婚证，现在2019年6月我们需要办理离婚，户口在四川省南充市，南充市民政局发现结婚证的号码是：B*****32-2015-000141，补",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "90",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=90",
+   "question": "市长您好，我要反馈洛扎县协其公租房部分房间严重掉墙皮的情况，其地址为洛扎县协其警务站旁，主要住宿人员为洛扎县政府部门部分职员。该小区从五月起部分房间严重掉墙皮，房间地板和床上都是从天花板掉下的墙皮，并且晚上睡觉时也会有墙皮掉到脸上，同时异味",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "74",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=74",
+   "question": "你好，请问山南鲁琼大道建设项目一期工程 进展如何，是山南第二建筑有限责任公司承包的，有施工质量和安全隐患吗？目前请问工程进展到何种程度，计划几月完工？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "70",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=70",
+   "question": "您好 ！请问山南地区各县主要农作物是什么？播种和收获在什么时间？施用什么化肥？在什么时间段施用？施用方式和使用量是多少？施用的各类化肥中，磷含量有多少？期盼您的回复！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "67",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=67",
+   "question": "近期一段时间，县城早上有的地方没有水，给大家生活带来不便，部分楼层高一点的早上、中午甚至晚上都没有水，夜里才有水，请县里解决",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "shannan-igi-4",
+   "id": "38",
+   "url": "https://www.shannan.gov.cn/IGI/nbhd/openGovmsgbox.do?id=38",
+   "question": "市长您好，我要反馈洛扎县公务员住房冬天停水结冰问题，其地址为洛扎县协其警务站旁，主要住宿人员为洛扎县政府部门部分职员。该小区每年11月份起至来年5月，因天气原因，输水管道、下水管道结冰，平时生活用水只能去对面敬老院提，无法在家洗澡，因下水管",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

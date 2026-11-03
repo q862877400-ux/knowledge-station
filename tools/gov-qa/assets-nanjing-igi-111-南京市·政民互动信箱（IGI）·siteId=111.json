@@ -1,0 +1,860 @@
+{
+ "A_考卷": [
+  {
+   "source": "nanjing-igi-111",
+   "id": "243179",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=243179",
+   "question": "尊敬的理事长： 您好！我写了一份《关于残疾人相关权益保障服务问题的建议》（见附件），希望贵机构予以重视。谢谢！",
+   "cited_hits": [
+    {
+     "name": "残疾人就业条例",
+     "lib_no": "残疾人就业条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "残疾人证",
+    "关于印发南京市用人单位按比例安排残疾人就业补贴和超比例奖励实施办法（试行）的通知",
+    "南京市残疾人免费乘坐本市车船实施意见",
+    "中华人民共和国残疾人证",
+    "中华人民共和国残疾人证",
+    "身份证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-111",
+   "id": "243288",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=243288",
+   "question": "为残疾人正名，称特族人文明 西藏的代表提议认为残疾人在社会上容易造成误解和歧视，建议能不能改个名字，回避残疾人这三个字。 的确，那称呼，对于我们残疾人的自尊心来说是伤害的 2011年3月两会会议召开了，全国人大代表，远东慈善基金会理事周森联",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国残疾人保障法",
+     "lib_no": "残疾人保障法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国残疾人保障法",
+     "lib_no": "残疾人保障法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "残疾人分类和分级",
+    "残疾人分类和分级",
+    "残疾人权利公约",
+    "残疾人权力公约"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "nanjing-igi-111",
+   "id": "420024",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=420024",
+   "question": "秦淮区金陵中心小区内没有无障碍通知，家中老人一位眼睛高度近视，一位坐轮椅，无法在小区出入",
+   "cited_hits": [],
+   "cited_missing": [
+    " 市政府关于印发南京市无障碍设施建设管理办法的通知 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-111",
+   "id": "412715",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=412715",
+   "question": "您好，我于5月份向所在社区提交孩子康复辅具申请，申请办理了矫正鞋和站立架两项需求，前两天电话告知我们一年只能申请一样辅具，但我查阅了南京市辅助器具购买标准，并没有此项说明，只提到在每项辅具年限内仅可申请一次，矫正鞋（矫形器）半年可申请一次，",
+   "cited_hits": [],
+   "cited_missing": [
+    "南京市残疾人辅助器具补贴实施办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-111",
+   "id": "385641",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=385641",
+   "question": "请问半月板2级损伤+重度抑郁症重度抑郁症可不可以申请残疾人证",
+   "cited_hits": [],
+   "cited_missing": [
+    "南京市残疾人证管理实施办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-111",
+   "id": "299230",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=299230",
+   "question": "外地户籍残疾人，在南京工作已经缴纳三年社保，能否将公交卡加入到南京的公共交通出行优惠里面，这样每次乘坐交通出行，就不需要拿残疾证了",
+   "cited_hits": [],
+   "cited_missing": [
+    "南京市人民政府关于修改、废止宣布失效部分市政府规范性文件的决定",
+    "中华人民共和国残疾人证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-111",
+   "id": "288368",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=288368",
+   "question": "你好，想请问一下南京对于智力障碍人群（主要是孤独症或是其他社会障碍）有哪些补助政策，有无针对性的详细的资料？另外，对于孤独症人群，大龄的孤独症患者是否有相关的政策支持？本市有哪些面向智力障碍人群的民间机构，是否有哪里能看到这方面的信息汇总？",
+   "cited_hits": [],
+   "cited_missing": [
+    "市政府关于完善残疾儿童康复救助制度的实施意见",
+    "关于调整南京市残疾儿童基本康复训练救助标准和救助范围的通知",
+    "中华人民共和国残疾人证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-111",
+   "id": "288353",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=288353",
+   "question": "我是一名残疾人，现开了一服装加工厂，共有工人23人，其中有14名残疾人，残疾人都没有上社保，请问政府对象我这样的工厂有什么扶持和优惠政策吗，",
+   "cited_hits": [],
+   "cited_missing": [
+    "中华人民共和国残疾人证",
+    "中华人民共和国残疾军人证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-111",
+   "id": "287793",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=287793",
+   "question": "尊敬的领导，您好！ 我是南京市一名重度残疾孩子（精障2级）的妈妈，目前在做一篇关于南京市大龄重度残疾人社会保障情况的论文，需要一些南京市2015年至2021年重度残疾人的数据，例如重度残疾人总数，占全市残疾人总数的百分比，有多少人进入托养机",
+   "cited_hits": [],
+   "cited_missing": [
+    "南京市政府信息公开规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nanjing-igi-111",
+   "id": "243120",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=243120",
+   "question": "南京户口残疾人电商创业有什么补助或者帮助？",
+   "cited_hits": [],
+   "cited_missing": [
+    "市政府关于进一步做好新形势下就业创业工作的实施意见"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nanjing-igi-111",
+   "id": "243124",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=243124",
+   "question": "本人户口所在地南京市江边路12号，管辖派出所为南京市公安局水上分局，二代残疾人证到期换证时按通知到下关街道便民服务中心换证遭拒，请问我如何换证？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好有效期将满残疾人证换发工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-111",
+   "id": "243127",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=243127",
+   "question": "疾病引起双下肢不能行走，不能办残疾证吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "南京市残疾人证管理实施办法（试行）",
+    "残疾人评定表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-111",
+   "id": "243133",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=243133",
+   "question": "残疾人能不能办理减免水电燃气电话有线电视收费等等",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于落实南京市残疾人信息消费优惠措施的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-111",
+   "id": "243134",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=243134",
+   "question": "你好！我的母亲是早产儿，今年54岁，出生时因意外造成2个眼球不能转动，视力很差，请问可以评定什么等级。",
+   "cited_hits": [],
+   "cited_missing": [
+    "南京市残疾人证管理实施办法（试行）",
+    "残疾人评定表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-111",
+   "id": "243138",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=243138",
+   "question": "第二代残疾证到期什么时候开始更换",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好有效期将满残疾人证换发工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-111",
+   "id": "243139",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=243139",
+   "question": "你好，我是一名肢体四级残疾人，就业的单位未遇到过残疾职工就业的相关情况，对相关政策可能不太了解。 1.我想具体咨询一下，如果单位招聘一名残疾职工，具体税收政策方面向哪里咨询？残疾职工在社保还有其他方面是否有优惠？谢谢。 2.残疾人去办理图书",
+   "cited_hits": [],
+   "cited_missing": [
+    "财政部、国家税务总局关于安置残疾人员就业有关企业所得税优惠政策问题的通知",
+    "关于印发江苏省残疾人就业保障金征收使用管理实施办法的通知",
+    "江苏省地方税务局关于残疾人等个人所得税减征管理有关规定的公告",
+    "南京市按比例安排残疾人就业规定",
+    "江苏省残疾人保障条例",
+    "南京市残疾人保障实施办法",
+    "中华人民共和国残疾人证",
+    "中华人民共和国残疾人证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nanjing-igi-111",
+   "id": "243141",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=243141",
+   "question": "如题，安徽籍户口在南京有固定工作的残疾人能否办理乘车免费的公交卡？",
+   "cited_hits": [],
+   "cited_missing": [
+    "中华人民共和国残疾人证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-111",
+   "id": "243144",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=243144",
+   "question": "请问，安徽人，三级残疾，户口转到南京后，残疾证能转到南京不",
+   "cited_hits": [],
+   "cited_missing": [
+    "中华人民共和国残疾人证管理办法",
+    "南京市残疾人证管理实施办法（试行）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nanjing-igi-111",
+   "id": "243146",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=243146",
+   "question": "是不是不是南京本地的残疾人不可以办理残疾人优惠卡？",
+   "cited_hits": [],
+   "cited_missing": [
+    "中华人民共和国残疾人证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-111",
+   "id": "243148",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=243148",
+   "question": "请问南京市关于残疾人考取本科研究生博士之类的，政府有哪些政策补助。以及应该如何申请。谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "对高中和高等教育阶段残疾学生发放教育专项补贴实施方案",
+    "南京市资助和奖励接受中、高等教育残疾学生实施办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-111",
+   "id": "243158",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=243158",
+   "question": "您好！国家规定残疾人凭证免费乘坐市内公共交通。目前，南京市采取的是本地户籍残疾人可持乘车卡免费乘坐，外地户籍残疾人凭残疾人证免费乘坐。对于长期在南京就业、生活的外地户籍残疾人持纸质第二代残疾人证总归有些不便。因此，来信建议对于已经持有南京市",
+   "cited_hits": [],
+   "cited_missing": [
+    "中华人民共和国残疾人证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-111",
+   "id": "243164",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=243164",
+   "question": "爱人2016年患“运动神经元”病，俗称“渐冻症”，办理残疾证时定为二级，现在生活完全不能自理，不能说话，不能行走，不能起床，现在想重新鉴定，不知如何办理，另外，老母亲已瘫患在床三年多了，不知那个鉴定为三级的残疾是不是也能申请重新鉴定了呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "南京市残疾人证管理实施办法（试行）",
+    "中华人民共和国残疾人证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nanjing-igi-111",
+   "id": "243170",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=243170",
+   "question": "各位领导您好， 我的残疾证书于2019年11月份到期，我到社区询问换证事宜，社区工作人员说现在没有通知，不知道流程，让我继续使用一年听通知，我又到南京残联电话咨询，回复我现在没有政策 他们也不知道怎么换，可以继续使用一年，但我请问我去景点免",
+   "cited_hits": [],
+   "cited_missing": [
+    "中国残联办公厅关于同意延长江苏省2009年换发的残疾人证有效期的复函",
+    "省残联省交通运输厅省文化和旅游厅关于在残疾人证有效期延长时限内保障残疾人有关合法权益的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-111",
+   "id": "243176",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=243176",
+   "question": "持有第一代残疾证是否需要换证，如需要换证如何办理？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "中国残联办公厅关于同意延长江苏省2009年换发的残疾人证有效期的复函",
+    "省残联省交通运输厅省文化和旅游厅关于在残疾人证有效期延长时限内保障残疾人有关合法权益的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-111",
+   "id": "243177",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=243177",
+   "question": "我听力下降十年了，最近终于确诊为听神经病，医生说人工耳蜗可能会有效果，不知道购买人工耳蜗有哪些补贴政策呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发江苏省听力残疾儿童人工耳蜗康复救助项目实施方案的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-111",
+   "id": "243180",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=243180",
+   "question": "理事长： 你好，我是来自南京溧水的当地居民，我想反映下我2015年办理的肢体残疾证4级，由于办理等级是最低级，并没有获得多少照顾。生怕名声不好听，并于2017年注销了该证，目前系统查询为未持证状态。原来编号为：320124198312281",
+   "cited_hits": [],
+   "cited_missing": [
+    "南京市残疾人证管理实施办法（试行）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nanjing-igi-111",
+   "id": "243181",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=243181",
+   "question": "理事长您好，小孩3个月检查发现脑积水，脉络丛肿瘤 ，做了分流和造瘘，3岁癫痫发作，脑结构异常，现在已经6岁了，经常发作，语言记忆功能很差，请问可以评定什么等级？",
+   "cited_hits": [],
+   "cited_missing": [
+    "南京市残疾人证管理实施办法（试行）",
+    "中华人民共和国残疾人证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nanjing-igi-111",
+   "id": "243187",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=243187",
+   "question": "在定点医院进行残疾评定后，多久可以拿到残疾证.”。怎样得到通知",
+   "cited_hits": [],
+   "cited_missing": [
+    "市残联市卫生计生委市公安局关于印发 的通知",
+    "残疾人证评定表",
+    "残疾人证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-111",
+   "id": "243189",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=243189",
+   "question": "领导，您好。我是工伤鉴定八级伤残，骨盆及尿袋留下来较多的后遗症。想问问如何办理残疾证？谢谢您。望回复。",
+   "cited_hits": [],
+   "cited_missing": [
+    "中华人民共和国残疾人证",
+    "中华人民共和国残疾人证",
+    "南京市残疾人证管理实施办法（试行）",
+    "残疾人残疾分类和分级",
+    "GB/T26341—2010"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-111",
+   "id": "243196",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=243196",
+   "question": "你好，我是一位孤独症孩子的爸爸，我家孩子刚刚确诊为孤独症谱系障碍，医生要求孩子去进行康复治疗，并告知可以申请相关康复补贴。我想了解下，这个补贴具体是多少？是《关于印发南京市残疾儿童基本康复项目市补资金管理办法的通知》这里面说的只有一年1.4",
+   "cited_hits": [],
+   "cited_missing": [
+    "市政府关于完善残疾儿童康复救助制度的实施意见",
+    "转介单"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-111",
+   "id": "243197",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=243197",
+   "question": "残疾军人能否办理残疾人乘车卡？",
+   "cited_hits": [],
+   "cited_missing": [
+    "中华人民共和国残疾军人证",
+    "中华人民共和国残疾人证",
+    "市政府关于印发南京市残疾人免费乘坐本市车船实施意见的通知",
+    "中华人民共和国残疾人证",
+    "中华人民共和国残疾人证",
+    "中华人民共和国残疾军人证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nanjing-igi-111",
+   "id": "243199",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=243199",
+   "question": "我今年将户口迁入南京，请问残疾证需要迁入南京吗？如果需要迁入应该去那个部门办理。如果不办理迁入，我是否可以申请市民卡B卡？",
+   "cited_hits": [],
+   "cited_missing": [
+    "残疾人证迁移单",
+    "残疾人证迁移单"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-111",
+   "id": "243201",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=243201",
+   "question": "您好！小孩办理申请康复补贴的时候，需要在申请的时候就选择好康复中心吗！还是先申请，审核通过后自由选择康复中心？流程是怎么样的？ 谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "市政府关于完善残疾儿童康复救助制度的实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-111",
+   "id": "243203",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=243203",
+   "question": "你好，我想咨询一下我的残疾证弄脏了，想要换新的，请问什么流程，第二就是当时办理残疾证的电话号码现在已经不用了 我在哪里更改 谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "南京市残疾人证管理实施办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nanjing-igi-111",
+   "id": "243204",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=243204",
+   "question": "外地残疾人，户口已落在南京，可以办理残疾人免费乘车卡嘛",
+   "cited_hits": [],
+   "cited_missing": [
+    "南京市残疾人证管理实施办法",
+    "残疾人证迁移单",
+    "残疾人证迁移单"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nanjing-igi-111",
+   "id": "243207",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=243207",
+   "question": "我是南京人，听力残疾3级，有残疾证。请问乘公共汽车及地铁有优惠吗？如何去办理？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发南京市残疾人免费乘坐本市车船实施意见的通知",
+    "中华人民共和国残疾人证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-111",
+   "id": "243208",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=243208",
+   "question": "尊敬的理事长您好 我叫胡冻冻，党员，是名退役的残疾军人，在南京市秦淮区中山南路241号开水果点创业。 在3月21日下午遭到秦淮区洪武路街道城管暴力执法，十几名执法人员围殴我，我向警方求助，警方给出的答复是同时执法部门不好管，我向城管科阐述，",
+   "cited_hits": [],
+   "cited_missing": [
+    "中华人民共和国残疾军人证",
+    "中华人民共和国残疾人证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-111",
+   "id": "243209",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=243209",
+   "question": "最近想在我的南京APP申请市民B卡，关于残疾人优惠一项，要求申请人已列入南京市残联审核名单，请问这个审核名单是不是只针对南京当地人，外地残疾人能入进入这个名单进而申请B卡？联系方式：13101881956",
+   "cited_hits": [],
+   "cited_missing": [
+    "中华人民共和国残疾人证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-111",
+   "id": "243211",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=243211",
+   "question": "理事长： 您好！ 我是一名肢体四级残疾人，在南京已工作三年，户籍四川的，我想请问下，外地残疾人乘车是否免费的呢？需要办理什么手续或者证件吗？办理流程是怎样的呢？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "中华人民共和国残疾人证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-111",
+   "id": "243212",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=243212",
+   "question": "您好，父亲62岁，肢体三级残疾，活动能力受限，患癌，手术和化疗花费了大笔费用，能否申请到困难残疾人生活补贴，盼复，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于我市困难残疾人生活补贴和重度残疾人护理补贴发放管理办法",
+    "中华人民共和国残疾人证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-111",
+   "id": "243216",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=243216",
+   "question": "理事长，您好！ 我和老公均为下肢残疾人，育有一女。孩子很努力，2017年高中毕业后考入一985高校。请问像这样我们有没有政府发放的助学补助？如果有的话该怎样申领？我们需要准备哪些材料，是怎样一个办理流程？必须要孩子本人去办理吗？ 谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发对高中和高等教育阶段残疾学生发放教育专项补贴实施方案的通知",
+    "南京市资助和奖励接受中、高等教育残疾学生实施办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-111",
+   "id": "243220",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=243220",
+   "question": "请问老人户籍从外省市迁入南京市，原来在外省市发放的肢体二级残疾证，是否需要在南京区残联重新鉴定？原来发放的残疾人是否由南京区残联收回？能否享受南京市残联的护理补贴？",
+   "cited_hits": [],
+   "cited_missing": [
+    "市残联市卫生计生委市公安局关于印发 的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nanjing-igi-111",
+   "id": "243224",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=243224",
+   "question": "中国手语规范化工作之我见 ---兼论手语结构二元化 作者：高建林 工作单位：华夏手语博物馆手语语言学研究中心 电邮：gaojianlin.1971@163.com",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家语言文字“十三五”发展规划",
+    "国家通用手语常用词表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-111",
+   "id": "243225",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=243225",
+   "question": "我的母亲户籍在外地，在南京市生活20余年，有20余年的暂住证证明，本市有房，但户籍没有转过来。平时坐公交只能带残疾证，想办理ic卡方便一些，不知道目前有没有应对外地残疾证办理公交ic卡的政策?感谢南京市残联!",
+   "cited_hits": [],
+   "cited_missing": [
+    "中华人民共和国残疾人证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-111",
+   "id": "243226",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=243226",
+   "question": "请问南京市残疾人免费乘车有什么规定，怎么办理？",
+   "cited_hits": [],
+   "cited_missing": [
+    "中华人民共和国残疾人证",
+    "中华人民共和国残疾人证",
+    "中华人民共和国残疾人证",
+    "中华人民共和国残疾人证",
+    "中华人民共和国残疾人证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-111",
+   "id": "243229",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=243229",
+   "question": "尊敬的理事长，你好： 我是一名肢体残疾的人，我特别喜欢看书学习，身虽残疾，但心求上进。无奈家庭经济拮据，听说国家在这方面有所补贴，我想请问下实行教育专项补贴和奖励制度。关于自学考试本科毕业，以及考上研究生。残联在这方面具体的助学补助和助学奖",
+   "cited_hits": [],
+   "cited_missing": [
+    "对高中和高等教育阶段残疾学生发放教育专项补贴实施方案",
+    "中华人民共和国残疾人证",
+    "学生证",
+    "中华人民共和国残疾人证",
+    "学生证",
+    "江苏省高中和高等教育阶段残疾学生教育专项补贴申请审批表",
+    "南京市资助和奖励接受中、高等教育残疾学生实施办法",
+    "中华人民共和国残疾人证",
+    "中华人民共和国残疾人证"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "nanjing-igi-111",
+   "id": "428729",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=428729",
+   "question": "您好，本人近年患左下肢缺失，想申请残疾证，但网络上查询的信息内容模糊。本人目前住江宁区，请问该在何处携带哪些文件以办理残疾证。希望收到回复，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-111",
+   "id": "426829",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=426829",
+   "question": "尊敬的市政府各位领导：您好！ 我是南京信息工程大学人工智能专业大二学生，目前带领三人学生团队备战全球校园人工智能算法精英赛，团队正自主研发一款双向实时手语、语音、文字互通的无障碍沟通系统。 在我们团队的调研中，我们发现，当下市面上多数手语翻",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-111",
+   "id": "425516",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=425516",
+   "question": "投诉雨花台区岱山周村街恒永东苑门面房停车场入口（靠近牧语记火锅店）道闸外的盲道区域，每天夜间都有机动车违停在人行道盲道区域，给盲人出行带来不便。请市残联督促属地交管和城管部门加强治理力度，不要每次投诉整治一段时间后又恢复原样，请依法维护盲人",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-111",
+   "id": "420572",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=420572",
+   "question": "如果有人出示残疾证，请问如何核实证件信息？官网查询平台名称和链接是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-111",
+   "id": "420008",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=420008",
+   "question": "我们家孩子6岁时，在儿童医院查出的髓母细胞瘤，开颅手术，放化疗后，智力记忆力、语音、大动作、精细动作和体力（就是比较容易累，累了情绪铁定也会出问题。。。）都出现了不同程度的问题。之前办跟办就读的时候，说当时，智力不能评残，当时也才过一年，我",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-111",
+   "id": "417131",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=417131",
+   "question": "看到咱们残疾人辅助器具补贴实施办法，辅助器具适配分通用型和特殊性，两种类型补贴标准不一。请教如何区分通用型、特殊性的辅助器具？本市有没有制定具体的分类目录公开供残疾人查询？举个例子，下肢残疾人需求一部符合《电动轮椅车 GB/T 12996》",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-111",
+   "id": "405659",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=405659",
+   "question": "尊敬的各位领导： 您好!本人孩子在2024年6月份，三周岁半时候运动后腿痛，小腿肿胀，容易累，不愿爬楼梯等现象，于是经过南京市儿童医院多方面检查，于2025年1月3日出具的检测报告显示为遗传基因突变，关联疾病为肌营养不良症中的DMD或BMD",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-111",
+   "id": "397808",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=397808",
+   "question": "各位领导好，本人家里小儿子生下来基因问题，导致肢体二级残疾，今年7岁还不能独立站立，一直在康复中，得到残联不少鼓励和帮助，但是就一个问题，一直困扰我，因为孩子大了，父母年纪大了，带着在外地做康复，矫形鞋一直在外面做的，到了本地残联说不能凭发",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-111",
+   "id": "394763",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=394763",
+   "question": "尊敬的南京市残联领导： 您好！关于异地户籍残疾证到期换领政策，我咨询了建邺区残联，给的回复是新办评定可在南京市进行，到期换领却要回户籍地进行操作。请问残疾证跨省通办的政策是这样的吗？我查看了国家政务服务平台里的跨省通办业务，是有残疾证到期换",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-111",
+   "id": "367547",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=367547",
+   "question": "您好： 本人的残疾证还有一个多月要过期，不知道要去哪里办理，需要带些什么材料，现住在南京市鼓楼区凤凰西街这边，还望您告知，感谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-111",
+   "id": "367262",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=367262",
+   "question": "由于更换车，需重新办理免费停车牌，如何在线办理？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-111",
+   "id": "358975",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=358975",
+   "question": "建筑企业招用残疾人去哪里备案",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-111",
+   "id": "338783",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=338783",
+   "question": "您好，我是一名教育工作者，想了解一下关于南京目前每年有多少残疾家庭的孩子面临入学困难的情况，对于残疾家庭的孩子的融合教育，学校可以提供哪些帮助？希望有一位工作人员可以联系我。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-111",
+   "id": "306296",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=306296",
+   "question": "您好： 请问目前南京可以更换第三代卡片制的残疾证吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-111",
+   "id": "300820",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=300820",
+   "question": "请问南京可以异地补换残疾证，如果可以在哪里补换残疾证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-111",
+   "id": "243130",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=243130",
+   "question": "您好，请问如何创办民非康复机构（非医疗）？ 民政局答复说：申办残疾人民非康复机构，首先在所属区民政局申请，并要有主管部门暨残联 但是江宁残联说他们没有这个权限， 请问应该如何处理？具体应该去找哪个部门",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-111",
+   "id": "243153",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=243153",
+   "question": "残疾人乘车卡需要年审吗？年审的手续是怎样？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-111",
+   "id": "243162",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=243162",
+   "question": "你好，我是陕西宝鸡的残疾人，我是视力残疾今年是大专毕业，我想在外面多积累下经验，也想多出去看看，就想问想在在南京有什么残疾人就业政策和招娉会吗？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-111",
+   "id": "243171",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=243171",
+   "question": "南京第三代残疾证什么时候开始换发",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-111",
+   "id": "243173",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=243173",
+   "question": "请问今年的残疾人大学生招聘会什么时间，什么地点举行（去年是10月份举行的）",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-111",
+   "id": "243174",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=243174",
+   "question": "栖霞区尧化门，高龄老人，右眼白内障，请问有无福利政策可以进行手术检查或治疗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-111",
+   "id": "243188",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=243188",
+   "question": "一直从事脑损伤康复事业 在重庆 宁波 徐州 上饶 常州 都要有自己的店铺 想从以前的不够正规，向正规方发展，现在想在南京发展，想办理一个民办非企。请问南京残联要什么手续材料。谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-111",
+   "id": "243200",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=243200",
+   "question": "看了一些关于外地残疾人乘车的来信，我想问下能否给外地残疾人办理和南京残疾人一样的乘车卡，虽然残疾人分地籍管理，可不可以开通一个窗口让外地人带着相关资料去审核办理ic乘车卡，虽然带着残疾证可以乘车，但是也会让我们残疾人感到尴尬，希望开通一个窗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-111",
+   "id": "243217",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=243217",
+   "question": "你好，我叔叔是残疾人，户籍不在南京，现在想在南京开盲人按摩店，请问有什么优惠政策，在南京开盲人按摩店可以申请用医保吗？如何办理，或者可以咨询什么部门办理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-111",
+   "id": "243219",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=243219",
+   "question": "南京什么时候换第三代残疾人证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-111",
+   "id": "243231",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=243231",
+   "question": "请问 听力一级残疾 可以报考事业单位吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-111",
+   "id": "243285",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=243285",
+   "question": "哥哥是残疾人，就业于南京手佳，最近在买房子，但是贷款批不下来，说是残疾人的贷款批不了，个人表示很气愤，请问有这么个说法吗？ 手机号码：18358399163",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-111",
+   "id": "243286",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=243286",
+   "question": "请问南京市户口持有二级残疾人证明的，经济方面有些什么待遇？联系电话13851480212孙",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-111",
+   "id": "243287",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=243287",
+   "question": "化工园区残联对本人提出的《化工园区残联部分工作人员责任心差》的来信，3月8日作了回复。但从其内容上不难看出，园区残联存在着为官不为，庸政懒政怠政的现象。上面下达的任务完成了，就没必要去做了？就可以做人情了？国家、省、市法规文件就可以不执行了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nanjing-igi-111",
+   "id": "243289",
+   "url": "https://www.nanjing.gov.cn/IGI/nbhd/openGovmsgbox.do?id=243289",
+   "question": "按照《江苏省按比例安排残疾人就业办法》（省政府第31号令）和《南京市按比例安排残疾人就业规定》（市政府第258号令）的有关规定，南京市行政区域内的机关、团体、企业、事业单位和其他城乡经济组织，凡安置残疾人就业未达到本单位上年末从业人员总数1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

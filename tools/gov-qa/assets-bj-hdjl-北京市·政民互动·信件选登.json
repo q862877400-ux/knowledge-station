@@ -1,0 +1,2295 @@
+{
+ "A_考卷": [
+  {
+   "source": "bj-hdjl",
+   "id": "AH26092100555",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH26092100555",
+   "question": "我是一家注册在北京的公司，从事一般经营项目，我公司确实未在注册地经营，但在实际经营地（也是北京的）经营，我们按照《北京市优化营商环境条例》第十三条第一款第（五）项，已在国家企业信用信息公示系统公示了实际经营地，实际经营地也符合相关要求，请问",
+   "cited_hits": [
+    {
+     "name": "北京市优化营商环境条例",
+     "lib_no": "优化营商环境条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH26081700541",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH26081700541",
+   "question": "领导好！想咨询下我们北京这边个人是否可以养陆龟作为宠物饲养呢？因为抖音上看到很多有证养殖场的主播在卖人工繁殖的陆龟（目前开放的五种陆龟：苏卡达陆龟、豹纹陆龟、辐射陆龟、赫曼陆龟、红腿陆龟）甚是喜欢，但是又不清楚北京有没有开放，所以想咨询一下",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国野生动物保护法",
+     "lib_no": "野生动物保护法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国野生动物保护法",
+     "lib_no": "野生动物保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于核准部分濒危野生动物为国家重点保护野生动物的通知",
+    "濒危野生动植物种国际贸易公约",
+    "北京市野生动物保护管理条例",
+    "北京市野生动物保护管理条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH26080500316",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH26080500316",
+   "question": "请问企业在发布了清算组备案信息公告且经营期限届满的情况下，能否申请延长经营期限？如果不撤销该公告，为什么不能申请延长？",
+   "cited_hits": [
+    {
+     "name": "公司法",
+     "lib_no": "公司法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "市场主体登记管理条例",
+     "lib_no": "市场主体登记管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH26073100603",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH26073100603",
+   "question": "我的车近期该车检了。但我因为工作目前不在北京。我有换车的打算。 我想了解如果我的车到期没有车检，会不会影响我的车牌。 因为我不在北京，所以没有检车，也不会用车。我想等我回京后，换车 。原旧车没有检，会影响我后续把牌换到新车上吗？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国道路交通安全法实施条例",
+     "lib_no": "道路交通安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "机动车强制报废标准规定",
+    "(北京市小客车数量调控暂行规定)实施细则",
+    "机动车强制报废标准规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH26072301090",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH26072301090",
+   "question": "《北京市物业管理条例》中关于自然人业主是如何定义的？是在物业管理区域内的房屋产权人还是居住在物业管理区域内家庭的任何家庭成员？",
+   "cited_hits": [
+    {
+     "name": "北京市物业管理条例",
+     "lib_no": "物业管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH26042800794",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH26042800794",
+   "question": "各位领导好，请问在京施工项目哪些人员需要向建设行政主管部门进行备案，是否需要提供相应社保证明或劳动合同",
+   "cited_hits": [
+    {
+     "name": "保障农民工工资支付条例",
+     "lib_no": "保障农民工工资支付条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "北京市施工现场人员实名制管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH26031501085",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH26031501085",
+   "question": "你好，北京焊工操作证需要2026年7月份需要复审，现在还用复审吗",
+   "cited_hits": [
+    {
+     "name": "特种作业人员安全技术培训考核管理规定",
+     "lib_no": "中华人民共和国应急管理部令（第19号）特种作业人员安全技术培训考核管理规定",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH26011400628",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH26011400628",
+   "question": "市住建委《关于进一步落实招标人主体责任加强招投标服务监管有关事项的通知》（京建发[2024]361号）中第一（六）条规定：招标人对招标人代表的选派、履职行为负责。无法派出招标人代表的，应对情况予以说明并承担相关责任。 问题1：目前是鼓励招标",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国招标投标法",
+     "lib_no": "招标投标法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国招标投标法实施条例",
+     "lib_no": "招标投标法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于进一步落实招标人主体责任加强招投标服务监管有关事项的通知",
+    "关于进一步落实招标人主体责任加强招投标服务监管有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH26010800848",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH26010800848",
+   "question": "一、2026年8月复审 2029年8月换证 ，按2026年6月1日 实施的新政策，是不是就不需要复审了? 等29年直接换证？ 二、发布的新政策取得职业技能等级证书免培训 ， 如电工职业资格证 是否有级别限制 如 高级 中级 ？",
+   "cited_hits": [
+    {
+     "name": "特种作业人员安全技术培训考核管理规定",
+     "lib_no": "中华人民共和国应急管理部令（第19号）特种作业人员安全技术培训考核管理规定",
+     "weak": false
+    },
+    {
+     "name": "特种作业人员安全技术培训考核管理规定",
+     "lib_no": "中华人民共和国应急管理部令（第19号）特种作业人员安全技术培训考核管理规定",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25120201432",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25120201432",
+   "question": "依据《强制注销公司登记制度实施办法》（总局令第105号），申请对公司进行强制注销登记的主体有什么要求？需要哪些申请材料？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国公司法",
+     "lib_no": "公司法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "国务院关于实施〈中华人民共和国公司法〉注册资本登记管理制度的规定",
+     "lib_no": "公司法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "强制注销公司登记制度实施办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25110401161",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25110401161",
+   "question": "根据《固定式压力容器安全技术监察规程》，使用单位每年至少做一次压力容器年度检查并出具报告， 想问一下如果使用单位自己做年度检查的话，做检查的人员需要有什么样的资质要求",
+   "cited_hits": [
+    {
+     "name": "固定式压力容器安全技术监察规程",
+     "lib_no": "GB 150-2011",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25102500742",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25102500742",
+   "question": "2025年新购房屋，装修无法入住，今年是否可在10月底前提出暂停供热申请并被受理？",
+   "cited_hits": [
+    {
+     "name": "建设工程质量管理条例",
+     "lib_no": "建设工程质量管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "北京市居民集中供热暂停和恢复供热指导意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25092600597",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25092600597",
+   "question": "是否可以领养侄女的孩子",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国民法典",
+     "lib_no": "中华人民共和国民法典",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25080100859",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25080100859",
+   "question": "背景：某职工于2024年7月20日入职新公司工作至今，新公司于2024年8月份准时发放工资，但因入职时间的原因未全额发放。 问题：8月份发放的工资是否计入2025年住房公积金的基数？",
+   "cited_hits": [
+    {
+     "name": "关于认真贯彻执行<关于工资总额组成的规定>",
+     "lib_no": "关于工资总额组成的规定(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25072300339",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25072300339",
+   "question": "1.本人2025年7月份在职满20年，2025年本人应休年休假应当如何计算？计算公式是什么？ 2.20年来一直没有更换工作单位，单位说要折算计算天数，想请教下官方解释，2025年本人应休年休假是10天？13天？还是15天？",
+   "cited_hits": [
+    {
+     "name": "职工带薪年休假条例",
+     "lib_no": "职工带薪年休假条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "企业职工带薪年休假实施办法",
+     "lib_no": "企业职工带薪年休假实施办法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25060900958",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25060900958",
+   "question": "关于社会服务类的民办非盈利企业的业务主管单位应该找那个部门审批",
+   "cited_hits": [
+    {
+     "name": "民办非企业单位登记管理暂行条例",
+     "lib_no": "民办非企业单位登记管理暂行条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25043000546",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25043000546",
+   "question": "尊敬的领导您好！ 我是外省户口，我的北京市《居住登记卡》是2025年4月初过期，我于8日后补办的签注手续，现在已经申领了北京市《居住证》，我想咨询一下我的在京的居住年限政策。 根据《北京市办理暂住登记和居住证实施细则(试行)》的第十五条 《",
+   "cited_hits": [
+    {
+     "name": "居住证暂行条例",
+     "lib_no": "居住证暂行条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25042300296",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25042300296",
+   "question": "咨询主管部门，请给出权威解答。 安全阀使用单位开展了“基于风险的评估”（RBI），在评估有效期内，是否就可以替代，即不用执行应“安全阀每年校验”的规范要求做安全阀校验了？",
+   "cited_hits": [
+    {
+     "name": "固定式压力容器安全技术监察规程",
+     "lib_no": "GB 150-2011",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "安全阀安全技术监察规程"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25032500576",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25032500576",
+   "question": "海淀区的民非企业注销之前的清算阶段，是否可以使用注册保证金来补交拖欠的社保和工资，以及如果其有债务的话，是否会优先补交全上述2项",
+   "cited_hits": [
+    {
+     "name": "民办非企业单位登记管理暂行条例",
+     "lib_no": "民办非企业单位登记管理暂行条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国企业破产法",
+     "lib_no": "企业破产法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25021000850",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25021000850",
+   "question": "在计算带薪休年假的工作年限时，博士毕业生的工作年限是否额外加三年？",
+   "cited_hits": [
+    {
+     "name": "企业职工带薪年休假实施办法",
+     "lib_no": "企业职工带薪年休假实施办法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "博士和在职人中考取硕士生学习期间工龄计算问题的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25011000985",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25011000985",
+   "question": "我是硕博连读，2009年7月从北京一所高校博士毕业并开始在京工作，目前申报带薪年假时需要参考累计工作时长，请问我这种情况的工作时间从哪天算起？博士期间算我的工龄吗？还是毕业后参加工作时算起计算工龄？",
+   "cited_hits": [
+    {
+     "name": "企业职工带薪年休假实施办法",
+     "lib_no": "企业职工带薪年休假实施办法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "企业职工带薪年休假实施办法",
+     "lib_no": "企业职工带薪年休假实施办法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "企业职工带薪年休假实施办法",
+     "lib_no": "企业职工带薪年休假实施办法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于博士生和在职人员考取硕士生学习期间工龄计算问题的通知",
+    "关于大学本科毕业生直接攻读博士学位期间工龄计算问题的复函",
+    "关于大学本科毕业生直接攻读博士学位期间工龄计算问题的复函"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH24123100512",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH24123100512",
+   "question": "我们和另一个股东一起开设公司，我们占股51%，对方占股49%，新设公司的公章、证照等文件都在对方手里。 公司刚刚开设对方股东就失联了，新公司没有经营也没有纳税。 请问在没有公章，没法作出股东会决议的情况下，我方作为大股东怎么才能将公司注销登",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国公司法",
+     "lib_no": "公司法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH24121000782",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH24121000782",
+   "question": "实行综合工时制的企业，在年工时2000小时的情况下，职工休年假期间是否视为上班计算工时，是否包含在2000小时之内。",
+   "cited_hits": [
+    {
+     "name": "职工带薪年休假条例",
+     "lib_no": "职工带薪年休假条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "北京市企业实行综合计算工时工作制和不定时工作制办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH24120900737",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH24120900737",
+   "question": "1、北京市有关住宅商品房的公共维修基金的现行政策有哪些？ 2、公共维修基金的收费标准是什么？ 3、对公共维修基金的收缴、使用、监管有哪些法律规定？ 4、产权人缴纳多少年的公共维修基金，可以不用再交？ 5、产权人如何查询本户历年公共维修基金的",
+   "cited_hits": [
+    {
+     "name": "北京市物业管理条例",
+     "lib_no": "物业管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "北京市住宅专项维修资金管理办法",
+    "民法典"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH24111700821",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH24111700821",
+   "question": "劳动合同与离职证明丢失，原单位已经倒闭，由于工龄超过10年可享受10天年假，现单位要求提供原单位劳动合同，离职证明和社保缴费记录，但由于劳动合同与离职证明遗失，原单位也已经倒闭，仅能提供社保缴费记录，能否正常享受10天年假？",
+   "cited_hits": [
+    {
+     "name": "企业职工带薪年休假实施办法",
+     "lib_no": "企业职工带薪年休假实施办法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "企业职工带薪年休假实施办法",
+     "lib_no": "企业职工带薪年休假实施办法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "企业职工带薪年休假实施办法",
+     "lib_no": "企业职工带薪年休假实施办法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "bj-hdjl",
+   "id": "AH26092800594",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH26092800594",
+   "question": "员工有双胞胎，请问休育儿假有哪些具体规定？",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京市人口与计划生育条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH26092400333",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH26092400333",
+   "question": "河道是V类水体，河道内的雨水口有水流出，很清无异味，想判断排水口的水是否能排入河道，做水质化验参考的文件是哪个呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "水污染物综合排放标准",
+    "城镇污水处理厂水污染物排放标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH26091700617",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH26091700617",
+   "question": "一个子女满三周岁前，夫妻每人每年享受五个工作日的育儿假，经双方单位同意可调配。如果2-3个子女，夫妻每人每年应享受10-15个工作日育儿假，经双方单位同意是否可以互相调配？如果调配了是否只能最多休10个工作日？",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京市人口与计划生育条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH26091400739",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH26091400739",
+   "question": "孩子2025年3月出生，2026年2月第一次休了育儿假，2026年7月能不能再休育儿假",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京市人口与计划生育条例",
+    "民法典"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH26091000249",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH26091000249",
+   "question": "请问员工想休护理假，休护理假的条件是什么，员工需要提供什么资料？护理假是带薪假吧？",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京市人口与计划生育条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH26090800479",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH26090800479",
+   "question": "超过25米的“短隧道”更加阴暗，为了出行安全，希望这里的路灯实行“日出才关，日落即开”，与正常路段路灯取消同步开关灯。 附： 9月8日日出5:48，日落18:35； 9月23日日出6:03，日落18:10； 10月15日日出6:24，日落1",
+   "cited_hits": [],
+   "cited_missing": [
+    "2026年北京市路灯开闭时间表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH26090100017",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH26090100017",
+   "question": "北京本地户口，在外地考取的机动车驾驶证，是否可以参与北京小客车摇号？摇号是否需要驾驶证核发地在北京市？ 长期不在北京市内居住是否影响摇号？",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京市小客车数量调控暂行规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH26082500377",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH26082500377",
+   "question": "我司是一家医疗器械批发企业（二/三类），委托第三方贮存运输，请问我们自己的计算机系统还需要生成运输记录吗，可否由受托企业导出相关记录电子版代替，并交由我方备查。",
+   "cited_hits": [],
+   "cited_missing": [
+    "医疗器械经营质量管理规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH26081000431",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH26081000431",
+   "question": "北京市内正在预售的住宅项目的房屋买卖合同是否在北京市住建委备案？ 房屋买卖合同附件是否在北京市住建委备案？ 或是在其他什么部门同时备案？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于实行商品房预售合同网上联机备案的通知",
+    "商品房预售合同联机备案表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH26080100293",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH26080100293",
+   "question": "2025年10月份生的双胞胎，想咨询一下作为双胞胎父母，夫妻双方分别可以享受多少天育儿假。这个应该怎么算。",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京市人口与计划生育条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH26072900830",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH26072900830",
+   "question": "新录用公务员试用期内，孩子未满三岁，可以休育儿假吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京市人口与计划生育条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH26072101360",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH26072101360",
+   "question": "我25年生的一胎，26年生的二胎，均未满3岁，公司育儿假是五天，那我两个孩子是否乘以2，每年十天，北京是否有明文规定叠加天数",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京市人口与计划生育条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH26071600665",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH26071600665",
+   "question": "您好： 咨询一下，北京市夫妻双方在孩子3岁之前每年应该每人享有5个工作日的育儿假，能否可以只给夫妻一方使用，而另一方选择不休？",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京市人口与计划生育条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH26071600436",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH26071600436",
+   "question": "根据北京现行条例规定产假158天全部为法定带薪产假，《北京市人口与计划生育条例（2021）》和（北京市人民代表大会常务委员会公告〔十五届〕第65号文件没有明确生育保险基金未覆盖的延长生育假的30天的工资由谁支付。请问这未覆盖的30天是聘用单",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京市人口与计划生育条例（2021）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH26071400908",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH26071400908",
+   "question": "我想咨询今年新中的新能源指标，指标所有人为北京市户口农户，名下无车，现在新购新能源汽车，想了解现在北京有什么政策补贴可以享受？",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京市2026年汽车以旧换新补贴实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH26070900066",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH26070900066",
+   "question": "533路会不会更换吉利新车，或者福田cng车辆。",
+   "cited_hits": [],
+   "cited_missing": [
+    "GB 1495-2002"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH26070300271",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH26070300271",
+   "question": "国家应急管理部新修订的《特种作业目录》在2026年6月1日开始实施，有以下两个业务问题需要咨询一下北京市的应急管理部门。 （1）我单位有2台100kw应急电源车和6台8kw移动汽油发电机，上述设备均可对外输出220V/380V电压，请问上述",
+   "cited_hits": [],
+   "cited_missing": [
+    "特种作业目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH26070200454",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH26070200454",
+   "question": "如孩子出生之后，三岁之内夫妻离异，但我没有获得子女抚养权，我还可以休育儿假吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京市人口与计划生育条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH26062300321",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH26062300321",
+   "question": "我们家主申请人是京籍，但其他家属暂时无法投靠，目前岳母已过退休年龄，子女刚6岁半，老人和子女都居住在北京生活且都有北京市居住证，请问可否作为附属申请人？",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京市小客车数量调控暂行规定",
+    "北京市小客车数量调控暂行规定",
+    "申请小客车指标办事说明（家庭）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH26052400519",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH26052400519",
+   "question": "我的车是异地牌，在异地报废，现在在北京有车的指标，我想在北京买新能源车，能够申请到补贴吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京市2026年汽车以旧换新补贴实施方案",
+    "减免车辆购置税的新能源汽车车型目录",
+    "机动车销售统一发票",
+    "机动车登记证书",
+    "报废机动车回收证明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH26050701059",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH26050701059",
+   "question": "本人名下有一辆新能源汽车，通过夫妻过户方式转给爱人。本人再次购买新能源汽车，能否享受以旧换新政策？",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京市2026年汽车以旧换新补贴实施方案",
+    "二手车销售统一发票"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH26050600003",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH26050600003",
+   "question": "外埠城镇户口，在北京务工，没有独生子女证（2021年云南省响应三胎政策停办该类证件），户口本上写着独生子，父亲在老家无法自理，是否适用独生子女护理假？",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京市人口与计划生育条例",
+    "独生子女父母光荣证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH26041300609",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH26041300609",
+   "question": "请问21消耗量标准中规费以人工费为基数乘以20.1%计算得出，请问规费费率20.1%包含哪些内容？明细组成分别为多少？是否包含企业管理人员的五险一金？",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京市建设工程计价依据——预算消耗量标准",
+    "北京市造价服务平台留言咨询功能用户操作手册"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH26040300722",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH26040300722",
+   "question": "我是外地家庭户口，2008年公司没给缴纳公积金，2013年才给公积金，可以找公司补缴吗，是否是强制？",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京住房公积金管理中心投诉登记表",
+    "户籍证明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH26040200761",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH26040200761",
+   "question": "家庭摇号审核不通过的还可以参加本次的个人摇号吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京市小客车数量调控暂行规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH26031801061",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH26031801061",
+   "question": "2026 年北京新能源汽车置换补贴，旧车是外地车牌，在北京购买新能源汽车，北京上牌交税，可以在北京享受置换补贴吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京市2026年汽车以旧换新补贴实施方案",
+    "减免车辆购置税的新能源汽车车型目录",
+    "机动车销售统一发票",
+    "机动车登记证书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH26031800643",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH26031800643",
+   "question": "您好，在广东省通过二级造价师考试，是否可以注册到注册地在北京的总公司？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于开展北京市二级造价工程师执业资格注册工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH26031200951",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH26031200951",
+   "question": "本人原来在哈尔滨缴纳公积金，目前哈尔滨公积金账户已封存，如果在哈尔滨购房，是否可以将北京公积金账户余额转至哈尔滨账户进行贷款",
+   "cited_hits": [],
+   "cited_missing": [
+    "异地贷款职工住房公积金缴存使用证明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH26030501150",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH26030501150",
+   "question": "个人名下有一辆京牌车符合报废标准，想参加2026年北京报废补贴购置新能源车。车现在京外，无法上路，能否在当地报废厂就近报废，还是只能在北京报废才能申领补贴？",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京市2026年汽车以旧换新补贴实施方案",
+    "机动车销售统一发票",
+    "机动车登记证书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH26030201613",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH26030201613",
+   "question": "北京市农业局，农村孩子考上大学，毕业后在国企工作，还是农村集体经济组织成员吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "中华人民共和国集体经济组织法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH26022800526",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH26022800526",
+   "question": "请问我持有房产所有人的委托书，房产证复印件和租房合同，能不能代开出租不动产发票？",
+   "cited_hits": [],
+   "cited_missing": [
+    "代开增值税发票缴纳税款申报单"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH26022601375",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH26022601375",
+   "question": "请问在哪里查询官网公布的《北京市水资源税适用税额表》？",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京市财政局 国家税务总局北京市税务局 北京市水务局关于印发<北京市水资源税改革试点实施办法>的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH26012800584",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH26012800584",
+   "question": "咨询 2026 年最新的假期时间规定",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京市人口与计划生育条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH26012500491",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH26012500491",
+   "question": "请问本市公共租赁住房的申请需要满足何种条件？具体的申办流程是什么？现在轮候一般需要等待多长时间",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京市公共租赁住房申请、审核及配租管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH26012100775",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH26012100775",
+   "question": "住房公积金系统内只能选择提前还清全部贷款或者调整月还款额，想要提前还部分本金，但并没有找到相关选项，请问哪里可以申请？",
+   "cited_hits": [],
+   "cited_missing": [
+    "住房公积金个人住房贷款还款业务操作详解"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH26011501307",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH26011501307",
+   "question": "我们有一个装饰装修专业承包二级资质，准备升级到一级，想咨询一下，升级到一级是要求企业近五年完成两项单个合同金额1500万的项目，如果企业是有一个业绩是1500万以上的，另外一个是否可以用3个单项合同金额是500万的项目来代替",
+   "cited_hits": [],
+   "cited_missing": [
+    "建筑业企业资质管理规定和资质标准实施意见"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH26010300977",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH26010300977",
+   "question": "本人目前正在排新能源汽车号，现在想转到家庭摇号，想咨询以下问题： 1.转家庭摇号是否需要结婚登记满一年后才能申请家庭摇号？ 2.审核资料对户口本的婚姻状态是否强制要求为已婚？ 3.目前正在有效期的新能源排号，转入家庭摇号的家庭成员后，个人排",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京市小客车数量调控暂行规定",
+    "实施细则",
+    "实施细则",
+    "申请小客车指标办事说明（家庭）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25121200677",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25121200677",
+   "question": "目前住宅小区内机动车停放费标准是怎么规定的？",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京市机动车停车条例",
+    "北京市机动车停车条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25120300483",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25120300483",
+   "question": "21消耗量标准中定额9-166中的防水砂浆厚度是多少",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京市建设工程计价依据——预算消耗量标准",
+    "建筑构造通用图集",
+    "北京市造价服务平台留言咨询功能用户操作手册",
+    "北京市造价服务平台预约咨询功能用户操作手册"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25120101291",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25120101291",
+   "question": "您好，患者职工依照《企业职工患病或非因工负伤医疗期规定》应享受的医疗期为6个月，现期限届满，职工目前仍在治疗中，未愈，请问此类特殊疾病情况，职工的医疗期应为多久，是否需要申请延期，以及延期流程。谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "企业职工患病或非因工负伤医疗期规定",
+    "关于贯彻〈企业职工患病或非因工负伤医疗期规定〉的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25112600030",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25112600030",
+   "question": "想咨询一下具备分户独立供暖系统的商住房，办理停暖是应按百分之多少缴纳基础热费？",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京市供热采暖管理办法",
+    "北京市居民供热采暖合同"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25112000316",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25112000316",
+   "question": "因加装电梯后增加了房屋使用面积，但产权证上没有登记（仍然是加装电梯前的建筑面积），交纳供暖费时面积按增加后的实际面积还是产权证上的面积计算？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于调整我市民用供热价格和热电厂热力出厂价格的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25111800567",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25111800567",
+   "question": "持有共有产权房不满5年，如何购买商品房？是否可以将持有的共有产权房转让或者申请代持机构回购？或者直接调整政策，允许再购买一套商品房？",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京市共有产权住房管理暂行办法（京建法〔2017〕16号）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25111201699",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25111201699",
+   "question": "请问“中关村高新技术企业认定”的申报时间是什么时候？是随时都可以申请吗？还是有起始和截止时间？",
+   "cited_hits": [],
+   "cited_missing": [
+    "中关村高新技术企业培育服务办法（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25110300622",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25110300622",
+   "question": "根据《北京市居住建筑供热计量管理办法(试行)》(京政容发〔2010〕98号)，燃气(油、电)锅炉基本热价18元/建筑平方米、计量热价0.16元/千瓦时(44.45元/吉焦)。本小区采暖是按热计量计费，正常供暖是18元/建筑平方米，但是在暂停",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京市供热采暖管理办法",
+    "北京市居民供热采暖合同"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25102000735",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25102000735",
+   "question": "生产一次性使用的丁腈手套（普通家用，非医疗产品），生产企业是否需要获得消毒产品生产企业卫生许可证？",
+   "cited_hits": [],
+   "cited_missing": [
+    "消毒产品生产企业卫生许可规定",
+    "一次性使用卫生用品卫生要求",
+    "GB 15979—2024"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25102000290",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25102000290",
+   "question": "北京市供暖缴费面积包含公摊面积么？",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京市居民供热采暖合同"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25101501738",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25101501738",
+   "question": "1. 请问家中老人患阿尔兹海默症，如需申报失能补助，是网上提交相关诊断证明，还是需带老人线下在官方指定机构鉴定？ 2.请问80岁老人的高龄补贴，尚未绑定云闪付，线下使用是否需要密码，还是在指定商户直接刷卡就可以呢？ 3.请问如果不在老人身边",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京市老年人养老服务补贴津贴管理实施办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25101401299",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25101401299",
+   "question": "房产登记证上有单独登记房屋面积和阳台单独面积，建筑面积是房屋登记面积加阳台面积，阳台是否需要交纳供暖费，有哪条法律法规规定需要缴纳供暖费用。",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京市居民供热采暖合同",
+    "关于调整我市民用供热价格和热电厂热力出厂价格的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25092901646",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25092901646",
+   "question": "我新装修的房子，需要放味，本采暖季不入住，小区无法办理空置，供暖公司要求缴纳全额取暖费，想咨询一下是否有减免或者优惠政策，谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京市居民集中供热暂停和恢复供热指导意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25091901240",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25091901240",
+   "question": "暂停供暖需要缴费吗？是每年都要交吗？缴费标准是什么？",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京市供热采暖管理办法",
+    "北京市居民供热采暖合同"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25083100931",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25083100931",
+   "question": "北京小客车摇号中的家庭摇号，现为油标普通指标改为新能源电标后，原家庭摇号积分会保留吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京市小客车数量调控暂行规定",
+    "申请小客车指标办事说明（家庭）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25082801194",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25082801194",
+   "question": "您好，请问根据北京市相关要求，探亲假是否可以分多次休？",
+   "cited_hits": [],
+   "cited_missing": [
+    "国务院关于职工探亲待遇的规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25081900875",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25081900875",
+   "question": "北京市是否有护理假一说？独生子女每年可以获得累计多少个工作日的护理假？护理假是如何执行的？有什么执行前提条件？",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京市人口与计划生育条例",
+    "独生子女父母光荣证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25081900350",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25081900350",
+   "question": "近日，中纪委再次强调公职人员严禁“挂证“取酬。为此，单位想对员工持有的职业资格证书进行自查，查询是否私自挂靠其他单位。涉及住建部管理的几个职业资格证书：一级建造师、监理工程师和造价工程师。请问通过什么途径可以查询证书当前是否挂靠单位？是通过",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于对北京市工程建设领域专业技术人员违规“挂证”行为开展全面排查的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25081301157",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25081301157",
+   "question": "咨询育儿假和产假是否冲突，互相包含，当年休了产假，育儿假是否需要扣除产假期间的",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京市人口与计划生育条例（2021）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25081200373",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25081200373",
+   "question": "北京市老旧小区改造施工时间是如何规定的？依据什么文件？",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京市老旧小区综合整治标准与技术导则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25073101136",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25073101136",
+   "question": "你好，根据《北京市人口与计划生育条例》，夫妻双方可合计享受10个工作日的育儿假。但如果女方没工作，全职在家，男方最多可以享受多少天的育儿假？",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京市人口与计划生育条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25072500607",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25072500607",
+   "question": "普通化妆品备案时，《质量管理体系概述表（委托生产）》中，“物料采购”项中是指研发过程所用的物料还是委托生产过程所用的物料？",
+   "cited_hits": [],
+   "cited_missing": [
+    "化妆品注册备案资料管理规定",
+    "质量管理体系概述表"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25072101688",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25072101688",
+   "question": "《北京市禁止使用建筑材料目录(2023年版)》，第53项 明确禁止在工业与民用建筑工程的空调及采暖系统中使用 水暖用铸铁阀门，禁用原因为其 易锈蚀，影响系统安全性和耐久性。此要求是否包含球磨铸铁材质的阀门？另外，是否要求阀门所有部件均不可使",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京市禁止使用建筑材料目录(2023年版)",
+    "北京市禁止使用建筑材料目录(2023年版)"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25071701339",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25071701339",
+   "question": "北京市集体土地中的生态混合区 都包含哪几类规划性质土地",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京市区级国土空间规划分区用途管制规则（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25071600212",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25071600212",
+   "question": "咨询北京市G2绿地和S4用地上，都能建设哪些设施",
+   "cited_hits": [],
+   "cited_missing": [
+    "城乡规划用地分类标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25071501374",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25071501374",
+   "question": "产假158天，是否包含法定节假日，遇五一，十一，春节这种是否顺延。",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京市人口与计划生育条例（2021）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25071101607",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25071101607",
+   "question": "没有新能源购车指标可以买纯电的车吗?",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京市小客车数量调控暂行规定",
+    "申请小客车指标办事说明（个人）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25070301063",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25070301063",
+   "question": "您好，想咨询下，为加强人工智能赋能工业软件，工业软件企业上云、打造云化工业软件产品是否有支持政策呢，感谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京市关于支持信息软件企业加强人工智能应用服务能力建设行动方案（2025年）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25062300334",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25062300334",
+   "question": "本人家庭于今年出售了本市一套公房，房主为本人母亲，后本人于近期购买了本市的一套商品房，房主为本人，并缴纳了契税。现在想咨询一下当前政策下退本人购买商品房契税相关事宜。 比如办事部门、流程、所需要准备的材料、办理时限等。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于明确契税政策和执行中有关问题的通知",
+    "北京市人民政府关于印发北京市已购公有住房上市出售实施办法的通知",
+    "关于已购公有住房上市出售契税征管工作的通知",
+    "契税减税免税证明",
+    "证明函",
+    "证明函",
+    "证明函",
+    "契税纳税核定证明",
+    "契税纳税核定证明"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25061901725",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25061901725",
+   "question": "我户口前几年从深圳转到北京，之前在深圳获得的高级工程师（广东省人事厅深圳人事局发的证书），在北京是否承认？是否需要转入？",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京市职称评审管理暂行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25061201863",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25061201863",
+   "question": "您好，例如，新生儿于2025年3月1日出生，父母于2025年4月1日取得北京市工作居住证，其后在子女出生后90天内为子女成功办理城乡居民医保登记缴费手续。请问，此种情况是否可以报销该新生儿在出生时（即3月份）产生的住院治疗费用？",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京市工作居住证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25061100990",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25061100990",
+   "question": "住建委领导好：请问，老旧楼加装电梯的必要条件是什么？充分条件是什么？两个条件都要满足才能加装吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京市既有多层住宅加装电梯工程技术导则（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25060601053",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25060601053",
+   "question": "育儿假发布实施时，孩子未满3岁。但是公司不知道怎么发放，是不是必须发放。一直拖到了孩子过了3岁，目前已过2年多，请问还能让公司补发吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京市人口与计划生育条例",
+    "市人大常委会关于修改北京市人口与计划生育条例的决定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25052900991",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25052900991",
+   "question": "公司对于周期内的育儿假不是一次性发放，而是在周期内按照时间分批发放。则合规吗？ 如：孩子是 4.25 的生日，在下一次生日后的 73 天内是没有育儿假的，而是在满 73 天后才有一天，这样以此类推在全年发放完假期，公司这样的行为合规吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "民法典"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25052900483",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25052900483",
+   "question": "北京新能源小客车指标，能购买插电混动或增程混动电动车吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "〈北京市小客车数量调控暂行规定〉实施细则"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25052200921",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25052200921",
+   "question": "您好，请问《海淀区人才公共租赁住房管理暂行办法》中提到的“（五）申请人及家庭成员在本市无住房，或在本市有住房但距离申请人工作单位距离超过15公里；”，如何核准？ 我正在申请人才公共租赁住房，名下有房，但距离单位较远，若驾车需要14公里，若坐",
+   "cited_hits": [],
+   "cited_missing": [
+    "海淀区人才公共租赁住房管理暂行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25052000948",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25052000948",
+   "question": "咨询规划部门，在用地红线内摆放无地基可移动集装箱是否需要规划审批，如果不需要的话请给出理由，依据的文件是什么？",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京市城乡规划条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25051401283",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25051401283",
+   "question": "请问，2016年之后，独生子女还发独生子女费吗？有具体哪个政策或是制度内有详细标明吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京市人口与计划生育条例",
+    "独生子女父母光荣证",
+    "独生子女父母光荣证",
+    "独生子女父母光荣证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25050700227",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25050700227",
+   "question": "我申请的电车摇号指标，我媳妇申请的油车摇号指标，如果我们想转成家庭的油车摇号，需要先撤销电车指标申请？那油车指标的申请还需要撤销吗？ 如果撤销后转成家庭摇号，那原来的积分保留吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京市小客车数量调控暂行规定",
+    "北京市小客车数量调控暂行规定",
+    "北京市小客车数量调控暂行规定",
+    "申请小客车指标办事说明（家庭）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25042800940",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25042800940",
+   "question": "您好，第二类医疗器械产品标签中增加UDI的信息，是否需要走医疗器械备案？或者仅是执行公司内部质量管理体系变更即可？",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家药监局 国家卫生健康委 国家医保局关于做好第三批实施医疗器械唯一标识工作的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25042401012",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25042401012",
+   "question": "太阳能光伏板与居民住所的距离是如何要求的？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发推进光伏发电高质量发展实施意见的通知",
+    "分布式光伏发电工程技术规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25041400465",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25041400465",
+   "question": "外地人员在北京缴纳5年3个月，可以申请北京公租房吗？如果可以需要准备那些材料那些证明？以及怎么办理呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京市人民政府关于加强本市公共租赁住房建设和管理的通知",
+    "关于印发<北京市公共租赁住房申请、审核及配租管理办法>的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25041400354",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25041400354",
+   "question": "北京市集中供暖的收费面积包含未封闭的大型露台吗？ 请告知相关的计算标准，规定及法律的具体条款 十分感谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京市居民供热采暖合同",
+    "关于调整我市民用供热价格和热电厂热力出厂价格的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25040900972",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25040900972",
+   "question": "今年3月，本人因计划接收家人多车转移，取消了个人小客车指标申请。 目前，因出台新细则，不想再进行多车转移并想重新申请个人小客车指标。有以下问题希望咨询： 1. 目前多车转移申请已经提交处于“亲属关系待核查”阶段，如何进行取消？ 2. 取消多",
+   "cited_hits": [],
+   "cited_missing": [
+    "京牌小客车变更或转移登记资格申请办事说明",
+    "京牌小客车变更或转让登记资格申请表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25033101364",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25033101364",
+   "question": "咨询如下2个问题，谢谢。 1.关于北京市发改委通过节能审查批复的能耗是当量值还是等价值？ 2.如果是等价值，北京市按照多少折算系数计算？",
+   "cited_hits": [],
+   "cited_missing": [
+    "固定资产投资项目节能审查办法",
+    "北京市固定资产投资项目节能审查实施办法",
+    "综合能耗计算通则",
+    "GB/T 2589-2020"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25033100890",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25033100890",
+   "question": "黄芪斜切片是否相关标准规定",
+   "cited_hits": [],
+   "cited_missing": [
+    "中国药典"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25032600550",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25032600550",
+   "question": "您好，我想咨询营业执照的经营范围中列明的“钢结构、机电设备安装工程和境内国际招标工程”是否等同于“招标代理服务”？可否理解为同一概念？可否开展“招标代理”业务？",
+   "cited_hits": [],
+   "cited_missing": [
+    "国民经济行业分类"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25032100321",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25032100321",
+   "question": "我是湖南考的二级造价师，想注册至北京的工作单位，请问如何办理",
+   "cited_hits": [],
+   "cited_missing": [
+    "注册造价工程师管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25031900609",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25031900609",
+   "question": "您好，请问陪产假是工作日还是自然日。",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京市人口与计划生育条例（2021）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25031300905",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25031300905",
+   "question": "北京市独生子女，我母亲做了胃肿瘤切除手术，医生建议休息一个月，手术期间及术后我能不能休独生子女护理假？",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京市人口与计划生育条例",
+    "独生子女父母光荣证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25030601216",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25030601216",
+   "question": "参加北京家庭摇号获得新能源指标，目前名下有一台外地牌照国6燃油车。北京的置换补贴政策是否限制外地牌照的燃油车参与。是否能正常申领置换更新补贴。",
+   "cited_hits": [],
+   "cited_missing": [
+    "2025年北京市进一步推动汽车以旧换新实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25030400540",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25030400540",
+   "question": "非京籍可以申请公共租赁住房吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京市人民政府关于加强本市公共租赁住房建设和管理的通知",
+    "关于印发<北京市公共租赁住房申请、审核及配租管理办法>的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25030200864",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25030200864",
+   "question": "您好，请问在北京有50年产权商用公寓住房转出记录，可以申请北京共有产权房吗？谢谢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京市共有产权住房管理暂行办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25022700355",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25022700355",
+   "question": "有两个不满三岁的子女，育儿假可以叠加吗？同一年度中一个孩子享受5天，另一个孩子也是五天",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于修改<北京市人口与计划生育条例>的决定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25022400881",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25022400881",
+   "question": "请问休育儿假有什么规则限制么？ 比如，小孩2024年7月出生，我可以在当年10月一次性休5天育儿假么，还是必须上班到2025年7月，才能休5天育儿假？",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京市人口与计划生育条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25021700747",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25021700747",
+   "question": "在异地购房中，提取公积金用于还异地非户口所在地房贷，如北京公积金，房贷在河北，提取公积金账户中的钱有提取次数限制吗？是否可以在账户中有一定余额了，就提取一次呢",
+   "cited_hits": [],
+   "cited_missing": [
+    "使用商业银行贷款及使用异地公积金贷款购买北京市行政区域外住房申请提取住房公积金操作详解"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25021000810",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25021000810",
+   "question": "您好，我想咨询一下，进行水路运输辅助业备案（国内水路货物运输代理），是否必须是独立法人单位才可以进行，分公司能否进行该备案。",
+   "cited_hits": [],
+   "cited_missing": [
+    "国内水路运输辅助业管理规定",
+    "企业法人营业执照"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25020500252",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25020500252",
+   "question": "北京市本地人怎么申请公租房，能否网上办理，具体操作步骤，需要什么材料",
+   "cited_hits": [],
+   "cited_missing": [
+    "保障性住房申请家庭核定表",
+    "居住证",
+    "结婚证",
+    "离婚证",
+    "公房租赁合同",
+    "房屋所有权证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25012300726",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25012300726",
+   "question": "北京育儿假是强制休的假期吗？（是否和婚假性质一样？）",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京市人口与计划生育条例",
+    "市人大常委会关于修改北京市人口与计划生育条例的决定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25011701026",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25011701026",
+   "question": "你好，我想问一下。户籍是河北的，如果我在北京考取保育员有技能补贴吗？补贴是多少呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于延续实施失业保险援企稳岗政策的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25011601593",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25011601593",
+   "question": "在京中央和国家机关是否享受北京市育儿假？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于修改<北京市人口与计划生育条例>的决定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25011200722",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25011200722",
+   "question": "老人住院，如果雇护工，独生子女就不能再有陪护假了吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京市人口与计划生育条例",
+    "独生子女父母光荣证",
+    "关于修改<北京市人口与计划生育条例>的决定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25010201055",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25010201055",
+   "question": "非居民（单位）申请停止供暖的申请条件，申请时间，有无费用，如何规定的",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京市供热采暖管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH24122700911",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH24122700911",
+   "question": "腿骨折打石膏后没有住院，不能自己走，能不能休？",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京市人口与计划生育条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH24122501173",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH24122501173",
+   "question": "您好， 我咨询如下事宜： 1，北京市个人小客车指标分为几种？ 2，不同种类的小客车指标分别可以购买哪些能源类型车辆？ 3，目前在用车辆为汽油车，购买非汽油车后，是否还可以换回汽油车辆？有无次数限制？ 谢谢，盼尽快回复。",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京市小客车数量调控暂行规定",
+    "北京市小客车数量调控暂行规定",
+    "北京市小客车数量调控暂行规定",
+    "北京市小客车数量调控暂行规定",
+    "申请小客车指标办事说明（个人）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH24121900251",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH24121900251",
+   "question": "请问特种设备类别为机械式停车设备（立体停车设备），人员在操作该设备时是否需要持有上岗证？需要持有哪些证件？",
+   "cited_hits": [],
+   "cited_missing": [
+    "特种设备作业人员考核规则",
+    "特种设备安全管理和作业人员证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH24120901201",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH24120901201",
+   "question": "自有商业更换了供暖热源，原供暖单位仍收取费用，是否合理",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京市供热采暖管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH24120901040",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH24120901040",
+   "question": "请问北京户籍灵活就业人员是否可以自己缴纳公积金？如果可以，请问具体的缴纳流程是怎样的？",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京住房公积金缴存管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH24120600757",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH24120600757",
+   "question": "关于“国家规定的婚假”中的天数是自然日还是工作日？“增加假期七日”享受方式与国家规定的婚假相同？",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京市人口与计划生育条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH24112000424",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH24112000424",
+   "question": "生育津贴怎么查看进度，单位线下办理后？属于长期异地居住人员。审核多久到账？",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京市企业职工生育保险规定",
+    "北京市生育保险手工报销医疗费用申报结算明细表",
+    "北京市生育保险医疗费用手工报销申报表"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH24111900754",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH24111900754",
+   "question": "按北京最新契税优惠政策，我现在（不到12月1日）申报120平米房子的契税，是按照1%还是1.5%？",
+   "cited_hits": [],
+   "cited_missing": [
+    "财政部 税务总局 住房城乡建设部关于促进房地产市场平稳健康发展有关税收政策的公告",
+    "财政部 国家税务总局 住房城乡建设部关于调整房地产交易环节契税 营业税优惠政策的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH24111800897",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH24111800897",
+   "question": "北京市单身妇女是否可以进行试管生育",
+   "cited_hits": [],
+   "cited_missing": [
+    "卫生部关于修订人类辅助生殖技术与人类精子库相关技术规范、基本标准和伦理原则的通知"
+   ],
+   "has_clause_no": true
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "bj-hdjl",
+   "id": "AH26092100014",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH26092100014",
+   "question": "科技信用报告 找不到",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH26091500445",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH26091500445",
+   "question": "医事服务费取消改成了诊查费后，门诊诊查费是会变多了还是变少了？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH26081200488",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH26081200488",
+   "question": "同志您好，我们在网上查询公司的道路运输经营许可证时，遇到了下面的情况： 有的公司有纸质的道路运输经营许可证，但在“互联网道路运输便民政务服务系统”只能查询到该公司过去已注销的证件（两个证书的编号、有效期不一样）。 请问除了“运证通APP”和",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH26081000648",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH26081000648",
+   "question": "员工上一年度领取的生育津贴，在今年调整五险一金基数时，是否计入上一年度工资总额核算?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH26080400472",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH26080400472",
+   "question": "请问我这个月的低保金什么时候放",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH26072300215",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH26072300215",
+   "question": "请问购买丰台区共有产权房之后，购房人在办理转移登记前去世的，购房人的继承人是否可以继续办理转移登记？继承人是否需要具备北京市购房资格和共有产权房屋购房资格，才可以继续办理转移登记？如能够继续办理，需要向什么部门提交什么资料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH26071500277",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH26071500277",
+   "question": "请问，有限合伙企业清算时，清算人或清算组是否需要备案公示？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH26071300588",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH26071300588",
+   "question": "公司营业执照住所为：集群注册、我们另外租赁了实体办公室，在不变更营业执照住所的情况下，能否作为医疗器械二类独立软件注册人的住所，实施委托生产。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH26060500439",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH26060500439",
+   "question": "你好，我想问下，近期公司租赁了一台叉车，它的使用登记证登记的使用单位是租赁单位，现在租给我单位使用，需要把叉车的使用登记证使用单位变更为我单位吗？有要求吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH26052200315",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH26052200315",
+   "question": "《北京市全面优化营商环境助力企业高质量发展实施方案》（京政办发〔2023〕8号）提到：降低市政公共服务成本，落实用户建筑区划红线外水、电、气、热接入零投资政策，用户不再承担红线外接入费用。请问，用户是指项目建设单位吗？建筑区划红线是指建设用",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH26051200786",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH26051200786",
+   "question": "门店经营自制凉菜需要办理什么资质？如仅制作植物性冷食（凉拌菜）或者对预包装食品（真空卤味）进行拆封、装盘、分切的简单制作后即供应的情况，需要符合什么样的要求？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH26042400815",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH26042400815",
+   "question": "医疗器械注册生产地址发生了变更，按照流程应该进行变更备案，对说明书中的地址统一修改，但是说明书的修订日期应该怎么确认？是在变更备案申请日还是在变更备案凭证下达后修订。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH26033101131",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH26033101131",
+   "question": "本人已从北京建筑施工企业离职，需要把安全B证转入到湖北省，请问具体操作流程怎么弄？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH26022401202",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH26022401202",
+   "question": "市场监管局领导，您好！ GB/T 22474-2025版发布后，分类细化，想了解生产的产品若要执行此标准，不同的分类需要分别获得哪些类别的生产许可资质？具体类别如下： 果酱-- 水果制品 蔬菜酱/蔬菜风味酱--蔬菜制品？ 花卉酱/花卉风味酱",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH26021000783",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH26021000783",
+   "question": "问题1.我公司现要开展新项目，制作漫剧在第三方平台上传，是否需要办理网络文化经 营许可证 问题2.公司是海淀区的办理网络文化经营许可证去哪里办理，准备材料有哪些，网上在哪能申办",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH26020901942",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH26020901942",
+   "question": "您好，我想咨询下海淀区幼升小政策中对公租房和居住证的要求，请问非京籍通过公租房参加海淀区幼升小，对居住证及居住证时间还有要求吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH26020600674",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH26020600674",
+   "question": "办理法定代表人变更是否一定需要修改公司章程？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH26011401045",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH26011401045",
+   "question": "本人户口在外地，配偶在北京。本人北京公积金账户没有提取记录，配偶有提取记录。现在本人需要在外地购房，是否可以提取本人名下的公积金用来购房。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH26010600146",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH26010600146",
+   "question": "根据《食品经营许可现场核查表》（餐饮服务核查要求）第18项第二段的要求：就餐区食品半成品，成品和清洁的餐用具暴露区域上方设有避免灰尘散落、防止鼠类等有害生物掉落的装置（如：铺设天花板、伞、罩、顶）。根据以上要求请回答：以上要求的就餐区需要设",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25122900801",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25122900801",
+   "question": "公民申请某商品楼盘的 预售资金监管账户信息公开，是否需要开发商同意？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25122600798",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25122600798",
+   "question": "国家补助的0.2元没看到补贴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25122401333",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25122401333",
+   "question": "请问北京市营业性演出经营许可证有年审/年检要求吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25121600422",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25121600422",
+   "question": "您好，我想咨询一下，目前公积金贷款已经办理完毕，正在还款过程中，如果发生了失业、公积金断缴的情况，那么已发放的公积金贷款会有什么影响？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25121500438",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25121500438",
+   "question": "如何查询在北京市注册的助理注册安全工程师的注册（执业证）信息，包括注册单位、类别、注册期信息。不是注册安全工程师资格证。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25112000111",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25112000111",
+   "question": "办理独生子女证时，结婚证原件未在手里，去档案馆复印了当时领取结婚证的材料可以么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25111201740",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25111201740",
+   "question": "公积金贷款额度由缴存年限决定，如果房租超过公积金，即工作两年后公积金余额为零，缴存年限是0还是一年还是两年前？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25102801291",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25102801291",
+   "question": "请问男方陪产假15日是工作日还是自然日？是否可以分开休？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25101601701",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25101601701",
+   "question": "本人上海户口，目前在上海缴纳公积金，后续打算来北京工作，请问公积金可以转移到北京吗，转移需要的条件有哪些？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25101300544",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25101300544",
+   "question": "我的房贷是组合贷款，公积金提前还款部分贷款后，剩余贷款的最低还款额没有发生变化，能否更改最低还款额，希望还款年限不变。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25100700484",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25100700484",
+   "question": "请问，外资企业代表处首席代表任命，是否有规定必须是常住在北京并且有工作许可证的？首席代表能否不在国内常住，国内通过授权的方式由代表处其他人员负责，首席代表只是在必要的时候会到国内处理业务？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25092900973",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25092900973",
+   "question": "3岁以内双胞胎，父母每年各有多少天育儿假",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25091900351",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25091900351",
+   "question": "我名下有房贷（公积金、商贷组合贷），持续还贷过程中同步提取公积金。现拟一次性结清已有房贷，新买房以改善居住条件。在先结清贷款再新购房的情况下，是符合首套房资格的。想咨询，因此前公积金持续提取导致余额不多，新购房申请公积金贷款的额度可以达到1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25082700224",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25082700224",
+   "question": "请问建设工程项目专业分包单位的项目技术负责人需不需要中级职称",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25072701251",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25072701251",
+   "question": "大学生创业有哪些补贴，应该如何办理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25072401511",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25072401511",
+   "question": "申请业余无线电台（卫星业余无线电台除外）设置、使用许可时还要单独申请办理无线电台识别码吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25071001614",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25071001614",
+   "question": "询问北京有哪些企业具备网络预约出租汽车经营许可",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25063000708",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25063000708",
+   "question": "根据《北京市人口与计划生育条例》，男方享受陪产假十五日，但未标明十五日是否涵盖法定节假日和周末，万望解答，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25062200594",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25062200594",
+   "question": "如何查询北京市物业服务企业信息，未在住建委管官网的政府信息里找到物业服务企业信息",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25061801047",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25061801047",
+   "question": "司法鉴定技术专业大专学历，已经从事司法鉴定工作五年，有自考法学本科的毕业证可以申请司法鉴定人吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25060401319",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25060401319",
+   "question": "咨询这个门式起重机报停怎么办理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25052800053",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25052800053",
+   "question": "申请司法鉴定人执业证，需要相关专业工作5年以上经历，本人大学毕业前在司法鉴定机构有6个月的实习经历，大学毕业后在在司法鉴定机构还有1年的毕业后实习，之后才签了劳动合同，这6个月和1年可以算相关专业工作经历吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25052300123",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25052300123",
+   "question": "992路的车辆即将到达年限，希望BJ6123C7BHD和BJ6123EVCA-47引入992路运营，增开车辆保证拥挤度减少。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25051901270",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25051901270",
+   "question": "北京市规定员工休育儿假期间工资发放应按什么标准进行发放",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25051300667",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25051300667",
+   "question": "我在北京生育保险缴纳5年多，妻子失业两年多，现在妻子怀孕生产，能否使用我的生育保险报销一部分医疗费用，或者我领取一次性生育补贴呢。我可以咨询哪个部门呢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25051100436",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25051100436",
+   "question": "可以提前多长时间进行更换",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25050600500",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25050600500",
+   "question": "请问 有源医疗器械注册检验报告（测试9706.1）中，关键元器件清单中部件做了变更，需要走补充注册检验或者注册变更，或者在分局做重大事项变更？还是自己做内部验证，走设计开发变更流程呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25042500642",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25042500642",
+   "question": "请问5.10当天申请领取结婚证，还得提供户口本吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25032700632",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25032700632",
+   "question": "如何线上查询个人或家庭名下在北京是否是名下只有唯一房产信息？ --用于作为二套转首套的 必需材料；",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25032001039",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25032001039",
+   "question": "请问装修自有房屋是否可以提取公积金？如果可以，需要提供什么资料。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25031200918",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25031200918",
+   "question": "在京企业法人变更应该如何办理？是全网办还是半网办？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25022801383",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25022801383",
+   "question": "设立书法培训机构需要办理什么证照？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25021900552",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25021900552",
+   "question": "您好，我想咨询一下个人是否可以办理《国家二级水生野生动植物人工繁育许可证》以及《国家二级水生野生动植物经营利用许可证》？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25021200342",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25021200342",
+   "question": "我于2024.12.10以旧换新购买电动自行车，且当日申请补贴程序，后查看系统已经审核通过补贴，但现在仍未收到补贴款，且现在已经无法查到审核通过信息，麻烦帮忙查询现在处于什么阶段。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25012200809",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25012200809",
+   "question": "我是去年12月份才申请执业的新手律师，执业以后想转所，请问必须在原所继续执业满1年才能转所吗？北京市司法局对于新职业律师转所有时间和频次的限制吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH25010200716",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH25010200716",
+   "question": "用医保账户给孩子缴纳的城乡居民医保费405元去哪里能开具缴费凭证？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH24122400531",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH24122400531",
+   "question": "个人于24年7月份生产（公司5、6月份集体断缴社保），导致无法满足领取生育津贴条件：生产前9个月社保连续缴纳。如果想保证领取需要满足生产后12个月保证连续！ 目前由于公司运营及社保可能会随时断交，如果现在申请失业金，国家缴纳医保后续明年7月",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH24122301234",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH24122301234",
+   "question": "2005年被吊销的企业想要转为正常注销，该如何操作？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH24121100443",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH24121100443",
+   "question": "怎么办理呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH24120200564",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH24120200564",
+   "question": "我在陕西（户籍所在地）买房了，是否可以提取北京公积金？提取流程是什么？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH24112600662",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH24112600662",
+   "question": "我父亲83岁肢体四级残疾行动不便，户籍所在地西城区大栅栏街道，请问残联、政府是否有为高龄残疾人发放轮椅等辅具的照顾措施政策。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "bj-hdjl",
+   "id": "AH24112500912",
+   "url": "https://www.beijing.gov.cn/hudong/hdjl/com.web.consult.consultDetail.flow?originalId=AH24112500912",
+   "question": "全职孕妈，无法线下参加工作日的孕妇学校。想咨询一下，北京市是否有线上的孕妇学校或孕妇课程？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

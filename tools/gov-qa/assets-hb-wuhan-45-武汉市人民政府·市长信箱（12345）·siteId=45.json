@@ -1,0 +1,779 @@
+{
+ "A_考卷": [
+  {
+   "source": "hb-wuhan-45",
+   "id": "57901",
+   "url": "https://www.wuhan.gov.cn/?id=57901",
+   "question": "前一阵，老实人李维刚在武汉承包鱼塘被坑，武汉人民形象一落千丈，暑假来临，武汉坐拥天然东湖美景，水产丰富，邀请李维刚团队免费到东湖网鱼，可以此力挽败局。 方案设计: 1.设立东湖网鱼专项，划出独立区域，邀请李维刚团队免费到东湖乘船网鱼，百万网",
+   "cited_hits": [
+    {
+     "name": "武汉东湖风景名胜区条例",
+     "lib_no": "风景名胜区条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "44756",
+   "url": "https://www.wuhan.gov.cn/?id=44756",
+   "question": "东湖生态旅游风景区东湖绿道不让市民骑电动车进，但是园区内有盈利的电动车，我不认可，请相关部门核实处理",
+   "cited_hits": [
+    {
+     "name": "武汉东湖风景名胜区条例",
+     "lib_no": "风景名胜区条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "18424",
+   "url": "https://www.wuhan.gov.cn/?id=18424",
+   "question": "2022年1月25日中午，在武汉市洪山区园林路沙湖大道东湖庭园21栋P1-P5商铺，谊品生鲜东湖庭园店，购买荷兰豆，店内荷兰豆标价为14.8元每斤，事后发现销售小票实际收款为18.8元每斤。商家“低标高结”的行为侵害了我的知情权与公平交易权",
+   "cited_hits": [
+    {
+     "name": "价格法",
+     "lib_no": "价格法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "hb-wuhan-45",
+   "id": "41421",
+   "url": "https://www.wuhan.gov.cn/?id=41421",
+   "question": "东湖绿道落霞归雁片区风光优美，当下正值春光灿烂鲜花盛开季节，落霞归雁片区是最适宜游客踏青赏花的好地方，是周边居民及外来游客的打卡游玩网红点。 以前来落霞归雁的游客可乘游船往返于磨山；或乘环湖电车通磨山景区、落雁景区、楚风园，前年磨山景区和落",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发武汉市水污染防治行动计划工作方案（ 2016-2020 年）的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "27689",
+   "url": "https://www.wuhan.gov.cn/?id=27689",
+   "question": "《把权利关进制度的笼子里》 华侨城武汉社区、业主委员会筹备组并呈东湖风景区管委会： 刘伏螳主任、甄别主任： 今天是2022年10月16日，祝贺中国共产党第二十次全国代表大会在北京隆重召开！ 前几天因为要准备中国职业安全健康协会高峰论坛的资料",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于武汉东湖生态旅游风景区华侨城纯水岸小区成立业主大会会议筹备组的公告",
+    "关于武汉市东湖生态旅游风景区华侨城纯水岸小区业主委员会候选人的公告",
+    "关于武汉市东湖生态旅游风景区华侨城·纯水岸小区业主委员会初步候选人名单的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "23194",
+   "url": "https://www.wuhan.gov.cn/?id=23194",
+   "question": "领导你好！我是东湖庭园29栋2单元902的居民，小孩今年到了义务教育入学年龄，按照政策应该回新洲区上学，但是我本人自2002年至今一直在武汉工作生活，因东湖庭园为还建房，也办不了证，所以回新洲区上学不现实，家里所有人全部在武汉这边工作生活，",
+   "cited_hits": [],
+   "cited_missing": [
+    "市教育局关于做好2022年义务教育阶段新生入学招生工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "20831",
+   "url": "https://www.wuhan.gov.cn/?id=20831",
+   "question": "东湖风景区落雁社区肖家咀村有闲置民房想办理相关营业执照一直无法落实，社区给到的回应是在拆迁范围，无法出具相关产权证明，想问一下这里到底能不能办理相关营业执照，国家一直在大力推广乡村振兴，鼓励村民利用闲置民房发展旅游，去年试点在磨山区域已经推",
+   "cited_hits": [],
+   "cited_missing": [
+    "武汉市市场主体住所（经营场所）登记管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "14283",
+   "url": "https://www.wuhan.gov.cn/?id=14283",
+   "question": "请问下，因为我买的是法拍房，没有上家的两证，过户要先办注销。东湖风景区不动产中心要等公示15个工作日后才能办理下一步。但是我朋友之前在东西湖区不动产中心那边当天就可以办理了。网上查的信息都是登报注销，其实现在不用了，都是网上公告，也不用等7",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于加强执行工作联动机制建设的会议纪要",
+    "不动产权证书"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "63",
+   "url": "https://www.wuhan.gov.cn/?id=63",
+   "question": "目前东湖风景区观光电瓶车票价为：40元 无限次当日乘坐，票价过于偏高，且没有单程票，景区游玩大多数都是年轻人和老年人，很多都是在景区步行、快走偏多，很多都是走累了想做单程观光车返回大门，但没有单程票，经了解，景区缆车往返仅50元一个人，相比",
+   "cited_hits": [],
+   "cited_missing": [
+    "东湖绿道游览观光车运营方案"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "hb-wuhan-45",
+   "id": "70623",
+   "url": "https://www.wuhan.gov.cn/?id=70623",
+   "question": "主任您好！ 我创作了一首合唱歌曲《东湖》，歌词取材东湖楚天台、磨山、珞珈、樱雨等实景风光，作品得到音乐专业教授的肯定。已经通过邮箱分别发送给东湖风景管理区及东湖政务，资料包括歌词及音乐的高清音频。 本人愿意无偿授权给东湖景区在任何场合宣传使",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "70250",
+   "url": "https://www.wuhan.gov.cn/?id=70250",
+   "question": "东湖凌波门附近绿道上蚊蝇成灾，晚上空气中弥漫着小虫子，夜间散步骑行的游客市民都不敢张嘴，说话、呼吸都有小虫子飞入口腔、鼻腔中，非常影响游玩体验，建议采取灭蚊措施。刚好在新闻中看到东湖部分区域采用了最新的AI智能仿生防蚊系统，希望凌波门这边的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "69702",
+   "url": "https://www.wuhan.gov.cn/?id=69702",
+   "question": "东湖风景区平湖桥附近的水域有很多死鱼，影响了周边的环境，希望有关部门工作人员核实处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "68485",
+   "url": "https://www.wuhan.gov.cn/?id=68485",
+   "question": "您好，来信叨扰，感谢阅读。 我们是华中农业大学在校学生，参与学校组织的暑期社会实践，依据实践立项文件安排，围绕东湖水体修复及后续维护、监测开展实地调研工作。不知贵单位有无可供学生社会实践落地调研的对接渠道，感谢您的回复。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "68379",
+   "url": "https://www.wuhan.gov.cn/?id=68379",
+   "question": "华侨城湿地公园水域好多福寿螺的卵，请园林工人尽快处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "67310",
+   "url": "https://www.wuhan.gov.cn/?id=67310",
+   "question": "尊敬的领导： 您好！ 我是湖北大学旅游学院（地理科学学院）人文地理学研究生肖声勇，目前正在进行一项关于“武汉市旅游季节性特征及其与武汉市气候适宜性时空匹配”的学术研究，特向贵单位申请相关旅游统计数据，恳请予以支持。数据内容如下：2023年1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "66207",
+   "url": "https://www.wuhan.gov.cn/?id=66207",
+   "question": "尊敬的东湖风景区管理委员会领导： 见信好。 我是鄂州画家郝儒荣的孙子/孙女。爷爷今年八十三岁了，画了一辈子梅花，朋友们都叫他“梅花山人”。这些年，他画得最多、最用心的，就是咱们东湖梅园里的古梅。他说，这些老梅树是有魂魄的，每一次花开，都是一",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "66075",
+   "url": "https://www.wuhan.gov.cn/?id=66075",
+   "question": "尊敬的东湖风景区管理部门： 您好！我是一名外地游客，于2026年2月19日下午去东湖景区游玩，下午约17:00在东湖沙滩旁观光车停车点，遭遇景区工作人员极不礼貌、带有嘲讽与轻视的服务态度，严重破坏游览体验，特此如实投诉。 当日我骑行至东湖沙",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "65638",
+   "url": "https://www.wuhan.gov.cn/?id=65638",
+   "question": "领导你好！我是东湖小学学生家长，学校通知明后两天停课，我们这在中心城区，今天雪也停了，路上也没结冰，武昌、洪山区都没通知停课，就不能坚持一下，马上要考试了，明后天都不雪，为什么还要停课，还是一停2天，家长都要上班，下个雪都放假，那北方是不是",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "64279",
+   "url": "https://www.wuhan.gov.cn/?id=64279",
+   "question": "请问武汉东湖生态旅游风景区人民政府网站是否开设了卫生健康类栏目？如果有，如何进入卫生健康类栏目？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "63214",
+   "url": "https://www.wuhan.gov.cn/?id=63214",
+   "question": "像深圳海边一样，在东湖的湖面上建设娱乐性的水上房屋，进行运营，提升不一样的体验感，加强东湖区旅游建设，这种方式的项目 是否符合东湖的相关规定，以及该怎么进行申请",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "62674",
+   "url": "https://www.wuhan.gov.cn/?id=62674",
+   "question": "武汉市生态旅游风景区新武东村现归属于哪个街道、哪个居委会管辖",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "61667",
+   "url": "https://www.wuhan.gov.cn/?id=61667",
+   "question": "东湖风景区天鹅湖和东湖南路交界处东湖边上有大量水葫芦，长时间没有人及时清理，外来物种严重，严重影响湖面感官和生态环境。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "60313",
+   "url": "https://www.wuhan.gov.cn/?id=60313",
+   "question": "东湖生态旅游风景区磨山景区免费的直饮水机，非常不便民，其他城市景区（庐山）都免费的直饮水机，希望磨山景区能够改善处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "57558",
+   "url": "https://www.wuhan.gov.cn/?id=57558",
+   "question": "东湖生态旅游风景区南望山西路风光村，湖边看到很多死鱼，不知道什么原因，希望核实处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "55591",
+   "url": "https://www.wuhan.gov.cn/?id=55591",
+   "question": "五一出行，带相亲对象去东湖游玩，在美团上买了双人包船下午茶的票，那么炎热的天，那么堵，七拐八转的来到东湖景区，去核销船票的时候，告诉我包船票用不了，五一期间不让用，指责我没看清楚票上面的提示限制五一期间不让用，而我的票上面就是限于5月2日当",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "55098",
+   "url": "https://www.wuhan.gov.cn/?id=55098",
+   "question": "2025年4月20日，中午，我带着两个小孩去东湖风景区观看大马戏表演。我两个小孩，一个小孩再102cm，另外一个小孩118cm，看到门口的规定，我给我的118的小孩在门口买了一张40元的优待票。从服务的角度，我家102cm的小孩脱掉鞋子，应",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "53455",
+   "url": "https://www.wuhan.gov.cn/?id=53455",
+   "question": "每天早上和傍晚时段，一个东湖景园大门口周边，一个东湖实验学校周边。长期有一些机动车违规停放在机动车道上，几乎天天如此，混乱不堪。也几乎没见过相关部门人员进行管理。希望有关部门能落实一下，按照相关法规严格管理。打造景区好环境！！！~",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "53072",
+   "url": "https://www.wuhan.gov.cn/?id=53072",
+   "question": "东湖风景区东湖南路中科院水生所门口有居民在此处钓鱼，希望及时处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "51870",
+   "url": "https://www.wuhan.gov.cn/?id=51870",
+   "question": "在东湖生态旅游风景区人民政府门户网站哪里可以查找到本地区概况、人口等信息？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "51246",
+   "url": "https://www.wuhan.gov.cn/?id=51246",
+   "question": "东湖湿地公园内部道路两侧为了防止停车，装了很多单独的竖立钢管，这些竖起来的钢管存在很大的安全隐患，当骑车人或溜冰人摔倒时很容易被插成严重伤害，建议处理，保证群众的人身安全。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "50737",
+   "url": "https://www.wuhan.gov.cn/?id=50737",
+   "question": "我在东湖生态旅游风景区东湖绿道，把景区内的小红羚共享单车骑出景区，就自动锁定了，我也联系不上客服，我想核实原因。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "49140",
+   "url": "https://www.wuhan.gov.cn/?id=49140",
+   "question": "时间：2024.10.2 下午：２点半 地点：东湖飞鸟世界景点门口 事件：景点保安存在以安检名义非法搜包、扣留私人物品、与游客肢体冲撞阻拦入园等违法行为 东湖风景区内违规摆摊超量售卖三无产品、涉嫌虐待野生动物超限表演。关键我打电话86793",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "48877",
+   "url": "https://www.wuhan.gov.cn/?id=48877",
+   "question": "东湖生态旅游风景区东湖南路修的很好，但是沿路没有公共厕所，希望可以布局规划一个公共厕所。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "47927",
+   "url": "https://www.wuhan.gov.cn/?id=47927",
+   "question": "东湖生态旅游风景区东湖楚风园停车场上二环线的位置旁人行道上很多钢钉，存在安全隐患，请职能部门核实处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "46085",
+   "url": "https://www.wuhan.gov.cn/?id=46085",
+   "question": "领导您好： 请问一下，东湖笛苑（建强小区三期）什么时候可以办证啊，办证流程是怎么样的，需要哪些文件材料啊。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "45402",
+   "url": "https://www.wuhan.gov.cn/?id=45402",
+   "question": "请问新武东小区1期的还建房是否可以申请办理房产证？如果个人办理，需要哪些材料及流程？谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "43091",
+   "url": "https://www.wuhan.gov.cn/?id=43091",
+   "question": "您好，来信叨扰，感谢阅读。我们是来自武汉大学绿舟环保协会（学生）的成员，正在围绕东湖水体修复及后续维护、监测做调研，需要寻找相关工作人员做访谈，访谈内容为治理具体措施及成效。不知现在东湖工作机构是否有相关的渠道能够接受调研，敬请告知，不胜感",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "40964",
+   "url": "https://www.wuhan.gov.cn/?id=40964",
+   "question": "东湖生态旅游风景区东湖里面飞鸟世界一直闭园，请问什么时候可以开园。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "40168",
+   "url": "https://www.wuhan.gov.cn/?id=40168",
+   "question": "湖生态旅游风景区武汉植物园门口旁边的巷子，有人在该处拉客去停车收费，非常不合理，请相关部门核实处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "39432",
+   "url": "https://www.wuhan.gov.cn/?id=39432",
+   "question": "东湖生态旅游风景区落雁路与青王公路交汇处道路路面破损，影响交通.",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "38303",
+   "url": "https://www.wuhan.gov.cn/?id=38303",
+   "question": "主任你好，冒昧请您帮忙。 我们来自马来西亚，会在一月到武汉去游玩。 想请问外国人如何预定东湖景区门票？网上看了说要提前一天预定，有限定人流。 由于我们是外国人，微信携程都必须使用国内手机号和身份证实名认证预定门票。而我们只有护照也没有国内手",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "38262",
+   "url": "https://www.wuhan.gov.cn/?id=38262",
+   "question": "我公司是专业制造5A等景区文创雪糕的专业公司（延伸产品有：巧克力，发光&骨传导棒棒糖等）。我们拥有业内一线的安全规范卫生的生产工厂，领先行业水平的生产技术及近三十年的生产经验，提供设计、开发、生产、质检、冷链配送、终端优化一站式服务链条，提",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "38022",
+   "url": "https://www.wuhan.gov.cn/?id=38022",
+   "question": "东湖生态旅游风景区青王路399号附近的红绿灯坏了两三天了，有安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "37453",
+   "url": "https://www.wuhan.gov.cn/?id=37453",
+   "question": "我想要了解周末东湖生态旅游风景区楚风园停车场到底是怎么回事，为什么不让停车，咨询以后过来游玩，这里的停车场是否可以正常停车。请相关部门尽快核实处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "36702",
+   "url": "https://www.wuhan.gov.cn/?id=36702",
+   "question": "东湖绿道里观光车速度较快，存在安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "35781",
+   "url": "https://www.wuhan.gov.cn/?id=35781",
+   "question": "你好，我想咨询下现在还可以去牡丹园看花么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "34238",
+   "url": "https://www.wuhan.gov.cn/?id=34238",
+   "question": "东湖绿道入口共享单车乱摆放，严重影响交通和美观 希望政府能整改",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "30315",
+   "url": "https://www.wuhan.gov.cn/?id=30315",
+   "question": "你好，武汉大学旁路段的打扫卫生人员安全意识薄弱，今天早上8：20左右武汉大学月湖处路段的打扫卫生人员突然把扫帚伸到行车道，车辆为避让险些造成事故，类似事情早上时有发生，望加强卫生人员安全意识。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "29409",
+   "url": "https://www.wuhan.gov.cn/?id=29409",
+   "question": "东湖风景区内，大道观三十多人员聚集全部阳性，大量人员聚集，景区内无任何应急管理措施，大道观旁国家级193特勤疗养院一墙之隔，安全何在？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "28422",
+   "url": "https://www.wuhan.gov.cn/?id=28422",
+   "question": "东湖高新区未来三路的中国地质大学资环院内，发现大批疑似加拿大一枝黄花。请政府来调查处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "26271",
+   "url": "https://www.wuhan.gov.cn/?id=26271",
+   "question": "您好，东湖绿道华侨城银河桥前后发现大量福寿螺的卵，希望能及时清理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "24586",
+   "url": "https://www.wuhan.gov.cn/?id=24586",
+   "question": "我来武汉上学四年，加工作一年，基本上每周去两次东湖，个人比较喜欢汉服，但是东湖这边我个人感觉古色古香的建筑慢慢兴起，我在西安不夜城这兼职了半年。有自己对汉服这一块的想法，大学有活动策划，气球布置，变脸，网络运营等校外副业经验，想结合这些去做",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "24482",
+   "url": "https://www.wuhan.gov.cn/?id=24482",
+   "question": "前期因为找不到公共设施图，房管局、建设单位都不予提供，华侨城天樾一期、二期、天屿一期、天屿二期、天屿三期五个小区八千多户业主共同成立超大级别业委会，经过业主多方努力，历时一年多，到业主大会召开之际，而后不知何原因不了了之，现在，又重新走五个",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "23054",
+   "url": "https://www.wuhan.gov.cn/?id=23054",
+   "question": "请问落雁景区什么时候改建好重新开放,已经关闭好久了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "21600",
+   "url": "https://www.wuhan.gov.cn/?id=21600",
+   "question": "从疫情开始在武汉蹲了3年了，实在无聊，想自己买个橡皮艇在东湖上划，不知道是否可行？如果可以的话有没有什么限制？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "20648",
+   "url": "https://www.wuhan.gov.cn/?id=20648",
+   "question": "您好！想请问东湖生态旅游风景区公共卫生服务中心 2022 年部门预算中，人员经费包括待招编制6人的工资吗？如果包括，那待招编制6人是按照几月份入职计算的?盼回复！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "20278",
+   "url": "https://www.wuhan.gov.cn/?id=20278",
+   "question": "您好，我司（武汉兰卫医学检验实验室有限公司）报名了2022年东湖湖长选拔，请问什么时候可以看到结果，在哪里可以看到？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "19764",
+   "url": "https://www.wuhan.gov.cn/?id=19764",
+   "question": "东湖听涛景区改造后面目全非，主题不突出，缺少人文设计和景观设计，很难看，很痛惜，很多工程貌似为了增加工程量：1.取消、破坏了很多绿化草坪，改为大量硬化路面，东湖景区不应该让社会车辆随意通行，不利于老百姓休闲游逛；而且武汉夏天时间长，大量混凝",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "19498",
+   "url": "https://www.wuhan.gov.cn/?id=19498",
+   "question": "您好，我是华中农业大学研究生，因为课题研究需要，想咨询一下东湖风景区的绿地率（或者绿化覆盖率）大概是多少呢？感谢回复",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "18558",
+   "url": "https://www.wuhan.gov.cn/?id=18558",
+   "question": "近年来，随着东湖绿道的兴建，景区的内部交通已有极大改善，但仍存在一些久拖不决的问题。光谷大桥本有非机动车道，但因设计问题基本无法供非机动车、特别是电动车通行，人民群众对此反应强烈。事实上，早在19年1月，夏主任就亲自带队了解了问题的症结：该",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "17667",
+   "url": "https://www.wuhan.gov.cn/?id=17667",
+   "question": "·东湖风景区的氢气球到底什么时候开始营业",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "16282",
+   "url": "https://www.wuhan.gov.cn/?id=16282",
+   "question": "目前发现两处共享单车停车点设置不合理： 1.“一棵树”的入口处没有共享单车停车点，从该入口进入无法直接开始骑行； 2.磨山北门除没有共享单车停车点，若想要上磨山，必须前行近500米才能停车上山；若想要乘坐索道上山，则必须前行500米停车后再",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "15818",
+   "url": "https://www.wuhan.gov.cn/?id=15818",
+   "question": "您好！我是武汉市社会科学院的樊厚瑞，今年承担课题《武汉市生态系统生产总值GEP核算研究——以东湖生态旅游风景区为例》，需要贵区的一些基本资料，主要困难在于东湖风景区的生产总值数据，请问能否提供区内农林牧渔业的生产总值或者产品数量信息，或者相",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "14788",
+   "url": "https://www.wuhan.gov.cn/?id=14788",
+   "question": "今年4月份的时候投诉过，然后就不了了之了，没任何人打电话告知我处理结果！ 之前主任信箱留言，说有什么查询码 查询您的回复信件，我没看到 希望您把查询码发我！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "13090",
+   "url": "https://www.wuhan.gov.cn/?id=13090",
+   "question": "请问领导：武汉东湖新城社区东湖庭园小区，是今年疫情防控及社区工作的先进示范小区，目前武汉都在加速为还建房、城中村建房办证，请问东湖庭园小区规划什么时候办证？交房已经10年了，期盼答复！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "12689",
+   "url": "https://www.wuhan.gov.cn/?id=12689",
+   "question": "新武东小区一期房子到底什么时候能办证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "11905",
+   "url": "https://www.wuhan.gov.cn/?id=11905",
+   "question": "本人系武钢下岗职工，男47岁，身体健康（有些神经衰弱，睡眠不佳），现赋闲在家。从小素喜东湖并常来绿道走路。希望在风景区寻求一份出体力的工作（养护、保洁等工种不限，待遇等没有要求）。请领导予以考虑。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "11264",
+   "url": "https://www.wuhan.gov.cn/?id=11264",
+   "question": "自五月入夏以来，几乎每天晚上都有人在武汉大学凌波门外的露天游泳池以及栈道上吵闹、嬉戏、游泳，甚至持续到夜里三四点，天亮了就走。而与凌波门仅隔一条马路的即是武汉大学的宿舍区，住的都是博士生，博士生本身科研压力大，又要被噪音影响睡眠，实属难以忍",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "9667",
+   "url": "https://www.wuhan.gov.cn/?id=9667",
+   "question": "你好，我想咨询下现在还可以去牡丹园看花么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "9025",
+   "url": "https://www.wuhan.gov.cn/?id=9025",
+   "question": "今天早上（2021年3月22日），在402东湖南路水生所公交站，我将手中的垃圾丢入站台旁的垃圾桶（已入桶），一位女环卫工人竟然将垃圾拿出丢在路边，由于我是在上车的时候才发现，所以只有将问题进行反应。这位环卫工人穿着“东湖环卫”的黄背心，正在",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "6039",
+   "url": "https://www.wuhan.gov.cn/?id=6039",
+   "question": "想问下，孩子多大可以办理身份证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "5797",
+   "url": "https://www.wuhan.gov.cn/?id=5797",
+   "question": "您好，我们是外来务工人员，户籍不在武汉市。孩子在东湖小学上学，现在东湖实验学校即将建成，我们居住在东湖景园C区，按就近入学原则，明年学校开学了，我们是否可以将孩子转学过来呢，东湖实验学校对于外来务工子女入学是否有限制？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "2175",
+   "url": "https://www.wuhan.gov.cn/?id=2175",
+   "question": "咨询东湖水面可以个人玩皮划艇吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "696",
+   "url": "https://www.wuhan.gov.cn/?id=696",
+   "question": "513路公交是由武汉火车站开往珞瑜路光谷广场，晚上收班时间是21：20，而青王路上只有513路公交车，在光谷那块上班的晚上基本21：30—22：00下班，下班以后只能坐黑车或叫的士才能回家，青王路上的居民真的是太难了，看能否延迟513路公交",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "61",
+   "url": "https://www.wuhan.gov.cn/?id=61",
+   "question": "你好，我是华中师范大学城市与环境科学学院的本科生，现在正在做东湖非法游船取缔方面的课题研究，请问应该咨询哪个部门，或者哪家公司呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "62",
+   "url": "https://www.wuhan.gov.cn/?id=62",
+   "question": "您好！我想查询一下武汉市马鞍山苗圃的居民孩子学籍应该在哪个学校，离我们最近的是光谷八小，但是他们属于东湖高新区。我们这边满6岁的孩子应该去哪个学校上学呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "58",
+   "url": "https://www.wuhan.gov.cn/?id=58",
+   "question": "刚刚结束的电音节还嫌不够，整个夏天吵得周边居民都神经衰弱了，现在又来个万圣节电音节，为什么总要举办这样噪声巨大的活动！？为什么安静优美的东湖风景区允许这样不和谐的存在！？这样只顾赚钱不顾周边居民正常生活的无良商家，怎么政府就不管了！？现在还",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "60",
+   "url": "https://www.wuhan.gov.cn/?id=60",
+   "question": "孩子已上六年级，面临对口初中不明朗，家长很是着急。去年承诺的会定于2020年9月开班办学的东湖实验学校，据居住东湖景园的家长说，还没有动工。本来很高兴新初一能上这所学校的，如果无法按期开学，孩子将会面临择校。 急问东湖实验学校修建情况，是否",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "59",
+   "url": "https://www.wuhan.gov.cn/?id=59",
+   "question": "武汉欢乐谷噪音扰民严重，每天从早上9：30开门一直吵到晚上10点关门，每天大声播放游园信息和背景音乐，从下午三点开始还大声播放巡游音乐，晚上还搞电音节，这样的音量已经严重超过正常经营音量的几十倍了，跟欢乐谷多次反映问题，一直没有人管！不知道",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "65",
+   "url": "https://www.wuhan.gov.cn/?id=65",
+   "question": "城市",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "64",
+   "url": "https://www.wuhan.gov.cn/?id=64",
+   "question": "我是一个自由摄影人！八年（2012——2019）深圳立体影像（城市夕阳&夜景/舞台活动/植物花草）摄影创作， 个人期望有机会在摄影创作方面为东湖风景区服务！ 因为个人原因，我独自从2012年开始在深圳市范围内拍摄一些特色的城市风景，期间频繁",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-45",
+   "id": "57",
+   "url": "https://www.wuhan.gov.cn/?id=57",
+   "question": "领导好，北京时间2019-03-30 08：10分左右，我在雁中咀643路公交车终点站被绿道门口的保安拦住，理由军运会交通管制电动自行车禁止通行；我解释说我的自行车是内8速自行车（内变速花鼓跟电动车花鼓有点像）。他们不认可，非要说我的自行车",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

@@ -1,0 +1,24 @@
+{
+ "A_考卷": [],
+ "B_补料": [],
+ "C_无依据": [
+  {
+   "source": "gz-jkj",
+   "id": "27757474",
+   "url": "https://jkj.guizhou.gov.cn/?id=27757474",
+   "question": "您好！我想问一下儿童电子接种证怎么申请?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-jkj",
+   "id": "27696469",
+   "url": "https://jkj.guizhou.gov.cn/?id=27696469",
+   "question": "您好！请问怎么查我家小朋友什么时候打预防针?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

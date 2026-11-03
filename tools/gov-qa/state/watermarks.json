@@ -1,0 +1,20 @@
+{
+ "rd-js": {
+  "channel_key": "rd-js",
+  "type": "idset",
+  "value": [],
+  "updated_at": "2026-10-10T10:23:55",
+  "last_batch_count": 0,
+  "last_success_at": "2026-10-10T10:23:55",
+  "consecutive_failures": 0
+ },
+ "mee": {
+  "channel_key": "mee",
+  "type": "page",
+  "value": 63,
+  "updated_at": "2026-10-10T10:23:44",
+  "last_batch_count": 0,
+  "last_success_at": "2026-10-10T10:23:44",
+  "consecutive_failures": 0
+ }
+}

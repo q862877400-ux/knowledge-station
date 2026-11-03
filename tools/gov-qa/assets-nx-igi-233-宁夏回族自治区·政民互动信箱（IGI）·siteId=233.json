@@ -1,0 +1,15 @@
+{
+ "A_考卷": [],
+ "B_补料": [],
+ "C_无依据": [
+  {
+   "source": "nx-igi-233",
+   "id": "11",
+   "url": "https://www.nx.gov.cn/hdjl/?id=11",
+   "question": "测试信件测试信件测试信件测试信件",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

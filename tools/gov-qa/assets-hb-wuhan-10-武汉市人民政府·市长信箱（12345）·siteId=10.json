@@ -1,0 +1,2806 @@
+{
+ "A_考卷": [
+  {
+   "source": "hb-wuhan-10",
+   "id": "13285",
+   "url": "https://www.wuhan.gov.cn/?id=13285",
+   "question": "1",
+   "cited_hits": [
+    {
+     "name": "住房公积金管理条例",
+     "lib_no": "住房公积金管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "13046",
+   "url": "https://www.wuhan.gov.cn/?id=13046",
+   "question": "1",
+   "cited_hits": [
+    {
+     "name": "住房公积金管理条例",
+     "lib_no": "住房公积金管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "12746",
+   "url": "https://www.wuhan.gov.cn/?id=12746",
+   "question": "1",
+   "cited_hits": [
+    {
+     "name": "住房公积金管理条例",
+     "lib_no": "住房公积金管理条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "武汉住房公积金管理条例",
+     "lib_no": "住房公积金管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "hb-wuhan-10",
+   "id": "17312",
+   "url": "https://www.wuhan.gov.cn/?id=17312",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [
+    "武汉个人住房商业贷款转住房公积金贷款实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "17179",
+   "url": "https://www.wuhan.gov.cn/?id=17179",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [
+    "武汉住房公积金流动性风险管理暂行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "17094",
+   "url": "https://www.wuhan.gov.cn/?id=17094",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [
+    "异地贷款职工住房公积金缴存使用证明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "17080",
+   "url": "https://www.wuhan.gov.cn/?id=17080",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [
+    "武汉住房公积金个人住房贷款管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "17000",
+   "url": "https://www.wuhan.gov.cn/?id=17000",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [
+    "武汉住房公积金提取管理实施细则"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "16997",
+   "url": "https://www.wuhan.gov.cn/?id=16997",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [
+    "武汉住房公积金流动性风险管理暂行办法",
+    "关于调整住房公积金个人住房贷款政策的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "16859",
+   "url": "https://www.wuhan.gov.cn/?id=16859",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [
+    "武汉个人住房商业贷款转住房公积金贷款实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "16821",
+   "url": "https://www.wuhan.gov.cn/?id=16821",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [
+    "武汉住房公积金管理中心关于印发武汉住房公积金流动性风险管理暂行办法的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "16791",
+   "url": "https://www.wuhan.gov.cn/?id=16791",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [
+    "武汉住房公积金汇（补）缴书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "16785",
+   "url": "https://www.wuhan.gov.cn/?id=16785",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [
+    "武汉个人住房商业贷款转公积金贷款实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "16722",
+   "url": "https://www.wuhan.gov.cn/?id=16722",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [
+    "武汉住房公积金管理中心关于印发武汉住房公积金流动性风险管理暂行办法的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "16669",
+   "url": "https://www.wuhan.gov.cn/?id=16669",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [
+    "武汉住房公积金管理中心关于印发武汉住房公积金流动性风险管理暂行办法的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "16390",
+   "url": "https://www.wuhan.gov.cn/?id=16390",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [
+    "不动产权证书",
+    "借款合同",
+    "个人信用报告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "16125",
+   "url": "https://www.wuhan.gov.cn/?id=16125",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [
+    "武汉个人住房商业贷款转住房公积金贷款实施细则"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "15547",
+   "url": "https://www.wuhan.gov.cn/?id=15547",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [
+    "房屋所有权证",
+    "国有土地使用证",
+    "个人住房公积金贷款信用审核标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "15344",
+   "url": "https://www.wuhan.gov.cn/?id=15344",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [
+    "个人住房公积金贷款信用审核标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "14941",
+   "url": "https://www.wuhan.gov.cn/?id=14941",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [
+    "省人民政府办公厅关于调整全省最低工资标准的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "14855",
+   "url": "https://www.wuhan.gov.cn/?id=14855",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [
+    "既有住宅增设电梯单元业主签字意见表",
+    "既有住宅增设电梯协议书",
+    "既有住宅增设电梯规划方案联合审查批准意见书",
+    "房屋所有权证",
+    "不动产权证书",
+    "房屋所有权证",
+    "不动产权证书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "14237",
+   "url": "https://www.wuhan.gov.cn/?id=14237",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [
+    "房屋所有权证",
+    "国有土地使用证",
+    "个人住房公积金贷款信用审核标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "13983",
+   "url": "https://www.wuhan.gov.cn/?id=13983",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [
+    "武汉住房公积金缴存管理实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "13981",
+   "url": "https://www.wuhan.gov.cn/?id=13981",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [
+    "武汉住房公积金缴存管理实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "13430",
+   "url": "https://www.wuhan.gov.cn/?id=13430",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [
+    "武汉住房公积金缴存管理实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "13360",
+   "url": "https://www.wuhan.gov.cn/?id=13360",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [
+    "武汉住房公积金中心关于调整2021年度住房公积金缴存基数下限的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "13297",
+   "url": "https://www.wuhan.gov.cn/?id=13297",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [
+    "武汉个人住房商业贷款转住房公积金贷款实施细则"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "13233",
+   "url": "https://www.wuhan.gov.cn/?id=13233",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [
+    "港澳居民来往内地通行证",
+    "台湾居民来往大陆通行证",
+    "外籍及港、澳、台籍人员住房公积金缴存开户登记表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "13232",
+   "url": "https://www.wuhan.gov.cn/?id=13232",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [
+    "港澳居民来往内地通行证",
+    "台湾居民来往大陆通行证",
+    "外籍及港、澳、台籍人员住房公积金缴存开户登记表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "13140",
+   "url": "https://www.wuhan.gov.cn/?id=13140",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [
+    "武汉住房公积金汇（补）缴书",
+    "补缴清册"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "13102",
+   "url": "https://www.wuhan.gov.cn/?id=13102",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [
+    "武汉住房公积金缴存管理实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "13051",
+   "url": "https://www.wuhan.gov.cn/?id=13051",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [
+    "武汉住房公积金缴存管理实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "12721",
+   "url": "https://www.wuhan.gov.cn/?id=12721",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [
+    "个人住房公积金贷款信用审核标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "12710",
+   "url": "https://www.wuhan.gov.cn/?id=12710",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [
+    "武汉住房公积金流动性风险管理暂行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "12644",
+   "url": "https://www.wuhan.gov.cn/?id=12644",
+   "question": "我公司员工在本月缴纳公积金后离职可以撤回本月缴纳的公积金吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "武汉住房公积金缴存管理实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "12638",
+   "url": "https://www.wuhan.gov.cn/?id=12638",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [
+    "武汉住房公积金缴存管理实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "12535",
+   "url": "https://www.wuhan.gov.cn/?id=12535",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [
+    "营业执照"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "12500",
+   "url": "https://www.wuhan.gov.cn/?id=12500",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [
+    "武汉住房公积金流动性风险管理暂行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "12233",
+   "url": "https://www.wuhan.gov.cn/?id=12233",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [
+    "受托银行住房公积金业务考核管理暂行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "11943",
+   "url": "https://www.wuhan.gov.cn/?id=11943",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [
+    "武汉个人住房商业贷款转住房公积金贷款实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "11295",
+   "url": "https://www.wuhan.gov.cn/?id=11295",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [
+    "住房公积金转移凭证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "10988",
+   "url": "https://www.wuhan.gov.cn/?id=10988",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [
+    "亲属关系公证书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "10822",
+   "url": "https://www.wuhan.gov.cn/?id=10822",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [
+    "异地转移接续申请表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "10499",
+   "url": "https://www.wuhan.gov.cn/?id=10499",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [
+    "住房公积金转移凭证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "10262",
+   "url": "https://www.wuhan.gov.cn/?id=10262",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [
+    "异地转移接续申请表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "10255",
+   "url": "https://www.wuhan.gov.cn/?id=10255",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [
+    "住房公积金转移凭证",
+    "住房公积金转移清册"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "10105",
+   "url": "https://www.wuhan.gov.cn/?id=10105",
+   "question": "企业公积金怎么交？",
+   "cited_hits": [],
+   "cited_missing": [
+    "营业执照",
+    "武汉住房公积金单位登记开户申请表",
+    "武汉住房公积金单位登记开户法律责任告知书",
+    "武汉住房公积金网上业务服务协议",
+    "武汉住房公积金网上缴存委托收款协议",
+    "人力资源服务许可证",
+    "劳务派遣经营许可证",
+    "法人授权书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "9816",
+   "url": "https://www.wuhan.gov.cn/?id=9816",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [
+    "异地转移接续申请表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "9555",
+   "url": "https://www.wuhan.gov.cn/?id=9555",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [
+    "异地贷款职工住房公积金缴存使用证明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "7908",
+   "url": "https://www.wuhan.gov.cn/?id=7908",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [
+    "武汉住房公积金流动性风险管理暂行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "7826",
+   "url": "https://www.wuhan.gov.cn/?id=7826",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [
+    "异地贷款职工住房公积金缴存使用证明",
+    "异地贷款职工住房公积金缴存使用证明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "7753",
+   "url": "https://www.wuhan.gov.cn/?id=7753",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [
+    "武汉个人住房商业贷款转住房公积金贷款实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "7709",
+   "url": "https://www.wuhan.gov.cn/?id=7709",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [
+    "异地贷款职工住房公积金缴存使用证明",
+    "异地贷款职工住房公积金缴存使用证明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "7707",
+   "url": "https://www.wuhan.gov.cn/?id=7707",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [
+    "武汉住房公积金管理中心关于印发武汉个人住房商业贷款转住房公积金贷款实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "7672",
+   "url": "https://www.wuhan.gov.cn/?id=7672",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [
+    "委托扣划住房公积金归还公积金贷款申请表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "7654",
+   "url": "https://www.wuhan.gov.cn/?id=7654",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [
+    "房屋所有权证",
+    "国有土地使用证",
+    "个人住房公积金贷款信用审核标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "7562",
+   "url": "https://www.wuhan.gov.cn/?id=7562",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [
+    "武汉住房公积金流动性风险管理暂行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "7444",
+   "url": "https://www.wuhan.gov.cn/?id=7444",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [
+    "不动产权证书",
+    "房屋所有权证",
+    "国有土地使用证",
+    "不动产权证书",
+    "借款抵押合同",
+    "商品（经济）房购销合同",
+    "存量房买卖合同",
+    "房屋估价报告书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "7415",
+   "url": "https://www.wuhan.gov.cn/?id=7415",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [
+    "武汉住房公积金转移凭证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "6563",
+   "url": "https://www.wuhan.gov.cn/?id=6563",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [
+    "异地贷款职工住房公积金缴存使用证明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "6558",
+   "url": "https://www.wuhan.gov.cn/?id=6558",
+   "question": "想问下，公积金商贷转公积金贷，期间还款有一次逾期，就不能转了么？",
+   "cited_hits": [],
+   "cited_missing": [
+    "武汉个人住房商业贷款转公积金贷款实施细则",
+    "实施细则"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "2646",
+   "url": "https://www.wuhan.gov.cn/?id=2646",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [
+    "武汉住房公积金个人住房贷款管理办法"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "hb-wuhan-10",
+   "id": "17283",
+   "url": "https://www.wuhan.gov.cn/?id=17283",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "17266",
+   "url": "https://www.wuhan.gov.cn/?id=17266",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "17256",
+   "url": "https://www.wuhan.gov.cn/?id=17256",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "17154",
+   "url": "https://www.wuhan.gov.cn/?id=17154",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "17074",
+   "url": "https://www.wuhan.gov.cn/?id=17074",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "17058",
+   "url": "https://www.wuhan.gov.cn/?id=17058",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "17055",
+   "url": "https://www.wuhan.gov.cn/?id=17055",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "17054",
+   "url": "https://www.wuhan.gov.cn/?id=17054",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "17045",
+   "url": "https://www.wuhan.gov.cn/?id=17045",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "16985",
+   "url": "https://www.wuhan.gov.cn/?id=16985",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "16953",
+   "url": "https://www.wuhan.gov.cn/?id=16953",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "16947",
+   "url": "https://www.wuhan.gov.cn/?id=16947",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "16911",
+   "url": "https://www.wuhan.gov.cn/?id=16911",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "16887",
+   "url": "https://www.wuhan.gov.cn/?id=16887",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "16852",
+   "url": "https://www.wuhan.gov.cn/?id=16852",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "16797",
+   "url": "https://www.wuhan.gov.cn/?id=16797",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "16765",
+   "url": "https://www.wuhan.gov.cn/?id=16765",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "16745",
+   "url": "https://www.wuhan.gov.cn/?id=16745",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "16730",
+   "url": "https://www.wuhan.gov.cn/?id=16730",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "16707",
+   "url": "https://www.wuhan.gov.cn/?id=16707",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "16690",
+   "url": "https://www.wuhan.gov.cn/?id=16690",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "16640",
+   "url": "https://www.wuhan.gov.cn/?id=16640",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "16614",
+   "url": "https://www.wuhan.gov.cn/?id=16614",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "16493",
+   "url": "https://www.wuhan.gov.cn/?id=16493",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "16467",
+   "url": "https://www.wuhan.gov.cn/?id=16467",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "16415",
+   "url": "https://www.wuhan.gov.cn/?id=16415",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "16361",
+   "url": "https://www.wuhan.gov.cn/?id=16361",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "16265",
+   "url": "https://www.wuhan.gov.cn/?id=16265",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "16237",
+   "url": "https://www.wuhan.gov.cn/?id=16237",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "16136",
+   "url": "https://www.wuhan.gov.cn/?id=16136",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "16069",
+   "url": "https://www.wuhan.gov.cn/?id=16069",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "16065",
+   "url": "https://www.wuhan.gov.cn/?id=16065",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "15974",
+   "url": "https://www.wuhan.gov.cn/?id=15974",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "15882",
+   "url": "https://www.wuhan.gov.cn/?id=15882",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "15816",
+   "url": "https://www.wuhan.gov.cn/?id=15816",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "15790",
+   "url": "https://www.wuhan.gov.cn/?id=15790",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "15771",
+   "url": "https://www.wuhan.gov.cn/?id=15771",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "15745",
+   "url": "https://www.wuhan.gov.cn/?id=15745",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "15597",
+   "url": "https://www.wuhan.gov.cn/?id=15597",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "15573",
+   "url": "https://www.wuhan.gov.cn/?id=15573",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "15557",
+   "url": "https://www.wuhan.gov.cn/?id=15557",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "15553",
+   "url": "https://www.wuhan.gov.cn/?id=15553",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "15541",
+   "url": "https://www.wuhan.gov.cn/?id=15541",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "15445",
+   "url": "https://www.wuhan.gov.cn/?id=15445",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "15319",
+   "url": "https://www.wuhan.gov.cn/?id=15319",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "15294",
+   "url": "https://www.wuhan.gov.cn/?id=15294",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "15269",
+   "url": "https://www.wuhan.gov.cn/?id=15269",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "15262",
+   "url": "https://www.wuhan.gov.cn/?id=15262",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "15244",
+   "url": "https://www.wuhan.gov.cn/?id=15244",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "15228",
+   "url": "https://www.wuhan.gov.cn/?id=15228",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "15039",
+   "url": "https://www.wuhan.gov.cn/?id=15039",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "15037",
+   "url": "https://www.wuhan.gov.cn/?id=15037",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "15026",
+   "url": "https://www.wuhan.gov.cn/?id=15026",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "14925",
+   "url": "https://www.wuhan.gov.cn/?id=14925",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "14876",
+   "url": "https://www.wuhan.gov.cn/?id=14876",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "14778",
+   "url": "https://www.wuhan.gov.cn/?id=14778",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "14759",
+   "url": "https://www.wuhan.gov.cn/?id=14759",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "14740",
+   "url": "https://www.wuhan.gov.cn/?id=14740",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "14693",
+   "url": "https://www.wuhan.gov.cn/?id=14693",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "14611",
+   "url": "https://www.wuhan.gov.cn/?id=14611",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "14560",
+   "url": "https://www.wuhan.gov.cn/?id=14560",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "14528",
+   "url": "https://www.wuhan.gov.cn/?id=14528",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "14527",
+   "url": "https://www.wuhan.gov.cn/?id=14527",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "14465",
+   "url": "https://www.wuhan.gov.cn/?id=14465",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "14432",
+   "url": "https://www.wuhan.gov.cn/?id=14432",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "14425",
+   "url": "https://www.wuhan.gov.cn/?id=14425",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "14405",
+   "url": "https://www.wuhan.gov.cn/?id=14405",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "14398",
+   "url": "https://www.wuhan.gov.cn/?id=14398",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "14370",
+   "url": "https://www.wuhan.gov.cn/?id=14370",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "14349",
+   "url": "https://www.wuhan.gov.cn/?id=14349",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "14301",
+   "url": "https://www.wuhan.gov.cn/?id=14301",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "14275",
+   "url": "https://www.wuhan.gov.cn/?id=14275",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "14270",
+   "url": "https://www.wuhan.gov.cn/?id=14270",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "14250",
+   "url": "https://www.wuhan.gov.cn/?id=14250",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "14240",
+   "url": "https://www.wuhan.gov.cn/?id=14240",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "13920",
+   "url": "https://www.wuhan.gov.cn/?id=13920",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "13883",
+   "url": "https://www.wuhan.gov.cn/?id=13883",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "13832",
+   "url": "https://www.wuhan.gov.cn/?id=13832",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "13665",
+   "url": "https://www.wuhan.gov.cn/?id=13665",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "13635",
+   "url": "https://www.wuhan.gov.cn/?id=13635",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "13536",
+   "url": "https://www.wuhan.gov.cn/?id=13536",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "13488",
+   "url": "https://www.wuhan.gov.cn/?id=13488",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "13467",
+   "url": "https://www.wuhan.gov.cn/?id=13467",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "13443",
+   "url": "https://www.wuhan.gov.cn/?id=13443",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "13437",
+   "url": "https://www.wuhan.gov.cn/?id=13437",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "13410",
+   "url": "https://www.wuhan.gov.cn/?id=13410",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "13389",
+   "url": "https://www.wuhan.gov.cn/?id=13389",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "13374",
+   "url": "https://www.wuhan.gov.cn/?id=13374",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "13351",
+   "url": "https://www.wuhan.gov.cn/?id=13351",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "13326",
+   "url": "https://www.wuhan.gov.cn/?id=13326",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "13301",
+   "url": "https://www.wuhan.gov.cn/?id=13301",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "13267",
+   "url": "https://www.wuhan.gov.cn/?id=13267",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "13257",
+   "url": "https://www.wuhan.gov.cn/?id=13257",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "13162",
+   "url": "https://www.wuhan.gov.cn/?id=13162",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "13158",
+   "url": "https://www.wuhan.gov.cn/?id=13158",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "13061",
+   "url": "https://www.wuhan.gov.cn/?id=13061",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "13020",
+   "url": "https://www.wuhan.gov.cn/?id=13020",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "12954",
+   "url": "https://www.wuhan.gov.cn/?id=12954",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "12937",
+   "url": "https://www.wuhan.gov.cn/?id=12937",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "12931",
+   "url": "https://www.wuhan.gov.cn/?id=12931",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "12869",
+   "url": "https://www.wuhan.gov.cn/?id=12869",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "12866",
+   "url": "https://www.wuhan.gov.cn/?id=12866",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "12828",
+   "url": "https://www.wuhan.gov.cn/?id=12828",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "12827",
+   "url": "https://www.wuhan.gov.cn/?id=12827",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "12822",
+   "url": "https://www.wuhan.gov.cn/?id=12822",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "12815",
+   "url": "https://www.wuhan.gov.cn/?id=12815",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "12798",
+   "url": "https://www.wuhan.gov.cn/?id=12798",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "12789",
+   "url": "https://www.wuhan.gov.cn/?id=12789",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "12765",
+   "url": "https://www.wuhan.gov.cn/?id=12765",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "12727",
+   "url": "https://www.wuhan.gov.cn/?id=12727",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "12726",
+   "url": "https://www.wuhan.gov.cn/?id=12726",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "12704",
+   "url": "https://www.wuhan.gov.cn/?id=12704",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "12693",
+   "url": "https://www.wuhan.gov.cn/?id=12693",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "12679",
+   "url": "https://www.wuhan.gov.cn/?id=12679",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "12675",
+   "url": "https://www.wuhan.gov.cn/?id=12675",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "12672",
+   "url": "https://www.wuhan.gov.cn/?id=12672",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "12670",
+   "url": "https://www.wuhan.gov.cn/?id=12670",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "12636",
+   "url": "https://www.wuhan.gov.cn/?id=12636",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "12580",
+   "url": "https://www.wuhan.gov.cn/?id=12580",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "12579",
+   "url": "https://www.wuhan.gov.cn/?id=12579",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "12572",
+   "url": "https://www.wuhan.gov.cn/?id=12572",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "12510",
+   "url": "https://www.wuhan.gov.cn/?id=12510",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "12508",
+   "url": "https://www.wuhan.gov.cn/?id=12508",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "12502",
+   "url": "https://www.wuhan.gov.cn/?id=12502",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "12407",
+   "url": "https://www.wuhan.gov.cn/?id=12407",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "12238",
+   "url": "https://www.wuhan.gov.cn/?id=12238",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "12234",
+   "url": "https://www.wuhan.gov.cn/?id=12234",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "12077",
+   "url": "https://www.wuhan.gov.cn/?id=12077",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "11986",
+   "url": "https://www.wuhan.gov.cn/?id=11986",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "11984",
+   "url": "https://www.wuhan.gov.cn/?id=11984",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "11981",
+   "url": "https://www.wuhan.gov.cn/?id=11981",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "11970",
+   "url": "https://www.wuhan.gov.cn/?id=11970",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "11945",
+   "url": "https://www.wuhan.gov.cn/?id=11945",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "11895",
+   "url": "https://www.wuhan.gov.cn/?id=11895",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "11880",
+   "url": "https://www.wuhan.gov.cn/?id=11880",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "11792",
+   "url": "https://www.wuhan.gov.cn/?id=11792",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "11785",
+   "url": "https://www.wuhan.gov.cn/?id=11785",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "11781",
+   "url": "https://www.wuhan.gov.cn/?id=11781",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "11588",
+   "url": "https://www.wuhan.gov.cn/?id=11588",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "11476",
+   "url": "https://www.wuhan.gov.cn/?id=11476",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "11355",
+   "url": "https://www.wuhan.gov.cn/?id=11355",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "11344",
+   "url": "https://www.wuhan.gov.cn/?id=11344",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "11330",
+   "url": "https://www.wuhan.gov.cn/?id=11330",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "11289",
+   "url": "https://www.wuhan.gov.cn/?id=11289",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "11123",
+   "url": "https://www.wuhan.gov.cn/?id=11123",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "11121",
+   "url": "https://www.wuhan.gov.cn/?id=11121",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "11085",
+   "url": "https://www.wuhan.gov.cn/?id=11085",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "10973",
+   "url": "https://www.wuhan.gov.cn/?id=10973",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "10776",
+   "url": "https://www.wuhan.gov.cn/?id=10776",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "10733",
+   "url": "https://www.wuhan.gov.cn/?id=10733",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "10729",
+   "url": "https://www.wuhan.gov.cn/?id=10729",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "10628",
+   "url": "https://www.wuhan.gov.cn/?id=10628",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "10607",
+   "url": "https://www.wuhan.gov.cn/?id=10607",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "10504",
+   "url": "https://www.wuhan.gov.cn/?id=10504",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "10503",
+   "url": "https://www.wuhan.gov.cn/?id=10503",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "10311",
+   "url": "https://www.wuhan.gov.cn/?id=10311",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "10303",
+   "url": "https://www.wuhan.gov.cn/?id=10303",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "10302",
+   "url": "https://www.wuhan.gov.cn/?id=10302",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "10301",
+   "url": "https://www.wuhan.gov.cn/?id=10301",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "10278",
+   "url": "https://www.wuhan.gov.cn/?id=10278",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "10260",
+   "url": "https://www.wuhan.gov.cn/?id=10260",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "10238",
+   "url": "https://www.wuhan.gov.cn/?id=10238",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "10223",
+   "url": "https://www.wuhan.gov.cn/?id=10223",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "10220",
+   "url": "https://www.wuhan.gov.cn/?id=10220",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "10219",
+   "url": "https://www.wuhan.gov.cn/?id=10219",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "10132",
+   "url": "https://www.wuhan.gov.cn/?id=10132",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "10130",
+   "url": "https://www.wuhan.gov.cn/?id=10130",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "10120",
+   "url": "https://www.wuhan.gov.cn/?id=10120",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "10097",
+   "url": "https://www.wuhan.gov.cn/?id=10097",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "10049",
+   "url": "https://www.wuhan.gov.cn/?id=10049",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "10034",
+   "url": "https://www.wuhan.gov.cn/?id=10034",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "10031",
+   "url": "https://www.wuhan.gov.cn/?id=10031",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "10020",
+   "url": "https://www.wuhan.gov.cn/?id=10020",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "9882",
+   "url": "https://www.wuhan.gov.cn/?id=9882",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "9870",
+   "url": "https://www.wuhan.gov.cn/?id=9870",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "9864",
+   "url": "https://www.wuhan.gov.cn/?id=9864",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "9849",
+   "url": "https://www.wuhan.gov.cn/?id=9849",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "9843",
+   "url": "https://www.wuhan.gov.cn/?id=9843",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "9820",
+   "url": "https://www.wuhan.gov.cn/?id=9820",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "9815",
+   "url": "https://www.wuhan.gov.cn/?id=9815",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "9814",
+   "url": "https://www.wuhan.gov.cn/?id=9814",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "9781",
+   "url": "https://www.wuhan.gov.cn/?id=9781",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "9777",
+   "url": "https://www.wuhan.gov.cn/?id=9777",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "9770",
+   "url": "https://www.wuhan.gov.cn/?id=9770",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "9713",
+   "url": "https://www.wuhan.gov.cn/?id=9713",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "8030",
+   "url": "https://www.wuhan.gov.cn/?id=8030",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "8027",
+   "url": "https://www.wuhan.gov.cn/?id=8027",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "8020",
+   "url": "https://www.wuhan.gov.cn/?id=8020",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "8002",
+   "url": "https://www.wuhan.gov.cn/?id=8002",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "7991",
+   "url": "https://www.wuhan.gov.cn/?id=7991",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "7969",
+   "url": "https://www.wuhan.gov.cn/?id=7969",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "7897",
+   "url": "https://www.wuhan.gov.cn/?id=7897",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "7832",
+   "url": "https://www.wuhan.gov.cn/?id=7832",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "7819",
+   "url": "https://www.wuhan.gov.cn/?id=7819",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "7816",
+   "url": "https://www.wuhan.gov.cn/?id=7816",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "7799",
+   "url": "https://www.wuhan.gov.cn/?id=7799",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "7790",
+   "url": "https://www.wuhan.gov.cn/?id=7790",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "7731",
+   "url": "https://www.wuhan.gov.cn/?id=7731",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "7725",
+   "url": "https://www.wuhan.gov.cn/?id=7725",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "7722",
+   "url": "https://www.wuhan.gov.cn/?id=7722",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "7678",
+   "url": "https://www.wuhan.gov.cn/?id=7678",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "7629",
+   "url": "https://www.wuhan.gov.cn/?id=7629",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "7628",
+   "url": "https://www.wuhan.gov.cn/?id=7628",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "7619",
+   "url": "https://www.wuhan.gov.cn/?id=7619",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "7597",
+   "url": "https://www.wuhan.gov.cn/?id=7597",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "7563",
+   "url": "https://www.wuhan.gov.cn/?id=7563",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "7556",
+   "url": "https://www.wuhan.gov.cn/?id=7556",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "7523",
+   "url": "https://www.wuhan.gov.cn/?id=7523",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "7512",
+   "url": "https://www.wuhan.gov.cn/?id=7512",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "7481",
+   "url": "https://www.wuhan.gov.cn/?id=7481",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "7455",
+   "url": "https://www.wuhan.gov.cn/?id=7455",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "7419",
+   "url": "https://www.wuhan.gov.cn/?id=7419",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "7418",
+   "url": "https://www.wuhan.gov.cn/?id=7418",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "7393",
+   "url": "https://www.wuhan.gov.cn/?id=7393",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "7382",
+   "url": "https://www.wuhan.gov.cn/?id=7382",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "7378",
+   "url": "https://www.wuhan.gov.cn/?id=7378",
+   "question": "我的手机号码变更了，现在无法收到公积金账户变动信息，我应该如何变更手机号码？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "7377",
+   "url": "https://www.wuhan.gov.cn/?id=7377",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "6830",
+   "url": "https://www.wuhan.gov.cn/?id=6830",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "6819",
+   "url": "https://www.wuhan.gov.cn/?id=6819",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "6818",
+   "url": "https://www.wuhan.gov.cn/?id=6818",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "6805",
+   "url": "https://www.wuhan.gov.cn/?id=6805",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "6772",
+   "url": "https://www.wuhan.gov.cn/?id=6772",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "6767",
+   "url": "https://www.wuhan.gov.cn/?id=6767",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "6714",
+   "url": "https://www.wuhan.gov.cn/?id=6714",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "6589",
+   "url": "https://www.wuhan.gov.cn/?id=6589",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "2674",
+   "url": "https://www.wuhan.gov.cn/?id=2674",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "2668",
+   "url": "https://www.wuhan.gov.cn/?id=2668",
+   "question": "购买二手房，且使用组合贷款后，能提取公积金账户余额用于还商业贷款吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "2658",
+   "url": "https://www.wuhan.gov.cn/?id=2658",
+   "question": "1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-10",
+   "id": "2639",
+   "url": "https://www.wuhan.gov.cn/?id=2639",
+   "question": "我在浙江宁波缴纳公积金，请问在武汉公积金贷款放大倍数是多少倍？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

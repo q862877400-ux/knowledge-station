@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="renderer" content="webkit">
+    <meta name="SiteName" content="河北省数据和政务服务局">
+    <meta name="SiteDomain" content="ggzy.hebei.gov.cn">
+    <meta name="SiteIDCode" content="1300000074">
+    <meta name="Description" content="河北省数据和政务服务局">
+    <meta name="Keywords" content="河北省数据和政务服务局">
+    <!-- 用于响应式网站,如不是需删除-->
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" >
+    <title>河北省数据和政务服务局-留言公开列表页</title>
+    <!-- 侧菜单 -->
+    <link rel="stylesheet" href="/css/jquery.sidr.dark.css">
+    <link rel="stylesheet" href="/js/lib/pagination/mricode.pagination.css">
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="/css/subcom.css">
+    <link rel="stylesheet" href="/css/specialColumn.css">
+    <link rel="stylesheet" href="/css/messageList.css">
+    <script src="/js/lib/jquery.min.js"></script>
+    <!--[if lt IE 9]> 
+        <script src="js/lib/respond.min.js"></script>
+    <![endif]-->
+
+   <link rel="stylesheet" href="/css/webBuilderCommonGray.css"></head>
+
+<body>
+	<div id="container">
+    <!--[if lte IE 8]>
+    <noscript>
+        <p style="color:#ff2832;text-align:center">您的浏览器禁用了脚本，请到浏览器设置里开启脚本以获得更好的网页浏览体验！</p>
+    </noscript>
+    <![endif]-->
+    <!-- header -->
+    <div id="subheader"></div>
+    <!-- 正文 -->
+    <!-- loca -->
+    <div class="ewb-loca-wpr">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-24">
+                <div class="ewb-loca">
+                   <a href="/">首页</a>&gt; <a href="/hdjl/interaction.html">互动交流</a>&gt; <a href="/hdjl/006002/interaction.html">咨询投诉</a>&gt;<span class="ewb-cur">留言公开</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div >
+    <div class="ewb-main container">
+        <div class="row">
+            <div class="col-md-7 col-sm-7">
+                <div class="ewb-pan-wpr">
+                    <div class="ewb-pan hack-pan">
+                        <ul class="ewb-pan-items">
+                        	
+	                                	<li class="clearfix">
+			                                <a href="https://hb12345.szj.hebei.gov.cn/ticket/zwpage/#/" class="pan-lk trans" target="_self">
+												我要投诉</a>
+			                            </li>	                               	                                            
+	                                
+	                                	<li class="clearfix">
+			                                <a href="http://www.hbzwfw.gov.cn/hbjis/front/login.do?uuid=m6ru4qaOaYr3&userType=1&gotoUrl=" class="pan-lk trans" target="_self">
+												我要咨询</a>
+			                            </li>	                               	                                            
+	                                
+	                                	<li class="clearfix">
+			                                <a href="/hdjl/006002/006002005/wantMessage.html" class="pan-lk trans" target="_self">
+												我要留言</a>
+			                            </li>	                               	                                            
+	                                
+	                                	<li class="clearfix">
+			                                <a href="/hdjl/006002/006002004/messageList.html" class="pan-lk trans current" target="_self">
+												留言公开</a>
+			                            </li>	                               	                                            
+	                                <!--<li class="clearfix">
+                                <a href="" class="pan-lk trans">
+                                    我要投诉
+                                </a>
+                            </li>
+                            <li class="clearfix">
+                                <a href="" class="pan-lk trans">
+                                    我要咨询
+                                </a>
+                            </li>
+                            <li class="clearfix">
+                                <a href="" class="pan-lk trans">
+                                    我要留言
+                                </a>
+                            </li>
+                            <li class="clearfix">
+                                <a href="" class="pan-lk current trans">
+                                    留言公开
+                                </a>
+                            </li>-->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-17 col-sm-17">
+                <div class="ewb-colu-wpr">
+                    <div class="ewb-colu">
+                        <!-- 查询 -->
+                        <div class="ewb-go-wpr clearfix">
+						<div class="ewb-go l">
+                                <div class="input-tips ewb-go-box">
+                                    <label class="input-placeholder" for="gocxm">请输入查询码</label>
+                                    <input class="input-box" type="text" id="gocxm" />
+                                </div>
+                                <button class="ewb-sea-btn" id="ewb-cxm-btn">查询</button>
+                            </div>
+                            <div class="ewb-go r">
+                                <div class="input-tips ewb-go-box">
+                                    <label class="input-placeholder" for="gomsg">请输入关键词</label>
+                                    <input class="input-box" type="text" id="gomsg" />
+                                </div>
+                                <button class="ewb-sea-btn" id="ewb-sea-btn">查询</button>
+                            </div>
+                        </div>
+                        <!-- table -->
+                        <div class="ewb-look">
+                            <table class="ewb-look-table">
+                                <thead>
+                                    <tr class="ewb-look-thr">
+                                        <!-- 2022-4-25修改 -->
+												<th class="th01">
+													<p>序号</p>
+												</th>
+												<th class="th02">
+													<p>留言标题</p>
+												</th>
+												<th class="th04">
+													<p>处理日期</p>
+												</th>
+												<!-- 2022-4-25修改 -->
+                                    </tr>
+                                </thead>
+                                <tbody class="ewb-look-tbody" id="letterList">
+                                    <!--<tr>
+                                        <td>
+                                           1 
+                                        </td>
+                                        <td>
+                                           <div class="hack-len">
+                                               此处为标题，过长省略显示，此处为标题,过长省略
+                                           </div> 
+                                        </td>
+                                        <td>
+                                            2018-07-15
+                                        </td>
+                                    </tr>-->
+                                </tbody>
+                            </table>
+                            <div class="ewb-page-info clearfix">
+		                        <div class="ewb-page2 r">
+		
+		                        </div>
+		                    </div>
+                        </div>
+                    </div>
+                    <!--<div class="ewb-page-info clearfix">
+                        <div class="ewb-page2 r">
+
+                        </div>
+                    </div>-->
+                </div>
+            </div>
+        </div>
+    </div>
+	</div>
+	
+    <!-- footer -->
+    <div id="subfooter"></div>
+    </div>
+    <div style="display: none;">
+	<!-- 侧菜单 -->
+<div id="mob-menu" class="sidr visible-phone yx_not">
+    <ul>
+        <li><a href="/">首页</a></li>
+        
+		            <li><a href="/zxzx/center.html">资讯中心</a></li>                      
+		            
+		            <li><a href="/zwgk/002004/policyInter.html">政府信息公开</a></li>                      
+		            
+		            <li><a href="http://www.hbzwfw.gov.cn/">政务服务</a></li>                      
+		            
+		            <li><a href="http://szj.hebei.gov.cn/zbtbfwpt/index">招标投标</a></li>                      
+		            
+		            <li><a href="/hdjl/interaction.html">互动交流</a></li>                      
+		            
+		            <li><a href="/zqdh/lineNav.html">站群导航</a></li>                      
+		            <!--<li><a href="">资讯中心</a></li>
+        <li><a href="">政务公开</a></li>
+        <li><a href="">办事服务</a></li>
+        <li><a href="">“放管服”动态</a></li>
+        <li><a href="">公共资源交易</a></li>
+        <li><a href="">互动交流</a></li>
+        <li><a href="">站群导航</a></li>-->
+    </ul>
+</div>
+
+<!-- header -->
+<div class="ewb-header">
+	<div class="container">
+          <!-- <a class="no-barrier" href="javascript:toolbar.Function.show.mainMethod()">无障碍 </a> -->
+		  <a class="elder" href="javascript:toolbar.Function.show.mainMethod()">长辈模式</a>
+<a class="no-barrier " href="javascript:toolbar.Function.show.mainMethod()">无障碍浏览 </a>
+		<div class="row">
+			<div class="col-md-24">
+				<!-- Mobile main menu -->
+				<div class="clearfix">
+				    <span id="mobile-trigger" class="l visible-phone ewb-phone-ico ewb-phone-left">
+				        
+				    </span>
+				</div>
+				<!-- top -->
+				<div class="ewb-top clearfix">
+					<img src="/images/top_logo.png" class="ewb-top-logo l">
+					<div class="ewb-state r">
+						<div class="ewb-sea clearfix">
+							<div class="input-tips ewb-search">
+							    <label class="input-placeholder" for="key" title="请输入关键词">请输入关键词</label>
+							    <input class="input-box" type="text" id="key"  title="请输入关键词"/>
+							    <button class="ewb-sea-btn" id="searchBtn">
+								       <img src="/images/sea_btn.jpg" alt="搜索">
+								</button >
+							</div>
+							<!--<button class="ewb-sea-btn" id="searchBtn"></button>-->
+							
+						</div>
+						<!-- <div class="ewb-hotsea clearfix">
+							<span class="hotsea-name l">
+								热门搜索 ：
+							</span>
+							<ul class="ewb-hotsea-items l">
+								<li>
+									<a href="/fullsearch.html?wd=交易公告" title="交易公告" target="_blank" class="hotsea-lk">
+										交易公告
+									</a>
+								</li>
+								<li>
+									<a href="/fullsearch.html?wd=信息公开" title="信息公开" target="_blank" class="hotsea-lk">
+										信息公开
+									</a>
+								</li>
+								<li>
+									<a href="/fullsearch.html?wd=通知" title="通知" target="_blank" class="hotsea-lk">
+										通知
+									</a>
+								</li>
+								
+							</ul>
+						</div> -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- nav -->
+	<div class="ewb-nav">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-24">
+					<ul class="ewb-nav-items clearfix">
+						<li>
+							<a href="/" class="nav-lk trans  bg01">
+								<i></i>
+								<span class="nav-name">
+									首页
+								</span>
+							</a>
+						</li>
+	    
+		                <li>
+							<a href="/zxzx/center.html" class="nav-lk trans bg02" id="zxzx" target="_blank">
+								<i></i>
+								<span class="nav-name">
+									资讯中心</span>
+							</a>
+						</li>                   
+		            
+		             <li>
+							<a href="/zwgk/002004/policyInter.html" class="nav-lk trans bg03" id="zwgk" target="_blank">
+								<i></i>
+								<span class="nav-name">
+									政府信息公开
+								</span>
+							</a>
+						</li>                           
+		            
+		             <li>
+							<a href="http://www.hbzwfw.gov.cn/" class="nav-lk trans bg04" target="_blank">
+								<i></i>
+								<span class="nav-name">
+									政务服务</span>
+							</a>
+						</li>                         
+		            
+		            <li>
+							<a href="http://szj.hebei.gov.cn/zbtbfwpt/index" class="nav-lk trans bg06" target="_blank">
+								<i></i>
+								<span class="nav-name">
+									招标投标</span>
+							</a>
+						</li>                         
+		            
+		            <li>
+							<a href="https://szj.hebei.gov.cn/hbggfwpt/" class="nav-lk trans bg09" target="_blank">
+								<i></i>
+								<span class="nav-name">
+									公共资源交易</span>
+							</a>
+						</li>                         
+		            
+		            <li>
+							<a href="/hdjl/interaction.html" class="nav-lk trans bg07" id="hdjl" target="_blank">
+								<i></i>
+								<span class="nav-name">
+									互动交流</span>
+							</a>
+						</li>                       
+		            
+		             <li>
+							<a href="/zqdh/lineNav.html" class="nav-lk trans bg08" id="zqdh" target="_blank">
+								<i></i>
+								<span class="nav-name">
+									站群导航</span>
+							</a>
+						</li>                    
+		            </ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- footer -->
+<div class="ewb-footer">
+	<div class="container">
+		<div class="ewb-porela row">
+		<div class="ewb-footer-msg clearfix">
+			<div class="clearfix">
+				<div class="ewb-guide">
+					<!-- 
+		                                 <a href="/gybz/about.html" target="_blank">关于本站</a>            	                                            
+		                                <span>|</span> -->
+					
+		                                 <a href="/wzdt/lineMap.html" target="_blank">网站地图</a>            	                                            
+		                                <span>|</span>
+					<a onclick="AddFavorite(window.location,document.title)" href="javascript:void(0)">
+						添加收藏
+					</a>
+					<span>|</span>
+					<a href="https://map.baidu.com/search/%E6%B2%B3%E5%8C%97%E7%9C%81%E6%95%B0%E6%8D%AE%E5%92%8C%E6%94%BF%E5%8A%A1%E6%9C%8D%E5%8A%A1%E5%B1%80/@12742407.505,4566492.8,19z?querytype=s&da_src=shareurl&wd=%E6%B2%B3%E5%8C%97%E7%9C%81%E6%95%B0%E6%8D%AE%E5%92%8C%E6%94%BF%E5%8A%A1%E6%9C%8D%E5%8A%A1%E5%B1%80&c=150&src=0&wd2=%E7%9F%B3%E5%AE%B6%E5%BA%84%E5%B8%82%E6%96%B0%E5%8D%8E%E5%8C%BA&pn=0&sug=1&l=13&b=(12721390.285,4557145.88;12769326.285,4581881.88)&from=webmap&biz_forward=%7B%22scaler%22:2,%22styles%22:%22pl%22%7D&sug_forward=119fba9d264d5f9bb75f1ed7&device_ratio=2" target="_blank">
+						联系我们
+					</a>
+				</div>
+				<p class="foot-para">
+					主办单位：河北省数据和政务服务局&nbsp;&nbsp;&nbsp;
+					<a style="color: #999;" href="http://beian.miit.gov.cn">冀ICP备2024064670号-3</a>
+				</p>
+			</div>
+			<div class="clearfix">
+				<p class="foot-para">
+					<a style="color: #999;" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=13010502001611" target="_blank"><span class="ga-logo">冀公网安备: 13010502001611号</span></a>
+				</p>
+				<p class="foot-para">
+					  政府网站标识码：1300000074
+				</p>
+				<p class="foot-para">
+					您是第<span class="ewb-foot-num" id="siteViewCount"></span>位访问者  
+			</p>
+			</div>
+			<div class="clearfix">
+   
+                <p class=""><span class="foot-para">中文域名：河北省数据和政务服务局.政务</span></p>
+                <p class="foot-para">
+					<a style="color: #999;" href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank">
+					  <span class="">中文备案号：冀ICP备2024064670号-11</span>
+				    </a>
+				</p>
+            </div>
+		</div>
+		<div class="ewb-footer-lk">
+		    <a href="https://bszs.conac.cn/sitename?method=show&amp;id=D81DF173BB2E22E1E05310291AACD640" class="ewb-footer-img1" target="_blank">
+		        <img src="/images/foot_img1.png" alt="事业单位"/>
+		    </a>
+		    <a href="http://121.43.68.40/exposure/jiucuo.html?site_code=1300000074&url=http%3A%2F%2Fggzy.hebei.gov.cn%2Findex.html" class="ewb-footer-img2" target="_blank">
+		        <img src="/images/foot_img2.png"  alt="政府找错网"/>
+		    </a>
+		</div>
+		</div>
+	
+	</div>
+</div>
+
+<script>
+    	//加入收藏
+        function AddFavorite(sURL, sTitle) {
+            sURL = encodeURI(sURL); 
+        try{   
+            window.external.addFavorite(sURL, sTitle);   
+        }catch(e) {   
+            try{   
+                window.sidebar.addPanel(sTitle, sURL, "");   
+            }catch (e) {   
+                alert("加入收藏失败，请使用Ctrl+D进行添加,或手动在浏览器里进行设置.");
+            }   
+        }
+    }
+
+    </script>
+</div>
+    
+    <!-- 列表页结果模板 -->
+    <script type="text/x-template" id="resultlist-tmpl">   
+        {{#items}}
+        	<tr>
+                <td><p>{{sequence}}</p></td>
+                <td><div class="hack-len"><a href="/messageDetail.html?infoGuid={{infoGuid}}">{{subject}}</a></div></td>
+                <td><p>{{handleDate}}</p></td>
+            </tr>
+		{{/items}}
+    </script>
+    
+    
+    <!-- 页面脚本 -->
+	<script src="/js/lib/layer/layer.js"></script>
+    <script src="/js/ABT/ABTLoad.js"></script>
+    <script src="/js/webBuilderCommon.js"></script>
+    <script src="/js/pageView.js"></script>
+    <script src="/OAuth/js/js.cookie.min.js"></script>
+	<script src="/OAuth/js/OAuth.js"></script>
+	<script src="/OAuth/js/Common.js"></script>
+    <script src="/js/lib/jquery.sidr.js"></script>
+    <script src="/js/lib/placeholder.min.js"></script>
+    <script src="/js/lib/pagination/mricode.pagination.js"></script>
+    <script src="/js/lib/mustache.js"></script>
+    <script src="/js/subcom.js"></script>
+    <script src="/js/messageList.js"></script>
+</body>
+
+</html>

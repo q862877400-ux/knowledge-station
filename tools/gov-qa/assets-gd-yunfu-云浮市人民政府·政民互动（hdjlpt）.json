@@ -1,0 +1,2499 @@
+{
+ "A_考卷": [
+  {
+   "source": "gd-yunfu",
+   "id": "3170606",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=3170606",
+   "question": "危险化学品经营许可证办理延期咨询\n您好，请问危险化学品经营许可证办理延期，经营方式是：不带有储存设施经营（门店经营），办理延期需要提交安全评估报告吗？",
+   "cited_hits": [
+    {
+     "name": "危险化学品经营许可证管理办法",
+     "lib_no": "关于公开征求《危险化学品经营许可证管理办法(修订征求意见稿)》意见的通知",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "3157043",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=3157043",
+   "question": "到退休年龄未领取养老保险待遇，能否终止劳动合同？\n劳动者到达退休年龄，但社保未买够年限，无法领取养老保险待遇，单位是否能够依据《中华人民共和国劳动合同法实施条例》第二十一条“劳动者达到法定退休年龄的，劳动合同终止。”终止劳动合同？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国劳动合同法",
+     "lib_no": "劳动合同法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国劳动合同法实施条例",
+     "lib_no": "劳动合同法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国劳动合同法实施条例",
+     "lib_no": "劳动合同法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "3142606",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=3142606",
+   "question": "你好，想了解一下老年人有关电动车出行的问题\n你好， 想了解一下老年人有关电动车出行的问题，因为60岁70岁以上很多摩托车是驾使不了，老人家出行买菜不方便，现在符合国标的老人电动助力三车是否需要驾照？或者哪些车是老人家不用驾照可以代步出行呢？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国道路交通安全法",
+     "lib_no": "道路交通安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "3091894",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=3091894",
+   "question": "成立财务公司的条件\n你好！请问2025年在云浮市云城区成立财务公司，经营范围：财务咨询、代理记账等，需要办理营业执照需要提供什么资料？对财务公司的法人有什么要求？去那里办理相关手续？",
+   "cited_hits": [
+    {
+     "name": "市场主体登记管理条例",
+     "lib_no": "市场主体登记管理条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "公司法",
+     "lib_no": "公司法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2871909",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2871909",
+   "question": "工伤劳动能力鉴定申请\n请问关于我（陈桂庄）的工伤劳动能力鉴定申请是否已提交，如果提交了大概在什么时候在劳动能力鉴定，谢谢！",
+   "cited_hits": [
+    {
+     "name": "广东省工伤保险条例",
+     "lib_no": "工伤保险条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "材料收讫告知书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2832616",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2832616",
+   "question": "关于失业金的一些问题咨询\n请问一下 1.社保的失业保险实际缴费46个月，能领取多少个月的失业金？？缴费期间有过不同几家公司、中间也有过几个月断缴，能连续领取几个月的失业金？？ 2.如何办理领取失业保险金业务？ 3。如何办理领取失业保险金期间",
+   "cited_hits": [
+    {
+     "name": "广东省失业保险条例",
+     "lib_no": "失业保险条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "广东省失业保险条例",
+     "lib_no": "失业保险条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2632576",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2632576",
+   "question": "快递末端网点\n本人想做代收快递业务和网上代购，需要办理什么证件手续？",
+   "cited_hits": [
+    {
+     "name": "快递暂行条例",
+     "lib_no": "快递暂行条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "市场主体登记管理条例",
+     "lib_no": "市场主体登记管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2596585",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2596585",
+   "question": "关于危化品不设仓储经营许可证办理\n您好，关于危化品不设仓储经营许可证办理事宜未收到相关回复，故再次咨询贵局，本人已咨询过省应急厅，省厅回复如下：“非常感谢您对广东应急管理工作的关心与支持。从事危险化学品经营的企业，应当按照《危险化学品经营许",
+   "cited_hits": [
+    {
+     "name": "危险化学品经营许可证管理办法",
+     "lib_no": "关于公开征求《危险化学品经营许可证管理办法(修订征求意见稿)》意见的通知",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2562435",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2562435",
+   "question": "请问本市对于空置房的物业费有减免的政策吗？\n据了解，很多地方对于空置房的物业费用都有减免的政策，请问本市对于空置房的物业费有减免的政策吗？如果有，政策是怎样规定收费的，麻烦告知一下，谢谢",
+   "cited_hits": [
+    {
+     "name": "广东省物业管理条例",
+     "lib_no": "物业管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2424588",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2424588",
+   "question": "慈善基金会年审流程\n想知道慈善基金会的年度报告的流程 现在做是补上年的 还是做2022年的 几时到期 上年10月成立的 想知道具体流程",
+   "cited_hits": [
+    {
+     "name": "基金会管理条例",
+     "lib_no": "基金会管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "广东省民政厅关于社会组织年度工作报告的实施办法（试行）",
+    "中国社会报",
+    "公益时报",
+    "南方日报"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2389292",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2389292",
+   "question": "公租房申请条件\n领导您好，关于申请青年安居计划高校应届毕业生类别的第二个条件：与市直、云城区的行政、企事业单位签订了劳动合同。请问企业算吗，签订的是云浮市中盈策划咨询有限公司云浮，然后派遣到市人社局的，想问问这种情况可以申请吗？",
+   "cited_hits": [
+    {
+     "name": "居住证暂行条例",
+     "lib_no": "居住证暂行条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "居住证暂行条例",
+     "lib_no": "居住证暂行条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "云浮市云城区2021年公共租赁住房申请受理通告",
+    "关于对云浮市云城区2021年公共租赁住房申请受理对象进行补充的通告",
+    "云浮市公共租赁住房申请表",
+    "云浮市公共租赁住房申请表",
+    "云浮市公共租赁住房申请表",
+    "云浮市公共租赁住房申请表",
+    "云浮市公共租赁住房申请表",
+    "云浮市公共租赁住房申请表",
+    "云浮市公共租赁住房申请表",
+    "广东省流动人口服务管理条例",
+    "广东省流动人口服务管理条例",
+    "广东省城镇住房保障办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2228214",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2228214",
+   "question": "建房\n居民户口如何申请宅基地建房",
+   "cited_hits": [
+    {
+     "name": "土地管理法",
+     "lib_no": "土地管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于规范农村宅基地审批管理工作的通知（试行）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2212476",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2212476",
+   "question": "机关事业单位编外人员社保问题\n请问，机关事业单位的编外人员，例如合同工、社工等购买的社保医保，是按机关事业单位的标准执行？还是按企业的标准执行的？有没有相关文件？",
+   "cited_hits": [
+    {
+     "name": "劳动法",
+     "lib_no": "劳动法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "社会保险法",
+     "lib_no": "社会保险法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "转发关于公布2020年全省从业人员月平均工资和职工基本养老保险缴费基数上下限有关问题的通知",
+    "关于2022年职工基本医疗保险和生育保险年度调整有关事项的通知"
+   ],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "gd-yunfu",
+   "id": "3491872",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=3491872",
+   "question": "申请公租房\n如何申请公租房",
+   "cited_hits": [],
+   "cited_missing": [
+    "云浮市云城区公共租赁住房申请受理通告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "3393459",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=3393459",
+   "question": "医保问题咨询\n2025年12月缴了的2026年的医保费，到了2026年3月29号家人就医，结果说没有医保，后面说是要到4月1号才生效？正规的第二人民医院。",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省医疗保障局关于贯彻落实基本医疗保险参保长效机制的通知",
+    "云浮市人民政府办公室关于印发云浮市基本医疗保险管理办法的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "3371659",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=3371659",
+   "question": "异地就医结算\n我父亲在云浮市参加居民医保。2025年在广州市某医院门诊就医的发票，可以拿回云浮报销一部分吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "云浮市人民政府办公室关于印发云浮市基本医疗保险管理办法的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "3330220",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=3330220",
+   "question": "报名考危险品押运资格证\n怎么报名考危险品押运资格证",
+   "cited_hits": [],
+   "cited_missing": [
+    "危险货物运输从业人员从业资格考试申请表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "3300401",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=3300401",
+   "question": "关于职称评定年限的疑问，麻烦解答一下\n本人全日制本科学历，毕业时间2014年7月，在2023年5月12日通过考核认定获得助理工程师证书（评审组织：深圳市电力职称评审委员会，评审会年度：2022年），按现在云浮市最新政策，从哪一年开始算起4年",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省初次职称考核认定规定",
+    "广东省人力资源和社会保障厅关于印发广东省电力工程技术人才职称评价标准条件的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "3278477",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=3278477",
+   "question": "春季高考\n我是本届的应届生，我需要回户籍所在地去参加高考，我需要什么材料证明吗，我应该先在网上报名，还是在招生办报名然后再去网上报名，麻烦您了谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省中学生德育考核表",
+    "广东省2026年普通高校招生统一考试考试思想政治统一考核表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "3270108",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=3270108",
+   "question": "春季高考\n我是一名广东省云浮郁南户籍的社会考生（且2025年已高中毕业），想参加2026的春季高考，能否在郁南的原高中报考? 还有就是我看了相关要求，思想政治品德考核表是要在所属乡镇，街道办事处鉴定，但我只能找到（郁南县人民）政府的地址，在",
+   "cited_hits": [],
+   "cited_missing": [
+    "思想政治品德考核表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "3173891",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=3173891",
+   "question": "报名考危险品运输资格证\n云浮市在哪里报名考危险品运输资格证。",
+   "cited_hits": [],
+   "cited_missing": [
+    "危险货物运输从业人员从业资格考试申请表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "3129062",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=3129062",
+   "question": "牙冠是否可以用医保？\n想问一下牙冠是否可以用职工医保的定点医院报销？如果不能报销，能否使用医保的个人账户支付？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省基本医疗保险、工伤保险和生育保险医用耗材目录",
+    "云浮市人民政府办公室关于印发云浮市基本医疗保险管理办法的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "3087665",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=3087665",
+   "question": "关于产检报销\n单位有购买职工医保，想问几个问题： 1、产检报销一定需要定点医院后才能报销吗？一定要在定点的医院产检才能报销吗？ 2、如果定点的医院有部分项目没有开设的情况下，去其他医院检查就不能报销吗？ 3、选择了定点医院之后还能更改吗？ ",
+   "cited_hits": [],
+   "cited_missing": [
+    "云浮市医疗保障局关于贯彻&lt;广东省职工生育保险规定&gt;的意见",
+    "广东省医疗保障局关于印发&lt;广东省生育保险经办规程&gt;的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "3069299",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=3069299",
+   "question": "城乡居民医保报销问题\n您好！我父亲过去几年断交了城乡居民医保，今年2025年的医保已经在集中缴费期缴纳。请问如果去三甲医院中医康复科住院进行康复训练的话，是否能够报销，期待回复，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "云浮市人民政府办公室关于印发云浮市基本医疗保险管理办法的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "3043092",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=3043092",
+   "question": "新农保\n父母今年58岁，之前一直没有买过城乡居民养老保险，现在可以一次性补交15年吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省人民政府关于印发&lt;广东省城乡居民基本养老保险实施办法&gt;的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2988463",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2988463",
+   "question": "门诊特定病种待遇认定，广东省内的异地定点医院就医是否需要回去办理？\n您好，我父母是在郁南县购买的居民医保，目前在佛山顺德长期居住，已经在粤医保通过提供居住证的方式办理好了异地就医备案，他们分别有糖尿病、高血压多年，但是并没有申请过确诊认定，",
+   "cited_hits": [],
+   "cited_missing": [
+    "云浮市人民政府办公室关于印发云浮市基本医疗保险管理办法的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2969343",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2969343",
+   "question": "报销\n参保地在云安但是长期住在佛山市南海区 已经通过了省内异地医保备案 但是一直选点不了怎么办",
+   "cited_hits": [],
+   "cited_missing": [
+    "云浮市人民政府办公室关于印发云浮市基本医疗保险管理办法的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2956409",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2956409",
+   "question": "省内异地居民医保门特报销比例\n确诊癌症后，省内异地门特的报销比例是多少？在治疗期间、门特的报销限额是多少？办理门特之前，为确诊癌症所作的门诊检查费在门特卡办理成功后能否进行报销？患者目前在广州、佛山就医",
+   "cited_hits": [],
+   "cited_missing": [
+    "云浮市人民政府办公室关于印发云浮市基本医疗保险管理办法的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2944545",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2944545",
+   "question": "一年级入学职业技能证书加分咨询\n您好，请问08年考的职业技能证书，现在在网上查验不了，小孩入学需要，当时是在肇庆考的证书，请问在云浮人社能开具证明吗，本人是云浮户口。辛苦告知一下，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "人力资源社会保障部办公厅关于启用新版职业资格证书及加强证书核发管理工作有关问题的通知",
+    "人力资源社会保障部办公厅关于进一步做好技能人员职业资格证书发放管理有关工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2894916",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2894916",
+   "question": "孤儿\n孤儿考上大学还能申请生活补贴吗，如果可以，还可以申请孤儿圆梦工程补贴吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省民政厅 广东省财政厅关于发放孤儿基本生活费的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2854219",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2854219",
+   "question": "高䶖津贴\n领导好，我出生在1943年，是新兴县新城镇村民。目前已经达到80高龄津贴，由于年龄大，行动不便，在广东政务服务网上在老有所依想申领高龄津贴，但云浮市在民政系统网上申请办理只有云安区，郁南、和罗定，没有新兴县，请问新兴县几时有网上办",
+   "cited_hits": [],
+   "cited_missing": [
+    "80周岁以上高龄老人津贴申请审批表",
+    "80周岁以上高龄老人津贴申请审批表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2722221",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2722221",
+   "question": "应届生硕士补贴咨询\n您好！ 我是今年硕士应届毕业生，就业于温氏食品集团。想咨询应届硕士是否有就业类补贴政策，诸如租房补贴、人才补贴等？",
+   "cited_hits": [],
+   "cited_missing": [
+    "产业人才计划实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2705814",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2705814",
+   "question": "云浮市公务员和事业单位报名要求及报名入口\n您好，请问云浮市公务员和事业单位报名要求及报名入口在那里可以查询，可否发详细链接，感谢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省事业单位公开招聘人员办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2701949",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2701949",
+   "question": "哈啰顺风车\n在哈啰顺风车平台偶尔接单合法吗 现在是什么政策",
+   "cited_hits": [],
+   "cited_missing": [
+    "网络预约出租汽车经营服务管理暂行办法",
+    "云浮市网络预约出租汽车经营服务管理实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2695407",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2695407",
+   "question": "云浮市2023年镇街事业单位紧缺人才专项公开招聘中的相关问题\n该公告中没有明确说明在服务期内能否报考公务员，且在上条他人所咨询的同类问题中，答复是2022年招聘中是在服务期内报考公务员是不作限制的，没有回答2023年的这次招聘是否和上一年同",
+   "cited_hits": [],
+   "cited_missing": [
+    "云浮市2023年镇（街）事业单位紧缺专业人才专项公开招聘公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2650359",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2650359",
+   "question": "云浮市2023镇街事业单位紧缺人才专项公开招聘\n云浮市2023镇街事业单位紧缺人才专项公开招聘中的五年服务期内是否可以继续报考公务员。",
+   "cited_hits": [],
+   "cited_missing": [
+    "云浮市2022年镇（街）事业单位引进镇域经济发展紧缺专业人才专项招聘公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2642479",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2642479",
+   "question": "广东省事业单位统考资格审查\n我参加报考了本次统考，但是我是以择业期身份进行报考的，进面了云浮的一个岗位，现在要准备资格审查，然后查询了往年的公告，没有发现择业期相关资格审查的说明，请问是不是跟其他考生一样的审查材料呢？如果不是的话，我要额外",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省事业单位2023年集中公开招聘高校毕业生公告",
+    "报考指南"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2641937",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2641937",
+   "question": "关于咨询城乡居民养老保险中的慢病范围\n你好，想咨询一下（风湿性心脏病）属于新农保就是城乡居民养老保险中的慢病吗，确诊后需要一直吃药，费用负担有些大，因为慢病可以报销部分药费，所以想确认一下风湿性心脏病是否属于慢病吗。",
+   "cited_hits": [],
+   "cited_missing": [
+    "云浮市医疗保障局关于印发云浮市基本医疗保险门诊特定病种管理办法的通知",
+    "云浮市医疗保障局关于印发云浮市基本医疗保险门诊特定病种管理办法的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2640965",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2640965",
+   "question": "申领问题\n申请过了基层就业补贴，这个基层就业个人社会保险补贴是不可以申请了吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "云浮市人力资源和社会保障局关于印发＜云浮市就业创业补贴申请办理指导清单＞的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2627223",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2627223",
+   "question": "关于计算机技术与软件专业技术职业资格证书与职称之间的关系咨询\n云浮市人社局您好： 本人现已考取由人社部和工信部共同组织的计算机技术与软件专业技术网络管理员职业资格证书（在粤省事里面也可以查询到本人的广东省专业技术人员职业资格电子证书），请问",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好2022年度职称评审工作的通知",
+    "人力资源社会保障部工业和信息化部关于深化工程技术人才职称制度改革的指导意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2619514",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2619514",
+   "question": "职工医保定点问题\n职工医保是怎么使用的？是否需要定点？看病要在定点医院看才能统筹报销吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "云浮市人民政府办公室关于印发云浮市职工基本医疗保险门诊共济保障实施细则的通知",
+    "云浮市医疗保障局关于印发云浮市基本医疗保险门诊特定病种管理办法的通知",
+    "云浮市人民政府关于印发云浮市职工基本医疗保险规定的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2570796",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2570796",
+   "question": "诊查费不允许刷医保，只能现金或者微信支付宝\n罗定妇幼保健院3.15开始，挂号提前收取诊查费，这个没问题，问题是不能刷医保卡，只能现金微信支付宝。但是以前就诊后开单，就诊单包含诊查费检查费中西医药费等，是可以一并刷医保卡（个人账户余额，不是报",
+   "cited_hits": [],
+   "cited_missing": [
+    " 诊查费不允许刷医保，只能现金或者微信支付宝 ",
+    " 诊查费不允许刷医保，只能现金或者微信支付宝 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2539774",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2539774",
+   "question": "办证\n开一家石料加工场（碎石场）需要办理办理排污许可证手续吗？怎么办理？",
+   "cited_hits": [],
+   "cited_missing": [
+    "固定污染源排污许可分类管理名录",
+    "固定污染源排污许可分类管理名录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2519586",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2519586",
+   "question": "关于2023年高血压报销的问题\n尊敬的领导: 您们好，我们家庭一共6口人，有一个儿子1岁多因肾病综合征这个病已经导致债台高筑，现在终于好不容易停药了，家里老人确因高血压导致有肾病综合征，自2022年3月份确诊至今一直吃药治疗，因条件有限只能",
+   "cited_hits": [],
+   "cited_missing": [
+    "云浮市医疗保障局关于印发云浮市基本医疗保险门诊特定病种管理办法的通知",
+    "云浮市医疗保障局关于印发云浮市基本医疗保险门诊特定病种管理办法的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2456364",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2456364",
+   "question": "关于退回农民工账户保证金的详细操作指引\n1、退回保证金需要什么资料，需要的资料是否有模板提供？ 2、退保证金的详细操作指引，如：第一步先做什么，第二步做什么，如此类推的详细教程？ 3、退回保证金是网上申请还是线下递交资料申请还是线上线下都要",
+   "cited_hits": [],
+   "cited_missing": [
+    "退回工资支付保证金申请表",
+    "施工企业工人工资支付情况表",
+    "办理退回工资保证金授权书",
+    "工程建设领域农民工工资保证金规定",
+    "工程建设领域农民工工资保证金规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2374177",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2374177",
+   "question": "2022年双百总成绩\n你好，请问一下2022年双百总成绩大概什么时候出。同时是否会显示总成绩和面试成绩。因为在网络上某一些地方说在网络上不公布面试成绩，只在考完试后现场公布，如果不看成绩则不会再显示面试成绩。是否我市也是如此。同时入围体检名",
+   "cited_hits": [],
+   "cited_missing": [
+    "云浮市民政局关于2022年公开招聘 “ 双百工程 ” 乡镇（街道）社会工作服务站社工入职体检有关事项的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2373233",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2373233",
+   "question": "居民医疗保险\n在云浮退休时办理的一次性养老补缴，未缴交过职工医疗保险的，是否可以参加居民城乡医疗保险缴费",
+   "cited_hits": [],
+   "cited_missing": [
+    "云浮市人民政府关于印发云浮市城乡居民基本医疗保险实施办法的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2370361",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2370361",
+   "question": "如何申请生育津贴和产检报销\n本人为二胎准爸爸，一直缴纳生育险，1.想咨询一下如果妻子生育二胎，如何申请生育险的相关津贴或报销，需要什么资料及办理途径？2.产检费用相关听说可以在职工或城乡居民保险中报销一部分，如何办理，需要什么材料报销，谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省职工生育保险规定",
+    "生育保险待遇申请表",
+    "生育保险待遇申请表"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2362988",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2362988",
+   "question": "人才政策咨询\n您好，想了解一下海外高层次人才来到云浮就业发展，有哪些计划可以申报；如果申报成功的话，可以得到哪些政策奖励，谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "产业人才计划实施方案",
+    "教育英才计划实施方案",
+    "医疗卫生英才计划实施方案",
+    "机关事业单位紧缺人才计划实施方案",
+    "中医药（南药）产业人才振兴计划三年行动方案",
+    "柔性引进人才实施办法",
+    "云浮市2022年促进高校毕业生就业十条措施"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2359216",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2359216",
+   "question": "云浮市关于国有独资企业薪酬待遇计算的相关规定\n关于国有企业人员薪酬待遇计算的相关规定。云浮市国有企业性质为全民所有制改制为国有独资公司薪酬待遇的计算方式和公式？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省人民政府关于改革国有企业工资决定机制的实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2315902",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2315902",
+   "question": "咨询\n我在云浮市中晟房地产开发有限公司。云浮市郁南县都城镇九星大道86号郁南华盛.圆坊都荟花园第16幢买了一套商品房。售楼部没有公示该栋16楼预售许可证。在住建局官网上也没有地方可以查询。现在想知道该16栋楼预售许可证什么时候颁发的？",
+   "cited_hits": [],
+   "cited_missing": [
+    "商品房预售许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2243838",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2243838",
+   "question": "广东育儿假的实施\n之前看到新闻，广东新增育儿假政策，子女三周岁以内，父母每年各享受10日育儿假，请问这个政策有没有开展实施了？企业员工可不可以享受这个政策？具体如何落实？有没有具体文件支撑？如有文件，可否提供一下，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省人口与计划生育条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2239073",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2239073",
+   "question": "咨询类\n领导好，我想咨询下如果需要在南江口港区新建码头，又没有列入十四五规划，那么一定需要列进十四五规划才能新建吗？如果是，那么还有可能再列进规划审批通过新建吗？流程是怎样的呢？需要多长时间？谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "云浮港总体规划",
+    "港口经营许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2228575",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2228575",
+   "question": "城市基础设施配套费计费基数\n您好，我想咨询一下，贵市现实行的城市基础设施配套费计费基数具体是怎么计算的。",
+   "cited_hits": [],
+   "cited_missing": [
+    "云浮市人民政府办公室关于调整市城区城市基础设施配套费计费基数的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2228302",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2228302",
+   "question": "是否可申请补贴\n请问已取得中级会计师，是否有政策可申请补贴",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省人力资源和社会保障厅 广东省财政厅关于印发广东省劳动力职业技能提升培训补贴申领管理办法的通知",
+    "广东省职业技能提升培训补贴申领管理信息系统"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2218452",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2218452",
+   "question": "关于初级职称认定事项\n你好！我想请问一下专科生“工程造价”（C081702）毕业，但是现工作是工程现场施工管理，在职称上是不是不能评“建筑工程助理工程师”？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省建筑工程技术人才职称评价标准条件"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2214641",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2214641",
+   "question": "咨询：项目所属环境管控单元编码\n六都港区属于云浮港，位于云浮市云安区六都镇的西江南岸。现特咨询： 六都港区的四围塘作业区、黄湾作业区及六都作业区的三个作业区分属《云浮市环境管控单元准入清单》中具体的环境管控单元编码。",
+   "cited_hits": [],
+   "cited_missing": [
+    "云浮市环境管控单元准入清单"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2212292",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2212292",
+   "question": "职称申报时间问题\n根据贵局公众号推送的文章，全市职称评审、认定的申报材料受理时间为2022年1月1日-2022年3月31日，本人提交申报资料到罗定人力资源和社会保障局专技股，但罗定人社局以申报受理时间截止2022年3月15日为由不受理申报，",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好2021年度云浮市职称评审认定工作的通知",
+    "转发关于做好2021年度云浮市职称评审认定工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2203716",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2203716",
+   "question": "罗定市市政广场新冠疫苗大型临时接种点工作时间\n罗定市市政广场新冠疫苗大型临时接种点工作时间没有对市民公开，市民究竟什么时候有疫苗打都不清楚。现在天气热了，许多老人家下午两点钟就在现场排队了，等到两点半还没有开门。两点半后工作人员才陆续回来，",
+   "cited_hits": [],
+   "cited_missing": [
+    "罗定市红十字会医院订阅号"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2190211",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2190211",
+   "question": "农村宅基地的管理办法细则\n请问在哪里可以下载农村宅基地管理办法细则的所有条文？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于全面规范我县农村宅基地审批管理的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2169902",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2169902",
+   "question": "异地生育社保备案\n您好！我想咨询一下，我的社保在云浮，老婆在惠州市生育，在当地的社保局备案，需要携带什么资料？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省职工生育保险规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2155697",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2155697",
+   "question": "公积金提取\n2021年10月夫妻双方在郁南县购买了一手房，现在（2022.1）想提取首付的款项，需要什么资料？提取申请表格哪里可以下载？首付款发票已经跟楼盘换了全款发票怎么办？（手上没有首付款发票）盼复！",
+   "cited_hits": [],
+   "cited_missing": [
+    "云浮市住房公积金提取管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2149960",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2149960",
+   "question": "助力社工师补贴\n广州、深圳、顺德、清远、惠州等地级市均出台政策，对持有助理社工师证书并按要求进行注册登记的人员进行相应补贴，云浮民政局是否有出台此类政策？在云浮市考取助力社工师是否有相应的补贴奖励？",
+   "cited_hits": [],
+   "cited_missing": [
+    "薪酬管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2144345",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2144345",
+   "question": "有关云浮钢铁基地的一些问题\n目前，云浮在建金晟兰、南方东海等电炉炼钢项目，云浮周边的梧州、阳江、清远等地均有在建较大规模的电炉炼钢企业，湛江、韶关、珠海有大型钢铁联合企业。笔者曾在马鞍山钢铁集团实习过。适度发展钢铁行业可以带动较多税收和就业",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发广东省发展先进材料战略性支柱产业集群行动计划（2021-2025年）的通知",
+    "广东省制造业高质量发展“十四五”规划",
+    "广东金属智造科技产业园市政专项规划",
+    "广东金属智造科技产业园优特钢高质量发展产业规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2148337",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2148337",
+   "question": "广东省食品安全管理人员考试合格证明\n我是一名个体户，店铺面积90平方左右，经营水果，糖饼，店内有冷库，是否需要考取食品安全管理员合格证，我这边微信一直在催我交钱去考，我不知道是否遇上了骗子。",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省市场监督管理局关于广东省食品安全管理人员管理办法",
+    "广东省食品安全管理人员考试合格证明"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2122352",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2122352",
+   "question": "高校毕业生到中小微型企业就业补贴\n想知道申请该就业补贴需要什么资料，申请的时间是否有规定，到哪里进行申请",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发&lt;广东省就业创业补贴申请办理指导清单（2021年修订版）&gt;的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "1884633",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=1884633",
+   "question": "在云浮地区在平台接顺风车或拼车合法吗\n请问在云浮地区接平台上的跨城顺风车或拼车合法吗，如平台：滴滴出行 /滴嗒出行/哈啰出行。这几个平台在云浮地区有备案吗。谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "云浮市网络预约出租汽车经营服务管理实施细则",
+    "云浮市网络预约出租汽车经营服务管理实施细则"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "1100155",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=1100155",
+   "question": "外资企业跨市设立分公司的所需资料\n我司需在云安区设立一分公司，想咨询需要准备什么材料到哪里办理？",
+   "cited_hits": [],
+   "cited_missing": [
+    "【2】分公司设立登记提交材料规范.docx"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "1061840",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=1061840",
+   "question": "关于是否符合新就业无房职工申请条件\n首先感谢云浮市住房和城乡建设局8月20日的答疑，因当时提供的信息较少，现经贵局罗列的申请条件对照，再询问，烦请在百忙中抽空解答我的疑惑。 本人罗定户口，37岁，2004年中专毕业，2019年在云浮A公司商",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于是否符合新就业无房职工申请条件"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "gd-yunfu",
+   "id": "3477263",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=3477263",
+   "question": "关于2013年毕业报道后，现在怎么查自己的档案存档\n2013年6月大专毕业后，当年7月于云浮人力资源保障报道，现在想查询档案归档在哪，专升本档案该如何合并",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "3468018",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=3468018",
+   "question": "云浮统计年鉴建筑专题口径咨询\n老师您好~ 请问2002-2025年云浮统计年鉴建筑专题统计范围是什么？均为“总承包和专业承包”，不含“劳务分包”是吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "3458238",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=3458238",
+   "question": "营业执照号是指哪个？\n营业执照号是指哪个？营业执照左上角的编号S0XXXXX；统一社会信用代码9144XXXXX；请问哪个才是“营业执照号”？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "3431516",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=3431516",
+   "question": "医保问题咨询\n本人医保备案异地长居在云浮，并定点了云浮人民医院。 最近在普通门诊结算时，选了自费，没用医保： 现在的问题是，能否重新将自费改为医保报销？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "3416246",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=3416246",
+   "question": "医保咨询\n您好！ 想要咨询一下医保相关事务，具体情况如下：我母亲今年54岁，工作将近13年，此前工作单位一直有为其缴纳职工医保和社保。去年53岁的时候，已经到了退休年龄，但是还没有缴纳足够15年社保，现在每月按灵活就业缴纳社保足够年份再办理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "3364601",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=3364601",
+   "question": "医保余额\n我23年开始交的医保，为什么现在到26年查询余额只有90多块钱",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "3346565",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=3346565",
+   "question": "经济\n2025年云浮市经济预计突破多少亿元，经济总量具体多少以及增量和增速",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "3312560",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=3312560",
+   "question": "职称申请咨询\n你好，问下我在广东省人社的网站上进行初次职称评审的申请，在填报个人资料的环节，需要填报人事管理单位，但是在系统搜索里没有本公司的名字，怎么开通让公司名称在系统显示呢？还有主管单位也是填报不了，麻烦解答下，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "3278868",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=3278868",
+   "question": "应届毕业生就业支持\n作为即将毕业的大学生，想咨询：云浮市针对2026届高校毕业生，是否有面向本地企业的就业补贴或针对毕业生的创业扶持政策？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "3263055",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=3263055",
+   "question": "关于租赁南山公园共享菜园\n请问南山公园共享菜园还有地可以租嘛，什么渠道可以租到地。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "3252010",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=3252010",
+   "question": "如何在线注销营业执照\n我有一本营业执照一直没有用，现在想要注销，人没有在当地，请问要怎么在线上注销",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "3235074",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=3235074",
+   "question": "关于灵活就业医保的问题\n请问父母今年55岁，还能参加灵活就业医保吗？ 1.父亲已满55岁，此前已交满20年职工养老保险，但是没有交过职工医保，只买了居民医保，请问现在还能逐月买灵活就业医保吗？有等待期吗？或者能不能一次补缴？ 2.母亲今年1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "3225947",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=3225947",
+   "question": "职称评审\n咨询一下我要职称评审需要准备和提供哪些材料，从事国土行业的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "3215389",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=3215389",
+   "question": "如何报考劳动关系协调员的证书\n想了解当地报考劳动关系协调员的渠道、报考时间，以及报考条件。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "3208585",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=3208585",
+   "question": "2025年上半年职称证书什么时候发放\n2025年上半年职称证书什么时候发放",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "3191932",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=3191932",
+   "question": "企业开办优惠政策\n您好，请问云浮市在企业开办方面有哪些优惠政策，可以在哪里查看?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "3119750",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=3119750",
+   "question": "关于职称评审证明材料的咨询\n云浮市人社局： 您好！我是 2018 年通过贵局评审取得建筑专业中级职称的，现因省内某市事业单位入编考察要求，需要我向贵局申请办理书面证明，证明本人当年评审符合当时广东省及云浮市职称评审政策规定、申报材料经审核符",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "3105970",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=3105970",
+   "question": "施工管理助理工程师\n我的施工管理助理工程师原件丢失了，应该怎么补办",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "3082552",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=3082552",
+   "question": "专业技术人员证书\n根据《关于开展专业技术人员职业资格电子证书试点工作的通知》粤人社函〔2020〕10号，请问2016年发的专业技术人员资格证（经济 初级）只有纸质版，如何在广东省专业技术人员职业资格电子证书系统查验其真伪。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "3070890",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=3070890",
+   "question": "职工医保定点问题-在小程序”粤医保”增加不了新增定点门诊\n小程序提示2025年4月31号前都可以新增/变更定点门诊，目前我已经有一家默认定点门诊，现在需要新增一家，在”粤医保”增加不了，是不是要去医院现场填表才可以增加？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "3063036",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=3063036",
+   "question": "元旦可以办理婚姻登记业务吗？\n近日关注到我省其他城市已经陆续提前发出通知，元旦当天可以办理婚姻登记，我市是否也有这样的服务意识和为民办实事的决心，请问元旦当天可以办理婚姻登记业务吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "3054809",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=3054809",
+   "question": "想收养小孩\n想收养小孩，求助无门，请政府指条明路！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "3052915",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=3052915",
+   "question": "城乡居民养老保险参保登记\n请问如何代家人线下办理城乡居民养老保险参保登记，需要准备什么材料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "3030927",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=3030927",
+   "question": "医保问题咨询\n想咨询一下，职工医保是否可以和新农合同时缴纳？如果交了新农合，职工医保是否还可以缴纳？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "3027994",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=3027994",
+   "question": "查社保参保证明时发现2011年8月至今为空白\n本人自2010年7月开始工作，2010年7月至2011年7月的社保参保证明能通过粤省事查询开具，但2011年8月开始至今的查询开具结果显示为空白，请问是什么原因呢？应如何解决？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "3016375",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=3016375",
+   "question": "关于咨询困境儿童的申请条件和办理流程\n你好，想咨询一下困境儿童的申请条件，标准是什么？还有如何办理？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "3004494",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=3004494",
+   "question": "考研报考点查询\n请问一下今年考研报考点具体位置是哪里？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2998206",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2998206",
+   "question": "外省人员可以在云浮办理港澳通行证吗？如果可以都需要携带真么证件？\n外省人员可以在云浮办理港澳通行证吗？如果可以都需要携带真么证件？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2984303",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2984303",
+   "question": "医保双通道怎么办理\n1.如何办理医保双通道2.申请表在哪里下载",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2976509",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2976509",
+   "question": "城乡居民医保\n家里人每年都购买了城乡居民医保，但是从来没有使用过，可以讲讲去医院看病或者药店买药是如何使用的医保的吗？每年缴纳的钱不使用都是要清零吗？实体卡怎么办理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2976474",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2976474",
+   "question": "居民养老保险一次性缴纳\n云浮市居民没有参保职工养老保险，现在已经满60岁了，女性，是否可以一次性缴纳居民养老保险，最低档次需要一次性缴纳多少钱，可以线上代缴纳吗？具体多少岁能拿到居民养老金？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2934656",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2934656",
+   "question": "社保卡\n本人之前在广州参保并申领了社保卡，现在刚回来家乡工作，是否需要重新申领社保卡？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2925210",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2925210",
+   "question": "驾驶两轮电动摩托车，需要有两轮摩托车驾驶证吗？\n请问在云浮市外上牌的两轮电动摩托车，并且驾驶员已取得了两轮摩托车驾驶证，在驾驶两轮摩托车的时候正确佩戴头盔，可以在云浮市的道路上行驶吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2915796",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2915796",
+   "question": "云浮市环境保护监测信息\n您好，请问哪里可以查询到云浮市环境保护监测信息？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2910062",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2910062",
+   "question": "如何线上医保定点\n由于父母不懂得医保定点，本人想通过粤医保线上定点，父母购买的是城乡基本医疗保险，我在小程序上选定点不支持基本医疗，只授权职工医疗。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2909071",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2909071",
+   "question": "失业金\n请问下： 1.如何查询可领失业金期数？ 2.如何办理失业金？需要什么材料？ 3.办理失业金后多久开始生效？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2856926",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2856926",
+   "question": "2024年专升本考试地点\n你好，了解到广东省2024年专升本的考试时间为3月30号到31号，所以我想咨询一下2024年云浮市专升本的考点安排在哪呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2848650",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2848650",
+   "question": "分公司注销\n你好请问一下 分公司注销可以网上办理吗 怎么办理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2846297",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2846297",
+   "question": "云浮市工业固废产生量\n你好，请问云浮市2012年的工业固废产生量是多少啊",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2846799",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2846799",
+   "question": "就医备案问题\n请问从云浮市转诊前往广州市就医，算是异地就医吗？是否需要在国家医保服务APP上进行备案，如果需要，那请问怎么个备案流程。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2833221",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2833221",
+   "question": "线上申请社保卡时限问题\n本人于2024年1月15日发起申请，现在还处于预制卡状态，请问什么时候走完流程？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2831547",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2831547",
+   "question": "关于社保一些问题的解答\n1、根据《广东省医疗保障局、广东省人力资源和社会保障厅、国家税务,总局广东省税务局关于做好领取失业保险金期间的失业人员参加生育保险有关工作的通知》粤医保规【2023】5号文的规定，为保障领取失业保险金期问的失业人员生",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2817698",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2817698",
+   "question": "在哪里可以线上查看社保的缴费记录\n在哪里可以线上查看社保的缴费记录",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2816635",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2816635",
+   "question": "职工退休医疗待遇\n1975年开始工作的男职工在2006年下岗后直到2016年开始享受退休待遇，工龄为30年3个月（其中1、视同激费年限：18年11个月；2、实缴费年限：11年4个月） 1、为什么被告知要补缴20多年才享受退休医保待遇？ 2、",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2810371",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2810371",
+   "question": "2024年农村医疗保险错过缴纳时间想要补交\n2024年农村医疗保险错过缴纳时间想要补交，如何办理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2810072",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2810072",
+   "question": "医保缴费\n您好，请问市外灵活就业医保没买之后怎么买回市内城乡居民医保？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2810117",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2810117",
+   "question": "查询中级职称\n2015年中级职称无法查询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2791024",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2791024",
+   "question": "周末领证\n因为年尾多人结婚，可以在12月开放周末领证吗？或者星期六下午开放，因为上班时间难请假，个人提意见，希望各位领导可以聆听采纳，不胜感激！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2777534",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2777534",
+   "question": "迁户口到外市并想在外市购买城乡居民医保\n我和我家孩子（4岁）11月已迁户口到佛山。正好碰上购买城乡居民医保的时候，但是在粤省事上不能直接购买佛山的居民医保。是否需要回到云浮当地的医保局停保，才可以在佛山购买呢？可否网上操作申请呢？ 如果我暂",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2767714",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2767714",
+   "question": "云浮旅游\n想去云浮旅游，可以在哪里了解云浮当地的特色呢，或者有什么旅游景点供查询？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2747801",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2747801",
+   "question": "办理新疆、西藏的边境通行证（旅游用）\n您好！请问云浮市哪里可以办理西藏、新疆的边境通行证？ 需要准备什么资料？ 怎么预约？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2745030",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2745030",
+   "question": "如何网上查询本人所定点医院是那所\n由于太久没使用医保，忘记了自己的定点医院是那所，如何可以在网上查询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2739037",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2739037",
+   "question": "婚姻登记问题\n男女双方均是云安区户籍的能在云城区民政局进行婚姻预约登记吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2729002",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2729002",
+   "question": "城乡居民医保实体卡怎么申请\n在线上缴费的城乡居民医保，目前只能用电子凭证，查了很多信息都没有说明怎样申领城乡居民医保实体卡，不知道如何操作，去医院看病有的又要实体卡，请问下如何领取？感谢🙏",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2724358",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2724358",
+   "question": "红绿灯\n世纪大道往河口方向行至尚东世纪段左转向新城快线的绿灯时间过短，车流量大，上班高峰期（特别在8点左右）要等4,5次灯才能通过，且只有一车道左转，经常有车辆直行到红绿灯等候线实线加塞，影响通行率，可否增加左转绿灯通行时间，提高通行率。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2719010",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2719010",
+   "question": "毕业档案\n你好，户籍地人才工作服务中心是不是只接收全日制大学毕业档案",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2718192",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2718192",
+   "question": "2023年护士资格证\n领导您好，昨天28号广东省人事考试局发布了《关于发放省直报名点2023年护士专业技术人员职业资格（纸质）证书的通知》，我想知道证书有没有到达罗定还有领取的地点，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2677692",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2677692",
+   "question": "农村危房改造问题\n本人想咨询下农村危房改造政策补助补贴问题，想问了解下在什么情况下先可以得到该政策的补助补贴，本人家里的就是危房，2017年至今都没回去住个，长期在外租房居住，或寄住于亲戚家里，前几年还有扶贫工作人员驻村的时候就有向扶贫工作",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2671518",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2671518",
+   "question": "高考\n今年云浮市高考，对于考上的考生上大学有无相关资助政策？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2666443",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2666443",
+   "question": "初级考后审核相关问题\n1您好，我想问一下初级审核提交三天了还没有转审核通过或者审核中是有没有问题的呢？ 2考后资格复核通过会不会发短信通知呢？ 3罗定考生在罗定没有考场在云浮考点考的是要向哪个联系电话咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2642415",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2642415",
+   "question": "驾驶证12123无法学法减分\n今年2月份我在12123上申请学法减分，发现审核不通过，说我名下有个摩托车粤WBH530未按规定办理注销登记，我这个摩托车在2年前因自燃烧毁了，烧得连车壳也没有了，当时也没报警，现在我该怎样去注销这个摩托车才可",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2640647",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2640647",
+   "question": "网上可否办理营业执照\n新办企业，个体户，可以在网上办理申领吗？如果可以，需要提供什么资料？申请途径在哪里？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2630975",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2630975",
+   "question": "如何停买合作医疗\n你好，我是在罗定市买了合作医疗，之后又入了深圳的厂做正式工，厂里帮买医保的，现在只能选一个，如何停了罗定的合作医疗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2626175",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2626175",
+   "question": "2022年高级经济师评审\n请问在哪个网站可以查询到2021年或2022年云浮市高级经济师评审文件？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2620297",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2620297",
+   "question": "古老黄皮树保护\n我的家乡有一棵黄皮树，树干直径近八十厘米，树龄超过一百五十年，算是古树了吗？如何落实保护？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2589821",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2589821",
+   "question": "何时领取2022年监理工程师纸质证书\n尊敬的领导： 何时领取2022年11月补考的监理工程师纸质证书",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2575384",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2575384",
+   "question": "办理西藏边境通行证（旅游）\n云浮市哪里可以办理西藏或者新疆的边境通行证？ 需要准备什么资料？ 办理所需时间？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2574010",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2574010",
+   "question": "外市的已上牌的国标电动自行车。\n关于本省外市的已上牌的国标电动自行车，能否在云浮市内行驶，是否需要重新上牌照？ 例:我在广东茂名有一辆国标电动自行车已上茂名电动自行车，拍照",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2574409",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2574409",
+   "question": "何时领取2022年执业药师纸质证书\n请问执业药师纸质证书何时能领取，领取需要什么手续，期待收到回复，万分感谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2564219",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2564219",
+   "question": "社保\n社保卡忘记了密码怎么改？ 如何购买其他地方的社保",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2553402",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2553402",
+   "question": "罗定电动摩托车上牌详细流程\n罗定电动摩托车上牌详细流程",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2527254",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2527254",
+   "question": "云浮市水务局新媒体\n手机端可以在什么平台浏览云浮市水务局日常资讯？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2526486",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2526486",
+   "question": "货车从业资格证到期换证\n用手机在网上申请办理网页不能全打开。请问线下去哪里办理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2506820",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2506820",
+   "question": "办理异地生育和产检备案问题\n您好，我的社保在云浮云安区参保，之前已经电话咨询过异地生育和产检备案的问题，接听电话的工作人员跟我说必须要去云浮社保局提交异地生育和产检备案和定点医院才可以享受报销。请问为什么一定要去柜台办理才可以？现在很多地区",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2485925",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2485925",
+   "question": "关于人防车位权属及使用要求的咨询\n请问： 1.在云浮市范围内的人防车位，权属归属于哪个单位，能否办理产权证，并对外出售？ 2.若人防车位无法对外出售，在提供给小区业主或他人使用时，有无收费限额？ 3.人防车位经营（如对外出租等）所得的收益归",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2480981",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2480981",
+   "question": "转回农村医保\n12月份失业公司停缴顺德区社保，想缴回云浮市云安区石城镇珠洞农村医保",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2480043",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2480043",
+   "question": "重复参保\n重复参保如何退费",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2476310",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2476310",
+   "question": "特种设备使用登记办理的线上办理网址打不开\nhttp://amr.gd.gov.cn/tzsbout/qyfw/#/home?code=pm01_Fk6PgM-lSWeOpqJ5aaPgpg&city=445323 特种设备使用登记办理的显示",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2434614",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2434614",
+   "question": "咨询医保撤销缴费数据\n本人小孩(云浮腰古镇户籍)因长期在佛山读书所以打算在佛山购买居民城乡医保，但是佛山社保局要求要先把云浮2023年的已生成的居民医保缴费数据撤销(云浮的医保还没缴费)才能在佛山办理医保。请问如何能撤销缴费数据？具体的流程",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2431023",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2431023",
+   "question": "加拿大一枝黄花\n加拿大一枝黄花是入侵物种，会造成严重的生态破坏。10月23日在云浮市体育公园儿童游乐设施旁发现几十株加拿大一枝黄花，请及时铲除。如有需要可提供图片或联系告知具体地点。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2431549",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2431549",
+   "question": "地基下沉，房屋开裂，有安全隐患\n本人于格木桥石材基地三期厂房（不动产权第0030951号），由于我厂东边的厂房施工不当，造成我厂地基严重下沉，房屋开裂，存在极大安全隐患。望相关部门核实情况，尽快处理！谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2428317",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2428317",
+   "question": "职工医保个人账户外地使用\n灵活就业人员每月缴纳三百多医保费用，每个月2%入账职工医保个人账户的，能否在外市使用，如中山市？1.在外地门诊或者定点药店结算时能否刷电子医保码使用医保个人账户内余额？2.如外地住院，能否同样享受职工医保报销，如在",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2426389",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2426389",
+   "question": "救灾化肥按什么分配\n村里面来了一批救灾化肥，村民不知道是按人口分，还是按土地亩数分",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2422292",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2422292",
+   "question": "怎样在网上办理--增加公司经营范围\n目前，公司想扩大经营范围，增加“消防器材的销售”，了解在网上如何办理，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2418640",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2418640",
+   "question": "线上申请社保卡时限问题\n请问在广东人社APP线上申请社保卡的办结时限是怎样的，本人于9月19日线上申请办理。截至到今天，还未能收到社保卡，想咨询一下具体办结时限。不然线上办理还比线下慢，那线上办理就没有发挥“省心省时省力”的作用，反而更加繁",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2411552",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2411552",
+   "question": "有关于云浮市二手车上牌的条件\n领导，您好，我是一名外省来云浮工作的，目前想买一辆二手车，我想从广州买，但是不知道云浮二手车上牌的条件是什么？是需要购买云浮当地的二手车才行吗？我需要办理居住证吗？如果需要居住证，那么居住证的回执可以替代居住证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2406361",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2406361",
+   "question": "社保卡申领\n如何给一岁半的小孩子办理社保卡？需要什么资料到哪里办理？望及时详细回复。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2407708",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2407708",
+   "question": "蒸汽发生器燃烧器更换报备手续\n根据《 广东省生态环境厅关于2021年工业炉窑、锅炉综合整治重点工作的通知》全省新建燃气锅炉要采取低氮燃烧技术，氮氧化物达到50毫克/立方米。我司拟新建燃气蒸汽发生器，如燃气蒸汽发生器的燃烧器需要更换为低氮燃烧",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2401001",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2401001",
+   "question": "社保转移\n本人在广东工作交社保2年，现在回到广西工作，请问社保是要怎么转回来？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2381089",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2381089",
+   "question": "2021年中级会计证什么时候领取\n2021年中级会计证什么时候可以领取？从提交审核资料到现在已经过去大半年了，但手机电话短信都没有接到通知",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2372682",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2372682",
+   "question": "鼓励南药种植的具体政策\n你好，想问一下目前云浮市的南药种植具体政策哪里可以看，普通群众怎么样可以对接技术，资金，平台的支持，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2337436",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2337436",
+   "question": "咨询\n云浮12345有没有官网，有的话告知下，没有麻烦告知除电话以外的其他渠道",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2337111",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2337111",
+   "question": "云浮市招商引资政策\n云浮市政府领导好，请问云浮市是否制定关于外来企业来云浮投资建设的招商引资优惠政策，如有，该文件是否方便发送一份，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2320979",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2320979",
+   "question": "初级会计\n你好！请问2022年初级会计职称考试只能线下退费吗？是否能线上退费？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2321249",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2321249",
+   "question": "云浮市运会什么时候举行，市运会1500米和5000米的纪录是多少？\n我想知道下一届云浮市运会什么时候举行，市运会的1500米和5000米的纪录是多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2313094",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2313094",
+   "question": "车辆解押问题，人在广州，可以异地办理吗？\n你好，我的车是云浮号牌，现在需要办理解除抵押，我人在广州，请问可以在广州或网上办理吗（这样就更方便，谢谢）？ 如果不可以请问去云浮市哪里办理车辆解押手续（可以给多个办理地址，我看看哪个地址离广州最近",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2303172",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2303172",
+   "question": "本省外籍车辆转籍（所有人变更）\n本人购买佛山二手小型客车车辆！在12123交管网已申请车辆转籍（所有人就更），6月1日已申请！到6月13日未受理！咨询一下从申请到受理要几多工作日先受理业务！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2301929",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2301929",
+   "question": "三支一扶\n您好，我想知道云浮罗定市的三支一扶相关补贴待遇",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2281046",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2281046",
+   "question": "可否在云浮市委党校、邓发小学岔路校区附近路口（世纪大道西）增设红绿灯或人行天桥？\n本人由于工作需要，每天都要在云浮市委党校正门附近的两个路口过马路，近一个月内，已在这两个路口目睹2起交通事故（轿车撞摩托车），每天过马路提心吊胆。我认为这段路",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2283118",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2283118",
+   "question": "请问云浮市内有没有特种设备人员作业证的培训（压力管道焊接）\n请问在云浮有没有可以考取金属管道焊接（压力管道）的作业证的机构？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2283812",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2283812",
+   "question": "请问云浮市乘坐出租车收费标准？\n请问云浮市乘坐出租车收费标准？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2282312",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2282312",
+   "question": "关于郁南县拆旧复垦的有关问题\n去年云浮日报有一则新闻： https://www.yunfu.gov.cn/nyncj/zdht/sy/nyxw/content/post_1456645.html 人在外地，想咨询一下2022年最新的郁南县桂",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2282374",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2282374",
+   "question": "2022年三支一扶考试\n领导您好！我想咨询三支一扶打印了准考证，临时有事情去不了笔试，应该联系哪个部门告知原因？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2279716",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2279716",
+   "question": "医保查询问题\n本人医保于2015年从深圳转回云浮，请问之前在深圳购买的医保累计在总月数中？想查询之前在深圳购买的医保情况除了去服务厅现场查询，网上的话去哪里可以查询到？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2281658",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2281658",
+   "question": "2021年中级会计证怎么领证？\n请问2021年考过的中级会计证什么时候领证？一直没有收到通知，去哪里领？怎么领取？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2275862",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2275862",
+   "question": "2022年机关事业单位招聘紧急人才\n尊敬的工作人员，您好！请问今年的人才引进面试大概会在什么时间段组织呢？具体的考核形式是线上还是线下?考试形式是参考广东省事业单位考试的结构化面试进行吗?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2274519",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2274519",
+   "question": "查询守合同重信用怎么办理的？\n你好，这边需要咨询下公司的年度守合同重信用怎么办理的？去什么地方咨询？有无联系的电话和负责人？所需要提交的材料。我先打电话去了07668927203，提示无法接通。然后打去07668863022，告诉我打去07",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2265146",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2265146",
+   "question": "关于个人职业技能\n本人在2021年自费报考了低压电工，并在12月取得了证，当时还可以申请个人技能补贴，我也申请了，现在也过了半年了，请问这个补贴要什么时候才能有呢？还要等多久？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2265890",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2265890",
+   "question": "人社类培训证书收费标准\n请问人社类培训证书收费标准是什么？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2266411",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2266411",
+   "question": "小学入学\n领导您好，我想咨询一下，罗定市户籍的人员，在云城区买房后，子女现在罗定市金鸡镇在读小学，如何在云城区接着注册入学？子女是否需要迁户口才能入学？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2264414",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2264414",
+   "question": "企业到云浮进行下乡招聘\n尊敬的领导： 你们好！我们是广州得尔塔影像有限公司，专门制造生产iphone手机摄像头的，现在企业有用工需求，看看能不能到云浮的一些乡镇，进行下乡招聘用工呢？！期盼您的答复，我微信手机同号：15362143912。若",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2256204",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2256204",
+   "question": "学籍档案如何拿到\n想了解一下，现在部队留队需要用到学籍档案要怎么拿",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2253885",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2253885",
+   "question": "云浮市美丽乡村\n您好，我想请问一下云浮市有发布国十大美丽乡村系列评选吗，网络上的评选是官方的吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2251770",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2251770",
+   "question": "碳达峰、碳中和\n调研需要，请问贵局能否帮忙提供一下云浮市碳中和、碳达峰企业库名单？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2249847",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2249847",
+   "question": "省内异地就医\n小孩在云浮镇安买了农村医疗社保，现在在广州这边就医，请问需要参保备案吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2228875",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2228875",
+   "question": "云城区企业到云安区经营是否属于跨区域经营\n注册地址为云城区的企业，到云安区生产经营，是否属于跨区域经营，是否需要成立分公司",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2226440",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2226440",
+   "question": "入学咨询\n请问是否可以年满7岁再报名入读小学？若可以，是否需要办理延迟入学的相关申请？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2224669",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2224669",
+   "question": "佰金森外地报销\n家人购买云浮罗定新农合，现居住深圳，家人欲在深圳行佰金森dbs手术治疗，请问有否报销？程序该如何申请报备？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2208770",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2208770",
+   "question": "关于宫腔镜，腹腔镜手术是否能报销问题\n领导您好，过一段时间妻子需要在广州省二院做一个宫腔镜的手术，在网上看到有些人可以报销部分费用，但是医院方面回答又说不能报销。想问一下在广州做完手术，回到我们云浮可以报销吗？还有如果可以报销的话需要准备什",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2201193",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2201193",
+   "question": "新冠疫苗接种时间\n云浮区新冠疫苗接种点英东体育馆早上11点15分就下班不接受接种？我看相关公告不是11点30分吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2199676",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2199676",
+   "question": "高中毕业证遗失，请问怎样证明高中学历\n您好！ 高中毕业证遗失了，没有上过大学，而曾经就读的高中现在转变成了小学。请问这样的情况下，怎样才能证明高中学历？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2193532",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2193532",
+   "question": "有关2021年下半年计算机技术与软件职业资格纸质证书发放时间\n广东省内很多地级市都可以领取纸质证书。请问云浮市云城区什么时候可以领取2021年下半年计算机技术与软件职业资格纸质证书？？？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2180242",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2180242",
+   "question": "特定门诊省内异地门诊就医结算\n老人家是云浮市罗定市素龙街道户籍并每年均购买城乡居民医疗，生活需要，长期居住在佛山市顺德区，患有帕金森、糖尿病等慢性疾病，属于特定门诊的范围，现每月均要在广州中医药大学顺德医院（顺德区中医院）就医，以往都是每年",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2179952",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2179952",
+   "question": "目前大规划机械化种植玉米可享受哪些补贴\n基本情况:意向种植1000亩左右玉米，采用现代农业机械化耕种和管理模式，麻烦尽可能列举下有可能够得着的补贴细项及文件出处，感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2172412",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2172412",
+   "question": "云浮旅游文化咨询\n你好，请问下想去云浮市旅游，可以在网站哪里了解到当地的特色及其景点文化呢？或者有没有更多的信息可以查看~",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2169723",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2169723",
+   "question": "尊敬的工作人员，您好，请问云浮市今年会有人才引进计划吗？\n尊敬的工作人员，您好，请问云浮市今年会有人才引进计划吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2168692",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2168692",
+   "question": "省内异地门急诊\n军人家属为云浮城乡居民医保要到广州南部战区总医院就医需要开通省内异地就医备案么，如需要该怎么备案，城乡居民医保门诊能否报销？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2167713",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2167713",
+   "question": "异地小学入读\n户口在肇庆市，暂住河口，如果小朋友想在河口这边上学，需要具备什么条件？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2166824",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2166824",
+   "question": "郁南县连滩镇龙岩村这边几时可以通自来水，井水无法喝了\n村里大家还在用井水，全是严重的白色石灰，都是碳酸钙吗，怕是要吃出结石来了。新闻说郁南县农村人口自来水普及率达99%以上，难道我们就是最后的1%？请告知通水规划时间？有没有规划到我们这边？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2163406",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2163406",
+   "question": "咨询医保报销问题\n1.我父亲是门特病种，在广州就医，已申请异地就医备案，但是父亲无法直接报销。医院缴费时几次电联罗定市医保局工作人员处理，结果还是不行，医院缴费系统显示“请正确进行门慢特备案”，不知道哪里出了问题，请问如何解决呢？既然异地报",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2162079",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2162079",
+   "question": "2021年经济师纸质证书\n您好，中国人事考试网显示2021年经济师证书已于今年1月8号已把证书运抵机构（http://www.cpta.com.cn/certSchedule.html）。请问2021年经济师纸质证书何时发放？怎么领取？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2162137",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2162137",
+   "question": "云浮市统计局新媒体\n请问一下云浮市统计局有开设新媒体账号吗？（请直接在网上信件回复，不用打电话，谢谢）",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2156800",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2156800",
+   "question": "去年通过中级经济师，如何领取纸质证书\n你好，本人去年已经通过网络查询显示通过中级经济师资格考试了，也能下载电子证书了，根据“中国人事考试网”查询纸质证书已经抵达机构，请问如何领取？ 另外，还想问问云浮市有没有什么类似佛山市通过中级经济师的奖",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2150585",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2150585",
+   "question": "开货船在深圳回来没有采取隔离和核酸检测\n你好，我是六都镇的居民，现在快过年，疫情那么严重，，有的开货船的在深圳回来过年没隔离和去核酸检测，有没有专人管理货船在深圳回来过年的人这块的？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2153078",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2153078",
+   "question": "2012年毕业后没报到，现在怎么查自己的档案在哪了啊？\n2012年毕业后，没有到生源地云浮市人力资源和社会保障局报到，期间没有管理过档案，请问现在该怎么查找自己的档案在哪？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2148059",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2148059",
+   "question": "云浮市同等学力怎么开具？\n本人亲友参加高职扩招后学校要求出具高中同等学力证明，根据《广东省教育厅关于规范普通高中同等学力认定工作的通知》粤教基函〔2019〕129号，“各地市要出台认定普通高中同等学力的实施办法，明确具体资格条件、操作流程等",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2145466",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2145466",
+   "question": "省内异地急诊入院\n买了罗定城乡医保的居民在中山市人民医院看急诊，因高血压导致脑出血做手术住院，请问该居民出院结算是如何办理？报销比例是多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2144319",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2144319",
+   "question": "摩托车上牌\n我想咨询一下，我是云浮郁南的，摩托车新车上牌要到哪里上，最近看了一台摩托车，车行这边说只负责卖车，不代上牌，但是说上牌要自己去上，摩托车车辆名称叫 雅马哈YZF-R3，排量321cc，有发票，有关单，证件的齐全，能否上牌呢？如果",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2140421",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2140421",
+   "question": "请求开通自来水供应\n你好，我是郁南县东坝镇石咀甲洲村的村民，我村一直靠饮用山上的泉水解决用水问题，但近年来泉水量连年变少，加上泉眼距离村里比较远，现在靠泉水已经无法满足村里的用水了，平时常常没水用，要抽取山坑里流回来的耕地用水来饮用，即使这",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2144718",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2144718",
+   "question": "休渔期补贴\n领导你好！请问2021年休渔期补贴什么时候发放到位？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2125964",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2125964",
+   "question": "会计中级\n通过2021年会计中级考试，请问什么时候完成审批，什么时候发证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2123665",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2123665",
+   "question": "怎么用手机帮我父母购买城乡医疗保险\n怎么用手机帮我父母购买城乡医疗保险",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2119847",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2119847",
+   "question": "关于特殊门诊省内异地就医直接结算\n您好！八月份咨询过购买新兴医保的特殊门诊到广州（广州医科大学附属第二医院）就医直接结算的问题，回复提到等广州开通门诊省内异地就医结算功能后到当地医保机构办理异地就医备案就可以。但是，如今广州已开通省内异地就",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2120876",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2120876",
+   "question": "证书发放\n你还，我想问一下，云浮市2021初级会计纸质证书什么时候发放",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2116997",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2116997",
+   "question": "请问现在门诊医疗报销的具体流程要怎样申请？\n请问现在门诊医疗报销有什么政策？符合条件的具体流程要怎样申请？需要出具什么证明？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "2116373",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=2116373",
+   "question": "企业档案\n企业档案在哪里查询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "1886168",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=1886168",
+   "question": "摩托车年审问题\n摩托车上牌是2012年。连续脱审3年还可以重新审验吗？需要办那些手续？在那里办理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "1882649",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=1882649",
+   "question": "交通阻塞，乱停乱放\n闻莺花坛往市妇幼保健院路段，大量车辆乱停乱放，人车争道情况长期发生。因附近学校学生众多，请相关部门正视问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "1880782",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=1880782",
+   "question": "12月云城区事业单位考试\n2021年云城区事业单位考试笔试分了两批考试，第一批为12月11日，第二批为12月25日，两批相隔时间较长，为确保考试公平公正，请问这两批的试题是否会完全不一样？因为笔试通知并没有提及相关信息。谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "1879999",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=1879999",
+   "question": "省内监理企业入浮云该如何办理备案\n省内监理企业入浮云该如何办理备案，云浮智慧云平台是指广东政务服务吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "1101379",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=1101379",
+   "question": "人事档案\n你好，我是2015年6月份毕业，姓名：林妙云，报到证号：（2015粤）毕字第105800405252号，报到证上面写的是前往云浮市教育局报到的。我尝试过到广东省流动人员人事档案管理系统网上办理报到，但审核不通过，显示“审核不通过，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "1098461",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=1098461",
+   "question": "补贴政策\n请问公示结束后，补贴会大概多久发放呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "1096770",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=1096770",
+   "question": "中级焊工证\n你好，请问现在有中级焊工证可以报考吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "1097112",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=1097112",
+   "question": "关于换新能源车牌照问题\n本人有一台蓝牌小车，想换一台新能源小车（混合动力），想咨询一下换车的话原来我的车牌能保留吗？还是一定要上新能源的牌照？（我知道如果换普通小车的话我原来的牌照是可以保留到新车上的）",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "1095859",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=1095859",
+   "question": "请问世纪大道各种行车违章行为扣不扣分？怎么这么多乱开车的呢？\n世纪大道各处常见各种违章行为，压线变道、不按规定车道行驶等等，富民路（三河洲路口）与世纪大道交叉口处、中石化加油站路口等路口处特别严重，不扣分的吗？这么多肆无忌惮的行为，存在严重",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "1094433",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=1094433",
+   "question": "关于新冠病毒隔离，宠物如何处理\n如果该市某小区出现新冠病毒感染者，要集体隔离，请问隔离期间居民的宠物，是否允许主人携带宠物一起送往隔离酒店？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "1092757",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=1092757",
+   "question": "324国道云浮市交通局路口大货车工程车违停问题\n尊敬的领导： 你好！现投诉以下问题：(1)自324国道云浮市交通路口中间隔离带封闭后，改善了通行条件，但大货车工程车在两个方向的违停并没有得到遏制和治理，特别在上下班高峰时段，其存在以下安全隐",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "1093168",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=1093168",
+   "question": "高血压异地如何报销\n确诊高血压慢性病的患者，如何在异地（省内）进行登记并报销",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "1092541",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=1092541",
+   "question": "省内异地门特\n您好！ 请问下云浮市的城乡居民医保在东莞市虎门医院能不能办理门诊特别病种[48.慢性肾功能不全（血透治疗）门诊费用直接结算？办理异地门特需要什么资料，在哪里可以办理？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "1089732",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=1089732",
+   "question": "长期散发恶臭气味\n郁南县都城镇河堤路（煤气加油站旁）长期散发恶臭气味，令人感到恶心干呕。严重影响周边生态环境和人民身体健康。望有关部门及时处理！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "1087691",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=1087691",
+   "question": "工业锅炉司炉证在哪里报名考？\n你好，想咨询一下，云浮市工业锅炉司炉证在哪里报名考？在哪里可以看到相关信息？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "1076366",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=1076366",
+   "question": "路面下水道不断冒臭水\n环市西路333号英伦豪城小区和幸福里小区中间道路后半段下水道严重堵塞，不时有污水冒上路面，臭气冲天，严重影响云浮市容市貌和阻碍创文创卫工作推进。希望有关部门及时处理！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "1078296",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=1078296",
+   "question": "2022年城乡居民医保清缴\n2022医保清缴何时开始，粤省事小程序上尚未能查看清缴金额。关注云浮人社未看到相关通知，故此留言咨询（2021年及以前都是村委前场交钱办理的，2022年开始线上办理）",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "1074864",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=1074864",
+   "question": "关于云浮市云城区5路车上落客问题\n各位领导好，5路车是唯一途径我家附近的车，是我回家首选的交通工具。今天下午5：00左右，我在总站等去往人民医院的5号车，终于等到了一辆，刚进车门准备付钱，司机问了我一句去哪儿，我答：“人民医院。”司机看着我",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "1068117",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=1068117",
+   "question": "请合理科学配置交通灯，让道路更顺畅\n自高峰立交桥底设置交通灯以来，上下班高峰期比以前拥堵了很多。不明白为什么高峰往牧羊方向的右转车道为什么要设置红灯，让只有单向两车道的星岩四路严重拥堵。既然环市路不能从桥底直接往牧羊方向行走，那为什么要设置",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "1071877",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=1071877",
+   "question": "专业资格证书什么时候发放\n2021年的医疗卫生职称资格证书什么时候发放？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "1067674",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=1067674",
+   "question": "环市中路云六路口安全隐患问题\n环市中路云六路口存在安全隐患，从高峰桥底往六都方向在短短200米不到的距离至少要变两条道才能驶入左转车道，再加上从六都往牧羊方向汇入的车辆又要向右变道驶入直行车道，车辆左右穿插交通非常混乱，希望可以改善一下。 ",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "1063382",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=1063382",
+   "question": "请问2021年第二次普通话报名考试，什么时候开始网上报名？\n请问2021年云浮市第二次普通话报名考试，什么时候开始网上报名？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "1060918",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=1060918",
+   "question": "律师查询个体工商户内档\n你好，本人需咨询下律师查询云浮市云城区登记注册的个体工商户需要去什么地点查询？查询所需要提交的材料。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "1053529",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=1053529",
+   "question": "养老\n以前在市的机关单位做临工，单位有交社保，五险都有，现在考上了云安的公务员，养老保险这些需要做什么转移之类的吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "1055001",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=1055001",
+   "question": "2021年上半年计算机技术与软件职业资格纸质证书发放时间\n请问，纸质证书大概什么时候，可以发下来？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "1049131",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=1049131",
+   "question": "2021年云浮市事业单位考试\n2021年云浮市事业单位考试考试今年还考吗，推迟了差不多四个月了，广东省的高校事编都开始了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "1045534",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=1045534",
+   "question": "援藏援疆报名方式和渠道？\n我是云浮市一名在编教师，在网站看到云浮罗定市援疆教师报道，非常感动，非常向往。 但是我们既不知什么时候开始，也不知道怎么报名？学校和教育局也好像没有宣传，所以，特向你们咨询。顺便问下，本人33岁，身体健康，教学能力",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "1052172",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=1052172",
+   "question": "体育赛事、体育场馆、旅游景区\n您好！请问能否提供云浮市体育场馆（名称、地址）、体育赛事（名称、举办时间、地点）若2021、2021年受疫情影响无法进行赛事，2019年赛事也可以，以及除去A级景区外的其他景区（名称、地址）的名单吗？用于研究调",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "1053189",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=1053189",
+   "question": "疫情防控建议\n由于云浮石材和福建石材关联比较大，泉州和厦门是风险地区，云浮很多石材老板经常去水头，这几天都有很多人自驾车去。是不是建议各镇街道对各石材厂老板访问资询是否去过。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yunfu",
+   "id": "1040991",
+   "url": "https://www.yunfu.gov.cn/hdjlpt/detail?pid=1040991",
+   "question": "路障设置\n在云城区大降坪路段往碧桂园方向，全部路口被封，要么走高峰，要么往卓城俊景园红绿灯走，严重堵人出行，尤其上下班时间，严重塞车，请问。设置这么多路障的目的是什么？什么时候才能解封？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

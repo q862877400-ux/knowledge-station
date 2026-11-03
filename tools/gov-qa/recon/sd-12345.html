@@ -1,0 +1,524 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>
+	山东省政务服务便民热线
+</title><link rel="icon" href="favicon.ico" /><link href="Styles/style.css" rel="stylesheet" type="text/css" />
+    <script src="/12345/Scripts/jquery-1.10.2.min.js" type="text/javascript"></script>
+    
+    <script src="szfwz/scripts/layui/layui.all.js" type="text/javascript"></script>
+    <style type="text/css">
+        .table_t {
+            background: #f9fdff;
+            width: 95%;
+            margin: 10px auto;
+        }
+        .table_t th, .table_t td {
+                padding: 10px 20px;
+                padding-left: 20px;
+                border: #ececec 1px solid;
+                line-height: 1.8em;
+            }
+
+        .bjmc {
+            background: #eff7fe;
+            line-height: 1.8em;
+            width: 18%;
+            text-align: right;
+            color: #424242;
+        }
+    </style>
+    <script type="text/javascript">
+        //加载数据
+        $(document).ready(function () {
+            setCookie("zsk_list_curr", 1, 1);
+            setCookie("dxal_list_curr", 1, 1);
+            setCookie("historysq_list_curr", 1, 1);
+            getZczs(); //热线常见问题
+            getDxal(); //典型留言
+            getTjsj(); //统计数据
+        });
+        function getCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i].trim();
+                if (c.indexOf(name) == 0) { return c.substring(name.length, c.length); }
+            }
+            return "";
+        }
+
+        function setCookie(cname, cvalue, exdays) {
+            var d = new Date();
+            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+            var expires = "expires=" + d.toGMTString();
+            document.cookie = cname + "=" + cvalue + "; " + expires;
+        }
+
+        //统计数据
+        function getTjsj() {
+            //var statData = { brly: 144, bzhf: 45, byhf: 1891, lyhz: 111251, hfhz: 11178 };
+            //showTjsj(statData);return;
+            //获取数据
+            $.post("szfwz/CommonHandler.ashx",
+			    { opreate: 'szf_wz_base_stat' },
+                function (ret) {
+                    if (ret == "") return;
+                    var data = eval('(' + ret + ')');
+                    var statData = data.data;
+                    if (statData != undefined) {
+                        showTjsj(statData);
+                    }
+                }
+            );
+        }
+        function showTjsj(statData) {
+            $("#brly").text(statData.brly);
+            $("#bzhf").text(statData.bzhf);
+            $("#byhf").text(statData.byhf);
+            $("#lyhz").text(statData.lyhz);
+            $("#hfhz").text(statData.hfhz);
+        }
+        //热线常见问题
+        function getZczs() {
+            //获取数据
+            $.post("szfwz/CommonHandler.ashx",
+			    { opreate: 'szf_wz_base_zsk_hittop', top: "10", startTime: "", endTime: "" },
+                function (ret) {
+                    var data = eval('(' + ret + ')');
+                    var zczs = data.data;
+                    var zczstest = [
+                        { id: "1", sendtime: "", DianJiLiang: "", content: "", title: "学院严格落实属地疫情防控管理政策", TextContent: "根据潍城区教体局指挥部通知要求，学院自10月30日起由“相对封闭管理”转为“全封闭管理”，同时要求学生非必要不出校、非必要不出潍。当前疫情防控形..." },
+                        { id: "2", sendtime: "", DianJiLiang: "", content: "", title: "外省部分地市因疫情统一赋码导致我省人员健康码变色情况", TextContent: "近期，出现外省部分地市因疫情统一赋码导致我省人员健康码变色情况，是由于相关省份向国家政务服务平台推送健康码异常所致。此情况我省不能解决，主要..." },
+                        { id: "3", sendtime: "", DianJiLiang: "", content: "", title: "3-11岁人群必须接种新冠病毒疫苗吗", TextContent: "接种新冠疫苗是防控疫情输入和传播扩散的重要手段，能够有效降低重症病例和死亡病例的风险。通过接种疫苗，为3-11岁人群提供更好的防护。按照《中华人..." },
+                        { id: "4", sendtime: "", DianJiLiang: "", content: "", title: "接诉即办—灵活就业人员缴纳企业职工基本养老保险后，原来缴纳的居民养老保险如何处理？", TextContent: "两种处理办法。一是在达到职工基本养老保险法定退休年龄前6个月内，向待遇领取地县级职工养老保险社保机构提出办理城乡养老保险制度衔接手续申请，其参..." },
+                    ];
+                    var zczsHtml = "";
+                    var zczsLiFormat = '<li><a href="javascript:;" onclick="{0}" class="link titleAl"><div class="wen"><span><img alt="问" src="images/wen.png"></span>{1}</div><div class="da"><span><img alt="答" src="images/da.png"></span>{2}</div></a></li>';
+                    var zczsClick = "showKnowledge(this)";
+                    $("#zczxUl").empty();
+                    for (var i = 0; i < 4; i++) {
+                        if (zczs.length <= i) {
+                            zczsHtml = zczsLiFormat.replace("{0}", "").replace("{1}", "").replace("{2}", "");
+                            $("#zczxUl").append(zczsHtml);
+                        } else {
+                            zczsHtml = zczsLiFormat.replace("{0}", zczsClick).replace("{1}", zczs[i].title).replace("{2}", zczs[i].TextContent);
+                            var $info = $(zczsHtml);
+                            $info.find(".titleAl").data("data", zczs[i]);
+                            $("#zczxUl").append($info);
+                        }
+                    }
+                    //$("#zczxUl").html(zczsHtml);
+                }
+            );
+        }
+        function showKnowledge(src) {
+            var data = $(src).data("data");
+            //alert(data);
+            var info = '<table class="table_t" cellspacing="1" cellpadding="1" border="0" width="760px" id="KnowledgeTable">'
+			          + '<tr><td style="width:80px; text-align:right;" class="bjmc">问题：</td><td>' + data.title + '</td></tr>'
+			          + '<tr><td style="width:80px; text-align:right;" class="bjmc">提供单位：</td><td>' + data.content + '</td></tr>'
+			          + '<tr><td style="width:80px; text-align:right;" class="bjmc">答案：</td><td>' + data.TextContent + '</td></tr>'
+					  + '</table>';
+            layer.open({
+                type: 1,  //1代表 content的值例如：'文本'   ；2 代表 content的值例如'../index.html'
+                area: ['800px', '520px'], //显示的弹出框的宽度和高度
+                skin: 'layui-layer-rim', //加上边框
+                title: '热线常见问题',
+                content: '<div id="showTip" style="height: 400px; " class="content bg">' + info + '</div>'
+				 , btn: []  // 三个按钮的text值  '确定', '取消','第三个按钮'
+				, yes: function (index, layero) { //或者使用btn1
+				    $("#address").val("山东省-" + city)
+				    $("#formDiv").show();
+				    $("#cityDiv").hide();
+				    //  layer.closeAll(); 或者用 
+				    layer.close(index); //关闭 现在的弹出框
+				    //按钮【按钮一】的回调
+				}, cancel: function (index) { //或者使用btn2
+				    //按钮【按钮二】的回调
+				    //本身自带关闭弹出框功能
+				}
+                //,btn3: function(index, layero){ //按钮【按钮三】的回调 
+                //    alert("11111");
+                //}
+            });
+        }
+        //典型留言
+        function getDxal() {
+            $.post("szfwz/CommonHandler.ashx",
+			{ opreate: 'szf_wz_base_hittop', top: "10", startTime: "", endTime: "" },
+			function (ret) {
+			    var data = eval('(' + ret + ')');
+			    var dxal = data.data;
+			    var dxaltest = [
+                    { id: "1", title: "根据潍城区教体局指挥部通知要求，学院自10月30日起由“相对封闭管理”转为“全封闭管理”，同时要求学生非必要不出校、非必要不出潍。当前疫情防控形...", handledepartment: "", TextContent: "" },
+                    { id: "1", title: "根据潍城区教体局指挥部通知要求，学院自10月30日起由“相对封闭管理”转为“全封闭管理”，同时要求学生非必要不出校、非必要不出潍。当前疫情防控形...", handledepartment: "", TextContent: "" },
+                    { id: "1", title: "根据潍城区教体局指挥部通知要求，学院自10月30日起由“相对封闭管理”转为“全封闭管理”，同时要求学生非必要不出校、非必要不出潍。当前疫情防控形...", handledepartment: "", TextContent: "" },
+                    { id: "1", title: "根据潍城区教体局指挥部通知要求，学院自10月30日起由“相对封闭管理”转为“全封闭管理”，同时要求学生非必要不出校、非必要不出潍。当前疫情防控形...", handledepartment: "", TextContent: "" },
+                    { id: "1", title: "根据潍城区教体局指挥部通知要求，学院自10月30日起由“相对封闭管理”转为“全封闭管理”，同时要求学生非必要不出校、非必要不出潍。当前疫情防控形...", handledepartment: "", TextContent: "" },
+                    { id: "1", title: "根据潍城区教体局指挥部通知要求，学院自10月30日起由“相对封闭管理”转为“全封闭管理”，同时要求学生非必要不出校、非必要不出潍。当前疫情防控形...", handledepartment: "", TextContent: "" },
+                    { id: "1", title: "根据潍城区教体局指挥部通知要求，学院自10月30日起由“相对封闭管理”转为“全封闭管理”，同时要求学生非必要不出校、非必要不出潍。当前疫情防控形...", handledepartment: "", TextContent: "" },
+                    { id: "1", title: "根据潍城区教体局指挥部通知要求，学院自10月30日起由“相对封闭管理”转为“全封闭管理”，同时要求学生非必要不出校、非必要不出潍。当前疫情防控形...", handledepartment: "", TextContent: "" }
+			    ];
+			    var dxalArr = new Array();
+			    var dxalLiFormat = '<li><a href="javascript:;" onclick="{0}" class="link titleAl"><div class="liebiao"><span><img alt="点" src="images/dian.png" /></span>{1}</div></a></li>';
+			    var dxalClick = "showDxal(this)";
+			    $("#dxalUl").empty();
+			    for (var i = 0; i < 8; i++) {
+			        if (dxal.length <= i) {
+			            var dxalHtml = dxalLiFormat.replace("{0}", "").replace("{1}", "");
+			            //dxalArr[dxalArr.length] = dxalHtml;
+			            $("#dxalUl").append(dxalHtml);
+			        } else {
+			            var wtms = dxal[i].wtms;
+			            //if (title > 38) title = title.substring(0, 36) + "..."; //截取
+			            var dxalHtml = dxalLiFormat.replace("{0}", dxalClick).replace("{1}", wtms);
+			            var $info = $(dxalHtml);
+			            $info.find(".titleAl").data("data", dxal[i]);
+			            //dxalArr[dxalArr.length] = $info;
+			            $("#dxalUl").append($info);
+			        }
+			    }
+			    //$("#dxalUl").html(dxalHtml);
+			    //$("#dxalUl").append(dxalArr);
+			});
+        }
+        //显示典型留言
+        function showDxal(src) {
+            var data = $(src).data("data");
+            //alert(data);
+            var info = '<table class="table_t" cellspacing="1" cellpadding="1" border="0" width="760px" id="KnowledgeTable">'
+                        + '<tr><td style="width:80px; text-align:right;" class="bjmc">办件名称：</td><td colspan="3">' + data.title + '</td></tr>'
+                        + '<tr><td style="width:80px; text-align:right;" class="bjmc">办件内容：</td><td colspan="3">' + data.wtms + '</td></tr>'
+                        + '<tr><td style="width:80px; text-align:right;" class="bjmc">诉求人：</td><td>' + data.sqrName + '</td><td style="width:80px; text-align:right;" class="bjmc">提交时间：</td><td>' + data.fysj + '</td></tr>'
+                        + '<tr><td style="width:80px; text-align:right;" class="bjmc">受理单位：</td><td>' + data.handledepartment + '</td><td style="width:80px; text-align:right;" class="bjmc">受理时间：</td><td>' + data.slsj + '</td></tr>'
+                        + '<tr><td style="width:80px; text-align:right;" class="bjmc">答复状态：</td><td>' + data.replystatus + '</td><td style="width:80px; text-align:right;" class="bjmc">答复时间：</td><td>' + data.replytime + '</td></tr>'
+                        + '<tr><td style="width:80px; text-align:right;" class="bjmc">答复内容：</td><td colspan="3">' + data.replayInfo + '</td></tr>'
+					  + '</table>';
+            layer.open({
+                type: 1,  //1代表 content的值例如：'文本'   ；2 代表 content的值例如'../index.html'
+                area: ['800px', '600px'], //显示的弹出框的宽度和高度
+                skin: 'layui-layer-rim', //加上边框
+                title: '典型留言信息',
+                content: '<div id="showTip" style="height: 400px; " class="content bg">' + info + '</div>'
+				 , btn: []  // 三个按钮的text值  '确定', '取消','第三个按钮'
+				, yes: function (index, layero) { //或者使用btn1
+				    $("#address").val("山东省-" + city)
+				    $("#formDiv").show();
+				    $("#cityDiv").hide();
+				    //  layer.closeAll(); 或者用 
+				    layer.close(index); //关闭 现在的弹出框
+				    //按钮【按钮一】的回调
+				}, cancel: function (index) { //或者使用btn2
+				    //按钮【按钮二】的回调
+				    //本身自带关闭弹出框功能
+				}
+                //,btn3: function(index, layero){ //按钮【按钮三】的回调 
+                //    alert("11111");
+                //}
+            });
+        }
+
+        //全文搜索查询事件
+        function SearchZczx(obj) {
+            var SearchInput = $("#SearchInput").val()
+            window.open("szfwz/listworkloadzsk.aspx?userguid=123456&gjz=" + encodeURI(encodeURI(SearchInput)), "_blank");
+        }
+
+        //查询进度
+        function searchbanliinfo() {
+            var id = $("#bjbh").val();
+            var searchSecret = $("#searchSecret").val();
+            if (id == "") {
+                alert("请输入手机号"); return;
+            }
+            if (searchSecret == "") {
+                alert("请输入查询密码"); return;
+            }
+            //window.open("base_infoSearch.htm?id="+id+"&searchSecret="+searchSecret, "_blank");
+            window.open("szfwz/showInfoLine.aspx?id=" + id + "&searchSecret=" + searchSecret, "_blank");
+        }
+    </script>
+</head>
+<body style=" overflow:auto;">
+    <form method="post" action="./default.aspx" id="ctl01">
+<div class="aspNetHidden">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTY1NDU2MTA1MmRkiJswiLqTXfaUGq/5AnaPJ/hJIXbdW1FD2c4pqJQluIc=" />
+</div>
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="F3320DFE" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAAOFgY5QW2ve/9ZsAQ5MSXBFi47B4izSu7jdmYdlNxW15kwrczlsnHXOxn18+sECDKiWGPqd+xd9y6QCeJvav9Cy8Hx8oyJ/+wmJo36ReCMURQ==" />
+</div>
+<div class="norshow">
+  <div class="top"ergodic="serve">
+    <div class="wip_header_bg"> </div>
+    <div class="wip_banner_bg">
+      <div class="wip_banner">
+        <div class="floatleft fhsy"> <a href="http://www.shandong.gov.cn">返回首页</a> </div>
+        <div class="wip_header_right">
+          <div class="floatright"style="margin-top:10px;">
+            <div class="wip_header_li" id='curDate'></div>
+            <div class="wip_header_li" id="userNameDiv" style=" display:none;"> <a href="#"></a> </div>
+            <div class="wip_header_li" id="logoutDiv" style=" display:none;"> <a href="/12345/getTicket.aspx?type=0">退出</a> </div>
+            <div class="wip_header_li" id="loginDiv"> <a href="/12345/getTicket.aspx?type=1">登录</a> </div>
+            <div class="wip_header_li" id="registerDiv"> <a href="/12345/getTicket.aspx?type=2">注册</a> </div>
+            <div class="wip_header_li" id="historySqDiv" style=" display:none;"> <a href="/12345/getTicket.aspx?type=3">历史诉求</a> </div>
+          </div>
+        </div>
+      </div>
+      <div class="wip_nav">
+        <div class="wip_nav_li t1"> <a href="http://www.shandong.gov.cn">首页</a> </div>
+        <div class="wip_nav_li t2"> <a href="http://www.shandong.gov.cn/col/col94090/index.html">要闻动态</a> </div>
+        <div class="wip_nav_li t3"> <a href="http://www.shandong.gov.cn/col/col92383/index.html">政务公开</a> </div>
+        <div class="wip_nav_li t4"> <a href="http://www.shandong.gov.cn/col/col94091/index.html">政务服务</a> </div>
+        <div class="wip_nav_li t5"> <a href="http://www.shandong.gov.cn/col/col94092/index.html">政民互动</a> </div>
+        <div class="wip_nav_li t6"> <a href="http://www.shandong.gov.cn/col/col94094/index.html">走进山东</a> </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="header"> </div>
+<div style=" position: fixed; right:0px; top:350px;width:124px; z-index:9999; ">
+    <a target="_blank" title="问卷调查" style=" width:124px; height:126px;"
+        href="http://221.214.14.42:10081/rxdc/website/ResearchView.aspx?guid=20230517-2220-2248-3784-FA163E82836E&viewType=pc&pageId=3">
+        <img alt="问卷调查" style="width:124px; height:126px;" src="/12345/images/wjdc.png" />
+    </a>
+</div>
+            
+    <div class="banner">
+        <div class="index">
+            <div class="floatleft znwd sk" style=" width:285px;">
+                <a title="网上受理入口" class="anniu floatleft" href="szfwz/BaseSubmit.aspx" style=" padding-left:60px; padding-top:30px;">
+                    <img alt="网上受理入口" width="168" height="168" src="images/znwd.png" /></a>
+                <a class="wzznwd floatleft" style=" margin-top:10px; margin-left:65px;"  href="szfwz/BaseSubmit.aspx">网上受理入口</a>
+            </div>
+            <div class="floatleft znwd sk" style=" width:285px; margin-left:15px;">
+                <a title="涉企政策查询" class="anniu floatleft" href="szfwz/listworkloadzsk.aspx" style=" padding-left:60px; padding-top:30px;">
+                    <img alt="涉企政策查询" width="168" height="168" src="images/sqzccx.png" /></a>
+                <a class="wzznwd floatleft" style=" margin-top:10px; margin-left:65px;" href="szfwz/listworkloadzsk.aspx">涉企政策查询</a>
+            </div>
+            <div class="floatleft cx sk" style=" margin-left:25px; width:520px;">
+                <p>
+                    诉求进度查询
+                </p>
+                <span class="zn">&nbsp;&nbsp;&nbsp;手机号：</span>
+                <input class="search_txt search_txt1 canRead" style=" width:376px;" onfocus="if (value =='请输入手机号'){value =''}" onblur="if (value ==''){value='请输入手机号'}" value="请输入手机号" id="bjbh" />
+                <span class="zn text-tag canRead">查询密码：</span>
+                <input class="search_txt search_txt2  canRead" style="width:226px;" id="searchSecret" />
+                <input class="search_txt search_txt4 canRead" value="查询" title="查询" onclick="searchbanliinfo()" />
+            </div>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="bannertu" style="position: relative;">
+        <div class="bannertu1">
+            <div class="wenzi">
+                <p>
+                    <a href="#" target="_b1ank">网上诉求统计数据</a>
+                </p>
+                <p style="text-align: center;">
+                    <span class="wzslh">今日留言</span>
+                    <a target="_blank" style="color: #5b95e3;"><span id='brly' class="text-tag">0</span></a><span class="wzslh">个</span>
+                    <span class="wzslh" style="margin-left: 25px;">本周回复</span>
+                    <a target="_blank" style="color: #5b95e3;"><span id='bzhf' class="text-tag">0</span></a><span class="wzslh">个</span>
+                    <span class="wzslh" style="margin-left: 25px;">本月回复</span>
+                    <a target="_blank" style="color: #5b95e3;"><span id='byhf' class="text-tag">0</span></a><span class="wzslh">个</span>
+                    <span class="wzslh" style="margin-left: 25px;">留言汇总</span>
+                    <a target="_blank" style="color: #5b95e3;"><span id='lyhz' class="text-tag">0</span> </a><span class="wzslh">个</span>
+                    <span class="wzslh" style="margin-left: 25px;">回复汇总</span>
+                    <a target="_blank" style="color: #5b95e3;"><span id='hfhz' class="text-tag">0</span> </a><span class="wzslh">个</span>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="sreach" style="display: none">
+        <div class="suosuoleft floatleft">
+            <input class="SearchInput" value="全站搜索" maxlength="100" type="text" />
+        </div>
+        <div class="searchR floatleft" onclick="SearchZczx(this)"></div>
+    </div>
+    <div class="index">
+        <div class="zczs floatleft">
+            <div class="tittle">
+                <a href="#">热线常见问题</a>
+            </div>
+            <div class="ewb-con-bd">
+                <ul class="ewb-con-items" id="zczxUl">
+                    <li><a href="#" target="_blank" class="link">
+                        <div class="wen">
+                            <span>
+                                <img alt="问" src="images/wen.png" /></span>
+                        </div>
+                        <div class="da">
+                            <span>
+                                <img alt="答" src="images/da.png" /></span>
+                        </div>
+                    </a></li>
+                    <li><a href="#" target="_blank" class="link">
+                        <div class="wen">
+                            <span>
+                                <img alt="问" src="images/wen.png" /></span>
+                        </div>
+                        <div class="da">
+                            <span>
+                                <img alt="答" src="images/da.png" /></span>
+                        </div>
+                    </a></li>
+                    <li><a href="#" target="_blank" class="link">
+                        <div class="wen">
+                            <span>
+                                <img alt="问" src="images/wen.png" /></span>
+                        </div>
+                        <div class="da">
+                            <span>
+                                <img alt="答" src="images/da.png" /></span>
+                        </div>
+                    </a></li>
+                    <li><a href="#" target="_blank" class="link">
+                        <div class="wen">
+                            <span>
+                                <img alt="问" src="images/wen.png" /></span>
+                        </div>
+                        <div class="da">
+                            <span>
+                                <img alt="答" src="images/da.png" /></span>
+                        </div>
+                    </a></li>
+                </ul>
+                <a href="szfwz/listworkloadzsk.aspx" class="ewb-more" style="margin-top: 33px;">更多 </a>
+            </div>
+        </div>
+        <div class="zczs floatright">
+            <div class="tittle">
+                <a href="#">典型留言</a>
+            </div>
+            <div class="ewb-con-bd">
+                <ul class="ewb-con-items" id="dxalUl">
+                    <li><a href="#" target="_blank" class="link">
+                        <div class="liebiao">
+                            <span>
+                                <img alt="点" src="images/dian.png" /></span>
+                        </div>
+                    </a></li>
+                    <li><a href="#" target="_blank" class="link">
+                        <div class="liebiao">
+                            <span>
+                                <img alt="点" src="images/dian.png" /></span>
+                        </div>
+                    </a></li>
+                    <li><a href="#" target="_blank" class="link">
+                        <div class="liebiao">
+                            <span>
+                                <img alt="点" src="images/dian.png" /></span>
+                        </div>
+                    </a></li>
+                    <li><a href="#" target="_blank" class="link">
+                        <div class="liebiao">
+                            <span>
+                                <img alt="点" src="images/dian.png" /></span>
+                        </div>
+                    </a></li>
+                    <li><a href="#" target="_blank" class="link">
+                        <div class="liebiao">
+                            <span>
+                                <img alt="点" src="images/dian.png" /></span>
+                        </div>
+                    </a></li>
+                    <li><a href="#" target="_blank" class="link">
+                        <div class="liebiao">
+                            <span>
+                                <img alt="点" src="images/dian.png" /></span>
+                        </div>
+                    </a></li>
+                    <li><a href="#" target="_blank" class="link">
+                        <div class="liebiao">
+                            <span>
+                                <img alt="点" src="images/dian.png" /></span>
+                        </div>
+                    </a></li>
+                </ul>
+                <a href="szfwz/ListDxal.aspx" class="ewb-more">更多 </a>
+            </div>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    
+   
+            <input name="ctl00$loginUser" type="hidden" id="loginUser" />       
+            <input name="ctl00$loginUserHid" type="hidden" id="loginUserHid" />       
+    </form>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //获取当前时间
+            var date = new Date();
+            var year = date.getFullYear();    //  返回的是年份
+            var month = date.getMonth() + 1;  //  返回的月份上个月的月份，记得+1才是当月
+            var dates = date.getDate();       //  返回的是几号
+            var day = date.getDay();          //  周一返回的是1，周六是6，但是周日是0
+            var arr = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六", ];
+            //2022年5月27日 星期五
+            $("#curDate").html(year + "年" + month + "月" + dates + "日 " + arr[day]);
+
+            var userName = $("#loginUser").val();
+            if (userName != "") {
+                $("#userNameDiv").show().find("a").text(userName);
+                $("#logoutDiv").show();
+                $("#historySqDiv").show();
+                $("#loginDiv").hide();
+                $("#registerDiv").hide();
+            } else {
+                $("#userNameDiv").hide().find("a").text("");
+                $("#logoutDiv").hide();
+                $("#historySqDiv").hide();
+                $("#loginDiv").show();
+                $("#registerDiv").show();
+                checkLogin();
+            }
+        });
+        //获取
+        function getQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]);
+            return null;
+        }
+
+        //验证登录，如果有token=XXXXXXXX&proxyapp=XXXXXXXX 且没有登录信息，则调取接口获取用户信息
+        function checkLogin() {
+            var token = getQueryString("token");
+            var proxyapp = getQueryString("proxyapp");
+            if (token != null && proxyapp != null
+               && token != '' && proxyapp != '') {
+                //从后台直接调用接口获取用户信息
+
+                //获取数据
+                $.post("szfwz/CommonHandler.ashx",
+			        { opreate: 'szf_wz_getUserInfo',
+			            token: token,
+			            proxyapp: proxyapp
+			        },
+                    function (ret) {
+                        var data = eval('(' + ret + ')');
+                        if (data.success) {
+                            $("#userNameDiv").show().find("a").text(data.name);
+                            $("#logoutDiv").show();
+                            $("#historySqDiv").show();
+                            $("#loginDiv").hide();
+                            $("#registerDiv").hide();
+                        } else {
+                            alert(data.msg);
+                        }
+                    }
+                );
+            }
+        }
+    </script>
+<script type="text/javascript" src="http://www.shandong.gov.cn/script/1962/2109261148083525.js"></script>  
+</body>
+</html>

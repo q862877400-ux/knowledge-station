@@ -1,0 +1,2022 @@
+{
+ "A_考卷": [
+  {
+   "source": "nx-igi-140",
+   "id": "10147996",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10147996",
+   "question": "自从县农贸市场拆除后，明黄购物广场和县一小中间的西山街就成了商贩们的聚地。导致西山街交通拥堵，每个商贩跟前都有一个喇叭,从早上7点一直喊到晚上十一点，而且声音特别的大，做买卖可以，但是我们希望政府部门能管管，让他们不要再用大喇叭喊了，已经严",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国环境噪声污染防治法",
+     "lib_no": "噪声污染防治法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10112378",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10112378",
+   "question": "尊敬的领导: 我们是彭阳县康居苑小区续建一、二号楼住户，该楼房是朱明道挂靠固原鼎新房地产开发有限公司于2010年开发建设，2011年7月全部竣工，住户基本于2012年1月份入住。工程竣工后，朱明道只与住户签订了购房合同，当时并未办理房产证的",
+   "cited_hits": [
+    {
+     "name": "不动产登记暂行条例实施细则",
+     "lib_no": "不动产登记暂行条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10110809",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10110809",
+   "question": "尊敬的刘启冬县长您好， 为了新集乡能更好更快发展向您提两点建议。1.提高种植玉米、冬小麦、胡麻土地补贴，种植这三种粮食能大幅度提高土地利用率提升粮食产量，还能提供养殖所需的饲草、饲料降低养殖成本，巩固现有养殖存栏成果发展大户养殖。取消地膜补",
+   "cited_hits": [
+    {
+     "name": "公路安全保护条例",
+     "lib_no": "公路安全保护条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10108939",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10108939",
+   "question": "西门都市靓妆化妆品店每到双休日就利用高音音响进行全天播放流行歌曲，对附近的居民的正常生活造成了严重的干扰，希望有关部门进行制止，并建立常态化巡视制度，防止死灰复燃，谢谢。",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国环境噪声污染防治法",
+     "lib_no": "噪声污染防治法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10107772",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107772",
+   "question": "你好！我准备在自己商店放个麻将机和邻居打麻将，玩法是划水，金额1元2元3元，每个人的金额不超过50元，我收每个人5元的电费，请问这算聚众赌博吗，会被罚款和拘留吗？",
+   "cited_hits": [
+    {
+     "name": "治安管理处罚法",
+     "lib_no": "治安管理处罚法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国治安管理处罚法",
+     "lib_no": "治安管理处罚法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "这算聚众赌博吗",
+    "宁夏公安机关行政裁量执行基准",
+    "宁夏公安机关行政裁量执行基准"
+   ],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "nx-igi-140",
+   "id": "10147785",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10147785",
+   "question": "我是彭阳县孟塬乡椿树岔村的，我们村的村支书是刘虎，这几年我们村承包的地都是我们村里的护林员，党员这些人在弄，到了冬天下了雪铲雪也是这些人弄。虽然其他村同样是这些人弄，但是其他村会给按一天一两百的工资给他们，我们村就没有。 老百姓刚起床要去地",
+   "cited_hits": [],
+   "cited_missing": [
+    "椿树岔情况反映"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10126623",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10126623",
+   "question": "尊敬的领导 您好，我是栖凤小区的一个普通公民，14 15年搬迁的时候我还是个学生，没有什么话语权，把我们迁到了栖凤小区，一个五十多平的小房子里，我们一家五口三辈人，根本无法住下，我爸妈长年在外打工，我跟妹妹在外上学，那时候老家还能住人，就这",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于保障劳务移民居住和促进就业政策意见的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10115583",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10115583",
+   "question": "尊敬的彭阳县政府领导您好，我是彭阳县交岔乡一名普通的建档立卡大学生，听说国家有政策针对建档立卡家庭考取驾照的孩子给予补贴。我于2019年12月在银川考取到驾驶证，因为已到19年年末，我咨询了就业局，让年后再过来，20年年前因为疫情，所以一直",
+   "cited_hits": [],
+   "cited_missing": [
+    "彭阳县人民政府关于 <彭阳县2020年财政涉农资金统筹整合使用方案>的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10115565",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10115565",
+   "question": "再换水表时水表上有72元，自来水公司以吨位超出补收118元，望县长明察！",
+   "cited_hits": [],
+   "cited_missing": [
+    "彭阳县自来水公司IC卡水表用户入户登记表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10115088",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10115088",
+   "question": "昨天，队长说要把我们家的土院墙，土牛棚都拆了，说是什么 五土改造，但是我问 咋改造呢，那说 政策就是推了，没有说咋改造。我想问哈县长，都拆了 是让老百姓都敞口子住呢吗？现在共产党的政策都是只管拆不管建吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发《彭阳县全域实施 “五土”共改 改善农村人居环境实施方案（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10113980",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10113980",
+   "question": "教育体育局彭阳县县外资助一年了还没有打",
+   "cited_hits": [],
+   "cited_missing": [
+    "固原市人民政府办公室关于印发 <固原市市外中职农村学生精准资助工作方案>的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10112125",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10112125",
+   "question": "宁馨花园8号楼三单元一楼暖气白天可以，但是到晚上暖气就不暖和了，晚上卧室温度低，经常被冷醒。",
+   "cited_hits": [],
+   "cited_missing": [
+    "宁夏回族自治区供热条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10111287",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10111287",
+   "question": "去年有一个正对农村户口，在校大学生的助学金，资助金额4000，去年学生拿到手2000，剩下的到现在也没见，如果说政策改了，不给了，请以正式文件通知一下",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于完善教育扶贫资助政策巩固脱贫效果的意见",
+    "彭阳县完善教育扶贫资助政策巩固脱贫效果实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10111123",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10111123",
+   "question": "尊敬的领导：您好 ！ 彭阳县教育系统在这次推选自治区教书育人楷模和师德标兵的过程中，存在很多问题，很多学校领导根据个人喜好想报谁就报谁，没有按照教育局文件执行，一位教师孙子都抱上了，仍在在教育一线工作了且多次获得县、市政府表彰的优秀教师、优",
+   "cited_hits": [],
+   "cited_missing": [
+    "自治区教育厅关于推选自治区教书育人楷模和师德标兵的通知",
+    "关于推荐自治区教书育人楷模和师德标兵人选的通知",
+    "彭阳二中 “教书育人楷模和师德标兵”评选条件及办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10109529",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10109529",
+   "question": "我们家里窑洞年久失修，不能住人，一座新房屋是我哥的，我父母年事已高，不能挣钱，我在县城上学已经12年了，以前租住的房屋已经拆迁了，没有住的地方，请问一下我们这种情况能不能申请廉租房，或者移民搬迁",
+   "cited_hits": [],
+   "cited_missing": [
+    "彭阳县公共租赁住房管理实施细则"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10108578",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10108578",
+   "question": "您好：我是彭阳县新集乡人，08年大学毕业后一直在浙江温州创业。通过在外的学习以及经验。现想回家乡彭阳县创业，现将有关问题提出，希望得到回复：1、我想在家乡租100土地种植党参，请问关于种植药材上面有无补贴？2、在当地注册农业公司，政府给予哪",
+   "cited_hits": [],
+   "cited_missing": [
+    "彭阳县人民政府关于加快非公有制经济发展实施意见（试行）",
+    "彭阳县招商引资优惠及奖励办法（暂行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10108119",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10108119",
+   "question": "尊敬的县领导您好，我是彭阳县沟圈村后山队村民，目前在浙江工作，有想法在自己山区搞规模养殖，发展几年可以解决一部分本村就业问题，就像一些年龄偏大的村民可以提供岗位给他们，毕竟务农的农民做起来比较懂一些，初步计划是500到1000只山羊养殖，发",
+   "cited_hits": [],
+   "cited_missing": [
+    "彭阳县草畜产业实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10108041",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10108041",
+   "question": "尊敬的领导 您好！ 我是孟塬乡高岔村大庄对村民，全家五口人都是享受院外五保。由于五口人四个人都残疾人，三个重级残疾人。可谓老弱病残。 虽然政府给了我家危房改造，但是在大庄队，我们的基本生活都无法保障。看病买药都不方便，吃水困难，吃水还叫别人",
+   "cited_hits": [],
+   "cited_missing": [
+    "彭阳县公共租赁住房管理细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10108137",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10108137",
+   "question": "在农村我们作为你的子民，我们有权利选拔我们的直接代表（村干部），但我们收到的是不知道什么人已经推选出来的名单几个名单，我们就是起打勾划叉的作用。有一些连小学都没毕业的人都能做信贷员，这是凭什么呢？文化？业绩？还是见义勇为？还是…………？",
+   "cited_hits": [],
+   "cited_missing": [
+    "选举办法",
+    "当选证书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10108304",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10108304",
+   "question": "关于 农牧局 营业房后及门前违章建筑 的情况说明 尊敬的领导、天下普通百姓、党的代言人：",
+   "cited_hits": [],
+   "cited_missing": [
+    "彭阳县城市管理局限期拆除违法建筑物决定书",
+    "彭阳县城市管理局行政强制执行催告书",
+    "彭阳县城市管理局行政强制执行决定书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10107573",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107573",
+   "question": "《彭阳民间故事》《彭阳县志》是非常好的书籍，传承彭阳文化，但不知市面上还有吗，在哪里购买？没有的话，能否再版？",
+   "cited_hits": [],
+   "cited_missing": [
+    "彭阳民间故事",
+    "彭阳县志"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10107682",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107682",
+   "question": "小园村现建冯庄乡政府各机关，占用百姓耕地，给予耕地每亩6200元，所以对于补偿标准及政策需要了解，还有影响住房危窑，望告知。",
+   "cited_hits": [],
+   "cited_missing": [
+    "彭阳县人民政府关于印发 的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10107896",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107896",
+   "question": "尊敬的县长先生： 我想问的是刘河村公路及居民点占地补贴标准问题，补贴标准是怎么样的。制定时候有没有充分考虑群众的意见。 还有，对于制定的标准有没有进行公告，为什么群众对于补贴标准不是很清楚，群众实际拿到的补贴和补贴标准是不是一样的，有没有下",
+   "cited_hits": [],
+   "cited_missing": [
+    "彭阳县人民政府关于印发 的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10107933",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107933",
+   "question": "尊敬的县长先生： 我想问的是刘河村公路及居民点占地补贴标准问题，补贴标准是怎么样的。制定时候有没有充分考虑群众的意见。 还有，对于制定的标准有没有进行公告，为什么群众对于补贴标准不是很清楚，群众实际拿到的补贴和补贴标准是不是一样的，有没有下",
+   "cited_hits": [],
+   "cited_missing": [
+    "彭阳县人民政府关于印发 的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10107915",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107915",
+   "question": "尊敬的县长先生： 我想问的是刘河村公路及居民点占地补贴标准问题，补贴标准是怎么样的。制定时候有没有充分考虑群众的意见。 还有，对于制定的标准有没有进行公告，为什么群众对于补贴标准不是很清楚，群众实际拿到的补贴和补贴标准是不是一样的，有没有下",
+   "cited_hits": [],
+   "cited_missing": [
+    "彭阳县人民政府关于印发 的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10107279",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107279",
+   "question": "经常回家，在开车过红绿灯时，经常会遇到行人、电动车、摩托车无视红绿灯强闯红灯，最可怕的是看见车过来了仍慢慢悠悠、理直气壮的闯红灯。特别是新车站跟红阳那个路口晚上下自习的学习，成群结队的闯红灯，路途中还有嬉玩、骑车手拉手、聊天、拍篮球的，交通",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于开展对城区中小学生上下学交通安全隐患专项整治的实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10126036",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10126036",
+   "question": "县长你好! 我是彭阳县罗洼乡石沟村村民糟爱荣,为解决王洼镇王洼煤矿及镇上一些单位的用水问题,就在罗洼乡石沟村打坝蓄水(由于石沟有泉水)现在已蓄水很深,把我家的十六亩耕地及时十二木林地圈起<span",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于巴拉石沟水库除险加固工程初步设计的批复"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10107030",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107030",
+   "question": "你好，修路占用宅基地、耕地等有相关赔偿标准吗，如何赔偿？",
+   "cited_hits": [],
+   "cited_missing": [
+    "彭阳县集体土地征收补偿"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10107001",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107001",
+   "question": "我在彭阳务工8年，现租房已在政府拆迁规划内，想申请公租房",
+   "cited_hits": [],
+   "cited_missing": [
+    "彭阳县公共租赁住房管理实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10107016",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107016",
+   "question": "三号小区的自来水长期水质有问题，杂质多，颜色发黄，压力小，钙镁离子含量超标，严重影响居民的身体健康，希望相关部门尽快解决。",
+   "cited_hits": [],
+   "cited_missing": [
+    "三号小区的自来水长期水质不好、压力低、严重影响居民健康"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10106870",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106870",
+   "question": "提前退休教师的公积金啥时间解决？ 我们响应号召提前退休，都工作几十年了，可是我们的公积金问题时至今日仍毫无音信，都是一个自治区，石嘴山市的提前退休教师公积金都继续缴存至60岁，为啥彭阳不给继续缴存？",
+   "cited_hits": [],
+   "cited_missing": [
+    "提前退休教师的公积金啥时间解决"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10106795",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106795",
+   "question": "彭阳县二中与四中在2014年秋季教师交流中学校暗箱操作，教育局睁一只眼闭一只眼，不监督，忽悠教师，不按政策和原则办事，去年一个政策，今年又是一个政策，教育局交流教师发文件两次，难道教育局的文件就这样不正规。既然是毕业班教师交流，为啥毕业班教",
+   "cited_hits": [],
+   "cited_missing": [
+    "彭阳县教师交流暗箱操作 ",
+    "彭阳县人民政府常务会议纪要",
+    "彭阳县均衡配置县城初中教师工作方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10106689",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106689",
+   "question": "领导们，你们好！西门刘沟苗圃家属院，地沟下陷，有严重的安全隐患，卫生是标准的垃圾场，请你们能关注一下民生。没有水，没有暖，你看看每个窗子上的炉筒子，真正是现成的“风景线”，多年的拆迁款不兑现，连认账的部门都没有了。领导是换了几茬，难道把共产",
+   "cited_hits": [],
+   "cited_missing": [
+    "彭阳县土地征收及房屋拆迁管理暂行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10106635",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106635",
+   "question": "领导你好： 我是农民小区居民，修车噪音太大严重影响了居民的正常生活，就在我家门前有两个修车的，随着修车车辆越来越多占道经营给人民带来交通隐患。严重影响我们生活。我曾经向有关部门反映都未处理，希望领导能够给予解决。",
+   "cited_hits": [],
+   "cited_missing": [
+    "违法行为通知书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10106624",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106624",
+   "question": "恒源酒楼隔壁（南侧）后院房顶养殖了20多只鸡（估计公鸡不少），每天4时准时打鸣，打鸣声是此起彼伏，一直持续到8、9点。给附近居民休息带来了严重危害。恳望政府予以清理，还居民一个良好的休息权利。",
+   "cited_hits": [],
+   "cited_missing": [
+    "宁夏回族自治区市容环境卫生管理条例",
+    "限期改正通知书"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10106602",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106602",
+   "question": "近日彭阳教体局的经营方式让我这个体育爱好者倍感不爽，没想到固原市政务网上已经有两位网民先我一步进行了投诉。他们投诉的焦点就是6：30--11：30中途的清场一小时的问题和收费的时间段问题。中途清场让我们这些体育狂玩到兴处，嘎然而止，很难受！",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于收取体育服务费的批复",
+    "关于收取体育服务费的批复"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10106555",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106555",
+   "question": "我在王洼煤矿上班，我妻子没有工作，户口在郑河街居委会，在办理了独生子女证之后，彭阳县政务大厅的工作人员说女方没有工作单位而男方有工作单位在男方单位一并领取，但是王洼煤矿的工作人员解释说男方由矿上发，而女方在其户口所在居委会领取，并拿出了固人",
+   "cited_hits": [],
+   "cited_missing": [
+    "宁夏回族自治区人口与计划生育条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10106459",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106459",
+   "question": "领导:你好。我叫庞龙，彭阳人，于2013年参加卫生系统事业单位招考考入海原县医院，因各种原因希望回本县工作。现有海原在我县卫生系统工作人员，愿与我对调。请问可以对调吗？如若可以需要履行什么手续，望告知，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "宁夏回族自治区事业单位人员聘用制度试行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10106416",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106416",
+   "question": "尊敬的县相关领导： <p clas",
+   "cited_hits": [],
+   "cited_missing": [
+    "彭阳县人民政府关于印发 的通知",
+    "彭阳县人民政府办公室关于办理县八届人大一次会议代表建议和政协八届一次会议委员提案的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10106405",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106405",
+   "question": "针对王洼煤矿周边塌陷区拆迁的问题，请问你们什么时候处理完 ，给我回复！",
+   "cited_hits": [],
+   "cited_missing": [
+    "彭阳县人民政府关于印发 的通知",
+    "彭阳县人民政府办公室关于办理县八届人大一次会议代表建议和政协八届一次会议委员提案的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10106394",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106394",
+   "question": "<span",
+   "cited_hits": [],
+   "cited_missing": [
+    "彭阳县人民政府关于印发 的通知",
+    "彭阳县人民政府办公室关于办理县八届人大一次会议代表建议和政协八届一次会议委员提案的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10106361",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106361",
+   "question": "想在老家家门口建个规模小点的养羊场，不知道彭阳有养殖业合作社吗这样羊种跟销路、以及技术都能得以相互照应，有一个规模性的产业链，希望推荐下彭阳县有哪些养羊合作社或示范户，可供我实地学习或合作，羊舍，储草池这些建好了才能报农牧局领的扶持资金吗，",
+   "cited_hits": [],
+   "cited_missing": [
+    "标准化规模养殖场建设规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10106280",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106280",
+   "question": "领导你好，我想咨询一下关于户口簿分开的问题，我家是孟塬的，户口簿在我爸那里，我爸在老家。我在银川，我哥我嫂子在山东，户口簿里面有有我媳妇和我儿子，我哥我爸。一共有六口人，我有时候办事需要户口簿可是离家远带来也不方便，我想问一下可以吧我和我媳",
+   "cited_hits": [],
+   "cited_missing": [
+    "宁夏公安机关常住户口登记管理规定",
+    "关于认真做好我区“十二五”期间三十五万生态移民户口迁移工作的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10106148",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106148",
+   "question": "尊敬的领导您好，我是一个在外务工多年的单身青年，由于没有什么技能和特长在外只能做苦力，现在有点积蓄想回家养羊，想了解下现在养羊政府有什么帮扶，希望得到领导的帮助，谢谢，",
+   "cited_hits": [],
+   "cited_missing": [
+    "标准化规模养殖场建设规范"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "nx-igi-140",
+   "id": "10152448",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10152448",
+   "question": "领导好你好 新集乡赵沟村上湾队到目前为止还是土路，下雪下雨直接没法走，尤其下阵雨之后，直接让水冲的坑坑涝坝，其他村村民门口都能拿面砖铺了，难道上湾队不归彭阳县管吗？别村都在发展致富的道路上越走越远，我们还在泥泞不堪的土路上半死不活，哪怕整修",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10151726",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10151726",
+   "question": "县长您好，我是东昂明月台小区住户。就停车困难问题向您反应，小区地下停车位只有两百多个，地面停车位说的是有四百多个，但是地面停车位实际上就没有那么多，大多还都被社会车辆占了。现在一回家就没地方停车，给我的生活造成了严重的困扰。就这个问题多次向",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10150214",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10150214",
+   "question": "尊敬的县长您好，感谢您万忙之中查看信件，近来天气炎热，来此信的目的是想对我县（彭阳县）的体育文化场馆的降温措施提点建议。 据我对彭阳县体育馆，雷河滩体育馆，彭阳县图书馆实地调查，发现以下情况： 1、天气闷热，室内并未安装空调、风扇等暑期降温",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10149517",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10149517",
+   "question": "彭阳县一中新教学楼项目工地夜间施工，而且每天晚上都会施工到十二点多，给附近居民造成了很严重的困扰，特别是明皇B公寓的住户，天气这么炎热，晚上连个窗户都不敢打开，就这样都吵得睡不着，而且他们拉沙土的车都是从主街道过来，从西上街直接直接穿过的，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10146926",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10146926",
+   "question": "“人人亲其亲，长其长，而天下平。”尊老是我国优良传统，栖凤小区内地方狭窄，活动和绿化场地面积太小，而小区内老年人居多，附近又没有公园，到休闲公园得走到河边，对于行动不便的老人很不方便，而红阳楼靠南的空地离栖凤小区一马路之隔，哪里长了很多大树",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10146457",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10146457",
+   "question": "您好！我是一个农民工。去年9月份我们一起6个人在彭阳县王洼镇敬老院干活（地面塑胶地板铺装）。开始说完成后付工资。我们6个人干完了，老板说过几天给我们付工资。一直拖欠到现在也没付工资。我们也去过彭阳县劳动监察大队。他们说没有合同他们管不了，让",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10146151",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10146151",
+   "question": "尊敬的县长您好！ 2021年11月23日彭阳县人民政府网站发布公开招聘城镇社区工作公告，至今已近5个月了，不知是否举行考试招聘？参加报名考试的学生很是着急，不知是在家等着参加考试呢，还是出外打工谋生，期盼政府相关部门给学生们一个确切的答复。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10145588",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10145588",
+   "question": "草庙敬老院项目建设征用土地补偿协议，甲方:草庙乡人民政府(以下简称甲方)，乙方:张怀军，王风山，刘志琴等人土地，当时每亩按7000元补偿了。根据彭政规发[2020] 2号，是每亩地26000元，希望能按出台的文件，落实政策！让老百姓权益落实",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10145083",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10145083",
+   "question": "致张书记亲阅关于乡村振兴投资的建议 尊敬的张书记、县长、农业局长、各乡镇村书记： 创新是激烈竞争中获得投资的唯一途径。实践证明，需求是持续获得投资的定海神针，拥有需求必有投资。制造需求是地方的财富源泉，可弥补或改变因地理位置等产生的劣势和差",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10144773",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10144773",
+   "question": "尊敬的县长，您好！我是来自红河镇街道的一个普通女孩，今年24岁，以下就我观察到的我们街道的一些亟待解决的问题，提出一些我的个人建议。1．关于街道的交通安全问题。街道上重新修了马路以后，大路更宽敞了，人们可以更加畅通地行驶了，但是我发现存在一",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10144254",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10144254",
+   "question": "%E5%BD%AD%E9%98%B3%E5%88%9B%E5%BB%BA%E6%96%87%E6%98%8E%E5%9F%8E%E5%B8%82%E4%BB%A5%E6%9D%A5%EF%BC%8C%E5%AF%B9%E6%AD%A4%E6",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10143187",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10143187",
+   "question": "%E5%BD%AD%E9%98%B3%E5%8E%BF%E5%95%86%E5%9F%8E%E8%BF%99%E4%B8%80%E5%9D%97%E5%8F%AF%E4%BB%A5%E8%AF%B4%E6%98%AF%E5%B1%9E%E4",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10126450",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10126450",
+   "question": "我家在罗堡村庙掌队，想为家里安装宽带网络，向电信、移动等公司咨询，均回复网线接口距离太远，目前网线最大传输距离为100m，除非在我家与接口之间人家安装后，才能引线安装。对此十分无奈，目前部分地区已经5g全覆盖，但是农村仍然无法连接网络，生活",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10126053",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10126053",
+   "question": "%E6%82%A8%E5%A5%BD%EF%BC%8C%E5%9B%A0%E6%88%91%E6%89%80%E5%B1%85%E4%BD%8F%E7%9A%84%E5%BD%AD%E9%98%B3%E5%8E%BF%E5%8F%A4%E5",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10126354",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10126354",
+   "question": "我想咨询一下，外地人驻本地公民是否能后监督查看疫情检查点公职人员的核酸报告",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10126356",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10126356",
+   "question": "本人住在永信小区，二号小区南门的永信宾馆因装修，每天在早晨七点开工，晚上七点停工，周末也是如此，已经严重扰民。《<中华人民共和国环境噪声污染防治法>办法》草案第四十五条规定：“法定休息日，节假日全天及工作日12时至14时、18时至次日8时，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10126358",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10126358",
+   "question": "尊敬的县领导： 您好！感谢您能够在百忙之中抽时间看我的信。我是西安交通大学的一名研究生，家在新集乡赵沟村增岔队。近年来国家政策越来越好，人民的幸福感，获得感也有了很大的提高。“五通”也已实现了水通，路通，电通，唯一美中不足的是没有通网。我们",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10126363",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10126363",
+   "question": "最近，因为疫情防控宁馨花园开的主路上的大门，阻挡正常交通的同时进门的人行道和车道相反，安全隐患特别大，而且进门扫车比较慢，造成交通拥挤，希望根据实际情况能尽快调整",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10115449",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10115449",
+   "question": "尊敬的县长：我们怀着十分气愤的心情，向你反映关于彭阳县住建局、交通局、养护中心相互推卸责任问题，希望县级有关单位给解决我们所遇到的困难，维护我们公民的合法权益，保障我们的财产、人身安全。具体事实如下：我们是宁夏宁硕实业科技有限公司的，公司地",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10115203",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10115203",
+   "question": "尊敬的县长： 你好，我是宁夏回族自治区固原市彭阳县红河镇上王村的，是这样的，我们家门口在修路。但是划的线离我家不足0.5米，家里人考虑到离的太近伤到了房基，后续可能会导致房屋倒塌，所以起初是不同意的，希望道路可以稍微绕一下，离房子远一点，毕",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10114962",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10114962",
+   "question": "我是甘宁地区加工野山杏的私人企业。由于贵地区野山杏产量充足。现我司有意向将生产加工基地搬迁至贵县。我司生产设备齐全，生产技术成熟，销售渠道稳定、我司现有设备可每年加工销售杏肉1000吨左右，杏核800吨左右。可提供50-60人的就业岗位，预",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10114857",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10114857",
+   "question": "环卫垃圾车在三号小区和绿都华府附近播放的音乐声音大，持续时间长，严重影响临街居民的生活，望相关领导能重视。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10114741",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10114741",
+   "question": "尊敬的县长: 您好！感谢您在百忙之中阅读我的信件，我是一位彭阳县交叉乡大坪村苋麻队的村民。我今天主要想反应一下我家无线网络迟迟未解决的问题，现在国家的政策越来越好了，但是我家的用网依旧是个难题。针对此问题我已经向网络公司反应过很多次，但都没",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10114481",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10114481",
+   "question": "尊敬的县领导：您好！习主席多次强调，要打通农村的“最后一公里”，决战脱贫攻坚，全面建成小康社会。政策很好，但是在基层农村执行的到底怎么样？能不能经得起考验？有待我们实地探访。红河镇上王村北山队至洋河队新建的硬化路就是这样的“最后一公里”，从",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10114235",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10114235",
+   "question": "尊敬的县领导: 您好！ 近年来网络发展的越来越好，让我们这些在外地的游子能随时随地与父母视频通话，减少了父母对我们的牵挂。国家的政策也越来越好，无线网进农村，这是让大家都很满意也很感激政府部门，但是城陽鄉城陽村马塬队为什么不安装，是政府部门",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10113800",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10113800",
+   "question": "栖凤街和长安路路段大货车，半挂总是乱鸣笛，在家上课声音太吵了，晚上会鸣笛，影响休息，也不遵守交通规则，栖凤街和长安路这个十字路口能不能安个红绿灯",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10113729",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10113729",
+   "question": "领导您好，我购置了民生家园的安置回迁房，想要办理房产证，但是没有发票。我去住建部咨询，住建部的工作人员让我去惠民小区的售楼部办理，我去了那边售楼部，工作人员说暂停开发票不给开发票。没有发票我办不了房产证，望领导予以解决，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10113630",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10113630",
+   "question": "领导您好，我是东昂景苑业主，现在有使用天然气的需求，但是由于疫情影响，金地燃气公司暂时无法入户安装，希望相关部门能够根据本地疫情防控情况，考虑及时恢复燃气公司运营，解决住户天然气使用问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10113482",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10113482",
+   "question": "彭阳县栖翠苑小区高层电梯无人问津，处于关闭状态，我们住高层正常交物业费，电梯费，如今，电梯却成了高层的枷锁，成了威胁高层的砝码，若不交电梯费停用我们没意见，如今我们正常交却不能启用，物业的回复是让我们每单元最少凑齐10400元再开启，请问这",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10113028",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10113028",
+   "question": "尊敬的县长您好，我是宁馨花园住户，每天早晨、中午、下午、晚上十点前后消防队、看守所不知道是哪个单位初播放集结号之外，还会用扩音器播放各类音乐，影响附近三个小区居民的正常休息。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10112582",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10112582",
+   "question": "尊敬的刘县长：我有一个建议向你发来，希望能够得到你的重视。 彭阳县城历史悠久，近几年的建设发展很大，能不能留下过往的足迹和遗迹呢。现在三岔路口拆迁完成，裸露出的老城墙看起来马上就要拆除了，能不能留下来，装修一下老城墙，将县城三岔路口现在的空",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10112569",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10112569",
+   "question": "绿都华府小区西角（财富广场对面）有一个几百平米小广场，为三号小区，惠民小区，绿都华府几千口人提供了消遣活动的场所，特别是小孩，每天下午能够在这有限的地方玩耍，可惜这种祥和的画面很快被每天七八辆机动车搞的支离破碎，每天都有机动车跟小孩子争抢这",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10112461",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10112461",
+   "question": "投诉彭阳县城管局。我们是彭阳县新汽车站两侧经营的商户，三月中旬城管局通知车站两侧这条街道要打造示范街，提升形象。我们商户举双手赞同。但是安排的这家公司，施工毫无计划，一次性就把一侧街道所有门头全部拆除，开始搭建钢结构。没有一点计划，难道就不",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10112415",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10112415",
+   "question": "您好县长：我于2019年3月26日前来彭阳县不动产登记事务中心办理房产登记手续，在复审登记窗口提交相资料后，受理人员指出缺少相关资料，我重新补齐资料后，该人员指定到一个受理窗口办理，等了半天，该受理人员又让到另一个受理窗口办理，该受理窗口人",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10112343",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10112343",
+   "question": "栖翠苑小区多次电梯关闭，家居高层，导致家中老人无法下楼，物业已撤走，业主委员会也宣布不在管理该小区，我们正常缴纳电梯费及物业费，现希望政府相关部门出面解决电梯运行问题，为民生做一些实事！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10112282",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10112282",
+   "question": "信尊敬领导您好我想咨询下，农民工在外租房，购房补贴是什么原因一直没有兑现。三四月份，在村一级提供了各种证件，复印件，已经快一年了就是不见兑现钱，是怎么回事？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10112255",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10112255",
+   "question": "1 惠民小区住户交了电梯费用为什么还得交楼梯照明费用呢 比如我家住10楼 每层照明费用5块 十层就是50 可是我做电梯只经过了两个楼层亮灯的地方缴费为啥得交十层 2 惠民小区楼梯卫生一半个月都没人打扫 卫生很差腊月的垃圾到现在也没能清理出去",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10112137",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10112137",
+   "question": "尊敬的领导，您好！ 请问一下咱们彭阳县有没有2019年寒假政府见习的文件？在外省上学的是否有资格回来在县政府见习或者实习。希望您在百忙之中能予以查收。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10112040",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10112040",
+   "question": "现在咋们彭阳的廉租房紧缺有的人都报上去两三年了可是还是没有分下房子只能租住别人的房子 而 部分有廉租房的人却把房子租给别人赚取差价 有关部门是不是该好好查查廉租房空置和对外出租的情况了 让应该享受到的人享受",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10111955",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10111955",
+   "question": "在此特别投诉彭阳县汽车客运公司，我今天去坐车，十一点去，说是十二点十分车请假，买了一点的，去坐车时又说一点车坏了，让坐两点半的，坐了两点半的，一站一停路上随便拉人。不顾乘客事情缓急。且车站人员素质极差，车不能走都能说的理直气壮，那有一点为民",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10111885",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10111885",
+   "question": "尊敬的刘县长好：我是白阳镇姚河村岭儿队村民，向您反映我们交通出行方面的困扰。2010年春天修的县城到赵沟村的柏油路（白赵公路），是岭儿队、余沟村、赵沟村等几百户村民出行的唯一道路。穿过岭儿队的这一段，大约一公里，近几年已破烂不堪，一过车，尘",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10111870",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10111870",
+   "question": "尊敬的领导你好： 我是栖凤小区12号楼的住户。自从我们入住小区以来，各方面相对都可以。但是从今年年初，12号楼这个院子的路灯就没有亮过，我晚上也看了其它院子的路灯，从1号楼到13号楼共三个院子，没有一个着的，小区门口的灯也没有着的。我也找过",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10111855",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10111855",
+   "question": "第一：彭青公路破烂不堪，希望修补，保障正常行驶。第二，古城街道市场口十字路口，黑车乱停乱放，车辆无法通行，容易刮擦，刮擦了责任算谁？？？？现在交巡警合一，为何古城派出所不出来管理？？？难道古城派出所没交巡警合一还是工作失职？？？同时建议在古",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10111794",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10111794",
+   "question": "富阳花园长期在夜晚开工，因在住宅楼旁边施工，严重影响居民休息，希望政府解决下，就我知道该件事投诉不止一次，但迟迟未解决，不知道还有多少不为人知的事情。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10111779",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10111779",
+   "question": "彭镇公路城阳村岔口队汝河大桥段与原村镇道路交叉口，距离岔口村民集中居住点很近，是村民日常生活、出行、下地劳作必经地。日常车流量大（重型车辆多），现采用减速带双向限速（无明显效果），存在很大的安全隐患，并且噪声非常大，特别是晚上，非常扰民，建",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10111663",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10111663",
+   "question": "关于2016年申请通过公租房的居民什么时候能分到住房",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10111617",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10111617",
+   "question": "固原市彭阳县古城镇自来水供水浑浊，低压，已停水第二天，严重影响居民生活生产，水质严重达不到饮用标准为什么还会继续供水？望能得级政府关注",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10111398",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10111398",
+   "question": "三岔路口红绿灯不能正常运行，严重影响行车安全。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10111349",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10111349",
+   "question": "草庙牛湾村停水一周了，不知道啥原因，希望有关部门尽快解决",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10111335",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10111335",
+   "question": "县长大人你好，现在建设的张回到木湾的农村公路，路修到木湾把没住人的地方修了反而还有20几户住人的没修，这边也是条主路，我们20几户人找村上，镇上都说没办法。县长大人你们能不能去到现场看看这条主路应不应该给修一下，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10111159",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10111159",
+   "question": "我家是彭阳县陡坡村李岔队的，关于去年堡子沟的各家拉网线的事情我家并没有享受到网络。当时拉网线的时候询问施工人员，给我们的答复是距离拉网线的主干道有点远，拉不上网。是不是因为我家住的稍微有点偏远，就拉不上网线。在此，我想请政府给一个满意的答复",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10111140",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10111140",
+   "question": "尊敬的县长： 您好！ 本人居住在栖凤小区，紧邻南环路。公路另一侧是教育局、三小、体育场等重要的事业单位及公共场所。作为本县重要的道路之一，南环路上车流量大。由于整条南环路都没有设立交通信号灯和电子监控，通行的车辆车速普遍都很高，而且很少避让",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10110969",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10110969",
+   "question": "请各位领导来白阳镇双麽村南山根队，村里道路。！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10110855",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10110855",
+   "question": "惠通小区2号楼下两个食堂排风扇噪音太大，时常吵到深夜一两点；气味刺鼻，房子窗户不敢往开打；下水道被食堂排放的油污堵塞，楼道内臭气熏天。希望领导能在“蓝天保卫战”中给老百姓带来切实的利益，我敬待您的佳音。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10110777",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10110777",
+   "question": "我是农民小区住户，现在农民小区附近无垃圾箱，每次都得等待垃圾车。很多时候垃圾车只停留片刻，经常错过。就算听见垃圾车音乐，等跑出去早已经过去了。建议在农民小区四周能否设置几处移动式垃圾箱，固定在一个位置，由垃圾车每天负责更换。这样方便大家对垃",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10110759",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10110759",
+   "question": "老家位置在彭阳县冯庄乡崖湾村黄岔队，家里基本没信号，打电话需到院外面找信号，且信号不稳定，更没有网络，2018年2月22日离开家，至今天3月2日，整整8天家里3部手机均打不通，一直联系不上家里人，多次向移动公司、电信公司反映均未得到处理。今",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10110585",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10110585",
+   "question": "金宇花园共82户，属于小小区，县内物业因费用问题不提供服务后，造成小区无物业，垃圾成堆。建议房管部门加强对老小区，小小区物业服务的监管及督导，利用县内物业服务资源合理分配，提升社区居民生活水平及幸福感。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10110550",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10110550",
+   "question": "2014年特岗2017年9月已经转正，至今工资迟迟未发，试问何时发工资？大多数都是有家有孩子的同志，不发工资，怎么生活呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10109632",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10109632",
+   "question": "最近在我村进行的利民修路工程，对于老百姓来说国家巨额投资进行扶贫工程建设，扶贫产业增收，老百姓是感激不尽的，但是事实上不是这样，这些人一点都不顾及老百姓利益，故意加长路的长度，绕成山路十八弯，毁坏了以前方便的路形，使车辆转弯和行驶造成了困难",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10109545",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10109545",
+   "question": "其他县市已经陆陆续续公布了事业编制考试成绩和排名情况，我县到现在也没有相应的公布，以便考生合理安排时间，希望领导及时公布相关信息",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10109456",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10109456",
+   "question": "我们家自来水都停了快一个月了，农民靠下雨接的水吃饭，自从通上自来水以后，井就废弃了，可如今自来水停水一个月，井也废了，这让百姓那什么吃水啊？停水这么长时间，也不见有相关人员来进行检查。难道就这么停下去？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10109475",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10109475",
+   "question": "交岔到彭阳原来一天跑一趟班车，一月前，就这唯一的一趟车也不跑了，老百姓到彭阳办事非常不方便，职工周末回家更是难上加难，望领导能够重视，解决这一问题，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10109491",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10109491",
+   "question": "您好，我想咨询下今年中职学生考上高职都有哪些优惠政策与资助",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10109439",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10109439",
+   "question": "最近由于北环路铺设管道，二号小区北门无法正常通行，所有车辆出入南门，但由于门口街道两边摆设水果、蔬菜等摊位，堵塞交通，严重影响住户出行，且存在严重交通隐患，恳请领导责令相关部门予以解决，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10109421",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10109421",
+   "question": "我们是彭阳县惠通小区住户，我们惠通小区的房屋急于过户，到不动产登记中心咨询，仍然说没有测量，不能过户，我们已经等了几个月了，对我们住户会造成很大的困难和损失，我们急需过户的住户恳请国土局领导能够重视一下，尽快处理不能过户的问题，让我们尽快办",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10109026",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10109026",
+   "question": "城乡 基础设施建设工程PPP 投资合作意向 <p align=\"center\"",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10109046",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10109046",
+   "question": "城乡 基础设施建设工程PPP 投资合作意向 <p align=\"center\"",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10108905",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10108905",
+   "question": "为什么问好了银行，等钱种地，而县上的担保公司不担保，贫困户给上门担保，一般户难道就不需要贷款吗？县上为什么不担保，我们等着用钱呢，马上要开牛了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10108921",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10108921",
+   "question": "我是个一般户，问信用社贷款种地，信用社说找不哈担保人就找县担保公司，可是到担保公司一问，说县上暂时不开展为一般户担保业务，请问不给老百姓办业务，摆设到哪干嘛？为什么贫困户可以，我们不可以",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10108779",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10108779",
+   "question": "刘县长好; 我是县城一位居民，常坐公交车，开始有公交车只是1路，从兴彭大街西头跑到东头，城市居民和上下学学生主要围绕兴彭大街活动，这给确实给大家带来了方便，自从机关单位搬到悦龙山，公交车线路改变，随给上下班工作人员和到悦龙山办事人员带来了方",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10108797",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10108797",
+   "question": "刘县长好; 我是县城一位居民，常坐公交车，开始有公交车只是1路，从兴彭大街西头跑到东头，城市居民和上下学学生主要围绕兴彭大街活动，这给确实给大家带来了方便，自从机关单位搬到悦龙山，公交车线路改变，随给上下班工作人员和到悦龙山办事人员带来了方",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10108762",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10108762",
+   "question": "刘县长好; 我是县城一位居民，常坐公交车，开始有公交车只是1路，从兴彭大街西头跑到东头，城市居民和上下学学生主要围绕兴彭大街活动，这给确实给大家带来了方便，自从机关单位搬到悦龙山，公交车线路改变，随给上下班工作人员和到悦龙山办事人员带来了方",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10108834",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10108834",
+   "question": "因个人原因本来打算卖掉自己在彭阳县茹河花园（二号小区）的房子，合同什么都签好了，到房管局打算办理过户手续，万万没想到的是说房子不能过户，一问原因说是系统换了，问什么时候可以过户，告诉说如果开发商不给相应的信息，房管局也不知道什么时候，难道说",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10108815",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10108815",
+   "question": "因个人原因本来打算卖掉自己在彭阳县茹河花园（二号小区）的房子，合同什么都签好了，到房管局打算办理过户手续，万万没想到的是说房子不能过户，一问原因说是系统换了，问什么时候可以过户，告诉说如果开发商不给相应的信息，房管局也不知道什么时候，难道说",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10108725",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10108725",
+   "question": "时过境迁，老市场商住综合楼已从第一次拆迁至今三年有余，新建的商业综合体土建部分也全部竣工，然而旁边依附的几栋小二层依然矗立在前，残破不堪的楼体显得格外脆弱，我只想作为一个双创城市，是否应该及早解决此问题，让户主得到拆迁款能轻松养老，度过此生",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10108744",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10108744",
+   "question": "时过境迁，老市场商住综合楼已从第一次拆迁至今三年有余，新建的商业综合体土建部分也全部竣工，然而旁边依附的几栋小二层依然矗立在前，残破不堪的楼体显得格外脆弱，我只想作为一个双创城市，是否应该及早解决此问题，让户主得到拆迁款能轻松养老，度过此生",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10108597",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10108597",
+   "question": "我们家的斜上空架了“西电东送”的高压线，平时就嗡嗡响，遇到刮风，下雨等不好天气，直接响的睡不着觉，可以协调解决吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10108211",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10108211",
+   "question": "尊敬的领导我是一个残疾人在县城打工十年以上了。租了十年的房子高额的房租我已经无法承受。我这样的条件可以申请公租房吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10108099",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10108099",
+   "question": "县长，您好，最近这两天虎山庄道路正在铺石子。各家入户，可是还剩一两家不铺，我们找支书，支书说找施工的，施工的也不管，让乡政府帮忙问一下怎么回事，他们也不管，现在劳烦县长能百忙之中能问一下，能把这个问题解决了。谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10108080",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10108080",
+   "question": "领导您好！ 我是一位大山深处的孩子，家住草庙乡王岔村火石趟队，那里条件比较艰苦，吃水资源主要依靠老天，交通不便利，虽然国家把路给修好了，但是又不发班车，父亲每次上街都要步行20多公里路，家庭居住条件也比较落后，到现在为止家里还住着窑洞，村里",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10108063",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10108063",
+   "question": "领导您好！ 我是一位大山深处的孩子，家住草庙乡王岔村火石趟队，那里条件比较艰苦，吃水资源主要依靠老天，交通不便利，虽然国家把路给修好了，但是又不发班车，父亲每次上街都要步行20多公里路，家庭居住条件也比较落后，到现在为止家里还住着窑洞，村里",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10107952",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107952",
+   "question": "我家的房子5月份被征，8月份拆除，在签订被征协议时说3个月后房产证就能办理下来，可是现在去问城建局，说还没有办理。不知道到底什么时候能办理下来？选为能给一个确定的时间。也不要找借口推辞。（关键要急用房产证）",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10107808",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107808",
+   "question": "领导你好，我想咨询一下，十三五规划，彭阳县将移民搬迁那些行政村，每个行政村的比例是多少，能不能透明公布一下！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10107737",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107737",
+   "question": "尊敬刘县长： 您好，百忙之中打扰一下，白阳镇白岔村沿线自来水已经停了快一个月了，到目前为止也没有进行抢修或者恢复，沿线村民四处找的拉水，人畜饮水已经严重出现问题，一个月时间呐，养殖户和人畜正常饮水危急，解水等于救命！急！急！急！村里来人都精",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10108004",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10108004",
+   "question": "尊敬的县长你好:在你百忙之中打扰你实在不应该，但我无奈，实在无奈。因为楼房漏水我找过物业，也找过售楼部，他们互相推诿，互相踢皮球。21号楼大部分是公租房，所以找物业，更是困难。我现在不为别的，只求房子不漏水就行。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10108024",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10108024",
+   "question": "尊敬的县长你好:在你百忙之中打扰你实在不应该，但我无奈，实在无奈。因为楼房漏水我找过物业，也找过售楼部，他们互相推诿，互相踢皮球。21号楼大部分是公租房，所以找物业，更是困难。我现在不为别的，只求房子不漏水就行。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10107755",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107755",
+   "question": "尊敬的县长您好！近日，部分市民反映，茹河水又有臭味了，经实地排访，事情的真相如下: 茹河水发臭原来是闽宁小区将污水排入雨水管道造成的！ 经深入查访，起因是:县政协委员张文成私自将闽宁小区公共设施自行车棚改为私家车车库，导致小区物业倒闭(住户",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10107664",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107664",
+   "question": "尊敬的父母官大人： 我被拆迁安置到惠民小区三号楼四单元。工程结束才发现，楼门口一段陡坡下还留了一个二尺多高的坎，健康的成人都需要踩几块砖上下。我老婆残疾，靠轮椅出行，在这里直接关了禁闭。 请县长大人过问此事，留条路给我们走。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10107719",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107719",
+   "question": "县长您好，我的土地从98年至今是因李世堂打伤了我两口子，抢走了我家土地，一直在使用，处理事情得书记是现在得信访局武局长，还有杨世福等人，当时也有收据得，可是由于特殊情况，我长期辽伤，乡上司法得主意叫我专管孩子，地",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10107701",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107701",
+   "question": "尊敬的县长，您好！我想请问享受过危房改造的可以申请居民点吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10107609",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107609",
+   "question": "你好县长！我是一名打工者今年的危房改造工程款怎么还没有下发我想让你给我解释一下！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10107591",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107591",
+   "question": "尊敬的刘县长： 您好，指导你日理万机，每天工作很忙，打扰您实在抱歉。我想向您反映一下百姓的心声。在去年，您为县城学生不受冻，能早点供暖，天天督促四号供热点加班加点建成早日投入使用，今年，暖气迟迟不来，希望您能向去年一样，重视供暖问题。大人怎",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10107555",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107555",
+   "question": "惠民家园8号楼工程质量实在太差，屋面防水完全不起作用，屋顶有点积水，顶楼屋内就漏水，联系工程公司维修了三四次还是漏水，三天两头跳闸停电，楼道的灯从来没亮过，现在连应急灯都拆了，联系物业公司，工作人员态度极差，从来没有主动解决过问题，都是把工",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10107879",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107879",
+   "question": "很荣幸能看到网页版信访网站，本因危窑改造项目几年以来，父母年老为自己盖了三间瓦房没能够一直拿到政府危房补贴款，希望县级领导能够调查落实一下城阳乡杨原村杨立春家补贴款一事，我在这里谢谢你们了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10107426",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107426",
+   "question": "每每下晚自习，不分高中初中，沿校门口或近或远就有一些奇装异服发型怪异的小青年或未成年人叼着香烟骚扰或打骂学生，还有，一些身着校服的学生打架闹事，上述打人者有时还带凶器！个人尽全能劝解呵斥动手制止过几次，但还有好多没遇到。恳请相关部门组成联合",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10107444",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107444",
+   "question": "每每下晚自习，不分高中初中，沿校门口或近或远就有一些奇装异服发型怪异的小青年或未成年人叼着香烟骚扰或打骂学生，还有，一些身着校服的学生打架闹事，上述打人者有时还带凶器！个人尽全能劝解呵斥动手制止过几次，但还有好多没遇到。恳请相关部门组成联合",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10107407",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107407",
+   "question": "2016年9月23日下午2：30左右去彭阳车站乘车，当时车还没到发车时间，我就在候车室转的等车，偶尔看见一个约5岁孩子在候车厅座椅上来回踩，我看了看，想了很多……，当时检票的工作人员也没理会，任由孩子踩。谁不知椅子是客人来坐的，工作人员为何",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10107500",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107500",
+   "question": "情况反映 尊敬的赵书记、刘县长并信访办： 我叫赵勇，男，汉族，农民，家住彭阳县白阳镇周沟村大沟湾队。 1997年，彭阳乡希望小学（现在的县四小）建设时，将我家一整块9.5亩水浇地中的2.7亩占用，乡政府和周沟村委当时只补偿了1800多元的青",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10107388",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107388",
+   "question": "尊敬的县长，关于北塬村每户通自来水的情况，我家跟其他村民一样，同时都交了钱，别人家都接通了自来水，唯独我家没接，是村书记的问题？还是乡政府的问题？还是我家不是北塬村村民？？？还是……？？？？？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10107315",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107315",
+   "question": "彭阳县王洼镇花芦村党支部书记的违法违纪，我们村民把资料送到彭阳县纪委.为什么县纪委不查？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10107259",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107259",
+   "question": "帮我们解决自来水问题吧",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10107241",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107241",
+   "question": "我想在彭阳办一家地膜加工厂，请问政府有什么项目补贴没有，去那个局里咨询办理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10107221",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107221",
+   "question": "我想办一个废旧地膜加工厂，不知道政府有没有什么补贴项目，在那个部门详细咨询呢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10107134",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107134",
+   "question": "县长 您好，我是幸福城小区业主，幸福城小区的房子已经交到住户手中，业主已经入住快一年了，但是小区的配套设施建设到目前还没有完工，连最基本的道路硬化都没有完成，几次找开发商和物业协商都没有人来管，下雨天道路泥泞，小孩每天在稀泥里上学，车每次开",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10107115",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107115",
+   "question": "我家楼上漏水，导致我家屋顶大面积滴水，多次协商都以工程质量有问题拒绝维修，开发商也推脱责任，此行为严重影响我家正常生活，望有关本部门能给予帮助解决！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10107102",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107102",
+   "question": "尊敬的县长您好！我是古城镇高庄村王湾队王继武家，4月12号早晨我7点多去田里干活，大约10点多我家的草料场起火了，当时家里没有人，不知如何就起火了。听到这个消息我赶紧报了警，但石古（石岔到古城）公路在我家附近设置了两个大水泥墩，不让大型车辆",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10107163",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107163",
+   "question": "我是城阳乡涝池村65岁残疾老人韩池的二儿子，我们村的涝池居民点祁队长在我们弟兄不知情的情况下从我父亲韩池手中以两三五百元购买我家的一亩耕地～耕地是农民的生命，是不允许随意买卖的，请求政府帮我们解决此事～对农村村长以及村支书加大管理力度，从根",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10107182",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107182",
+   "question": "领导你好；听说有政府扶持的牛棚项目和种玉米肥料红河有城阳有吗？还有救助房，下面的情况可以申请吗；我一家三口和父母户口已分开，但住一处危房，房子都有明显裂痕，时长下雨顶上掉泥土，漏雨，具体情况可上门查看，，我有两个弟弟，都已到了结婚年龄，一个",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10107046",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107046",
+   "question": "尊敬的领导： 你好！我要反映的问题是：1、建议加快对王洼镇李洼村王堡队交通条件进行改善。2、自来水改造实施项目，王堡队交通条件极其落后，孩子到目前为止上学还要徒步15公里土路后才",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10107061",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10107061",
+   "question": "县领导您好：我咨询一下城阳乡沟圈村后山队山区能不能脸上家庭网络的，现在沟圈村有没有通网络。个人如果办理网络的话山区能不能用",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10106984",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106984",
+   "question": "领导你好，我是一名打工者，我想咨询一下2015年有没有小岔乡榆树村崾峴队的搬迁计划",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10106908",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106908",
+   "question": "领导您好，我是一名打工者，我想咨询一下2015年搬迁有没有吧孟塬乡白阳庄村西岔洼队规划在里面，希望您们领导百忙之中的回复。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10106947",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106947",
+   "question": "我是孟塬乡高岔村移民区的一农户，其他户都于2012年搬迁至月牙湖，剩下的单户怎么处理至今无人问津，我们已经在原地无法居住，住房被铲除，地又无法耕种，找了几次县移民办，没有给出什么答复，我想政府应该给我们先给一个安身的地方，再想办法解决，请县",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10106889",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106889",
+   "question": "搬进三小区也有两年多了，每到冬天我们的日子就不好过了，根本的原因在于小区内用的是天然气取暖，中间楼层还凑合，能烧个十五六度，一楼不管怎么烧只有十四五度，今年的天气太冷了，有些受不了了，有些人说天然气省钱，其实不是这样的，正常冬天每天得十方气",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10106966",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106966",
+   "question": "01年在李渠推路压地至今还未补偿，马上15年了，希望政府督促交通局兑现。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10106927",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106927",
+   "question": "国家正在进行新农村建设，自治区也在倡导美丽乡村建设。现孟塬塬上只有三个行政村（双树、赵山庄、草滩），由于生态移民，山里人大部分已经搬迁，现在塬上人口比原来少了一半（只是估计），县领导能否把孟塬塬上三个行政村（双树、赵山庄、草滩）合并成一个村",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10106832",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106832",
+   "question": "城市道路交通安全是一个非常重要的问题，学生上学期间的安全一直是广大民众普遍关注的话题。造成学生上学街道路灯早已熄灭，学生上学骑着自行车，和迎面开来的小汽车彼此视线模糊，造成很多安全隐患。希望有关部门能根据实际情况调整路灯照明时间，方便大家，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10106851",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106851",
+   "question": "交通局在11年推路压地已经3年了，迟迟不给补偿，是否贪污不补。希望县领导核查，尽快给农民兑现补偿。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10106813",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106813",
+   "question": "领导你好；随着社会的发展，人民的生活水平越来越高，车也越来越多，但停车难，我是本县人，都不知那里可以停车，那里不让停车，更不要说是外地人，在全城没有停车路牌，只是交警过一会儿开车来喊一下，每天都一样，我想每天的油钱就能立一个停车牌。有的地段",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10106757",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106757",
+   "question": "我是彭阳县城阳乡沟圈村后山队的一名村民，现在在外已经四年了，发展不是很理想，今年我看到了网上国家对农业扶持的新闻，然后回家看了一下，感觉家乡变化很大之前种地出了力没赚到钱，现在在你们政府的帮助下农民种了地也赚了钱，日子过得一天比一天好，去年",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10106776",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106776",
+   "question": "我要反映的问我是彭阳县城阳乡沟圈村后山队的一名村民，现在在外已经四年了，发展不是很理想，今年我看到了网上国家对农业扶持的新闻，然后回家看了一下，感觉家乡变化很大之前种地出了力没赚到钱，现在在你们政府的帮助下农民种了地也赚了钱，日子过得一天比",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10106724",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106724",
+   "question": "建环局拖欠我们新集乡经二路道路及排水监理费两年了，我们2013年1月开的发票，我们要了多次监理费至今一分钱没给，我们监理人员也要养家糊口啊，没办法我们只能去法院起诉了，希望县长尽快给我们解决。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10106746",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106746",
+   "question": "尊敬的领导， 您们好! 本人韩茂宽 ，在宁夏彭阳商城东侧经营童装，阳光宝贝和好娃娃童装屋两个店面，可是在去年2013年11月左右，商城东侧前面就一直被卖水果、玉米、开着小车和摆地摊的把路堵得死死的，我们这侧经商者多次向城建局反应，可是效果很",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10106735",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106735",
+   "question": "原交通局楼后全体居民以《百鸡争鸣几时息》对我们居民区养鸡人进行了投诉，县城管执法人员做了大量有效的工作，但是鸡还是那群鸡，打鸣声还是那个打鸣声。居民只能睁着干涩的眼睛，望着天花板，痛苦地等待天亮！！！恳望城管执法人员再次执法，彻底铲除严重影",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10106645",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106645",
+   "question": "惠通小区存在的重大隐患问题？ 1、楼梯灯有些从来不亮，出行只能靠摸？路灯也一样。老人小孩摔了怎么办？物业是大爷啊！牛的很！ 2、高层的消防系统成了摆设，水带、阀门，都不知道哪里去了。一旦着火，只能靠消防了，可咋彭阳的消防车有那么高的云梯配合",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10106613",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106613",
+   "question": "我是城阳乡一村民，关于一卡通等问题透明化严重不够，我根本就不知道我家的一卡通的帐是如何结算的，都是村上的弄得，而且经过核实，有些严重错误，例如：农资补贴、退耕还林等如何结算，我认为应该实行网络公开化以及张贴公告，更应该把低保名单及档次、危房",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10106589",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106589",
+   "question": "领导你好，我是军民路居民，就在我家门前有一个垃圾箱，随着车辆越来越多这个垃圾箱严重影响着道路。其次，这个垃圾箱离我家大门就不到十米之远，在夏天是各种病菌传播平凡期，当箱子打开时臭味难闻，严重影响我们生活。我曾经向运输的环卫工及环卫队张建设队",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10106579",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106579",
+   "question": "县委邻导好，我想请问一下白阳镇姜洼村陈山对在移民范围之内吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10106523",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106523",
+   "question": "请问今年我县有创业贷款吗?如果有什么时候可以办理?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10106513",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106513",
+   "question": "您好。我想咨询办独身子女证和给孩子改名字都需要什么手续？我是孟塬乡的。谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10106534",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106534",
+   "question": "尊敬的领导你们好： 我是原能源站拆迁安置户，想知道栖凤花园何时才能分房？还有当时拆迁的的公摊面积和化粪池并没有计入拆迁面积，这个政府职能部门如何解释，望解答，谢谢，翘首以盼",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10106501",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106501",
+   "question": "领导：草庙至彭阳公路路面破损严重，坑洼不平，灰尘四起，存在一定的安全隐患，影响北部乡镇群众出行，请问这条路什么时候修建？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10106490",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106490",
+   "question": "尊敬的领导您好： 请原谅我在您百忙之中来信打扰，我是彭阳原烟草公司家属院住户（原住栖凤山下）2012年我们响应政府政策，于2012年6月搬出，当时政府在民生家园给了一套约40多平米的廉租房让我们居住，可对于一家六口且三代人，实在没法生活，于",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10106468",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106468",
+   "question": "尊敬的县领导： 我是县四中孩子的家长，现在孩子已开学，每晚下自习后要经过四中桥，但桥上没有安装路灯，行走起来极度不变，不知何时能安装路灯。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10106479",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106479",
+   "question": "尊敬的领导： 您好！我家是红河乡何塬村的，年前我们村的新农村居民点已投入使用，我们交了28000元，说是交的多了，但是不知多了多少？说是给我们农民退回多交款项，至今还没任何反应？我想咨询这个到底我们农民需要交多钱？ 都有什么政策？？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10106437",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106437",
+   "question": "城管局领导你好、工作一定很忙！闽宁小区过去院内干净，24小时有人打扫，门卫时时有人值班，住户安全放心，车辆停放整齐，不知咋回事，现在垃圾遍地，遇上刮风天尘土加纸屑漫天飞扬，再加上门卫无人值班，这种提心吊胆的日子何时结束。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10106427",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106427",
+   "question": "尊敬的领导: 您好！我是白阳镇白岔村村民，请问该村是否属于生态移民范围，以前从未听说有该项政策，最近听说该村部分村民已搬迁，还有生态移民需要具备什么条件，走哪些程序，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10106383",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106383",
+   "question": "尊敬的领导您好； 我想问一下社保卡何时发，小孩去年交的医保。到现在也没发社保卡看病没法住院，没办法报销。望领导给已解决。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10106372",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106372",
+   "question": "2014年经济适用房的报名时间是什么时候？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10106338",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106338",
+   "question": "各位领导您们好！ 我想问一下今年什么时候能分到廉租房？租房房费太贵家庭老人要医药费我实在无能维力，现在住的房连暖气都不供小孩太冷。房东又不要架炉子。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10106349",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106349",
+   "question": "尊敬的领导您好！我是富阳花园业主，富阳一期于2013.6月正式让我们领钥匙进行装修入主，大部分 业主都是于是10月搬进去的，可是还没有住二天房子就出现了严重的质量问题，墙面出现裂缝，更有房屋脊梁出现裂缝的，开发商态度冷漠，售楼部态态度恶劣，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10106325",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106325",
+   "question": "你好！ 我户口是孟塬乡的，2013年7月1日我在江苏宿迁市办理了结婚证，目前我媳妇已孕，要给小孩办理准生证，她家第一胎不需要办理准生证，但我们工作地在苏州市需要准生证，我给乡里打了好几个电话也没有说清楚需要那些材料，因回家不方便还请告知如果",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10106302",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106302",
+   "question": "尊敬的领导： 您好，我家住宁夏彭阳县红河乡何",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10106291",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106291",
+   "question": "尊敬的县领导，你们好，我是一名在校大学生，最近几年看到我们周边的村都有移民搬迁，我想问一下，彭阳县王洼镇邓岔村黑窑滩队到底什么时候才能够移民搬迁。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10106314",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106314",
+   "question": "目前该村移民已经基本完成，剩下大概四户不符合条件，不能搬迁。目前单村独户，不敢住，门也被撬了，锅碗瓢盆都被偷光了，生活真的是难以为继。根据移民政策，后期还要进行生态恢复，后续工作继续要做，这些被遗忘了的草民如何生活下去，请给这些村民做主。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10106258",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106258",
+   "question": "你好 .我想问一下彭阳县小岔乡耳城村城湾队啥时能搬迁到银川.希望回复详细点谢谢了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10106269",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106269",
+   "question": "各位领导你好！ 我是王洼镇的一个农民，去年我丈夫患肝癌去世，我有三个孩子，女儿还在上学，我又因腿有风湿，不能干重活，还要吃药，所以孩子上学和我的医药费只能靠儿子打工勉强维持，请问政府，像我们这样的情况算不算困难户，能不能纳入像中央政策中所讲",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10106247",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106247",
+   "question": "这一批经济适用房什么时候审批下来啊？不是按经济适用房实行办法上，应该不到两月就下来吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10106236",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106236",
+   "question": "白阳镇阳洼村菜台队能否实现搬迁？何时能实现？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10106226",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106226",
+   "question": "尊敬的领导：你好。 我们想询问一下今年对于七年级新生办理饭卡方面的具体政策：为什么一部分学生有饭卡，一部分却没有呢？义务教育的政策是否有变化了？谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10106192",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106192",
+   "question": "各位领导你们好: 我的老家实在罗洼乡寨科村下掌队，从我记事的时候开始我们就属于下掌队，今年我们队已有部分人搬至银川月牙湖乡，但一山之隔的我们庄子却留在了那里，前段时间回家看见家里的窑洞已经用柱子顶起，父母就住在里面；晚上躺在炕上还能听见下面",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10106181",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106181",
+   "question": "领导好： 我是李寨村民，最近不断有领导来家问询拆迁意向的事情，说要拆迁家里房子，上门工作人员讲20天内，签不签字都要拆，但我去国土资源部、国土资源厅没查到。关于我家所在地的用地申请及批文。是我自己向国土资源部问询？还是县上统一给村民们讲讲，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10106172",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106172",
+   "question": "各位领导你好，我想问一下给歌厅定的营业时间是几点，他们一直唱到晚上2点左右，能不能在十一点之前把音乐关掉",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10106160",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106160",
+   "question": "各位领导好，我的老公是去年考的正式职工，工资很低，家里上有老、下有小，一点工资还不够家里开销，我又没有工作，生活压力很大，家里没车没房，还要在彭阳租房子住。最近听说在申请廉租房，想问一下想我们这种情况能不能申请。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10106137",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106137",
+   "question": "彭阳县古城镇任何村鹦哥嘴组村民的拆迁补偿款为什么到现在还打不上呢？一边催着老百姓搬迁，一边却不给百姓拆迁补偿款，请问还需要多久能打上？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10106127",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106127",
+   "question": "尊敬的各位领导：<span style=\"mso-spacerun:'yes'; font-size:16.0000pt; font-fa",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10106105",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106105",
+   "question": "我是彭阳县白阳镇姜洼村的一位在外打工人员，我想在老家想搞点养殖业但又不干投资怕移民搬迁，我想请问一下姜洼村陈山队在移民搬迁范围之内吗？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10106095",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106095",
+   "question": "各位领导：草庙至彭阳县城的302省道路面已经严重破损3年了，严重影响着北部各乡镇群众的出行，请问合适能修好？？？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10106084",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106084",
+   "question": "彭草公路是我县的南北主干道，由于年久失修，现在路面已破损，严重影响我县北部乡镇群众的出行。我想咨询一下这条道路什么时候能够维修，交通部门立项了没有？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10106076",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106076",
+   "question": "尊敬的领导： 感谢您在百忙之中阅读我的信件。我是彭阳县 新集乡 白草洼村福财养殖场理事长：杨福财，我厂现养殖肉牛出栏率500头左右，由于有大量的牛粪不好处理，所以向建设一所大型的沼气站，不知政府有没有什么扶持政策，怎么审批、找什么单位。敬请",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10106054",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106054",
+   "question": "尊敬的县长您好 我是白阳镇姚河村赵洼队村民， 由于生活我于2005年带着家人外出打工5年，在这期间我的老宅基地（赵洼老庄子）被政府征用建住宅，于2009年我听说此事从外地赶回来，听说安置我就找到真政府去咨询，结果回答的是那是废弃的宅基地 没",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10106040",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106040",
+   "question": "我是彭阳县小岔乡耳城村 我想问一下今年我们村移民搬迁没有 要是搬迁 在那",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10106032",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106032",
+   "question": "尊敬的领导您好！首先感谢您在百忙之中查看我的信件，我是彭阳县白阳镇南山村斩刀山的一位居民，现虽在固原工作，但仍然关心家乡的建设，现有几个问题想咨询一下领导：1、年初听说我们村要劳务移民搬迁是否由此事；2、我们斩刀山队的自来水管已经铺设好了什",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10106012",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10106012",
+   "question": "年难过，年难过，年年难过年年过，这是交通小区住户这四年生活的真实写照，自从入住以后，房产证成了我们心头永远的痛，四年了，房产证到现在没办，想贷款都没有什么抵押，交通局的回复只是搪塞之词，土地使用性质变更，四年都没有变更吗？是交通局没有办理还",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "nx-igi-140",
+   "id": "10105999",
+   "url": "https://www.nx.gov.cn/hdjl/?id=10105999",
+   "question": "尊敬的县领导你们好： 我是彭阳县新集乡上马洼村村民，从2010年8月份回家创业养羊，现在存栏50只。 现在养羊前景还是很不错的，一只羊一年的利润最少在1000元，一只种羊一年能产两胎、一胎平均两只、两胎就是四只、以现在的市场价一只可以卖到6",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

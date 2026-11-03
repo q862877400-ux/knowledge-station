@@ -1,0 +1,37 @@
+{
+ "A_考卷": [],
+ "B_补料": [
+  {
+   "source": "gx-igi-60",
+   "id": "157814202760",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814202760",
+   "question": "我想买台收割机，想查询一下补贴机具有哪些？有没有目录清单",
+   "cited_hits": [],
+   "cited_missing": [
+    "广西2021——2023年农机购置补贴机具补贴额一览表（第一批）",
+    "广西2021-2023年农机购置补贴机具补贴额一览表（第二批）"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "gx-igi-60",
+   "id": "157814403634",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=157814403634",
+   "question": "请问农机中心网站是否开设了政策文件相关栏目？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gx-igi-60",
+   "id": "1578122432",
+   "url": "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml?id=1578122432",
+   "question": "请问在哪些店买农机有补贴？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

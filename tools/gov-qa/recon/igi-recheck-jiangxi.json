@@ -1,0 +1,11 @@
+{
+  "tag": "jiangxi",
+  "host": "www.jiangxi.gov.cn",
+  "referer": "http://www.jiangxi.gov.cn/hdjl/",
+  "scheme": "http",
+  "range": [1, 300],
+  "empty_status": 200,
+  "sites": {},
+  "total": 0,
+  "note": "siteId 1..300 全枚举，无任何有数据 site。空 siteId 返回 200（非 412，WAF 未拦），说明确为 IGI 平台但无挂载问答栏目。"
+}
