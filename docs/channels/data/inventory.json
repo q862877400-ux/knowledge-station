@@ -3,8 +3,8 @@
  "totals": {
   "sites_crawled": 192,
   "items": 21004,
-  "texts": 19844,
-  "text_chars": 70320635,
+  "texts": 20978,
+  "text_chars": 72572021,
   "attachment_refs": 596,
   "attachment_files": 591,
   "sites_with_items": 166,
@@ -33,7 +33,7 @@
  },
  "site_rules": {
   "sites": 192,
-  "with_rule": 19
+  "with_rule": 7
  },
  "province_portals": {
   "total": 26,
@@ -48,8 +48,8 @@
    "pagination": null,
    "pages_this_run": 164,
    "items": 2490,
-   "texts": 1356,
-   "text_chars": 2276784,
+   "texts": 2490,
+   "text_chars": 4528170,
    "attachments": 14,
    "attachment_files": 16,
    "items_new_this_run": 1928,
