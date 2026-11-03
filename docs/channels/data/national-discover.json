@@ -22092,10 +22092,10 @@
    "site": "商务部",
    "province": "中央",
    "home": "https://www.mofcom.gov.cn/",
-   "board_url": "https://www.mofcom.gov.cn/zcfb/gfxwj/index.html",
+   "board_url": "http://www.mofcom.gov.cn/article/fgsjk/",
    "status": "ok",
    "score": 1,
-   "keyword": "规范性文件|规范性文件",
+   "keyword": "搜索定位（法规数据库）",
    "list_likeness": {
     "ok": true,
     "n_links": 21,
@@ -23873,10 +23873,11 @@
    "url": "https://www.mof.gov.cn/",
    "home": "https://www.mof.gov.cn/",
    "level": "ministry",
-   "status": "no_board_found",
-   "board_url": null,
-   "board_kind": null,
-   "note": "待摸入口"
+   "status": "ok",
+   "board_url": "http://www.mof.gov.cn/zhengwuxinxi/zhengcefabu/",
+   "board_kind": "normative",
+   "note": "待摸入口",
+   "keyword": "搜索定位（政策发布）"
   },
   {
    "site": "人力资源和社会保障部",

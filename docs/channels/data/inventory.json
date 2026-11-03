@@ -1,16 +1,16 @@
 {
  "generated_by": "scripts/channels-delivery-report.py",
  "totals": {
-  "sites_crawled": 247,
-  "items": 23484,
-  "texts": 23183,
-  "text_chars": 81943886,
-  "attachment_refs": 666,
-  "attachment_files": 661,
-  "sites_with_items": 224,
+  "sites_crawled": 248,
+  "items": 23496,
+  "texts": 23195,
+  "text_chars": 81984568,
+  "attachment_refs": 668,
+  "attachment_files": 663,
+  "sites_with_items": 225,
   "sites_multi_page": 98,
-  "attachment_bytes": 577692798,
-  "attachment_mb": 550.9
+  "attachment_bytes": 577834697,
+  "attachment_mb": 551.1
  },
  "by_level": {
   "city": {
@@ -27,12 +27,12 @@
   },
   "ministry": {
    "discovered": 61,
-   "ok": 31,
-   "no_board_found": 30
+   "ok": 32,
+   "no_board_found": 29
   }
  },
  "site_rules": {
-  "sites": 245,
+  "sites": 247,
   "with_rule": 10
  },
  "province_portals": {
@@ -2843,6 +2843,24 @@
    "newest_date": "2023-10-31",
    "oldest_date": "2017-11-23",
    "run_at": "2026-11-02 22:27:28",
+   "engine": "cdp"
+  },
+  {
+   "site": "财政部",
+   "dir": "var\\data\\national\\中央\\财政部",
+   "status": "ok",
+   "board": "http://www.mof.gov.cn/zhengwuxinxi/zhengcefabu/",
+   "pagination": null,
+   "pages_this_run": 1,
+   "items": 12,
+   "texts": 12,
+   "text_chars": 40682,
+   "attachments": 2,
+   "attachment_files": 2,
+   "items_new_this_run": 0,
+   "newest_date": "2026-10-15",
+   "oldest_date": "2026-04-27",
+   "run_at": "2026-11-03 10:27:15",
    "engine": "cdp"
   },
   {

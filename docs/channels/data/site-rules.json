@@ -456,6 +456,25 @@
   "note": "脚本渲染站：必须用 national-crawl-browser.py"
  },
  {
+  "site": "财政部",
+  "level": "ministry",
+  "board_url": "http://www.mof.gov.cn/zhengwuxinxi/zhengcefabu/",
+  "engine": "browser",
+  "status": "ok",
+  "rule": null,
+  "rule_source": null,
+  "pages_this_run": 1,
+  "items_total": 12,
+  "items_new_this_run": 0,
+  "newest_date": "2026-10-15",
+  "oldest_date": "2026-04-27",
+  "run_at": "2026-11-03 10:27:15",
+  "render_seconds": 2.2,
+  "discovered_by": "discover",
+  "visit_engine": "cdp",
+  "note": "脚本渲染站：必须用 national-crawl-browser.py"
+ },
+ {
   "site": "丽江市",
   "level": "city",
   "board_url": "https://www.lijiang.gov.cn/ljsrmzf/c101829/zfxxgk_gknr.shtml",
