@@ -1,16 +1,16 @@
 {
  "generated_by": "scripts/channels-delivery-report.py",
  "totals": {
-  "sites_crawled": 252,
-  "items": 23615,
-  "texts": 23313,
-  "text_chars": 82263349,
-  "attachment_refs": 674,
-  "attachment_files": 668,
-  "sites_with_items": 229,
-  "sites_multi_page": 101,
-  "attachment_bytes": 578301286,
-  "attachment_mb": 551.5
+  "sites_crawled": 255,
+  "items": 23651,
+  "texts": 23348,
+  "text_chars": 82360697,
+  "attachment_refs": 681,
+  "attachment_files": 675,
+  "sites_with_items": 232,
+  "sites_multi_page": 103,
+  "attachment_bytes": 580978080,
+  "attachment_mb": 554.1
  },
  "by_level": {
   "city": {
@@ -27,13 +27,13 @@
   },
   "ministry": {
    "discovered": 61,
-   "ok": 36,
-   "no_board_found": 25
+   "ok": 37,
+   "no_board_found": 24
   }
  },
  "site_rules": {
-  "sites": 248,
-  "with_rule": 10
+  "sites": 252,
+  "with_rule": 11
  },
  "province_portals": {
   "total": 26,
@@ -1477,10 +1477,10 @@
    },
    "pages_this_run": 7,
    "items": 33,
-   "texts": 32,
-   "text_chars": 141318,
-   "attachments": 2,
-   "attachment_files": 2,
+   "texts": 33,
+   "text_chars": 144638,
+   "attachments": 4,
+   "attachment_files": 4,
    "items_new_this_run": 33,
    "newest_date": "2025-12-30",
    "oldest_date": "2000-01-31",
@@ -2431,6 +2431,24 @@
    "engine": "static"
   },
   {
+   "site": "文化和旅游部",
+   "dir": "var\\data\\national\\中央\\文化和旅游部",
+   "status": "ok",
+   "board": "https://mct.gov.cn/preview/whhlyqyzcxxfw/536/540/iframe_list_3136.html",
+   "pagination": null,
+   "pages_this_run": 3,
+   "items": 15,
+   "texts": 13,
+   "text_chars": 53114,
+   "attachments": 2,
+   "attachment_files": 2,
+   "items_new_this_run": 0,
+   "newest_date": "2023-10-20",
+   "oldest_date": "2017-09-29",
+   "run_at": "2026-11-03 10:33:15",
+   "engine": "cdp"
+  },
+  {
    "site": "汉中市",
    "dir": "var\\data\\national\\陕西省\\汉中市",
    "status": "list_only_ok",
@@ -3011,6 +3029,24 @@
    "engine": "cdp"
   },
   {
+   "site": "国家知识产权局",
+   "dir": "var\\data\\national\\中央\\国家知识产权局",
+   "status": "ok",
+   "board": "https://www.cnipa.gov.cn/",
+   "pagination": null,
+   "pages_this_run": 4,
+   "items": 11,
+   "texts": 11,
+   "text_chars": 12850,
+   "attachments": 1,
+   "attachment_files": 1,
+   "items_new_this_run": 1,
+   "newest_date": "2026-10-30",
+   "oldest_date": "2026-09-28",
+   "run_at": "2026-11-03 10:33:19",
+   "engine": "cdp"
+  },
+  {
    "site": "国家矿山安全监察局",
    "dir": "var\\data\\national\\中央\\国家矿山安全监察局",
    "status": "ok",
@@ -3135,6 +3171,30 @@
    "oldest_date": "2017-09-18",
    "run_at": "2026-11-02 21:50:14",
    "engine": "cdp"
+  },
+  {
+   "site": "国家邮政局",
+   "dir": "var\\data\\national\\中央\\国家邮政局",
+   "status": "list_only_ok",
+   "board": "https://www.spb.gov.cn/gjyzj/c100009/c100012/common_list.shtml",
+   "pagination": {
+    "rule": null,
+    "page2_url": null,
+    "overlap": null,
+    "new": 0,
+    "ok": false
+   },
+   "pages_this_run": 1,
+   "items": 10,
+   "texts": 10,
+   "text_chars": 28064,
+   "attachments": 2,
+   "attachment_files": 2,
+   "items_new_this_run": 10,
+   "newest_date": "2026-04-10",
+   "oldest_date": "2024-07-02",
+   "run_at": "2026-11-03 10:32:20",
+   "engine": "static"
   },
   {
    "site": "宁波市",
