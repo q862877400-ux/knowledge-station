@@ -2519,11 +2519,18 @@
    "site": "兴安盟",
    "province": "内蒙古自治区",
    "home": "http://www.xam.gov.cn/",
-   "board_url": null,
-   "status": "no_board_found",
+   "board_url": "http://www.xam.gov.cn/eportal/ui?pageId=5791431",
+   "status": "ok",
    "score": 0,
-   "keyword": "",
-   "list_likeness": null,
+   "keyword": "行政规范性文件|规范性文件",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 64,
+    "page_dates": 30,
+    "detail_ratio": 0.0,
+    "title_ratio": 0.391,
+    "med_len": 7.0
+   },
    "candidates": [
     {
      "url": "https://www.xingan.gov.cn/news-list-touzizhengcefagui.html",
@@ -2628,7 +2635,8 @@
    ],
    "level": "city",
    "url": "http://www.xam.gov.cn/",
-   "board_kind": null
+   "board_kind": "normative",
+   "discovered_by": "hunt/via_hub"
   },
   {
    "site": "内江市",
@@ -4498,7 +4506,8 @@
    "depth": 1,
    "hub_tried": [],
    "board_kind": "normative",
-   "level": "city"
+   "level": "city",
+   "discovered_by": "hunt/via_hub"
   },
   {
    "site": "喀什地区",
@@ -5878,10 +5887,17 @@
    "province": "四川省",
    "home": "https://www.yibin.gov.cn/",
    "board_url": "https://www.yibin.gov.cn/ztzl/zfxxgk/szfxzgfxwj/",
-   "status": "js_rendered",
+   "status": "ok",
    "score": 8,
    "keyword": "市政府行政规范性文件|规范性文件",
-   "list_likeness": null,
+   "list_likeness": {
+    "ok": true,
+    "n_links": 265,
+    "page_dates": 20,
+    "detail_ratio": 0.158,
+    "title_ratio": 0.242,
+    "med_len": 4
+   },
    "candidates": [
     {
      "url": "http://www.yibin.gov.cn/xxgk/zcfg/",
@@ -5994,7 +6010,9 @@
      "error": null
     }
    ],
-   "level": "city"
+   "level": "city",
+   "board_kind": "normative",
+   "discovered_by": "hunt/via_hub"
   },
   {
    "site": "宜昌市",
@@ -6167,17 +6185,17 @@
    "site": "宝鸡市",
    "province": "陕西省",
    "home": "https://www.baoji.gov.cn/",
-   "board_url": "https://www.baoji.gov.cn/col9816/col17241/col9826/col9986/",
+   "board_url": "https://www.baoji.gov.cn/col9816/col17241/col17242/",
    "status": "ok",
    "score": 4,
-   "keyword": "市政府文件|政府文件",
+   "keyword": "规章",
    "list_likeness": {
     "ok": true,
-    "n_links": 79,
-    "page_dates": 25,
-    "detail_ratio": 0.316,
-    "title_ratio": 0.494,
-    "med_len": 7
+    "n_links": 83,
+    "page_dates": 20,
+    "detail_ratio": 0.361,
+    "title_ratio": 0.289,
+    "med_len": 5
    },
    "candidates": [
     {
@@ -6217,7 +6235,8 @@
    "depth": 1,
    "hub_tried": [],
    "board_kind": "normative",
-   "level": "city"
+   "level": "city",
+   "discovered_by": "hunt/depth2"
   },
   {
    "site": "宣城市",

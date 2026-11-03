@@ -52,6 +52,7 @@ def _load(name: str, rel: str):
 
 ncb = _load("ncb", "scripts/national-crawl-browser.py")   # render / find_normative_column
 ncd = _load("ncd", "scripts/national-crawl-discover.py")  # find_candidates / list_likeness
+ncf = _load("ncf", "scripts/national-crawl-fetch.py")     # parse_items（硬验证用）
 
 DISCOVER = ROOT / "docs" / "channels" / "data" / "national-discover.json"
 PROGRESS = ROOT / "var" / "tmp" / "hunt-progress.json"
@@ -126,6 +127,20 @@ def cdp_expand_page(port: int, url: str, click_menus: int = 3,
     return "\n<!--SPLIT-->\n".join(h for h in out if h)
 
 
+
+def really_a_list(html: str, url: str, min_items: int = 5) -> bool:
+    """候选栏目必须**真能解析出 >= min_items 条带日期的条目**才算数。
+
+    为什么要这条（2026-11-02 实测）：`list_likeness` 只看链接数/日期数/细节页比例，
+    会把**导航页**判成列表 —— 临汾市 `channels/19.html` 有 59 个链接、9 个日期，
+    判据通过了，但抓下来 0 条。加上这条硬验证后，这类假阳性能当场挡掉。
+    """
+    try:
+        return len(ncf.parse_items(html, url)) >= min_items
+    except Exception:                            # noqa: BLE001
+        return False
+
+
 def hunt_one(exe: str, site: dict, budget_ms: int, depth2: bool = True,
              port: int | None = None) -> dict:
     """在一个门户里找规范性文件栏目。返回 {status, board_url, how, tried}。"""
@@ -163,7 +178,7 @@ def hunt_one(exe: str, site: dict, budget_ms: int, depth2: bool = True,
         if not ok2 or not html2:
             continue
         lk = ncd.list_likeness(html2, url)
-        if lk.get("ok"):
+        if lk.get("ok") and really_a_list(html2, url):
             rec.update({"status": "ok", "board_url": url, "how": "direct",
                         "anchor": anchor, "likeness": lk})
             return rec
@@ -178,7 +193,7 @@ def hunt_one(exe: str, site: dict, budget_ms: int, depth2: bool = True,
                 if not ok3 or not html3:
                     continue
                 lk3 = ncd.list_likeness(html3, u2)
-                if lk3.get("ok"):
+                if lk3.get("ok") and really_a_list(html3, u2):
                     rec.update({"status": "ok", "board_url": u2, "how": "depth2",
                                 "anchor": a2, "likeness": lk3})
                     return rec

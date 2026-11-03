@@ -1,23 +1,23 @@
 {
  "generated_by": "scripts/channels-delivery-report.py",
  "totals": {
-  "sites_crawled": 245,
-  "items": 23460,
-  "texts": 23159,
-  "text_chars": 81820873,
-  "attachment_refs": 662,
-  "attachment_files": 657,
-  "sites_with_items": 222,
+  "sites_crawled": 247,
+  "items": 23484,
+  "texts": 23183,
+  "text_chars": 81943886,
+  "attachment_refs": 666,
+  "attachment_files": 661,
+  "sites_with_items": 224,
   "sites_multi_page": 98,
-  "attachment_bytes": 566281548,
-  "attachment_mb": 540.0
+  "attachment_bytes": 577692798,
+  "attachment_mb": 550.9
  },
  "by_level": {
   "city": {
    "discovered": 274,
-   "ok": 219,
-   "no_board_found": 39,
-   "js_rendered": 13,
+   "ok": 221,
+   "no_board_found": 38,
+   "js_rendered": 12,
    "unreachable": 3
   },
   "province": {
@@ -32,8 +32,8 @@
   }
  },
  "site_rules": {
-  "sites": 243,
-  "with_rule": 9
+  "sites": 245,
+  "with_rule": 10
  },
  "province_portals": {
   "total": 26,
@@ -2302,6 +2302,30 @@
    "engine": "cdp"
   },
   {
+   "site": "兴安盟",
+   "dir": "var\\data\\national\\内蒙古自治区\\兴安盟",
+   "status": "list_only_ok",
+   "board": "http://www.xam.gov.cn/eportal/ui?pageId=5791431",
+   "pagination": {
+    "rule": null,
+    "page2_url": null,
+    "overlap": null,
+    "new": 0,
+    "ok": false
+   },
+   "pages_this_run": 1,
+   "items": 15,
+   "texts": 15,
+   "text_chars": 75754,
+   "attachments": 2,
+   "attachment_files": 2,
+   "items_new_this_run": 15,
+   "newest_date": "2026-09-30",
+   "oldest_date": "2025-10-21",
+   "run_at": "2026-11-03 10:01:45",
+   "engine": "static"
+  },
+  {
    "site": "吐鲁番市",
    "dir": "var\\data\\national\\新疆维吾尔自治区\\吐鲁番市",
    "status": "ok",
@@ -3178,6 +3202,30 @@
    "oldest_date": "2026-06-05",
    "run_at": "2026-11-03 08:30:44",
    "engine": "cdp"
+  },
+  {
+   "site": "宝鸡市",
+   "dir": "var\\data\\national\\陕西省\\宝鸡市",
+   "status": "list_only_ok",
+   "board": "https://www.baoji.gov.cn/col9816/col17241/col17242/",
+   "pagination": {
+    "rule": null,
+    "page2_url": null,
+    "overlap": null,
+    "new": 0,
+    "ok": false
+   },
+   "pages_this_run": 1,
+   "items": 9,
+   "texts": 9,
+   "text_chars": 47259,
+   "attachments": 2,
+   "attachment_files": 2,
+   "items_new_this_run": 9,
+   "newest_date": "2024-12-25",
+   "oldest_date": "2021-06-22",
+   "run_at": "2026-11-03 10:23:35",
+   "engine": "static"
   },
   {
    "site": "开封市",
@@ -4380,7 +4428,7 @@
    "items_new_this_run": 0,
    "newest_date": null,
    "oldest_date": null,
-   "run_at": "2026-11-02 12:03:56",
+   "run_at": "2026-11-03 10:01:48",
    "engine": "static"
   },
   {
@@ -4456,10 +4504,10 @@
    "engine": "static"
   },
   {
-   "site": "宝鸡市",
-   "dir": "var\\data\\national\\陕西省\\宝鸡市",
+   "site": "宜宾市",
+   "dir": "var\\data\\national\\四川省\\宜宾市",
    "status": "js_unparsable",
-   "board": "https://www.baoji.gov.cn/col9816/col17241/col9826/col9986/",
+   "board": "https://www.yibin.gov.cn/ztzl/zfxxgk/szfxzgfxwj/",
    "pagination": {
     "rule": null,
     "page2_url": null,
@@ -4476,7 +4524,7 @@
    "items_new_this_run": 0,
    "newest_date": null,
    "oldest_date": null,
-   "run_at": "2026-11-02 12:03:56",
+   "run_at": "2026-11-03 10:23:34",
    "engine": "static"
   },
   {
