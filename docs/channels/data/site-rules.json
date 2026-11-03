@@ -1,5 +1,24 @@
 [
  {
+  "site": "山西省",
+  "level": "province",
+  "board_url": "https://www.shanxi.gov.cn/zfxxgk/zfcbw/zfgb2/2025nzfgb_87457/d1q_76594/",
+  "engine": "static",
+  "status": "ok",
+  "rule": null,
+  "rule_source": null,
+  "pages_this_run": null,
+  "items_total": 76,
+  "items_new_this_run": 45,
+  "newest_date": "2026-01",
+  "oldest_date": "2025-01",
+  "run_at": "2026-11-03 11:24:55",
+  "render_seconds": null,
+  "discovered_by": "discover",
+  "visit_engine": "gazette",
+  "note": "静态可抓：用 national-crawl-fetch.py"
+ },
+ {
   "site": "中国地震局",
   "level": "ministry",
   "board_url": "https://www.cea.gov.cn/cea/zwgk/5616193/5614278/5703595/index.html",

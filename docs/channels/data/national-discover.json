@@ -24235,10 +24235,11 @@
    "url": "https://www.shanxi.gov.cn/",
    "home": "https://www.shanxi.gov.cn/",
    "level": "province",
-   "status": "no_board_found",
-   "board_url": null,
-   "board_kind": null,
-   "note": "待摸入口"
+   "status": "ok",
+   "board_url": "https://www.shanxi.gov.cn/zfxxgk/zfcbw/zfgb2/2025nzfgb_87457/",
+   "board_kind": "gazette",
+   "note": "待摸入口",
+   "keyword": "政府公报"
   },
   {
    "site": "江苏省",

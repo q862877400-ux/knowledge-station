@@ -1,13 +1,13 @@
 {
  "generated_by": "scripts/channels-delivery-report.py",
  "totals": {
-  "sites_crawled": 259,
-  "items": 24426,
+  "sites_crawled": 260,
+  "items": 24502,
   "texts": 24081,
   "text_chars": 85193364,
   "attachment_refs": 693,
   "attachment_files": 683,
-  "sites_with_items": 241,
+  "sites_with_items": 242,
   "sites_multi_page": 109,
   "attachment_bytes": 577670323,
   "attachment_mb": 550.9
@@ -22,8 +22,8 @@
   },
   "province": {
    "discovered": 20,
-   "ok": 16,
-   "no_board_found": 4
+   "ok": 17,
+   "no_board_found": 3
   },
   "ministry": {
    "discovered": 61,
@@ -955,6 +955,24 @@
    "oldest_date": "2013-07-10",
    "run_at": "2026-11-03 08:34:42",
    "engine": "cdp"
+  },
+  {
+   "site": "山西省",
+   "dir": "var\\data\\national\\national\\山西省",
+   "status": "ok",
+   "board": "https://www.shanxi.gov.cn/zfxxgk/zfcbw/zfgb2/2025nzfgb_87457/d1q_76594/",
+   "pagination": null,
+   "pages_this_run": null,
+   "items": 76,
+   "texts": 0,
+   "text_chars": 0,
+   "attachments": 0,
+   "attachment_files": 0,
+   "items_new_this_run": 45,
+   "newest_date": "2026-01",
+   "oldest_date": "2025-01",
+   "run_at": "2026-11-03 11:24:55",
+   "engine": "gazette"
   },
   {
    "site": "乌兰察布市",
