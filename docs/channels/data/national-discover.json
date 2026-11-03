@@ -656,11 +656,11 @@
    "keyword": "市政府文件|政府文件",
    "list_likeness": {
     "ok": true,
-    "n_links": 57,
-    "page_dates": 9,
+    "n_links": 64,
+    "page_dates": 10,
     "detail_ratio": 0.0,
-    "title_ratio": 0.474,
-    "med_len": 7
+    "title_ratio": 0.5,
+    "med_len": 8.0
    },
    "candidates": [
     {
@@ -701,7 +701,8 @@
    "depth": 1,
    "hub_tried": [],
    "board_kind": "normative",
-   "level": "city"
+   "level": "city",
+   "discovered_by": "hunt/direct"
   },
   {
    "site": "临沂市",
@@ -764,10 +765,10 @@
    "site": "临沧市",
    "province": "云南省",
    "home": "https://www.lincang.gov.cn/",
-   "board_url": null,
-   "status": "no_board_found",
+   "board_url": "https://www.lincang.gov.cn/zfxxgk_lcs/xxgfxwj/index_1.html",
+   "status": "ok",
    "score": 4,
-   "keyword": "",
+   "keyword": "搜索定位",
    "list_likeness": null,
    "candidates": [
     {
@@ -806,7 +807,7 @@
    "error": null,
    "depth": null,
    "hub_tried": [],
-   "board_kind": null,
+   "board_kind": "normative",
    "level": "city",
    "url": "https://www.lincang.gov.cn/"
   },
@@ -1553,11 +1554,18 @@
    "site": "伊春市",
    "province": "黑龙江省",
    "home": "https://www.yc.gov.cn/",
-   "board_url": null,
-   "status": "no_board_found",
+   "board_url": "https://www.yc.gov.cn/ycsrmzf/c102042/xxgk_list.shtml",
+   "status": "ok",
    "score": 0,
-   "keyword": "",
-   "list_likeness": null,
+   "keyword": "行政事业性收费标准",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 36,
+    "page_dates": 16,
+    "detail_ratio": 0.444,
+    "title_ratio": 0.639,
+    "med_len": 8.5
+   },
    "candidates": [
     {
      "url": "https://www.yichun.gov.cn/ycsrmzf/zcwjh/pc/list.html",
@@ -1636,16 +1644,17 @@
    ],
    "level": "city",
    "url": "https://www.yc.gov.cn/",
-   "board_kind": null
+   "board_kind": "normative",
+   "discovered_by": "hunt/via_hub"
   },
   {
    "site": "伊犁哈萨克自治州",
    "province": "新疆维吾尔自治区",
    "home": "https://www.xjyl.gov.cn/",
-   "board_url": "http://www.xjyl.gov.cn/xjylz/c112882/hngzk_search.shtml",
+   "board_url": "http://www.xjyl.gov.cn/xjylz/c112801/xxgk_list.shtml",
    "status": "ok",
    "score": 5,
-   "keyword": "政府规章库|政府规章",
+   "keyword": "搜索定位",
    "list_likeness": {
     "ok": true,
     "n_links": 25,
@@ -6401,17 +6410,24 @@
    "site": "岳阳市",
    "province": "湖南省",
    "home": "https://www.yueyang.gov.cn/",
-   "board_url": null,
-   "status": "no_board_found",
+   "board_url": "https://www.yueyang.gov.cn/zwgk/zcwj/default.htm",
+   "status": "ok",
    "score": 0,
-   "keyword": "",
-   "list_likeness": null,
+   "keyword": "文件库|文件库",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 55,
+    "page_dates": 29,
+    "detail_ratio": 0.309,
+    "title_ratio": 0.327,
+    "med_len": 4
+   },
    "candidates": [],
    "error": "no_keyword_link",
    "depth": null,
    "hub_tried": [],
    "level": "city",
-   "board_kind": null,
+   "board_kind": "normative",
    "discovered_by": "hunt/direct",
    "url": "https://www.yueyang.gov.cn/"
   },
@@ -12948,17 +12964,24 @@
    "site": "湘潭市",
    "province": "湖南省",
    "home": "https://www.xiangtan.gov.cn/",
-   "board_url": null,
-   "status": "no_board_found",
+   "board_url": "https://www.xiangtan.gov.cn/109/202/26291/index.htm",
+   "status": "ok",
    "score": 0,
-   "keyword": "",
-   "list_likeness": null,
+   "keyword": "文件库|文件库",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 55,
+    "page_dates": 11,
+    "detail_ratio": 0.218,
+    "title_ratio": 0.473,
+    "med_len": 7
+   },
    "candidates": [],
    "error": "no_keyword_link",
    "depth": null,
    "hub_tried": [],
    "level": "city",
-   "board_kind": null,
+   "board_kind": "normative",
    "discovered_by": "hunt/direct",
    "url": "https://www.xiangtan.gov.cn/"
   },

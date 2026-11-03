@@ -1,22 +1,22 @@
 {
  "generated_by": "scripts/channels-delivery-report.py",
  "totals": {
-  "sites_crawled": 243,
-  "items": 23416,
-  "texts": 23115,
-  "text_chars": 81653634,
-  "attachment_refs": 658,
-  "attachment_files": 653,
-  "sites_with_items": 220,
-  "sites_multi_page": 97,
-  "attachment_bytes": 566042109,
-  "attachment_mb": 539.8
+  "sites_crawled": 245,
+  "items": 23460,
+  "texts": 23159,
+  "text_chars": 81820873,
+  "attachment_refs": 662,
+  "attachment_files": 657,
+  "sites_with_items": 222,
+  "sites_multi_page": 98,
+  "attachment_bytes": 566281548,
+  "attachment_mb": 540.0
  },
  "by_level": {
   "city": {
    "discovered": 274,
-   "ok": 215,
-   "no_board_found": 43,
+   "ok": 219,
+   "no_board_found": 39,
    "js_rendered": 13,
    "unreachable": 3
   },
@@ -32,8 +32,8 @@
   }
  },
  "site_rules": {
-  "sites": 241,
-  "with_rule": 7
+  "sites": 243,
+  "with_rule": 9
  },
  "province_portals": {
   "total": 26,
@@ -1521,6 +1521,33 @@
    "engine": "cdp"
   },
   {
+   "site": "伊犁哈萨克自治州",
+   "dir": "var\\data\\national\\新疆维吾尔自治区\\伊犁哈萨克自治州",
+   "status": "list_only_ok",
+   "board": "http://www.xjyl.gov.cn/xjylz/c112801/xxgk_list.shtml",
+   "pagination": {
+    "rule": [
+     "suffix",
+     "_"
+    ],
+    "page2_url": "http://www.xjyl.gov.cn/xjylz/c112801/xxgk_list_2.shtml",
+    "overlap": 0,
+    "new": 9,
+    "ok": true
+   },
+   "pages_this_run": 2,
+   "items": 28,
+   "texts": 28,
+   "text_chars": 139010,
+   "attachments": 2,
+   "attachment_files": 2,
+   "items_new_this_run": 28,
+   "newest_date": "2026-04-08",
+   "oldest_date": "2020-06-15",
+   "run_at": "2026-11-03 09:24:01",
+   "engine": "static"
+  },
+  {
    "site": "大连市",
    "dir": "var\\data\\national\\辽宁省\\大连市",
    "status": "ok",
@@ -2195,6 +2222,30 @@
    "oldest_date": "2015-10-16",
    "run_at": "2026-11-03 08:20:32",
    "engine": "cdp"
+  },
+  {
+   "site": "伊春市",
+   "dir": "var\\data\\national\\黑龙江省\\伊春市",
+   "status": "list_only_ok",
+   "board": "https://www.yc.gov.cn/ycsrmzf/c102042/xxgk_list.shtml",
+   "pagination": {
+    "rule": null,
+    "page2_url": null,
+    "overlap": null,
+    "new": 0,
+    "ok": false
+   },
+   "pages_this_run": 1,
+   "items": 16,
+   "texts": 16,
+   "text_chars": 28229,
+   "attachments": 2,
+   "attachment_files": 2,
+   "items_new_this_run": 16,
+   "newest_date": "2026-09-23",
+   "oldest_date": "2026-02-13",
+   "run_at": "2026-11-03 09:47:05",
+   "engine": "static"
   },
   {
    "site": "国家信访局",
@@ -4185,7 +4236,31 @@
    "items_new_this_run": 0,
    "newest_date": null,
    "oldest_date": null,
-   "run_at": "2026-11-02 12:03:44",
+   "run_at": "2026-11-03 09:47:00",
+   "engine": "static"
+  },
+  {
+   "site": "九江市",
+   "dir": "var\\data\\national\\江西省\\九江市",
+   "status": "js_unparsable",
+   "board": "https://www.jiujiang.gov.cn/fdzdxxgk/01/00/fggzk/szfgz/index.html",
+   "pagination": {
+    "rule": null,
+    "page2_url": null,
+    "overlap": null,
+    "new": 0,
+    "ok": false
+   },
+   "pages_this_run": 1,
+   "items": 0,
+   "texts": 0,
+   "text_chars": 0,
+   "attachments": 0,
+   "attachment_files": 0,
+   "items_new_this_run": 0,
+   "newest_date": null,
+   "oldest_date": null,
+   "run_at": "2026-11-03 09:47:01",
    "engine": "static"
   },
   {
@@ -4210,30 +4285,6 @@
    "newest_date": null,
    "oldest_date": null,
    "run_at": "2026-11-02 12:03:49",
-   "engine": "static"
-  },
-  {
-   "site": "伊犁哈萨克自治州",
-   "dir": "var\\data\\national\\新疆维吾尔自治区\\伊犁哈萨克自治州",
-   "status": "js_unparsable",
-   "board": "http://www.xjyl.gov.cn/xjylz/c112882/hngzk_search.shtml",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
-   "pages_this_run": 1,
-   "items": 0,
-   "texts": 0,
-   "text_chars": 0,
-   "attachments": 0,
-   "attachment_files": 0,
-   "items_new_this_run": 0,
-   "newest_date": null,
-   "oldest_date": null,
-   "run_at": "2026-11-02 20:46:53",
    "engine": "static"
   },
   {
