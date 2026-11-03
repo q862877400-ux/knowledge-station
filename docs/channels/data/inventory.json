@@ -1,16 +1,16 @@
 {
  "generated_by": "scripts/channels-delivery-report.py",
  "totals": {
-  "sites_crawled": 255,
-  "items": 23651,
-  "texts": 23348,
-  "text_chars": 82360697,
-  "attachment_refs": 681,
-  "attachment_files": 675,
-  "sites_with_items": 232,
-  "sites_multi_page": 103,
-  "attachment_bytes": 580978080,
-  "attachment_mb": 554.1
+  "sites_crawled": 259,
+  "items": 24265,
+  "texts": 23926,
+  "text_chars": 84630713,
+  "attachment_refs": 689,
+  "attachment_files": 683,
+  "sites_with_items": 236,
+  "sites_multi_page": 106,
+  "attachment_bytes": 581750723,
+  "attachment_mb": 554.8
  },
  "by_level": {
   "city": {
@@ -27,12 +27,12 @@
   },
   "ministry": {
    "discovered": 61,
-   "ok": 37,
-   "no_board_found": 24
+   "ok": 39,
+   "no_board_found": 22
   }
  },
  "site_rules": {
-  "sites": 252,
+  "sites": 255,
   "with_rule": 11
  },
  "province_portals": {
@@ -264,6 +264,24 @@
    "newest_date": "2026-09-11",
    "oldest_date": "2011-11-14",
    "run_at": "2026-11-02 21:35:23",
+   "engine": "cdp"
+  },
+  {
+   "site": "国家体育总局",
+   "dir": "var\\data\\national\\中央\\国家体育总局",
+   "status": "ok",
+   "board": "https://www.sport.org.cn/search/system/list_1620_1.html",
+   "pagination": null,
+   "pages_this_run": 3,
+   "items": 517,
+   "texts": 481,
+   "text_chars": 2039864,
+   "attachments": 2,
+   "attachment_files": 2,
+   "items_new_this_run": 0,
+   "newest_date": "2021-12-31",
+   "oldest_date": "2000-03-01",
+   "run_at": "2026-11-03 10:37:07",
    "engine": "cdp"
   },
   {
@@ -874,6 +892,33 @@
    "oldest_date": "2023-03-22",
    "run_at": "2026-11-02 22:31:14",
    "engine": "cdp"
+  },
+  {
+   "site": "国家新闻出版署",
+   "dir": "var\\data\\national\\中央\\国家新闻出版署",
+   "status": "list_only_ok",
+   "board": "https://www.nppa.gov.cn/xxgk/fdzdgknr/zcfg_210/gfxwj_215/index.html",
+   "pagination": {
+    "rule": [
+     "index",
+     "_"
+    ],
+    "page2_url": "https://www.nppa.gov.cn/xxgk/fdzdgknr/zcfg_210/gfxwj_215/index_2.html",
+    "overlap": 0,
+    "new": 15,
+    "ok": true
+   },
+   "pages_this_run": 8,
+   "items": 77,
+   "texts": 77,
+   "text_chars": 179644,
+   "attachments": 2,
+   "attachment_files": 2,
+   "items_new_this_run": 77,
+   "newest_date": "2021-07-21",
+   "oldest_date": "2001-05-17",
+   "run_at": "2026-11-03 10:35:05",
+   "engine": "static"
   },
   {
    "site": "揭阳市",
@@ -2969,6 +3014,24 @@
    "engine": "cdp"
   },
   {
+   "site": "退役军人事务部",
+   "dir": "var\\data\\national\\中央\\退役军人事务部",
+   "status": "ok",
+   "board": "https://www.mva.gov.cn/gongkai/zfxxgkpt/zhengce/gfxwj/index_1.html",
+   "pagination": null,
+   "pages_this_run": 3,
+   "items": 12,
+   "texts": 12,
+   "text_chars": 40046,
+   "attachments": 2,
+   "attachment_files": 2,
+   "items_new_this_run": 0,
+   "newest_date": "2023-01-04",
+   "oldest_date": "2018-10-15",
+   "run_at": "2026-11-03 10:37:11",
+   "engine": "cdp"
+  },
+  {
    "site": "阿克苏地区",
    "dir": "var\\data\\national\\新疆维吾尔自治区\\阿克苏地区",
    "status": "ok",
@@ -3515,6 +3578,30 @@
    "oldest_date": "2026-09-29",
    "run_at": "2026-11-03 08:55:05",
    "engine": "cdp"
+  },
+  {
+   "site": "国家统计局",
+   "dir": "var\\data\\national\\中央\\国家统计局",
+   "status": "list_only_ok",
+   "board": "https://www.stats.gov.cn/xxgk/zcfggz/gfxwj/",
+   "pagination": {
+    "rule": null,
+    "page2_url": null,
+    "overlap": null,
+    "new": 0,
+    "ok": false
+   },
+   "pages_this_run": 1,
+   "items": 8,
+   "texts": 8,
+   "text_chars": 10462,
+   "attachments": 2,
+   "attachment_files": 2,
+   "items_new_this_run": 8,
+   "newest_date": "2025-04-11",
+   "oldest_date": "2015-10-28",
+   "run_at": "2026-11-03 10:35:07",
+   "engine": "static"
   },
   {
    "site": "宁德市",

@@ -22379,10 +22379,10 @@
    "site": "国家体育总局",
    "province": "中央",
    "home": "https://www.sport.gov.cn/",
-   "board_url": "https://www.sport.gov.cn/n323/n10516/c29009915/content.html",
+   "board_url": "https://www.sport.org.cn/search/system/list_1620_1.html",
    "status": "ok",
    "score": 2,
-   "keyword": "关于公开征求《国民体质测定规范》等2项推荐性国家标准意见的通知",
+   "keyword": "搜索定位",
    "list_likeness": {
     "ok": true,
     "n_links": 23,
@@ -22429,7 +22429,7 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "hub",
+   "board_kind": "normative",
    "level": "ministry"
   },
   {
@@ -23686,10 +23686,10 @@
    "site": "国家新闻出版署",
    "province": "中央",
    "home": "https://www.nppa.gov.cn/",
-   "board_url": "https://www.nppa.gov.cn/xxfb/tzgs/",
+   "board_url": "https://www.nppa.gov.cn/xxgk/fdzdgknr/zcfg_210/gfxwj_215/index.html",
    "status": "ok",
    "score": 1,
-   "keyword": "通知公示",
+   "keyword": "搜索定位",
    "list_likeness": {
     "ok": true,
     "n_links": 48,
@@ -23768,7 +23768,7 @@
    "error": null,
    "depth": 2,
    "hub_tried": [],
-   "board_kind": "hub",
+   "board_kind": "normative",
    "level": "ministry"
   },
   {
@@ -23955,10 +23955,11 @@
    "url": "https://www.mva.gov.cn/",
    "home": "https://www.mva.gov.cn/",
    "level": "ministry",
-   "status": "no_board_found",
-   "board_url": null,
-   "board_kind": null,
-   "note": "待摸入口"
+   "status": "ok",
+   "board_url": "https://www.mva.gov.cn/gongkai/zfxxgkpt/zhengce/gfxwj/index_1.html",
+   "board_kind": "normative",
+   "note": "待摸入口",
+   "keyword": "搜索定位"
   },
   {
    "site": "审计署",
@@ -23998,10 +23999,11 @@
    "url": "https://www.stats.gov.cn/",
    "home": "https://www.stats.gov.cn/",
    "level": "ministry",
-   "status": "no_board_found",
-   "board_url": null,
-   "board_kind": null,
-   "note": "待摸入口"
+   "status": "ok",
+   "board_url": "https://www.stats.gov.cn/xxgk/zcfggz/gfxwj/",
+   "board_kind": "normative",
+   "note": "待摸入口",
+   "keyword": "搜索定位"
   },
   {
    "site": "国家国际发展合作署",

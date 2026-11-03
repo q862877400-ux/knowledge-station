@@ -152,6 +152,25 @@
   "note": "静态可抓：用 national-crawl-fetch.py"
  },
  {
+  "site": "国家体育总局",
+  "level": "ministry",
+  "board_url": "https://www.sport.org.cn/search/system/list_1620_1.html",
+  "engine": "browser",
+  "status": "ok",
+  "rule": null,
+  "rule_source": null,
+  "pages_this_run": 3,
+  "items_total": 517,
+  "items_new_this_run": 0,
+  "newest_date": "2021-12-31",
+  "oldest_date": "2000-03-01",
+  "run_at": "2026-11-03 10:37:07",
+  "render_seconds": 1.2,
+  "discovered_by": "discover",
+  "visit_engine": "cdp",
+  "note": "脚本渲染站：必须用 national-crawl-browser.py"
+ },
+ {
   "site": "国家信访局",
   "level": "ministry",
   "board_url": "https://www.gjxfj.gov.cn/gjxfj/zfxxgk/zfxxgkzn/gfxwj.htm",
@@ -245,6 +264,28 @@
   "discovered_by": "discover",
   "visit_engine": "cdp",
   "note": "脚本渲染站：必须用 national-crawl-browser.py"
+ },
+ {
+  "site": "国家新闻出版署",
+  "level": "ministry",
+  "board_url": "https://www.nppa.gov.cn/xxgk/fdzdgknr/zcfg_210/gfxwj_215/index.html",
+  "engine": "static",
+  "status": "list_only_ok",
+  "rule": [
+   "index",
+   "_"
+  ],
+  "rule_source": "measured",
+  "pages_this_run": 8,
+  "items_total": 77,
+  "items_new_this_run": 77,
+  "newest_date": "2021-07-21",
+  "oldest_date": "2001-05-17",
+  "run_at": "2026-11-03 10:35:05",
+  "render_seconds": null,
+  "discovered_by": "discover",
+  "visit_engine": "static",
+  "note": "静态可抓：用 national-crawl-fetch.py"
  },
  {
   "site": "国家机关事务管理局",
@@ -378,6 +419,25 @@
   "discovered_by": "discover",
   "visit_engine": "cdp",
   "note": "脚本渲染站：必须用 national-crawl-browser.py"
+ },
+ {
+  "site": "国家统计局",
+  "level": "ministry",
+  "board_url": "https://www.stats.gov.cn/xxgk/zcfggz/gfxwj/",
+  "engine": "static",
+  "status": "list_only_ok",
+  "rule": null,
+  "rule_source": null,
+  "pages_this_run": 1,
+  "items_total": 8,
+  "items_new_this_run": 8,
+  "newest_date": "2025-04-11",
+  "oldest_date": "2015-10-28",
+  "run_at": "2026-11-03 10:35:07",
+  "render_seconds": null,
+  "discovered_by": "discover",
+  "visit_engine": "static",
+  "note": "静态可抓：用 national-crawl-fetch.py"
  },
  {
   "site": "国家能源局",
@@ -606,6 +666,25 @@
   "oldest_date": "2026-04-27",
   "run_at": "2026-11-03 10:27:15",
   "render_seconds": 2.2,
+  "discovered_by": "discover",
+  "visit_engine": "cdp",
+  "note": "脚本渲染站：必须用 national-crawl-browser.py"
+ },
+ {
+  "site": "退役军人事务部",
+  "level": "ministry",
+  "board_url": "https://www.mva.gov.cn/gongkai/zfxxgkpt/zhengce/gfxwj/index_1.html",
+  "engine": "browser",
+  "status": "ok",
+  "rule": null,
+  "rule_source": null,
+  "pages_this_run": 3,
+  "items_total": 12,
+  "items_new_this_run": 0,
+  "newest_date": "2023-01-04",
+  "oldest_date": "2018-10-15",
+  "run_at": "2026-11-03 10:37:11",
+  "render_seconds": 1.5,
   "discovered_by": "discover",
   "visit_engine": "cdp",
   "note": "脚本渲染站：必须用 national-crawl-browser.py"
