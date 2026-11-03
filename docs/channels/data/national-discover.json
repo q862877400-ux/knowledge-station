@@ -203,10 +203,10 @@
    "site": "三明市",
    "province": "福建省",
    "home": "http://www.sanming.gov.cn/",
-   "board_url": null,
-   "status": "no_board_found",
+   "board_url": "http://www.sm.gov.cn/smsrmzfbgs/smsrmzf/zc/xzgfxwj/szf.htm",
+   "status": "ok",
    "score": 0,
-   "keyword": "",
+   "keyword": "搜索定位（行政规范性文件库/统一发布平台）",
    "list_likeness": null,
    "candidates": [
     {
@@ -321,7 +321,8 @@
      "error": null
     }
    ],
-   "level": "city"
+   "level": "city",
+   "board_kind": "normative"
   },
   {
    "site": "三沙市",
@@ -558,10 +559,10 @@
    "site": "中山市",
    "province": "广东省",
    "home": "https://www.zs.gov.cn/",
-   "board_url": "http://www.zs.gov.cn/zwgk/fggw/index.html",
-   "status": "js_rendered",
+   "board_url": "http://zssfgfxwj.zs.gov.cn:9145/#/index",
+   "status": "ok",
    "score": 5,
-   "keyword": "政策法规|政策法规",
+   "keyword": "搜索定位（行政规范性文件库/统一发布平台）",
    "list_likeness": null,
    "candidates": [
     {
@@ -642,7 +643,8 @@
      "error": null
     }
    ],
-   "level": "city"
+   "level": "city",
+   "board_kind": "normative"
   },
   {
    "site": "临汾市",
@@ -1172,10 +1174,10 @@
    "site": "乐山市",
    "province": "四川省",
    "home": "https://www.leshan.gov.cn/",
-   "board_url": "https://www.leshan.gov.cn/lsswszf/xzgfxwj/90053490/index.html",
+   "board_url": "https://www.leshan.gov.cn/lsswszf/xzgfxwjs/index.html",
    "status": "ok",
    "score": 8,
-   "keyword": "行政规范性文件|规范性文件",
+   "keyword": "搜索定位（规范性文件栏目）",
    "list_likeness": {
     "ok": true,
     "n_links": 74,
@@ -1461,10 +1463,10 @@
    "site": "亳州市",
    "province": "安徽省",
    "home": "https://www.bozhou.gov.cn/",
-   "board_url": "https://www.bozhou.gov.cn/PolicyContent/",
+   "board_url": "https://www.bozhou.gov.cn/XxgkPolicy/showList/295/page_1.html?column=3",
    "status": "ok",
    "score": 5,
-   "keyword": "政策 文件库|文件库",
+   "keyword": "搜索定位",
    "list_likeness": {
     "ok": true,
     "n_links": 192,
@@ -2756,10 +2758,10 @@
    "site": "包头市",
    "province": "内蒙古自治区",
    "home": "https://www.baotou.gov.cn/",
-   "board_url": "https://www.baotou.gov.cn/zfxxgk/",
+   "board_url": "https://www.baotou.gov.cn/xzwhk/xxyxxzgz.jsp?totalpage=5&PAGENUM=1&urltype=tree.TreeTempUrl&wbtreeid=6448",
    "status": "ok",
    "score": 1,
-   "keyword": "政府信息公开",
+   "keyword": "搜索定位",
    "list_likeness": {
     "ok": true,
     "n_links": 200,
@@ -2839,7 +2841,7 @@
    "error": null,
    "depth": 2,
    "hub_tried": [],
-   "board_kind": "hub",
+   "board_kind": "normative",
    "level": "city"
   },
   {
@@ -2941,10 +2943,10 @@
    "site": "十堰市",
    "province": "湖北省",
    "home": "https://www.shiyan.gov.cn/",
-   "board_url": null,
-   "status": "no_board_found",
+   "board_url": "http://www.shiyan.gov.cn/xxgk/zc_67263/xxgk_zcfg/szbf/index_1.shtml",
+   "status": "ok",
    "score": 0,
-   "keyword": "",
+   "keyword": "搜索定位（规范性文件栏目）",
    "list_likeness": null,
    "candidates": [
     {
@@ -2980,7 +2982,8 @@
      "error": null
     }
    ],
-   "level": "city"
+   "level": "city",
+   "board_kind": "normative"
   },
   {
    "site": "南京市",

@@ -1,23 +1,23 @@
 {
  "generated_by": "scripts/channels-delivery-report.py",
  "totals": {
-  "sites_crawled": 241,
-  "items": 23027,
-  "texts": 22985,
-  "text_chars": 80756889,
-  "attachment_refs": 654,
-  "attachment_files": 649,
-  "sites_with_items": 217,
-  "sites_multi_page": 96,
-  "attachment_bytes": 565892326,
-  "attachment_mb": 539.7
+  "sites_crawled": 243,
+  "items": 23416,
+  "texts": 23115,
+  "text_chars": 81653634,
+  "attachment_refs": 658,
+  "attachment_files": 653,
+  "sites_with_items": 220,
+  "sites_multi_page": 97,
+  "attachment_bytes": 566042109,
+  "attachment_mb": 539.8
  },
  "by_level": {
   "city": {
    "discovered": 274,
-   "ok": 212,
-   "no_board_found": 45,
-   "js_rendered": 14,
+   "ok": 215,
+   "no_board_found": 43,
+   "js_rendered": 13,
    "unreachable": 3
   },
   "province": {
@@ -32,7 +32,7 @@
   }
  },
  "site_rules": {
-  "sites": 192,
+  "sites": 241,
   "with_rule": 7
  },
  "province_portals": {
@@ -447,6 +447,33 @@
    "engine": "cdp"
   },
   {
+   "site": "乐山市",
+   "dir": "var\\data\\national\\四川省\\乐山市",
+   "status": "list_only_ok",
+   "board": "https://www.leshan.gov.cn/lsswszf/xzgfxwjs/index.html",
+   "pagination": {
+    "rule": [
+     "index",
+     "_"
+    ],
+    "page2_url": "https://www.leshan.gov.cn/lsswszf/xzgfxwjs/index_2.html",
+    "overlap": 0,
+    "new": 13,
+    "ok": true
+   },
+   "pages_this_run": 30,
+   "items": 259,
+   "texts": 0,
+   "text_chars": 0,
+   "attachments": 0,
+   "attachment_files": 0,
+   "items_new_this_run": 259,
+   "newest_date": "2025-05-23",
+   "oldest_date": "2015-05-07",
+   "run_at": "2026-11-03 09:20:06",
+   "engine": "static"
+  },
+  {
    "site": "长沙市",
    "dir": "var\\data\\national\\湖南省\\长沙市",
    "status": "ok",
@@ -789,6 +816,30 @@
    "engine": "cdp"
   },
   {
+   "site": "三明市",
+   "dir": "var\\data\\national\\福建省\\三明市",
+   "status": "list_only_ok",
+   "board": "http://www.sm.gov.cn/smsrmzfbgs/smsrmzf/zc/xzgfxwj/szf.htm",
+   "pagination": {
+    "rule": null,
+    "page2_url": null,
+    "overlap": null,
+    "new": 0,
+    "ok": false
+   },
+   "pages_this_run": 1,
+   "items": 83,
+   "texts": 83,
+   "text_chars": 689302,
+   "attachments": 2,
+   "attachment_files": 2,
+   "items_new_this_run": 0,
+   "newest_date": "2025-11-25",
+   "oldest_date": "2009-08-20",
+   "run_at": "2026-11-03 09:20:11",
+   "engine": "static"
+  },
+  {
    "site": "国家能源局",
    "dir": "var\\data\\national\\中央\\国家能源局",
    "status": "ok",
@@ -1075,6 +1126,33 @@
    "oldest_date": "2020-02-06",
    "run_at": "2026-11-02 21:43:40",
    "engine": "cdp"
+  },
+  {
+   "site": "十堰市",
+   "dir": "var\\data\\national\\湖北省\\十堰市",
+   "status": "list_only_ok",
+   "board": "http://www.shiyan.gov.cn/xxgk/zc_67263/xxgk_zcfg/szbf/index_1.shtml",
+   "pagination": {
+    "rule": [
+     "index",
+     "_"
+    ],
+    "page2_url": "http://www.shiyan.gov.cn/xxgk/zc_67263/xxgk_zcfg/szbf/index_2.shtml",
+    "overlap": 0,
+    "new": 23,
+    "ok": true
+   },
+   "pages_this_run": 2,
+   "items": 47,
+   "texts": 47,
+   "text_chars": 207443,
+   "attachments": 0,
+   "attachment_files": 0,
+   "items_new_this_run": 47,
+   "newest_date": "2022-08-21",
+   "oldest_date": "2018-01-10",
+   "run_at": "2026-11-03 09:20:09",
+   "engine": "static"
   },
   {
    "site": "西安市",
@@ -2780,8 +2858,8 @@
    "items": 11,
    "texts": 10,
    "text_chars": 27751,
-   "attachments": 2,
-   "attachment_files": 2,
+   "attachments": 4,
+   "attachment_files": 4,
    "items_new_this_run": 11,
    "newest_date": "2026-10-30",
    "oldest_date": "2022-10-16",
@@ -4108,30 +4186,6 @@
    "newest_date": null,
    "oldest_date": null,
    "run_at": "2026-11-02 12:03:44",
-   "engine": "static"
-  },
-  {
-   "site": "乐山市",
-   "dir": "var\\data\\national\\四川省\\乐山市",
-   "status": "js_unparsable",
-   "board": "https://www.leshan.gov.cn/lsswszf/xzgfxwj/90053490/index.html",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
-   "pages_this_run": 3,
-   "items": 0,
-   "texts": 0,
-   "text_chars": 0,
-   "attachments": 0,
-   "attachment_files": 0,
-   "items_new_this_run": 0,
-   "newest_date": null,
-   "oldest_date": null,
-   "run_at": "2026-11-02 12:03:45",
    "engine": "static"
   },
   {
