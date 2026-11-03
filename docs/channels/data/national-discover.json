@@ -22092,10 +22092,10 @@
    "site": "商务部",
    "province": "中央",
    "home": "https://www.mofcom.gov.cn/",
-   "board_url": "http://www.mofcom.gov.cn/article/fgsjk/",
+   "board_url": "http://m.mofcom.gov.cn/article/fgsjk/",
    "status": "ok",
    "score": 1,
-   "keyword": "搜索定位（法规数据库）",
+   "keyword": "搜索定位（待CDP验证）",
    "list_likeness": {
     "ok": true,
     "n_links": 21,
@@ -22217,10 +22217,10 @@
    "site": "国家税务总局",
    "province": "中央",
    "home": "https://www.chinatax.gov.cn/",
-   "board_url": "https://www.chinatax.gov.cn/chinatax/n810214/n810641/c102061/zfxxgks.html?tab=zc",
+   "board_url": "https://fgk.chinatax.gov.cn/zcfgk/c100028/search.html",
    "status": "ok",
    "score": 1,
-   "keyword": "政策",
+   "keyword": "搜索定位（待CDP验证）",
    "list_likeness": {
     "ok": true,
     "n_links": 142,
@@ -22315,7 +22315,7 @@
      "error": null
     }
    ],
-   "board_kind": "hub",
+   "board_kind": "normative",
    "level": "ministry"
   },
   {
@@ -24223,10 +24223,11 @@
    "url": "https://jl.gov.cn/",
    "home": "https://jl.gov.cn/",
    "level": "province",
-   "status": "no_board_found",
-   "board_url": null,
-   "board_kind": null,
-   "note": "待摸入口"
+   "status": "ok",
+   "board_url": "https://xxgk.jl.gov.cn/szf/xxgk/gknr/lzyj/xzgfxwj/",
+   "board_kind": "normative",
+   "note": "待摸入口",
+   "keyword": "搜索定位"
   },
   {
    "site": "山西省",

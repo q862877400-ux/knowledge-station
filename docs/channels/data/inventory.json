@@ -22,8 +22,8 @@
   },
   "province": {
    "discovered": 20,
-   "ok": 15,
-   "no_board_found": 5
+   "ok": 16,
+   "no_board_found": 4
   },
   "ministry": {
    "discovered": 61,
@@ -32,7 +32,7 @@
   }
  },
  "site_rules": {
-  "sites": 261,
+  "sites": 259,
   "with_rule": 12
  },
  "province_portals": {
