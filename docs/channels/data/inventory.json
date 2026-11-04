@@ -1,16 +1,16 @@
 {
  "generated_by": "scripts/channels-delivery-report.py",
  "totals": {
-  "sites_crawled": 261,
-  "items": 25296,
-  "texts": 24942,
-  "text_chars": 87707455,
+  "sites_crawled": 263,
+  "items": 25686,
+  "texts": 25371,
+  "text_chars": 89904310,
   "attachment_refs": 693,
-  "attachment_files": 683,
-  "sites_with_items": 243,
+  "attachment_files": 684,
+  "sites_with_items": 245,
   "sites_multi_page": 109,
-  "attachment_bytes": 577670323,
-  "attachment_mb": 550.9
+  "attachment_bytes": 579922201,
+  "attachment_mb": 553.1
  },
  "by_level": {
   "city": {
@@ -22,8 +22,8 @@
   },
   "province": {
    "discovered": 20,
-   "ok": 18,
-   "no_board_found": 2
+   "ok": 19,
+   "no_board_found": 1
   },
   "ministry": {
    "discovered": 61,
@@ -373,6 +373,24 @@
    "oldest_date": "2008-10-16",
    "run_at": "2026-11-02 21:02:20",
    "engine": "cdp"
+  },
+  {
+   "site": "新疆维吾尔自治区",
+   "dir": "var\\data\\national\\national\\新疆维吾尔自治区",
+   "status": "ok",
+   "board": "https://www.xinjiang.gov.cn/xinjiang/fgwjx/common_listfgwj.shtml",
+   "pagination": null,
+   "pages_this_run": null,
+   "items": 378,
+   "texts": 376,
+   "text_chars": 1935882,
+   "attachments": 0,
+   "attachment_files": 0,
+   "items_new_this_run": 333,
+   "newest_date": "2026-09-30",
+   "oldest_date": "2024-04-03",
+   "run_at": "2026-11-05 01:01:35",
+   "engine": "gazette"
   },
   {
    "site": "湛江市",
@@ -919,10 +937,10 @@
    "pagination": null,
    "pages_this_run": 5,
    "items": 78,
-   "texts": 37,
-   "text_chars": 171554,
+   "texts": 78,
+   "text_chars": 355743,
    "attachments": 1,
-   "attachment_files": 0,
+   "attachment_files": 1,
    "items_new_this_run": 0,
    "newest_date": "2026-10-12",
    "oldest_date": "2023-03-22",
@@ -3066,6 +3084,24 @@
    "oldest_date": "2017-03-15",
    "run_at": "2026-11-03 08:40:36",
    "engine": "cdp"
+  },
+  {
+   "site": "福建省",
+   "dir": "var\\data\\national\\national\\福建省",
+   "status": "ok",
+   "board": "https://www.fj.gov.cn/zwgk/zfxxgk/zfxxgkzc/",
+   "pagination": null,
+   "pages_this_run": null,
+   "items": 12,
+   "texts": 12,
+   "text_chars": 76784,
+   "attachments": 0,
+   "attachment_files": 0,
+   "items_new_this_run": 12,
+   "newest_date": null,
+   "oldest_date": null,
+   "run_at": "2026-11-05 00:57:45",
+   "engine": "gazette"
   },
   {
    "site": "聊城市",

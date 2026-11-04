@@ -21380,10 +21380,10 @@
    "site": "福建省",
    "province": "福建省",
    "home": "https://www.fj.gov.cn/",
-   "board_url": "https://www.fj.gov.cn/zwgk/",
+   "board_url": "https://www.fj.gov.cn/zwgk/zfxxgk/zfxxgkzc/",
    "status": "ok",
    "score": 1,
-   "keyword": "政务公开",
+   "keyword": "搜索定位",
    "list_likeness": {
     "ok": true,
     "n_links": 1613,
@@ -21463,7 +21463,7 @@
    "error": null,
    "depth": 2,
    "hub_tried": [],
-   "board_kind": "hub",
+   "board_kind": "linklist",
    "level": "province"
   },
   {
@@ -24291,10 +24291,11 @@
    "url": "https://www.xinjiang.gov.cn/",
    "home": "https://www.xinjiang.gov.cn/",
    "level": "province",
-   "status": "no_board_found",
-   "board_url": null,
-   "board_kind": null,
-   "note": "待摸入口"
+   "status": "ok",
+   "board_url": "https://www.xinjiang.gov.cn/xinjiang/fgwjx/common_listfgwj.shtml",
+   "board_kind": "linklist",
+   "note": "待摸入口",
+   "keyword": "搜索定位"
   }
  ]
 }

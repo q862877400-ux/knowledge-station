@@ -210,7 +210,22 @@ def crawl(site: str, index_url: str, max_issues: int, gap: float,
     issues = issue_list(body, index_url, year=args_year or "")[:max_issues]
     if not issues:
         issues = [index_url]
-    print(f"  {site}: 找到 {len(issues)} 期")
+    # 政府 CMS 常用 `createPageHTML('page-div',50,1,'common_listfgwj','shtml')`
+    # 把总页数写在页面脚本里（实测新疆 50 页、贵州 177 页都是这套）。
+    # 抽出来后按 `stem_N.ext` 规则生成后续页，避免一页页手传地址。
+    m = re.search(
+        r"createPageHTML\([^,]+,\s*(\d+)\s*,\s*\d+\s*,\s*'([^']+)'\s*,\s*'([^']+)'",
+        body)
+    if m and len(issues) < max_issues:
+        total, stem, ext = int(m.group(1)), m.group(2), m.group(3)
+        host = ncf.urlsplit(index_url)
+        prefix = f"{host.scheme}://{host.netloc}{ncf.urlsplit(index_url).path.rsplit('/', 1)[0]}/"
+        for p in range(2, min(total, max_issues) + 1):
+            u = f"{prefix}{stem}_{p}.{ext}"
+            if u not in issues:
+                issues.append(u)
+        print(f"  分页脚本：共 {total} 页，本轮取 {len(issues)} 页")
+    print(f"  {site}: 共 {len(issues)} 页/期")
     allitems: list[dict] = []
     seen_keys: set[str] = set()
     for i, u in enumerate(issues, 1):
@@ -223,8 +238,11 @@ def crawl(site: str, index_url: str, max_issues: int, gap: float,
             print(f"    {i}/{len(issues)} http {st2}")
             continue
         got = []
-        # 两种页面结构：公报期页（正文切） / 链接列表页（锚文本切）
-        parsed = parse_issue(b2, u, site) or parse_link_list(b2, u, site)
+        # 两种结构都在时取**条数多的**：实测福建省 `parse_issue` 只切出 2 条、
+        # `parse_link_list` 切出 13 条，固定优先会把 11 条丢掉。
+        a = parse_issue(b2, u, site)
+        b = parse_link_list(b2, u, site)
+        parsed = a if len(a) >= len(b) else b
         for x in parsed:
             key = x.get("docno") or x.get("title")
             if key in seen_keys:
