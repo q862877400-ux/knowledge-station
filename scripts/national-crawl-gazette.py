@@ -70,6 +70,41 @@ def issue_list(index_html: str, base: str, year: str = "") -> list[str]:
     return urls
 
 
+def parse_link_list(html: str, url: str, province: str) -> list[dict]:
+    """从「链接列表页」切条目：锚文本里带标题 + 文号（如贵州省的 `qfh` 栏目）。
+
+    ⚠ 为什么需要它（2026-11-02）：贵州省的规范性文件页是**普通链接列表**，
+    `parse_items()` 一条也抽不出（它认的是"列表项 + 同行日期"的结构），
+    但锚文本里就有完整标题和文号 ⇒ 直接按锚文本切。
+    """
+    items: list[dict] = []
+    seen: set[str] = set()
+    for m in ncf.LINK_RE.finditer(html):
+        href, inner = m.group(1), m.group(2)
+        text = re.sub(r"<[^>]+>", "", inner).strip()
+        if len(text) < 12:
+            continue
+        no = DOCNO_RE.search(text)
+        title = DOCNO_RE.split(text)[0].strip(" （(")
+        if no:
+            title = title.replace(no.group(1), "").strip(" （(")
+        if len(title) < 10 or not ncf.is_title(title):
+            continue
+        if any(w in title for w in DROP):
+            continue
+        key = no.group(1) if no else title
+        if key in seen:
+            continue
+        seen.add(key)
+        year = re.search(r"〔(\d{4})〕", no.group(1)) if no else None
+        items.append({
+            "title": title, "url": ncf.urljoin(url, href),
+            "date": f"{year.group(1)}-01" if year else None,
+            "docno": no.group(1) if no else "", "source": province,
+        })
+    return items
+
+
 def issue_date(txt: str) -> str | None:
     """取该期出版日期。
 
@@ -114,6 +149,22 @@ def parse_issue(html: str, url: str, province: str) -> list[dict]:
     return items
 
 
+def save_issue_text(url: str, html: str) -> str:
+    """把**整期正文**落成一份 txt，返回相对仓根的路径。
+
+    公报一期里有 5~11 条文件，逐条落会把同一份正文重复写 10 次（实测浪费 10 倍磁盘）。
+    条目通过 `text_file` 指到这份整期正文；再按 `docno` 去正文里定位自己那一段。
+    """
+    import hashlib
+    key = hashlib.sha256(url.encode()).hexdigest()[:16]
+    out = ROOT / "var" / "data" / "national" / "gazette-text"
+    out.mkdir(parents=True, exist_ok=True)
+    f = out / f"{key}.txt"
+    if not f.exists():
+        f.write_text(ncf.clean_body(ncf.main_text(html), ""), encoding="utf-8")
+    return str(f.relative_to(ROOT))
+
+
 def crawl(site: str, index_url: str, max_issues: int, gap: float,
           args_year: str = "") -> dict:
     tr = ncf.default_transport()
@@ -136,12 +187,20 @@ def crawl(site: str, index_url: str, max_issues: int, gap: float,
             print(f"    {i}/{len(issues)} http {st2}")
             continue
         got = []
-        for x in parse_issue(b2, u, site):
+        # 两种页面结构：公报期页（正文切） / 链接列表页（锚文本切）
+        parsed = parse_issue(b2, u, site) or parse_link_list(b2, u, site)
+        for x in parsed:
             key = x.get("docno") or x.get("title")
             if key in seen_keys:
                 continue
             seen_keys.add(key)
             got.append(x)
+        if got:
+            # 整期正文存一份，条目指过去（逐条落会把同一期正文重复 8 次）
+            tf = save_issue_text(u, b2)
+            for x in got:
+                x["text_file"] = tf
+                x["text_chars"] = len(ncf.main_text(b2))
         allitems.extend(got)
         print(f"    {i}/{len(issues)} {len(got)} 条  {u[-32:]}")
         time.sleep(gap)

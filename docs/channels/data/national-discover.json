@@ -24236,10 +24236,10 @@
    "home": "https://www.shanxi.gov.cn/",
    "level": "province",
    "status": "ok",
-   "board_url": "https://www.shanxi.gov.cn/zfxxgk/zfcbw/zfgb2/2025nzfgb_87457/",
+   "board_url": "https://www.shanxi.gov.cn/zfxxgk/zfcbw/zfgb2/2025nzfgb_87457/d1q_76594/",
    "board_kind": "gazette",
    "note": "待摸入口",
-   "keyword": "政府公报"
+   "keyword": "搜索定位"
   },
   {
    "site": "江苏省",
@@ -24279,10 +24279,11 @@
    "url": "https://guizhou.gov.cn/",
    "home": "https://guizhou.gov.cn/",
    "level": "province",
-   "status": "no_board_found",
-   "board_url": null,
-   "board_kind": null,
-   "note": "待摸入口"
+   "status": "ok",
+   "board_url": "https://www.guizhou.gov.cn/zwgk/zcfg/szfwj/qfh/",
+   "board_kind": "linklist",
+   "note": "待摸入口",
+   "keyword": "搜索定位"
   },
   {
    "site": "新疆维吾尔自治区",

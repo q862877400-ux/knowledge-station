@@ -1,13 +1,13 @@
 {
  "generated_by": "scripts/channels-delivery-report.py",
  "totals": {
-  "sites_crawled": 260,
-  "items": 24502,
-  "texts": 24081,
-  "text_chars": 85193364,
+  "sites_crawled": 261,
+  "items": 24541,
+  "texts": 24196,
+  "text_chars": 86796217,
   "attachment_refs": 693,
   "attachment_files": 683,
-  "sites_with_items": 242,
+  "sites_with_items": 243,
   "sites_multi_page": 109,
   "attachment_bytes": 577670323,
   "attachment_mb": 550.9
@@ -22,8 +22,8 @@
   },
   "province": {
    "discovered": 20,
-   "ok": 17,
-   "no_board_found": 3
+   "ok": 18,
+   "no_board_found": 2
   },
   "ministry": {
    "discovered": 61,
@@ -964,14 +964,14 @@
    "pagination": null,
    "pages_this_run": null,
    "items": 76,
-   "texts": 0,
-   "text_chars": 0,
+   "texts": 76,
+   "text_chars": 1322042,
    "attachments": 0,
    "attachment_files": 0,
-   "items_new_this_run": 0,
+   "items_new_this_run": 31,
    "newest_date": "2026-01",
    "oldest_date": "2025-01",
-   "run_at": "2026-11-03 11:29:14",
+   "run_at": "2026-11-04 10:10:16",
    "engine": "gazette"
   },
   {
@@ -1378,6 +1378,24 @@
    "oldest_date": "2000-10-26",
    "run_at": "2026-11-02 21:25:16",
    "engine": "cdp"
+  },
+  {
+   "site": "贵州省",
+   "dir": "var\\data\\national\\national\\贵州省",
+   "status": "ok",
+   "board": "https://www.guizhou.gov.cn/zwgk/zcfg/szfwj/qfh/index_8.html",
+   "pagination": null,
+   "pages_this_run": null,
+   "items": 39,
+   "texts": 39,
+   "text_chars": 280811,
+   "attachments": 0,
+   "attachment_files": 0,
+   "items_new_this_run": 8,
+   "newest_date": "2026-06-09",
+   "oldest_date": "2025-01",
+   "run_at": "2026-11-04 10:12:55",
+   "engine": "gazette"
   },
   {
    "site": "鹰潭市",
