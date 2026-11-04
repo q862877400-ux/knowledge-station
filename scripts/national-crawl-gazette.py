@@ -202,9 +202,49 @@ def fill_detail_texts(items: list[dict], gap: float = 1.0) -> int:
 
 
 def crawl(site: str, index_url: str, max_issues: int, gap: float,
-          args_year: str = "") -> dict:
+          args_year: str = "", cdp_port: int = 0) -> dict:
     tr = ncf.default_transport()
-    st, body = tr.fetch(index_url, timeout=30)
+
+    def get(u: str):
+        """静态取页；`--cdp` 时用浏览器渲染后再取（脚本空壳页用）。"""
+        if not cdp_port:
+            return tr.fetch(u, timeout=30)
+        nb = ncs.load_script("nb", "scripts/national-crawl-browser.py")
+        page = nb.CDPPage(cdp_port)
+        try:
+            page.open(u)
+            html = ""
+            deadline = time.time() + 18
+            while time.time() < deadline:
+                h = page.html()
+                if h and len(h) > 3000:
+                    html = h
+                    # ⚠ 只等 HTML 够大是不够的：吉林这类站在 5 秒后才有列表，
+                    # 提前退出会拿到 5 万字节的空壳（实测诊断脚本等"能解析出条目"
+                    # 拿到 13 条，这里只等长度拿到 0 条）。
+                    if (parse_issue(h, u, site) or
+                            parse_link_list(h, u, site)):
+                        break
+                time.sleep(1.0)
+            return (200 if html else 0), html
+        finally:
+            page.close()
+
+    proc = None
+    if cdp_port:
+        nb = ncs.load_script("nb", "scripts/national-crawl-browser.py")
+        proc = nb.start_debug_browser(ncs.find_browser(), cdp_port)
+        if not nb.wait_debug_port(cdp_port):
+            return {"site": site, "status": "cdp_port_failed", "items": 0}
+    try:
+        return _crawl_pages(site, index_url, max_issues, gap, args_year, get)
+    finally:
+        if proc is not None:
+            proc.terminate()
+
+
+def _crawl_pages(site, index_url, max_issues, gap, args_year, get) -> dict:
+    st, body = get(index_url)
     if st != 200 or not isinstance(body, str):
         return {"site": site, "status": f"index_http_{st}", "items": 0}
     issues = issue_list(body, index_url, year=args_year or "")[:max_issues]
@@ -230,7 +270,7 @@ def crawl(site: str, index_url: str, max_issues: int, gap: float,
     seen_keys: set[str] = set()
     for i, u in enumerate(issues, 1):
         try:
-            st2, b2 = tr.fetch(u, timeout=30)
+            st2, b2 = get(u)
         except Exception as exc:                 # noqa: BLE001
             print(f"    {i}/{len(issues)} 失败 {type(exc).__name__}")
             continue
@@ -275,6 +315,8 @@ def main() -> int:
     ap.add_argument("--max-issues", type=int, default=12)
     ap.add_argument("--gap", type=float, default=1.0)
     ap.add_argument("--year", default="", help="只处理含该年份的期")
+    ap.add_argument("--cdp", type=int, default=0,
+                    help="用浏览器渲染取页（脚本空壳站），值为调试端口")
     args = ap.parse_args()
     index = args.index
     if not index:
@@ -287,7 +329,8 @@ def main() -> int:
         print("没有公报目录地址")
         return 1
     print(f"公报目录：{index}")
-    r = crawl(args.site, index, args.max_issues, args.gap, args.year)
+    r = crawl(args.site, index, args.max_issues, args.gap, args.year,
+              cdp_port=args.cdp)
     print("结果:", json.dumps(r, ensure_ascii=False))
     return 0
 

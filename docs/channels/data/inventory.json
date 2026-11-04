@@ -1,13 +1,13 @@
 {
  "generated_by": "scripts/channels-delivery-report.py",
  "totals": {
-  "sites_crawled": 273,
-  "items": 25980,
-  "texts": 25664,
-  "text_chars": 90843947,
+  "sites_crawled": 276,
+  "items": 26062,
+  "texts": 25746,
+  "text_chars": 91189659,
   "attachment_refs": 693,
   "attachment_files": 684,
-  "sites_with_items": 262,
+  "sites_with_items": 269,
   "sites_multi_page": 108,
   "attachment_bytes": 579922201,
   "attachment_mb": 553.1
@@ -32,7 +32,7 @@
   }
  },
  "site_rules": {
-  "sites": 263,
+  "sites": 273,
   "with_rule": 12
  },
  "province_portals": {
@@ -1719,6 +1719,24 @@
    "engine": "cdp"
   },
   {
+   "site": "淮南市",
+   "dir": "var\\data\\national\\安徽省\\淮南市",
+   "status": "ok",
+   "board": "https://www.huainan.gov.cn/site/tpl/150848007",
+   "pagination": null,
+   "pages_this_run": null,
+   "items": 30,
+   "texts": 30,
+   "text_chars": 153995,
+   "attachments": 0,
+   "attachment_files": 0,
+   "items_new_this_run": 30,
+   "newest_date": null,
+   "oldest_date": null,
+   "run_at": "2026-11-05 01:20:58",
+   "engine": "gazette"
+  },
+  {
    "site": "内江市",
    "dir": "var\\data\\national\\四川省\\内江市",
    "status": "ok",
@@ -2710,6 +2728,24 @@
    "engine": "gazette"
   },
   {
+   "site": "抚顺市",
+   "dir": "var\\data\\national\\辽宁省\\抚顺市",
+   "status": "ok",
+   "board": "https://www.fushun.gov.cn/dynamic/zwgk/jd_govInfoPub.html?categorynum=008002001",
+   "pagination": null,
+   "pages_this_run": null,
+   "items": 15,
+   "texts": 15,
+   "text_chars": 50184,
+   "attachments": 0,
+   "attachment_files": 0,
+   "items_new_this_run": 15,
+   "newest_date": "2026-01",
+   "oldest_date": "2020-01",
+   "run_at": "2026-11-05 01:20:25",
+   "engine": "gazette"
+  },
+  {
    "site": "文化和旅游部",
    "dir": "var\\data\\national\\中央\\文化和旅游部",
    "status": "ok",
@@ -3032,6 +3068,24 @@
    "engine": "cdp"
   },
   {
+   "site": "吉林省",
+   "dir": "var\\data\\national\\national\\吉林省",
+   "status": "ok",
+   "board": "https://xxgk.jl.gov.cn/szf/xxgk/gknr/lzyj/xzgfxwj/",
+   "pagination": null,
+   "pages_this_run": null,
+   "items": 13,
+   "texts": 13,
+   "text_chars": 43238,
+   "attachments": 0,
+   "attachment_files": 0,
+   "items_new_this_run": 0,
+   "newest_date": null,
+   "oldest_date": null,
+   "run_at": "2026-11-05 01:21:12",
+   "engine": "gazette"
+  },
+  {
    "site": "喀什地区",
    "dir": "var\\data\\national\\新疆维吾尔自治区\\喀什地区",
    "status": "ok",
@@ -3102,6 +3156,24 @@
    "oldest_date": "2016-07-21",
    "run_at": "2026-11-03 08:34:01",
    "engine": "cdp"
+  },
+  {
+   "site": "榆林市",
+   "dir": "var\\data\\national\\未知\\榆林市",
+   "status": "ok",
+   "board": "https://www.yl.gov.cn/zwgk/zc/gfxwj/",
+   "pagination": null,
+   "pages_this_run": null,
+   "items": 13,
+   "texts": 13,
+   "text_chars": 58487,
+   "attachments": 0,
+   "attachment_files": 0,
+   "items_new_this_run": 13,
+   "newest_date": "2026-06-12",
+   "oldest_date": "2026-06-12",
+   "run_at": "2026-11-05 01:20:33",
+   "engine": "gazette"
   },
   {
    "site": "济南市",
@@ -4450,6 +4522,24 @@
    "engine": "static"
   },
   {
+   "site": "安庆市",
+   "dir": "var\\data\\national\\安徽省\\安庆市",
+   "status": "ok",
+   "board": "https://www.anqing.gov.cn/zwgk/gzk/index.html",
+   "pagination": null,
+   "pages_this_run": null,
+   "items": 5,
+   "texts": 5,
+   "text_chars": 27289,
+   "attachments": 0,
+   "attachment_files": 0,
+   "items_new_this_run": 5,
+   "newest_date": null,
+   "oldest_date": null,
+   "run_at": "2026-11-05 01:20:10",
+   "engine": "gazette"
+  },
+  {
    "site": "审计署",
    "dir": "var\\data\\national\\中央\\审计署",
    "status": "ok",
@@ -4744,6 +4834,42 @@
    "engine": "cdp"
   },
   {
+   "site": "中山市",
+   "dir": "var\\data\\national\\广东省\\中山市",
+   "status": "ok",
+   "board": "http://zssfgfxwj.zs.gov.cn:9145/#/index",
+   "pagination": null,
+   "pages_this_run": null,
+   "items": 3,
+   "texts": 3,
+   "text_chars": 3627,
+   "attachments": 0,
+   "attachment_files": 0,
+   "items_new_this_run": 3,
+   "newest_date": "2026-09-04",
+   "oldest_date": "2026-09-04",
+   "run_at": "2026-11-05 01:19:48",
+   "engine": "gazette"
+  },
+  {
+   "site": "九江市",
+   "dir": "var\\data\\national\\江西省\\九江市",
+   "status": "ok",
+   "board": "https://www.jiujiang.gov.cn/fdzdxxgk/01/00/fggzk/szfgz/index.html",
+   "pagination": null,
+   "pages_this_run": null,
+   "items": 3,
+   "texts": 3,
+   "text_chars": 8892,
+   "attachments": 0,
+   "attachment_files": 0,
+   "items_new_this_run": 3,
+   "newest_date": null,
+   "oldest_date": null,
+   "run_at": "2026-11-05 01:19:57",
+   "engine": "gazette"
+  },
+  {
    "site": "国家机关事务管理局",
    "dir": "var\\data\\national\\中央\\国家机关事务管理局",
    "status": "ok",
@@ -5008,30 +5134,6 @@
    "engine": "static"
   },
   {
-   "site": "九江市",
-   "dir": "var\\data\\national\\江西省\\九江市",
-   "status": "js_unparsable",
-   "board": "https://www.jiujiang.gov.cn/fdzdxxgk/01/00/fggzk/szfgz/index.html",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
-   "pages_this_run": 1,
-   "items": 0,
-   "texts": 0,
-   "text_chars": 0,
-   "attachments": 0,
-   "attachment_files": 0,
-   "items_new_this_run": 0,
-   "newest_date": null,
-   "oldest_date": null,
-   "run_at": "2026-11-03 09:47:01",
-   "engine": "static"
-  },
-  {
    "site": "商务部",
    "dir": "var\\data\\national\\中央\\商务部",
    "status": "list_only_ok",
@@ -5080,30 +5182,6 @@
    "engine": "static"
   },
   {
-   "site": "安庆市",
-   "dir": "var\\data\\national\\安徽省\\安庆市",
-   "status": "js_unparsable",
-   "board": "https://www.anqing.gov.cn/zwgk/gzk/index.html",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
-   "pages_this_run": 1,
-   "items": 0,
-   "texts": 0,
-   "text_chars": 0,
-   "attachments": 0,
-   "attachment_files": 0,
-   "items_new_this_run": 0,
-   "newest_date": null,
-   "oldest_date": null,
-   "run_at": "2026-11-02 14:53:24",
-   "engine": "static"
-  },
-  {
    "site": "宜宾市",
    "dir": "var\\data\\national\\四川省\\宜宾市",
    "status": "js_unparsable",
@@ -5128,30 +5206,6 @@
    "engine": "static"
   },
   {
-   "site": "抚顺市",
-   "dir": "var\\data\\national\\辽宁省\\抚顺市",
-   "status": "js_unparsable",
-   "board": "https://www.fushun.gov.cn/dynamic/zwgk/jd_govInfoPub.html?categorynum=008002001",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
-   "pages_this_run": 1,
-   "items": 0,
-   "texts": 0,
-   "text_chars": 0,
-   "attachments": 0,
-   "attachment_files": 0,
-   "items_new_this_run": 0,
-   "newest_date": null,
-   "oldest_date": null,
-   "run_at": "2026-11-02 14:53:37",
-   "engine": "static"
-  },
-  {
    "site": "晋中市",
    "dir": "var\\data\\national\\山西省\\晋中市",
    "status": "js_unparsable",
@@ -5173,30 +5227,6 @@
    "newest_date": null,
    "oldest_date": null,
    "run_at": "2026-11-02 12:04:12",
-   "engine": "static"
-  },
-  {
-   "site": "淮南市",
-   "dir": "var\\data\\national\\安徽省\\淮南市",
-   "status": "js_unparsable",
-   "board": "https://www.huainan.gov.cn/site/tpl/150848007",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
-   "pages_this_run": 1,
-   "items": 0,
-   "texts": 0,
-   "text_chars": 0,
-   "attachments": 0,
-   "attachment_files": 0,
-   "items_new_this_run": 0,
-   "newest_date": null,
-   "oldest_date": null,
-   "run_at": "2026-11-02 16:35:25",
    "engine": "static"
   },
   {
