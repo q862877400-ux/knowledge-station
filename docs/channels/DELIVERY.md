@@ -2,7 +2,7 @@
 
 > 本文由 `scripts/channels-delivery-report.py` 从**实际数据**生成，不是手写、不含估计值。
 
-生成时间：2026-11-05 01:45:36
+生成时间：2026-11-05 01:50:06
 
 ## 一、总账（实测）
 
@@ -49,16 +49,16 @@
 
 ```powershell
 # 1) 只看列表与翻页（快，用于确认站点还活着、有没有新条目）
-.venv\Scripts\python.exe scripts/national-crawl-fetch.py --kindnormative --list-only --concurrency 6
+.venv\Scripts\python.exe scripts/national-crawl-fetch.py --kind normative --list-only --concurrency 6
 
 # 2) 补正文与附件（已有的自动跳过）
-.venv\Scripts\python.exe scripts/national-crawl-fetch.py--text-only --concurrency 6
+.venv\Scripts\python.exe scripts/national-crawl-fetch.py --text-only --concurrency 6
 
 # 3) 单站复跑（验证某站）
-.venv\Scripts\python.exe scripts/national-crawl-fetch.py --site湖南省 --list-only --pages 60
+.venv\Scripts\python.exe scripts/national-crawl-fetch.py --site 湖南省 --list-only --pages 60
 
 # 4) 脚本渲染的站用浏览器通道
-.venv\Scripts\python.exe scripts/national-crawl-browser.py--sites 贵阳市 --pages 2
+.venv\Scripts\python.exe scripts/national-crawl-browser.py --sites 贵阳市 --pages 2
 
 # 5) 把实测规则沉淀成配置 / 重新导出
 .venv\Scripts\python.exe scripts/national-crawl-fetch.py --export-rules
@@ -66,11 +66,13 @@
 
 **增量怎么看**：每站 `site-state.json` 里的 `items_new_this_run` 就是「这次比上次多出的条目数」，`prev_items_total` 是上次的总数。连续跑两次第 2 次应为 0（已验证：+12 → +0）。
 
-## 五、缺口与原因（都是实测出来的）
+## 五、缺口与原因（历史实测，逐轮台账见 NATIONAL-CRAWL.md）
 
-1. **翻页不吃 URL 参数**：45 个站试过 13 种规则，0 命中；省站同样。只能浏览器逐页点，单页 20~50 秒。
-2. **列表靠脚本渲染**：24 站静态抽不到条目；13 个已知地址的站浏览器救回 7 个。
-3. **省门户/部委入口难定**：27 个候选里 6 个是占位页或 404（加 `www.` 救回 6 个）；部委目录页 `gov.cn/guowuyuan/` 连浏览器都 403，改从部委站导航挖到 61 家。
+1. **翻页不吃 URL 参数**：早期 45 个站试过 13 种规则 0 命中；后来改用浏览器点击逐页点，才把深档案翻出来（现能翻多页的站见总账）。
+2. **列表靠脚本渲染**：静态抽不到条目的站改用浏览器渲染 + 锚文本解析后陆续救回；剩余未解的多是单页应用走接口。
+3. **统一发布平台走接口**：广州/武汉/深圳/昆明等市与部分部委把规范性文件放在 SPA 平台，静态壳与浏览器渲染都拿不到列表，需站点令牌；按纪律不硬造接口调用。
+4. **公报型站点**：山西/贵州等省没有文件列表，文件按期登在政府公报里；已单独做 `national-crawl-gazette.py`（整期正文落盘 + 双解析器）。
+
 
 ## 六、数据在哪
 
@@ -98,8 +100,9 @@
 
 ## 八、明确未做到（不粉饰）
 
-1. **存量远未全量**：地级市 129/274 有栏目、省 14/31、部委 20/61。
-2. **多数站只抓到第 1 页**：能翻多页的仅 50/169。
-3. **中央部委仍有 6 家未找到栏目入口**（税务总局/体育总局/邮政局/知识产权局/最高法/新闻出版署）。
-4. **字段级完整但内容层级不一**：正文是网页文本，不是原版式 PDF。
+1. **存量未全量**：地级市 212/274 有数据、省 19/20、部委 42/61。缺的主要是统一发布平台（SPA 走接口）与反爬站。
+2. **能翻多页的站 110/280**：其余站的栏目本身只有一页，或分页靠接口/点击未打通。
+3. **部分条目无正文**：列表抓到了但详情页失效或结构特殊；正文覆盖率见总账。
+4. **正文是网页文本，不是原版式 PDF**；有附件时另存原文件。
 5. **未入库**：数据全在 `var/data/national/` 文件里，**没有进知识库做检索**。
+6. **运行态数据不入库**：`var/*` 按 `.gitignore` 整体忽略，换机器需按第四节命令重跑，或用 `snapshot-project.ps1` 快照搬运。
