@@ -24022,10 +24022,11 @@
    "url": "https://www.sara.gov.cn/",
    "home": "https://www.sara.gov.cn/",
    "level": "ministry",
-   "status": "no_board_found",
-   "board_url": null,
-   "board_kind": null,
-   "note": "待摸入口"
+   "status": "ok",
+   "board_url": "https://www.sara.gov.cn/web/xxgk/gfxwj/index.html",
+   "board_kind": "normative",
+   "note": "待摸入口",
+   "keyword": "搜索定位"
   },
   {
    "site": "国家金融监督管理总局",
@@ -24044,10 +24045,11 @@
    "url": "https://www.tobacco.gov.cn/",
    "home": "https://www.tobacco.gov.cn/",
    "level": "ministry",
-   "status": "no_board_found",
-   "board_url": null,
-   "board_kind": null,
-   "note": "待摸入口"
+   "status": "ok",
+   "board_url": "http://www.tobacco.gov.cn/gjyc/zcfl/list.shtml",
+   "board_kind": "normative",
+   "note": "待摸入口",
+   "keyword": "搜索定位"
   },
   {
    "site": "国家林业和草原局",
@@ -24066,10 +24068,11 @@
    "url": "https://www.nra.gov.cn/",
    "home": "https://www.nra.gov.cn/",
    "level": "ministry",
-   "status": "no_board_found",
-   "board_url": null,
-   "board_kind": null,
-   "note": "待摸入口"
+   "status": "ok",
+   "board_url": "https://www.nra.gov.cn/xxgk/gkml/ztjg/gfzd/gfxw/index.shtml",
+   "board_kind": "normative",
+   "note": "待摸入口",
+   "keyword": "搜索定位"
   },
   {
    "site": "中国民用航空局",
@@ -24124,10 +24127,11 @@
    "url": "https://www.saac.gov.cn/",
    "home": "https://www.saac.gov.cn/",
    "level": "ministry",
-   "status": "no_board_found",
-   "board_url": null,
-   "board_kind": null,
-   "note": "待摸入口"
+   "status": "ok",
+   "board_url": "https://www.saac.gov.cn/daj/xzfgk/xzfgk.shtml",
+   "board_kind": "normative",
+   "note": "待摸入口",
+   "keyword": "搜索定位"
   },
   {
    "site": "国家保密局",

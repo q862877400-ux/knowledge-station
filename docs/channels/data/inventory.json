@@ -1,16 +1,16 @@
 {
  "generated_by": "scripts/channels-delivery-report.py",
  "totals": {
-  "sites_crawled": 276,
-  "items": 26062,
-  "texts": 25746,
-  "text_chars": 91189659,
-  "attachment_refs": 693,
-  "attachment_files": 684,
-  "sites_with_items": 269,
-  "sites_multi_page": 108,
-  "attachment_bytes": 579922201,
-  "attachment_mb": 553.1
+  "sites_crawled": 280,
+  "items": 26428,
+  "texts": 26112,
+  "text_chars": 91859782,
+  "attachment_refs": 697,
+  "attachment_files": 688,
+  "sites_with_items": 273,
+  "sites_multi_page": 110,
+  "attachment_bytes": 580675196,
+  "attachment_mb": 553.8
  },
  "by_level": {
   "city": {
@@ -27,13 +27,13 @@
   },
   "ministry": {
    "discovered": 61,
-   "ok": 42,
-   "no_board_found": 19
+   "ok": 46,
+   "no_board_found": 15
   }
  },
  "site_rules": {
-  "sites": 273,
-  "with_rule": 12
+  "sites": 280,
+  "with_rule": 14
  },
  "province_portals": {
   "total": 26,
@@ -564,6 +564,33 @@
    "engine": "cdp"
   },
   {
+   "site": "国家铁路局",
+   "dir": "var\\data\\national\\中央\\国家铁路局",
+   "status": "list_only_ok",
+   "board": "https://www.nra.gov.cn/xxgk/gkml/ztjg/gfzd/gfxw/index.shtml",
+   "pagination": {
+    "rule": [
+     "index",
+     "_"
+    ],
+    "page2_url": "https://www.nra.gov.cn/xxgk/gkml/ztjg/gfzd/gfxw/index_2.shtml",
+    "overlap": 0,
+    "new": 18,
+    "ok": true
+   },
+   "pages_this_run": 14,
+   "items": 237,
+   "texts": 237,
+   "text_chars": 357235,
+   "attachments": 2,
+   "attachment_files": 2,
+   "items_new_this_run": 237,
+   "newest_date": "2024-06-26",
+   "oldest_date": "2005-01-13",
+   "run_at": "2026-11-05 01:24:09",
+   "engine": "static"
+  },
+  {
    "site": "汕尾市",
    "dir": "var\\data\\national\\广东省\\汕尾市",
    "status": "ok",
@@ -724,6 +751,33 @@
    "oldest_date": "2003-01-01",
    "run_at": "2026-11-03 10:44:29",
    "engine": "cdp"
+  },
+  {
+   "site": "国家烟草专卖局",
+   "dir": "var\\data\\national\\中央\\国家烟草专卖局",
+   "status": "list_only_ok",
+   "board": "http://www.tobacco.gov.cn/gjyc/zcfl/list.shtml",
+   "pagination": {
+    "rule": [
+     "suffix",
+     "_"
+    ],
+    "page2_url": "http://www.tobacco.gov.cn/gjyc/zcfl/list_2.shtml",
+    "overlap": 0,
+    "new": 15,
+    "ok": true
+   },
+   "pages_this_run": 7,
+   "items": 106,
+   "texts": 106,
+   "text_chars": 256910,
+   "attachments": 2,
+   "attachment_files": 2,
+   "items_new_this_run": 106,
+   "newest_date": "2026-10-10",
+   "oldest_date": "2000-02-18",
+   "run_at": "2026-11-05 01:24:18",
+   "engine": "static"
   },
   {
    "site": "信阳市",
@@ -2338,6 +2392,24 @@
    "oldest_date": "2026-01-30",
    "run_at": "2026-11-02 22:35:23",
    "engine": "cdp"
+  },
+  {
+   "site": "国家宗教事务局",
+   "dir": "var\\data\\national\\未知\\国家宗教事务局",
+   "status": "ok",
+   "board": "https://www.sara.gov.cn/web/xxgk/gfxwj/index.html",
+   "pagination": null,
+   "pages_this_run": null,
+   "items": 18,
+   "texts": 18,
+   "text_chars": 40654,
+   "attachments": 0,
+   "attachment_files": 0,
+   "items_new_this_run": 18,
+   "newest_date": null,
+   "oldest_date": null,
+   "run_at": "2026-11-05 01:25:10",
+   "engine": "gazette"
   },
   {
    "site": "宿迁市",
@@ -4520,6 +4592,24 @@
    "oldest_date": "2025-03-28",
    "run_at": "2026-11-02 12:03:52",
    "engine": "static"
+  },
+  {
+   "site": "国家档案局",
+   "dir": "var\\data\\national\\未知\\国家档案局",
+   "status": "ok",
+   "board": "https://www.saac.gov.cn/daj/xzfgk/xzfgk.shtml",
+   "pagination": null,
+   "pages_this_run": null,
+   "items": 5,
+   "texts": 5,
+   "text_chars": 15324,
+   "attachments": 0,
+   "attachment_files": 0,
+   "items_new_this_run": 5,
+   "newest_date": null,
+   "oldest_date": null,
+   "run_at": "2026-11-05 01:25:18",
+   "engine": "gazette"
   },
   {
    "site": "安庆市",
