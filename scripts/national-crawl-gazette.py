@@ -165,6 +165,42 @@ def save_issue_text(url: str, html: str) -> str:
     return str(f.relative_to(ROOT))
 
 
+
+def fill_detail_texts(items: list[dict], gap: float = 1.0) -> int:
+    """给「链接列表」条目逐条抓详情页正文（列表页不是正文）。
+
+    ⚠ 实测（2026-11-03）：R70 把列表页 HTML 当成整期正文存了 —— 里面是
+    天气预报脚本和一堆导航链接，**根本不是文件正文**。公报期页这样做还勉强
+    （整期页面确实含全部文件正文），但链接列表页必须逐条进详情页。
+    """
+    tr = ncf.default_transport()
+    out = ROOT / "var" / "data" / "national" / "gazette-text"
+    out.mkdir(parents=True, exist_ok=True)
+    filled = 0
+    for x in items:
+        if not x.get("url") or "#doc" in x["url"]:
+            continue
+        try:
+            st, body = tr.fetch(x["url"], timeout=30)
+        except Exception as exc:                 # noqa: BLE001
+            print(f"    详情失败 {type(exc).__name__}")
+            continue
+        if st != 200 or not isinstance(body, str):
+            continue
+        txt = ncf.clean_body(ncf.main_text(body), x.get("title") or "")
+        if len(txt) < 80:
+            continue
+        import hashlib
+        key = hashlib.sha256(x["url"].encode()).hexdigest()[:16]
+        f = out / f"detail-{key}.txt"
+        f.write_text(txt, encoding="utf-8")
+        x["text_file"] = str(f.relative_to(ROOT))
+        x["text_chars"] = len(txt)
+        filled += 1
+        time.sleep(gap)
+    return filled
+
+
 def crawl(site: str, index_url: str, max_issues: int, gap: float,
           args_year: str = "") -> dict:
     tr = ncf.default_transport()
@@ -195,8 +231,8 @@ def crawl(site: str, index_url: str, max_issues: int, gap: float,
                 continue
             seen_keys.add(key)
             got.append(x)
-        if got:
-            # 整期正文存一份，条目指过去（逐条落会把同一期正文重复 8 次）
+        # 公报期页：整期正文存一份，条目指过去
+        if got and got[0].get("issue"):
             tf = save_issue_text(u, b2)
             for x in got:
                 x["text_file"] = tf
@@ -206,6 +242,9 @@ def crawl(site: str, index_url: str, max_issues: int, gap: float,
         time.sleep(gap)
     if not allitems:
         return {"site": site, "status": "gazette_empty", "items": 0}
+    need = [x for x in allitems if not x.get("text_file")]
+    filled = fill_detail_texts(need, gap) if need else 0
+    print(f"  详情页补正文：{filled}/{len(need)}")
     res = ncs.merge_and_save(site, index_url, allitems, engine="gazette")
     return {"site": site, "status": "gazette_ok", "items": len(allitems),
             "total": res["items_total"], "new": res["items_new"]}

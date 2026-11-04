@@ -140,10 +140,15 @@ def main_text(html: str) -> str:
     直接就在网页里，抽查详情页 `.pdf`/`.doc`/`附件` 各出现 0 次 ——
     只盯附件会一无所获。
     """
-    h = re.sub(r"(?is)<(script|style)[^>]*>.*?</\1>", " ", html)
+    # ⚠ 实测（2026-11-03）：政府站把整段 JS 写在 HTML 注释里
+    #   （`<!--script ... function getfx... -->`），只剥 `<script>` 会留下
+    #   上千字脚本污染正文（贵州/山西公报实测 181 个正文文件中招）。
+    #   ⇒ 先去注释，再剥脚本/样式。
+    h = re.sub(r"(?s)<!--.*?-->", " ", html)
+    h = re.sub(r"(?is)<(script|style)[^>]*>.*?</\1>", " ", h)
     h = re.sub(r"(?i)</(p|div|br|tr|li|h[1-6])>", "\n", h)
     h = re.sub(r"<[^>]+>", " ", h)
-    h = re.sub(r"&nbsp;?", " ", h)
+    h = re.sub(r"&(?:nbsp|ensp|emsp|thinsp|#160|#8194|#8195);?", " ", h)
     h = re.sub(r"[ \t\u3000]+", " ", h)
     h = re.sub(r"\n{3,}", "\n\n", h)
     return h.strip()

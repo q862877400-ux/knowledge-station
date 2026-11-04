@@ -2,9 +2,9 @@
  "generated_by": "scripts/channels-delivery-report.py",
  "totals": {
   "sites_crawled": 261,
-  "items": 24541,
-  "texts": 24196,
-  "text_chars": 86796217,
+  "items": 25296,
+  "texts": 24942,
+  "text_chars": 87707455,
   "attachment_refs": 693,
   "attachment_files": 683,
   "sites_with_items": 243,
@@ -32,7 +32,7 @@
   }
  },
  "site_rules": {
-  "sites": 260,
+  "sites": 261,
   "with_rule": 12
  },
  "province_portals": {
@@ -175,6 +175,24 @@
    "oldest_date": "2020-03-25",
    "run_at": "2026-11-02 12:05:13",
    "engine": "static"
+  },
+  {
+   "site": "贵州省",
+   "dir": "var\\data\\national\\national\\贵州省",
+   "status": "ok",
+   "board": "https://www.guizhou.gov.cn/zwgk/zcfg/szfwj/qfh/index_177.html",
+   "pagination": null,
+   "pages_this_run": null,
+   "items": 794,
+   "texts": 794,
+   "text_chars": 1341352,
+   "attachments": 0,
+   "attachment_files": 0,
+   "items_new_this_run": 0,
+   "newest_date": "2026-06-09",
+   "oldest_date": "2009-01",
+   "run_at": "2026-11-05 00:49:54",
+   "engine": "gazette"
   },
   {
    "site": "汕头市",
@@ -481,8 +499,8 @@
    },
    "pages_this_run": 30,
    "items": 259,
-   "texts": 0,
-   "text_chars": 0,
+   "texts": 32,
+   "text_chars": 74026,
    "attachments": 0,
    "attachment_files": 0,
    "items_new_this_run": 259,
@@ -901,8 +919,8 @@
    "pagination": null,
    "pages_this_run": 5,
    "items": 78,
-   "texts": 78,
-   "text_chars": 355743,
+   "texts": 37,
+   "text_chars": 171554,
    "attachments": 1,
    "attachment_files": 0,
    "items_new_this_run": 0,
@@ -965,13 +983,13 @@
    "pages_this_run": null,
    "items": 76,
    "texts": 76,
-   "text_chars": 1322042,
+   "text_chars": 1282902,
    "attachments": 0,
    "attachment_files": 0,
-   "items_new_this_run": 31,
+   "items_new_this_run": 0,
    "newest_date": "2026-01",
    "oldest_date": "2025-01",
-   "run_at": "2026-11-04 10:10:16",
+   "run_at": "2026-11-05 00:50:27",
    "engine": "gazette"
   },
   {
@@ -1378,24 +1396,6 @@
    "oldest_date": "2000-10-26",
    "run_at": "2026-11-02 21:25:16",
    "engine": "cdp"
-  },
-  {
-   "site": "贵州省",
-   "dir": "var\\data\\national\\national\\贵州省",
-   "status": "ok",
-   "board": "https://www.guizhou.gov.cn/zwgk/zcfg/szfwj/qfh/index_8.html",
-   "pagination": null,
-   "pages_this_run": null,
-   "items": 39,
-   "texts": 39,
-   "text_chars": 280811,
-   "attachments": 0,
-   "attachment_files": 0,
-   "items_new_this_run": 8,
-   "newest_date": "2026-06-09",
-   "oldest_date": "2025-01",
-   "run_at": "2026-11-04 10:12:55",
-   "engine": "gazette"
   },
   {
    "site": "鹰潭市",
