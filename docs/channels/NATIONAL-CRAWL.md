@@ -1929,6 +1929,31 @@ CDP 渲染后就能拿到** —— 文物局、公安部、卫健委类都是这
 
 **本轮无新增站点**（数据质量收敛，删 16 条纯导航后净减 16 条）。
 
+
+### R78（2026-11-05，恢复后第 38 轮）：**第五条线 —— JSON 列表接口**，宜春市 99 条
+
+**为什么开这条线**：前四条都在跟 HTML 打交道。本轮查宜春市 `yichun.gov.cn`
+发现它用**数融 CMS**：首页是空壳，列表由 JS 调同域 `POST /queryList` 拉 JSON，
+静态与 CDP 都只看到壳。查证路径（都是站点自己的公开配置，不是绕过反爬）：
+- `default/libs/config.js` 明写接口 `queryList: "/queryList"`；
+- `szf/pc/list.html` 明写 `websiteCode = "ycsrmzf"`；
+- `pc2025/js/szf.js` 里 `getQueryList({ channelCode: ['gfxwj'], ... })` 给出栏目代码。
+
+**新脚本** `scripts/national-crawl-api.py`：
+- 按 `current/pageSize` 翻页，同主机串行 + 页间 1 秒，只调公开接口；
+- `results[].source` 里有 `title / pubDate / urls.pc / content.content`（正文 HTML）；
+- 口径过滤沿用 `ncf.is_title()`，正文直接落盘（不用再抓详情页）。
+
+**结果**：接口报 101 条，去重+过滤后 **99 条**（宜春市），**归属全对**（99 条全在
+`www.yichun.gov.cn`）、**正文 99 篇全有**。
+
+**同型 CMS 通用性实测（重要，别高估）**：对另外 11 个缺数据市探
+`/default/libs/config.js`、`/pc2025/js/commonApi.js`、`/queryList`，
+**只有宜春命中**，其余 11 个都没有这套接口 ⇒ 这条线**不是通用解，只救 1 个站**。
+
+**本轮另一步**：批量搜了台州/吉安/宜昌/宜春的规范性文件栏目，多数只给到
+PDF 清理目录，静态页面 14~33 万字节却抽不出条目（列表走接口）⇒ 未解。
+
 ## 八、进度表（每轮更新）
 
 | 轮 | 做了什么 | 结果 |

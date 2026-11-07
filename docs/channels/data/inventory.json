@@ -1,13 +1,13 @@
 {
  "generated_by": "scripts/channels-delivery-report.py",
  "totals": {
-  "sites_crawled": 282,
-  "items": 26424,
-  "texts": 26108,
-  "text_chars": 91850462,
+  "sites_crawled": 283,
+  "items": 26523,
+  "texts": 26207,
+  "text_chars": 92394302,
   "attachment_refs": 697,
   "attachment_files": 688,
-  "sites_with_items": 277,
+  "sites_with_items": 278,
   "sites_multi_page": 110,
   "attachment_bytes": 580675196,
   "attachment_mb": 553.8
@@ -15,8 +15,8 @@
  "by_level": {
   "city": {
    "discovered": 274,
-   "ok": 221,
-   "no_board_found": 38,
+   "ok": 222,
+   "no_board_found": 37,
    "js_rendered": 12,
    "unreachable": 3
   },
@@ -778,6 +778,24 @@
    "oldest_date": "2000-02-18",
    "run_at": "2026-11-05 01:24:18",
    "engine": "static"
+  },
+  {
+   "site": "宜春市",
+   "dir": "var\\data\\national\\未知\\宜春市",
+   "status": "ok",
+   "board": "https://www.yichun.gov.cn/gfxwj",
+   "pagination": null,
+   "pages_this_run": null,
+   "items": 99,
+   "texts": 99,
+   "text_chars": 543840,
+   "attachments": 0,
+   "attachment_files": 0,
+   "items_new_this_run": 99,
+   "newest_date": "2026-08-11",
+   "oldest_date": "2006-03-05",
+   "run_at": "2026-11-07 09:47:25",
+   "engine": "json-api"
   },
   {
    "site": "信阳市",

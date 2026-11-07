@@ -6098,10 +6098,10 @@
    "site": "宜春市",
    "province": "江西省",
    "home": "https://www.yichun.gov.cn/",
-   "board_url": null,
-   "status": "no_board_found",
+   "board_url": "https://www.yichun.gov.cn/ycsrmzf/gfxwj/",
+   "status": "ok",
    "score": 0,
-   "keyword": "",
+   "keyword": "数融CMS /queryList 接口，channelCode=gfxwj",
    "list_likeness": null,
    "candidates": [
     {
@@ -6179,7 +6179,8 @@
      "error": null
     }
    ],
-   "level": "city"
+   "level": "city",
+   "board_kind": "json-api"
   },
   {
    "site": "宝鸡市",

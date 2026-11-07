@@ -2776,6 +2776,25 @@
   "note": "静态可抓：用 national-crawl-fetch.py"
  },
  {
+  "site": "宜春市",
+  "level": "city",
+  "board_url": "https://www.yichun.gov.cn/gfxwj",
+  "engine": "static",
+  "status": "ok",
+  "rule": null,
+  "rule_source": null,
+  "pages_this_run": null,
+  "items_total": 99,
+  "items_new_this_run": 99,
+  "newest_date": "2026-08-11",
+  "oldest_date": "2006-03-05",
+  "run_at": "2026-11-07 09:47:25",
+  "render_seconds": null,
+  "discovered_by": "discover",
+  "visit_engine": "json-api",
+  "note": "静态可抓：用 national-crawl-fetch.py"
+ },
+ {
   "site": "宿州市",
   "level": "city",
   "board_url": "https://www.ahsz.gov.cn/public/column/2655573?type=1&action=list&nav=2",
