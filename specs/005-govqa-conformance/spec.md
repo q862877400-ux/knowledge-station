@@ -14,7 +14,7 @@
 
 `tools/gov-qa/` 由另一个 Agent 在 2026-10-07 至 10-10 建成：4 天 297 个提交、
 345 个适配器、39.5 万条数据、888.7 MB。技术上局部扎实（增量轮询、覆盖口径修正都是真活），
-但它**从未按本仓规范验收过**。Lead 的独立诊断（`docs/GOVQA-DIAGNOSIS-2026-10-10.md`）
+但它**从未按本仓规范验收过**。Lead 的独立诊断（`../../docs/archive/research-process/GOVQA-DIAGNOSIS-2026-10-10.md`）
 用实测确认了四处硬伤：
 
 1. **完全在门禁之外**：`scripts/run-gates.ps1` 十二步无一涉及它；

@@ -14,11 +14,11 @@
 
 | # | 现名 | 新名 | 理由 | 受影响引用 |
 |---:|---|---|---|---|
-| 1 | `docs/CHANNEL_PROBE_REPORT.md` | `docs/CHANNEL-PROBE-REPORT.md` | 下划线下划线 → 连字符 | **6** |
+| 1 | `docs/CHANNEL_PROBE_REPORT.md` | `../../docs/archive/research-process/CHANNEL-PROBE-REPORT.md` | 下划线下划线 → 连字符 | **6** |
 | 2 | `docs/LAW_SOURCE_PLAN.md` | `docs/LAW-SOURCE-PLAN.md` | 同上 | **20**（含 11 处代码注释） |
-| 3 | `docs/REALTIME_VALIDITY_VERIFY_RESEARCH.md` | `docs/REALTIME-VALIDITY-VERIFY-RESEARCH.md` | 同上 | **6** |
-| 4 | `docs/STD_STATUS_CHANNELS.md` | `docs/STD-STATUS-CHANNELS.md` | 同上 | **7** |
-| 5 | `docs/WSL2_VLM_BACKEND_DECISION.md` | `docs/WSL2-VLM-BACKEND-DECISION.md` | 同上 | **3** |
+| 3 | `docs/REALTIME_VALIDITY_VERIFY_RESEARCH.md` | `../../docs/archive/research-process/REALTIME-VALIDITY-VERIFY-RESEARCH.md` | 同上 | **6** |
+| 4 | `docs/STD_STATUS_CHANNELS.md` | `../../docs/archive/research-process/STD-STATUS-CHANNELS.md` | 同上 | **7** |
+| 5 | `docs/WSL2_VLM_BACKEND_DECISION.md` | `../../docs/archive/research-process/WSL2-VLM-BACKEND-DECISION.md` | 同上 | **3** |
 | 6 | `tests/fixtures/rental_contract.md` | `tests/fixtures/rental-contract.md` | 同上 | **1**（仅本规范文档提到，未在代码里引用） |
 
 ## 二、明确不改的（附理由，不许静默跳过）

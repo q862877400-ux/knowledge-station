@@ -1,7 +1,7 @@
 # docs/ 总索引（机械生成，勿手改）
 
 > 生成脚本见本文末尾命令。**只列文件名、体积、最后提交日、一句话**；正文各自住在原文件里。
-> 共 **263 份** / **10248 KB**。
+> 共 **273 份** / **10600 KB**。
 
 ## 方案与台账（6 份 / 432 KB）
 
@@ -48,11 +48,11 @@
 | `docs/research/lay-phrasing-retrieval-test.md` | 7 | 2026-09-25 | 一、材料 |
 | `docs/wiki/components/vision.md` | 3 | 2026-10-23 | **位置**：`src/core/vision/` |
 
-## 渠道与巡检（9 份 / 749 KB）
+## 渠道与巡检（9 份 / 754 KB）
 
 | 文档 | KB | 最后改 | 一句话 |
 |---|---:|---|---|
-| `docs/CHANNEL-COVERAGE-PLAN.md` | 244 | 2026-10-11 | §0 业主原话（2026-09-18，逐字留档） |
+| `docs/CHANNEL-COVERAGE-PLAN.md` | 249 | 2026-11-02 | §0 业主原话（2026-09-18，逐字留档） |
 | `docs/research/channels/oss-decomposition.md` | 126 | 2026-09-18 | 0. 真伪判定总表 |
 | `docs/research/channels/law-cn.md` | 112 | 2026-09-18 | 1. [国家法律法规数据库（flk.npc.gov.cn）](#1-国家法律法规数据库flknpcgovcn) |
 | `docs/research/channels/std-cn.md` | 73 | 2026-09-18 | 0. 本次调研最重要的三个发现（先看这个） |
@@ -128,7 +128,7 @@
 | `docs/verify-briefs/VERIFY-REPORT-spec009-turn-evidence-ui.md` | 7 | 2026-10-12 | 0. 冻结与现场 |
 | `docs/verify-briefs/VERIFY-REPORT-e9-col-prior.md` | 6 | 2026-10-09 | 1. 首尾 HEAD / status |
 
-## 根文档与其他（122 份 / 4337 KB）
+## 根文档与其他（132 份 / 4684 KB）
 
 | 文档 | KB | 最后改 | 一句话 |
 |---|---:|---|---|
@@ -137,6 +137,7 @@
 | `docs/survey/14-test-index.md` | 251 | 2026-10-24 | 一、口径 |
 | `docs/REQUIREMENTS-v4.3.md` | 208 | 2026-10-10 | 本套文档特点（v4.3 修订版）： |
 | `docs/survey/11-module-index.md` | 166 | 2026-10-24 | 一、口径 |
+| `docs/channels/NATIONAL-CRAWL.md` | 103 | 2026-11-05 | 一、已经有的底子（不要重造） |
 | `docs/research/HINDSIGHT-DOCS-READING-2026-09-28.md` | 84 | 2026-09-29 | §0 取件过程中踩到的坑（留给新对话） |
 | `docs/research/kb-at-scale/AUDIT-2026-10-25.md` | 81 | 2026-10-25 | 〇、总账（先看这一张） |
 | `docs/survey/15-doc-index-content.md` | 76 | 2026-10-24 | 一、口径 |
@@ -144,6 +145,7 @@
 | `docs/uniformity/01-core.md` | 70 | 2026-10-23 | 调查日期：2026-10-20。范围：`src/core/` 全部 155 个 `.py` 文件（45,439 行 /  |
 | `docs/NEXT-DEV-PLAN-2026-09-28.md` | 67 | 2026-10-11 | 一、我们现在进行到哪里（一页） |
 | `docs/uniformity/02-plugin.md` | 66 | 2026-10-23 | 调查对象：`plugin/`（DSH 插件，宿主侧 + 浏览器侧 + 验证脚本）。本文件只陈述读过源码后能指回具体文字的 |
+| `docs/research/competitions/03-china-ccks-ccir-bdci.md` | 65 | 未提交 | 0. 一句话结论 |
 | `docs/survey/20-rules.md` | 59 | 2026-10-24 | 一、口径\n\n从 `src/**/*.py` 的**赋值语句**里抽两类常量：① 正则类（名字匹配 `*_RE` /  |
 | `docs/research/archify/01-archify-逆向.md` | 58 | 2026-10-23 | 一句话结论 |
 | `docs/research/kb-at-scale/75-industry-practice.md` | 57 | 2026-10-25 | 结论先行（≤15 行） |
@@ -156,6 +158,7 @@
 | `docs/research/kb-at-scale/80-academic-frontier.md` | 44 | 2026-10-25 | 结论先行（≤15 行） |
 | `docs/uniformity/07-other-dirs.md` | 44 | 2026-10-24 | 一、`eval/`（最详细） |
 | `docs/research/archify/02-ks-现状.md` | 43 | 2026-10-23 | 一句话结论 |
+| `docs/channels/WIRING-PLAN.md` | 41 | 2026-11-02 | 〇、一句话结论（先看这个） |
 | `docs/research/kb-at-scale/40-papers.md` | 41 | 2026-10-25 | 结论先行（≤15 行） |
 | `docs/uniformity/04-tests-tools-gates.md` | 41 | 2026-10-23 | 一、tests 结构分组 |
 | `docs/research/kb-at-scale/20-parsing.md` | 40 | 2026-10-25 | 结论先行（≤15 行） |
@@ -164,8 +167,11 @@
 | `docs/survey/07-doc-surface.md` | 39 | 2026-10-24 | 一、口径 |
 | `docs/research/HINDSIGHT-FACTCHECK-2026-09-30.md` | 37 | 2026-10-10 | 零、核查用到的取证入口（可复现） |
 | `docs/research/kb-at-scale/30-indexing.md` | 35 | 2026-10-25 | 结论先行 |
+| `docs/research/competitions/01-kddcup-crag.md` | 34 | 未提交 | 一、一句话结论 |
 | `docs/research/kb-at-scale/50-commercial.md` | 34 | 2026-10-25 | 结论先行（≤15 行） |
 | `docs/research/ks-fixes/03-waiting-feedback.md` | 31 | 2026-10-23 | 一句话结论 |
+| `docs/research/competitions/02-trec-liverag-bioasq-tot.md` | 29 | 未提交 | 1. 赛道版图：规模、任务与评分 |
+| `docs/research/competitions/06-standards-law-deep-comparison.md` | 29 | 未提交 | 〇、先给结论：四篇论文不是在教四种技术，是在量同一件事的四个位置 |
 | `docs/research/ks-fixes/02-modality-residual.md` | 29 | 2026-10-23 | 一句话结论 |
 | `docs/research/skill-knowledge-three-layer-reference.md` | 29 | 2026-09-28 | §0 一页速查 |
 | `docs/survey/04-data-shape.md` | 28 | 2026-10-24 | 一、来源与口径 |
@@ -185,6 +191,7 @@
 | `docs/research/kb-at-scale/00-brief.md` | 20 | 2026-10-25 | 一、我们要回答的问题（不是"市面上有什么"，是"我们改不改、改哪儿"） |
 | `docs/research/TECH-PATH-2026-09-28.md` | 20 | 2026-09-28 | §0 状态表（截至 2026-09-28 收工，给业主看） |
 | `docs/research/classical-chinese-segmentation-evidence.md` | 18 | 2026-10-09 | 一、结论（三句话） |
+| `docs/research/competitions/04-kddcup-other-industrial.md` | 17 | 未提交 | 1. 规模对比表 |
 | `docs/research/DECISION-TABLE-2026-09-28.md` | 17 | 2026-09-28 | §0 三栏速览（一张表看全；细节在 §A–§F） |
 | `docs/survey/10-observed.md` | 17 | 2026-10-24 | 一、代码里观察到的事 |
 | `docs/README.md` | 16 | 2026-10-24 | **这是什么**：仓库里**每一样东西在哪、用来干什么**。 |
@@ -192,6 +199,7 @@
 | `docs/uniformity/08-why-contracts-rot.md` | 16 | 2026-10-24 | 一、本仓确实有契约（不是没有） |
 | `docs/wiki/architecture.md` | 16 | 2026-10-23 | **这一页给接手的人**：读完能说出这个项目要做什么、现在做到哪、主要部件各干什么。 |
 | `docs/PLAN-REAL-QUESTION-RULER.md` | 15 | 2026-10-12 | 一、先说结论 |
+| `docs/research/competitions/05-standards-domain-scan.md` | 14 | 未提交 | 〇、一句话结论 |
 | `docs/research/SURVEY-标准与法规问答调研（含王芳2023全文精读）.md` | 14 | 2026-10-07 | 第一部分：[7] 王芳 等（2023）**全文精读** |
 | `docs/research/HINDSIGHT-DEPLOYMENT-STATUS-2026-09-30.md` | 13 | 2026-09-30 | 一、一句话现状 |
 | `docs/TEST-FLAKES.md` | 13 | 2026-10-24 | 处置纪律 |
@@ -210,6 +218,7 @@
 | `docs/research/SURVEY-学界做法值不值得抄-效果与工作量评估.md` | 11 | 2026-10-07 | 一、你说对了一半：**有些花活确实不值得抄，而且论文自己承认** |
 | `docs/survey/06-test-surface.md` | 11 | 2026-10-24 | 一、口径 |
 | `docs/survey/00-method.md` | 10 | 2026-10-24 | 一、「所有内容」到底指什么（九个面，逐面机械枚举） |
+| `docs/research/competitions/00-overview.md` | 9 | 未提交 | 1. 一句话结论 |
 | `docs/research/HINDSIGHT-CAPABILITY-AUDIT-2026-09-28.md` | 9 | 2026-10-10 | 0. 先说方法与一次"抓到了≠抓对了" |
 | `docs/research/REVIEW-PLAN-A-verification.md` | 9 | 2026-09-28 | 0. 一句话背景 |
 | `docs/research/SURVEY-学术界怎么设计政务问答（沿36条参考文献）.md` | 9 | 2026-10-07 | 一、★ 最重要的一条：**他们已经把"尺子"做出来了**（我们最缺的东西） |
@@ -219,6 +228,7 @@
 | `docs/research/SURVEY-学术调研-总清单（要落地看这一页）.md` | 8 | 2026-10-07 | 一、一句话结论 |
 | `docs/research/ARROW-CONFLICT-AUDIT-2026-10-12.md` | 7 | 2026-10-23 | 业主令：「你先阅读那个最开始的代码，因为这个功能你刚开始是有的，最原始的设计， |
 | `docs/research/SURVEY-两条核实-GuRE语料性质与RefWalk表义.md` | 7 | 2026-10-07 | 一、★ GuRE 的语料 = **美国联邦判例的段落**，**不是法条** —— 我的采信要下调 |
+| `docs/channels/DELIVERY.md` | 6 | 2026-11-05 | 生成时间：2026-11-05 10:23:16 |
 | `docs/tool-catalog.md` | 6 | 2026-09-24 | ks_answer（说明书 998 字） |
 | `docs/uniformity/05-verifier-findings.md` | 6 | 2026-10-23 | 一、verifier-A（抽查 `src/core` 事实地图，10 条） |
 | `docs/wiki/components/plugin-tools.md` | 6 | 2026-10-05 | **位置**：`plugin/src/`（注册在 `index.js` 的 `apply()`） |

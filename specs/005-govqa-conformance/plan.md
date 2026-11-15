@@ -12,7 +12,7 @@
 技术路径：**先建立门禁与判据（否则后面所有修复都无法防回退）→ 再修已实证的静默缺陷
 → 再补 M1 自报总量 → 再推进 M2/M4 → 最后独立复核**。
 
-诊断依据（Lead 独立复现 + 一份独立复核报告）：`docs/GOVQA-DIAGNOSIS-2026-10-10.md`
+诊断依据（Lead 独立复现 + 一份独立复核报告）：`../../docs/archive/research-process/GOVQA-DIAGNOSIS-2026-10-10.md`
 与 `.tmp-review-spec004.md`。
 
 ---

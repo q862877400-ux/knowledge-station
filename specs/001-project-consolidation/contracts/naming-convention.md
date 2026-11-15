@@ -48,11 +48,11 @@ v1 按"全小写"扫，判出 **327 个代码文件违规**——但那是 `rout
 
 | 现名 | 新名 |
 |---|---|
-| `docs/CHANNEL-PROBE-REPORT.md` | `docs/CHANNEL-PROBE-REPORT.md` |
+| `../../../docs/archive/research-process/CHANNEL-PROBE-REPORT.md` | `../../../docs/archive/research-process/CHANNEL-PROBE-REPORT.md` |
 | `docs/LAW-SOURCE-PLAN.md` | `docs/LAW-SOURCE-PLAN.md` |
-| `docs/REALTIME-VALIDITY-VERIFY-RESEARCH.md` | `docs/REALTIME-VALIDITY-VERIFY-RESEARCH.md` |
-| `docs/STD-STATUS-CHANNELS.md` | `docs/STD-STATUS-CHANNELS.md` |
-| `docs/WSL2-VLM-BACKEND-DECISION.md` | `docs/WSL2-VLM-BACKEND-DECISION.md` |
+| `../../../docs/archive/research-process/REALTIME-VALIDITY-VERIFY-RESEARCH.md` | `../../../docs/archive/research-process/REALTIME-VALIDITY-VERIFY-RESEARCH.md` |
+| `../../../docs/archive/research-process/STD-STATUS-CHANNELS.md` | `../../../docs/archive/research-process/STD-STATUS-CHANNELS.md` |
+| `../../../docs/archive/research-process/WSL2-VLM-BACKEND-DECISION.md` | `../../../docs/archive/research-process/WSL2-VLM-BACKEND-DECISION.md` |
 | `tests/fixtures/rental-contract.md` | ⚠ **待判**：测试夹具，改名可能断测试，需先查引用 |
 
 **反例**：`src/core/api/routes_channels.py` —— 它是**代码**，下划线是**对的**，不在本规则内。

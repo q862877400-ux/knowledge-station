@@ -12,7 +12,7 @@
 
 ## 背景（为什么现在做这个）
 
-项目开发**已暂停在基础层**（见 [`docs/PROJECT-STATUS-2026-10-05.md`](../../docs/PROJECT-STATUS-2026-10-05.md)）。
+项目开发**已暂停在基础层**（见 [`../../docs/archive/research-process/PROJECT-STATUS-2026-10-05.md`](../../docs/archive/research-process/PROJECT-STATUS-2026-10-05.md)）。
 
 **卡点**：用大白话提问时，**一半以上根本找不到正确条文**。手上只有几个**互相独立、口径未确认**的数字（53% 零重合 / 按字 6.8% / 按意思 5.8% / 命中集合 41.6% → 前二十 24.5% → 前五 11.8%）。
 
