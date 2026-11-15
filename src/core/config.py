@@ -154,6 +154,79 @@ def _read_llm_model() -> str:
     return _read_secret(_LLM_MODEL_VARS[0], _LLM_MODEL_VARS[1:], "deepseek-chat")
 
 
+def _read_llm_max_tokens() -> int:
+    """取证答案的 `max_tokens`（2026-10-19 从硬编码默认值提为可配字段）。
+
+    **为什么要可配**（本机实测，不是推测）：免费 router 车道
+    （`router/DeepSeek-V4.1.FREE`）会先输出 `reasoning_content`，10 个真实取证问题
+    实测思考部分占 688–12751 字符。原硬编码 1200 时，10 题里 7 题的 JSON 被截断
+    （`{"derivation":` 写到一半就断），核验无从进行；提到 8000 后 10/10 完整。
+
+    ⇒ 这个值随**所选模型**变化，是部署差异，不是协议常量。
+    取值链同其余 LLM 配置：`KS_LLM_MAX_TOKENS` env → DPAPI 存储 → 默认 8000。
+    """
+    raw = _read_secret("KS_LLM_MAX_TOKENS", (), "")
+    if raw:
+        try:
+            v = int(str(raw).strip())
+            if v > 0:
+                return v
+        except (TypeError, ValueError):
+            pass
+    return 8000
+
+
+def _read_llm_reasoning_effort() -> str:
+    """思考强度：`low` / `medium` / `high`，空串 = 不传该参数（走上游默认）。
+
+    **实测依据**（2026-10-19，10 个真实取证问题 × 2 组，用本仓自己的
+    `FORENSIC_SYSTEM_PROMPT` + `verify_llm_output`）：
+
+        指标            默认      high      变化
+        平均耗时        15.9s     12.3s     −22.7%
+        平均输出 token  3290      2470      −24.9%
+        平均思考字符    6036      3500      −42.0%
+        JSON 解析成功   10/10     10/10     持平
+        核验通过        10/10     10/10     持平
+
+    为什么"更强的思考"反而更快更省：免费 router 车道默认档没有方向感，实测在
+    `吊装作业怎么分级` 上想了 8263 字符，`盲板抽堵` 上想了 10540 字符；
+    给定 effort=high 后分别降到 1912 / 3695 —— 它把思考路径收敛了，而不是想得更多。
+
+    ⚠ 这个结论**绑定在 `router/DeepSeek-V4.1.FREE` 上**。换回付费官方模型
+    （`deepseek-chat`）时该参数语义不同，应在存储里改回空串再实测一次，不要照搬。
+    """
+    raw = _read_secret("KS_LLM_REASONING_EFFORT", (), "")
+    v = str(raw).strip().lower()
+    return v if v in ("low", "medium", "high") else ""
+
+
+def _read_llm_empty_retries() -> int:
+    """空返回时的重试次数（默认 1 ⇒ 最多试 2 遍）。
+
+    **实测依据**（2026-10-19）：免费 router 车道偶发「流式正文恒空、
+    `finish_reason=stop`、reasoning 正常」的返回。同一道题重跑即成功 ⇒
+    是上游抖动，不是我们的 bug。原实现一次空就降级成「大模型不可用」占位，
+    用户看到的失败率远高于真实故障率。
+
+    ⚠ 只对**空返回**重试。`LLMError`（Key 错 / 模型名错 / 网络断）不重试 ——
+    那类错误重试一百次结果一样，只是让用户多等。
+
+    ⚠ 重试会让最坏耗时翻倍（每遍都可能跑满超时）。上限 3（最多 4 遍）：
+    再大就不是「抖一下」而是「上游持续坏」，那时该报错而不是继续等。
+    """
+    raw = _read_secret("KS_LLM_EMPTY_RETRIES", (), "")
+    if raw:
+        try:
+            v = int(str(raw).strip())
+            if 0 <= v <= 3:
+                return v
+        except (TypeError, ValueError):
+            pass
+    return 1
+
+
+
 def _read_mineru_key() -> str:
     return _read_secret("KS_MINERU_CLOUD_API_KEY", (), "")
 
@@ -195,6 +268,13 @@ class Settings:
     llm_model: str = field(default_factory=_read_llm_model)
     # Key 存在引擎加密存储里；KS_ 环境变量可临时覆盖
     llm_api_key: str = field(default_factory=_read_api_key)
+    #: 取证答案的 max_tokens（随所选模型变：免费 router 车道的思考开销远大于付费官方）。
+    #: 实测依据见 `_read_llm_max_tokens` 的 docstring。
+    llm_max_tokens: int = field(default_factory=_read_llm_max_tokens)
+    #: 思考强度（`low`/`medium`/`high`；空串 = 不传）。实测依据见 `_read_llm_reasoning_effort`。
+    llm_reasoning_effort: str = field(default_factory=_read_llm_reasoning_effort)
+    #: 空返回时的重试次数（只重试空返回，不重试配置类错误）。依据见 `_read_llm_empty_retries`。
+    llm_empty_retries: int = field(default_factory=_read_llm_empty_retries)
     # ===== 云解析通道（MinerU 官方云 API；已配置则云优先、本地兜底）=====
     mineru_cloud_api_key: str = field(default_factory=_read_mineru_key)
     mineru_cloud_base_url: str = field(default_factory=_read_mineru_base_url)

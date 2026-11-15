@@ -1258,7 +1258,11 @@ export function makeAnswerTool(manager, chatModeOf) {
       },
       render: (_args, value) => [{ type: 'text', text: JSON.stringify(value, null, 2) }],
     },
-    timeoutMs: 120_000,
+    // 工具层超时 300s（2026-10-19 由 120s 提高）。⚠ **这一层才是真上限**：
+    // 它比下面 `apiPost` 的 timeoutMs 先到期时，内层还没跑完就被杀，报错信息还会误导
+    // （以为是引擎挂了）。故两层必须同值 —— 改一处必须改另一处，这是本仓
+    // 「一个事实两个家」的老坑（红箭头那次就是两个 URL 构造者不同步）。
+    timeoutMs: 300_000,
     // 第 6 步 §3：**可并行**（但见下）。判据同官方契约（"must not mutate parent-owned
     // state"）：一次 `POST /ks/answer` 是**查询**语义，`:758-880` 的落点全是局部变量
     // （`scope`/`trimmed`/返回值），不碰模块级可变状态，也不写父级状态。
@@ -1328,11 +1332,20 @@ export function makeAnswerTool(manager, chatModeOf) {
       }
 
       const session = await manager.ensureLive(exec.signal)
+      // 单次调用超时 300s（2026-10-19 由 120s 提高；业主令：「只要结果对，思考十分钟也没问题」）。
+      //
+      // 为什么 120s 不够：免费 router 车道的思考开销随证据复杂度暴涨 —— 实测
+      // 「受限空间作业有哪些禁止事项」单题 reasoning 就 9281 字符、正文前空转 29s；
+      // 长条款题再叠上多子项，120s 的余量只剩 4 倍，遇到慢一点就是假失败。
+      //
+      // ⚠ 引擎侧还有一层自动重试（`ks_answer.answer()` 对**空返回**重试
+      // `llm_empty_retries` 次）。两层相乘是最坏耗时，故这里不设更大：
+      // 300s × 2 遍 = 10 分钟，正好是业主给的上限。
       const call = (sess, signal) =>
         apiPost(originUrl(sess.port), KS_ANSWER_PATH, {
           token: sess.token,
           signal,
-          timeoutMs: 120_000,
+          timeoutMs: 300_000,
           body: { query, params, query_mode: queryMode },
         })
 

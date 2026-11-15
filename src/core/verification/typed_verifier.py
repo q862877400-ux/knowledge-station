@@ -63,23 +63,72 @@ _MENTION_ONLY_RE = re.compile(
     r"无关|不涉及|不属于|区别于|不同于|并非|不属于.*范围|不适用")
 
 
-def _clause_mention_window(text: str, clause_number: str) -> str:
-    """取输出中该条款号**所有**出现位置之后的窗口文本并集（phase5 修复）。
+def _clause_mention_window(text: str, clause_number: str,
+                           evidence_clauses: Optional[List[dict]] = None) -> str:
+    """取输出中**该条款**被提到之处之后的窗口文本并集。
 
-    phase3 遗留误报：长条款被多次引用时只取首个窗口，首个窗口可能无模态词
-    （实测 4.10 条 f 项"不应擅自离开"在第二窗口），导致 modality_missing 误报。
-    修复：遍历全部出现位置拼接窗口（各 240 字符），并去重保留顺序。
+    两种引用形态都要认（2026-10-19 修复）：
+
+    **形态 A：字面条款号**（老形态）
+        「根据第5.2.1条，动火作业应有专人监护」——条款号字面出现在输出里。
+
+    **形态 B：`[[c:i]]` 序号标记**（`FORENSIC_SYSTEM_PROMPT` 规则 1 规定的形态）
+        「……动火作业应升级管理[[c:1]]」——**条款号字面根本不在输出里**，
+        只有一个指向 `evidence[i]` 的序号。
+
+    ⚠ **形态 B 曾经让本函数彻底失效**（2026-10-19 真机实测）：取证提示词要求模型
+    一律用 `[[c:i]]`，于是 `clause_number` 在输出里出现 0 次 ⇒ 窗口恒为空串 ⇒
+    调用处 `or llm_output` 回退**整篇答案** ⇒ `extract_modality(整篇)` 取到的是
+    全文第一个模态词，与正在核验的那条条款毫无关系。
+
+    实测后果：模型正确写出「动火作业**可按**二级动火作业管理 [[c:4]]」，
+    核验器却因为全文第一个模态词是「应」而报 `modality_strengthened`（误报）。
+
+    修法：把 `[[c:i]]` 解析成 `evidence[i].clause_number`，与字面形态一并处理。
+    解析不到的序号（越界）**不猜**——它由 `unsupported_clauses` 那条判据单独负责。
+
+    @param text - 模型输出全文。
+    @param clause_number - 正在核验的证据条款号（如 `5.1.2`）。
+    @param evidence_clauses - 本轮证据（用于把 `[[c:i]]` 序号映射回条款号）。
+        缺省时只认字面形态（保持对旧调用方兼容）。
+    @returns 该条款所有提及处之后的窗口文本（各 240 字符），去重保序；无提及返回空串。
     """
-    esc = re.escape(clause_number)
+    starts: List[int] = []
+
+    # 形态 A：字面条款号
+    for m in re.finditer(re.escape(clause_number), text):
+        starts.append(m.start())
+
+    # 形态 B：[[c:i]] / [[m:i]] 序号标记
+    if evidence_clauses:
+        # 该条款在本轮证据里的下标（同一条款可能被检索到多次，全部收下）
+        wanted = [i for i, c in enumerate(evidence_clauses)
+                  if str(c.get("clause_number") or "") == str(clause_number)]
+        if wanted:
+            wanted_set = set(wanted)
+            for m in _CITE_MARK.finditer(text):
+                idx = int(m.group(1))
+                if idx in wanted_set:
+                    starts.append(m.start())
+
+    if not starts:
+        return ""
+
     parts = []
     seen = set()
-    for m in re.finditer(esc, text):
-        win = text[m.start():m.start() + 240]
+    for pos in sorted(set(starts)):
+        win = text[pos:pos + 240]
         if win in seen:
             continue
         seen.add(win)
         parts.append(win)
     return "\n".join(parts)
+
+
+#: `[[c:i]]`（法条证据）/ `[[m:i]]`（参考资料）两种序号标记。
+#: 与 `ks_answer.FORENSIC_SYSTEM_PROMPT` 规则 1 的产出格式一一对应。
+_CITE_MARK = re.compile(r"\[\[(?:c|m):(\d+)\]\]")
+
 
 
 _PURE_LAW_NUM = re.compile(r"^第[一二三四五六七八九十百千]+条$")
@@ -194,7 +243,8 @@ def verify_llm_output(llm_output: str, evidence_clauses: List[dict]) -> Verifica
     # 2. 分型核验
     for c in evidence_clauses:
         ktype = c.get("knowledge_type", "rule")
-        window = _clause_mention_window(llm_output, c["clause_number"]) or llm_output
+        window = _clause_mention_window(llm_output, c["clause_number"],
+                                        evidence_clauses) or llm_output
 
         if ktype == "data":
             content = c.get("content_text") or ""
