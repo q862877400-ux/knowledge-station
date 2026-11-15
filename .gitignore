@@ -34,6 +34,9 @@ parse_out/
 *.log
 .DS_Store
 Thumbs.db
+# SQLite 的运行时伴随文件：数据库一打开就出现、关掉就变，不是内容
+*.db-wal
+*.db-shm
 # 本地 wheel 仓（2.4GB torch 轮子，可重建/可重下）
 wheels_local/
 
