@@ -2175,7 +2175,7 @@ export async function fetchAnnounceSources(signal?: AbortSignal): Promise<{ sour
   }
 }
 
-/** POST /ks/announce/sources — 新增源（引擎校验：必填/http(s)/公网/去重/上限 50）。 */
+/** POST /ks/announce/sources — 新增源（引擎校验：必填/http(s)/公网/去重；**数量不设上限**）。 */
 export async function addAnnounceSource(name: string, url: string, note = '', signal?: AbortSignal): Promise<KsAnnounceSource> {
   const res = await fetch('/ks/announce/sources', {
     method: 'POST',

@@ -273,8 +273,8 @@ def register(app, json_error):
 
     @app.post("/api/v1/update/announce-sources")
     def announce_sources_add(body: dict | None = None):
-        """添加公告源（校验：必填/http(s)/公网——默认禁内网/上限 50/URL 归一化去重）。
-        非法 → 422/UPD-3008。"""
+        """添加公告源（校验：必填/http(s)/公网——默认禁内网/URL 归一化去重）。
+        **源数量不设上限**（2026-10-08 删 `SOURCES_MAX`）。非法 → 422/UPD-3008。"""
         from src.core.exceptions import KnowledgeStationError
         from src.core.update import announce
         body = body or {}

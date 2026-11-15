@@ -247,16 +247,23 @@ def test_ann_n07_source_crud_validation(db, monkeypatch):
     assert all(s["id"] != src["id"] for s in left)
 
 
-def test_ann_n08_source_cap_50(db, monkeypatch):
-    """源数量上限 50。"""
+def test_ann_n08_no_source_cap(db, monkeypatch):
+    """**源数量不设上限**（2026-10-08 删 `SOURCES_MAX`）：加 60 条都应成功。
+
+    替代原 `test_ann_n08_source_cap_50`（上限 50 已按业主拍板取消）。
+    仍拦重复 URL（见 test_ann_n06 族）。
+    """
     import socket
     monkeypatch.setattr(socket, "getaddrinfo",
                         lambda host, *a, **kw: [(socket.AF_INET, None, None, "",
                                                  ("93.184.216.34", 0))])
-    for i in range(announce.SOURCES_MAX):
+    assert not hasattr(announce, "SOURCES_MAX"), "SOURCES_MAX 应已删除（不再有任何源数量上限）"
+    for i in range(60):
         announce.add_source(f"源{i}", f"https://h{i}.example.com/ann/")
+    assert len(announce.get_sources()) == 60
+    # 仍拦重复
     with pytest.raises(UpdateError) as ei:
-        announce.add_source("超出", "https://overflow.example.com/ann/")
+        announce.add_source("重复", "https://h0.example.com/ann/")
     assert ei.value.code == UPD_ILLEGAL_SOURCE_PAYLOAD
 
 
